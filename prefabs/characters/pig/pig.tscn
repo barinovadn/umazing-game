@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuxbwbedjhckr"]
+
+[ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_31gvv"]
+[ext_resource type="Texture2D" uid="uid://cwjq41mafh0rm" path="res://prefabs/characters/pig/sprite_sheet.png" id="2_8bdqt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tks81"]
+atlas = ExtResource("2_8bdqt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awa63"]
+atlas = ExtResource("2_8bdqt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwo6l"]
+atlas = ExtResource("2_8bdqt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_31gvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tks81")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awa63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwo6l")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}]
+
+[node name="Pig" instance=ExtResource("1_31gvv")]
+
+[node name="Shadow" parent="." index="1"]
+position = Vector2(0, 6)
+
+[node name="Sprite" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_31gvv")
+animation = &"idle_left"
+autoplay = "idle_left"
+frame_progress = 0.0
+
+[node name="AnimationController" parent="." index="3"]
+animations = Dictionary[int, String]({
+1: "idle_left",
+2: "idle_left",
+3: "idle_left",
+4: "idle_left",
+5: "walk_left",
+6: "walk_left",
+7: "walk_left",
+8: "walk_left"
+})
+animations_flip_h = Dictionary[int, bool]({
+3: false,
+4: true,
+7: false,
+8: true
+})

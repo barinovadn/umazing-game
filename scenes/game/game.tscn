@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://buhslpn3jaek5"]
+
+[ext_resource type="Script" uid="uid://dnfhvouh77e1x" path="res://common/grid_camera/grid_camera.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://rr7lsuj6y4tr" path="res://common/grid_camera/grid_camera_follower.gd" id="3_jyhfs"]
+[ext_resource type="TileSet" uid="uid://cpkody5agfhcc" path="res://prefabs/tilesets/terrain.tres" id="4_5i0tg"]
+[ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="4_87uf6"]
+[ext_resource type="TileSet" uid="uid://cq0gpukdqan4w" path="res://prefabs/tilesets/general.tres" id="4_lfrn8"]
+[ext_resource type="Script" uid="uid://bp0bnmynw2d1p" path="res://common/utils/hide_at_runtime.gd" id="5_lfrn8"]
+[ext_resource type="Texture2D" uid="uid://cuy6j56l0wd6g" path="res://scenes/grid.png" id="6_5i0tg"]
+[ext_resource type="TileSet" uid="uid://nqowvxb5fi8d" path="res://prefabs/tilesets/system.tres" id="6_bdhmt"]
+
+[node name="Game" type="Node2D"]
+
+[node name="GridBackground" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(160, 160)
+texture = ExtResource("6_5i0tg")
+
+[node name="GridForeground" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0392157)
+z_index = 50
+texture_filter = 1
+scale = Vector2(160, 160)
+texture = ExtResource("6_5i0tg")
+
+[node name="HideAtRuntime" type="Node2D" parent="GridForeground"]
+script = ExtResource("5_lfrn8")
+metadata/_custom_type_script = "uid://bp0bnmynw2d1p"
+
+[node name="GridCamera" type="Camera2D" parent="."]
+zoom = Vector2(3.125, 3.125)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.5
+script = ExtResource("1_o5qli")
+grid_size = Vector2(320, 160)
+metadata/_custom_type_script = "uid://dnfhvouh77e1x"
+
+[node name="BehaviorFollow" type="Node" parent="GridCamera" node_paths=PackedStringArray("camera")]
+script = ExtResource("3_jyhfs")
+camera = NodePath("..")
+teleport_distance = 250.0
+metadata/_custom_type_script = "uid://rr7lsuj6y4tr"
+
+[node name="TransitionFade" type="CanvasLayer" parent="GridCamera" node_paths=PackedStringArray("camera")]
+script = ExtResource("4_87uf6")
+camera = NodePath("..")
+duration = 0.5
+metadata/_custom_type_script = "uid://pw3x0udulq81"
+
+[node name="Tilemap" type="Node2D" parent="."]
+
+[node name="Background" type="TileMapLayer" parent="Tilemap"]
+texture_filter = 1
+tile_set = ExtResource("4_5i0tg")
+
+[node name="Ground" type="TileMapLayer" parent="Tilemap"]
+z_index = 10
+texture_filter = 1
+tile_set = ExtResource("4_5i0tg")
+
+[node name="Details" type="TileMapLayer" parent="Tilemap"]
+z_index = 20
+texture_filter = 1
+tile_set = ExtResource("4_lfrn8")
+
+[node name="Structrures" type="TileMapLayer" parent="Tilemap"]
+z_index = 40
+texture_filter = 1
+tile_set = ExtResource("4_lfrn8")
+
+[node name="Foreground" type="TileMapLayer" parent="Tilemap"]
+z_index = 50
+texture_filter = 1
+tile_set = ExtResource("6_bdhmt")
+
+[node name="Teleports" type="Node2D" parent="."]
+z_index = 45
+
+[node name="Characters" type="Node2D" parent="."]
+z_index = 30
+
+[node name="Interactables" type="Node2D" parent="."]
+z_index = 45

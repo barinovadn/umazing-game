@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd4mxmywy2qdo"]
+
+[ext_resource type="Script" uid="uid://brj5w4ytseirc" path="res://prefabs/interactor/interactor.gd" id="1_qpc5s"]
+
+[node name="Interactor" type="RayCast2D"]
+collision_mask = 4
+script = ExtResource("1_qpc5s")
+action = "interact"

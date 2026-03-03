@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc56s2m04x2is"]
+
+[ext_resource type="Script" uid="uid://bt7tb58nvbnre" path="res://prefabs/interactables/interactable.gd" id="1_2vx2n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_58f12"]
+
+[node name="Interactable" type="StaticBody2D" groups=["interactable"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_2vx2n")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_58f12")
