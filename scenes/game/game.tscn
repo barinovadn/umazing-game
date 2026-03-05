@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://buhslpn3jaek5"]
+[gd_scene format=3 uid="uid://buhslpn3jaek5"]
 
 [ext_resource type="Script" uid="uid://dnfhvouh77e1x" path="res://common/grid_camera/grid_camera.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://rr7lsuj6y4tr" path="res://common/grid_camera/grid_camera_follower.gd" id="3_jyhfs"]
@@ -8,26 +8,27 @@
 [ext_resource type="Script" uid="uid://bp0bnmynw2d1p" path="res://common/utils/hide_at_runtime.gd" id="5_lfrn8"]
 [ext_resource type="Texture2D" uid="uid://cuy6j56l0wd6g" path="res://scenes/grid.png" id="6_5i0tg"]
 [ext_resource type="TileSet" uid="uid://nqowvxb5fi8d" path="res://prefabs/tilesets/system.tres" id="6_bdhmt"]
+[ext_resource type="Script" uid="uid://dn7b3wdgcun3q" path="res://prefabs/dialogues/dialogue_system.gd" id="9_2a8rs"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1211361092]
 
-[node name="GridBackground" type="Sprite2D" parent="."]
+[node name="GridBackground" type="Sprite2D" parent="." unique_id=573809040]
 texture_filter = 1
 scale = Vector2(160, 160)
 texture = ExtResource("6_5i0tg")
 
-[node name="GridForeground" type="Sprite2D" parent="."]
+[node name="GridForeground" type="Sprite2D" parent="." unique_id=1679133594]
 modulate = Color(1, 1, 1, 0.0392157)
 z_index = 50
 texture_filter = 1
 scale = Vector2(160, 160)
 texture = ExtResource("6_5i0tg")
 
-[node name="HideAtRuntime" type="Node2D" parent="GridForeground"]
+[node name="HideAtRuntime" type="Node2D" parent="GridForeground" unique_id=1247045257]
 script = ExtResource("5_lfrn8")
 metadata/_custom_type_script = "uid://bp0bnmynw2d1p"
 
-[node name="GridCamera" type="Camera2D" parent="."]
+[node name="GridCamera" type="Camera2D" parent="." unique_id=951320865]
 zoom = Vector2(3.125, 3.125)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.5
@@ -35,49 +36,52 @@ script = ExtResource("1_o5qli")
 grid_size = Vector2(320, 160)
 metadata/_custom_type_script = "uid://dnfhvouh77e1x"
 
-[node name="BehaviorFollow" type="Node" parent="GridCamera" node_paths=PackedStringArray("camera")]
+[node name="BehaviorFollow" type="Node" parent="GridCamera" unique_id=470227345 node_paths=PackedStringArray("camera")]
 script = ExtResource("3_jyhfs")
 camera = NodePath("..")
 teleport_distance = 250.0
 metadata/_custom_type_script = "uid://rr7lsuj6y4tr"
 
-[node name="TransitionFade" type="CanvasLayer" parent="GridCamera" node_paths=PackedStringArray("camera")]
+[node name="TransitionFade" type="CanvasLayer" parent="GridCamera" unique_id=973806380 node_paths=PackedStringArray("camera")]
 script = ExtResource("4_87uf6")
 camera = NodePath("..")
 duration = 0.5
 metadata/_custom_type_script = "uid://pw3x0udulq81"
 
-[node name="Tilemap" type="Node2D" parent="."]
+[node name="Tilemap" type="Node2D" parent="." unique_id=1326262896]
 
-[node name="Background" type="TileMapLayer" parent="Tilemap"]
+[node name="Background" type="TileMapLayer" parent="Tilemap" unique_id=1919028408]
 texture_filter = 1
 tile_set = ExtResource("4_5i0tg")
 
-[node name="Ground" type="TileMapLayer" parent="Tilemap"]
+[node name="Ground" type="TileMapLayer" parent="Tilemap" unique_id=635740585]
 z_index = 10
 texture_filter = 1
 tile_set = ExtResource("4_5i0tg")
 
-[node name="Details" type="TileMapLayer" parent="Tilemap"]
+[node name="Details" type="TileMapLayer" parent="Tilemap" unique_id=408465416]
 z_index = 20
 texture_filter = 1
 tile_set = ExtResource("4_lfrn8")
 
-[node name="Structrures" type="TileMapLayer" parent="Tilemap"]
+[node name="Structrures" type="TileMapLayer" parent="Tilemap" unique_id=571592468]
 z_index = 40
 texture_filter = 1
 tile_set = ExtResource("4_lfrn8")
 
-[node name="Foreground" type="TileMapLayer" parent="Tilemap"]
+[node name="Foreground" type="TileMapLayer" parent="Tilemap" unique_id=1372048089]
 z_index = 50
 texture_filter = 1
 tile_set = ExtResource("6_bdhmt")
 
-[node name="Teleports" type="Node2D" parent="."]
+[node name="Teleports" type="Node2D" parent="." unique_id=1743381418]
 z_index = 45
 
-[node name="Characters" type="Node2D" parent="."]
+[node name="Characters" type="Node2D" parent="." unique_id=244373877]
 z_index = 30
 
-[node name="Interactables" type="Node2D" parent="."]
+[node name="Interactables" type="Node2D" parent="." unique_id=97303159]
 z_index = 45
+
+[node name="DialogueSystem" type="CanvasLayer" parent="." unique_id=1985282199]
+script = ExtResource("9_2a8rs")

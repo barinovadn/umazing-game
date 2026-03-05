@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dcrm5punhuk0d"]
+[gd_scene format=3 uid="uid://dcrm5punhuk0d"]
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_wk3db"]
 [ext_resource type="Texture2D" uid="uid://c5834u1j6sm5q" path="res://prefabs/characters/ninja_green/sprite_sheet.png" id="2_rs30d"]
@@ -367,7 +367,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="NinjaGreen" instance=ExtResource("1_wk3db")]
+[node name="NinjaGreen" unique_id=874928762 instance=ExtResource("1_wk3db")]
+say_on_start = true
+dialogue_preset = "player"
 
 [node name="Sprite" parent="." index="2"]
 sprite_frames = SubResource("SpriteFrames_ejar4")

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c5pnd7mjx7pgo"]
+
+[ext_resource type="Script" uid="uid://dbgiu8u0rww24" path="res://prefabs/dialogues/speech_bubble.gd" id="1_alxln"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b8nf"]
+bg_color = Color(0, 0, 0, 0.78)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.85)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 2
+
+[node name="SpeechBubble" type="PanelContainer" unique_id=2144277196]
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8b8nf")
+script = ExtResource("1_alxln")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1796707011]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="Label" type="Label" parent="Margin" unique_id=1552637792]
+unique_name_in_owner = true
+texture_filter = 2
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
