@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://1fs5fg40bjar"]
+
+[ext_resource type="Texture2D" uid="uid://hg6nan0pms0m" path="res://prefabs/bullets/SpriteSheetRock.png" id="1_ilgu0"]
+[ext_resource type="Script" uid="uid://bjxbgroeip8hb" path="res://prefabs/bullets/stone_shot.gd" id="1_q586d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q586d"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04hw6"]
+atlas = ExtResource("1_ilgu0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiucw"]
+atlas = ExtResource("1_ilgu0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqvdq"]
+atlas = ExtResource("1_ilgu0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2bem"]
+atlas = ExtResource("1_ilgu0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7knb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04hw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiucw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqvdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2bem")
+}],
+"loop": true,
+"name": &"stone_shot",
+"speed": 15.0
+}]
+
+[node name="StoneShot" type="Area2D" unique_id=228779277]
+collision_layer = 32
+collision_mask = 64
+script = ExtResource("1_q586d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1131593879]
+shape = SubResource("CircleShape2D_q586d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1544097705]
+sprite_frames = SubResource("SpriteFrames_7knb5")
+animation = &"stone_shot"
+frame_progress = 0.5650098
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=929945166]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

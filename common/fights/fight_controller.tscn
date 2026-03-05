@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2u20fxdalnq1"]
+
+[ext_resource type="Script" uid="uid://djjquow1hmakj" path="res://common/fights/fihgt_controller.gd" id="1_73jsk"]
+
+[node name="FightController" type="Node2D" unique_id=1017970674]
+script = ExtResource("1_73jsk")

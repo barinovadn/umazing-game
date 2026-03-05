@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://buhslpn3jaek5"]
+[gd_scene format=3 uid="uid://buhslpn3jaek5"]
 
 [ext_resource type="Script" uid="uid://dnfhvouh77e1x" path="res://common/grid_camera/grid_camera.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://rr7lsuj6y4tr" path="res://common/grid_camera/grid_camera_follower.gd" id="3_jyhfs"]
@@ -9,25 +9,25 @@
 [ext_resource type="Texture2D" uid="uid://cuy6j56l0wd6g" path="res://scenes/grid.png" id="6_5i0tg"]
 [ext_resource type="TileSet" uid="uid://nqowvxb5fi8d" path="res://prefabs/tilesets/system.tres" id="6_bdhmt"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1037487050]
 
-[node name="GridBackground" type="Sprite2D" parent="."]
+[node name="GridBackground" type="Sprite2D" parent="." unique_id=1801087531]
 texture_filter = 1
 scale = Vector2(160, 160)
 texture = ExtResource("6_5i0tg")
 
-[node name="GridForeground" type="Sprite2D" parent="."]
+[node name="GridForeground" type="Sprite2D" parent="." unique_id=1903995482]
 modulate = Color(1, 1, 1, 0.0392157)
 z_index = 50
 texture_filter = 1
 scale = Vector2(160, 160)
 texture = ExtResource("6_5i0tg")
 
-[node name="HideAtRuntime" type="Node2D" parent="GridForeground"]
+[node name="HideAtRuntime" type="Node2D" parent="GridForeground" unique_id=1732504599]
 script = ExtResource("5_lfrn8")
 metadata/_custom_type_script = "uid://bp0bnmynw2d1p"
 
-[node name="GridCamera" type="Camera2D" parent="."]
+[node name="GridCamera" type="Camera2D" parent="." unique_id=1861558513]
 zoom = Vector2(3.125, 3.125)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.5
@@ -35,49 +35,49 @@ script = ExtResource("1_o5qli")
 grid_size = Vector2(320, 160)
 metadata/_custom_type_script = "uid://dnfhvouh77e1x"
 
-[node name="BehaviorFollow" type="Node" parent="GridCamera" node_paths=PackedStringArray("camera")]
+[node name="BehaviorFollow" type="Node" parent="GridCamera" unique_id=86860285 node_paths=PackedStringArray("camera")]
 script = ExtResource("3_jyhfs")
 camera = NodePath("..")
 teleport_distance = 250.0
 metadata/_custom_type_script = "uid://rr7lsuj6y4tr"
 
-[node name="TransitionFade" type="CanvasLayer" parent="GridCamera" node_paths=PackedStringArray("camera")]
+[node name="TransitionFade" type="CanvasLayer" parent="GridCamera" unique_id=79976862 node_paths=PackedStringArray("camera")]
 script = ExtResource("4_87uf6")
 camera = NodePath("..")
 duration = 0.5
 metadata/_custom_type_script = "uid://pw3x0udulq81"
 
-[node name="Tilemap" type="Node2D" parent="."]
+[node name="Tilemap" type="Node2D" parent="." unique_id=444988153]
 
-[node name="Background" type="TileMapLayer" parent="Tilemap"]
+[node name="Background" type="TileMapLayer" parent="Tilemap" unique_id=423972399]
 texture_filter = 1
 tile_set = ExtResource("4_5i0tg")
 
-[node name="Ground" type="TileMapLayer" parent="Tilemap"]
+[node name="Ground" type="TileMapLayer" parent="Tilemap" unique_id=1059424285]
 z_index = 10
 texture_filter = 1
 tile_set = ExtResource("4_5i0tg")
 
-[node name="Details" type="TileMapLayer" parent="Tilemap"]
+[node name="Details" type="TileMapLayer" parent="Tilemap" unique_id=384642855]
 z_index = 20
 texture_filter = 1
 tile_set = ExtResource("4_lfrn8")
 
-[node name="Structrures" type="TileMapLayer" parent="Tilemap"]
+[node name="Structrures" type="TileMapLayer" parent="Tilemap" unique_id=140085658]
 z_index = 40
 texture_filter = 1
 tile_set = ExtResource("4_lfrn8")
 
-[node name="Foreground" type="TileMapLayer" parent="Tilemap"]
+[node name="Foreground" type="TileMapLayer" parent="Tilemap" unique_id=1002823044]
 z_index = 50
 texture_filter = 1
 tile_set = ExtResource("6_bdhmt")
 
-[node name="Teleports" type="Node2D" parent="."]
+[node name="Teleports" type="Node2D" parent="." unique_id=1252680474]
 z_index = 45
 
-[node name="Characters" type="Node2D" parent="."]
+[node name="Characters" type="Node2D" parent="." unique_id=54164431]
 z_index = 30
 
-[node name="Interactables" type="Node2D" parent="."]
+[node name="Interactables" type="Node2D" parent="." unique_id=1128107144]
 z_index = 45

@@ -2,7 +2,6 @@
 class_name PlayerMovementController2D
 extends MovementController2D
 
-
 enum Direction { LEFT, RIGHT, UP, DOWN }
 
 ## Action names from [InputMap] mapped to movement directions.
@@ -13,14 +12,18 @@ enum Direction { LEFT, RIGHT, UP, DOWN }
 	Direction.DOWN: "ui_down",
 	}
 
+var input_direction
 
 func _physics_process(_delta):
 	if not movement_enabled:
 		return
 	
-	var input_direction := get_input()
+	input_direction = get_input()
 	
 	if input_direction:
+		#print("Player : ", character_body.velocity)
+		#print("Player : ", movement_speed)
+		#print("Enemy : ", input_direction)
 		move(movement_speed, input_direction)
 	else:
 		stop()

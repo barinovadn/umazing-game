@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bf26bvn12life"]
+
+[ext_resource type="Script" uid="uid://ceexukqhegtvo" path="res://prefabs/systems/shooting_system.gd" id="1_jpn5y"]
+
+[node name="ShootingSystem" type="Node2D" unique_id=157611068]
+script = ExtResource("1_jpn5y")

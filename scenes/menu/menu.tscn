@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bhwu5bjuxn5ym"]
+[gd_scene format=4 uid="uid://bhwu5bjuxn5ym"]
 
 [ext_resource type="Script" uid="uid://dbkt3snkf65p4" path="res://scenes/menu/menu.gd" id="1_kaijy"]
 [ext_resource type="Texture2D" uid="uid://cuy6j56l0wd6g" path="res://scenes/grid.png" id="2_y4i35"]
@@ -155,88 +155,86 @@ _data = {
 &"appear": SubResource("Animation_bbqo6")
 }
 
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="Node2D" unique_id=186634714]
 script = ExtResource("1_kaijy")
 
-[node name="GridBackground" type="Sprite2D" parent="."]
+[node name="GridBackground" type="Sprite2D" parent="." unique_id=1737878517]
 texture_filter = 1
 scale = Vector2(160, 160)
 texture = ExtResource("2_y4i35")
 
-[node name="GridCamera" type="Camera2D" parent="."]
+[node name="GridCamera" type="Camera2D" parent="." unique_id=1124594592]
 zoom = Vector2(3.125, 3.125)
 position_smoothing_enabled = true
 script = ExtResource("3_rcuxh")
 grid_size = Vector2(320, 160)
 metadata/_custom_type_script = "uid://dnfhvouh77e1x"
 
-[node name="Tilemap" type="Node2D" parent="."]
+[node name="Tilemap" type="Node2D" parent="." unique_id=2037755996]
 
-[node name="Background" type="TileMapLayer" parent="Tilemap"]
+[node name="Background" type="TileMapLayer" parent="Tilemap" unique_id=686652312]
 texture_filter = 1
 tile_map_data = PackedByteArray("AAAJAAQAAAADAAsAAAAJAAMAAAAAAAwAAAAJAAIAAAAEAAwAAAAJAAEAAAADAAsAAAAJAAAAAAAEAAwAAAAJAP//AAAAAAwAAAAJAP7/AAAAAAwAAAAJAP3/AAACAAwAAAAJAPz/AAACAAsAAAAJAPv/AAADAAsAAAAIAAQAAAAAAAwAAAAIAAMAAAAAAAwAAAAIAAIAAAADAAwAAAAIAAEAAAADAAsAAAAIAAAAAAACAAsAAAAIAP//AAAAAAwAAAAIAP7/AAAAAAwAAAAIAP3/AAADAAsAAAAIAPz/AAACAAsAAAAIAPv/AAAEAAwAAAAHAAQAAAACAAsAAAAHAAMAAAAAAAwAAAAHAAIAAAAAAAwAAAAHAAEAAAADAAwAAAAHAAAAAAADAAsAAAAHAP//AAACAAwAAAAHAP7/AAAAAAwAAAAHAP3/AAADAAwAAAAHAPz/AAADAAwAAAAHAPv/AAADAAsAAAAGAAQAAAADAAsAAAAGAAMAAAACAAwAAAAGAAIAAAAEAAwAAAAGAAEAAAAEAAwAAAAGAAAAAAADAAsAAAAGAP//AAAEAAwAAAAGAP7/AAACAAwAAAAGAP3/AAAEAAwAAAAGAPz/AAAAAAwAAAAGAPv/AAADAAsAAAAFAAQAAAADAAsAAAAFAAMAAAADAAwAAAAFAAIAAAABAAwAAAAFAAEAAAAEAAwAAAAFAAAAAAADAAsAAAAFAP//AAAAAAwAAAAFAP7/AAAEAAwAAAAFAP3/AAAEAAwAAAAFAPz/AAAAAAwAAAAFAPv/AAADAAwAAAAEAAQAAAAEAAwAAAAEAAMAAAAAAAwAAAAEAAIAAAADAAwAAAAEAAEAAAAAAAwAAAAEAAAAAAACAAwAAAAEAP//AAAAAAwAAAAEAP7/AAAAAAwAAAAEAP3/AAACAAsAAAAEAPz/AAACAAwAAAAEAPv/AAAAAAwAAAADAAQAAAAAAAwAAAADAAMAAAAEAAwAAAADAAIAAAAAAAwAAAADAAEAAAAEAAwAAAADAAAAAAACAAsAAAADAP//AAADAAsAAAADAP7/AAAAAAwAAAADAP3/AAAEAAwAAAADAPz/AAAAAAwAAAADAPv/AAAAAAwAAAACAAQAAAADAAwAAAACAAMAAAACAAsAAAACAAIAAAAAAAwAAAACAAEAAAAEAAwAAAACAAAAAAAAAAwAAAACAP//AAAEAAwAAAACAP7/AAACAAwAAAACAP3/AAABAAwAAAACAPz/AAAAAAwAAAACAPv/AAADAAsAAAABAAQAAAACAAwAAAABAAMAAAACAAsAAAABAAIAAAAAAAwAAAABAAEAAAAAAAwAAAABAAAAAAADAAsAAAABAP//AAACAAwAAAABAP7/AAAAAAwAAAABAP3/AAADAAwAAAABAPz/AAAAAAwAAAABAPv/AAAEAAwAAAAAAAQAAAADAAsAAAAAAAMAAAADAAsAAAAAAAIAAAABAAwAAAAAAAEAAAACAAwAAAAAAAAAAAAAAAwAAAAAAP//AAAEAAwAAAAAAP7/AAAAAAwAAAAAAP3/AAAAAAwAAAAAAPz/AAAAAAwAAAAAAPv/AAADAAsAAAD//wQAAAAEAAwAAAD//wMAAAAAAAwAAAD//wIAAAAAAAwAAAD//wEAAAADAAsAAAD//wAAAAADAAsAAAD/////AAAEAAwAAAD///7/AAAAAAwAAAD///3/AAAAAAwAAAD///z/AAAEAAwAAAD///v/AAAEAAwAAAD+/wQAAAAAAAwAAAD+/wMAAAAAAAwAAAD+/wIAAAAAAAwAAAD+/wEAAAAAAAwAAAD+/wAAAAAEAAwAAAD+////AAAEAAwAAAD+//7/AAADAAwAAAD+//3/AAACAAsAAAD+//z/AAAAAAwAAAD+//v/AAAEAAwAAAD9/wQAAAAAAAwAAAD9/wMAAAACAAwAAAD9/wIAAAADAAwAAAD9/wEAAAADAAsAAAD9/wAAAAABAAwAAAD9////AAADAAsAAAD9//7/AAAAAAwAAAD9//3/AAAAAAwAAAD9//z/AAAEAAwAAAD9//v/AAAAAAwAAAD8/wQAAAADAAsAAAD8/wMAAAAEAAwAAAD8/wIAAAADAAsAAAD8/wEAAAAEAAwAAAD8/wAAAAACAAsAAAD8////AAADAAsAAAD8//7/AAADAAwAAAD8//3/AAACAAwAAAD8//z/AAAEAAwAAAD8//v/AAAAAAwAAAD7/wQAAAAAAAwAAAD7/wMAAAADAAsAAAD7/wIAAAAAAAwAAAD7/wEAAAACAAsAAAD7/wAAAAAAAAwAAAD7////AAAAAAwAAAD7//7/AAAAAAwAAAD7//3/AAAEAAwAAAD7//z/AAADAAsAAAD7//v/AAAAAAwAAAD6/wQAAAADAAsAAAD6/wMAAAAAAAwAAAD6/wIAAAADAAwAAAD6/wEAAAAAAAwAAAD6/wAAAAAAAAwAAAD6////AAAEAAwAAAD6//7/AAAEAAwAAAD6//3/AAACAAsAAAD6//z/AAAEAAwAAAD6//v/AAAAAAwAAAD5/wQAAAACAAsAAAD5/wMAAAADAAsAAAD5/wIAAAAAAAwAAAD5/wEAAAADAAwAAAD5/wAAAAADAAwAAAD5////AAAAAAwAAAD5//7/AAAEAAwAAAD5//3/AAADAAwAAAD5//z/AAADAAwAAAD5//v/AAADAAsAAAD4/wQAAAAAAAwAAAD4/wMAAAAEAAwAAAD4/wIAAAAEAAwAAAD4/wEAAAAEAAwAAAD4/wAAAAAAAAwAAAD4////AAAAAAwAAAD4//7/AAAAAAwAAAD4//3/AAAAAAwAAAD4//z/AAABAAwAAAD4//v/AAACAAwAAAD3/wQAAAAEAAwAAAD3/wMAAAAAAAwAAAD3/wIAAAADAAsAAAD3/wEAAAAAAAwAAAD3/wAAAAADAAwAAAD3////AAAAAAwAAAD3//7/AAAEAAwAAAD3//3/AAAAAAwAAAD3//z/AAAAAAwAAAD3//v/AAABAAwAAAD2/wQAAAADAAwAAAD2/wMAAAABAAwAAAD2/wIAAAAAAAwAAAD2/wEAAAADAAsAAAD2/wAAAAAAAAwAAAD2////AAAAAAwAAAD2//7/AAAAAAwAAAD2//3/AAAAAAwAAAD2//z/AAAAAAwAAAD2//v/AAADAAsAAAA=")
 tile_set = ExtResource("4_64m6r")
 
-[node name="Ground" type="TileMapLayer" parent="Tilemap"]
+[node name="Ground" type="TileMapLayer" parent="Tilemap" unique_id=1905966911]
 z_index = 1
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD//wQAAAAAAAcAAAD//wUAAAAAAAkAAAAAAAIAAAAAAAcAAAAAAAMAAAAAAAgAAAAAAAQAAAAJAAgAAAABAAEAAAAEAAcAAAAEAP3/AAAEAAcAAAAFAPv/AAAAAAcAAAAFAPz/AAAEAAgAAAAGAPr/AAAAAAcAAAAGAPv/AAAJAAgAAAAAAAUAAAACAAkAAAABAAIAAAAHAAkAAAABAAMAAAACAAgAAAABAAQAAAACAAkAAAACAAEAAAACAAoAAAADAP//AAADAAoAAAAEAP7/AAADAAkAAAAFAP3/AAAHAAoAAAAGAPz/AAACAAkAAAAHAPr/AAACAAcAAAAHAPv/AAACAAkAAAA=")
 tile_set = ExtResource("4_64m6r")
 
-[node name="Structures" type="TileMapLayer" parent="Tilemap"]
+[node name="Structures" type="TileMapLayer" parent="Tilemap" unique_id=1607052255]
 z_index = 2
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD1/wQAAwAAAAYAAAD2//z/AwAAAAYAAAAJAAUAAwAAAAYAAAD5/wUAAwAEAAYAAAAIAP7/AwAEAAYAAAD///z/AwAEAAYAAAA=")
 tile_set = ExtResource("5_pjdsv")
 
-[node name="Details" type="TileMapLayer" parent="Tilemap"]
+[node name="Details" type="TileMapLayer" parent="Tilemap" unique_id=1486382396]
 z_index = 3
 texture_filter = 1
 tile_map_data = PackedByteArray("AAAGAAQAAwAEAAUAAAAJAAAAAwAFAAUAAAD4/wMAAwAFAAUAAAD2//7/AwAEAAUAAAACAPv/AwAFAAUAAAA=")
 tile_set = ExtResource("5_pjdsv")
 
-[node name="Foreground" type="TileMapLayer" parent="Tilemap"]
+[node name="Foreground" type="TileMapLayer" parent="Tilemap" unique_id=913145633]
 z_index = 10
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD9/wQAAQALAAUAAAD9/wMAAQALAAUAAAD9/wIAAQALAAUAAAD9/wEAAQALAAUAAAD9/wAAAQALAAUAAAD9////AQALAAUAAAD9//7/AQAMAAIAAAD9//3/AQAMAAEAAAD9//v/AQAMAAAAAAD8/wQAAQALAAUAAAD8/wMAAQALAAUAAAD8/wIAAQALAAUAAAD8/wEAAQALAAUAAAD8/wAAAQALAAUAAAD8////AQALAAUAAAD8//7/AQAMAAIAAAD8//3/AQAMAAEAAAD8//z/AQAMAAEAAAD8//v/AQAMAAAAAAD7/wQAAQALAAUAAAD7/wMAAQALAAUAAAD7/wIAAQALAAUAAAD7/wEAAQALAAUAAAD7/wAAAQALAAUAAAD7////AQALAAUAAAD7//7/AQAMAAIAAAD7//3/AQAMAAEAAAD7//z/AQAMAAEAAAD7//v/AQAMAAAAAAD6/wQAAQALAAUAAAD6/wMAAQALAAUAAAD6/wIAAQALAAUAAAD6/wEAAQALAAUAAAD6/wAAAQALAAUAAAD6////AQALAAUAAAD6//7/AQAMAAIAAAD6//3/AQAMAAEAAAD6//z/AQAMAAEAAAD6//v/AQAMAAAAAAD5/wQAAQALAAUAAAD5/wMAAQALAAUAAAD5/wIAAQALAAUAAAD5/wEAAQALAAUAAAD5/wAAAQALAAUAAAD5////AQALAAUAAAD5//7/AQAMAAIAAAD5//3/AQAMAAEAAAD5//z/AQAMAAEAAAD5//v/AQAMAAAAAAD4/wQAAQALAAUAAAD4/wMAAQALAAUAAAD4/wIAAQALAAUAAAD4/wEAAQALAAUAAAD4/wAAAQALAAUAAAD4////AQALAAUAAAD4//7/AQAMAAIAAAD4//z/AQALAAQAAAD4//v/AQAMAAAAAAD+/wQAAQAOAAEAAAD+/wMAAQAOAAEAAAD+/wIAAQAOAAEAAAD+/wEAAQAOAAEAAAD+/wAAAQAOAAEAAAD+////AQAOAAEAAAD+//7/AQANAAIAAAD+//3/AQANAAEAAAD+//z/AQANAAEAAAD+//v/AQANAAAAAAD3/wQAAQAOAAEAAAD3/wMAAQAOAAEAAAD3/wIAAQAOAAEAAAD3/wEAAQAOAAEAAAD3/wAAAQAOAAEAAAD3////AQAOAAEAAAD3//7/AQALAAIAAAD3//3/AQALAAEAAAD3//z/AQALAAEAAAD3//v/AQALAAAAAAD4//3/AQAMAAEAAAD9//z/AQAOAAUAAAA=")
 tile_set = ExtResource("4_64m6r")
 
-[node name="Decorations" type="Node2D" parent="."]
+[node name="Decorations" type="Node2D" parent="." unique_id=1254288926]
 z_index = 15
 position = Vector2(-80, 80)
 scale = Vector2(1.25, 1.25)
 
-[node name="SpriteCenter" type="Sprite2D" parent="Decorations"]
+[node name="SpriteCenter" type="Sprite2D" parent="Decorations" unique_id=1873819837]
 z_index = 3
 texture_filter = 1
 scale = Vector2(1.25, 1.25)
 texture = SubResource("AtlasTexture_p1nwe")
 
-[node name="SpriteRight" type="Sprite2D" parent="Decorations"]
+[node name="SpriteRight" type="Sprite2D" parent="Decorations" unique_id=1231845188]
 z_index = 2
 texture_filter = 1
 texture = SubResource("AtlasTexture_bbqo6")
 
-[node name="SpriteLeft" type="Sprite2D" parent="Decorations"]
+[node name="SpriteLeft" type="Sprite2D" parent="Decorations" unique_id=148402198]
 z_index = 1
 texture_filter = 1
 texture = SubResource("AtlasTexture_d4hu8")
 
-[node name="Animator" type="AnimationPlayer" parent="Decorations"]
-libraries = {
-&"": SubResource("AnimationLibrary_p1nwe")
-}
+[node name="Animator" type="AnimationPlayer" parent="Decorations" unique_id=577045438]
+libraries/ = SubResource("AnimationLibrary_p1nwe")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=242904203]
 
-[node name="Menu" type="VBoxContainer" parent="UI"]
+[node name="Menu" type="VBoxContainer" parent="UI" unique_id=1972795923]
 offset_left = 110.0
 offset_top = 35.0
 offset_right = 250.0
 offset_bottom = 171.0
 scale = Vector2(2, 2)
 
-[node name="Title" type="Label" parent="UI/Menu"]
+[node name="Title" type="Label" parent="UI/Menu" unique_id=1386578980]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 85)
 layout_mode = 2
@@ -246,19 +244,19 @@ Adventure"
 label_settings = ExtResource("11_fb4qf")
 horizontal_alignment = 1
 
-[node name="ButtonPlay" type="Button" parent="UI/Menu"]
+[node name="ButtonPlay" type="Button" parent="UI/Menu" unique_id=1840414459]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("9_faisu")
 text = "Играть"
 
-[node name="ButtonQuit" type="Button" parent="UI/Menu"]
+[node name="ButtonQuit" type="Button" parent="UI/Menu" unique_id=408650568]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("9_faisu")
 text = "Выход"
 
-[node name="GridForeground" type="Sprite2D" parent="."]
+[node name="GridForeground" type="Sprite2D" parent="." unique_id=1313164474]
 visible = false
 modulate = Color(1, 1, 1, 0.0392157)
 z_index = 100
@@ -266,7 +264,7 @@ texture_filter = 1
 scale = Vector2(160, 160)
 texture = ExtResource("2_y4i35")
 
-[node name="HideAtRuntime" type="Node2D" parent="GridForeground"]
+[node name="HideAtRuntime" type="Node2D" parent="GridForeground" unique_id=108063524]
 script = ExtResource("12_riv3r")
 metadata/_custom_type_script = "uid://bp0bnmynw2d1p"
 

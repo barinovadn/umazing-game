@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://qbj53xy31sh8"]
+
+[ext_resource type="Script" uid="uid://qfhlyv6qahij" path="res://prefabs/characters/character.gd" id="1_4a7d0"]
+[ext_resource type="Texture2D" uid="uid://dr3al2fstqc" path="res://prefabs/characters/shadow.png" id="2_lk57v"]
+[ext_resource type="Texture2D" uid="uid://whkpxo00adq" path="res://prefabs/characters/cat/SpriteSheet.png" id="3_ikwm1"]
+[ext_resource type="Script" uid="uid://dyqeulekjrh6q" path="res://common/animations/animation_controller.gd" id="4_1bue0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ko5o"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48a7i"]
+atlas = ExtResource("3_ikwm1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33moi"]
+atlas = ExtResource("3_ikwm1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sas2t"]
+atlas = ExtResource("3_ikwm1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lsicf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48a7i")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33moi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sas2t")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 4.0
+}]
+
+[node name="Cat" type="CharacterBody2D" unique_id=1264654862 node_paths=PackedStringArray("animator", "collider")]
+script = ExtResource("1_4a7d0")
+animator = NodePath("AnimationController2D")
+collider = NodePath("Collider")
+metadata/_custom_type_script = "uid://qfhlyv6qahij"
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=244294833]
+modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+position = Vector2(0, 4)
+scale = Vector2(0.8333333, 0.6071429)
+texture = ExtResource("2_lk57v")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1974869678]
+shape = SubResource("CircleShape2D_3ko5o")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1546967213]
+sprite_frames = SubResource("SpriteFrames_lsicf")
+animation = &"idle_right"
+autoplay = "idle_right"
+frame_progress = 0.5989254
+
+[node name="AnimationController2D" type="Node" parent="." unique_id=1331791674 node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("4_1bue0")
+animated_sprite = NodePath("../Sprite")
+metadata/_custom_type_script = "uid://dyqeulekjrh6q"

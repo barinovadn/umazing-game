@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://c80tm1ltgul5k"]
+
+[ext_resource type="Script" uid="uid://ctrgafx6ut87l" path="res://prefabs/characters/cyclop_cat/cyclop_cat.gd" id="1_08lk5"]
+[ext_resource type="Texture2D" uid="uid://dr3al2fstqc" path="res://prefabs/characters/shadow.png" id="2_08lk5"]
+[ext_resource type="Texture2D" uid="uid://b7nquvmrq4wjs" path="res://prefabs/characters/cyclop_cat/SpriteSheetCyclop.png" id="3_3fky6"]
+[ext_resource type="Script" uid="uid://dyqeulekjrh6q" path="res://common/animations/animation_controller.gd" id="4_uaoii"]
+[ext_resource type="Script" uid="uid://bqgdqsvyobbbx" path="res://common/fights/health_system.gd" id="5_3fky6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_voacg"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcgg0"]
+atlas = ExtResource("3_3fky6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8355"]
+atlas = ExtResource("3_3fky6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10pmr"]
+atlas = ExtResource("3_3fky6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiuet"]
+atlas = ExtResource("3_3fky6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbexq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcgg0")
+}],
+"loop": true,
+"name": &"attack_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8355")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10pmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiuet")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[node name="CyclopCat" type="CharacterBody2D" unique_id=108254206]
+script = ExtResource("1_08lk5")
+start_animation = null
+collision = null
+metadata/_custom_type_script = "uid://qfhlyv6qahij"
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1071179015]
+modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+position = Vector2(-1.0000002, 4.999998)
+scale = Vector2(0.79166675, 0.5357144)
+texture = ExtResource("2_08lk5")
+
+[node name="Colider" type="CollisionShape2D" parent="." unique_id=1290379506]
+shape = SubResource("CircleShape2D_voacg")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1573710524]
+sprite_frames = SubResource("SpriteFrames_bbexq")
+animation = &"idle_right"
+autoplay = "idle_right"
+
+[node name="AnimationController2D" type="Node" parent="." unique_id=1199718850]
+script = ExtResource("4_uaoii")
+metadata/_custom_type_script = "uid://dyqeulekjrh6q"
+
+[node name="HealthSystem" type="Node" parent="." unique_id=1496464289]
+script = ExtResource("5_3fky6")
+metadata/_custom_type_script = "uid://bqgdqsvyobbbx"
+
+[node name="PauseBetweenShots" type="Timer" parent="." unique_id=1171921403]
+
+[node name="ActionChanger" type="Timer" parent="." unique_id=487153471]
+
+[connection signal="timeout" from="PauseBetweenShots" to="." method="_on_pause_between_shots_timeout"]
+[connection signal="timeout" from="ActionChanger" to="." method="_on_action_changer_timeout"]

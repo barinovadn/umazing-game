@@ -1,8 +1,10 @@
 @icon("character.png")
+
 class_name Character2D
 extends CharacterBody2D
 ## Base class for all characters, both playable and NPCs.
 
+signal died
 
 @export_group("Animations")
 @export var animator: AnimationController2D
@@ -15,6 +17,11 @@ var is_moving: bool: ## NOTE Read-only.
 var direction: Vector2: ## NOTE Read-only.
 	get(): return movement.direction if movement else Vector2.DOWN
 
+@export_group("Fight")
+@export var fight: FightController2D
+var is_shooting: bool: ## NOTE Read-only.
+	get(): return fight.is_shooting if fight else false
+
 @export_group("Collision")
 @export var collider: CollisionShape2D
 @export var collision: bool = true:
@@ -26,7 +33,8 @@ var direction: Vector2: ## NOTE Read-only.
 		if not collider:
 			return false
 		return not collider.disabled
-
+##Component for taking damage
+@export var hurt_component: HurtComponent
 
 func _ready():
 	if animator:
@@ -44,6 +52,26 @@ func _ready():
 		movement.movement_stopped.connect(_on_movement_stopped)
 		movement.direction_changed.connect(_on_direction_changed)
 
+	if fight:
+		fight.shooting_started.connect(_on_shooting_started)
+		fight.shooting_stopped.connect(_on_shooting_stopped)
+	else:
+		#Right now mb nothing cause we can untouch component or disable flag to stop fighting
+		pass
+	
+	died.connect(on_died)
+
+func on_died():
+	animation_died()
+	change_scene()
+
+func animation_died():
+	animator.play_death()
+	await get_tree().create_timer(5.00).timeout
+	queue_free()
+
+func change_scene():
+	SceneManager.goto_scene("res://scenes/game/levels/demo.tscn")
 
 func _update_animation():
 	if not animator:
@@ -54,14 +82,20 @@ func _update_animation():
 	else:
 		animator.play_idle(direction)
 
-
 func _on_moved(_direction: Vector2, _speed: float):
 	_update_animation()
-
 
 func _on_movement_stopped():
 	_update_animation()
 
-
 func _on_direction_changed(_direction: Vector2):
+	_update_animation()
+	
+func _on_shooting_started():
+	if is_shooting:
+		animator.play_attack(direction)
+	else:
+		_update_animation()
+
+func _on_shooting_stopped():
 	_update_animation()

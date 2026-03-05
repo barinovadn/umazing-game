@@ -3,7 +3,6 @@ class_name AnimationController2D
 extends Node
 ## Controls the animations for [AnimatedSprite2D].
 
-
 ## Available animation types.
 enum AnimationType {
 	NONE = 0, # WARNING Keep falsy
@@ -49,10 +48,10 @@ enum AnimationType {
 	AnimationType.WALK_LEFT: 'walk_left',
 	AnimationType.WALK_RIGHT: 'walk_right',
 	
-	AnimationType.ATTACK_DOWN: 'interact_down',
-	AnimationType.ATTACK_UP: 'interact_up',
-	AnimationType.ATTACK_LEFT: 'interact_left',
-	AnimationType.ATTACK_RIGHT: 'interact_right',
+	AnimationType.ATTACK_DOWN: 'attack_down',
+	AnimationType.ATTACK_UP: 'attack_up',
+	AnimationType.ATTACK_LEFT: 'attack_left',
+	AnimationType.ATTACK_RIGHT: 'attack_right',
 	
 	AnimationType.DOWNED: 'downed',
 	AnimationType.STANCE: 'stance',
@@ -158,7 +157,6 @@ func play(animation: AnimationType):
 	
 	animated_sprite.play(animations[animation])
 
-
 ## Plays an idle animation based on [param direction].
 func play_idle(direction: Vector2 = Vector2.ZERO):
 	if direction.x < -0.5: return play(AnimationType.IDLE_LEFT)
@@ -187,3 +185,6 @@ func play_attack(direction: Vector2 = Vector2.ZERO):
 	if direction.y > 0: return play(AnimationType.ATTACK_DOWN)
 	
 	play(AnimationType.ATTACK_DOWN)
+
+func play_death():
+	animated_sprite.play(animations[AnimationType.DOWNED])

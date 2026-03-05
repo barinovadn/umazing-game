@@ -13,6 +13,8 @@ func _on_interaction():
 	if not description:
 		return false
 	
+	SceneManager.goto_scene("res://scenes/game/fights/cat_fight_scene.tscn")
+	
 	print('"', description.pick_random(), '"')
 	
 	return true
