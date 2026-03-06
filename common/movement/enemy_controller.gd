@@ -1,13 +1,15 @@
 class_name EnemyMovementController2D
+
 extends MovementController2D
 ## Enemy movement controller that randomly moves between predefined points.
 ## Inherits from MovementController2D and uses a set of target points (children of a node)
 ## to navigate the enemy. When close enough to a target, it picks a new random one.
 
 # Reference to the node containing all movement points (children are Marker2D or similar).
-@onready var enemy_movement_points: Node = $"../../../EnemyMovementPoints"
+var enemy : Character2D
+@export var enemy_movement_points: Node 
 # Reference to the hurt component to detect when the enemy dies.
-@onready var hurt_component: EnemyHurtComponent = $"../HurtComponent"
+var hurt_component: HurtComponent 
 
 # List of all movement point nodes (children of enemy_movement_points).
 var movement_points: Array
@@ -17,8 +19,10 @@ var current_movement_point: Vector2
 var move_direction: Vector2
 
 func _ready():
+	enemy = character_body
 	# Gather all child nodes of the movement points container.
 	movement_points = enemy_movement_points.get_children()
+	hurt_component = enemy.hurt_component
 	# Choose the first random target.
 	pick_new_target()
 	# Connect the death signal to stop movement when the enemy dies.

@@ -2,16 +2,19 @@ extends CanvasLayer
 
 class_name UI
 
-@onready var cyclop_cat: Character2D = $"../Characters/CyclopCat"
-@onready var ninja_green: Character2D = $"../Characters/NinjaGreen"
+@export var cyclop_cat: Character2D
+@export var ninja_green: Character2D 
 @onready var label: Label = $MarginContainer/GameLostContainer/Panel/VBoxContainer/Label
 @onready var game_lost_container: CenterContainer = $MarginContainer/GameLostContainer
 @onready var hero_hb: ProgressBar = $MarginContainer/HeroHB
 @onready var boss_hb: ProgressBar = $MarginContainer/BossHB
-@onready var hurt_component: HurtComponent = $"../Characters/NinjaGreen/HurtComponent"
-@onready var hurt_component_cat: EnemyHurtComponent = $"../Characters/CyclopCat/HurtComponent"
+
+var hurt_component: HurtComponent
+var hurt_component_cat: HurtComponent
 
 func _ready() -> void:
+	hurt_component = ninja_green.hurt_component
+	hurt_component_cat = cyclop_cat.hurt_component
 	hurt_component.died.connect(on_player_died)
 	hurt_component_cat.died.connect(on_boss_died)
 	hurt_component.damaged.connect(on_player_damaged)

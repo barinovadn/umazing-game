@@ -18,7 +18,9 @@ var direction: Vector2: ## NOTE Read-only.
 	get(): return movement.direction if movement else Vector2.DOWN
 
 @export_group("Fight")
+@export var hurt_component: HurtComponent
 @export var fight: FightController2D
+@export var enemy: Character2D
 var is_shooting: bool: ## NOTE Read-only.
 	get(): return fight.is_shooting if fight else false
 
@@ -33,8 +35,6 @@ var is_shooting: bool: ## NOTE Read-only.
 		if not collider:
 			return false
 		return not collider.disabled
-##Component for taking damage
-@export var hurt_component: HurtComponent
 
 func _ready():
 	if animator:

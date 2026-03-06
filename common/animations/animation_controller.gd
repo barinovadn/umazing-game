@@ -3,6 +3,8 @@ class_name AnimationController2D
 extends Node
 ## Controls the animations for [AnimatedSprite2D].
 
+var is_shooting: bool  = false
+
 ## Available animation types.
 enum AnimationType {
 	NONE = 0, # WARNING Keep falsy
@@ -156,34 +158,66 @@ func play(animation: AnimationType):
 		animated_sprite.flip_v = animations_flip_v[animation]
 	
 	animated_sprite.play(animations[animation])
+	if is_shooting:
+		await get_tree().create_timer(0.3).timeout
+		is_shooting = false
 
 ## Plays an idle animation based on [param direction].
 func play_idle(direction: Vector2 = Vector2.ZERO):
-	if direction.x < -0.5: return play(AnimationType.IDLE_LEFT)
-	if direction.x > 0.5: return play(AnimationType.IDLE_RIGHT)
-	if direction.y < -0.5: return play(AnimationType.IDLE_UP)
-	if direction.y > 0.5: return play(AnimationType.IDLE_DOWN)
 	
+	if is_shooting:
+		return
+		
+	if direction.x < -0.5: 
+		play(AnimationType.IDLE_LEFT)
+		return
+	if direction.x > 0.5: 
+		play(AnimationType.IDLE_RIGHT)
+		return
+	if direction.y < -0.5: 
+		play(AnimationType.IDLE_UP)
+		return
+	if direction.y > 0.5: 
+		play(AnimationType.IDLE_DOWN)
+		return
 	play(AnimationType.IDLE_DOWN)
 
 
 ## Plays a walk animation based on [param direction].
 func play_walk(direction: Vector2 = Vector2.ZERO):
-	if direction.x < -0.5: return play(AnimationType.WALK_LEFT)
-	if direction.x > 0.5: return play(AnimationType.WALK_RIGHT)
-	if direction.y < -0.5: return play(AnimationType.WALK_UP)
-	if direction.y > 0.5: return play(AnimationType.WALK_DOWN)
-	
+	if is_shooting:
+		return
+		
+	if direction.x < -0.5: 
+		play(AnimationType.WALK_LEFT)
+		return
+	if direction.x > 0.5: 
+		play(AnimationType.WALK_RIGHT)
+		return
+	if direction.y < -0.5: 
+		play(AnimationType.WALK_UP)
+		return
+	if direction.y > 0.5: 
+		play(AnimationType.WALK_DOWN)
+		return
 	play(AnimationType.WALK_DOWN)
 
 
 ## Plays an attack animation based on [param direction].
 func play_attack(direction: Vector2 = Vector2.ZERO):
-	if direction.x < 0: return play(AnimationType.ATTACK_LEFT)
-	if direction.x > 0: return play(AnimationType.ATTACK_RIGHT)
-	if direction.y < 0: return play(AnimationType.ATTACK_UP)
-	if direction.y > 0: return play(AnimationType.ATTACK_DOWN)
-	
+	is_shooting = true
+	if direction.x < 0: 
+		play(AnimationType.ATTACK_LEFT)
+		return
+	if direction.x > 0: 
+		play(AnimationType.ATTACK_RIGHT)
+		return
+	if direction.y < 0: 
+		play(AnimationType.ATTACK_UP)
+		return
+	if direction.y > 0: 
+		play(AnimationType.ATTACK_DOWN)
+		return
 	play(AnimationType.ATTACK_DOWN)
 
 func play_death():

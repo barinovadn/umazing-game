@@ -4,7 +4,6 @@ extends Node
 ## Makes sure that the [member target]'s center is in bounds of
 ## [member GridCamera2D.grid_cell].
 
-
 @export var camera: GridCamera2D ## Controlled grid camera.
 @export var target: Node2D ## The target to follow.
 @export var enabled: bool = true ## Whether or not the controller should work.

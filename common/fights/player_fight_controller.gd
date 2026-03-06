@@ -1,4 +1,5 @@
 class_name PlayerFightController2D
+
 extends FightController2D
 ## Player shooting controller (inherits from base fight controller).
 ## Handles shooting input, projectile spawning, and reaction to player death.
@@ -10,9 +11,10 @@ enum Direction { LEFT, RIGHT, UP, DOWN }
 const PLAYER_PROJECTILE = preload("uid://ciwwaylcgm1fb")
 
 # References to sibling nodes (found via relative path in the scene).
-@onready var player_controller: PlayerMovementController2D = $"../PlayerController"   # Player movement controller
-@onready var hurt_component: HurtComponent = $"../HurtComponent"                     # Damage handling component (needed for death signal)
-@onready var ninja_green: Character2D = $".."                                        # Parent character (the player itself)
+var player_controller: PlayerMovementController2D   # Player movement controller
+var hurt_component: HurtComponent                 # Damage handling component (needed for death signal)
+@export var ninja_green: Character2D                                        # Parent character (the player itself)
+var player
 
 ## Action names from [InputMap] mapped to movement directions.
 ## Used to determine the current aiming/shooting direction.
@@ -25,8 +27,12 @@ const PLAYER_PROJECTILE = preload("uid://ciwwaylcgm1fb")
 
 func _ready():
 	# Connect the death signal from the hurt component to our on_died function.
+	hurt_component = ninja_green.hurt_component
+	movement = ninja_green.movement
 	if hurt_component:
 		hurt_component.died.connect(on_died)
+	player_controller = ninja_green.movement as PlayerMovementController2D
+	
 
 func _input(event: InputEvent) -> void:
 	# If fighting is disabled (fighting_enabled inherited from FightController2D) — ignore input.

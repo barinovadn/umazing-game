@@ -32,9 +32,7 @@ signal fighting_toggled(enabled: bool)
 			if not fighting_enabled:
 				stop()
 
-@export_group("Movement")
-## Reference to a [MovementController2D] used to obtain the current direction.
-@export var movement: MovementController2D
+var movement: MovementController2D
 
 ## Current fighting direction (read‑only). Obtained from the [member movement] controller.
 var direction: Vector2: ## NOTE Read‑only.
@@ -45,7 +43,6 @@ var is_shooting: bool = false:
 	set(value):
 		if value == is_shooting:
 			return
-		
 		is_shooting = value
 		if is_shooting:
 			shooting_started.emit()

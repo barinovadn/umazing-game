@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_wk3db"]
 [ext_resource type="Texture2D" uid="uid://c5834u1j6sm5q" path="res://prefabs/characters/ninja_green/sprite_sheet.png" id="2_rs30d"]
+[ext_resource type="Script" uid="uid://clqqjj3qa5ih2" path="res://common/fights/player_fight_controller.gd" id="3_4lbik"]
+[ext_resource type="Script" uid="uid://o6mt3d0lsvil" path="res://common/components/hurt_component.gd" id="5_yy6s5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w57xd"]
 atlas = ExtResource("2_rs30d")
@@ -161,7 +163,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w57xd")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_down",
 "speed": 5.0
 }, {
@@ -169,7 +171,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1x8f1")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_left",
 "speed": 5.0
 }, {
@@ -177,7 +179,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uasvh")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_right",
 "speed": 5.0
 }, {
@@ -185,7 +187,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2po8r")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_up",
 "speed": 5.0
 }, {
@@ -367,9 +369,29 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="NinjaGreen" unique_id=862228939 instance=ExtResource("1_wk3db")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4lbik"]
+radius = 8.0
+
+[node name="NinjaGreen" unique_id=862228939 node_paths=PackedStringArray("hurt_component", "fight") instance=ExtResource("1_wk3db")]
+hurt_component = NodePath("HurtComponent")
+fight = NodePath("FightController")
 
 [node name="Sprite" parent="." index="2"]
 sprite_frames = SubResource("SpriteFrames_ejar4")
-animation = &"attack_down"
 frame_progress = 0.0
+
+[node name="FightController" type="Node2D" parent="." index="4" unique_id=673450946 node_paths=PackedStringArray("ninja_green", "character_body")]
+script = ExtResource("3_4lbik")
+ninja_green = NodePath("..")
+character_body = NodePath("..")
+
+[node name="HurtComponent" type="Area2D" parent="." index="5" unique_id=1217336349]
+collision_layer = 64
+collision_mask = 160
+script = ExtResource("5_yy6s5")
+metadata/_custom_type_script = "uid://o6mt3d0lsvil"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" index="0" unique_id=1234025915]
+shape = SubResource("CircleShape2D_4lbik")
+
+[connection signal="area_entered" from="HurtComponent" to="HurtComponent" method="_on_area_entered"]

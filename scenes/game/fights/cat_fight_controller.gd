@@ -23,7 +23,7 @@ enum Actions{
 	}
 
 # Reference to the enemy's hurt component (handles taking damage and death).
-@export var hurt_component: EnemyHurtComponent
+var hurt_component: HurtComponent
 
 # Constants for projectile scenes and speeds (some unused like SPEED, JUMP_VELOCITY).
 const SPEED = 300.0
@@ -32,13 +32,10 @@ const PLAYER_PROJECTILE = preload("uid://ciwwaylcgm1fb")   # Possibly for player
 const STONE_SHOT = preload("uid://1fs5fg40bjar")           # Straight projectile scene
 const HOMING_SHOT = preload("uid://ccbamilt8pd75")         # Homing projectile scene
 
-# Node references.
-@onready var sprite: AnimatedSprite2D = $"../../NinjaGreen/Sprite"   # The player's sprite (used as target)
-@onready var cyclop_cat: Character2D = $".."                          # The enemy character itself
-@onready var enemy_controller: EnemyMovementController2D = $"../EnemyController"  # Enemy movement controller
-@onready var health_system: HealthSystem = $"../HealthSystem"        # Health system (to get current health)
-@onready var pause_between_shots: Timer = $"../PauseBetweenShots"    # Timer that controls delay between shots
-@onready var action_changer: Timer = $"../ActionChanger"            # Timer that triggers switching attack pattern
+@export var cyclop_cat: Character2D                       # The enemy character itself
+var enemy_controller: EnemyMovementController2D
+@export var pause_between_shots: Timer    # Timer that controls delay between shots
+@export var action_changer: Timer            # Timer that triggers switching attack pattern
 
 # Variables for movement points (appear unused; possibly left from earlier implementation).
 var movement_points
@@ -61,6 +58,9 @@ func init():
 
 func _ready():
 	# Connect the hurt component's death signal to stop fighting.
+	character_body = cyclop_cat.enemy
+	enemy_controller = cyclop_cat.movement
+	hurt_component = cyclop_cat.hurt_component
 	hurt_component.died.connect(on_died)
 
 func on_died():
@@ -71,7 +71,7 @@ func on_died():
 
 # Returns the current health value (used by other scripts, e.g., UI).
 func get_health():
-	return health_system.health
+	return hurt_component.heath
 
 # Randomly picks an attack pattern (0 to 3 corresponding to Actions enum).
 func pick_action():
@@ -82,35 +82,40 @@ func pick_action():
 func _on_pause_between_shots_timeout() -> void:
 	if !fighting_enabled:
 		return
-		
+	
 	match current_action:
 		Actions.STRAIGHT_SHOT:
+			is_shooting = true
 			# Set a short cooldown between shots.
 			pause_between_shots.wait_time = 0.6
+			shooting_started.emit()
 			var projectile = STONE_SHOT.instantiate() as StoneProjectile
 			
 			# Calculate direction from enemy to player (sprite's global position).
-			var to_target = sprite.global_position - character_body.global_position
+			var to_target = character_body.global_position - cyclop_cat.global_position
 			to_target = to_target.normalized()
 			
 			if to_target:
 				projectile.direction = to_target
 			else:
 				projectile.direction = Vector2.RIGHT
-			projectile.global_position = character_body.global_position
+			projectile.global_position = cyclop_cat.global_position
+
 			get_tree().root.add_child(projectile)
-			
 		Actions.HOMING_SHOT:
+			is_shooting = true
 			pause_between_shots.wait_time = 1.2
+			shooting_started.emit()
 			var homing_shot = HOMING_SHOT.instantiate() as HomingProjectile
-			homing_shot.set_target(sprite)   # Pass the player's sprite as the target
-			homing_shot.global_position = character_body.global_position
+			homing_shot.set_target(character_body)   # Pass the player's sprite as the target
+			homing_shot.global_position = cyclop_cat.global_position
+
 			get_tree().root.add_child(homing_shot)
-			
 		Actions.SPRAY_SHOT:
+			is_shooting = true
 			pause_between_shots.wait_time = 1.2
 			# Base direction towards the player.
-			var to_target = sprite.global_position - character_body.global_position
+			var to_target = character_body.global_position - cyclop_cat.global_position
 			to_target = to_target.normalized()
 			
 			# Compute incremental changes for x and y to create a spread.
@@ -122,7 +127,8 @@ func _on_pause_between_shots_timeout() -> void:
 				# Modify direction for each projectile in the spray.
 				to_target.x += move_delta_x * i
 				to_target.y += move_delta_y * i
-				
+				to_target = to_target.normalized()
+				shooting_started.emit()
 				var projectile = STONE_SHOT.instantiate() as StoneProjectile
 				if to_target:
 					projectile.direction = to_target
@@ -130,11 +136,13 @@ func _on_pause_between_shots_timeout() -> void:
 					projectile.rotation_degrees = min_projectile_degree + 15 * i
 				else:
 					projectile.direction = Vector2.RIGHT
-				projectile.global_position = character_body.global_position
-				get_tree().root.add_child(projectile)
+				projectile.global_position = cyclop_cat.global_position
 				
+				get_tree().root.add_child(projectile)
 		# Actions.SINUSOID_SHOT:
 			# (Commented out) Intended for wave‑like projectile pattern.
+	await get_tree().create_timer(0.3).timeout
+	is_shooting = false
 
 # Called when the action_changer timer times out – switches to a new random attack pattern.
 func _on_action_changer_timeout() -> void:

@@ -21,13 +21,9 @@ func _physics_process(_delta):
 	input_direction = get_input()
 	
 	if input_direction:
-		#print("Player : ", character_body.velocity)
-		#print("Player : ", movement_speed)
-		#print("Enemy : ", input_direction)
 		move(movement_speed, input_direction)
 	else:
 		stop()
-	
 	character_body.move_and_slide()
 
 
