@@ -19,7 +19,7 @@ signal teleported(new_position: Vector2, old_position: Vector2)
 
 ## The [CharacterBody2D] node this controller operates on.
 ## If not assigned, will attempt to use the parent node.
-@export var character_body: CharacterBody2D
+@export var character_body: Character2D
 
 @export_group("Movement", "movement")
 ## Character movement speed in pixels per second.

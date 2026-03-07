@@ -299,6 +299,7 @@ cyclop_cat = NodePath("..")
 pause_between_shots = NodePath("../PauseBetweenShots")
 action_changer = NodePath("../ActionChanger")
 character_body = NodePath("..")
+fighting_enabled = false
 
 [node name="PauseBetweenShots" type="Timer" parent="." unique_id=1171921403]
 wait_time = 0.6

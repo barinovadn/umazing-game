@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hg6nan0pms0m"
-path="res://.godot/imported/SpriteSheetRock.png-b3204bfb27f7e8ac1695485c9279ef1e.ctex"
+uid="uid://bqvf4ksnwhx8e"
+path="res://.godot/imported/SpriteSheetSpark2.png-1cfa10a2212aa779f9291fad804b4334.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/bullets/SpriteSheetRock.png"
-dest_files=["res://.godot/imported/SpriteSheetRock.png-b3204bfb27f7e8ac1695485c9279ef1e.ctex"]
+source_file="res://prefabs/teleport/SpriteSheetSpark2.png"
+dest_files=["res://.godot/imported/SpriteSheetSpark2.png-1cfa10a2212aa779f9291fad804b4334.ctex"]
 
 [params]
 

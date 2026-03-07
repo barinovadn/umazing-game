@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ccbamilt8pd75"]
 
-[ext_resource type="Script" uid="uid://c5pxhxrnm5kmb" path="res://prefabs/bullets/homing_shot.gd" id="1_v8ala"]
-[ext_resource type="Texture2D" uid="uid://dpjwma8mk5fpb" path="res://prefabs/bullets/CanonBall.png" id="2_trah4"]
+[ext_resource type="Script" uid="uid://c5pxhxrnm5kmb" path="res://prefabs/bullets/enemy/homing_shot.gd" id="1_v8ala"]
+[ext_resource type="Texture2D" uid="uid://dpjwma8mk5fpb" path="res://prefabs/bullets/enemy/CanonBall.png" id="2_trah4"]
+[ext_resource type="AudioStream" uid="uid://qixmu3kkngpj" path="res://prefabs/bullets/enemy/Whoosh.wav" id="3_trah4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e6tv6"]
 radius = 8.0
@@ -63,4 +64,10 @@ animation = &"homing_shot"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1173214675]
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=660197419]
+stream = ExtResource("3_trah4")
+autoplay = true
+bus = &"Sfx"
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

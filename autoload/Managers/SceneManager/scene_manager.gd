@@ -1,18 +1,19 @@
 extends Node
 
+## Отвечает за переключение сцен
+
+## Текущая сцена
 var current_scene = null
 
 func _ready():
-	#var root = get_tree().root
-	## Using a negative index counts from the end, so this gets the last child node of `root`.
-	#current_scene = root.get_child(-1)
 	pass
-	
+
+## Берёт активную сцену и загружает её в current_scene
 func instantiate_scene():
 	var root = get_tree().root
-	# Using a negative index counts from the end, so this gets the last child node of `root`.
 	current_scene = root.get_child(-1)
 
+## Меняет сцену на ту, которая передана в метод
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
 	# or some other function in the current scene.
@@ -25,7 +26,7 @@ func goto_scene(path):
 
 	_deferred_goto_scene.call_deferred(path)
 
-
+## Меняем сцену с очисткой памяти
 func _deferred_goto_scene(path):
 	# It is now safe to remove the current scene.
 	if !current_scene:
@@ -45,3 +46,7 @@ func _deferred_goto_scene(path):
 
 	# Optionally, to make it compatible with the SceneTree.change_scene_to_file() API.
 	get_tree().current_scene = current_scene
+
+## Перерисовываем текущую сцену
+func redraw_current_scene():
+	get_tree().reload_current_scene()

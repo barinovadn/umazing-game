@@ -58,6 +58,7 @@ func init():
 
 func _ready():
 	# Connect the hurt component's death signal to stop fighting.
+	fighting_enabled = cyclop_cat.fight_enabled
 	character_body = cyclop_cat.enemy
 	enemy_controller = cyclop_cat.movement
 	hurt_component = cyclop_cat.hurt_component
@@ -80,7 +81,8 @@ func pick_action():
 
 # Called when the pause_between_shots timer times out – performs a shot based on current_action.
 func _on_pause_between_shots_timeout() -> void:
-	if !fighting_enabled:
+	fighting_enabled = cyclop_cat.fight_enabled
+	if !fighting_enabled || !character_body:
 		return
 	
 	match current_action:

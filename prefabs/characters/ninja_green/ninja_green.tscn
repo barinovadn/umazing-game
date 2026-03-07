@@ -385,10 +385,11 @@ script = ExtResource("3_4lbik")
 ninja_green = NodePath("..")
 character_body = NodePath("..")
 
-[node name="HurtComponent" type="Area2D" parent="." index="5" unique_id=1217336349]
+[node name="HurtComponent" type="Area2D" parent="." index="5" unique_id=1217336349 node_paths=PackedStringArray("ninja_green")]
 collision_layer = 64
 collision_mask = 160
 script = ExtResource("5_yy6s5")
+ninja_green = NodePath("..")
 metadata/_custom_type_script = "uid://o6mt3d0lsvil"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" index="0" unique_id=1234025915]

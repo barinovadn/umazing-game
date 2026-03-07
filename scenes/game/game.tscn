@@ -81,3 +81,9 @@ z_index = 30
 
 [node name="Interactables" type="Node2D" parent="." unique_id=1128107144]
 z_index = 45
+
+[node name="CharactersMovementPoints" type="Node2D" parent="." unique_id=1647549476]
+
+[node name="Music" type="Node2D" parent="." unique_id=282309585]
+
+[node name="UIs" type="Node2D" parent="." unique_id=1616715782]

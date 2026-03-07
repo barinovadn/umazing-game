@@ -27,6 +27,7 @@ var player
 
 func _ready():
 	# Connect the death signal from the hurt component to our on_died function.
+	fighting_enabled = ninja_green.fight_enabled
 	hurt_component = ninja_green.hurt_component
 	movement = ninja_green.movement
 	if hurt_component:
@@ -36,9 +37,10 @@ func _ready():
 
 func _input(event: InputEvent) -> void:
 	# If fighting is disabled (fighting_enabled inherited from FightController2D) — ignore input.
+	fighting_enabled = ninja_green.fight_enabled
 	if !fighting_enabled:
 		return
-	
+
 	# Check if the shoot button (action "shoot") was just pressed and the player is not already shooting.
 	if Input.is_action_just_pressed("shoot") && !is_shooting:
 		is_shooting = true   # set flag to prevent multiple calls

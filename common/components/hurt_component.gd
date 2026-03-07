@@ -6,8 +6,10 @@ extends Area2D
 signal died
 signal damaged
 
+@export var ninja_green: Character2D
 @export var heath = 20
 
+## Фиксирует попадание от снаряда
 func _on_area_entered(area: Area2D) -> void:
 	var hit_component = area as HitComponent
 	if hit_component:

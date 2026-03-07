@@ -1,13 +1,18 @@
 @tool
 @icon("teleport.png")
-class_name Teleport
-extends Area2D
+class_name TeleportCat
+extends Teleport
 
+signal fight_started
 
-@export var exit: Node2D
-@export var exit_offset: Vector2
-@export var color: Color
+@export var ninja_green : Character2D
+@export var cyclop_cat : Character2D
 
+@export var enemy_controller: EnemyMovementController2D
+@export var pig_follow: BehaviourFollow2D
+@export var ninja_blue_follow: BehaviourFollow2D
+@export var player_controller: PlayerMovementController2D 
+@export var player_ui : UI
 
 func _process(_delta: float):
 	queue_redraw()
@@ -20,9 +25,8 @@ func _on_body_entered(body: Node2D):
 	
 	if not character:
 		return
-	
+	fight_started.emit()
 	character.global_position = exit.global_position + exit_offset
-
 
 func _draw() -> void:
 	if not Engine.is_editor_hint() or not exit or not color:

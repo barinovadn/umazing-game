@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpjwma8mk5fpb"
-path="res://.godot/imported/CanonBall.png-5d747fb74809d577edd05e04594b3208.ctex"
+uid="uid://hg6nan0pms0m"
+path="res://.godot/imported/SpriteSheetRock.png-7a7d403b702fee9fe93c5a31646c9087.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/bullets/CanonBall.png"
-dest_files=["res://.godot/imported/CanonBall.png-5d747fb74809d577edd05e04594b3208.ctex"]
+source_file="res://prefabs/bullets/enemy/SpriteSheetRock.png"
+dest_files=["res://.godot/imported/SpriteSheetRock.png-7a7d403b702fee9fe93c5a31646c9087.ctex"]
 
 [params]
 

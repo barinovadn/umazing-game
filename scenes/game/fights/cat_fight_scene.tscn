@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dcrm5punhuk0d" path="res://prefabs/characters/ninja_green/ninja_green.tscn" id="19_jaxxi"]
 [ext_resource type="AudioStream" uid="uid://c7ff00rpcbk0k" path="res://common/music/24 - Final Area.ogg" id="29_1jyfc"]
 [ext_resource type="PackedScene" uid="uid://c80tm1ltgul5k" path="res://prefabs/characters/cyclop_cat/cyclop_cat.tscn" id="30_l56e8"]
-[ext_resource type="Script" uid="uid://cl5vjegoe1t7k" path="res://scenes/game/fights/ui.gd" id="30_nc7cs"]
+[ext_resource type="Script" uid="uid://cl5vjegoe1t7k" path="res://common/ui/ui.gd" id="30_nc7cs"]
 [ext_resource type="PackedScene" uid="uid://bxwru46mhcq7g" path="res://common/movement/enemy_controller.tscn" id="31_fcdwu"]
 [ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="31_x8evt"]
 
@@ -108,6 +108,7 @@ enemy = NodePath("../NinjaGreen2")
 enemy_movement_points = NodePath("../../../EnemyMovementPoints")
 character_body = NodePath("..")
 movement_speed = 60.0
+movement_enabled = false
 
 [node name="NinjaGreen2" parent="Game/Characters" unique_id=862228939 node_paths=PackedStringArray("movement") instance=ExtResource("19_jaxxi")]
 position = Vector2(-98, -3)

@@ -27,6 +27,7 @@ buses/default_bus_layout="uid://mtiwku7qfnqh"
 
 Cursor="*res://autoload/cursor/cursor.gd"
 SceneManager="*uid://ctov2x5hv0arf"
+MusicManager="*uid://buu5o4mk7hubn"
 
 [display]
 

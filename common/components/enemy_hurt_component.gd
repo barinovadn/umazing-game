@@ -8,6 +8,7 @@ signal damaged
 
 @export var heath = 20
 
+## Фиксирует попадание от снаряда
 func _on_area_entered(area: Area2D) -> void:
 	var hit_component = area as HitComponent
 	if hit_component:

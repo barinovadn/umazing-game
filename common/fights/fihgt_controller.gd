@@ -2,16 +2,10 @@ class_name FightController2D
 extends Node
 ## Base fighting controller for a character. Manages shooting state and direction.
 
-## Emitted when fighting mode is activated (e.g., shooting starts).
-signal fighting_started()
-## Emitted when fighting mode is deactivated (e.g., shooting stops).
-signal fighting_stopped()
 ## Emitted when shooting starts.
 signal shooting_started()
 ## Emitted when shooting stops.
 signal shooting_stopped()
-## Emitted when [member direction] changes.
-signal direction_changed(direction: Vector2)
 ## Emitted when [member fighting_enabled] changes.
 signal fighting_toggled(enabled: bool)
 
@@ -61,7 +55,8 @@ func _ready():
 
 
 func _physics_process(_delta):
-	if not fighting_enabled:
+	#Проверка для случая, когда произошла очистка через queue_free() и происходит попытка отрисовки
+	if not fighting_enabled || not character_body:
 		return
 	character_body.move_and_slide()
 

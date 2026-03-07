@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://dolev032dkcwt"]
+
+[ext_resource type="Script" uid="uid://cl5vjegoe1t7k" path="res://common/ui/ui.gd" id="1_kwceb"]
+[ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="1_ms18h"]
+
+[sub_resource type="Theme" id="Theme_kwceb"]
+
+[sub_resource type="Theme" id="Theme_fm4o6"]
+
+[sub_resource type="Theme" id="Theme_cjy0p"]
+
+[sub_resource type="Theme" id="Theme_pr44n"]
+
+[sub_resource type="Theme" id="Theme_b2e72"]
+
+[node name="UI" type="CanvasLayer" unique_id=1175826099 node_paths=PackedStringArray("boss_name", "label", "game_lost_container", "hero_hb", "boss_hb")]
+script = ExtResource("1_kwceb")
+boss_name = NodePath("MarginContainer/GameLostContainer/Panel/VBoxContainer/Label")
+label = NodePath("MarginContainer/GameLostContainer/Panel/VBoxContainer/Label")
+game_lost_container = NodePath("MarginContainer/GameLostContainer")
+hero_hb = NodePath("MarginContainer/HeroHB")
+boss_hb = NodePath("MarginContainer/BossHB")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=418664276]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ms18h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=860656442]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_ms18h")
+
+[node name="HeroHB" type="ProgressBar" parent="MarginContainer" unique_id=1643632099]
+custom_minimum_size = Vector2(60, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_ms18h")
+value = 50.0
+show_percentage = false
+
+[node name="BossHB" type="ProgressBar" parent="MarginContainer" unique_id=418824867]
+custom_minimum_size = Vector2(200, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.7194535, 2.5509298e-06, 5.7756904e-07, 1)
+theme_override_colors/font_outline_color = Color(0.61229926, 1.504086e-06, 5.7756904e-07, 1)
+value = 65.0
+show_percentage = false
+
+[node name="BossName" type="Label" parent="MarginContainer" unique_id=1397728931]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = SubResource("Theme_kwceb")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+
+[node name="GameLostContainer" type="CenterContainer" parent="MarginContainer" unique_id=576173818]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_fm4o6")
+
+[node name="Panel" type="Panel" parent="MarginContainer/GameLostContainer" unique_id=341326766]
+layout_mode = 2
+theme = SubResource("Theme_cjy0p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GameLostContainer/Panel" unique_id=1128986060]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -50.0
+offset_right = 93.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pr44n")
+
+[node name="Label" type="Label" parent="MarginContainer/GameLostContainer/Panel/VBoxContainer" unique_id=12894782]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_b2e72")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "You Lost!"
+
+[node name="Button" type="Button" parent="MarginContainer/GameLostContainer/Panel/VBoxContainer" unique_id=250640200]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_ms18h")
+theme_override_font_sizes/font_size = 32
+text = "Return"
+
+[connection signal="pressed" from="MarginContainer/GameLostContainer/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]

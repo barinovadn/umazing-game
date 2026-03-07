@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://codrm50i6phdb"
-path="res://.godot/imported/Shuriken.png-482392a59f87290dfdb2c4e7f634505e.ctex"
+path="res://.godot/imported/Shuriken.png-478d94a7cae9f8251ad196a38f7066c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/bullets/Shuriken.png"
-dest_files=["res://.godot/imported/Shuriken.png-482392a59f87290dfdb2c4e7f634505e.ctex"]
+source_file="res://prefabs/bullets/player/Shuriken.png"
+dest_files=["res://.godot/imported/Shuriken.png-478d94a7cae9f8251ad196a38f7066c8.ctex"]
 
 [params]
 

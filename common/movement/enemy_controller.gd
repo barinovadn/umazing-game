@@ -18,6 +18,8 @@ var current_movement_point: Vector2
 # The normalized direction vector towards the current target.
 var move_direction: Vector2
 
+
+
 func _ready():
 	enemy = character_body
 	# Gather all child nodes of the movement points container.
@@ -27,6 +29,7 @@ func _ready():
 	pick_new_target()
 	# Connect the death signal to stop movement when the enemy dies.
 	hurt_component.died.connect(on_cat_died)
+	movement_enabled = character_body.movement.movement_enabled
 
 # Randomly selects a new target point from the movement_points list.
 func pick_new_target():

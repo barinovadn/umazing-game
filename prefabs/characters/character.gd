@@ -20,6 +20,7 @@ var direction: Vector2: ## NOTE Read-only.
 @export_group("Fight")
 @export var hurt_component: HurtComponent
 @export var fight: FightController2D
+@export var fight_enabled: bool = false
 @export var enemy: Character2D
 var is_shooting: bool: ## NOTE Read-only.
 	get(): return fight.is_shooting if fight else false
@@ -55,23 +56,24 @@ func _ready():
 	if fight:
 		fight.shooting_started.connect(_on_shooting_started)
 		fight.shooting_stopped.connect(_on_shooting_stopped)
+		hurt_component.died.connect(on_died)
 	else:
 		#Right now mb nothing cause we can untouch component or disable flag to stop fighting
 		pass
-	
-	died.connect(on_died)
 
 func on_died():
+	fight_enabled = false
 	animation_died()
 	change_scene()
 
 func animation_died():
 	animator.play_death()
-	await get_tree().create_timer(5.00).timeout
+	await get_tree().create_timer(1.50).timeout
 	queue_free()
 
 func change_scene():
-	SceneManager.goto_scene("res://scenes/game/levels/demo.tscn")
+	pass
+	#SceneManager.goto_scene("res://scenes/game/levels/demo.tscn")
 
 func _update_animation():
 	if not animator:
