@@ -24,8 +24,6 @@ func _physics_process(_delta):
 		move(movement_speed, input_direction)
 	else:
 		stop()
-	
-	character_body.move_and_slide()
 
 
 ## Returns the current input direction using [member Input.get_vector] and

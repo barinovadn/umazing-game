@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://br4jv0365g35h"]
+
+[ext_resource type="PackedScene" uid="uid://cd4mxmywy2qdo" path="res://prefabs/interactor/interactor.tscn" id="1_rdx4y"]
+[ext_resource type="Script" uid="uid://dg10rouiowrl4" path="res://prefabs/player/player.gd" id="1_wv1mm"]
+[ext_resource type="Script" uid="uid://cxp2akga3voxj" path="res://common/movement/controllers/player_movement_controller.gd" id="2_wv1mm"]
+[ext_resource type="Script" uid="uid://dnfhvouh77e1x" path="res://common/grid_camera/grid_camera.gd" id="4_iylwk"]
+[ext_resource type="Script" uid="uid://rr7lsuj6y4tr" path="res://common/grid_camera/controllers/grid_camera_follower.gd" id="5_ev8v4"]
+[ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
+
+[node name="Player" type="Node" unique_id=486757243]
+script = ExtResource("1_wv1mm")
+
+[node name="Controller" type="Node" parent="." unique_id=536906422]
+script = ExtResource("2_wv1mm")
+movement_controls = Dictionary[int, String]({
+0: "move_left",
+1: "move_right",
+2: "move_up",
+3: "move_down"
+})
+movement_speed = 60.0
+metadata/_custom_type_script = "uid://cxp2akga3voxj"
+
+[node name="Interactor" parent="." unique_id=109062155 instance=ExtResource("1_rdx4y")]
+
+[node name="Camera" type="Camera2D" parent="." unique_id=380955172]
+unique_name_in_owner = true
+zoom = Vector2(3.125, 3.125)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.5
+script = ExtResource("4_iylwk")
+grid_size = Vector2(320, 160)
+metadata/_custom_type_script = "uid://dnfhvouh77e1x"
+
+[node name="BehaviorFollow" type="Node" parent="Camera" unique_id=81896481 node_paths=PackedStringArray("camera")]
+script = ExtResource("5_ev8v4")
+camera = NodePath("..")
+teleport_distance = 250.0
+metadata/_custom_type_script = "uid://rr7lsuj6y4tr"
+
+[node name="TransitionFade" type="CanvasLayer" parent="Camera" unique_id=917059099 node_paths=PackedStringArray("camera")]
+script = ExtResource("6_vhck3")
+camera = NodePath("..")
+duration = 0.5
+metadata/_custom_type_script = "uid://pw3x0udulq81"
+
+[connection signal="character_changed" from="." to="." method="_on_character_changed"]

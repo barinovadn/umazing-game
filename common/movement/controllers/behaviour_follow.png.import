@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crxt0jgkocsg4"
-path="res://.godot/imported/grid_camera_follower.png-b6bdbf6204dae2bb074956ecc97cbb70.ctex"
+uid="uid://bvpubrdgapvib"
+path="res://.godot/imported/behaviour_follow.png-4e89d2c01c7ec82683c031466b6cacd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/grid_camera/grid_camera_follower.png"
-dest_files=["res://.godot/imported/grid_camera_follower.png-b6bdbf6204dae2bb074956ecc97cbb70.ctex"]
+source_file="res://common/movement/controllers/behaviour_follow.png"
+dest_files=["res://.godot/imported/behaviour_follow.png-4e89d2c01c7ec82683c031466b6cacd7.ctex"]
 
 [params]
 

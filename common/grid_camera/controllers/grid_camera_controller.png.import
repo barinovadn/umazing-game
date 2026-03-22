@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bacv78hbdgtby"
-path="res://.godot/imported/grid_camera_controller.png-de7480b3581692d0196f3a4c58dce8d2.ctex"
+path="res://.godot/imported/grid_camera_controller.png-6f4519d13a064493496d6c04965197a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/grid_camera/grid_camera_controller.png"
-dest_files=["res://.godot/imported/grid_camera_controller.png-de7480b3581692d0196f3a4c58dce8d2.ctex"]
+source_file="res://common/grid_camera/controllers/grid_camera_controller.png"
+dest_files=["res://.godot/imported/grid_camera_controller.png-6f4519d13a064493496d6c04965197a9.ctex"]
 
 [params]
 

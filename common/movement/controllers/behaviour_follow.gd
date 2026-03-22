@@ -5,6 +5,7 @@ extends MovementController2D
 
 
 @export var target: Node2D ## The target to follow.
+@export var body: Node2D ## The object that is following.
 
 @export_group("Distance", "distance")
 @export var distance_min: float = 25.0 ## Minimum distance to [member target].
@@ -17,8 +18,16 @@ extends MovementController2D
 @export var teleport_distance: float = 250.0 ## See [member teleport_enabled].
 
 
+func _ready():
+	if not body:
+		body = get_parent() as Node2D
+	if not body:
+		push_warning("\"body\" is not specified or found. "
+			+ "Controller will not be able to operate without body position.")
+
+
 func _physics_process(_delta):
-	if not movement_enabled or not target or not character_body:
+	if not movement_enabled or not target or not body:
 		return
 	
 	var keep_moving := false
@@ -38,19 +47,17 @@ func _physics_process(_delta):
 	
 	if keep_moving:
 		move(movement_speed, get_direction())
-	
-	character_body.move_and_slide()
 
 
 ## Returns normalized direction towards the [member target] or [member Vector2.ZERO].
 func get_direction() -> Vector2:
-	if not character_body or not target:
+	if not body or not target:
 		return Vector2.ZERO
-	return character_body.global_position.direction_to(target.global_position)
+	return body.global_position.direction_to(target.global_position)
 
 
 ## Returns current distance to [member target] if it exists or [code]-1[/code].
 func get_distance() -> float:
-	if not character_body or not target:
+	if not body or not target:
 		return -1
-	return character_body.global_position.distance_to(target.global_position)
+	return body.global_position.distance_to(target.global_position)

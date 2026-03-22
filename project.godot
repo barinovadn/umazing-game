@@ -84,3 +84,8 @@ interact={
 2d_physics/layer_1="Map"
 2d_physics/layer_2="Characters"
 2d_physics/layer_3="Interactables"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"

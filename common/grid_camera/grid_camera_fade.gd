@@ -49,6 +49,7 @@ func _create_rect():
 	rect = ColorRect.new()
 	rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	rect.name = "Color"
 	add_child(rect)
 
 

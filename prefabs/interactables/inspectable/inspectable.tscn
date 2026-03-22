@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc2kdebobsqlu"]
+[gd_scene format=3 uid="uid://bc2kdebobsqlu"]
 
 [ext_resource type="PackedScene" uid="uid://dc56s2m04x2is" path="res://prefabs/interactables/interactable.tscn" id="1_cshry"]
 [ext_resource type="Script" uid="uid://c0r2xruglspcl" path="res://prefabs/interactables/inspectable/inspectable.gd" id="2_2puox"]
 
-[node name="Inspectable" groups=["inspectable"] instance=ExtResource("1_cshry")]
+[node name="Inspectable" unique_id=2087367069 groups=["inspectable"] instance=ExtResource("1_cshry")]
 script = ExtResource("2_2puox")
 description = Array[String](["..."])

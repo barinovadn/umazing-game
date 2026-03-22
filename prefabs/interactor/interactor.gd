@@ -7,15 +7,9 @@ extends RayCast2D
 
 signal interacted() ## Emitted when a successful interaction occurs.
 
-## The character this interactor belongs to. Used to track facing direction.
-## If not set, tries to use the parent node as character.
-@export var character: Character2D:
-	set(value):
-		character = value
-		_connect_character_signals()
+
 ## Input action name that triggers [method interact].
 @export var action: String
-
 
 ## Current facing direction of the interactor.
 ## [br][br][b]NOTE[/b]: Updates [member target_position].
@@ -38,14 +32,6 @@ func _ready():
 	
 	length = Vector2.ZERO.distance_to(origin_target_position)
 	direction = Vector2.ZERO.direction_to(origin_target_position)
-	
-	if not character:
-		character = get_parent() as Character2D
-	
-	if not character:
-		push_warning("\"character\" is not selected or found.")
-	else:
-		_connect_character_signals()
 
 
 func _input(event: InputEvent):
@@ -53,24 +39,8 @@ func _input(event: InputEvent):
 		interact()
 
 
-func _connect_character_signals():
-	if not character or not character.movement:
-		push_warning("failed to connect signals,
-			\"character\" and/or \"character.movement\" is null.")
-		return
-	
-	var dir_changed_signal := character.movement.direction_changed
-	
-	if not dir_changed_signal.is_connected(_on_character_direction_changed):
-		dir_changed_signal.connect(_on_character_direction_changed)
-
-
 func _update_target_position():
 	target_position = direction * length
-
-
-func _on_character_direction_changed(new_direction: Vector2):
-	direction = new_direction
 
 
 ## Attempts to interact with the the first object found by [method RayCast2D.get_collider].
