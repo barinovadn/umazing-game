@@ -13,6 +13,7 @@ extends CharacterBody2D
 	set(value):
 		if movement:
 			movement.moved.disconnect(_on_moved)
+			movement.teleported.disconnect(_on_teleported)
 			movement.movement_stopped.disconnect(_on_movement_stopped)
 			movement.direction_changed.disconnect(_on_direction_changed)
 		
@@ -20,6 +21,7 @@ extends CharacterBody2D
 		
 		if movement:
 			movement.moved.connect(_on_moved)
+			movement.teleported.connect(_on_teleported)
 			movement.movement_stopped.connect(_on_movement_stopped)
 			movement.direction_changed.connect(_on_direction_changed)
 var is_moving: bool: ## NOTE Read-only.
@@ -71,6 +73,10 @@ func _update_animation():
 func _on_moved(dir: Vector2, speed: float):
 	velocity = dir * speed
 	_update_animation()
+
+
+func _on_teleported(new_position: Vector2):
+	global_position = new_position
 
 
 func _on_movement_stopped():

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://uhy5xmcfxpe8"]
+
+[ext_resource type="Script" uid="uid://bxhgrvdg00byl" path="res://prefabs/environment/environment_zone.gd" id="1_nbh1r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7qle"]
+size = Vector2(1, 1)
+
+[node name="EnvironmentZone" type="Area2D" unique_id=341142702 groups=["environment_zone"]]
+scale = Vector2(320, 160)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+script = ExtResource("1_nbh1r")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1514075640]
+shape = SubResource("RectangleShape2D_q7qle")
+debug_color = Color(0, 0.6, 0.7019608, 0.09803922)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -6,6 +6,10 @@
 [ext_resource type="Script" uid="uid://dnfhvouh77e1x" path="res://common/grid_camera/grid_camera.gd" id="4_iylwk"]
 [ext_resource type="Script" uid="uid://rr7lsuj6y4tr" path="res://common/grid_camera/controllers/grid_camera_follower.gd" id="5_ev8v4"]
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
+[ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ev8v4"]
+radius = 0.01
 
 [node name="Player" type="Node" unique_id=486757243]
 script = ExtResource("1_wv1mm")
@@ -23,8 +27,17 @@ metadata/_custom_type_script = "uid://cxp2akga3voxj"
 
 [node name="Interactor" parent="." unique_id=109062155 instance=ExtResource("1_rdx4y")]
 
+[node name="Trigger" type="Area2D" parent="." unique_id=378323334]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="Collider" type="CollisionShape2D" parent="Trigger" unique_id=1043735703]
+shape = SubResource("CircleShape2D_ev8v4")
+
 [node name="Camera" type="Camera2D" parent="." unique_id=380955172]
 unique_name_in_owner = true
+texture_filter = 1
 zoom = Vector2(3.125, 3.125)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.5
@@ -43,5 +56,8 @@ script = ExtResource("6_vhck3")
 camera = NodePath("..")
 duration = 0.5
 metadata/_custom_type_script = "uid://pw3x0udulq81"
+
+[node name="EnvironmentParticles" parent="Camera" unique_id=859882466 instance=ExtResource("7_ev8v4")]
+unique_name_in_owner = true
 
 [connection signal="character_changed" from="." to="." method="_on_character_changed"]

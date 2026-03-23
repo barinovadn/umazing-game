@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cg0q4b0se1wqy"]
+
+[ext_resource type="PackedScene" uid="uid://dvmgyqmrff85v" path="res://prefabs/environment/particles/leaves.tscn" id="1_pl786"]
+[ext_resource type="Texture2D" uid="uid://c8v1pup3mgtta" path="res://prefabs/environment/particles/leaves_pink.png" id="2_7f3i6"]
+
+[node name="LeavesPink" unique_id=1040242045 instance=ExtResource("1_pl786")]
+texture = ExtResource("2_7f3i6")
