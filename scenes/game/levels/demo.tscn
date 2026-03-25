@@ -38,15 +38,24 @@ tile_map_data = PackedByteArray("AAAeAAUAAAAEAAUAAAAeAAYAAAAEAAUAAAAeAAcAAAAEAAU
 [node name="Enviroments" parent="." index="4" unique_id=1656547831]
 z_index = 30
 
-[node name="Clear" parent="Enviroments" index="0" unique_id=341142702 instance=ExtResource("9_q7qle")]
+[node name="Spawn" parent="Enviroments" index="0" unique_id=702969072 instance=ExtResource("9_q7qle")]
 position = Vector2(3.0517578e-05, 1.1368684e-13)
+enter_particles_strict = true
+enter_particles_enable = Array[int]([500, 400])
+exit_particles_clear = false
 
-[node name="Leaves" parent="Enviroments" index="1" unique_id=310265255 instance=ExtResource("9_q7qle")]
+[node name="House" parent="Enviroments" index="1" unique_id=341142702 instance=ExtResource("9_q7qle")]
+position = Vector2(-319.99994, -479.99994)
+scale = Vector2(319.99997, 159.99998)
+enter_particles_strict = true
+enter_particles_enable = Array[int]([400])
+
+[node name="Forest" parent="Enviroments" index="2" unique_id=310265255 instance=ExtResource("9_q7qle")]
 position = Vector2(-320, 4.7683716e-07)
 enter_particles_enable = Array[int]([100])
 exit_particles_clear = false
 
-[node name="Rain" parent="Enviroments" index="2" unique_id=1539163547 instance=ExtResource("9_q7qle")]
+[node name="Swamp" parent="Enviroments" index="3" unique_id=1539163547 instance=ExtResource("9_q7qle")]
 position = Vector2(-319.99997, 159.99998)
 enter_particles_enable = Array[int]([200])
 

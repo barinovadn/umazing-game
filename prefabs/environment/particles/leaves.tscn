@@ -9,7 +9,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Gradient" id="Gradient_adnnn"]
-offsets = PackedFloat32Array(0, 0.1, 0.9, 1)
+offsets = PackedFloat32Array(0, 0.1, 0.8, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 
@@ -25,6 +25,7 @@ point_count = 2
 curve = SubResource("Curve_o3qfg")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pt8yr"]
+lifetime_randomness = 0.25
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(160, 80, 0)
@@ -40,8 +41,8 @@ gravity = Vector3(0, 1.5, 0)
 radial_accel_min = -1.5000021
 radial_accel_max = 1.4999977
 radial_accel_curve = SubResource("CurveTexture_adnnn")
-damping_min = 1.0
-damping_max = 1.0
+damping_min = 0.75000006
+damping_max = 1.25
 scale_min = 0.75
 color_ramp = SubResource("GradientTexture1D_r4326")
 hue_variation_min = -0.010000022
@@ -52,8 +53,8 @@ anim_offset_max = 1.0
 z_index = 50
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_adnnn")
-amount = 32
+amount = 16
 texture = ExtResource("1_5ndu8")
-lifetime = 5.0
+lifetime = 6.0
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_pt8yr")

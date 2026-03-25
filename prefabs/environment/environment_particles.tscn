@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://rym6l5lkwk1i" path="res://prefabs/environment/particles/rain.tscn" id="4_1dw8h"]
 [ext_resource type="PackedScene" uid="uid://qgr74ld04u5y" path="res://prefabs/environment/particles/rain_splash.tscn" id="5_ax4xk"]
 [ext_resource type="PackedScene" uid="uid://bn8sop333un6w" path="res://prefabs/environment/particles/snow.tscn" id="6_fsqql"]
+[ext_resource type="PackedScene" uid="uid://d38up01cl6ubu" path="res://prefabs/environment/particles/clouds.tscn" id="7_47dis"]
+[ext_resource type="PackedScene" uid="uid://clluf2qjbkx7u" path="res://prefabs/environment/particles/sunrays.tscn" id="7_sc3os"]
 
 [sub_resource type="Gradient" id="Gradient_adnnn"]
 offsets = PackedFloat32Array(0, 0.1, 0.9, 1)
@@ -57,6 +59,7 @@ emitting = false
 [node name="LeavesPink" parent="." unique_id=769144595 instance=ExtResource("3_47dis")]
 position = Vector2(0, -20)
 emitting = false
+lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_jlp8w")
 
 [node name="Rain" parent="." unique_id=409024164 instance=ExtResource("4_1dw8h")]
@@ -67,4 +70,19 @@ emitting = false
 
 [node name="Snow" parent="." unique_id=400159251 instance=ExtResource("6_fsqql")]
 position = Vector2(10, -20)
+emitting = false
+
+[node name="Sunrays" parent="." unique_id=894155489 instance=ExtResource("7_sc3os")]
+z_index = 52
+position = Vector2(0, -20)
+emitting = false
+
+[node name="Clouds" type="CanvasGroup" parent="." unique_id=1175772644]
+self_modulate = Color(1, 1, 1, 0.19607843)
+z_index = 51
+fit_margin = 1000.0
+clear_margin = 1000.0
+
+[node name="Clouds" parent="Clouds" unique_id=996622902 instance=ExtResource("7_47dis")]
+position = Vector2(-20, -20)
 emitting = false

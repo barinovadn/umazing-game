@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d38up01cl6ubu"]
+
+[ext_resource type="Texture2D" uid="uid://8jfh50to4cn3" path="res://prefabs/environment/particles/clouds.png" id="1_kx7np"]
+
+[sub_resource type="Gradient" id="Gradient_47dis"]
+offsets = PackedFloat32Array(0, 0.1, 0.8, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1dw8h"]
+gradient = SubResource("Gradient_47dis")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1dw8h"]
+lifetime_randomness = 0.15
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(160, 80, 0)
+direction = Vector3(1, 0.5, 0)
+spread = 0.0
+initial_velocity_min = 2.5
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_1dw8h")
+
+[node name="Clouds" type="GPUParticles2D" unique_id=996622902]
+modulate = Color(0, 0, 0, 1)
+amount = 32
+texture = ExtResource("1_kx7np")
+lifetime = 25.0
+process_material = SubResource("ParticleProcessMaterial_1dw8h")
