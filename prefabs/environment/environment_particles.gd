@@ -23,7 +23,8 @@ enum Ratio {
 
 ## If [code]true[/code], will mutate particles based on things like amount ratio.
 ## [br][br][b]Behaviours:[/b][br][br]
-## [member Type.CLOUDS] - Thicker clouds on high amount ratio.
+## [member Type.CLOUDS] - Thicker clouds on high amount ratio.[br]
+## [member Type.RAIN] - Faster drops on high amount ratio.[br]
 @export var enable_particle_mutations: bool = true
 
 ## Maps particle [enum Types] to their corresponding [GPUParticles2D] nodes.
@@ -53,6 +54,11 @@ func _apply_mutations(node: GPUParticles2D):
 			var alpha_max = .2
 			var alpha = alpha_min + (node.amount_ratio * (alpha_max - alpha_min))
 			$Clouds.self_modulate = Color(0, 0, 0, alpha)
+		'Rain':
+			var speed_min = 0.85
+			var speed_max = 1.5
+			var speed = speed_min + (node.amount_ratio * (speed_max - speed_min))
+			node.speed_scale = speed
 
 
 ## Sets the emission state for a specific particle [param type] or group

@@ -80,9 +80,7 @@ emitting = false
 [node name="Clouds" type="CanvasGroup" parent="." unique_id=1175772644]
 self_modulate = Color(1, 1, 1, 0.19607843)
 z_index = 51
-fit_margin = 1000.0
-clear_margin = 1000.0
 
 [node name="Clouds" parent="Clouds" unique_id=996622902 instance=ExtResource("7_47dis")]
-position = Vector2(-20, -20)
+position = Vector2(-40, -40)
 emitting = false

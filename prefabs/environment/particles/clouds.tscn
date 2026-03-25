@@ -14,7 +14,7 @@ gradient = SubResource("Gradient_47dis")
 lifetime_randomness = 0.15
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(160, 80, 0)
+emission_box_extents = Vector3(480, 240, 0)
 direction = Vector3(1, 0.5, 0)
 spread = 0.0
 initial_velocity_min = 2.5
@@ -25,7 +25,8 @@ color_ramp = SubResource("GradientTexture1D_1dw8h")
 
 [node name="Clouds" type="GPUParticles2D" unique_id=996622902]
 modulate = Color(0, 0, 0, 1)
-amount = 32
+amount = 288
 texture = ExtResource("1_kx7np")
 lifetime = 25.0
+visibility_rect = Rect2(-720, -360, 1440, 720)
 process_material = SubResource("ParticleProcessMaterial_1dw8h")
