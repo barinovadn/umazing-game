@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://41x1u1qme7gn"]
+[gd_scene format=3 uid="uid://41x1u1qme7gn"]
 
 [ext_resource type="Script" uid="uid://qfhlyv6qahij" path="res://prefabs/characters/character.gd" id="1_87xpb"]
 [ext_resource type="Texture2D" uid="uid://dr3al2fstqc" path="res://prefabs/characters/shadow.png" id="1_up5c1"]
@@ -372,30 +372,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("animator", "collider") groups=["character"]]
+[node name="Character" type="CharacterBody2D" unique_id=2065001503 node_paths=PackedStringArray("animator", "collider") groups=["character"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_87xpb")
 animator = NodePath("AnimationController")
 collider = NodePath("Collider")
 
-[node name="Collider" type="CollisionShape2D" parent="."]
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1644825572]
 shape = SubResource("CircleShape2D_up5c1")
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="." unique_id=66535912]
 modulate = Color(1, 1, 1, 0.392157)
 texture_filter = 1
 position = Vector2(0, 8)
 texture = ExtResource("1_up5c1")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2042220320]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_p7si6")
 animation = &"idle_down"
 autoplay = "idle_down"
 frame_progress = 0.753053
 
-[node name="AnimationController" type="Node" parent="." node_paths=PackedStringArray("animated_sprite")]
+[node name="AnimationController" type="Node" parent="." unique_id=395358213 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("2_o6vhl")
 animated_sprite = NodePath("../Sprite")
 metadata/_custom_type_script = "uid://dyqeulekjrh6q"

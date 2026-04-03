@@ -46,6 +46,7 @@ character=""
 interactable=""
 inspectable=""
 teleport=""
+environment_zone=""
 
 [input]
 
@@ -84,3 +85,10 @@ interact={
 2d_physics/layer_1="Map"
 2d_physics/layer_2="Characters"
 2d_physics/layer_3="Interactables"
+2d_physics/layer_4="Player"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
+textures/stretch/mode="viewport"

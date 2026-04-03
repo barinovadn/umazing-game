@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://qgr74ld04u5y"]
+
+[ext_resource type="Texture2D" uid="uid://gvpmsevinb3x" path="res://prefabs/environment/particles/rain_splash.png" id="1_7guth"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ffn5c"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w4pas"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 1.15
+anim_speed_min = 0.75
+anim_speed_max = 1.25
+
+[node name="RainSplash" type="GPUParticles2D" unique_id=411680030]
+modulate = Color(0, 0.78431374, 0.6862745, 0.29411766)
+z_index = 10
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ffn5c")
+emitting = false
+amount = 64
+texture = ExtResource("1_7guth")
+process_material = SubResource("ParticleProcessMaterial_w4pas")

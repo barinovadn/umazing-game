@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://clluf2qjbkx7u"]
+
+[ext_resource type="Texture2D" uid="uid://diclax13gu5ip" path="res://prefabs/environment/particles/sunrays.png" id="1_78qn4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_78qn4"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_78qn4"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kl50p"]
+gradient = SubResource("Gradient_78qn4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_78qn4"]
+lifetime_randomness = 0.25
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(160, 60, 0)
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 0.25
+initial_velocity_max = 2.5
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 1.25
+color = Color(1, 1, 1, 0.39215687)
+color_ramp = SubResource("GradientTexture1D_kl50p")
+anim_offset_max = 1.0
+
+[node name="Sunrays" type="GPUParticles2D" unique_id=894155489]
+modulate = Color(0.9411765, 0.78431374, 0.50980395, 1)
+self_modulate = Color(1, 1, 1, 0.6862745)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_78qn4")
+amount = 12
+texture = ExtResource("1_78qn4")
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_78qn4")

@@ -1,0 +1,159 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://prefabs/dialogues/dialogue_window.gd" id="1_krhdo"]
+[ext_resource type="Theme" path="res://common/theme/theme.tres" id="2_yq22c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ky7y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2h7xv"]
+font_size = 18
+font_color = Color(1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hm711"]
+font_size = 16
+font_color = Color(1, 1, 1, 0)
+
+[node name="DialogueWindow" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_yq22c")
+script = ExtResource("1_krhdo")
+
+[node name="RootMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 18
+mouse_filter = 2
+
+[node name="Layout" type="VBoxContainer" parent="RootMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Spacer" type="Control" parent="RootMargin/Layout"]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="RootMargin/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 262)
+layout_mode = 2
+size_flags_horizontal = 3
+clip_contents = true
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4ky7y")
+
+[node name="BackgroundTexture" type="TextureRect" parent="RootMargin/Layout/Panel"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackgroundTint" type="ColorRect" parent="RootMargin/Layout/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.0745098, 0.027451, 0.42)
+mouse_filter = 2
+
+[node name="AccentBar" type="ColorRect" parent="RootMargin/Layout/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+color = Color(0.956863, 0.788235, 0.482353, 1)
+mouse_filter = 2
+
+[node name="ContentMargin" type="MarginContainer" parent="RootMargin/Layout/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 18
+mouse_filter = 2
+
+[node name="Content" type="HBoxContainer" parent="RootMargin/Layout/Panel/ContentMargin"]
+layout_mode = 2
+theme_override_constants/separation = 22
+mouse_filter = 2
+
+[node name="PortraitFrame" type="PanelContainer" parent="RootMargin/Layout/Panel/ContentMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(188, 188)
+layout_mode = 2
+clip_contents = true
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4ky7y")
+
+[node name="PortraitMargin" type="MarginContainer" parent="RootMargin/Layout/Panel/ContentMargin/Content/PortraitFrame"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+mouse_filter = 2
+
+[node name="Portrait" type="TextureRect" parent="RootMargin/Layout/Panel/ContentMargin/Content/PortraitFrame/PortraitMargin"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(188, 188)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextContent" type="VBoxContainer" parent="RootMargin/Layout/Panel/ContentMargin/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+mouse_filter = 2
+
+[node name="NameLabel" type="Label" parent="RootMargin/Layout/Panel/ContentMargin/Content/TextContent"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+layout_mode = 2
+label_settings = SubResource("LabelSettings_2h7xv")
+text = "Speaker"
+mouse_filter = 2
+
+[node name="TextLabel" type="Label" parent="RootMargin/Layout/Panel/ContentMargin/Content/TextContent"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+label_settings = SubResource("LabelSettings_hm711")
+autowrap_mode = 3
+text = "Dialogue text"
+vertical_alignment = 1
+mouse_filter = 2

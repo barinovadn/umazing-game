@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bacv78hbdgtby"
-path="res://.godot/imported/grid_camera_controller.png-de7480b3581692d0196f3a4c58dce8d2.ctex"
+uid="uid://8jfh50to4cn3"
+path="res://.godot/imported/clouds.png-8d5df36e070843edc03927006ea312c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/grid_camera/grid_camera_controller.png"
-dest_files=["res://.godot/imported/grid_camera_controller.png-de7480b3581692d0196f3a4c58dce8d2.ctex"]
+source_file="res://prefabs/environment/particles/clouds.png"
+dest_files=["res://.godot/imported/clouds.png-8d5df36e070843edc03927006ea312c2.ctex"]
 
 [params]
 

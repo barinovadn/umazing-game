@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bc23rt8gxe0c8"]
+
+[ext_resource type="Script" uid="uid://vv6uye17wnr5" path="res://prefabs/environment/environment_particles.gd" id="1_ln21r"]
+[ext_resource type="PackedScene" uid="uid://dvmgyqmrff85v" path="res://prefabs/environment/particles/leaves.tscn" id="2_sc3os"]
+[ext_resource type="PackedScene" uid="uid://cg0q4b0se1wqy" path="res://prefabs/environment/particles/leaves_pink.tscn" id="3_47dis"]
+[ext_resource type="PackedScene" uid="uid://rym6l5lkwk1i" path="res://prefabs/environment/particles/rain.tscn" id="4_1dw8h"]
+[ext_resource type="PackedScene" uid="uid://qgr74ld04u5y" path="res://prefabs/environment/particles/rain_splash.tscn" id="5_ax4xk"]
+[ext_resource type="PackedScene" uid="uid://bn8sop333un6w" path="res://prefabs/environment/particles/snow.tscn" id="6_fsqql"]
+[ext_resource type="PackedScene" uid="uid://d38up01cl6ubu" path="res://prefabs/environment/particles/clouds.tscn" id="7_47dis"]
+[ext_resource type="PackedScene" uid="uid://clluf2qjbkx7u" path="res://prefabs/environment/particles/sunrays.tscn" id="7_sc3os"]
+
+[sub_resource type="Gradient" id="Gradient_adnnn"]
+offsets = PackedFloat32Array(0, 0.1, 0.9, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r4326"]
+gradient = SubResource("Gradient_adnnn")
+
+[sub_resource type="Curve" id="Curve_o3qfg"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_adnnn"]
+curve = SubResource("Curve_o3qfg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jlp8w"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(160, 80, 0)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, 1, 0)
+spread = 25.0
+initial_velocity_min = 2.5
+initial_velocity_max = 7.5
+angular_velocity_min = -15.000016
+angular_velocity_max = 14.999984
+gravity = Vector3(0, 1.5, 0)
+radial_accel_min = -1.5000021
+radial_accel_max = 1.4999977
+radial_accel_curve = SubResource("CurveTexture_adnnn")
+damping_min = 1.0
+damping_max = 1.0
+scale_min = 0.75
+color_ramp = SubResource("GradientTexture1D_r4326")
+hue_variation_min = -0.010000022
+hue_variation_max = 0.039999977
+anim_offset_max = 1.0
+
+[node name="EnviromentParticles" type="Node2D" unique_id=859882466]
+script = ExtResource("1_ln21r")
+
+[node name="Leaves" parent="." unique_id=1040242045 instance=ExtResource("2_sc3os")]
+position = Vector2(0, -20)
+emitting = false
+
+[node name="LeavesPink" parent="." unique_id=769144595 instance=ExtResource("3_47dis")]
+position = Vector2(0, -20)
+emitting = false
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_jlp8w")
+
+[node name="Rain" parent="." unique_id=409024164 instance=ExtResource("4_1dw8h")]
+position = Vector2(20, -80)
+emitting = false
+
+[node name="RainSplash" parent="." unique_id=411680030 instance=ExtResource("5_ax4xk")]
+
+[node name="Snow" parent="." unique_id=400159251 instance=ExtResource("6_fsqql")]
+position = Vector2(10, -20)
+emitting = false
+
+[node name="Sunrays" parent="." unique_id=894155489 instance=ExtResource("7_sc3os")]
+z_index = 52
+position = Vector2(0, -20)
+emitting = false
+
+[node name="Clouds" type="CanvasGroup" parent="." unique_id=1175772644]
+self_modulate = Color(1, 1, 1, 0.19607843)
+z_index = 51
+
+[node name="Clouds" parent="Clouds" unique_id=996622902 instance=ExtResource("7_47dis")]
+position = Vector2(-40, -40)
+emitting = false

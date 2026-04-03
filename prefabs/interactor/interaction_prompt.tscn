@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://prefabs/interactor/interaction_prompt.gd" id="1_homji"]
+
+[node name="InteractionPrompt" type="PanelContainer"]
+mouse_filter = 2
+script = ExtResource("1_homji")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Margin"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1

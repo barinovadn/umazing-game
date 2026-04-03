@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfixewint48qa"
-path="res://.godot/imported/player_movement_controller.png-5f2713a81ee99a4d88a8d3f359a4a7bd.ctex"
+uid="uid://dtbmwes1ap2qc"
+path="res://.godot/imported/snow.png-ba655b0a5f82f635c9c1a41929b14f10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/movement/player_movement_controller.png"
-dest_files=["res://.godot/imported/player_movement_controller.png-5f2713a81ee99a4d88a8d3f359a4a7bd.ctex"]
+source_file="res://prefabs/environment/particles/snow.png"
+dest_files=["res://.godot/imported/snow.png-ba655b0a5f82f635c9c1a41929b14f10.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 @icon("movement_controller.png")
 class_name MovementController2D
 extends Node
-## Base movement controller for the [CharacterBody2D].
+## Base movement controller for any [Node2D].
 
 
 ## Emitted whenever character moves.
@@ -15,11 +15,8 @@ signal direction_changed(direction: Vector2)
 ## Emitted when [member movement_enabled] changes value.
 signal movement_toggled(enabled: bool)
 ## Emitted when character is teleported using [method teleport].
-signal teleported(new_position: Vector2, old_position: Vector2)
+signal teleported(new_position: Vector2)
 
-## The [CharacterBody2D] node this controller operates on.
-## If not assigned, will attempt to use the parent node.
-@export var character_body: CharacterBody2D
 
 @export_group("Movement", "movement")
 ## Character movement speed in pixels per second.
@@ -44,6 +41,7 @@ var direction: Vector2 = Vector2.ZERO:
 		direction = value
 		direction_changed.emit(direction)
 ## Whether the character is currently moving.
+## Emits [signal movement_started] & [signal movement_stopped] when changed.
 var is_moving: bool = false:
 	set(value):
 		if value == is_moving:
@@ -56,30 +54,11 @@ var is_moving: bool = false:
 			movement_stopped.emit()
 
 
-func _ready():
-	if not character_body:
-		character_body = get_parent() as CharacterBody2D
-	
-	if not character_body:
-		push_error("\"character_body\" was not assigned and parent is not "
-			+ "CharacterBody2D. Disabling controller.")
-		movement_enabled = false
-
-
-func _physics_process(_delta):
-	if not movement_enabled:
-		return
-	character_body.move_and_slide()
-
-
 ## Moves the character by [param speed] amount in the current [member direction].
 ## If [param new_direction] is not [code]Vector2.ZERO[/code] will update
-## [member direction] before moving.
+## [member direction]. Emits [signal moved].
 func move(speed: float = movement_speed, new_direction: Vector2 = Vector2.ZERO):
 	if not movement_enabled:
-		return
-	if not character_body:
-		push_error("\"character_body\" is not assigned.")
 		return
 	
 	if new_direction:
@@ -88,26 +67,15 @@ func move(speed: float = movement_speed, new_direction: Vector2 = Vector2.ZERO):
 	if not speed or not direction:
 		return
 	
-	character_body.velocity = direction * speed
 	is_moving = true
-	
 	moved.emit(direction, speed)
 
 
-## Resets the [member character_body]'s [member CharacterBody2D.velocity].
+## Updates [member is_moving].
 func stop():
-	if character_body:
-		character_body.velocity = Vector2.ZERO
 	is_moving = false
 
 
-## Updates [member character_body]'s [member CharacterBody2D.global_position].
+## Emits [signal teleported].
 func teleport(new_position: Vector2):
-	if not character_body:
-		push_error("\"character_body\" is not assigned.")
-		return
-	
-	var old_position := character_body.global_position
-	
-	character_body.global_position = new_position
-	teleported.emit(new_position, old_position)
+	teleported.emit(new_position)

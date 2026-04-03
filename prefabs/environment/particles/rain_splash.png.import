@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvpubrdgapvib"
-path="res://.godot/imported/behaviour_follow.png-4a8b012984b746a38a630986dc42b4d5.ctex"
+uid="uid://gvpmsevinb3x"
+path="res://.godot/imported/rain_splash.png-64e7c27494cede179be036c7c6cc0763.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/movement/behaviour_follow.png"
-dest_files=["res://.godot/imported/behaviour_follow.png-4a8b012984b746a38a630986dc42b4d5.ctex"]
+source_file="res://prefabs/environment/particles/rain_splash.png"
+dest_files=["res://.godot/imported/rain_splash.png-64e7c27494cede179be036c7c6cc0763.ctex"]
 
 [params]
 

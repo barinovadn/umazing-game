@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_rmbh0"]
 [ext_resource type="Texture2D" uid="uid://dnj5g6glklxbw" path="res://prefabs/characters/ninja_blue/sprite_sheet.png" id="2_bs44n"]
+[ext_resource type="Texture2D" path="res://prefabs/characters/ninja_blue/portrait.png" id="3_7yr8m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgr0m"]
 atlas = ExtResource("2_bs44n")
@@ -320,6 +321,8 @@ animations = [{
 }]
 
 [node name="NinjaBlue" instance=ExtResource("1_rmbh0")]
+dialogue_name = "Синий ниндзя"
+portrait_texture = ExtResource("3_7yr8m")
 
 [node name="Sprite" parent="." index="2"]
 sprite_frames = SubResource("SpriteFrames_bs44n")

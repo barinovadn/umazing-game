@@ -1,6 +1,9 @@
 extends PanelContainer
 class_name SpeechBubble
 
+const LABEL_DESC: LabelSettings = preload("res://common/theme/label_desc.tres")
+const DIALOGUE_FONT: FontFile = preload("res://common/theme/fonts/minecraftfont.ttf")
+
 @export var offset: Vector2 = Vector2(0, -36)
 @export var max_width: float = 280.0
 
@@ -18,6 +21,15 @@ var _tween: Tween
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	modulate = Color(modulate.r, modulate.g, modulate.b, 0.0)
+
+	var bubble_settings: LabelSettings = LABEL_DESC.duplicate()
+	bubble_settings.font = DIALOGUE_FONT
+	bubble_settings.font_size = 16
+	bubble_settings.line_spacing = 0.0
+	bubble_settings.outline_size = 0
+	bubble_settings.font_color = Color.WHITE
+	_label.label_settings = bubble_settings
+	_label.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 
 func show_for(target: CanvasItem, text: String, duration: float = -1.0) -> void:
 	_target = target

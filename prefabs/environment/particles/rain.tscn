@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://rym6l5lkwk1i"]
+
+[ext_resource type="Texture2D" uid="uid://c0sug0hsmcfi1" path="res://prefabs/environment/particles/rain.png" id="1_w5moh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sv3jh"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_sv3jh"]
+offsets = PackedFloat32Array(0, 0.3, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ffn5c"]
+gradient = SubResource("Gradient_sv3jh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e3w27"]
+lifetime_randomness = 0.75
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(160, 80, 0)
+direction = Vector3(-0.45, 1, 0)
+spread = 0.0
+initial_velocity_min = 60.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_ffn5c")
+anim_offset_max = 1.0
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[node name="Rain" type="GPUParticles2D" unique_id=409024164]
+modulate = Color(0, 0.78431374, 0.78431374, 0.5882353)
+z_index = 50
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_sv3jh")
+amount = 48
+sub_emitter = NodePath("../RainSplash")
+texture = ExtResource("1_w5moh")
+lifetime = 1.5
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_e3w27")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crxt0jgkocsg4"
-path="res://.godot/imported/grid_camera_follower.png-b6bdbf6204dae2bb074956ecc97cbb70.ctex"
+uid="uid://c0sug0hsmcfi1"
+path="res://.godot/imported/rain.png-07bae9dd9bdcbfb5f9f1ba47c2bbb3b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/grid_camera/grid_camera_follower.png"
-dest_files=["res://.godot/imported/grid_camera_follower.png-b6bdbf6204dae2bb074956ecc97cbb70.ctex"]
+source_file="res://prefabs/environment/particles/rain.png"
+dest_files=["res://.godot/imported/rain.png-07bae9dd9bdcbfb5f9f1ba47c2bbb3b6.ctex"]
 
 [params]
 
