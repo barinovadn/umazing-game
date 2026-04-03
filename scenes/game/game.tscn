@@ -26,6 +26,7 @@ script = ExtResource("5_lfrn8")
 metadata/_custom_type_script = "uid://bp0bnmynw2d1p"
 
 [node name="Player" parent="." unique_id=486757243 instance=ExtResource("6_2a8rs")]
+unique_name_in_owner = true
 
 [node name="Tilemap" type="Node2D" parent="." unique_id=1439768727]
 editor_description = "123"
@@ -56,6 +57,9 @@ tile_set = ExtResource("6_bdhmt")
 
 [node name="Enviroments" type="Node2D" parent="." unique_id=1656547831]
 
+[node name="Arenas" type="Node2D" parent="." unique_id=1759205337]
+z_index = 30
+
 [node name="Teleports" type="Node2D" parent="." unique_id=1760141152]
 modulate = Color(1, 1, 1, 0.39215687)
 z_index = 45
@@ -65,3 +69,5 @@ z_index = 30
 
 [node name="Interactables" type="Node2D" parent="." unique_id=233789877]
 z_index = 45
+
+[node name="Bosses" type="Node2D" parent="." unique_id=2090847819]

@@ -49,10 +49,10 @@ enum AnimationType {
 	AnimationType.WALK_LEFT: 'walk_left',
 	AnimationType.WALK_RIGHT: 'walk_right',
 	
-	AnimationType.ATTACK_DOWN: 'interact_down',
-	AnimationType.ATTACK_UP: 'interact_up',
-	AnimationType.ATTACK_LEFT: 'interact_left',
-	AnimationType.ATTACK_RIGHT: 'interact_right',
+	AnimationType.ATTACK_DOWN: 'attack_down',
+	AnimationType.ATTACK_UP: 'attack_up',
+	AnimationType.ATTACK_LEFT: 'attack_left',
+	AnimationType.ATTACK_RIGHT: 'attack_right',
 	
 	AnimationType.DOWNED: 'downed',
 	AnimationType.STANCE: 'stance',

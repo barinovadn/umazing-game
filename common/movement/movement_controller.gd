@@ -70,7 +70,6 @@ func move(speed: float = movement_speed, new_direction: Vector2 = Vector2.ZERO):
 	is_moving = true
 	moved.emit(direction, speed)
 
-
 ## Updates [member is_moving].
 func stop():
 	is_moving = false

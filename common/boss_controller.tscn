@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://fgbsvngybrki"]
+
+[ext_resource type="Script" uid="uid://c2cxt5deg26ha" path="res://common/boss_controller.gd" id="1_4vsq4"]
+
+[node name="BossController" type="Node2D" unique_id=1818865949]
+script = ExtResource("1_4vsq4")
+
+[node name="PauseBetweenShots" type="Timer" parent="." unique_id=2056193798]
+
+[node name="ActionChanger" type="Timer" parent="." unique_id=485483522]
+autostart = true
+
+[connection signal="timeout" from="PauseBetweenShots" to="." method="_on_pause_between_shots_timeout"]
+[connection signal="timeout" from="ActionChanger" to="." method="_on_action_changer_timeout"]

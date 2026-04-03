@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://blpphk5jb2kas"]
+
+[ext_resource type="Script" uid="uid://bpkneq8pdtsvv" path="res://prefabs/enemy/enemy.gd" id="1_cw8k2"]
+[ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://common/combat/hurt_component.tscn" id="2_wl1l3"]
+
+[node name="Enemy" type="Node" unique_id=836392604]
+script = ExtResource("1_cw8k2")
+
+[node name="HurtComponent" parent="." unique_id=949368062 instance=ExtResource("2_wl1l3")]
+
+[node name="Timer" type="Timer" parent="." unique_id=305136321]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

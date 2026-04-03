@@ -20,3 +20,7 @@ func _ready():
 	if target:
 		target.visible = false
 	visible = false
+
+
+func _on_teleport_cat_in_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

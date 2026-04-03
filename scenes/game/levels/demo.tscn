@@ -2,13 +2,39 @@
 
 [ext_resource type="PackedScene" uid="uid://buhslpn3jaek5" path="res://scenes/game/game.tscn" id="1_c3u61"]
 [ext_resource type="PackedScene" uid="uid://cuxbwbedjhckr" path="res://prefabs/characters/pig/pig.tscn" id="2_r64fy"]
+[ext_resource type="Script" uid="uid://7vdpdfpl2omh" path="res://prefabs/arenas/arena.gd" id="3_1qwsm"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="3_fp2w6"]
+[ext_resource type="Script" uid="uid://b6ddkmiei8uxj" path="res://prefabs/teleport/teleport_boss_in.gd" id="4_bc555"]
 [ext_resource type="PackedScene" uid="uid://05bun2aymxh" path="res://prefabs/characters/ninja_blue/ninja_blue.tscn" id="4_n6h0s"]
+[ext_resource type="Script" uid="uid://dfq740rdjyaf1" path="res://prefabs/teleport/teleport_boss_out.gd" id="5_7im6l"]
 [ext_resource type="PackedScene" uid="uid://dcrm5punhuk0d" path="res://prefabs/characters/ninja_green/ninja_green.tscn" id="5_gfex4"]
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="7_8qff5"]
 [ext_resource type="PackedScene" uid="uid://ck2kcqhlhgtlm" path="res://prefabs/teleport/teleport.tscn" id="8_ygfwu"]
 [ext_resource type="PackedScene" uid="uid://bc2kdebobsqlu" path="res://prefabs/interactables/inspectable/inspectable.tscn" id="9_8ic3i"]
 [ext_resource type="PackedScene" uid="uid://uhy5xmcfxpe8" path="res://prefabs/environment/environment_zone.tscn" id="9_q7qle"]
+[ext_resource type="PackedScene" uid="uid://ckf02713hcpbr" path="res://prefabs/characters/cat/cat.tscn" id="11_7im6l"]
+[ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://common/combat/hurt_component.tscn" id="11_bpga3"]
+[ext_resource type="PackedScene" uid="uid://bjb2riattkaaa" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat.tscn" id="14_nfdyi"]
+[ext_resource type="PackedScene" uid="uid://csv6sg13nww7x" path="res://common/movement/controllers/dot_to_dot_movement_controller.tscn" id="15_xrc6b"]
+[ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://common/combat/shoot_controller_2d.tscn" id="16_jqxbl"]
+[ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/bullets/homing_shot/homing_shot.tscn" id="18_ivmt6"]
+[ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/bullets/stone_shot/stone_shot.tscn" id="19_ivmt6"]
+[ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://common/combat/action.gd" id="20_ivmt6"]
+[ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://common/boss_controller.tscn" id="21_bavnk"]
+[ext_resource type="Script" uid="uid://jqsqblr1x2hg" path="res://common/cat_boss_controller.gd" id="22_1qwsm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf761"]
+size = Vector2(320, 160)
+
+[sub_resource type="Resource" id="Resource_1qwsm"]
+script = ExtResource("20_ivmt6")
+action_name = "homing_shot"
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_bf761"]
+script = ExtResource("20_ivmt6")
+action_name = "stone_shot"
+metadata/_custom_type_script = "uid://dowl0clqumedg"
 
 [node name="Game" unique_id=204430001 instance=ExtResource("1_c3u61")]
 
@@ -33,7 +59,7 @@ tile_map_data = PackedByteArray("AAD3/wQAAwAAAAYAAAD7/wQAAwAEAAYAAAD6//z/AwAAAAY
 
 [node name="Foreground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="4" unique_id=720212395]
 z_index = 60
-tile_map_data = PackedByteArray("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")
+tile_map_data = PackedByteArray("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")
 
 [node name="Enviroments" parent="." index="4" unique_id=1656547831]
 z_index = 30
@@ -59,7 +85,18 @@ exit_particles_clear = false
 position = Vector2(-319.99997, 159.99998)
 enter_particles_enable = Array[int]([200])
 
-[node name="Teleports" parent="." index="5" unique_id=1760141152]
+[node name="Arena" type="Area2D" parent="Arenas" parent_id_path=PackedInt32Array(1759205337) index="0" unique_id=1650960964]
+position = Vector2(1000, 0)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+script = ExtResource("3_1qwsm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena" index="0" unique_id=1919009723]
+position = Vector2(-40, -480)
+shape = SubResource("RectangleShape2D_bf761")
+
+[node name="Teleports" parent="." index="6" unique_id=1760141152]
 z_index = 50
 
 [node name="TeleportRedIn" parent="Teleports" index="0" unique_id=1365302331 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
@@ -83,6 +120,25 @@ color = Color(0, 0, 1, 1)
 [node name="TeleportBlueExit" type="Marker2D" parent="Teleports" index="3" unique_id=1889251809]
 position = Vector2(-72, -216)
 
+[node name="CatBossTeleports" type="Node2D" parent="Teleports" index="4" unique_id=543658664]
+
+[node name="TeleportCatIn" parent="Teleports/CatBossTeleports" index="0" unique_id=1465987655 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
+position = Vector2(100, 142)
+script = ExtResource("4_bc555")
+exit = NodePath("../TeleportCatExit")
+color = Color(0.7058824, 0, 0, 1)
+
+[node name="TeleportCatOut" parent="Teleports/CatBossTeleports" index="1" unique_id=490998921 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
+position = Vector2(1000, -475)
+monitoring = false
+monitorable = false
+script = ExtResource("5_7im6l")
+exit = NodePath("../TeleportCatIn")
+color = Color(0.9529412, 0, 0, 1)
+
+[node name="TeleportCatExit" type="Marker2D" parent="Teleports/CatBossTeleports" index="2" unique_id=1654285965]
+position = Vector2(866, -475)
+
 [node name="Villagers" type="Node2D" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="0" unique_id=733391101]
 
 [node name="Dummy1" parent="Characters/Villagers" index="0" unique_id=716987818 instance=ExtResource("7_8qff5")]
@@ -100,10 +156,21 @@ collision = false
 
 [node name="Dummy3" parent="Characters/Villagers" index="2" unique_id=1121667308 instance=ExtResource("7_8qff5")]
 position = Vector2(264, 152)
+collision_mask = 1027
 start_animation = 19
 
-[node name="Pig" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="1" unique_id=1128731474 node_paths=PackedStringArray("movement") instance=ExtResource("2_r64fy")]
+[node name="Cat" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="1" unique_id=2065001503 instance=ExtResource("11_7im6l")]
+position = Vector2(100, 142)
+collision_mask = 1027
+collision = false
+
+[node name="HurtComponent" parent="Characters/Cat" index="4" unique_id=949368062 instance=ExtResource("11_bpga3")]
+collision_layer = 2048
+team = 2
+
+[node name="Pig" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="2" unique_id=1128731474 node_paths=PackedStringArray("movement") instance=ExtResource("2_r64fy")]
 position = Vector2(-136, 128)
+collision_mask = 1027
 movement = NodePath("BehaviourFollow")
 collision = false
 
@@ -115,8 +182,13 @@ distance_max = 30.0
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
-[node name="NinjaBlue" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="2" unique_id=986257099 node_paths=PackedStringArray("movement") instance=ExtResource("4_n6h0s")]
+[node name="HurtComponent" parent="Characters/Pig" index="5" unique_id=2113847110 instance=ExtResource("11_bpga3")]
+collision_layer = 2048
+team = 2
+
+[node name="NinjaBlue" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="3" unique_id=986257099 node_paths=PackedStringArray("movement") instance=ExtResource("4_n6h0s")]
 position = Vector2(-16, 56)
+collision_mask = 1027
 movement = NodePath("BehaviourFollow")
 collision = false
 
@@ -127,11 +199,11 @@ distance_max = 40.0
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
-[node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="3" unique_id=379324176 instance=ExtResource("5_gfex4")]
+[node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="4" unique_id=379324176 instance=ExtResource("5_gfex4")]
 position = Vector2(0, 160)
 start_animation = 1
 
-[node name="Interactables" parent="." index="7" unique_id=233789877]
+[node name="Interactables" parent="." index="8" unique_id=233789877]
 z_index = 50
 
 [node name="InspectableSign" parent="Interactables" index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
@@ -141,3 +213,53 @@ description = Array[String](["Blah-blah-blah..."])
 [node name="InspectableSecret" parent="Interactables" index="1" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
 position = Vector2(-536, -120)
 description = Array[String](["<- Free hotdogs this way."])
+
+[node name="CyclopusCat" parent="Bosses" parent_id_path=PackedInt32Array(2090847819) index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("14_nfdyi")]
+position = Vector2(1040, -483)
+scale = Vector2(3, 3)
+collision_mask = 1
+movement = NodePath("BossController/CatEnemyMovementController")
+hurt_component = NodePath("HurtComponent")
+shoot_controller = NodePath("BossController/ShootController2D")
+
+[node name="HurtComponent" parent="Bosses/CyclopusCat" index="4" unique_id=28986261 instance=ExtResource("11_bpga3")]
+collision_layer = 2048
+health = 1
+
+[node name="BossController" parent="Bosses/CyclopusCat" index="5" unique_id=1818865949 node_paths=PackedStringArray("shoot_controller_2d") instance=ExtResource("21_bavnk")]
+script = ExtResource("22_1qwsm")
+bullet_types = Array[Resource]([ExtResource("18_ivmt6"), ExtResource("19_ivmt6")])
+boss_actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_1qwsm"), SubResource("Resource_bf761")])
+shoot_controller_2d = NodePath("ShootController2D")
+
+[node name="CatEnemyMovementController" parent="Bosses/CyclopusCat/BossController" index="2" unique_id=1724548566 node_paths=PackedStringArray("enemy_movement_points") instance=ExtResource("15_xrc6b")]
+enemy_movement_points = NodePath("../../../CatMovementPoints")
+movement_speed = 60.0
+
+[node name="ShootController2D" parent="Bosses/CyclopusCat/BossController" index="3" unique_id=1242481191 node_paths=PackedStringArray("character_body") instance=ExtResource("16_jqxbl")]
+bullet_types = null
+character_body = NodePath("../../../../Characters/NinjaGreen")
+fighting_enabled = null
+
+[node name="CatMovementPoints" type="Node2D" parent="Bosses" parent_id_path=PackedInt32Array(2090847819) index="1" unique_id=275429518]
+
+[node name="Marker2D" type="Marker2D" parent="Bosses/CatMovementPoints" index="0" unique_id=1302536844]
+position = Vector2(1014, -539)
+
+[node name="Marker2D2" type="Marker2D" parent="Bosses/CatMovementPoints" index="1" unique_id=1490620877]
+position = Vector2(1086, -540)
+
+[node name="Marker2D3" type="Marker2D" parent="Bosses/CatMovementPoints" index="2" unique_id=1946712600]
+position = Vector2(1085, -490)
+
+[node name="Marker2D4" type="Marker2D" parent="Bosses/CatMovementPoints" index="3" unique_id=1385015198]
+position = Vector2(1014, -489)
+
+[node name="Marker2D5" type="Marker2D" parent="Bosses/CatMovementPoints" index="4" unique_id=1516198200]
+position = Vector2(1085, -428)
+
+[node name="Marker2D6" type="Marker2D" parent="Bosses/CatMovementPoints" index="5" unique_id=1073844928]
+position = Vector2(1014, -427)
+
+[connection signal="area_entered" from="Arenas/Arena" to="Arenas/Arena" method="_on_area_entered"]
+[connection signal="area_entered" from="Teleports/CatBossTeleports/TeleportCatIn" to="Teleports/CatBossTeleports/TeleportCatIn" method="_on_area_entered"]
