@@ -8,6 +8,7 @@ class_name BossController
 @onready var action_changer: Timer = $ActionChanger
 @onready var pause_between_shots: Timer = $PauseBetweenShots
 @export var shoot_controller_2d: ShootController2D
+@export var hurt_controller: HurtComponent
 
 var current_bullet_type : Resource
 

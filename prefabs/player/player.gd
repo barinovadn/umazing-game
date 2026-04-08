@@ -66,7 +66,7 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 	if camera_controller:
 		camera_controller.target = new_character
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("shoot") && !is_shooting:
 		is_shooting = true
 		player_fight_controller.direction = interactor.direction

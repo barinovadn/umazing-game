@@ -42,7 +42,6 @@ metadata/_custom_type_script = "uid://dowl0clqumedg"
 modulate = Color(1, 1, 1, 0.039215688)
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
-unique_name_in_owner = true
 character = NodePath("../Characters/NinjaGreen")
 
 [node name="Background" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="0" unique_id=560005983]
@@ -164,7 +163,7 @@ position = Vector2(100, 142)
 collision_mask = 1027
 collision = false
 
-[node name="HurtComponent" parent="Characters/Cat" index="4" unique_id=949368062 instance=ExtResource("11_bpga3")]
+[node name="HurtComponent" parent="Characters/Cat" index="4" unique_id=889008010 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
 collision_layer = 2048
 team = 2
 
@@ -182,7 +181,7 @@ distance_max = 30.0
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
-[node name="HurtComponent" parent="Characters/Pig" index="5" unique_id=2113847110 instance=ExtResource("11_bpga3")]
+[node name="HurtComponent" parent="Characters/Pig" index="5" unique_id=2113847110 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
 collision_layer = 2048
 team = 2
 
@@ -222,24 +221,23 @@ movement = NodePath("BossController/CatEnemyMovementController")
 hurt_component = NodePath("HurtComponent")
 shoot_controller = NodePath("BossController/ShootController2D")
 
-[node name="HurtComponent" parent="Bosses/CyclopusCat" index="4" unique_id=28986261 instance=ExtResource("11_bpga3")]
+[node name="HurtComponent" parent="Bosses/CyclopusCat" index="4" unique_id=28986261 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
 collision_layer = 2048
-health = 1
 
-[node name="BossController" parent="Bosses/CyclopusCat" index="5" unique_id=1818865949 node_paths=PackedStringArray("shoot_controller_2d") instance=ExtResource("21_bavnk")]
+[node name="BossController" parent="Bosses/CyclopusCat" index="5" unique_id=1818865949 node_paths=PackedStringArray("shoot_controller_2d", "hurt_controller") instance=ExtResource("21_bavnk")]
 script = ExtResource("22_1qwsm")
 bullet_types = Array[Resource]([ExtResource("18_ivmt6"), ExtResource("19_ivmt6")])
 boss_actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_1qwsm"), SubResource("Resource_bf761")])
 shoot_controller_2d = NodePath("ShootController2D")
+hurt_controller = NodePath("../HurtComponent")
 
 [node name="CatEnemyMovementController" parent="Bosses/CyclopusCat/BossController" index="2" unique_id=1724548566 node_paths=PackedStringArray("enemy_movement_points") instance=ExtResource("15_xrc6b")]
 enemy_movement_points = NodePath("../../../CatMovementPoints")
 movement_speed = 60.0
 
 [node name="ShootController2D" parent="Bosses/CyclopusCat/BossController" index="3" unique_id=1242481191 node_paths=PackedStringArray("character_body") instance=ExtResource("16_jqxbl")]
-bullet_types = null
-character_body = NodePath("../../../../Characters/NinjaGreen")
-fighting_enabled = null
+character_body = NodePath("../..")
+is_homing_on = true
 
 [node name="CatMovementPoints" type="Node2D" parent="Bosses" parent_id_path=PackedInt32Array(2090847819) index="1" unique_id=275429518]
 

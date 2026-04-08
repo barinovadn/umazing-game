@@ -52,6 +52,7 @@ animations = [{
 
 [node name="HomingShot" unique_id=419752470 instance=ExtResource("1_u7vf8")]
 script = ExtResource("2_8v6to")
+auto_aim = true
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 shape = SubResource("CircleShape2D_1qbqo")

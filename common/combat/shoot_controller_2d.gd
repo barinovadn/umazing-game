@@ -12,6 +12,8 @@ signal shooting_stopped()
 		if fighting_enabled != value:
 			fighting_enabled = value
 
+@export var is_homing_on : bool = false
+var target : HurtComponent
 
 var projectile : Bullet
 var direction : Vector2
@@ -26,6 +28,7 @@ var is_shooting : bool = false:
 			shooting_started.emit()
 		else:
 			shooting_stopped.emit()
+@export var team : CombatScript.team
 
 func _ready():
 	if not character_body:
@@ -42,8 +45,12 @@ func create_a_projectile() -> void:
 	
 	projectile = bullet_types.pick_random().instantiate() as Bullet
 	
-	projectile.direction_needed.connect(on_direction_needed)
 	
+	if is_homing_on && "target" in projectile:
+		projectile.target = target
+	else:
+		projectile.direction = direction
+	projectile.team = team
 	projectile.global_position = character_body.global_position
 	get_tree().root.add_child(projectile)
 
@@ -52,13 +59,13 @@ func create_a_projectile_from_argument(bullet: Resource) -> void:
 		return
 	
 	projectile = bullet.instantiate() as Bullet
+
 	
-	projectile.direction_needed.connect(on_direction_needed)
+	if is_homing_on && "target" in projectile:
+		projectile.target = target
+	else:
+		projectile.direction = direction
 	
+	projectile.team = team
 	projectile.global_position = character_body.global_position
 	get_tree().root.add_child(projectile)
-
-func on_direction_needed():
-	if !direction:
-		print("No direction for shooting system")
-	projectile.direction = direction

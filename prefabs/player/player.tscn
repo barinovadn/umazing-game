@@ -42,8 +42,9 @@ shape = SubResource("CircleShape2D_ev8v4")
 
 [node name="PlayerFightController" parent="." unique_id=1242481191 instance=ExtResource("6_oo3uv")]
 bullet_types = Array[Resource]([ExtResource("7_30gqm")])
+team = 1
 
-[node name="HurtComponent" parent="." unique_id=949368062 instance=ExtResource("4_vhck3")]
+[node name="HurtComponent" parent="." unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
 collision_layer = 2048
 collision_mask = 1025
 team = 1
