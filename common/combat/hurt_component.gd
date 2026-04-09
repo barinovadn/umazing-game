@@ -11,6 +11,8 @@ signal damaged
 @export var health = 20
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+var current_health = health
+
 func take_damage(hit_component : Bullet) -> void:
 	var total_damage : int = 0
 	total_damage += hit_component.damage
@@ -20,9 +22,9 @@ func take_damage(hit_component : Bullet) -> void:
 	if chance_to_crit <= hit_component.crit_chance:
 		total_damage += hit_component.crit_damage
 		
-	health-=total_damage
+	current_health-=total_damage
 	
-	if health <= 0:
+	if current_health <= 0:
 		fatal_damage_taken.emit()
 	else:
 		damaged.emit()

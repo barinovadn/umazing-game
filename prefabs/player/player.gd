@@ -23,6 +23,7 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 @onready var camera_controller: GridCameraFollower2D = $Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
 @onready var timer: Timer = $Timer
+@onready var health_ui: HealthUI = $UI/HealthUI
 
 var is_shooting : bool = false:
 	set(value):
@@ -33,6 +34,8 @@ var is_shooting : bool = false:
 
 func _ready():
 	_on_character_changed(character, null)
+	hurt_component.damaged.connect(update_current_health)
+	update_current_health()
 
 func _process(_delta: float):
 	hurt_component.global_position = character.global_position
@@ -75,3 +78,6 @@ func _input(_event: InputEvent) -> void:
 
 func _on_timer_timeout() -> void:
 	is_shooting = false
+
+func update_current_health():
+	health_ui.update_health(hurt_component.current_health, hurt_component.health)
