@@ -27,6 +27,7 @@ var direction: Vector2
 	set(value):
 		team = value
 
+@export var bullet_collision : bool = false
 @export var auto_aim : bool = false
 @export var target: Node2D
 
@@ -42,14 +43,20 @@ func _destroy_bullet():
 	queue_free()
 
 
-## Обработка столкновений с hurt_component
+## Обработка столкновений с hurt_component и Bullet
 func _on_area_entered(area: Area2D) -> void:
-	if not area is HurtComponent:
+	if not area is HurtComponent and not area is Bullet:
 		return
-	if ((team == CombatScript.team.enemy and area.team == CombatScript.team.player) 
-	or (team == CombatScript.team.player and area.team == CombatScript.team.enemy)):
-		area.take_damage(self)
-		_destroy_bullet()
+		
+	if area is Bullet:
+		# Пульки сталкиваются, только если у обоих включено столкновение
+		if bullet_collision and area.bullet_collision:
+			_destroy_bullet()
+	elif area is HurtComponent:
+		if ((team == CombatScript.team.enemy and area.team == CombatScript.team.player) 
+		or (team == CombatScript.team.player and area.team == CombatScript.team.enemy)):
+			area.take_damage(self)
+			_destroy_bullet()
 
 func _move(delta : float) -> void:
 	position += direction * speed * delta

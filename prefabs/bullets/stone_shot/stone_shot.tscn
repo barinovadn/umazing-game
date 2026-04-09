@@ -45,6 +45,7 @@ animations = [{
 
 [node name="StoneShot" unique_id=419752470 instance=ExtResource("1_c5g1p")]
 script = ExtResource("2_d7kme")
+bullet_collision = true
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 shape = SubResource("CircleShape2D_x04w1")

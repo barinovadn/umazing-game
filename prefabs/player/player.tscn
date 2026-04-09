@@ -78,5 +78,23 @@ unique_name_in_owner = true
 wait_time = 0.4
 one_shot = true
 
+[node name="UI" type="CanvasLayer" parent="." unique_id=454319186]
+
+[node name="Control" type="Control" parent="UI" unique_id=1693653586]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control" unique_id=706418298]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 60.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control/HBoxContainer" unique_id=111684482]
+layout_mode = 2
+
 [connection signal="character_changed" from="." to="." method="_on_character_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
