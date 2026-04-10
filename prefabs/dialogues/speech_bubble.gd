@@ -2,7 +2,7 @@ extends PanelContainer
 class_name SpeechBubble
 
 const LABEL_DESC: LabelSettings = preload("res://common/theme/label_desc.tres")
-const DIALOGUE_FONT: FontFile = preload("res://common/theme/fonts/minecraftfont.ttf")
+const DEFAULT_TEXT_FONT_SIZE := 16
 
 @export var offset: Vector2 = Vector2(0, -36)
 @export var max_width: float = 280.0
@@ -12,24 +12,26 @@ const DIALOGUE_FONT: FontFile = preload("res://common/theme/fonts/minecraftfont.
 
 @export var fade_time: float = 0.12
 @export var screen_margin: float = 6.0
+@export_range(1.0, 2.0, 0.05) var text_font_scale: float = 1.25
 
 @onready var _label: Label = %Label
 
 var _target: CanvasItem
 var _tween: Tween
 
+
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	modulate = Color(modulate.r, modulate.g, modulate.b, 0.0)
 
 	var bubble_settings: LabelSettings = LABEL_DESC.duplicate()
-	bubble_settings.font = DIALOGUE_FONT
-	bubble_settings.font_size = 16
+	bubble_settings.font_size = _scale_font_size(_resolve_base_font_size(LABEL_DESC, DEFAULT_TEXT_FONT_SIZE), text_font_scale)
 	bubble_settings.line_spacing = 0.0
 	bubble_settings.outline_size = 0
 	bubble_settings.font_color = Color.WHITE
 	_label.label_settings = bubble_settings
 	_label.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+
 
 func show_for(target: CanvasItem, text: String, duration: float = -1.0) -> void:
 	_target = target
@@ -60,6 +62,7 @@ func show_for(target: CanvasItem, text: String, duration: float = -1.0) -> void:
 	_tween.tween_property(self, "modulate", c_out, fade_time)
 	_tween.tween_callback(queue_free)
 
+
 func _process(_delta: float) -> void:
 	if _target == null:
 		return
@@ -67,6 +70,7 @@ func _process(_delta: float) -> void:
 		queue_free()
 		return
 	_update_position()
+
 
 func _update_position() -> void:
 	var screen_pos: Vector2 = _target.get_global_transform_with_canvas().origin
@@ -78,6 +82,7 @@ func _update_position() -> void:
 	desired.y = clampf(desired.y, screen_margin, vp_size.y - size.y - screen_margin)
 
 	global_position = desired
+
 
 func set_preset(preset: String) -> void:
 	var sb := StyleBoxFlat.new()
@@ -96,3 +101,13 @@ func set_preset(preset: String) -> void:
 			sb.border_color = Color("#4d2b14")
 
 	add_theme_stylebox_override("panel", sb)
+
+
+func _resolve_base_font_size(settings: LabelSettings, fallback_size: int) -> int:
+	if settings != null and settings.font_size > 0:
+		return settings.font_size
+	return fallback_size
+
+
+func _scale_font_size(base_font_size: int, scale_factor: float) -> int:
+	return maxi(1, int(round(float(base_font_size) * scale_factor)))
