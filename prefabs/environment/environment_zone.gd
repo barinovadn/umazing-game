@@ -21,17 +21,25 @@ extends Area2D
 
 @export_subgroup("Filter", "enter_filter")
 ## Whether or not to apply [member enter_filter_color].
-@export var enter_filter_apply: bool = false
+@export var enter_filter_apply: bool = true
 ## The [member EnvironmentFilter.color] to be applied when entering this zone.
 @export var enter_filter_color: Color = Color(0, 0, 0, 0)
 
-@export_group("Exiting", "exit")
+@export_subgroup("Music", "music")
+## Whether or not to apply [MusicPlayer] settings.
+@export var music_apply: bool = true
+## See [member MusicPlayer.playlist].
+@export var music_playlist: Array[AudioStream]
+## See [member MusicPlayer.auto].
+@export var music_auto: bool = true
+## See [member MusicPlayer.order].
+@export var music_order: MusicPlayer.Order = MusicPlayer.Order.SEQUENTIAL
+## See [member MusicPlayer.delay].
+@export var music_delay: MusicPlayer.Delay = MusicPlayer.Delay.NORMAL
+## See [member MusicPlayer.fade].
+@export var music_fade: float = 3.0
 
-# WARNING There's still an unfixed bug remaining with the exit effects:
-# If two zones (A&B) are located next to each other,
-# Once the player goes from zone A to B - they will trigger the B's enter effects,
-# And only after that will the A's exit effects start to apply.
-# FIXME (Which should idealy be the other way around...).
+@export_group("Exiting", "exit")
 
 @export_subgroup("Particles", "exit_particles")
 ## If [code]true[/code], disables all environment particles from
@@ -48,9 +56,35 @@ extends Area2D
 
 @onready var environment_particles: EnvironmentParticles = %Player/%EnvironmentParticles
 @onready var environment_filter: EnvironmentFilter = %Player/%EnvironmentFilter
+@onready var music_player: MusicPlayer = %MusicPlayer
+
+var exit_frame: float = 0
+var enter_frame: float = 0
 
 
 func _on_area_entered(_area: Area2D):
+	enter_frame = Engine.get_process_frames()
+	
+	if exit_frame == enter_frame:
+		return
+	
+	get_tree().process_frame.connect(apply_on_enter_effects, CONNECT_ONE_SHOT)
+
+
+func _on_area_exited(_area: Area2D):
+	exit_frame = Engine.get_process_frames()
+	
+	call_deferred('_on_area_exited_defer')
+
+
+func _on_area_exited_defer():
+	if exit_frame == enter_frame:
+		return
+	
+	apply_on_exit_effects()
+
+
+func apply_on_enter_effects():
 	# Particles
 	
 	if enter_particles_strict:
@@ -66,9 +100,19 @@ func _on_area_entered(_area: Area2D):
 	
 	if enter_filter_apply:
 		environment_filter.color = enter_filter_color
+	
+	# Music
+	
+	if music_apply:
+		music_player.playlist = music_playlist
+		music_player.auto = music_auto
+		music_player.order = music_order
+		music_player.delay = music_delay
+		music_player.fade = music_fade
+		music_player.fade_out()
 
 
-func _on_area_exited(_area: Area2D):
+func apply_on_exit_effects():
 	# Particles
 	
 	if exit_particles_clear:
