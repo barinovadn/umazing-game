@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyuoh32avqo41"
-path="res://.godot/imported/enemy.png-089a28c83f330f2c133c54df82a3aa8a.ctex"
+uid="uid://pvf0msvk551h"
+path="res://.godot/imported/RedProgres1 (1).png-6fe0a2c469bc28d2c0295d97cf4c0ffe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/enemy/enemy.png"
-dest_files=["res://.godot/imported/enemy.png-089a28c83f330f2c133c54df82a3aa8a.ctex"]
+source_file="res://common/ui/RedProgres1 (1).png"
+dest_files=["res://.godot/imported/RedProgres1 (1).png-6fe0a2c469bc28d2c0295d97cf4c0ffe.ctex"]
 
 [params]
 

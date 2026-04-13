@@ -22,5 +22,5 @@ func _ready():
 	visible = false
 
 
-func _on_teleport_cat_in_area_entered(area: Area2D) -> void:
+func _on_teleport_cat_in_area_entered(_area: Area2D) -> void:
 	pass # Replace with function body.

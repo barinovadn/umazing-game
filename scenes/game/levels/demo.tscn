@@ -2,11 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://buhslpn3jaek5" path="res://scenes/game/game.tscn" id="1_c3u61"]
 [ext_resource type="PackedScene" uid="uid://cuxbwbedjhckr" path="res://prefabs/characters/pig/pig.tscn" id="2_r64fy"]
-[ext_resource type="Script" uid="uid://7vdpdfpl2omh" path="res://prefabs/arenas/arena.gd" id="3_1qwsm"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="3_fp2w6"]
-[ext_resource type="Script" uid="uid://b6ddkmiei8uxj" path="res://prefabs/teleport/teleport_boss_in.gd" id="4_bc555"]
 [ext_resource type="PackedScene" uid="uid://05bun2aymxh" path="res://prefabs/characters/ninja_blue/ninja_blue.tscn" id="4_n6h0s"]
-[ext_resource type="Script" uid="uid://dfq740rdjyaf1" path="res://prefabs/teleport/teleport_boss_out.gd" id="5_7im6l"]
 [ext_resource type="PackedScene" uid="uid://dcrm5punhuk0d" path="res://prefabs/characters/ninja_green/ninja_green.tscn" id="5_gfex4"]
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="7_8qff5"]
 [ext_resource type="PackedScene" uid="uid://ck2kcqhlhgtlm" path="res://prefabs/teleport/teleport.tscn" id="8_ygfwu"]
@@ -17,14 +14,22 @@
 [ext_resource type="PackedScene" uid="uid://bjb2riattkaaa" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat.tscn" id="14_nfdyi"]
 [ext_resource type="PackedScene" uid="uid://csv6sg13nww7x" path="res://common/movement/controllers/dot_to_dot_movement_controller.tscn" id="15_xrc6b"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://common/combat/shoot_controller_2d.tscn" id="16_jqxbl"]
+[ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/enemy/boss_ui_data.gd" id="17_1qwsm"]
 [ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/bullets/homing_shot/homing_shot.tscn" id="18_ivmt6"]
+[ext_resource type="Texture2D" uid="uid://dt2r8o2eiegh5" path="res://common/ui/Cat .png" id="18_ky1g4"]
+[ext_resource type="Texture2D" uid="uid://pvf0msvk551h" path="res://common/ui/RedProgres1 (1).png" id="19_gjl65"]
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/bullets/stone_shot/stone_shot.tscn" id="19_ivmt6"]
+[ext_resource type="Texture2D" uid="uid://gsg8mvl6swpd" path="res://common/ui/ChoiceBox (1).png" id="19_ky1g4"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://common/combat/action.gd" id="20_ivmt6"]
-[ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://common/boss_controller.tscn" id="21_bavnk"]
-[ext_resource type="Script" uid="uid://jqsqblr1x2hg" path="res://common/cat_boss_controller.gd" id="22_1qwsm"]
+[ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://common/enemy_controller.tscn" id="21_bavnk"]
+[ext_resource type="Script" uid="uid://jqsqblr1x2hg" path="res://prefabs/characters/bosses/cyclopus_cat/cat_boss_controller.gd" id="22_1qwsm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf761"]
-size = Vector2(320, 160)
+[sub_resource type="Resource" id="Resource_xlv2a"]
+script = ExtResource("17_1qwsm")
+texture_under = ExtResource("19_ky1g4")
+texture_progress = ExtResource("19_gjl65")
+texture_over = ExtResource("18_ky1g4")
+metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
 
 [sub_resource type="Resource" id="Resource_1qwsm"]
 script = ExtResource("20_ivmt6")
@@ -84,18 +89,7 @@ exit_particles_clear = false
 position = Vector2(-319.99997, 159.99998)
 enter_particles_enable = Array[int]([200])
 
-[node name="Arena" type="Area2D" parent="Arenas" parent_id_path=PackedInt32Array(1759205337) index="0" unique_id=1650960964]
-position = Vector2(1000, 0)
-collision_layer = 0
-collision_mask = 8
-monitorable = false
-script = ExtResource("3_1qwsm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena" index="0" unique_id=1919009723]
-position = Vector2(-40, -480)
-shape = SubResource("RectangleShape2D_bf761")
-
-[node name="Teleports" parent="." index="6" unique_id=1760141152]
+[node name="Teleports" parent="." index="5" unique_id=1760141152]
 z_index = 50
 
 [node name="TeleportRedIn" parent="Teleports" index="0" unique_id=1365302331 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
@@ -123,7 +117,6 @@ position = Vector2(-72, -216)
 
 [node name="TeleportCatIn" parent="Teleports/CatBossTeleports" index="0" unique_id=1465987655 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 position = Vector2(100, 142)
-script = ExtResource("4_bc555")
 exit = NodePath("../TeleportCatExit")
 color = Color(0.7058824, 0, 0, 1)
 
@@ -131,7 +124,6 @@ color = Color(0.7058824, 0, 0, 1)
 position = Vector2(1000, -475)
 monitoring = false
 monitorable = false
-script = ExtResource("5_7im6l")
 exit = NodePath("../TeleportCatIn")
 color = Color(0.9529412, 0, 0, 1)
 
@@ -202,7 +194,7 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 position = Vector2(0, 160)
 start_animation = 1
 
-[node name="Interactables" parent="." index="8" unique_id=233789877]
+[node name="Interactables" parent="." index="7" unique_id=233789877]
 z_index = 50
 
 [node name="InspectableSign" parent="Interactables" index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
@@ -223,20 +215,29 @@ shoot_controller = NodePath("BossController/ShootController2D")
 
 [node name="HurtComponent" parent="Bosses/CyclopusCat" index="4" unique_id=28986261 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
 collision_layer = 2048
+max_health = 40
 
-[node name="BossController" parent="Bosses/CyclopusCat" index="5" unique_id=1818865949 node_paths=PackedStringArray("shoot_controller_2d", "hurt_controller") instance=ExtResource("21_bavnk")]
+[node name="BossController" parent="Bosses/CyclopusCat" index="5" unique_id=1818865949 node_paths=PackedStringArray("movement_patterns", "shoot_controller_2d", "hurt_controller", "teleport_in", "teleport_out") instance=ExtResource("21_bavnk")]
 script = ExtResource("22_1qwsm")
+boss_name = "Cat Cyclopus"
+data_for_interface = SubResource("Resource_xlv2a")
 bullet_types = Array[Resource]([ExtResource("18_ivmt6"), ExtResource("19_ivmt6")])
 boss_actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_1qwsm"), SubResource("Resource_bf761")])
+movement_patterns = {
+"CatEnemyDTD": NodePath("CatEnemyMovementController")
+}
 shoot_controller_2d = NodePath("ShootController2D")
 hurt_controller = NodePath("../HurtComponent")
+teleport_in = NodePath("../../../Teleports/CatBossTeleports/TeleportCatIn")
+teleport_out = NodePath("../../../Teleports/CatBossTeleports/TeleportCatOut")
 
 [node name="CatEnemyMovementController" parent="Bosses/CyclopusCat/BossController" index="2" unique_id=1724548566 node_paths=PackedStringArray("enemy_movement_points") instance=ExtResource("15_xrc6b")]
 enemy_movement_points = NodePath("../../../CatMovementPoints")
 movement_speed = 60.0
+movement_enabled = false
 
-[node name="ShootController2D" parent="Bosses/CyclopusCat/BossController" index="3" unique_id=1242481191 node_paths=PackedStringArray("character_body") instance=ExtResource("16_jqxbl")]
-character_body = NodePath("../..")
+[node name="ShootController2D" parent="Bosses/CyclopusCat/BossController" index="3" unique_id=1242481191 instance=ExtResource("16_jqxbl")]
+fighting_enabled = false
 is_homing_on = true
 
 [node name="CatMovementPoints" type="Node2D" parent="Bosses" parent_id_path=PackedInt32Array(2090847819) index="1" unique_id=275429518]
@@ -259,5 +260,4 @@ position = Vector2(1085, -428)
 [node name="Marker2D6" type="Marker2D" parent="Bosses/CatMovementPoints" index="5" unique_id=1073844928]
 position = Vector2(1014, -427)
 
-[connection signal="area_entered" from="Arenas/Arena" to="Arenas/Arena" method="_on_area_entered"]
 [connection signal="area_entered" from="Teleports/CatBossTeleports/TeleportCatIn" to="Teleports/CatBossTeleports/TeleportCatIn" method="_on_area_entered"]

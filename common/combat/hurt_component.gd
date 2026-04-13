@@ -7,24 +7,28 @@ signal fatal_damage_taken
 signal damaged
 
 @export var team : CombatScript.team
+@export var max_health = 20
 
-@export var health = 20
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-var current_health = health
+var _total_damage : int = 0
+var current_health : int  :
+	get():
+		return max_health - _total_damage
+	set(value):
+		_total_damage = (max_health - value)
+		if max_health - _total_damage <= 0:
+			fatal_damage_taken.emit()
+		else:
+			damaged.emit()
 
 func take_damage(hit_component : Bullet) -> void:
-	var total_damage : int = 0
-	total_damage += hit_component.damage
+	var damage : int = 0
+	damage += hit_component.damage
 	
 	var chance_to_crit : float = randf_range(0, 1)
 	
 	if chance_to_crit <= hit_component.crit_chance:
-		total_damage += hit_component.crit_damage
+		damage += hit_component.crit_damage
 		
-	current_health-=total_damage
-	
-	if current_health <= 0:
-		fatal_damage_taken.emit()
-	else:
-		damaged.emit()
+	current_health-=damage

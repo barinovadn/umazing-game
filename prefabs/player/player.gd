@@ -23,7 +23,7 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 @onready var camera_controller: GridCameraFollower2D = $Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
 @onready var timer: Timer = $Timer
-@onready var health_ui: HealthUI = $UI/HealthUI
+@onready var combat_ui: HealthUI = $UI/CombatUI
 
 var is_shooting : bool = false:
 	set(value):
@@ -35,10 +35,11 @@ var is_shooting : bool = false:
 func _ready():
 	_on_character_changed(character, null)
 	hurt_component.damaged.connect(update_current_health)
+	hurt_component.fatal_damage_taken.connect(on_fatal_damage_taken)
 	update_current_health()
 
 func _process(_delta: float):
-	hurt_component.global_position = character.global_position
+
 	_update_component_positions()
 
 ## Some components like [member interactor] are expected to be children to the
@@ -50,6 +51,8 @@ func _update_component_positions():
 	
 	interactor.global_position = character.global_position
 	trigger.global_position = character.global_position
+	hurt_component.global_position = character.global_position
+	player_fight_controller.global_position = character.global_position
 
 func _on_character_changed(new_character: Character2D, old_character: Character2D):
 	if old_character:
@@ -62,8 +65,6 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 		new_character.interactor = interactor
 		new_character.shoot_controller = player_fight_controller
 		new_character.hurt_component = hurt_component
-	if player_fight_controller:
-		player_fight_controller.character_body = new_character
 		
 
 	if camera_controller:
@@ -80,4 +81,8 @@ func _on_timer_timeout() -> void:
 	is_shooting = false
 
 func update_current_health():
-	health_ui.update_health(hurt_component.current_health, hurt_component.health)
+	combat_ui.update_health(hurt_component.current_health, hurt_component.max_health)
+
+
+func on_fatal_damage_taken():
+	get_tree().reload_current_scene()

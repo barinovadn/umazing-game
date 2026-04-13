@@ -23,6 +23,7 @@ config/icon="uid://dgxxwc5lktkmr"
 
 Cursor="*res://autoload/cursor/cursor.gd"
 CombatScript="*uid://c8idcy0eb8ngd"
+UiAdapter="*uid://bjf6vjf03grh8"
 
 [display]
 
@@ -93,6 +94,7 @@ shoot={
 2d_physics/layer_2="Characters"
 2d_physics/layer_3="Interactables"
 2d_physics/layer_4="Player"
+2d_physics/layer_5="Enemies"
 2d_physics/layer_11="bullets"
 2d_physics/layer_12="smash"
 

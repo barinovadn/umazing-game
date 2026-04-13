@@ -2,6 +2,7 @@ class_name CatEnemyMovementController2D
 extends MovementController2D
 
 @export var enemy_movement_points: Node 
+
 @onready var triger: Area2D = $Trigger
 
 var movement_points: Array

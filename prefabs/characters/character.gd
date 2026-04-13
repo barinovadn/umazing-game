@@ -92,8 +92,9 @@ func _update_animation():
 		animator.play_idle(direction)
 
 func _on_died():
+	visible = false
+	await get_tree().create_timer(5.0)
 	queue_free()
-	#get_tree().reload_current_scene()
 
 
 func _on_moved(dir: Vector2, speed: float):

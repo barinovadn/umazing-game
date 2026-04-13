@@ -4,9 +4,9 @@ class_name HealthUI
 
 @onready var hearts_container = $HeartsContainer
 
-const FULL_HEART = preload("uid://b3aon6kwl2aam")
-const HALF_FULL_HEART = preload("uid://d1j81f2n3kl6")
-const EMPTY_HEART = preload("uid://bfe7akq685uy0")
+@export var full_heart : AtlasTexture
+@export var half_full_heart : AtlasTexture
+@export var empty_heart : AtlasTexture
 
 @export var x_size : int = 18
 @export var y_size : int = 20
@@ -25,12 +25,12 @@ func update_health(current_hp: int, max_hp: int):
 		heart.custom_minimum_size = Vector2(x_size, y_size)
 
 		if hp_left >= 2:
-			heart.texture = FULL_HEART
+			heart.texture = full_heart
 			hp_left -= 2
 		elif hp_left == 1:
-			heart.texture = HALF_FULL_HEART
+			heart.texture = half_full_heart
 			hp_left -= 1
 		else:
-			heart.texture = EMPTY_HEART
+			heart.texture = empty_heart
 
 		hearts_container.add_child(heart)

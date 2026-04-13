@@ -11,10 +11,39 @@
 [ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/bullets/shuriken/shuriken.tscn" id="7_30gqm"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
 [ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://common/ui/health_ui.gd" id="11_30gqm"]
-[ext_resource type="Texture2D" uid="uid://b3aon6kwl2aam" path="res://common/ui/icons/full_heart.png" id="12_hvqk4"]
+[ext_resource type="Script" uid="uid://cep3cwaarv32y" path="res://common/activation_area.gd" id="11_hvqk4"]
+[ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://common/ui/boss_ui.gd" id="13_b6byk"]
+[ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://common/ui/icons/Heart (1).png" id="14_ot5ig"]
+[ext_resource type="Texture2D" uid="uid://gsg8mvl6swpd" path="res://common/ui/ChoiceBox (1).png" id="16_t13t3"]
+[ext_resource type="Texture2D" uid="uid://bceld6xt8wthg" path="res://common/ui/RedProgres1.png" id="17_8hk3c"]
+[ext_resource type="Texture2D" uid="uid://sdoa24tic2pv" path="res://common/ui/Cat.png" id="17_t13t3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ev8v4"]
 radius = 0.01
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30gqm"]
+size = Vector2(320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxdrd"]
+atlas = ExtResource("14_ot5ig")
+region = Rect2(65, 3, 14, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2w56"]
+atlas = ExtResource("14_ot5ig")
+region = Rect2(33, 3, 14, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdvc2"]
+atlas = ExtResource("14_ot5ig")
+region = Rect2(1, 3, 14, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocyg1"]
+atlas = ExtResource("16_t13t3")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_408ek"]
+atlas = ExtResource("17_8hk3c")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hk3c"]
+atlas = ExtResource("17_t13t3")
 
 [node name="Player" type="Node" unique_id=486757243]
 script = ExtResource("1_wv1mm")
@@ -50,6 +79,7 @@ team = 1
 collision_layer = 2048
 collision_mask = 1025
 team = 1
+max_health = 5
 
 [node name="Camera" type="Camera2D" parent="." unique_id=380955172]
 unique_name_in_owner = true
@@ -76,20 +106,33 @@ metadata/_custom_type_script = "uid://pw3x0udulq81"
 [node name="EnvironmentParticles" parent="Camera" unique_id=859882466 instance=ExtResource("7_ev8v4")]
 unique_name_in_owner = true
 
+[node name="ActivationArea" type="Area2D" parent="." unique_id=1024765016]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("11_hvqk4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea" unique_id=1385910216]
+shape = SubResource("RectangleShape2D_30gqm")
+
 [node name="Timer" type="Timer" parent="." unique_id=111952817]
 wait_time = 0.4
 one_shot = true
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=454319186]
+[node name="UI" type="CanvasLayer" parent="." unique_id=371737396]
 
-[node name="HealthUI" type="Control" parent="UI" unique_id=1693653586]
+[node name="CombatUI" type="Control" parent="UI" unique_id=343436959]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 60.0
 offset_bottom = 30.0
 script = ExtResource("11_30gqm")
+full_heart = SubResource("AtlasTexture_dxdrd")
+half_full_heart = SubResource("AtlasTexture_a2w56")
+empty_heart = SubResource("AtlasTexture_qdvc2")
+x_size = 22
+y_size = 10
 
-[node name="HeartsContainer" type="HBoxContainer" parent="UI/HealthUI" unique_id=706418298]
+[node name="HeartsContainer" type="HBoxContainer" parent="UI/CombatUI" unique_id=847237741]
 custom_minimum_size = Vector2(18, 20)
 layout_mode = 0
 offset_left = 60.0
@@ -97,12 +140,47 @@ offset_top = 20.0
 offset_right = 225.0
 offset_bottom = 35.0
 
-[node name="TextureRect" type="TextureRect" parent="UI/HealthUI/HeartsContainer" unique_id=1700819338]
-custom_minimum_size = Vector2(18, 20)
+[node name="BossUI" type="Control" parent="UI" unique_id=1926342594]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 241.0
+offset_bottom = 120.0
+script = ExtResource("13_b6byk")
+default_under = SubResource("AtlasTexture_ocyg1")
+default_progress = SubResource("AtlasTexture_408ek")
+default_over = SubResource("AtlasTexture_8hk3c")
+
+[node name="BossHPContainer" type="VBoxContainer" parent="UI/BossUI" unique_id=1681787510]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 19.5
+offset_top = 330.0
+offset_right = 728.5
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="BossNameContainer" type="VBoxContainer" parent="UI/BossUI" unique_id=1307043267]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 329.5
+offset_right = 369.5
+offset_bottom = 40.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/BossUI/BossNameContainer" unique_id=1166456340]
 layout_mode = 2
-texture = ExtResource("12_hvqk4")
-expand_mode = 1
-stretch_mode = 5
 
 [connection signal="character_changed" from="." to="." method="_on_character_changed"]
+[connection signal="cell_changed" from="Camera" to="ActivationArea" method="_on_camera_cell_changed"]
+[connection signal="area_entered" from="ActivationArea" to="ActivationArea" method="_on_area_entered"]
+[connection signal="area_exited" from="ActivationArea" to="ActivationArea" method="_on_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
