@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://buhslpn3jaek5"]
 
 [ext_resource type="TileSet" uid="uid://cpkody5agfhcc" path="res://prefabs/tilesets/terrain.tres" id="4_5i0tg"]
+[ext_resource type="PackedScene" uid="uid://dosm88jd4axk1" path="res://prefabs/music/music_player.tscn" id="4_bdhmt"]
 [ext_resource type="TileSet" uid="uid://cq0gpukdqan4w" path="res://prefabs/tilesets/general.tres" id="4_lfrn8"]
 [ext_resource type="Script" uid="uid://bp0bnmynw2d1p" path="res://common/utils/hide_at_runtime.gd" id="5_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://br4jv0365g35h" path="res://prefabs/player/player.tscn" id="6_2a8rs"]
@@ -28,6 +29,9 @@ metadata/_custom_type_script = "uid://bp0bnmynw2d1p"
 [node name="Player" parent="." unique_id=486757243 instance=ExtResource("6_2a8rs")]
 unique_name_in_owner = true
 
+[node name="MusicPlayer" parent="." unique_id=1068287036 instance=ExtResource("4_bdhmt")]
+unique_name_in_owner = true
+
 [node name="Tilemap" type="Node2D" parent="." unique_id=1439768727]
 editor_description = "123"
 
@@ -51,20 +55,21 @@ texture_filter = 1
 tile_set = ExtResource("4_lfrn8")
 
 [node name="Foreground" type="TileMapLayer" parent="Tilemap" unique_id=720212395]
-z_index = 50
+z_index = 60
 texture_filter = 1
 tile_set = ExtResource("6_bdhmt")
 
 [node name="Enviroments" type="Node2D" parent="." unique_id=1656547831]
+z_index = 60
 
 [node name="Teleports" type="Node2D" parent="." unique_id=1760141152]
 modulate = Color(1, 1, 1, 0.39215687)
-z_index = 45
+z_index = 50
 
 [node name="Characters" type="Node2D" parent="." unique_id=207261957]
 z_index = 30
 
 [node name="Interactables" type="Node2D" parent="." unique_id=233789877]
-z_index = 45
+z_index = 20
 
 [node name="Bosses" type="Node2D" parent="." unique_id=2090847819]

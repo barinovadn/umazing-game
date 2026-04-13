@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://clgcdaru1mfqg"]
+
+[ext_resource type="Script" uid="uid://bdslfbueddae" path="res://prefabs/environment/environment_filter.gd" id="1_fowv6"]
+
+[node name="EnvironmentFilter" type="CanvasLayer" unique_id=410650844]
+layer = 0
+script = ExtResource("1_fowv6")
+color = Color(0, 0, 0, 0)
+transition_duration = 0.25
+
+[node name="Color" type="ColorRect" parent="." unique_id=492055078]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

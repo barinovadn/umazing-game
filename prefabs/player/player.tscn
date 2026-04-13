@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
 [ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/bullets/shuriken/shuriken.tscn" id="7_30gqm"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
+[ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://common/ui/health_ui.gd" id="11_30gqm"]
 [ext_resource type="Script" uid="uid://cep3cwaarv32y" path="res://common/activation_area.gd" id="11_hvqk4"]
 [ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://common/ui/boss_ui.gd" id="13_b6byk"]
@@ -105,6 +106,10 @@ metadata/_custom_type_script = "uid://pw3x0udulq81"
 
 [node name="EnvironmentParticles" parent="Camera" unique_id=859882466 instance=ExtResource("7_ev8v4")]
 unique_name_in_owner = true
+
+[node name="EnvironmentFilter" parent="Camera" unique_id=410650844 instance=ExtResource("8_vhck3")]
+unique_name_in_owner = true
+transition_duration = 0.5
 
 [node name="ActivationArea" type="Area2D" parent="." unique_id=1024765016]
 collision_layer = 0
