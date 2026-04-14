@@ -93,8 +93,8 @@ func _update_animation():
 
 func _on_died():
 	visible = false
-	await get_tree().create_timer(5.0)
-	queue_free()
+	var timer = get_tree().create_timer(5.0)
+	timer.timeout.connect(queue_free)
 
 
 func _on_moved(dir: Vector2, speed: float):

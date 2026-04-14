@@ -39,7 +39,6 @@ func _ready():
 	update_current_health()
 
 func _process(_delta: float):
-
 	_update_component_positions()
 
 ## Some components like [member interactor] are expected to be children to the
@@ -85,4 +84,7 @@ func update_current_health():
 
 
 func on_fatal_damage_taken():
+	call_deferred("_reload_scene")
+
+func _reload_scene():
 	get_tree().reload_current_scene()

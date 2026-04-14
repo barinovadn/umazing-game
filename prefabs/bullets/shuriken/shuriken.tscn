@@ -35,6 +35,7 @@ crit_damage = 1
 crit_chance = 0.1
 team = 1
 can_brake = true
+auto_aim = true
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 shape = SubResource("CircleShape2D_gdkqc")

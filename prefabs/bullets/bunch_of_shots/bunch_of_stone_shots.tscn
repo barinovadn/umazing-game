@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bxeawm2qmq0u1"]
+
+[ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/bullets/stone_shot/stone_shot.tscn" id="1_cs5nd"]
+[ext_resource type="Script" uid="uid://lenfys02vmg1" path="res://prefabs/bullets/bunch_of_shots/buch_of_stone_shots.gd" id="2_x0ht6"]
+
+[node name="BunchOfStoneShots" unique_id=419752470 instance=ExtResource("1_cs5nd")]
+visible = false
+script = ExtResource("2_x0ht6")
+amount_of_bullets = 5
+spacing = 30.0
+offset_from_center = 25.0

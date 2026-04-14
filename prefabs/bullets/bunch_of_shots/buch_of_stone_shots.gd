@@ -1,0 +1,45 @@
+extends Bullet
+
+const bullet_type = preload("uid://bx0aayot7ndhr")
+
+@export var amount_of_bullets: int = 5
+@export var spacing: float = 44:
+	set(value):
+		pass
+@export var offset_from_center: float = 10
+
+func _ready():
+	var dir = _get_direction()
+	var perp = Vector2(-dir.y, dir.x) # перпендикуляр
+
+	# точка, откуда строится линия (чуть впереди)
+	var base_pos = global_position + dir * offset_from_center
+
+	# центрируем линию относительно base_pos
+	var half = (amount_of_bullets - 1) / 2.0
+
+	for i in amount_of_bullets:
+		var bullet = bullet_type.instantiate()
+
+		var offset = (i - half) * spacing
+		var spawn_pos = base_pos + perp * offset
+
+		bullet.global_position = spawn_pos
+
+		# если у пули есть направление — передаём
+		if bullet.has_method("set_direction"):
+			bullet.set_direction(dir)
+		elif "direction" in bullet:
+			bullet.direction = dir
+
+		get_tree().current_scene.add_child(bullet)
+
+	_destroy_bullet()
+
+func  _process(_delta: float) -> void:
+	pass
+
+func _get_direction() -> Vector2:
+	if target:
+		return (target.global_position - global_position).normalized()
+	return direction.normalized()

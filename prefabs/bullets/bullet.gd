@@ -49,9 +49,8 @@ func _destroy_bullet():
 	set_deferred("monitorable", false)
 	set_deferred("monitoring", false)
 	
-	await get_tree().create_timer(5.0)
-	
-	queue_free()
+	var timer = get_tree().create_timer(5.0)
+	timer.timeout.connect(queue_free)
 
 
 ## Обработка столкновений с hurt_component и Bullet

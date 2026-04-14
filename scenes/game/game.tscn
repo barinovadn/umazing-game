@@ -73,3 +73,5 @@ z_index = 30
 z_index = 20
 
 [node name="Bosses" type="Node2D" parent="." unique_id=2090847819]
+
+[node name="MovementPoints" type="Node2D" parent="Bosses" unique_id=1878092600]

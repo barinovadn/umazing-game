@@ -27,7 +27,6 @@ buses/default_bus_layout="uid://ghxcyrqhoohu"
 
 Cursor="*res://autoload/cursor/cursor.gd"
 CombatScript="*uid://c8idcy0eb8ngd"
-UiAdapter="*uid://bjf6vjf03grh8"
 
 [display]
 

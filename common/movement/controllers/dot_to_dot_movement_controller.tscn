@@ -7,10 +7,9 @@ radius = 0.01
 
 [node name="CatEnemyMovementController" type="Node2D" unique_id=1724548566 node_paths=PackedStringArray("enemy_movement_points")]
 script = ExtResource("1_emc2n")
-enemy_movement_points = NodePath("")
 
 [node name="Trigger" type="Area2D" parent="." unique_id=1838852111]
-collision_layer = 8
+collision_layer = 16
 collision_mask = 0
 monitoring = false
 
