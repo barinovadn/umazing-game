@@ -147,7 +147,7 @@ enter_particles_enable = Array[int]([500, 200])
 enter_particles_ratio = Array[int]([100, 50])
 enter_filter_color = Color(0.5529412, 0.4, 0.12156863, 0.15294118)
 music_playlist = Array[AudioStream]([ExtResource("6_js0wq")])
-music_delay = 1
+music_delay = 0
 
 [node name="Collider" parent="Enviroments/Cyclopus" index="0" unique_id=1014792063 instance=ExtResource("3_q7qle")]
 
@@ -279,6 +279,7 @@ max_health = 40
 script = ExtResource("22_1qwsm")
 boss_name = "Cat Cyclopus"
 data_for_interface = SubResource("Resource_6ggk5")
+modulates_for_phase = Array[float]([0.75, 0.35])
 bullet_types = Array[Resource]([ExtResource("18_ivmt6"), ExtResource("19_ivmt6"), ExtResource("25_uhdmq")])
 boss_actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_js0wq"), SubResource("Resource_uhdmq"), SubResource("Resource_sfio8")])
 movement_patterns = {

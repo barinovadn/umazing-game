@@ -2,6 +2,11 @@ extends Area2D
 
 class_name EnemyController
 
+## The array stores the HP percentage values (in the range of 0 to 1) at which the
+##boss advances to the next phase. You need to record the HP percentage
+##for each phase, starting with the second one. 
+@export var modulates_for_phase: Array[float]
+
 @export var bullet_types: Array[Resource]
 @export var boss_actions: Array[Action]
 @export var movement_patterns: Dictionary[String, MovementController2D]
@@ -34,7 +39,8 @@ func deactivate_interaction():
 
 func deactivate_portale(portal : Teleport):
 	portal.enabled = false
-	
+
+
 func activate_portal(portal: Teleport):
 	portal.enabled = true
 
@@ -42,38 +48,61 @@ func activate_portal(portal: Teleport):
 func _use_brain(_action: Action):
 	pass
 
-
+## Sets up portals associated with the boss. Disables the entrance portal,
+##spawns an exit portal at the boss's death location, and activates it.
 func _set_portals():
 	deactivate_portale(teleport_in)
 	activate_portal(teleport_out)
 	teleport_out.global_position = hurt_controller.global_position
-	
+
 
 func _on_action_changer_timeout() -> void:
 	pause_between_shots.stop()
-	
-	var chance_of_action: float = randf()
+	var ready_boss_actions: Array[Action] = _select_available_actions()
+	var action_to_play: Action = _select_action_by_weight(ready_boss_actions)
+	_use_brain(action_to_play)
+
+func _on_pause_between_shots_timeout() -> void:
+	shoot_controller_2d.create_a_projectile_from_argument(current_bullet_type)
+
+## Selects actions from the boss's set of available actions that are available in this phase
+func _select_available_actions() -> Array[Action]:
 	var ready_boss_actions: Array[Action]
 	
 	for action in boss_actions:
 		if current_phase in action.phases:
 			ready_boss_actions.append(action)
+	
+	return ready_boss_actions
 
+## Selects an action available in this phase
+func _select_action_by_weight(ready_boss_actions: Array[Action]) -> Action:
+	var chance_of_action: float = randf()
 	var action_to_play: Action = null
 	
 	if ready_boss_actions.size() == 1:
-		_use_brain(ready_boss_actions[0])
-		return
+		return ready_boss_actions[0]
 
 	for action in ready_boss_actions:
 		if chance_of_action <= action.weight:
 			if !action_to_play or action.weight<= action_to_play.weight:
 				action_to_play = action
-
+	
 	if !action_to_play:
-		_use_brain(ready_boss_actions.pick_random())
-	else:
-		_use_brain(action_to_play)
+		return ready_boss_actions.pick_random()
+	
+	return action_to_play
 
-func _on_pause_between_shots_timeout() -> void:
-	shoot_controller_2d.create_a_projectile_from_argument(current_bullet_type)
+## Checks whether a phase change is necessary and, if the conditions are met, increases it
+func _check_phase():
+	if (current_phase < modulates_for_phase.size() + 1):
+		var hp_for_phase_change: float = hurt_controller.max_health * modulates_for_phase[current_phase-1]
+		if (hurt_controller.current_health <= hp_for_phase_change):
+			current_phase+=1
+
+func add_speed_effect(effect_hash: String, effect : Dictionary):
+	current_movement.speed_modifiers[effect_hash] = effect
+
+
+func delete_speed_effect(effect_hash: String):
+	current_movement.speed_modifiers.erase(effect_hash)

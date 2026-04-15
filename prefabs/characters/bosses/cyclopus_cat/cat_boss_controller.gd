@@ -8,7 +8,7 @@ var appeared: bool = false
 
 func on_damaged():
 	%Player/%BossUI.update_health(boss_name, hurt_controller.current_health)
-	_change_phase()
+	_check_phase()
 
 func on_fatal_damage_taken():
 	deactivate_interaction()
@@ -47,12 +47,3 @@ func _use_brain(action: Action):
 				current_bullet_type = bullet_types[2]
 				pause_between_shots.start()
 				current_movement.movement_enabled = false
-
-
-func _change_phase():
-	var float_hp : float = hurt_controller.max_health * (0.75)
-	if hurt_controller.current_health <= float_hp and current_phase < 2:
-		current_phase = 2
-	float_hp = hurt_controller.max_health * (0.3)
-	if hurt_controller.current_health <= float_hp and current_phase < 3:
-		current_phase = 3

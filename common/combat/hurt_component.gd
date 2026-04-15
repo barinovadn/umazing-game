@@ -8,6 +8,7 @@ signal damaged
 
 @export var team : CombatScript.team
 @export var max_health = 20
+@export var is_invulnerable: bool = false
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
@@ -23,6 +24,9 @@ var current_health : int  :
 			damaged.emit()
 
 func take_damage(hit_component : Bullet) -> void:
+	if is_invulnerable:
+		return
+	
 	var damage : int = 0
 	damage += hit_component.damage
 	

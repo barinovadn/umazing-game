@@ -4,6 +4,7 @@ extends Node
 
 signal character_changed(new_character: Character2D, old_character: Character2D)
 
+@export var bullet_types: Array[Resource] 
 @export var character: Character2D:
 	set(value):
 		if value == character:
@@ -23,20 +24,23 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 @onready var camera_controller: GridCameraFollower2D = $Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
 @onready var timer: Timer = $Timer
+@onready var timer_for_dash: Timer = $TimerForDash
 @onready var combat_ui: HealthUI = $UI/CombatUI
 
+var can_dash: bool = true
 var is_shooting : bool = false:
 	set(value):
 		if value != is_shooting:
 			is_shooting = value
 			player_fight_controller.is_shooting = value
-@export var bullet_types: Array[Resource] 
+
 
 func _ready():
 	_on_character_changed(character, null)
 	hurt_component.damaged.connect(update_current_health)
 	hurt_component.fatal_damage_taken.connect(on_fatal_damage_taken)
 	update_current_health()
+
 
 func _process(_delta: float):
 	_update_component_positions()
@@ -52,6 +56,7 @@ func _update_component_positions():
 	trigger.global_position = character.global_position
 	hurt_component.global_position = character.global_position
 	player_fight_controller.global_position = character.global_position
+
 
 func _on_character_changed(new_character: Character2D, old_character: Character2D):
 	if old_character:
@@ -69,15 +74,24 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 	if camera_controller:
 		camera_controller.target = new_character
 
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("shoot") && !is_shooting:
 		is_shooting = true
 		player_fight_controller.direction = interactor.direction
 		player_fight_controller.create_a_projectile_from_argument(bullet_types[0])
 		timer.start()
+		#!!!
+	#elif Input.is_action_pressed("shoot") && can_dash:
+		#can_dash = false
+		#player_fight_controller.direction = interactor.direction
+		#player_fight_controller.create_a_projectile_from_argument(bullet_types[1])
+		#timer_for_dash.start()
+
 
 func _on_timer_timeout() -> void:
 	is_shooting = false
+
 
 func update_current_health():
 	combat_ui.update_health(hurt_component.current_health, hurt_component.max_health)
@@ -85,6 +99,7 @@ func update_current_health():
 
 func on_fatal_damage_taken():
 	call_deferred("_reload_scene")
+
 
 func _reload_scene():
 	get_tree().reload_current_scene()

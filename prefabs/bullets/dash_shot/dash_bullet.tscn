@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bahr5flm0blan"]
+
+[ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/bullets/bullet.tscn" id="1_yg4ln"]
+[ext_resource type="Script" uid="uid://cuki43ljmma33" path="res://prefabs/bullets/dash_shot/dash_bullet.gd" id="2_j45fu"]
+
+[node name="DashBullet" unique_id=419752470 instance=ExtResource("1_yg4ln")]
+script = ExtResource("2_j45fu")

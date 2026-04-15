@@ -112,6 +112,10 @@ debug_color = Color(0, 0.6, 0.7019608, 0)
 wait_time = 0.4
 one_shot = true
 
+[node name="TimerForDash" type="Timer" parent="." unique_id=1596072353]
+wait_time = 5.0
+one_shot = true
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=371737396]
 
 [node name="CombatUI" type="Control" parent="UI" unique_id=343436959]
