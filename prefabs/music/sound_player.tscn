@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c8848ymfq8du6"]
+
+[ext_resource type="Script" uid="uid://co8vgtd7ikx1l" path="res://prefabs/music/sound_player.gd" id="1_eryhq"]
+
+[node name="SoundPlayer" type="AudioStreamPlayer" unique_id=709493652]
+script = ExtResource("1_eryhq")

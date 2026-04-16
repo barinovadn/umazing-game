@@ -81,12 +81,6 @@ func _input(_event: InputEvent) -> void:
 		player_fight_controller.direction = interactor.direction
 		player_fight_controller.create_a_projectile_from_argument(bullet_types[0])
 		timer.start()
-		#!!!
-	#elif Input.is_action_pressed("shoot") && can_dash:
-		#can_dash = false
-		#player_fight_controller.direction = interactor.direction
-		#player_fight_controller.create_a_projectile_from_argument(bullet_types[1])
-		#timer_for_dash.start()
 
 
 func _on_timer_timeout() -> void:

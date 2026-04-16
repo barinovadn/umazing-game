@@ -91,11 +91,13 @@ func _update_animation():
 	else:
 		animator.play_idle(direction)
 
+
+## Turns off the collision visibility layer and deletes the object after 5 seconds
 func _on_died():
 	visible = false
+	set_collision_layer_value(2, false)
 	var timer = get_tree().create_timer(5.0)
 	timer.timeout.connect(queue_free)
-
 
 func _on_moved(dir: Vector2, speed: float):
 	velocity = dir * speed * velocity_koef

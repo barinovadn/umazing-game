@@ -1,50 +1,38 @@
-[gd_scene format=3 uid="uid://crajt1qlujrtt"]
+[gd_scene format=3 uid="uid://tvv7lk4f7fio"]
 
-[ext_resource type="Texture2D" uid="uid://d3wgumpd8qbcb" path="res://common/effects/SpriteSheet.png" id="1_gldxr"]
+[ext_resource type="Texture2D" uid="uid://ckj16wbvp407p" path="res://common/effects/SpriteSheetSpark.png" id="1_gldxr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lh7u"]
 atlas = ExtResource("1_gldxr")
-region = Rect2(0, 0, 53, 35)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rp67y"]
 atlas = ExtResource("1_gldxr")
-region = Rect2(53, 0, 53, 35)
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqv56"]
 atlas = ExtResource("1_gldxr")
-region = Rect2(106, 0, 53, 35)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1rjqf"]
 atlas = ExtResource("1_gldxr")
-region = Rect2(159, 0, 53, 35)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7kt5"]
 atlas = ExtResource("1_gldxr")
-region = Rect2(106, 0, 53, 35)
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hsi4w"]
 atlas = ExtResource("1_gldxr")
-region = Rect2(53, 0, 53, 35)
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ysnvh"]
 atlas = ExtResource("1_gldxr")
-region = Rect2(53, 0, 53, 35)
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqwpi"]
 atlas = ExtResource("1_gldxr")
-region = Rect2(106, 0, 53, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7sta"]
-atlas = ExtResource("1_gldxr")
-region = Rect2(159, 0, 53, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_urrj5"]
-atlas = ExtResource("1_gldxr")
-region = Rect2(106, 0, 53, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_abvjx"]
-atlas = ExtResource("1_gldxr")
-region = Rect2(53, 0, 53, 35)
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eg50a"]
 animations = [{
@@ -72,23 +60,14 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dqwpi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k7sta")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_urrj5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_abvjx")
 }],
 "loop": true,
 "name": &"sparkling",
-"speed": 5.0
+"speed": 4.0
 }]
 
-[node name="Sparkles" type="AnimatedSprite2D" unique_id=241787107]
+[node name="Sparkles" type="AnimatedSprite2D" unique_id=1780118689]
 sprite_frames = SubResource("SpriteFrames_eg50a")
 animation = &"sparkling"
 autoplay = "sparkling"
-frame_progress = 0.30169913
+frame_progress = 0.8908827

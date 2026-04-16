@@ -33,6 +33,7 @@ func _ready():
 			bullet.direction = dir
 
 		get_tree().current_scene.add_child(bullet)
+		bullet.sound_player.volume = sound_player.volume
 
 	_destroy_bullet()
 

@@ -43,7 +43,9 @@ func create_a_projectile_from_argument(bullet: Resource = null) -> void:
 	
 	projectile.team = team
 	projectile.global_position = global_position
-	get_tree().root.add_child(projectile)
+
+	get_node("/root/Game/%Bullets").add_child(projectile)
+
 
 
 func get_closest_target():

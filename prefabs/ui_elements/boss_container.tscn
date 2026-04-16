@@ -36,6 +36,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_rw8r3")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 metadata/_edit_use_anchors_ = true
 
 [node name="Bar" type="TextureProgressBar" parent="." unique_id=1024891036]

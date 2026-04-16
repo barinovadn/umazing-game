@@ -6,11 +6,10 @@ extends Area2D
 signal fatal_damage_taken
 signal damaged
 
+@export var sound_player: SoundPlayer
+
 @export var team : CombatScript.team
 @export var max_health = 20
-@export var is_invulnerable: bool = false
-
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var _total_damage : int = 0
 var current_health : int  :
@@ -24,9 +23,6 @@ var current_health : int  :
 			damaged.emit()
 
 func take_damage(hit_component : Bullet) -> void:
-	if is_invulnerable:
-		return
-	
 	var damage : int = 0
 	damage += hit_component.damage
 	
@@ -36,3 +32,4 @@ func take_damage(hit_component : Bullet) -> void:
 		damage += hit_component.crit_damage
 		
 	current_health-=damage
+	sound_player.play_random_sound()

@@ -12,6 +12,10 @@ func on_damaged():
 
 func on_fatal_damage_taken():
 	deactivate_interaction()
+	
+	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)
+	
 	_set_portals()
 	%Player/%BossUI.remove_boss(boss_name)
 

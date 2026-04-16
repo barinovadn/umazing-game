@@ -35,6 +35,7 @@ func deactivate_interaction():
 	action_changer.stop()
 	current_movement.movement_enabled = false
 	shoot_controller_2d.fighting_enabled = false
+	print(shoot_controller_2d.fighting_enabled)
 
 
 func deactivate_portale(portal : Teleport):
@@ -99,10 +100,22 @@ func _check_phase():
 		var hp_for_phase_change: float = hurt_controller.max_health * modulates_for_phase[current_phase-1]
 		if (hurt_controller.current_health <= hp_for_phase_change):
 			current_phase+=1
+			var available_actions = _select_available_actions()
+			var heaviest_action = _find_heaviest_action(available_actions)
+			_rebalance_weights(available_actions, 1.0/heaviest_action.weight)
 
-func add_speed_effect(effect_hash: String, effect : Dictionary):
-	current_movement.speed_modifiers[effect_hash] = effect
 
+func _find_heaviest_action(array: Array[Action]):
+	if !array:
+		return
+	var action: Action = array[0]
+	for element in array: 
+		if action.weight < element.weight:
+			action = element
+			
+	return action
+	
 
-func delete_speed_effect(effect_hash: String):
-	current_movement.speed_modifiers.erase(effect_hash)
+func _rebalance_weights(array: Array[Action], rebalance_koef: float):
+	for element in array: 
+		element.weight *= rebalance_koef
