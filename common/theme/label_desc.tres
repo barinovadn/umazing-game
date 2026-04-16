@@ -1,4 +1,4 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dtl3tmpplat3s"]
+[gd_resource type="LabelSettings" format=3 uid="uid://dtl3tmpplat3s"]
 
 [ext_resource type="FontFile" uid="uid://c7b6uwmntv2d7" path="res://common/theme/fonts/tiny5_regular.ttf" id="1_x0dpq"]
 

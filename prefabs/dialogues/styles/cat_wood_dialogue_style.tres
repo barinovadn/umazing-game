@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="DialogueStyle" format=3 uid="uid://d2jikmefo2r3y"]
+
+[ext_resource type="Script" uid="uid://dnbglgxxu70q0" path="res://prefabs/dialogues/dialogue_style.gd" id="1_style"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekyrg"]
+font_color = Color(1, 0.95686275, 0.87058824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsxyi"]
+bg_color = Color(0.47843137, 0.2901961, 0.14901961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3019608, 0.16862746, 0.078431375, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ytc55"]
+font_size = 40
+font_color = Color(0.3529412, 0.20784314, 0.09411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gs3l6"]
+bg_color = Color(0.9098039, 0.75686276, 0.45490196, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.8862745, 0.67058825, 1)
+corner_detail = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_hrgsm"]
+font_size = 32
+font_color = Color(0.48235294, 0.3019608, 0.13333334, 1)
+
+[resource]
+script = ExtResource("1_style")
+ids = Array[StringName]([&"cat_wood"])
+name_label_settings = SubResource("LabelSettings_ytc55")
+text_label_settings = SubResource("LabelSettings_hrgsm")
+panel_style = SubResource("StyleBoxFlat_gs3l6")
+portrait_scale = 0.9
+bubble_style = SubResource("StyleBoxFlat_fsxyi")
+bubble_label_settings = SubResource("LabelSettings_ekyrg")
+metadata/_custom_type_script = "uid://dnbglgxxu70q0"

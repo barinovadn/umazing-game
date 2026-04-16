@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DialogueRequest" format=3]
+
+[ext_resource type="Script" path="res://prefabs/dialogues/dialogue_request.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+display_mode = 0
+text = "Обычная деревенская табличка. На ней уже почти ничего не разобрать."
+portrait = null
+speaker_name = ""
+duration = -1.0
+preset = "npc"
+block_movement = false
+wait_until_closed = false
+metadata/_custom_type_script = "res://prefabs/dialogues/dialogue_request.gd"

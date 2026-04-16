@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogueStyle" format=3 uid="uid://nma8d2urtth"]
+
+[ext_resource type="Script" uid="uid://dnbglgxxu70q0" path="res://prefabs/dialogues/dialogue_style.gd" id="1_style"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_at0s2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brbha"]
+bg_color = Color(0.47843137, 0.2901961, 0.14901961, 1)
+border_color = Color(0.3019608, 0.16862746, 0.078431375, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ox7gh"]
+font_size = 40
+font_color = Color(0.3529412, 0.20784314, 0.0627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_050ta"]
+bg_color = Color(0.8862745, 0.59607846, 0.39215687, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8862745, 0.50980395, 0.38431373, 1)
+corner_detail = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_lv33s"]
+font_size = 32
+font_color = Color(0.47843137, 0.2901961, 0.08627451, 1)
+
+[resource]
+script = ExtResource("1_style")
+ids = Array[StringName]([&"pig_barn"])
+name_label_settings = SubResource("LabelSettings_ox7gh")
+text_label_settings = SubResource("LabelSettings_lv33s")
+panel_style = SubResource("StyleBoxFlat_050ta")
+portrait_scale = 0.9
+bubble_style = SubResource("StyleBoxFlat_brbha")
+bubble_label_settings = SubResource("LabelSettings_at0s2")
+metadata/_custom_type_script = "uid://dnbglgxxu70q0"

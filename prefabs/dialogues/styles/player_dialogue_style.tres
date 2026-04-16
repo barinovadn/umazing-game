@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="DialogueStyle" format=3 uid="uid://q7kvhfjkq0w3"]
+
+[ext_resource type="Script" uid="uid://dnbglgxxu70q0" path="res://prefabs/dialogues/dialogue_style.gd" id="1_style"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fkmlv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djghx"]
+bg_color = Color(0.18431373, 0.41960785, 0.2901961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12156863, 0.24705882, 0.18431373, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_chilp"]
+font_size = 40
+font_color = Color(0.3019608, 0.41568628, 0.16470589, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnp30"]
+bg_color = Color(0.84705883, 0.93333334, 0.6901961, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.84705883, 0.93333334, 0.50980395, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aa7uw"]
+font_size = 32
+font_color = Color(0.43529412, 0.56078434, 0.23137255, 1)
+
+[resource]
+script = ExtResource("1_style")
+ids = Array[StringName]([&"player"])
+name_label_settings = SubResource("LabelSettings_chilp")
+text_label_settings = SubResource("LabelSettings_aa7uw")
+panel_style = SubResource("StyleBoxFlat_hnp30")
+portrait_scale = 0.9
+bubble_style = SubResource("StyleBoxFlat_djghx")
+bubble_label_settings = SubResource("LabelSettings_fkmlv")
+metadata/_custom_type_script = "uid://dnbglgxxu70q0"

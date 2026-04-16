@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogueRequest" format=3]
+
+[ext_resource type="Texture2D" path="res://prefabs/characters/villager_cat/portrait_surprised.png" id="1_portrait"]
+[ext_resource type="Script" path="res://prefabs/dialogues/dialogue_request.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+display_mode = 1
+lines = Array[String](["Значит, пока не нашли... Плохо. Он умеет прятаться так, будто готовился всю жизнь.", "Эх, снова пусто? Тогда будем искать дальше. Он не мог далеко уйти.", "Не нашли кота? Ладно, я ещё раз проверю дом, забор и все подозрительные кусты.", "Понятно... Тогда давай не сдаваться. Этот пушистый хитрец где-то рядом.", "Если его нигде нет, значит, он просто наблюдает за нами и наслаждается представлением."])
+portrait = ExtResource("1_portrait")
+speaker_name = "Рыжий житель"
+duration = -1.0
+preset = "cat_wood"
+block_movement = false
+wait_until_closed = false
+metadata/_custom_type_script = "res://prefabs/dialogues/dialogue_request.gd"

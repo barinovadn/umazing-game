@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueRequest" format=3 uid="uid://dmvfhup7idbok"]
+
+[ext_resource type="Texture2D" uid="uid://dfbd38msyjsx6" path="res://prefabs/characters/ninja_blue/portrait.png" id="1_portrait"]
+[ext_resource type="Script" uid="uid://chbyd6ci8x0c7" path="res://prefabs/dialogues/dialogue_request.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+display_mode = 1
+lines = Array[String](["Ночь делает шаги тише. В темноте легче услышать то, что днём скрывает шум.", "Синий ниндзя не спорит с ночью — он просто становится её частью.", "Когда мир темнеет, движения должны становиться точнее, а мысли — спокойнее.", "Лунный свет — лучший союзник для того, кто умеет исчезать между тенями."])
+portrait = ExtResource("1_portrait")
+speaker_name = "Синий ниндзя"
+preset = "ninja_night"
+wait_until_closed = false

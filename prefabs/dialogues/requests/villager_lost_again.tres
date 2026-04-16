@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogueRequest" format=3]
+
+[ext_resource type="Texture2D" path="res://prefabs/characters/villager_cat/portrait_blank.png" id="1_portrait"]
+[ext_resource type="Script" path="res://prefabs/dialogues/dialogue_request.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+display_mode = 1
+lines = Array[String](["Что значит, мы снова его потеряли? Удивительно... и совершенно в его стиле.", "Он опять исчез? Похоже, мой кот считает себя мастером драматических выходов.", "Только обрадовался — и снова пусто. Этот пушистый артист точно делает это специально.", "Ладно, второй раунд. Я ищу кота, ты ищешь кота, а кот, скорее всего, ищет приключения.", "Похоже, он решил, что одного спасения ему было мало. Ну что ж, идём искать заново."])
+portrait = ExtResource("1_portrait")
+speaker_name = "Рыжий житель"
+duration = -1.0
+preset = "cat_wood"
+block_movement = false
+wait_until_closed = false
+metadata/_custom_type_script = "res://prefabs/dialogues/dialogue_request.gd"

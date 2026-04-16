@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogueStyle" format=3 uid="uid://dgq6v6flp8oi1"]
+
+[ext_resource type="Script" uid="uid://dnbglgxxu70q0" path="res://prefabs/dialogues/dialogue_style.gd" id="1_style"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5wrlf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqptu"]
+bg_color = Color(0.12941177, 0.19607843, 0.33333334, 1)
+border_color = Color(0.54901963, 0.69803923, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iej1e"]
+font_size = 40
+font_color = Color(0.0627451, 0.24705882, 0.63529414, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdb2u"]
+bg_color = Color(0.12941177, 0.19607843, 0.33333334, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.08627451, 0.09019608, 0.33333334, 1)
+corner_detail = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsiuo"]
+font_size = 32
+font_color = Color(0.89411765, 0.9372549, 1, 1)
+
+[resource]
+script = ExtResource("1_style")
+ids = Array[StringName]([&"ninja_night"])
+name_label_settings = SubResource("LabelSettings_iej1e")
+text_label_settings = SubResource("LabelSettings_bsiuo")
+panel_style = SubResource("StyleBoxFlat_cdb2u")
+portrait_scale = 0.9
+bubble_style = SubResource("StyleBoxFlat_gqptu")
+bubble_label_settings = SubResource("LabelSettings_5wrlf")
+metadata/_custom_type_script = "uid://dnbglgxxu70q0"

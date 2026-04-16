@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueRequest" format=3 uid="uid://cd62a2573n57q"]
+
+[ext_resource type="Texture2D" uid="uid://jkgc1mqwtedu" path="res://prefabs/characters/villager_cat/portrait_crying.png" id="1_portrait"]
+[ext_resource type="Script" uid="uid://chbyd6ci8x0c7" path="res://prefabs/dialogues/dialogue_request.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+display_mode = 1
+lines = Array[String](["Нет... только не говори, что с ним всё кончено. Я ведь просто хотел вернуть его домой.", "Я до последнего надеялся, что он опять выскочит из-за угла как ни в чём не бывало...", "Не знаю, что сказать. Без него дом теперь будет совсем другим.", "Спасибо, что не стал скрывать правду. Это больно, но лучше знать наверняка.", "Он был вредным, шумным и самым любимым существом в этом доме. Мне будет его не хватать."])
+portrait = ExtResource("1_portrait")
+speaker_name = "Рыжий житель"
+preset = "cat_wood"
+wait_until_closed = false

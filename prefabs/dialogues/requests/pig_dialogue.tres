@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueRequest" format=3 uid="uid://c0e3swtsdsiuh"]
+
+[ext_resource type="Texture2D" uid="uid://brwvm4t4a2r82" path="res://prefabs/characters/pig/portrait.png" id="1_portrait"]
+[ext_resource type="Script" uid="uid://chbyd6ci8x0c7" path="res://prefabs/dialogues/dialogue_request.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+display_mode = 1
+lines = Array[String](["Хрю-хрю! В амбаре сегодня тепло, спокойно и пахнет свежим сеном.", "Если не шуметь, можно услышать, как сено шуршит лучше любой колыбельной.", "Я здесь главный эксперт по уюту. Амбар, сено и тишина — вот настоящее искусство жизни.", "Хрю! Не наступай на солому слишком громко, я тут как раз наслаждаюсь вечерним отдыхом."])
+portrait = ExtResource("1_portrait")
+speaker_name = "Свинка"
+preset = "pig_barn"
+wait_until_closed = false

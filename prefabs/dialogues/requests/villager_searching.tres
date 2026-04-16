@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueRequest" format=3 uid="uid://cq7ffxow5eeb4"]
+
+[ext_resource type="Texture2D" uid="uid://bjnvle1f867aa" path="res://prefabs/characters/villager_cat/portrait_worried.png" id="1_portrait"]
+[ext_resource type="Script" uid="uid://chbyd6ci8x0c7" path="res://prefabs/dialogues/dialogue_request.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+display_mode = 1
+lines = Array[String](["Ты не видел моего кота? Он рыжий, наглый и делает вид, будто это я у него живу.", "Я уже весь двор обошёл. Если встретишь моего кота, скажи ему, что я всё равно не сержусь.", "Я сейчас ищу кота. Обычно он сидит там, где его искать совсем неудобно.", "Если заметишь рыжий хвост — сразу скажи мне. Это наверняка мой беглец.", "Помоги мне, пожалуйста. Без кота в доме как-то слишком тихо и подозрительно."])
+portrait = ExtResource("1_portrait")
+speaker_name = "Рыжий житель"
+preset = "cat_wood"
+wait_until_closed = false

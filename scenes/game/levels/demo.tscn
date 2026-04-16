@@ -9,68 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://ck2kcqhlhgtlm" path="res://prefabs/teleport/teleport.tscn" id="8_ygfwu"]
 [ext_resource type="PackedScene" uid="uid://bc2kdebobsqlu" path="res://prefabs/interactables/inspectable/inspectable.tscn" id="9_8ic3i"]
 [ext_resource type="PackedScene" uid="uid://uhy5xmcfxpe8" path="res://prefabs/environment/environment_zone.tscn" id="9_q7qle"]
-[ext_resource type="Script" path="res://prefabs/dialogues/dialogue_variant.gd" id="10_questv"]
-[ext_resource type="Texture2D" path="res://prefabs/characters/villager_cat/portrait_happy.png" id="11_villager_happy"]
-[ext_resource type="Texture2D" path="res://prefabs/characters/villager_cat/portrait_worried.png" id="12_villager_worried"]
-[ext_resource type="Texture2D" path="res://prefabs/characters/villager_cat/portrait_surprised.png" id="13_villager_surprised"]
-[ext_resource type="Texture2D" path="res://prefabs/characters/villager_cat/portrait_crying.png" id="14_villager_crying"]
-[ext_resource type="Texture2D" path="res://prefabs/characters/villager_cat/portrait_blank.png" id="15_villager_blank"]
-
-
-
-[sub_resource type="Resource" id="Resource_searching"]
-script = ExtResource("10_questv")
-id = &"searching"
-lines = Array[String](["Ты не видел моего кота? Он рыжий, наглый и делает вид, будто это я у него живу.", "Я уже весь двор обошёл. Если встретишь моего кота, скажи ему, что я всё равно не сержусь.", "Я сейчас ищу кота. Обычно он сидит там, где его искать совсем неудобно.", "Если заметишь рыжий хвост — сразу скажи мне. Это наверняка мой беглец.", "Помоги мне, пожалуйста. Без кота в доме как-то слишком тихо и подозрительно."])
-speaker_name = "Рыжий житель"
-portrait_texture = ExtResource("12_villager_worried")
-dialogue_preset = "cat_wood"
-display_mode = 2
-
-[sub_resource type="Resource" id="Resource_not_found"]
-script = ExtResource("10_questv")
-id = &"not_found"
-lines = Array[String](["Значит, пока не нашли... Плохо. Он умеет прятаться так, будто готовился всю жизнь.", "Эх, снова пусто? Тогда будем искать дальше. Он не мог далеко уйти.", "Не нашли кота? Ладно, я ещё раз проверю дом, забор и все подозрительные кусты.", "Понятно... Тогда давай не сдаваться. Этот пушистый хитрец где-то рядом.", "Если его нигде нет, значит, он просто наблюдает за нами и наслаждается представлением."])
-speaker_name = "Рыжий житель"
-portrait_texture = ExtResource("13_villager_surprised")
-dialogue_preset = "cat_wood"
-display_mode = 2
-
-[sub_resource type="Resource" id="Resource_found"]
-script = ExtResource("10_questv")
-id = &"found"
-lines = Array[String](["Ты нашёл его? Вот это новость! Я уже думал, что этот усатый герой снова победил всех нас.", "Спасибо! Теперь я наконец-то смогу перестать разговаривать с пустой миской.", "Нашёлся! Я знал, что он где-то рядом и просто притворяется легендой.", "Отлично! Передай коту, что я был очень строгим ровно пять секунд, а потом снова начал скучать.", "Спасибо тебе. Сегодня ты спас не только кота, но и мои нервы."])
-speaker_name = "Рыжий житель"
-portrait_texture = ExtResource("11_villager_happy")
-dialogue_preset = "cat_wood"
-display_mode = 2
-
-[sub_resource type="Resource" id="Resource_lost_again"]
-script = ExtResource("10_questv")
-id = &"lost_again"
-lines = Array[String](["Что значит, мы снова его потеряли? Удивительно... и совершенно в его стиле.", "Он опять исчез? Похоже, мой кот считает себя мастером драматических выходов.", "Только обрадовался — и снова пусто. Этот пушистый артист точно делает это специально.", "Ладно, второй раунд. Я ищу кота, ты ищешь кота, а кот, скорее всего, ищет приключения.", "Похоже, он решил, что одного спасения ему было мало. Ну что ж, идём искать заново."])
-speaker_name = "Рыжий житель"
-portrait_texture = ExtResource("15_villager_blank")
-dialogue_preset = "cat_wood"
-display_mode = 2
-
-[sub_resource type="Resource" id="Resource_hurt"]
-script = ExtResource("10_questv")
-id = &"hurt"
-lines = Array[String](["Кот ранен? Только не это... Давай осторожно, ему сейчас страшнее, чем нам.", "Если он поранился, нужно отнести его домой и дать ему спокойно прийти в себя.", "Бедный мой комок шерсти... Надеюсь, это не серьёзно. Спасибо, что сказал мне сразу.", "Главное, не пугай его. Когда он ранен, он делает вид, что всё под контролем, но я-то знаю этот взгляд.", "Спасибо, что нашёл его вовремя. С раненым котом шутки плохи."])
-speaker_name = "Рыжий житель"
-portrait_texture = ExtResource("13_villager_surprised")
-dialogue_preset = "cat_wood"
-display_mode = 2
-
-[sub_resource type="Resource" id="Resource_killed"]
-script = ExtResource("10_questv")
-id = &"killed"
-lines = Array[String](["Нет... только не говори, что с ним всё кончено. Я ведь просто хотел вернуть его домой.", "Я до последнего надеялся, что он опять выскочит из-за угла как ни в чём не бывало...", "Не знаю, что сказать. Без него дом теперь будет совсем другим.", "Спасибо, что не стал скрывать правду. Это больно, но лучше знать наверняка.", "Он был вредным, шумным и самым любимым существом в этом доме. Мне будет его не хватать."])
-speaker_name = "Рыжий житель"
-portrait_texture = ExtResource("14_villager_crying")
-dialogue_preset = "cat_wood"
-display_mode = 2
+[ext_resource type="Texture2D" uid="uid://bjnvle1f867aa" path="res://prefabs/characters/villager_cat/portrait_worried.png" id="12_villager_worried"]
+[ext_resource type="Resource" uid="uid://cq7ffxow5eeb4" path="res://prefabs/dialogues/requests/villager_searching.tres" id="13_villager_searching"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/villager_not_found.tres" id="14_villager_not_found"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/villager_found.tres" id="15_villager_found"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/villager_lost_again.tres" id="16_villager_lost_again"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/villager_hurt.tres" id="17_villager_hurt"]
+[ext_resource type="Resource" uid="uid://cd62a2573n57q" path="res://prefabs/dialogues/requests/villager_killed.tres" id="18_villager_killed"]
+[ext_resource type="Resource" uid="uid://c0e3swtsdsiuh" path="res://prefabs/dialogues/requests/pig_dialogue.tres" id="19_pig_dialogue"]
+[ext_resource type="Resource" uid="uid://dmvfhup7idbok" path="res://prefabs/dialogues/requests/ninja_blue_dialogue.tres" id="20_ninja_blue_dialogue"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/sign_dialogue.tres" id="21_sign_dialogue"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/secret_dialogue.tres" id="22_secret_dialogue"]
 
 [node name="Game" unique_id=204430001 instance=ExtResource("1_c3u61")]
 
@@ -154,13 +103,10 @@ dialogue_name = "Рыжий житель"
 portrait_texture = ExtResource("12_villager_worried")
 
 [node name="InspectableNPC" parent="Characters/Villagers/Dummy1" index="4" unique_id=45048443 instance=ExtResource("9_8ic3i")]
-description = Array[String](["Ты не видел моего кота?", "Помоги мне найти кота.", "Я очень по нему скучаю..."])
-dialogue_display_mode = 1
-speaker_name = "Рыжий житель"
-dialogue_preset = "cat_wood"
-dialogue_variants = Array[Resource]([SubResource("Resource_searching"), SubResource("Resource_not_found"), SubResource("Resource_found"), SubResource("Resource_lost_again"), SubResource("Resource_hurt"), SubResource("Resource_killed")])
-current_dialogue_variant = &"searching"
-cycle_dialogue_variants_on_interact = true
+dialogue_request = null
+dialogue_requests = Array[Resource]([ExtResource("13_villager_searching"), ExtResource("14_villager_not_found"), ExtResource("15_villager_found"), ExtResource("16_villager_lost_again"), ExtResource("17_villager_hurt"), ExtResource("18_villager_killed")])
+current_dialogue_index = 0
+cycle_dialogue_requests_on_interact = true
 
 [node name="Dummy2" parent="Characters/Villagers" index="1" unique_id=1610470532 instance=ExtResource("7_8qff5")]
 z_index = 15
@@ -186,9 +132,10 @@ movement_speed = 60.0
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
 [node name="InspectablePig" parent="Characters/Pig" index="5" unique_id=187512341 instance=ExtResource("9_8ic3i")]
-description = Array[String](["Хрю-хрю! В амбаре сегодня тепло, спокойно и пахнет свежим сеном.", "Если не шуметь, можно услышать, как сено шуршит лучше любой колыбельной.", "Я здесь главный эксперт по уюту. Амбар, сено и тишина — вот настоящее искусство жизни.", "Хрю! Не наступай на солому слишком громко, я тут как раз наслаждаюсь вечерним отдыхом."])
-dialogue_display_mode = 1
-dialogue_preset = "pig_barn"
+dialogue_request = ExtResource("19_pig_dialogue")
+dialogue_requests = Array[Resource]([])
+current_dialogue_index = 0
+cycle_dialogue_requests_on_interact = false
 
 [node name="NinjaBlue" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="2" unique_id=986257099 node_paths=PackedStringArray("movement") instance=ExtResource("4_n6h0s")]
 position = Vector2(-16, 56)
@@ -203,9 +150,10 @@ movement_speed = 60.0
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
 [node name="InspectableBlueNinja" parent="Characters/NinjaBlue" index="1" unique_id=100361512 instance=ExtResource("9_8ic3i")]
-description = Array[String](["Ночь делает шаги тише. В темноте легче услышать то, что днём скрывает шум.", "Синий ниндзя не спорит с ночью — он просто становится её частью.", "Когда мир темнеет, движения должны становиться точнее, а мысли — спокойнее.", "Лунный свет — лучший союзник для того, кто умеет исчезать между тенями."])
-dialogue_display_mode = 1
-dialogue_preset = "ninja_night"
+dialogue_request = ExtResource("20_ninja_blue_dialogue")
+dialogue_requests = Array[Resource]([])
+current_dialogue_index = 0
+cycle_dialogue_requests_on_interact = false
 
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="3" unique_id=379324176 instance=ExtResource("5_gfex4")]
 position = Vector2(0, 160)
@@ -216,8 +164,17 @@ z_index = 50
 
 [node name="InspectableSign" parent="Interactables" index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
 position = Vector2(-424, 8)
-description = Array[String](["Обычная деревенская табличка. На ней уже почти ничего не разобрать."])
+dialogue_request = ExtResource("21_sign_dialogue")
+dialogue_requests = Array[Resource]([])
+current_dialogue_index = 0
+cycle_dialogue_requests_on_interact = false
 
 [node name="InspectableSecret" parent="Interactables" index="1" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
 position = Vector2(-536, -120)
-description = Array[String](["<- Бесплатные хот-доги туда."])
+dialogue_request = ExtResource("22_secret_dialogue")
+dialogue_requests = Array[Resource]([])
+current_dialogue_index = 0
+cycle_dialogue_requests_on_interact = false
+
+[node name="DialogueSystem" parent="." index="8" unique_id=1985282199]
+one_bubble_per_target = null

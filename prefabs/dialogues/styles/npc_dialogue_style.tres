@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="DialogueStyle" format=3 uid="uid://dv3oea7ov0maq"]
+
+[ext_resource type="Script" uid="uid://dnbglgxxu70q0" path="res://prefabs/dialogues/dialogue_style.gd" id="1_style"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dtbbg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8504"]
+bg_color = Color(0.47843137, 0.2901961, 0.14901961, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.3019608, 0.16862746, 0.078431375, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xi2jh"]
+font_color = Color(0.3529412, 0.20784314, 0.09411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xs61"]
+bg_color = Color(0.9098039, 0.75686276, 0.45490196, 1)
+border_color = Color(1, 0.8862745, 0.70980394, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4tw5n"]
+font_color = Color(0.48235294, 0.3019608, 0.13333334, 1)
+
+[resource]
+script = ExtResource("1_style")
+ids = Array[StringName]([&"npc"])
+name_label_settings = SubResource("LabelSettings_xi2jh")
+text_label_settings = SubResource("LabelSettings_4tw5n")
+panel_style = SubResource("StyleBoxFlat_7xs61")
+portrait_scale = 0.9
+bubble_style = SubResource("StyleBoxFlat_c8504")
+bubble_label_settings = SubResource("LabelSettings_dtbbg")
+metadata/_custom_type_script = "uid://dnbglgxxu70q0"

@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cd4mxmywy2qdo"]
 
-[ext_resource type="Script" uid="uid://brj5w4ytseirc" path="res://prefabs/interactor/interactor.gd" id="1_qpc5s"]
+[ext_resource type="Script" uid="uid://brj5w4ytseirc" path="res://prefabs/interactor/interactor.gd" id="1_interactor"]
+[ext_resource type="PackedScene" uid="uid://p4iu62a5pxlg" path="res://prefabs/interactor/interaction_prompt.tscn" id="2_prompt"]
 
 [node name="Interactor" type="RayCast2D" unique_id=109062155]
 target_position = Vector2(0, 32)
 collision_mask = 4
-script = ExtResource("1_qpc5s")
+script = ExtResource("1_interactor")
 action = "interact"
+prompt_scene = ExtResource("2_prompt")
