@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://ck2kcqhlhgtlm" path="res://prefabs/teleport/teleport.tscn" id="8_ygfwu"]
 [ext_resource type="PackedScene" uid="uid://bc2kdebobsqlu" path="res://prefabs/interactables/inspectable/inspectable.tscn" id="9_8ic3i"]
 [ext_resource type="PackedScene" uid="uid://uhy5xmcfxpe8" path="res://prefabs/environment/environment_zone.tscn" id="9_q7qle"]
+[ext_resource type="PackedScene" uid="uid://ds7r5gr45oetv" path="res://prefabs/pickups/item_pickup.tscn" id="10_q7qle"]
+[ext_resource type="Resource" uid="uid://blylgxx5kc83n" path="res://prefabs/items/test_item.tres" id="11_bc555"]
 
 [node name="Game" unique_id=204430001 instance=ExtResource("1_c3u61")]
 
@@ -170,3 +172,66 @@ description = Array[String](["Blah-blah-blah..."])
 [node name="InspectableSecret" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
 position = Vector2(-536, -120)
 description = Array[String](["<- Free hotdogs this way."])
+
+[node name="ItemPickup" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="0" unique_id=645073492 instance=ExtResource("10_q7qle")]
+z_index = 11
+z_as_relative = false
+position = Vector2(-202, 2)
+scale = Vector2(0.3, 0.3)
+item_data = ExtResource("11_bc555")
+
+[node name="ItemPickup5" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="1" unique_id=90894508 instance=ExtResource("10_q7qle")]
+z_index = 11
+z_as_relative = false
+position = Vector2(-261, -7)
+scale = Vector2(0.3, 0.3)
+item_data = ExtResource("11_bc555")
+
+[node name="ItemPickup6" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="2" unique_id=1311133588 instance=ExtResource("10_q7qle")]
+z_index = 11
+z_as_relative = false
+position = Vector2(-164, 24)
+scale = Vector2(0.3, 0.3)
+item_data = ExtResource("11_bc555")
+
+[node name="ItemPickup7" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="3" unique_id=962905789 instance=ExtResource("10_q7qle")]
+z_index = 11
+z_as_relative = false
+position = Vector2(-34, -7)
+scale = Vector2(0.3, 0.3)
+item_data = ExtResource("11_bc555")
+
+[node name="ItemPickup9" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="4" unique_id=1845446440 instance=ExtResource("10_q7qle")]
+z_index = 11
+z_as_relative = false
+position = Vector2(-23, 28)
+scale = Vector2(0.3, 0.3)
+item_data = ExtResource("11_bc555")
+
+[node name="ItemPickup8" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="5" unique_id=691458593 instance=ExtResource("10_q7qle")]
+z_index = 11
+z_as_relative = false
+position = Vector2(-74, 28)
+scale = Vector2(0.3, 0.3)
+item_data = ExtResource("11_bc555")
+
+[node name="ItemPickup2" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="6" unique_id=1529804816 instance=ExtResource("10_q7qle")]
+z_index = 11
+z_as_relative = false
+position = Vector2(-77, -10)
+scale = Vector2(0.3, 0.3)
+item_data = ExtResource("11_bc555")
+
+[node name="ItemPickup3" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="7" unique_id=445834987 instance=ExtResource("10_q7qle")]
+z_index = 11
+z_as_relative = false
+position = Vector2(-125, 17)
+scale = Vector2(0.3, 0.3)
+item_data = ExtResource("11_bc555")
+
+[node name="ItemPickup4" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="8" unique_id=2127894643 instance=ExtResource("10_q7qle")]
+z_index = 11
+z_as_relative = false
+position = Vector2(-132, -12)
+scale = Vector2(0.3, 0.3)
+item_data = ExtResource("11_bc555")

@@ -71,3 +71,5 @@ z_index = 30
 
 [node name="Interactables" type="Node2D" parent="." unique_id=233789877]
 z_index = 20
+
+[node name="Pickups" type="Node2D" parent="." unique_id=1517964194]

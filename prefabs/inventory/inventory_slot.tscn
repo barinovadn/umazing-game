@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b2f03us0fjr1v"]
+
+[ext_resource type="Script" uid="uid://dfaul3odyrf5c" path="res://prefabs/inventory/inventory_slot.gd" id="1_id4kk"]
+[ext_resource type="LabelSettings" uid="uid://ba4whetxbffu0" path="res://common/theme/label_title_small.tres" id="2_vg1by"]
+
+[node name="InventorySlot" type="Button" unique_id=252439272]
+custom_minimum_size = Vector2(200, 30)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -59.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 0
+script = ExtResource("1_id4kk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=843596210]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=776506455]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0024980162
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1611602901]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=277573967]
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = ExtResource("2_vg1by")
+vertical_alignment = 1
+text_overrun_behavior = 5
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

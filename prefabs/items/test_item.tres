@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://blylgxx5kc83n"]
+
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/items/base_item.gd" id="1_86nn8"]
+[ext_resource type="Texture2D" uid="uid://cgaygxeatd046" path="res://prefabs/items/Shrimp.png" id="1_88wyr"]
+
+[resource]
+script = ExtResource("1_86nn8")
+item_name = "Креветка"
+item_icon = ExtResource("1_88wyr")
+description = "Еда"
+heal_amount = 5
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"
