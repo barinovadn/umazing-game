@@ -54,13 +54,13 @@ animations = [{
 [node name="HomingShot" unique_id=419752470 instance=ExtResource("1_u7vf8")]
 script = ExtResource("2_8v6to")
 speed = 80
-can_brake = true
 auto_aim = true
+can_break = true
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 shape = SubResource("CircleShape2D_1qbqo")
 
-[node name="AnimatedSprite2D" parent="." index="3" unique_id=1701417106]
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
 sprite_frames = SubResource("SpriteFrames_awowh")
 animation = &"homing_shot"
 autoplay = "homing_shot"
@@ -75,6 +75,5 @@ autostart = true
 [node name="BulletSoundPlayer" parent="." index="5" unique_id=237024223]
 bus = &"Enemy"
 bullet_appearence_sounds = Array[AudioStream]([ExtResource("4_m488l")])
-volume = 4.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

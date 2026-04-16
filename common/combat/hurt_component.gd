@@ -21,16 +21,19 @@ var current_health : int  :
 		else:
 			damaged.emit()
 
-func take_damage(hit_component : Bullet) -> void:
-	var damage : int = 0
-	damage += hit_component.damage
-	
-	var chance_to_crit : float = randf_range(0, 1)
-	
-	if chance_to_crit <= hit_component.crit_chance:
-		damage += hit_component.crit_damage
-		
-	current_health-=damage
+#func take_damage(hit_component: Bullet) -> void:
+	#var damage : int = 0
+	#damage += hit_component.damage
+	#
+	#var chance_to_crit : float = randf_range(0, 1)
+	#
+	#if chance_to_crit <= hit_component.crit_chance:
+		#damage += hit_component.crit_damage
+		#
+	#current_health-=damage
+
+func take_damage(amount: int = 0):
+	current_health -= amount
 
 
 func _disabling():

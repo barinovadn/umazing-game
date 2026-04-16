@@ -41,14 +41,14 @@ func create_a_projectile_from_argument(bullet: Resource = null) -> void:
 	if is_homing_on:
 		projectile.target = get_closest_target()
 	if is_bounce_on:
-		projectile.can_recochete = true
+		projectile.can_ricochet = true
 		projectile.number_of_recochets = number_of_bounces
 	
 	projectile.direction = direction
 	
 	projectile.team = team
 	projectile.global_position = global_position
-
+	
 	get_node("/root/Game/%Bullets").add_child(projectile)
 
 

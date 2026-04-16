@@ -28,9 +28,9 @@ func _ready():
 		_copy_arguments(bullet, dir)
 
 		get_node("/root/Game/%Bullets").add_child(bullet)
-		bullet.bullet_sound_player.volume = bullet_sound_player.volume
+		#bullet.bullet_sound_player.volume = bullet_sound_player.volume
 
-	_destroy_bullet()
+	destroy()
 
 func  _process(_delta: float) -> void:
 	pass
@@ -43,8 +43,8 @@ func _get_direction() -> Vector2:
 
 func _copy_arguments(bullet: Bullet, dir : Vector2):
 	bullet.can_be_broken = can_be_broken
-	bullet.can_brake = can_brake
-	bullet.can_recochete = can_recochete
+	bullet.can_break = can_break
+	bullet.can_ricochet = can_ricochet
 	bullet.number_of_recochets = number_of_recochets
 	# если у пули есть направление — передаём
 	if bullet.has_method("set_direction"):

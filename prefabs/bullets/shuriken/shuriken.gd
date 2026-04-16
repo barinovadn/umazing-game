@@ -3,7 +3,7 @@ extends Bullet
 
 func _ready() -> void:
 	animated_sprite_2d.play("player_shot")
-	bullet_sound_player.play_random_appearence_sound()
+	#bullet_sound_player.play_random_appearence_sound()
 
 
 func _process(delta: float) -> void:
