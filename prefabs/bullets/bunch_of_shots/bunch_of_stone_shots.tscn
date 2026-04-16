@@ -8,3 +8,6 @@ script = ExtResource("2_x0ht6")
 amount_of_bullets = 5
 spacing = 30.0
 offset_from_center = 25.0
+
+[node name="BulletSoundPlayer" parent="." index="4" unique_id=237024223]
+volume = -6.0

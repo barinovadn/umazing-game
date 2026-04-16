@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dln050r5k2x3w"
-path="res://.godot/imported/Hit8.wav-2b6addd450a566191d616124ec8a74b1.sample"
+path="res://.godot/imported/player_hit_sound.wav-5eddff5678e6633e7991e744f8113b8e.sample"
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/cyclopus_cat/Hit8.wav"
-dest_files=["res://.godot/imported/Hit8.wav-2b6addd450a566191d616124ec8a74b1.sample"]
+source_file="res://prefabs/music/sounds/player_hit_sound.wav"
+dest_files=["res://.godot/imported/player_hit_sound.wav-5eddff5678e6633e7991e744f8113b8e.sample"]
 
 [params]
 

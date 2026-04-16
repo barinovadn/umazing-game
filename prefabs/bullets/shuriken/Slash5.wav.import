@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dufrwl8jt5fk2"
-path="res://.godot/imported/Slash5.wav-6ef01d69ac8bea33b4e870fc15019852.sample"
+path="res://.godot/imported/slash5.wav-b9e7f468dc688ab18fc82c8bde0d397f.sample"
 
 [deps]
 
-source_file="res://prefabs/bullets/shuriken/Slash5.wav"
-dest_files=["res://.godot/imported/Slash5.wav-6ef01d69ac8bea33b4e870fc15019852.sample"]
+source_file="res://prefabs/bullets/shuriken/slash5.wav"
+dest_files=["res://.godot/imported/slash5.wav-b9e7f468dc688ab18fc82c8bde0d397f.sample"]
 
 [params]
 

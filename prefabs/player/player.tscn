@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/bullets/shuriken/shuriken.tscn" id="7_30gqm"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
 [ext_resource type="PackedScene" uid="uid://c8848ymfq8du6" path="res://prefabs/music/sound_player.tscn" id="7_ot5ig"]
-[ext_resource type="AudioStream" uid="uid://dln050r5k2x3w" path="res://prefabs/characters/bosses/cyclopus_cat/Hit8.wav" id="8_t13t3"]
+[ext_resource type="AudioStream" uid="uid://dln050r5k2x3w" path="res://prefabs/music/sounds/player_hit_sound.wav" id="8_t13t3"]
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://common/ui/health_ui.gd" id="11_30gqm"]
 [ext_resource type="Script" uid="uid://cep3cwaarv32y" path="res://prefabs/player/activation_area.gd" id="11_hvqk4"]
@@ -66,16 +66,10 @@ shape = SubResource("CircleShape2D_ev8v4")
 bullet_types = Array[Resource]([ExtResource("7_30gqm")])
 team = 1
 
-[node name="HurtComponent" parent="." unique_id=949368062 node_paths=PackedStringArray("sound_player") groups=["hurt_components"] instance=ExtResource("4_vhck3")]
+[node name="HurtComponent" parent="." unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
 collision_layer = 2048
 collision_mask = 1025
-sound_player = NodePath("SoundPlayer")
 team = 1
-
-[node name="SoundPlayer" parent="HurtComponent" unique_id=709493652 instance=ExtResource("7_ot5ig")]
-bus = &"Player"
-playlist = Array[AudioStream]([ExtResource("8_t13t3")])
-volume = -6.0
 
 [node name="Camera" type="Camera2D" parent="." unique_id=380955172]
 unique_name_in_owner = true
@@ -124,6 +118,11 @@ one_shot = true
 wait_time = 5.0
 one_shot = true
 
+[node name="SoundPlayer" parent="." unique_id=709493652 instance=ExtResource("7_ot5ig")]
+bus = &"Player"
+hits_playlist = Array[AudioStream]([ExtResource("8_t13t3")])
+volume = -6.0
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=371737396]
 
 [node name="CombatUI" type="Control" parent="UI" unique_id=343436959]
@@ -166,6 +165,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 60
 alignment = 2
 metadata/_edit_use_anchors_ = true
 

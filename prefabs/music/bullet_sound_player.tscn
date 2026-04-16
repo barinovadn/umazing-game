@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://3u57bvcifvoy"]
+
+[ext_resource type="Script" uid="uid://b1daijlljps2n" path="res://prefabs/music/bullet_sound_player.gd" id="1_na5kd"]
+
+[node name="BulletSoundPlayer" type="AudioStreamPlayer" unique_id=237024223]
+script = ExtResource("1_na5kd")

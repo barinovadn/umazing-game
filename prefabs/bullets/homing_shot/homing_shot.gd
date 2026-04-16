@@ -3,7 +3,7 @@ extends Bullet
 
 func _ready() -> void:
 	animated_sprite_2d.play("homing_shot")
-	sound_player.play_random_sound()
+	bullet_sound_player.play_random_appearence_sound()
 
 var previous_direction = Vector2.RIGHT
 

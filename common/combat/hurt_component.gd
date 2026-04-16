@@ -6,8 +6,6 @@ extends Area2D
 signal fatal_damage_taken
 signal damaged
 
-@export var sound_player: SoundPlayer
-
 @export var team : CombatScript.team
 @export var max_health = 20
 
@@ -18,6 +16,7 @@ var current_health : int  :
 	set(value):
 		_total_damage = (max_health - value)
 		if max_health - _total_damage <= 0:
+			_disabling()
 			fatal_damage_taken.emit()
 		else:
 			damaged.emit()
@@ -32,4 +31,8 @@ func take_damage(hit_component : Bullet) -> void:
 		damage += hit_component.crit_damage
 		
 	current_health-=damage
-	sound_player.play_random_sound()
+
+
+func _disabling():
+	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)

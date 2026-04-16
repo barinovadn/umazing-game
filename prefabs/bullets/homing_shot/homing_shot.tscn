@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/bullets/bullet.tscn" id="1_u7vf8"]
 [ext_resource type="Script" uid="uid://b40mi5ura4a78" path="res://prefabs/bullets/homing_shot/homing_shot.gd" id="2_8v6to"]
 [ext_resource type="Texture2D" uid="uid://l6vfpdpbxdk6" path="res://prefabs/bullets/homing_shot/CanonBall.png" id="3_m488l"]
-[ext_resource type="AudioStream" uid="uid://bixonmf50tais" path="res://prefabs/bullets/homing_shot/Launch.wav" id="4_m488l"]
+[ext_resource type="AudioStream" uid="uid://bixonmf50tais" path="res://prefabs/bullets/homing_shot/launch.wav" id="4_m488l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1qbqo"]
 radius = 7.0
@@ -72,9 +72,9 @@ wait_time = 1.5
 one_shot = true
 autostart = true
 
-[node name="SoundPlayer" parent="." index="5" unique_id=709493652]
+[node name="BulletSoundPlayer" parent="." index="5" unique_id=237024223]
 bus = &"Enemy"
-playlist = Array[AudioStream]([ExtResource("4_m488l")])
-volume = 3.0
+bullet_appearence_sounds = Array[AudioStream]([ExtResource("4_m488l")])
+volume = 4.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

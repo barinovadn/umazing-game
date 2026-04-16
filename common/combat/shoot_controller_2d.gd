@@ -12,6 +12,8 @@ signal shooting_stopped()
 			fighting_enabled = value
 @export var is_homing_on : bool = false
 @export var team : CombatScript.team
+@export var is_bounce_on: bool = false
+@export var number_of_bounces: int
 
 var projectile : Bullet
 var direction : Vector2
@@ -38,7 +40,10 @@ func create_a_projectile_from_argument(bullet: Resource = null) -> void:
 	
 	if is_homing_on:
 		projectile.target = get_closest_target()
-		
+	if is_bounce_on:
+		projectile.can_recochete = true
+		projectile.number_of_recochets = number_of_bounces
+	
 	projectile.direction = direction
 	
 	projectile.team = team

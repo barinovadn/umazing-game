@@ -7,6 +7,7 @@ var appeared: bool = false
 
 
 func on_damaged():
+	sound_player.play_random_hit_sound()
 	%Player/%BossUI.update_health(boss_name, hurt_controller.current_health)
 	_check_phase()
 
@@ -32,6 +33,9 @@ func _use_brain(action: Action):
 		hurt_controller.max_health, data_for_interface)
 	if current_movement:
 		current_movement.movement_enabled = false
+	if current_phase == 3:
+		shoot_controller_2d.is_bounce_on = true
+		shoot_controller_2d.number_of_bounces = 1
 	match action.action_name:
 			"homing_shot":
 				current_movement = movement_patterns["CatEnemyDTD"]

@@ -25,6 +25,7 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 @onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
 @onready var timer: Timer = $Timer
 @onready var timer_for_dash: Timer = $TimerForDash
+@onready var sound_player: SoundPlayer = $SoundPlayer
 @onready var combat_ui: HealthUI = $UI/CombatUI
 
 var can_dash: bool = true
@@ -37,9 +38,9 @@ var is_shooting : bool = false:
 
 func _ready():
 	_on_character_changed(character, null)
-	hurt_component.damaged.connect(update_current_health)
+	hurt_component.damaged.connect(on_damaged)
 	hurt_component.fatal_damage_taken.connect(on_fatal_damage_taken)
-	update_current_health()
+	combat_ui.update_health(hurt_component.current_health, hurt_component.max_health)
 
 
 func _process(_delta: float):
@@ -70,7 +71,6 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 		new_character.shoot_controller = player_fight_controller
 		new_character.hurt_component = hurt_component
 		
-
 	if camera_controller:
 		camera_controller.target = new_character
 
@@ -82,18 +82,20 @@ func _input(_event: InputEvent) -> void:
 		player_fight_controller.create_a_projectile_from_argument(bullet_types[0])
 		timer.start()
 
-
+## A timer that tracks the time elapsed since the previous shot;
+## once the time has elapsed, it will allow you to shoot again
 func _on_timer_timeout() -> void:
 	is_shooting = false
 
-
-func update_current_health():
+## Plays random hit sound and updates health
+func on_damaged():
+	sound_player.play_random_hit_sound()
 	combat_ui.update_health(hurt_component.current_health, hurt_component.max_health)
 
-
+## Is called when player lost all his hp
 func on_fatal_damage_taken():
 	call_deferred("_reload_scene")
 
-
+## Reload curent scene
 func _reload_scene():
 	get_tree().reload_current_scene()

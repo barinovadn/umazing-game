@@ -7,6 +7,7 @@ class_name EnemyController
 ##for each phase, starting with the second one. 
 @export var modulates_for_phase: Array[float]
 
+@export var sound_player: SoundPlayer
 @export var bullet_types: Array[Resource]
 @export var boss_actions: Array[Action]
 @export var movement_patterns: Dictionary[String, MovementController2D]
@@ -79,6 +80,9 @@ func _select_available_actions() -> Array[Action]:
 ## Selects an action available in this phase
 func _select_action_by_weight(ready_boss_actions: Array[Action]) -> Action:
 	var chance_of_action: float = randf()
+	
+	print(chance_of_action)
+	
 	var action_to_play: Action = null
 	
 	if ready_boss_actions.size() == 1:
@@ -119,3 +123,4 @@ func _find_heaviest_action(array: Array[Action]):
 func _rebalance_weights(array: Array[Action], rebalance_koef: float):
 	for element in array: 
 		element.weight *= rebalance_koef
+		print(element.weight)

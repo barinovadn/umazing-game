@@ -19,21 +19,16 @@ func _ready():
 	var half = (amount_of_bullets - 1) / 2.0
 
 	for i in amount_of_bullets:
-		var bullet = bullet_type.instantiate()
+		var bullet = bullet_type.instantiate() as Bullet
 
 		var offset = (i - half) * spacing
 		var spawn_pos = base_pos + perp * offset
 
 		bullet.global_position = spawn_pos
+		_copy_arguments(bullet, dir)
 
-		# если у пули есть направление — передаём
-		if bullet.has_method("set_direction"):
-			bullet.set_direction(dir)
-		elif "direction" in bullet:
-			bullet.direction = dir
-
-		get_tree().current_scene.add_child(bullet)
-		bullet.sound_player.volume = sound_player.volume
+		get_node("/root/Game/%Bullets").add_child(bullet)
+		bullet.bullet_sound_player.volume = bullet_sound_player.volume
 
 	_destroy_bullet()
 
@@ -44,3 +39,15 @@ func _get_direction() -> Vector2:
 	if target:
 		return (target.global_position - global_position).normalized()
 	return direction.normalized()
+
+
+func _copy_arguments(bullet: Bullet, dir : Vector2):
+	bullet.can_be_broken = can_be_broken
+	bullet.can_brake = can_brake
+	bullet.can_recochete = can_recochete
+	bullet.number_of_recochets = number_of_recochets
+	# если у пули есть направление — передаём
+	if bullet.has_method("set_direction"):
+		bullet.set_direction(dir)
+	elif "direction" in bullet:
+		bullet.direction = dir
