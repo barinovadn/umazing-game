@@ -168,8 +168,8 @@ func _clear_existing_bubble(target: CanvasItem) -> void:
 	if not _bubbles_by_target_id.has(target_id):
 		return
 
-	var bubble := _bubbles_by_target_id[target_id] as Node
-	if bubble != null and is_instance_valid(bubble):
+	var bubble = _bubbles_by_target_id[target_id]
+	if is_instance_valid(bubble):
 		bubble.queue_free()
 
 	_bubbles_by_target_id.erase(target_id)
