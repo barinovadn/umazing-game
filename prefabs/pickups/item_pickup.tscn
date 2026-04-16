@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://ds7r5gr45oetv"]
+
+[ext_resource type="Script" uid="uid://yg4ldwcka3qa" path="res://prefabs/pickups/item_pickup.gd" id="1_jlyx3"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/items/base_item.gd" id="2_cg6j6"]
+[ext_resource type="Texture2D" uid="uid://cgaygxeatd046" path="res://prefabs/items/Shrimp.png" id="2_ynwc8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jvv1q"]
+load_path = "res://.godot/imported/Nut.png-5234167ec265181f8d4cd3281a21a32a.ctex"
+
+[sub_resource type="Resource" id="Resource_xgv4m"]
+script = ExtResource("2_cg6j6")
+item_name = "Nut"
+item_icon = SubResource("CompressedTexture2D_jvv1q")
+item_type = "Passive"
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eamtm"]
+size = Vector2(37, 37)
+
+[sub_resource type="Animation" id="Animation_cg6j6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jvv1q"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xgv4m"]
+_data = {
+&"RESET": SubResource("Animation_cg6j6"),
+&"idle": SubResource("Animation_jvv1q")
+}
+
+[node name="ItemPickup" type="Area2D" unique_id=645073492]
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("1_jlyx3")
+item_data = SubResource("Resource_xgv4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=524928323]
+scale = Vector2(2.3125, 2.3125)
+texture = ExtResource("2_ynwc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1208475]
+shape = SubResource("RectangleShape2D_eamtm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=955703347]
+libraries/ = SubResource("AnimationLibrary_xgv4m")
+autoplay = &"idle"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
