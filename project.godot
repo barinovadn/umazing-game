@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Umazing Game"
-run/main_scene="uid://uw6indpnsgtn"
+run/main_scene="uid://bhwu5bjuxn5ym"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://dgxxwc5lktkmr"
 
@@ -116,4 +116,5 @@ dash={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+2d/snap/snap_2d_vertices_to_pixel=true
 textures/stretch/mode="viewport"

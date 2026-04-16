@@ -57,5 +57,4 @@ animation = &"stone_shot"
 autoplay = "stone_shot"
 
 [node name="BulletSoundPlayer" parent="." index="4" unique_id=237024223]
-bus = &"Enemy"
 bullet_appearence_sounds = Array[AudioStream]([ExtResource("4_x04w1"), ExtResource("5_embsc")])

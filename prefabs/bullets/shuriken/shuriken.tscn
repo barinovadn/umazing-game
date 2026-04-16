@@ -36,11 +36,18 @@ animations = [{
 
 [node name="Shuriken" unique_id=419752470 instance=ExtResource("1_al8au")]
 script = ExtResource("2_gdkqc")
+speed = 150
+direction = null
 auto_aim = true
+can_ricochet = null
+number_of_recochets = null
+damage = null
 team = 1
 crit_damage = 1
 crit_chance = 0.1
+can_be_broken = null
 can_break = true
+sounds_spawn = null
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 shape = SubResource("CircleShape2D_gdkqc")
@@ -51,5 +58,4 @@ animation = &"player_shot"
 autoplay = "player_shot"
 
 [node name="BulletSoundPlayer" parent="." index="4" unique_id=237024223]
-bus = &"Player"
 bullet_appearence_sounds = Array[AudioStream]([ExtResource("4_05pps"), ExtResource("5_evfgd"), ExtResource("6_e73os"), ExtResource("7_me3kd"), ExtResource("8_o1804")])

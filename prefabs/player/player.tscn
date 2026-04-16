@@ -11,13 +11,13 @@
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
 [ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/bullets/shuriken/shuriken.tscn" id="7_30gqm"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
-[ext_resource type="PackedScene" uid="uid://c8848ymfq8du6" path="res://prefabs/music/sound_player.tscn" id="7_ot5ig"]
+[ext_resource type="PackedScene" path="res://prefabs/music/sound_player.tscn" id="7_ot5ig"]
 [ext_resource type="AudioStream" uid="uid://dln050r5k2x3w" path="res://prefabs/music/sounds/player_hit_sound.wav" id="8_t13t3"]
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="PackedScene" uid="uid://wwa44iu3nw2s" path="res://prefabs/inventory/inventory.tscn" id="8_vhck4"]
-[ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://common/ui/health_ui.gd" id="11_30gqm"]
+[ext_resource type="Script" path="res://common/ui/health_ui.gd" id="11_30gqm"]
 [ext_resource type="Script" uid="uid://cep3cwaarv32y" path="res://prefabs/player/activation_area.gd" id="11_hvqk4"]
-[ext_resource type="Script" path="res://common/ui/bosses/boss_ui.gd" id="13_b6byk"]
+[ext_resource type="Script" path="res://common/ui/boss_ui.gd" id="13_b6byk"]
 [ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://common/ui/icons/default_heart.png" id="14_ot5ig"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ev8v4"]
@@ -45,6 +45,40 @@ region = Rect2(1, 3, 14, 11)
 script = ExtResource("1_wv1mm")
 bullet_types = Array[Resource]([ExtResource("7_30gqm")])
 
+[node name="CharacterPosition" type="Node2D" parent="." unique_id=698666614]
+z_index = 20
+
+[node name="Trigger" type="Area2D" parent="CharacterPosition" unique_id=378323334]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape2D" parent="CharacterPosition/Trigger" unique_id=1043735703]
+shape = SubResource("CircleShape2D_ev8v4")
+
+[node name="PickUp" type="Area2D" parent="CharacterPosition" unique_id=719858848]
+z_index = 20
+collision_layer = 0
+collision_mask = 512
+script = ExtResource("4_2c4n1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterPosition/PickUp" unique_id=1639741327]
+shape = SubResource("CircleShape2D_vhck3")
+debug_color = Color(0.83137256, 0, 0.94509804, 0.09803922)
+
+[node name="Interactor" parent="CharacterPosition" unique_id=109062155 instance=ExtResource("1_rdx4y")]
+unique_name_in_owner = true
+
+[node name="ShootComponent" parent="CharacterPosition" unique_id=1242481191 instance=ExtResource("6_oo3uv")]
+unique_name_in_owner = true
+bullet_types = Array[Resource]([ExtResource("7_30gqm")])
+team = 1
+
+[node name="HurtComponent" parent="CharacterPosition" unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
+unique_name_in_owner = true
+collision_layer = 2048
+collision_mask = 1025
+team = 1
+
 [node name="Controller" type="Node" parent="." unique_id=536906422]
 script = ExtResource("2_wv1mm")
 movement_controls = Dictionary[int, String]({
@@ -56,34 +90,15 @@ movement_controls = Dictionary[int, String]({
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://cxp2akga3voxj"
 
-[node name="Interactor" parent="." unique_id=109062155 instance=ExtResource("1_rdx4y")]
-unique_name_in_owner = true
+[node name="EnemyActivationArea" type="Area2D" parent="." unique_id=1024765016]
+z_index = 30
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("11_hvqk4")
 
-[node name="Trigger" type="Area2D" parent="." unique_id=378323334]
-collision_layer = 8
-collision_mask = 0
-
-[node name="Collider" type="CollisionShape2D" parent="Trigger" unique_id=1043735703]
-shape = SubResource("CircleShape2D_ev8v4")
-
-[node name="PickUp" type="Area2D" parent="." unique_id=719858848]
-z_index = 20
-collision_layer = 8
-collision_mask = 512
-script = ExtResource("4_2c4n1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUp" unique_id=1639741327]
-shape = SubResource("CircleShape2D_vhck3")
-debug_color = Color(0.8914327, 0.18792155, 0.65711296, 0.41960785)
-
-[node name="PlayerFightController" parent="." unique_id=1242481191 instance=ExtResource("6_oo3uv")]
-bullet_types = Array[Resource]([ExtResource("7_30gqm")])
-team = 1
-
-[node name="HurtComponent" parent="." unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
-collision_layer = 2048
-collision_mask = 1025
-team = 1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyActivationArea" unique_id=1385910216]
+shape = SubResource("RectangleShape2D_30gqm")
+debug_color = Color(1.1070073e-06, 0.66486055, 0.3127028, 0.09803922)
 
 [node name="Camera" type="Camera2D" parent="." unique_id=380955172]
 unique_name_in_owner = true
@@ -117,34 +132,9 @@ transition_duration = 0.5
 [node name="UI" type="CanvasLayer" parent="." unique_id=1667862678]
 layer = 0
 
-[node name="Inventory" parent="UI2" unique_id=1205771470 groups=["pickups"] instance=ExtResource("8_vhck4")]
+[node name="Inventory" parent="UI" unique_id=1205771470 groups=["pickups"] instance=ExtResource("8_vhck4")]
 unique_name_in_owner = true
 visible = false
-
-[node name="ActivationArea" type="Area2D" parent="." unique_id=1024765016]
-z_index = 30
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("11_hvqk4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea" unique_id=1385910216]
-shape = SubResource("RectangleShape2D_30gqm")
-debug_color = Color(0, 0.6, 0.7019608, 0)
-
-[node name="Timer" type="Timer" parent="." unique_id=111952817]
-wait_time = 0.4
-one_shot = true
-
-[node name="TimerForDash" type="Timer" parent="." unique_id=1596072353]
-wait_time = 5.0
-one_shot = true
-
-[node name="SoundPlayer" parent="." unique_id=709493652 instance=ExtResource("7_ot5ig")]
-bus = &"Player"
-hits_playlist = Array[AudioStream]([ExtResource("8_t13t3")])
-volume = -6.0
-
-[node name="UI" type="CanvasLayer" parent="." unique_id=371737396]
 
 [node name="CombatUI" type="Control" parent="UI" unique_id=343436959]
 layout_mode = 3
@@ -190,10 +180,23 @@ theme_override_constants/separation = 60
 alignment = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="Timer" type="Timer" parent="." unique_id=111952817]
+wait_time = 0.4
+one_shot = true
+
+[node name="TimerForDash" type="Timer" parent="." unique_id=1596072353]
+wait_time = 5.0
+one_shot = true
+
+[node name="SoundPlayer" parent="." unique_id=709493652 instance=ExtResource("7_ot5ig")]
+bus = &"Player"
+hits_playlist = Array[AudioStream]([ExtResource("8_t13t3")])
+volume = -6.0
+
 [connection signal="character_changed" from="." to="." method="_on_character_changed"]
-[connection signal="area_entered" from="Trigger" to="." method="_on_trigger_area_entered"]
-[connection signal="area_entered" from="PickUp" to="PickUp" method="_on_area_entered"]
-[connection signal="cell_changed" from="Camera" to="ActivationArea" method="_on_camera_cell_changed"]
-[connection signal="area_entered" from="ActivationArea" to="ActivationArea" method="_on_area_entered"]
-[connection signal="area_exited" from="ActivationArea" to="ActivationArea" method="_on_area_exited"]
+[connection signal="area_entered" from="CharacterPosition/Trigger" to="." method="_on_trigger_area_entered"]
+[connection signal="area_entered" from="CharacterPosition/PickUp" to="CharacterPosition/PickUp" method="_on_area_entered"]
+[connection signal="area_entered" from="EnemyActivationArea" to="EnemyActivationArea" method="_on_area_entered"]
+[connection signal="area_exited" from="EnemyActivationArea" to="EnemyActivationArea" method="_on_area_exited"]
+[connection signal="cell_changed" from="Camera" to="EnemyActivationArea" method="_on_camera_cell_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

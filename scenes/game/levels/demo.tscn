@@ -17,12 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://bc2kdebobsqlu" path="res://prefabs/interactables/inspectable/inspectable.tscn" id="9_8ic3i"]
 [ext_resource type="PackedScene" uid="uid://uhy5xmcfxpe8" path="res://prefabs/environment/environment_zone.tscn" id="9_q7qle"]
 [ext_resource type="PackedScene" uid="uid://ds7r5gr45oetv" path="res://prefabs/pickups/item_pickup.tscn" id="10_q7qle"]
-[ext_resource type="Resource" uid="uid://blylgxx5kc83n" path="res://prefabs/items/test_item.tres" id="11_bc555"]
 [ext_resource type="PackedScene" uid="uid://tvv7lk4f7fio" path="res://common/effects/portal_disk.tscn" id="11_7hq71"]
 [ext_resource type="PackedScene" uid="uid://ckf02713hcpbr" path="res://prefabs/characters/cat/cat.tscn" id="11_7im6l"]
+[ext_resource type="Resource" uid="uid://blylgxx5kc83n" path="res://prefabs/items/test_item.tres" id="11_bc555"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://common/combat/hurt_component.tscn" id="11_bpga3"]
 [ext_resource type="PackedScene" uid="uid://bjb2riattkaaa" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat.tscn" id="14_nfdyi"]
-[ext_resource type="PackedScene" uid="uid://csv6sg13nww7x" path="res://common/movement/controllers/dot_to_dot_movement_controller.tscn" id="15_xrc6b"]
+[ext_resource type="PackedScene" path="res://common/movement/controllers/dot_to_dot_movement_controller.tscn" id="15_xrc6b"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://common/combat/shoot_controller_2d.tscn" id="16_jqxbl"]
 [ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/enemy/boss_ui_data.gd" id="17_1qwsm"]
 [ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/bullets/homing_shot/homing_shot.tscn" id="18_ivmt6"]
@@ -30,11 +30,16 @@
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/bullets/stone_shot/stone_shot.tscn" id="19_ivmt6"]
 [ext_resource type="Texture2D" uid="uid://gsg8mvl6swpd" path="res://common/ui/default_bg.png" id="19_ky1g4"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://common/combat/action.gd" id="20_ivmt6"]
-[ext_resource type="PackedScene" uid="uid://c8848ymfq8du6" path="res://prefabs/music/sound_player.tscn" id="21_17ap2"]
+[ext_resource type="PackedScene" path="res://prefabs/music/sound_player.tscn" id="21_17ap2"]
 [ext_resource type="Texture2D" uid="uid://bceld6xt8wthg" path="res://common/ui/default_progress.png" id="21_sfio8"]
-[ext_resource type="Script" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat_boss_controller.gd" id="22_1qwsm"]
+[ext_resource type="Script" uid="uid://jqsqblr1x2hg" path="res://prefabs/characters/bosses/cyclopus_cat/cat_boss_controller.gd" id="22_1qwsm"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/enemy/enemy_controller.tscn" id="25_ky1g4"]
 [ext_resource type="PackedScene" uid="uid://bxeawm2qmq0u1" path="res://prefabs/bullets/bunch_of_shots/bunch_of_stone_shots.tscn" id="25_uhdmq"]
+[ext_resource type="AudioStream" uid="uid://bl017fbu2ni0m" path="res://get-back-half-life-scientist.mp3" id="36_5cmlo"]
+[ext_resource type="AudioStream" uid="uid://cxwlb1xliwoor" path="res://half-life-scientist-fear1-eeeh.mp3" id="37_fscrj"]
+[ext_resource type="AudioStream" uid="uid://dvrje6ucftneu" path="res://half-life-scientist-keeps-screaming-at-me.mp3" id="38_n8x4b"]
+[ext_resource type="AudioStream" uid="uid://bd6x52h28kmwf" path="res://half-life-scientist-scream05.mp3" id="39_88b2i"]
+[ext_resource type="AudioStream" uid="uid://c488ksljqwbdg" path="res://agh_uT05NZS.mp3" id="40_4xcp5"]
 
 [sub_resource type="GDScript" id="GDScript_17ap2"]
 script/source = "extends Bullet
@@ -401,6 +406,9 @@ fighting_enabled = false
 is_homing_on = true
 
 [node name="SoundPlayer" parent="Bosses/CyclopusCat/BossController" index="5" unique_id=709493652 instance=ExtResource("21_17ap2")]
+bus = &"Enemy"
+hits_playlist = Array[AudioStream]([ExtResource("36_5cmlo"), ExtResource("37_fscrj"), ExtResource("38_n8x4b"), ExtResource("39_88b2i"), ExtResource("40_4xcp5")])
+volume = -32.0
 
 [node name="CatMovementPoints" type="Node2D" parent="Bosses/MovementPoints" parent_id_path=PackedInt32Array(1878092600) index="0" unique_id=275429518]
 position = Vector2(960, -480)

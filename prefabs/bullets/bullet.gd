@@ -51,7 +51,7 @@ class_name Bullet
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
-#@onready var bullet_sound_player: BulletSoundPlayer = $BulletSoundPlayer
+@onready var bullet_sound_player: BulletSoundPlayer = $BulletSoundPlayer
 
 
 func _bullet_ready(): pass

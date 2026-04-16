@@ -6,3 +6,6 @@
 [node name="Inspectable" unique_id=2087367069 groups=["inspectable"] instance=ExtResource("1_cshry")]
 script = ExtResource("2_2puox")
 description = Array[String](["..."])
+
+[node name="Collider" parent="." index="0" unique_id=1178125224]
+debug_color = Color(1, 0.37491053, 0.3460866, 0.39215687)

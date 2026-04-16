@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8al8my2g7cuk"]
 
 [ext_resource type="Script" uid="uid://cekodkwkeibsj" path="res://prefabs/bullets/bullet.gd" id="1_x5e4k"]
-[ext_resource type="PackedScene" uid="uid://3u57bvcifvoy" path="res://prefabs/music/bullet_sound_player.tscn" id="2_54xpo"]
+[ext_resource type="PackedScene" path="res://prefabs/music/bullet_sound_player.tscn" id="2_54xpo"]
 
 [node name="Bullet" type="Area2D" unique_id=419752470]
 z_index = 30
@@ -19,6 +19,7 @@ crit_chance = 1.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=732122356]
 
 [node name="BulletSoundPlayer" parent="." unique_id=237024223 instance=ExtResource("2_54xpo")]
+bus = &"Bullet"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_map_collision"]

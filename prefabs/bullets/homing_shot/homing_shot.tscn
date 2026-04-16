@@ -73,7 +73,6 @@ one_shot = true
 autostart = true
 
 [node name="BulletSoundPlayer" parent="." index="5" unique_id=237024223]
-bus = &"Enemy"
 bullet_appearence_sounds = Array[AudioStream]([ExtResource("4_m488l")])
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

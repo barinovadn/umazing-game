@@ -15,20 +15,20 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		
 		character_changed.emit(character, old_character)
 
-@onready var player_fight_controller: ShootController2D = $PlayerFightController
-@onready var hurt_component: HurtComponent = $HurtComponent
+@onready var player_fight_controller: ShootController2D = %ShootComponent
+@onready var hurt_component: HurtComponent = %HurtComponent
 @onready var controller: MovementController2D = $Controller
-@onready var interactor: Interactor = $Interactor
-@onready var trigger: Node2D = $Trigger
-@onready var pickup_area: Node2D = $PickUp
+@onready var interactor: Interactor = %Interactor
+@onready var trigger: Node2D = $CharacterPosition/Trigger
+@onready var pickup_area: Node2D = $CharacterPosition/PickUp
 @onready var camera: GridCamera2D = %Camera
 @onready var camera_controller: GridCameraFollower2D = $Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
 @onready var inventory: Inventory = $UI/Inventory
+@onready var combat_ui: HealthUI = $UI/CombatUI
 @onready var timer: Timer = $Timer
 @onready var timer_for_dash: Timer = $TimerForDash
 @onready var sound_player: SoundPlayer = $SoundPlayer
-@onready var combat_ui: HealthUI = $UI/CombatUI
 
 var can_dash: bool = true
 var is_shooting : bool = false:
@@ -58,9 +58,11 @@ func _update_component_positions():
 	if not character:
 		return
 	
-	interactor.global_position = character.global_position
-	trigger.global_position = character.global_position
-	pickup_area.global_position = character.global_position
+	$CharacterPosition.global_position = character.global_position
+	
+	#interactor.global_position = character.global_position
+	#trigger.global_position = character.global_position
+	#pickup_area.global_position = character.global_position
 
 
 ## TODO Move to inventory (isolate logic)
@@ -72,6 +74,12 @@ func _input(event):
 			inventory.grab_focus() 
 		else:
 			inventory.action_panel.hide()
+	elif Input.is_action_pressed("shoot") && !is_shooting:
+		is_shooting = true
+		player_fight_controller.direction = interactor.direction
+		player_fight_controller.create_a_projectile_from_argument(bullet_types[0])
+		timer.start()
+	
 	hurt_component.global_position = character.global_position
 	player_fight_controller.global_position = character.global_position
 
@@ -91,13 +99,6 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 	if camera_controller:
 		camera_controller.target = new_character
 
-
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_pressed("shoot") && !is_shooting:
-		is_shooting = true
-		player_fight_controller.direction = interactor.direction
-		player_fight_controller.create_a_projectile_from_argument(bullet_types[0])
-		timer.start()
 
 ## A timer that tracks the time elapsed since the previous shot;
 ## once the time has elapsed, it will allow you to shoot again
