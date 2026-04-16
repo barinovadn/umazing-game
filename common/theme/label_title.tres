@@ -6,3 +6,4 @@
 line_spacing = -8.0
 font = ExtResource("1_c520w")
 font_size = 44
+font_color = Color(0.67133886, 0.47414905, 0.28657013, 1)
