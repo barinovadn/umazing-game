@@ -66,6 +66,8 @@ z_index = 60
 modulate = Color(1, 1, 1, 0.39215687)
 z_index = 50
 
+[node name="BossTeleports" type="Node2D" parent="Teleports" unique_id=1420055058]
+
 [node name="Characters" type="Node2D" parent="." unique_id=207261957]
 z_index = 30
 
@@ -73,3 +75,10 @@ z_index = 30
 z_index = 20
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1517964194]
+
+[node name="Bosses" type="Node2D" parent="." unique_id=2090847819]
+
+[node name="MovementPoints" type="Node2D" parent="Bosses" unique_id=1878092600]
+
+[node name="Bullets" type="Node2D" parent="." unique_id=2040820107]
+unique_name_in_owner = true

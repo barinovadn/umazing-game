@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://tvv7lk4f7fio"]
+
+[ext_resource type="Texture2D" uid="uid://ckj16wbvp407p" path="res://common/effects/SpriteSheetSpark.png" id="1_gldxr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lh7u"]
+atlas = ExtResource("1_gldxr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rp67y"]
+atlas = ExtResource("1_gldxr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqv56"]
+atlas = ExtResource("1_gldxr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rjqf"]
+atlas = ExtResource("1_gldxr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7kt5"]
+atlas = ExtResource("1_gldxr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsi4w"]
+atlas = ExtResource("1_gldxr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysnvh"]
+atlas = ExtResource("1_gldxr")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqwpi"]
+atlas = ExtResource("1_gldxr")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eg50a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lh7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rp67y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqv56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rjqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7kt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsi4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysnvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqwpi")
+}],
+"loop": true,
+"name": &"sparkling",
+"speed": 4.0
+}]
+
+[node name="Sparkles" type="AnimatedSprite2D" unique_id=1780118689]
+sprite_frames = SubResource("SpriteFrames_eg50a")
+animation = &"sparkling"
+autoplay = "sparkling"
+frame_progress = 0.8908827

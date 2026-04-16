@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://ili3m34fms5c"]
+
+[ext_resource type="FontFile" uid="uid://c7b6uwmntv2d7" path="res://common/theme/fonts/tiny5_regular.ttf" id="1_cctan"]
+
+[resource]
+line_spacing = -8.0
+font = ExtResource("1_cctan")
+font_size = 32
+font_color = Color(0.47642475, 0.3312673, 0.20725104, 1)

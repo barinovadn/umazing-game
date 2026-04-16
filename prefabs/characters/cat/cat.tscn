@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ckf02713hcpbr"]
+
+[ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_8tqnn"]
+[ext_resource type="Texture2D" uid="uid://whkpxo00adq" path="res://prefabs/characters/cat/SpriteSheet.png" id="2_3kdap"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oi03"]
+atlas = ExtResource("2_3kdap")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a7d0"]
+atlas = ExtResource("2_3kdap")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk57v"]
+atlas = ExtResource("2_3kdap")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikwm1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oi03")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a7d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk57v")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[node name="Cat" unique_id=2065001503 instance=ExtResource("1_8tqnn")]
+
+[node name="Shadow" parent="." index="1" unique_id=66535912]
+position = Vector2(0, 4)
+
+[node name="Sprite" parent="." index="2" unique_id=2042220320]
+sprite_frames = SubResource("SpriteFrames_ikwm1")
+animation = &"idle_right"
+autoplay = "idle_right"
+frame_progress = 0.0

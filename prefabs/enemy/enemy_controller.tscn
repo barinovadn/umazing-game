@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://fgbsvngybrki"]
+
+[ext_resource type="Script" uid="uid://c2cxt5deg26ha" path="res://prefabs/enemy/enemy_controller.gd" id="1_4vsq4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vsq4"]
+radius = 0.01
+
+[node name="EnemyController" type="Area2D" unique_id=359908874]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_4vsq4")
+
+[node name="PauseBetweenShots" type="Timer" parent="." unique_id=2056193798]
+
+[node name="ActionChanger" type="Timer" parent="." unique_id=485483522]
+wait_time = 5.0
+
+[node name="Trigger" type="CollisionShape2D" parent="." unique_id=156655188]
+shape = SubResource("CircleShape2D_4vsq4")
+
+[connection signal="timeout" from="PauseBetweenShots" to="." method="_on_pause_between_shots_timeout"]
+[connection signal="timeout" from="ActionChanger" to="." method="_on_action_changer_timeout"]

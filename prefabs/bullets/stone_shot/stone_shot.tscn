@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bx0aayot7ndhr"]
+
+[ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/bullets/bullet.tscn" id="1_c5g1p"]
+[ext_resource type="Script" uid="uid://bvhs0ool3thjs" path="res://prefabs/bullets/stone_shot/stone_shot.gd" id="2_d7kme"]
+[ext_resource type="Texture2D" uid="uid://hg6nan0pms0m" path="res://prefabs/bullets/stone_shot/SpriteSheetRock.png" id="3_ctqcy"]
+[ext_resource type="AudioStream" uid="uid://x1qb4crnjgvk" path="res://prefabs/bullets/stone_shot/whoosh.wav" id="4_x04w1"]
+[ext_resource type="AudioStream" uid="uid://ydoqhh4qh7vf" path="res://prefabs/bullets/stone_shot/whoosh2.wav" id="5_embsc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x04w1"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_embsc"]
+atlas = ExtResource("3_ctqcy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ankh"]
+atlas = ExtResource("3_ctqcy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xddsj"]
+atlas = ExtResource("3_ctqcy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46etg"]
+atlas = ExtResource("3_ctqcy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2r2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_embsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ankh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xddsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46etg")
+}],
+"loop": true,
+"name": &"stone_shot",
+"speed": 15.0
+}]
+
+[node name="StoneShot" unique_id=419752470 instance=ExtResource("1_c5g1p")]
+script = ExtResource("2_d7kme")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
+shape = SubResource("CircleShape2D_x04w1")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
+sprite_frames = SubResource("SpriteFrames_g2r2f")
+animation = &"stone_shot"
+autoplay = "stone_shot"
+
+[node name="BulletSoundPlayer" parent="." index="4" unique_id=237024223]
+bus = &"Enemy"
+bullet_appearence_sounds = Array[AudioStream]([ExtResource("4_x04w1"), ExtResource("5_embsc")])

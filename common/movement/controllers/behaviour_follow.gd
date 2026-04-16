@@ -48,6 +48,11 @@ func _physics_process(_delta):
 	if keep_moving:
 		move(movement_speed, get_direction())
 
+func stop_moving():
+	movement_enabled = false
+	
+func start_moving():
+	movement_enabled = true
 
 ## Returns normalized direction towards the [member target] or [member Vector2.ZERO].
 func get_direction() -> Vector2:

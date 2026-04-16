@@ -3,7 +3,10 @@
 class_name Teleport
 extends Area2D
 
-
+@export var enabled: bool = true:
+	set(value):
+		enabled = value
+		visible = enabled
 @export var exit: Node2D
 @export var exit_offset: Vector2
 @export var color: Color
@@ -14,7 +17,7 @@ func _process(_delta: float):
 
 
 func _on_body_entered(body: Node2D):
-	if not exit:
+	if not exit or !enabled:
 		return
 	
 	var character := body as Character2D

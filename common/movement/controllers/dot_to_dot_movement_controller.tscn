@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://csv6sg13nww7x"]
+
+[ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/dot_to_dot_movement_controller.gd" id="1_emc2n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_msiri"]
+radius = 0.01
+
+[node name="CatEnemyMovementController" type="Node2D" unique_id=1724548566 node_paths=PackedStringArray("enemy_movement_points")]
+script = ExtResource("1_emc2n")
+
+[node name="Trigger" type="Area2D" parent="." unique_id=1838852111]
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+
+[node name="Collider" type="CollisionShape2D" parent="Trigger" unique_id=977224106]
+shape = SubResource("CircleShape2D_msiri")
