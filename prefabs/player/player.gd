@@ -16,12 +16,14 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		
 		character_changed.emit(character, old_character)
 
-@onready var controller: MovementController2D = $Controller
-@onready var interactor: Interactor = $Interactor
-@onready var trigger: Node2D = $Trigger
+@onready var components: Node2D = $Components
+
+@onready var movement: MovementController2D = %Movement
+@onready var interactor: Interactor = %Interactor
+
 @onready var camera: GridCamera2D = %Camera
-@onready var camera_controller: GridCameraFollower2D = $Camera/BehaviorFollow
-@onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
+@onready var camera_controller: GridCameraFollower2D = %Camera/BehaviorFollow
+@onready var camera_transitioner: GridCameraTransitionFade = %Camera/TransitionFade
 
 
 func _ready():
@@ -39,8 +41,7 @@ func _update_component_positions():
 	if not character:
 		return
 	
-	interactor.global_position = character.global_position
-	trigger.global_position = character.global_position
+	components.global_position = character.global_position
 
 
 func _on_character_changed(new_character: Character2D, old_character: Character2D):
@@ -49,7 +50,7 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 		old_character.interactor = null
 	
 	if new_character:
-		new_character.movement = controller
+		new_character.movement = movement
 		new_character.interactor = interactor
 	
 	if camera_controller:

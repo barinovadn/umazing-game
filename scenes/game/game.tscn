@@ -33,7 +33,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Tilemap" type="Node2D" parent="." unique_id=1439768727]
-editor_description = "123"
 
 [node name="Background" type="TileMapLayer" parent="Tilemap" unique_id=560005983]
 texture_filter = 1
