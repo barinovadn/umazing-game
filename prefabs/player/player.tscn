@@ -19,14 +19,16 @@ script = ExtResource("1_wv1mm")
 editor_description = "This node's global_position is synced with the player.character's global_position."
 z_index = 20
 
-[node name="Movement" type="Node" parent="Components" unique_id=536906422]
+[node name="Movement" type="Node" parent="Components" unique_id=536906422 node_paths=PackedStringArray("player")]
 unique_name_in_owner = true
 script = ExtResource("2_wv1mm")
+player = NodePath("../..")
 movement_controls = Dictionary[int, String]({
 0: "move_left",
 1: "move_right",
 2: "move_up",
-3: "move_down"
+3: "move_down",
+4: "move_alternative"
 })
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://cxp2akga3voxj"
