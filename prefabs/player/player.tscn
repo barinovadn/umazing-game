@@ -23,13 +23,14 @@ z_index = 20
 unique_name_in_owner = true
 script = ExtResource("2_wv1mm")
 player = NodePath("../..")
-movement_controls = Dictionary[int, String]({
+controls = Dictionary[int, String]({
 0: "move_left",
 1: "move_right",
 2: "move_up",
 3: "move_down",
-4: "move_alternative"
+4: "mouse_move"
 })
+mouse_edge_margin = 20.0
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://cxp2akga3voxj"
 

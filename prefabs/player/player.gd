@@ -35,7 +35,7 @@ func _process(_delta: float):
 
 
 func _input(event: InputEvent):
-	if event.is_action_pressed("interact_alternative") and character:
+	if event.is_action_pressed("mouse_interact") and character:
 		var mouse_pos := character.get_global_mouse_position()
 		var player_pos := character.global_position
 		
