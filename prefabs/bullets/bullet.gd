@@ -47,21 +47,24 @@ signal destroyed
 @export var sounds_die: Array[AudioStream] = []
 @export var sounds_hit: Array[AudioStream] = []
 @export var sounds_alive: Array[AudioStream] = []
+@export var sounds_rikoshet: Array[AudioStream] = []
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 
 
-func _bullet_ready():
+func _bullet_ready(): pass
+
+
+func _ready():
+	shape_cast_2d.shape = collision_shape_2d.shape
 	animated_sprite_2d.play("shot")
 	
 	if sounds_spawn:
 		audio_player.stream = sounds_spawn.pick_random()
 		audio_player.play()
-
-
-func _ready():
 	_bullet_ready()
 
 
@@ -104,15 +107,28 @@ func _move(delta : float) -> void:
 
 
 func _on_map_collision(_body: Node2D) -> void:
+	print('Я погнал')
 	if can_ricochet:
 		ricochet(_body)
 		number_of_recochets_left -= 1
 	else:
 		destroy()
- 
 
-func ricochet(_surface: Node2D) -> void:
-	direction.x*=-1
+
+func ricochet(body: Node2D) -> void:
+	print('Я погнал')
+	#shape_cast_2d.shape = collision_shape_2d.shape
+	var normal = shape_cast_2d.get_collision_normal(0)
+	
+	if not normal:
+		print('Нихуя тут нет')
+		_move(-get_process_delta_time())
+		direction *= -1
+		return
+	
+	_move(-get_process_delta_time())
+	direction = direction.bounce(normal)
+
 
 
 func destroy() -> void:

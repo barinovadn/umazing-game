@@ -13,6 +13,9 @@ crit_chance = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1701417106]
 
+[node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=194042142]
+target_position = Vector2(0, 0)
+
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=528659551]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=732122356]

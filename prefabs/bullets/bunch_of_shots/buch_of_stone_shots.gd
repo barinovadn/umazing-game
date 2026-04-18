@@ -8,7 +8,7 @@ const bullet_type = preload("uid://bx0aayot7ndhr")
 		pass
 @export var offset_from_center: float = 10
 
-func _ready():
+func _bullet_ready():
 	var dir = _get_direction()
 	var perp = Vector2(-dir.y, dir.x) # перпендикуляр
 
