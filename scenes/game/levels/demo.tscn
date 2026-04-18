@@ -30,7 +30,7 @@
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://common/combat/action.gd" id="20_ivmt6"]
 [ext_resource type="PackedScene" uid="uid://c8848ymfq8du6" path="res://prefabs/music/sound_player.tscn" id="21_17ap2"]
 [ext_resource type="Texture2D" uid="uid://bceld6xt8wthg" path="res://common/ui/default_progress.png" id="21_sfio8"]
-[ext_resource type="Script" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat_boss_controller.gd" id="22_1qwsm"]
+[ext_resource type="Script" uid="uid://jqsqblr1x2hg" path="res://prefabs/characters/bosses/cyclopus_cat/cat_boss_controller.gd" id="22_1qwsm"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/enemy/enemy_controller.tscn" id="25_ky1g4"]
 [ext_resource type="PackedScene" uid="uid://bxeawm2qmq0u1" path="res://prefabs/bullets/bunch_of_shots/bunch_of_stone_shots.tscn" id="25_uhdmq"]
 

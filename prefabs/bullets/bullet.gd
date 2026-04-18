@@ -1,44 +1,41 @@
 extends Area2D
 class_name Bullet
 
-
-# Signals
-# - Crit?
-# - Hit
-# - Destroyed
-
-# Sounds
-# On spawn
-# On die
-# On hit?
-# On alive/live
+signal hitted
+signal crit_damage_delt
+signal destroyed
 
 @export_group("Movement")
 @export var speed: int = 100
 
-# TODO Unclear logic, need docs?
+## The vector that determines the direction in which the bullet will fly
+## if [member auto_aim] is not enabled
 @export var direction: Vector2
 
-# TODO Unclear logic, need docs?
+## The component that the bullet will be aimed at if [member auto_aim] is enabled
 @export var target: Node2D
-# TODO Unclear logic, need docs?
-@export var auto_aim : bool = false
-
-# TODO Unclear logic, need docs?
-@export var can_ricochet: bool = false
-# TODO Unclear logic, need docs?
-@export var number_of_recochets: int = INF:
+## Determines whether the bullet's auto-targeting feature is enabled
+@export var auto_aim : bool = false:
 	set(value):
-		number_of_recochets = value
-		if number_of_recochets <= 0:
+		print(value)
+		auto_aim = value
+
+## The possibility of a bullet ricocheting off a body on the Map collision layer
+@export var can_ricochet: bool = false
+## The number of times the bullet ricochets off the surface
+@export var number_of_recochets_left: int = INF:
+	set(value):
+		number_of_recochets_left = value
+		if number_of_recochets_left <= 0:
 			can_ricochet = false
 
 @export_group("Damage")
 @export var damage: int = 1
-@export var team: CombatScript.team
+@export var team: HurtComponent.HurtComponentTeam
 
-# TODO Unclear logic, need docs?
+## Additional damage that has a [member crit_chance] to be added to the base damage
 @export var crit_damage: int
+## A chance to deal additional damage
 @export_range(0.0, 1.0) var crit_chance: float
 
 @export_group("Destruction")
@@ -47,19 +44,24 @@ class_name Bullet
 
 @export_group("Sounds", "sounds")
 @export var sounds_spawn: Array[AudioStream] = []
+@export var sounds_die: Array[AudioStream] = []
+@export var sounds_hit: Array[AudioStream] = []
+@export var sounds_alive: Array[AudioStream] = []
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
-#@onready var bullet_sound_player: BulletSoundPlayer = $BulletSoundPlayer
 
 
-func _bullet_ready(): pass
+func _bullet_ready():
+	animated_sprite_2d.play("shot")
+	
+	if sounds_spawn:
+		audio_player.stream = sounds_spawn.pick_random()
+		audio_player.play()
 
 
 func _ready():
-	audio_player.stream = sounds_spawn.pick_random()
-	audio_player.play()
 	_bullet_ready()
 
 
@@ -96,22 +98,21 @@ func _calc_damage() -> int:
 
 
 func _move(delta : float) -> void:
+	if auto_aim and target:
+		direction = _get_direction_to_target()
 	position += direction * speed * delta
-	
-	if auto_aim:
-		pass # FIXME Dead flag
 
 
 func _on_map_collision(_body: Node2D) -> void:
-	if can_ricochet and number_of_recochets > 0:
+	if can_ricochet:
 		ricochet(_body)
-		number_of_recochets -= 1
+		number_of_recochets_left -= 1
 	else:
 		destroy()
  
 
 func ricochet(_surface: Node2D) -> void:
-	direction *= -1
+	direction.x*=-1
 
 
 func destroy() -> void:
@@ -121,3 +122,7 @@ func destroy() -> void:
 	
 	var timer = get_tree().create_timer(5.0)
 	timer.timeout.connect(queue_free)
+
+
+func _get_direction_to_target() -> Vector2:
+	return (target.global_position - animated_sprite_2d.global_position).normalized()

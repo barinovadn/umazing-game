@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dqm7ob546a3hv"]
 
 [ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/bullets/bullet.tscn" id="1_al8au"]
-[ext_resource type="Script" uid="uid://c7to1wmu5e8vj" path="res://prefabs/bullets/shuriken/shuriken.gd" id="2_gdkqc"]
 [ext_resource type="Texture2D" uid="uid://codrm50i6phdb" path="res://prefabs/bullets/shuriken/Shuriken.png" id="2_vqurj"]
 [ext_resource type="AudioStream" uid="uid://ce7fe15edu60n" path="res://prefabs/bullets/shuriken/slash.wav" id="4_05pps"]
 [ext_resource type="AudioStream" uid="uid://uw1s6vujfdbe" path="res://prefabs/bullets/shuriken/slash2.wav" id="5_evfgd"]
@@ -10,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dufrwl8jt5fk2" path="res://prefabs/bullets/shuriken/slash5.wav" id="8_o1804"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdkqc"]
-radius = 7.0
+radius = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vjvi"]
 atlas = ExtResource("2_vqurj")
@@ -30,26 +29,22 @@ animations = [{
 "texture": SubResource("AtlasTexture_uerdv")
 }],
 "loop": true,
-"name": &"player_shot",
+"name": &"shot",
 "speed": 8.0
 }]
 
 [node name="Shuriken" unique_id=419752470 instance=ExtResource("1_al8au")]
-script = ExtResource("2_gdkqc")
-auto_aim = true
-team = 1
-crit_damage = 1
-crit_chance = 0.1
-can_break = true
+crit_chance = 0.0
+sounds_spawn = Array[AudioStream]([ExtResource("4_05pps"), ExtResource("5_evfgd"), ExtResource("6_e73os"), ExtResource("7_me3kd"), ExtResource("8_o1804")])
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 shape = SubResource("CircleShape2D_gdkqc")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
 sprite_frames = SubResource("SpriteFrames_6ypkb")
-animation = &"player_shot"
-autoplay = "player_shot"
+animation = &"shot"
+autoplay = "shot"
 
-[node name="BulletSoundPlayer" parent="." index="4" unique_id=237024223]
+[node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
+volume_db = -4.0
 bus = &"Player"
-bullet_appearence_sounds = Array[AudioStream]([ExtResource("4_05pps"), ExtResource("5_evfgd"), ExtResource("6_e73os"), ExtResource("7_me3kd"), ExtResource("8_o1804")])

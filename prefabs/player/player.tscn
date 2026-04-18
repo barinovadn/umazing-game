@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://common/ui/health_ui.gd" id="11_30gqm"]
 [ext_resource type="Script" uid="uid://cep3cwaarv32y" path="res://prefabs/player/activation_area.gd" id="11_hvqk4"]
-[ext_resource type="Script" path="res://common/ui/bosses/boss_ui.gd" id="13_b6byk"]
+[ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://common/ui/boss_ui.gd" id="13_b6byk"]
 [ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://common/ui/icons/default_heart.png" id="14_ot5ig"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ev8v4"]

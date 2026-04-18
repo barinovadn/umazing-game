@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://ydoqhh4qh7vf" path="res://prefabs/bullets/stone_shot/whoosh2.wav" id="5_embsc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x04w1"]
-radius = 8.0
+radius = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_embsc"]
 atlas = ExtResource("3_ctqcy")
@@ -41,21 +41,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_46etg")
 }],
 "loop": true,
-"name": &"stone_shot",
+"name": &"shot",
 "speed": 15.0
 }]
 
 [node name="StoneShot" unique_id=419752470 instance=ExtResource("1_c5g1p")]
 script = ExtResource("2_d7kme")
+can_ricochet = true
+number_of_recochets_left = 1
+crit_chance = 0.0
+sounds_spawn = Array[AudioStream]([ExtResource("4_x04w1"), ExtResource("5_embsc")])
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 shape = SubResource("CircleShape2D_x04w1")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
 sprite_frames = SubResource("SpriteFrames_g2r2f")
-animation = &"stone_shot"
-autoplay = "stone_shot"
+animation = &"shot"
+autoplay = "shot"
 
-[node name="BulletSoundPlayer" parent="." index="4" unique_id=237024223]
+[node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
 bus = &"Enemy"
-bullet_appearence_sounds = Array[AudioStream]([ExtResource("4_x04w1"), ExtResource("5_embsc")])

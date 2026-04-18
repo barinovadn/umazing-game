@@ -6,7 +6,13 @@ extends Area2D
 signal fatal_damage_taken
 signal damaged
 
-@export var team : CombatScript.team
+enum HurtComponentTeam {
+	enemy = 0,
+	player = 1,
+	neutral = 2
+}
+
+@export var team : HurtComponentTeam
 @export var max_health = 20
 
 var _total_damage : int = 0

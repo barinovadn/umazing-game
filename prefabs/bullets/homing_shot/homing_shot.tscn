@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bixonmf50tais" path="res://prefabs/bullets/homing_shot/launch.wav" id="4_m488l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1qbqo"]
-radius = 7.0
+radius = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7wjp"]
 atlas = ExtResource("3_m488l")
@@ -47,7 +47,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_axaro")
 }],
 "loop": true,
-"name": &"homing_shot",
+"name": &"shot",
 "speed": 10.0
 }]
 
@@ -56,24 +56,22 @@ script = ExtResource("2_8v6to")
 speed = 80
 auto_aim = true
 can_break = true
+sounds_spawn = Array[AudioStream]([ExtResource("4_m488l")])
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 shape = SubResource("CircleShape2D_1qbqo")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
 sprite_frames = SubResource("SpriteFrames_awowh")
-animation = &"homing_shot"
-autoplay = "homing_shot"
-frame = 4
-frame_progress = 0.5665059
+animation = &"shot"
+autoplay = "shot"
+
+[node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
+bus = &"Enemy"
 
 [node name="Timer" type="Timer" parent="." index="4" unique_id=872820648]
 wait_time = 1.5
 one_shot = true
 autostart = true
-
-[node name="BulletSoundPlayer" parent="." index="5" unique_id=237024223]
-bus = &"Enemy"
-bullet_appearence_sounds = Array[AudioStream]([ExtResource("4_m488l")])
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -3,8 +3,8 @@ extends Area2D
 class_name EnemyController
 
 ## The array stores the HP percentage values (in the range of 0 to 1) at which the
-##boss advances to the next phase. You need to record the HP percentage
-##for each phase, starting with the second one. 
+## boss advances to the next phase. You need to record the HP percentage
+## for each phase, starting with the second one. 
 @export var modulates_for_phase: Array[float]
 
 @export var sound_player: SoundPlayer
@@ -51,7 +51,7 @@ func _use_brain(_action: Action):
 	pass
 
 ## Sets up portals associated with the boss. Disables the entrance portal,
-##spawns an exit portal at the boss's death location, and activates it.
+## spawns an exit portal at the boss's death location, and activates it.
 func _set_portals():
 	deactivate_portale(teleport_in)
 	activate_portal(teleport_out)

@@ -9,5 +9,6 @@ amount_of_bullets = 5
 spacing = 30.0
 offset_from_center = 25.0
 
-[node name="BulletSoundPlayer" parent="." index="4" unique_id=237024223]
-volume = -6.0
+[node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
+volume_db = -8.0
+bus = &"Enemy"
