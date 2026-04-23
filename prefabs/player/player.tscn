@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://rr7lsuj6y4tr" path="res://common/grid_camera/controllers/grid_camera_follower.gd" id="5_ev8v4"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://common/combat/shoot_controller.tscn" id="6_oo3uv"]
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
-[ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/bullets/shuriken/shuriken.tscn" id="7_30gqm"]
+[ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/bullets/variations/shuriken/shuriken.tscn" id="7_30gqm"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
 [ext_resource type="PackedScene" uid="uid://c8848ymfq8du6" path="res://prefabs/music/sound_player.tscn" id="7_ot5ig"]
 [ext_resource type="AudioStream" uid="uid://dln050r5k2x3w" path="res://prefabs/music/sounds/player_hit_sound.wav" id="8_t13t3"]

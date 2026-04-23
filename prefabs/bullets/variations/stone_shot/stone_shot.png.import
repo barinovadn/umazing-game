@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://codrm50i6phdb"
-path="res://.godot/imported/Shuriken.png-eb9d27312ad7a965353eaa59400e490d.ctex"
+uid="uid://hg6nan0pms0m"
+path="res://.godot/imported/stone_shot.png-746444ca2adb36157171f0fd141ed651.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/bullets/shuriken/Shuriken.png"
-dest_files=["res://.godot/imported/Shuriken.png-eb9d27312ad7a965353eaa59400e490d.ctex"]
+source_file="res://prefabs/bullets/variations/stone_shot/stone_shot.png"
+dest_files=["res://.godot/imported/stone_shot.png-746444ca2adb36157171f0fd141ed651.ctex"]
 
 [params]
 

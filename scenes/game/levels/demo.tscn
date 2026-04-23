@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://uw6indpnsgtn"]
 
 [ext_resource type="PackedScene" uid="uid://buhslpn3jaek5" path="res://scenes/game/game.tscn" id="1_c3u61"]
-[ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/bullets/shuriken/shuriken.tscn" id="2_j5mbt"]
+[ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/bullets/variations/shuriken/shuriken.tscn" id="2_j5mbt"]
 [ext_resource type="PackedScene" uid="uid://cuxbwbedjhckr" path="res://prefabs/characters/pig/pig.tscn" id="2_r64fy"]
 [ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/bullets/bullet.tscn" id="3_7hq71"]
 [ext_resource type="AudioStream" uid="uid://cnm1ov4xyujgv" path="res://prefabs/music/tracks/curse.ogg" id="3_bc555"]
@@ -23,16 +23,15 @@
 [ext_resource type="PackedScene" uid="uid://csv6sg13nww7x" path="res://common/movement/controllers/dot_to_dot_movement_controller.tscn" id="15_xrc6b"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://common/combat/shoot_controller.tscn" id="16_jqxbl"]
 [ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/enemy/boss_ui_data.gd" id="17_1qwsm"]
-[ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/bullets/homing_shot/homing_shot.tscn" id="18_ivmt6"]
+[ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/bullets/variations/homing_shot/homing_shot.tscn" id="18_ivmt6"]
 [ext_resource type="Texture2D" uid="uid://dt2r8o2eiegh5" path="res://common/ui/icons/CatHP/cat_3_kit.png" id="18_ky1g4"]
-[ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/bullets/stone_shot/stone_shot.tscn" id="19_ivmt6"]
+[ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/bullets/variations/stone_shot/stone_shot.tscn" id="19_ivmt6"]
 [ext_resource type="Texture2D" uid="uid://gsg8mvl6swpd" path="res://common/ui/default_bg.png" id="19_ky1g4"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://common/combat/action.gd" id="20_ivmt6"]
-[ext_resource type="PackedScene" uid="uid://c8848ymfq8du6" path="res://prefabs/music/sound_player.tscn" id="21_17ap2"]
 [ext_resource type="Texture2D" uid="uid://bceld6xt8wthg" path="res://common/ui/default_progress.png" id="21_sfio8"]
 [ext_resource type="Script" uid="uid://jqsqblr1x2hg" path="res://prefabs/characters/bosses/cyclopus_cat/cat_boss_controller.gd" id="22_1qwsm"]
+[ext_resource type="PackedScene" uid="uid://dusfp5le5ooy8" path="res://prefabs/bullets/variations/bunch_of_shots/bunch_of_shots.tscn" id="25_7hq71"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/enemy/enemy_controller.tscn" id="25_ky1g4"]
-[ext_resource type="PackedScene" uid="uid://bxeawm2qmq0u1" path="res://prefabs/bullets/bunch_of_shots/bunch_of_stone_shots.tscn" id="25_uhdmq"]
 
 [sub_resource type="GDScript" id="GDScript_17ap2"]
 script/source = "extends Bullet
@@ -308,11 +307,12 @@ shoot_controller = NodePath("BossController/ShootController")
 
 [node name="HurtComponent" parent="Bosses/CyclopusCat" index="4" unique_id=28986261 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
 collision_layer = 2048
-max_health = 2
+audio_bus_name = &"Enemy"
+max_health = 4
 
 [node name="BossController" parent="Bosses/CyclopusCat" index="5" unique_id=1818865949 node_paths=PackedStringArray("movement_patterns", "shoot_controller", "hurt_controller", "teleport_in", "teleport_out") instance=ExtResource("25_ky1g4")]
 script = ExtResource("22_1qwsm")
-bullet_types = Array[Resource]([ExtResource("18_ivmt6"), ExtResource("19_ivmt6"), ExtResource("25_uhdmq")])
+bullet_types = Array[Resource]([ExtResource("18_ivmt6"), ExtResource("19_ivmt6"), ExtResource("25_7hq71")])
 boss_actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_js0wq"), SubResource("Resource_uhdmq"), SubResource("Resource_sfio8")])
 modulates_for_phase = Array[float]([0.7, 0.3])
 movement_patterns = {
@@ -333,8 +333,6 @@ movement_enabled = false
 [node name="ShootController" parent="Bosses/CyclopusCat/BossController" index="3" unique_id=1242481191 instance=ExtResource("16_jqxbl")]
 is_homing_on = true
 interval_between_shots = 0.3
-
-[node name="SoundPlayer" parent="Bosses/CyclopusCat/BossController" index="5" unique_id=709493652 instance=ExtResource("21_17ap2")]
 
 [node name="CatMovementPoints" type="Node2D" parent="Bosses/MovementPoints" parent_id_path=PackedInt32Array(1878092600) index="0" unique_id=275429518]
 position = Vector2(960, -480)

@@ -5,8 +5,6 @@ extends Area2D
 signal fatal_damage_taken
 signal damaged
 
-@onready var audio_player: AudioStreamPlayer2D = $AudioPlayer
-
 ## Specifies the team to which the parent belongs. 
 enum HurtComponentTeam {
 	enemy = 0,
@@ -14,40 +12,43 @@ enum HurtComponentTeam {
 	neutral = 2
 }
 
-@export_group("Sounds")
-@export var damage_sounds: Array[AudioStream] = []
-@export var die_sound: AudioStream = null
-@export_group("Sounds")
+@export_group("Sounds", "sounds")
+@export var sounds_player: AudioStreamPlayer2D
+@export var sounds_damage: Array[AudioStream] = []
+@export var sounds_die: Array[AudioStream] = []
+@export var sounds_volume: float:
+	set(value):
+		sounds_volume = value
+		sounds_player.sounds_volume_db = value
+@export_group("Health")
 @export var team : HurtComponentTeam
 @export var max_health = 20
 
 var _total_damage : int = 0
-var current_health : int  :
+var current_health : int:
 	get():
 		return max_health - _total_damage
 	set(value):
 		_total_damage = (max_health - value)
 		if max_health - _total_damage <= 0:
-			_disabling()
-			if die_sound:
-				audio_player.stream = die_sound
-				audio_player.play()
+			_disable()
+			_play_random_sound(sounds_die)
 			fatal_damage_taken.emit()
 		else:
-			play_random_sound(damage_sounds)
+			_play_random_sound(sounds_damage)
 			damaged.emit()
+
+
+func _play_random_sound(array: Array[AudioStream]):
+	if array.size():
+		sounds_player.stream = array.pick_random()
+		sounds_player.play()
+
+
+func _disable():
+	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)
 
 
 func take_damage(amount: int = 0):
 	current_health -= amount
-
-
-func play_random_sound(array: Array[AudioStream]):
-	if array.size():
-		audio_player.stream = array.pick_random()
-		audio_player.play()
-
-
-func _disabling():
-	set_deferred("monitorable", false)
-	set_deferred("monitoring", false)

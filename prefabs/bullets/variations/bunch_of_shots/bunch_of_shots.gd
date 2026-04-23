@@ -1,7 +1,6 @@
 extends Bullet
 
-const bullet_type = preload("uid://bx0aayot7ndhr")
-
+@export var bullet_type: PackedScene
 @export var amount_of_bullets: int = 5
 @export var spacing: float = 44:
 	set(value):
@@ -30,7 +29,7 @@ func _bullet_ready():
 		get_node("/root/Game/%Bullets").add_child(bullet)
 		bullet.audio_player.volume_db = audio_player.volume_db
 
-	_delete_object()
+	destroy()
 
 func  _process(_delta: float) -> void:
 	pass

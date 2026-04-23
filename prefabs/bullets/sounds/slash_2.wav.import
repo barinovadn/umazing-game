@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://ce7fe15edu60n"
-path="res://.godot/imported/slash.wav-5c94915e0a44cc33d091599fa1b07ab3.sample"
+uid="uid://dqcgj47lw5nio"
+path="res://.godot/imported/slash_2.wav-a48926d108cfcb9992b92236ea333da6.sample"
 
 [deps]
 
-source_file="res://prefabs/bullets/shuriken/slash.wav"
-dest_files=["res://.godot/imported/slash.wav-5c94915e0a44cc33d091599fa1b07ab3.sample"]
+source_file="res://prefabs/bullets/sounds/slash_2.wav"
+dest_files=["res://.godot/imported/slash_2.wav-a48926d108cfcb9992b92236ea333da6.sample"]
 
 [params]
 

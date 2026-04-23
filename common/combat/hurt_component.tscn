@@ -14,5 +14,6 @@ script = ExtResource("1_wcsbn")
 shape = SubResource("CircleShape2D_uaqv8")
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1553792975]
+bus = &"World"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

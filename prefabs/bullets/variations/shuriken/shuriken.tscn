@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dqm7ob546a3hv"]
+
+[ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/bullets/bullet.tscn" id="1_al8au"]
+[ext_resource type="Texture2D" uid="uid://codrm50i6phdb" path="res://prefabs/bullets/variations/shuriken/shuriken.png" id="2_vqurj"]
+[ext_resource type="AudioStream" uid="uid://ce7fe15edu60n" path="res://prefabs/bullets/sounds/whoosh_4.wav" id="4_05pps"]
+[ext_resource type="AudioStream" uid="uid://uw1s6vujfdbe" path="res://prefabs/bullets/sounds/slash_4.wav" id="5_evfgd"]
+[ext_resource type="AudioStream" uid="uid://bo76ui5jpyy2y" path="res://prefabs/bullets/sounds/slash_3.wav" id="6_e73os"]
+[ext_resource type="AudioStream" uid="uid://c5ao7p1ys2tvu" path="res://prefabs/bullets/sounds/impact_1.wav" id="7_5vofu"]
+[ext_resource type="AudioStream" uid="uid://ckoqxe3o41wk4" path="res://prefabs/bullets/sounds/bounce_1.wav" id="7_evfgd"]
+[ext_resource type="AudioStream" uid="uid://dqcgj47lw5nio" path="res://prefabs/bullets/sounds/slash_2.wav" id="7_me3kd"]
+[ext_resource type="AudioStream" uid="uid://dnf6qcxly6qoy" path="res://prefabs/bullets/sounds/bounce_2.wav" id="8_e73os"]
+[ext_resource type="AudioStream" uid="uid://jou36qjfqy76" path="res://prefabs/bullets/sounds/whoosh_3.wav" id="8_me3kd"]
+[ext_resource type="AudioStream" uid="uid://dufrwl8jt5fk2" path="res://prefabs/bullets/sounds/slash_1.wav" id="8_o1804"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gdkqc"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vjvi"]
+atlas = ExtResource("2_vqurj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uerdv"]
+atlas = ExtResource("2_vqurj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ypkb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vjvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uerdv")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 8.0
+}]
+
+[node name="Shuriken" unique_id=419752470 instance=ExtResource("1_al8au")]
+speed = 125
+sounds_spawn = Array[AudioStream]([ExtResource("4_05pps"), ExtResource("5_evfgd"), ExtResource("6_e73os"), ExtResource("7_me3kd"), ExtResource("8_o1804")])
+sounds_die = Array[AudioStream]([ExtResource("7_5vofu")])
+sounds_hit = Array[AudioStream]([ExtResource("8_me3kd")])
+sounds_ricochet = Array[AudioStream]([ExtResource("7_evfgd"), ExtResource("8_e73os")])
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
+shape = SubResource("CircleShape2D_gdkqc")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
+sprite_frames = SubResource("SpriteFrames_6ypkb")
+animation = &"shot"
+autoplay = "shot"
+
+[node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
+volume_db = -4.0

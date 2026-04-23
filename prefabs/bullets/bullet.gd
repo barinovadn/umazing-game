@@ -2,7 +2,7 @@ extends Area2D
 class_name Bullet
 
 ## Crashed into [HurtComponent]
-signal hitted
+signal hit
 ## Critical damage was dealt
 signal crit_damage_delt
 ## Scheduled deletion has been initiated
@@ -12,19 +12,15 @@ signal deletion_completed
 
 @export_group("Movement")
 @export var speed: int = 100
-
 ## The vector that determines the direction in which the bullet will fly
 ## if [member auto_aim] is not enabled
 @export var direction: Vector2
-
-## The component that the bullet will be aimed at if [member auto_aim] is enabled
+## The node that the bullet will be aimed at if [member auto_aim] is enabled
 @export var target: Node2D
 ## Determines whether the bullet's auto-targeting feature is enabled
 @export var auto_aim : bool = false:
 	set(value):
-		print(value)
 		auto_aim = value
-
 ## The possibility of a bullet ricocheting off a body on the Map collision layer
 @export var can_ricochet: bool = false
 ## The number of times the bullet ricochets off the surface
@@ -37,7 +33,6 @@ signal deletion_completed
 @export_group("Damage")
 @export var damage: int = 1
 @export var team: HurtComponent.HurtComponentTeam
-
 ## Additional damage that has a [member crit_chance] to be added to the base damage
 @export var crit_damage: int
 ## A chance to deal additional damage
@@ -52,7 +47,10 @@ signal deletion_completed
 @export var sounds_die: Array[AudioStream] = []
 @export var sounds_hit: Array[AudioStream] = []
 @export var sounds_alive: Array[AudioStream] = []
-@export var sounds_rikoshet: Array[AudioStream] = []
+@export var sounds_ricochet: Array[AudioStream] = []
+
+@export_group("Animations", "animation")
+@export var animation_start: String = "shot"
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -67,14 +65,19 @@ func _bullet_ready(): pass
 
 
 func _ready():
-	shape_cast_2d.shape = collision_shape_2d.shape
-	animated_sprite_2d.play("shot")
+	if collision_shape_2d.shape:
+		shape_cast_2d.shape = collision_shape_2d.shape
+	else:
+		shape_cast_2d.enabled = false
+	if( animated_sprite_2d.sprite_frames
+		and animated_sprite_2d.sprite_frames.has_animation(animation_start) ):
+		animated_sprite_2d.play(animation_start)
 	play_random_sound(sounds_spawn)
-	_bullet_ready()
+	play_sound_being_alive(sounds_alive)
+	_bullet_ready() 
 
 
 func _process(delta: float) -> void:
-	play_sound_being_alive(sounds_alive)
 	_move(delta)
 
 
@@ -82,7 +85,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.team == team:
 		return
 	if area is HurtComponent:
-		hitted.emit()
+		hit.emit()
 		play_random_sound(sounds_hit)
 		area.take_damage(_calc_damage())
 		destroy()
@@ -115,27 +118,9 @@ func _on_map_collision(_body: Node2D) -> void:
 		destroy()
 
 
-func ricochet(_body: Node2D) -> void:
-	var normal = shape_cast_2d.get_collision_normal(0)
-	if not normal:
-		direction *= -1
-		return
-	play_random_sound(sounds_rikoshet)
-	direction = direction.bounce(normal)
-
-
-func destroy() -> void:
-	is_deleted_with_delay = true
-	deletion_initiated.emit()
-	stop_and_disable_interaction()
-	var timer = get_tree().create_timer(5.0)
-	timer.timeout.connect(_delete_object)
-
 ## If there is a sound effect when removing a bullet, play it.
 ## The bullet will be removed after the last sound effect ends.
 func _delete_object():
-	if is_deleted_with_delay:
-		play_random_sound(sounds_die)
 	await audio_player.finished
 	queue_free()
 	deletion_completed.emit()
@@ -144,12 +129,26 @@ func _delete_object():
 func _get_direction_to_target() -> Vector2:
 	return (target.global_position - animated_sprite_2d.global_position).normalized()
 
-## Removes bullets if they fly off the screen
-func _out_of_screen() -> void:
-	if is_deleted_with_delay:
+
+func ricochet(_body: Node2D) -> void:
+	var normal = shape_cast_2d.get_collision_normal(0)
+	if not normal:
+		direction *= -1
 		return
+	play_random_sound(sounds_ricochet)
+	direction = direction.bounce(normal)
+
+
+func destroy() -> void:
+	is_deleted_with_delay = true
+	deletion_initiated.emit()
 	stop_and_disable_interaction()
-	_delete_object()
+	audio_player.stream = null
+	audio_player.stop()
+	play_random_sound(sounds_die)
+	var timer = get_tree().create_timer(5.0)
+	timer.timeout.connect(_delete_object)
+
 
 ## Loads a random sound from the array passed as an argument into the 2D audio stream player
 func play_random_sound(array: Array[AudioStream]):
@@ -159,12 +158,13 @@ func play_random_sound(array: Array[AudioStream]):
 
 
 func play_sound_being_alive(array: Array[AudioStream]):
-	if array.size() and !is_deleted_with_delay:
-		if audio_player.playing:
-			pass
-		else:
-			audio_player.stream = array.pick_random()
-			audio_player.play()
+	if not array.size() or is_deleted_with_delay:
+		return
+	
+	await audio_player.finished
+	
+	audio_player.stream = array.pick_random()
+	audio_player.play()
 
 
 func stop_and_disable_interaction():

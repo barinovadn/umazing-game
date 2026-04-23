@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0n4m0b4a68k0"
+path="res://.godot/imported/Cat meow 1.ogg-fae97c51fb722752efa9cbae5008866b.oggvorbisstr"
+
+[deps]
+
+source_file="res://prefabs/music/sounds/Cat meow 1.ogg"
+dest_files=["res://.godot/imported/Cat meow 1.ogg-fae97c51fb722752efa9cbae5008866b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
