@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dnfhvouh77e1x" path="res://common/grid_camera/grid_camera.gd" id="4_iylwk"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://common/combat/hurt_component.tscn" id="4_vhck3"]
 [ext_resource type="Script" uid="uid://rr7lsuj6y4tr" path="res://common/grid_camera/controllers/grid_camera_follower.gd" id="5_ev8v4"]
-[ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://common/combat/shoot_controller_2d.tscn" id="6_oo3uv"]
+[ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://common/combat/shoot_controller.tscn" id="6_oo3uv"]
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
 [ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/bullets/shuriken/shuriken.tscn" id="7_30gqm"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
@@ -62,9 +62,11 @@ monitoring = false
 [node name="Collider" type="CollisionShape2D" parent="Trigger" unique_id=1043735703]
 shape = SubResource("CircleShape2D_ev8v4")
 
-[node name="PlayerFightController" parent="." unique_id=1242481191 instance=ExtResource("6_oo3uv")]
-bullet_types = Array[Resource]([ExtResource("7_30gqm")])
+[node name="ShootController" parent="." unique_id=1242481191 instance=ExtResource("6_oo3uv")]
 team = 1
+bullet_types = Array[Resource]([ExtResource("7_30gqm")])
+interval_between_shots = 0.4
+can_shoot = true
 
 [node name="HurtComponent" parent="." unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
 collision_layer = 2048
@@ -109,10 +111,6 @@ script = ExtResource("11_hvqk4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea" unique_id=1385910216]
 shape = SubResource("RectangleShape2D_30gqm")
 debug_color = Color(0, 0.6, 0.7019608, 0)
-
-[node name="Timer" type="Timer" parent="." unique_id=111952817]
-wait_time = 0.4
-one_shot = true
 
 [node name="TimerForDash" type="Timer" parent="." unique_id=1596072353]
 wait_time = 5.0
@@ -173,4 +171,3 @@ metadata/_edit_use_anchors_ = true
 [connection signal="cell_changed" from="Camera" to="ActivationArea" method="_on_camera_cell_changed"]
 [connection signal="area_entered" from="ActivationArea" to="ActivationArea" method="_on_area_entered"]
 [connection signal="area_exited" from="ActivationArea" to="ActivationArea" method="_on_area_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://blgi13n2y2fti"]
-
-[ext_resource type="Script" uid="uid://ddbxx3jbsr4yd" path="res://common/combat/shoot_controller_2d.gd" id="1_sv74a"]
-
-[node name="ShootController2D" type="Node2D" unique_id=1242481191]
-script = ExtResource("1_sv74a")

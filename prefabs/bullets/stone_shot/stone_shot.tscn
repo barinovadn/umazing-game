@@ -45,7 +45,6 @@ animations = [{
 }]
 
 [node name="StoneShot" unique_id=419752470 instance=ExtResource("1_c5g1p")]
-can_ricochet = true
 number_of_recochets_left = 1
 crit_chance = 0.0
 sounds_spawn = Array[AudioStream]([ExtResource("4_x04w1"), ExtResource("5_embsc")])
@@ -58,5 +57,5 @@ sprite_frames = SubResource("SpriteFrames_g2r2f")
 animation = &"shot"
 autoplay = "shot"
 
-[node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
+[node name="AudioStreamPlayer2D" parent="." index="4" unique_id=732122356]
 bus = &"Enemy"

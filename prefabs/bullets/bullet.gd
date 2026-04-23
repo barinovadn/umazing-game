@@ -1,9 +1,14 @@
 extends Area2D
 class_name Bullet
 
+## Crashed into [HurtComponent]
 signal hitted
+## Critical damage was dealt
 signal crit_damage_delt
-signal destroyed
+## Scheduled deletion has been initiated
+signal deletion_initiated
+## Bullet removal complete
+signal deletion_completed
 
 @export_group("Movement")
 @export var speed: int = 100
@@ -54,6 +59,9 @@ signal destroyed
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 
+## A variable that indicates whether deferred deletion is enabled for the bullet
+var is_deleted_with_delay: bool = false
+
 
 func _bullet_ready(): pass
 
@@ -61,30 +69,24 @@ func _bullet_ready(): pass
 func _ready():
 	shape_cast_2d.shape = collision_shape_2d.shape
 	animated_sprite_2d.play("shot")
-	
-	if sounds_spawn:
-		audio_player.stream = sounds_spawn.pick_random()
-		audio_player.play()
+	play_random_sound(sounds_spawn)
 	_bullet_ready()
 
 
 func _process(delta: float) -> void:
+	play_sound_being_alive(sounds_alive)
 	_move(delta)
-
-
-func _on_not_visible() -> void:
-	queue_free()
 
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.team == team:
 		return
-	
 	if area is HurtComponent:
+		hitted.emit()
+		play_random_sound(sounds_hit)
 		area.take_damage(_calc_damage())
 		destroy()
 		return
-	
 	if area is Bullet:
 		if can_be_broken and area.can_break:
 			destroy()
@@ -93,10 +95,9 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _calc_damage() -> int:
 	var amount := damage
-	
 	if randf_range(0, 1) <= crit_chance:
+		crit_damage_delt.emit()
 		amount += crit_damage
-	
 	return amount
 
 
@@ -107,7 +108,6 @@ func _move(delta : float) -> void:
 
 
 func _on_map_collision(_body: Node2D) -> void:
-	print('Я погнал')
 	if can_ricochet:
 		ricochet(_body)
 		number_of_recochets_left -= 1
@@ -115,30 +115,60 @@ func _on_map_collision(_body: Node2D) -> void:
 		destroy()
 
 
-func ricochet(body: Node2D) -> void:
-	print('Я погнал')
-	#shape_cast_2d.shape = collision_shape_2d.shape
+func ricochet(_body: Node2D) -> void:
 	var normal = shape_cast_2d.get_collision_normal(0)
-	
 	if not normal:
-		print('Нихуя тут нет')
-		_move(-get_process_delta_time())
 		direction *= -1
 		return
-	
-	_move(-get_process_delta_time())
+	play_random_sound(sounds_rikoshet)
 	direction = direction.bounce(normal)
 
 
-
 func destroy() -> void:
-	visible = false
-	set_deferred("monitorable", false)
-	set_deferred("monitoring", false)
-	
+	is_deleted_with_delay = true
+	deletion_initiated.emit()
+	stop_and_disable_interaction()
 	var timer = get_tree().create_timer(5.0)
-	timer.timeout.connect(queue_free)
+	timer.timeout.connect(_delete_object)
+
+## If there is a sound effect when removing a bullet, play it.
+## The bullet will be removed after the last sound effect ends.
+func _delete_object():
+	if is_deleted_with_delay:
+		play_random_sound(sounds_die)
+	await audio_player.finished
+	queue_free()
+	deletion_completed.emit()
 
 
 func _get_direction_to_target() -> Vector2:
 	return (target.global_position - animated_sprite_2d.global_position).normalized()
+
+## Removes bullets if they fly off the screen
+func _out_of_screen() -> void:
+	if is_deleted_with_delay:
+		return
+	stop_and_disable_interaction()
+	_delete_object()
+
+## Loads a random sound from the array passed as an argument into the 2D audio stream player
+func play_random_sound(array: Array[AudioStream]):
+	if array.size():
+		audio_player.stream = array.pick_random()
+		audio_player.play()
+
+
+func play_sound_being_alive(array: Array[AudioStream]):
+	if array.size() and !is_deleted_with_delay:
+		if audio_player.playing:
+			pass
+		else:
+			audio_player.stream = array.pick_random()
+			audio_player.play()
+
+
+func stop_and_disable_interaction():
+	speed = 0
+	visible = false
+	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)

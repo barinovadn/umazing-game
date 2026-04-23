@@ -30,7 +30,7 @@ func _bullet_ready():
 		get_node("/root/Game/%Bullets").add_child(bullet)
 		bullet.audio_player.volume_db = audio_player.volume_db
 
-	destroy()
+	_delete_object()
 
 func  _process(_delta: float) -> void:
 	pass

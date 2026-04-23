@@ -13,4 +13,6 @@ script = ExtResource("1_wcsbn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1053993660]
 shape = SubResource("CircleShape2D_uaqv8")
 
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1553792975]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

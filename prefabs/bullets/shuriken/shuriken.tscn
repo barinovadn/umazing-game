@@ -5,7 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://ce7fe15edu60n" path="res://prefabs/bullets/shuriken/slash.wav" id="4_05pps"]
 [ext_resource type="AudioStream" uid="uid://uw1s6vujfdbe" path="res://prefabs/bullets/shuriken/slash2.wav" id="5_evfgd"]
 [ext_resource type="AudioStream" uid="uid://bo76ui5jpyy2y" path="res://prefabs/bullets/shuriken/slash3.wav" id="6_e73os"]
+[ext_resource type="AudioStream" uid="uid://ckoqxe3o41wk4" path="res://prefabs/bullets/bounce_1.wav" id="7_evfgd"]
 [ext_resource type="AudioStream" uid="uid://dqcgj47lw5nio" path="res://prefabs/bullets/shuriken/slash4.wav" id="7_me3kd"]
+[ext_resource type="AudioStream" uid="uid://dnf6qcxly6qoy" path="res://prefabs/bullets/bounce_2.wav" id="8_e73os"]
+[ext_resource type="AudioStream" uid="uid://jou36qjfqy76" path="res://prefabs/bullets/hit_1.wav" id="8_me3kd"]
 [ext_resource type="AudioStream" uid="uid://dufrwl8jt5fk2" path="res://prefabs/bullets/shuriken/slash5.wav" id="8_o1804"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdkqc"]
@@ -34,9 +37,10 @@ animations = [{
 }]
 
 [node name="Shuriken" unique_id=419752470 instance=ExtResource("1_al8au")]
-can_ricochet = true
 crit_chance = 0.0
 sounds_spawn = Array[AudioStream]([ExtResource("4_05pps"), ExtResource("5_evfgd"), ExtResource("6_e73os"), ExtResource("7_me3kd"), ExtResource("8_o1804")])
+sounds_hit = Array[AudioStream]([ExtResource("8_me3kd")])
+sounds_rikoshet = Array[AudioStream]([ExtResource("7_evfgd"), ExtResource("8_e73os")])
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 shape = SubResource("CircleShape2D_gdkqc")
@@ -46,6 +50,6 @@ sprite_frames = SubResource("SpriteFrames_6ypkb")
 animation = &"shot"
 autoplay = "shot"
 
-[node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
+[node name="AudioStreamPlayer2D" parent="." index="4" unique_id=732122356]
 volume_db = -4.0
 bus = &"Player"

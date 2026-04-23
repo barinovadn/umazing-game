@@ -10,10 +10,10 @@ var current_movement_point: Vector2
 var move_direction: Vector2
 
 func _ready():
-	movement_points = enemy_movement_points.get_children()
 	# Choose the first random target.
-	pick_new_target()
+	movement_points = enemy_movement_points.get_children()
 	# Connect the death signal to stop movement when the enemy dies.
+	pick_new_target()
 
 func pick_new_target():
 	if movement_points.is_empty():

@@ -1,38 +1,45 @@
 @icon("boxer_gloves.png")
-class_name ShootController2D
+class_name ShootController
 extends Node2D
 
+## Signal activation plays the shooting animation on the character
 signal shooting_started()
+## Signal activation stops the shooting animation on the character
 signal shooting_stopped()
 
-@export var bullet_types: Array[Resource] 
-@export var fighting_enabled: bool = true:
-	set(value):
-		if fighting_enabled != value:
-			fighting_enabled = value
-@export var is_homing_on : bool = false
+@onready var timer: Timer = $Timer
+
+@export_group("Projectile behavior")
 @export var team : HurtComponent.HurtComponentTeam
+@export var is_homing_on : bool = false
 @export var is_bounce_on: bool = false
 @export var number_of_bounces: int
 
-var projectile : Bullet
+@export_group("Shoot controller behavior")
+@export var bullet_types: Array[Resource] 
+@export var interval_between_shots: float
+@export var can_shoot: bool = false
+
+
 var direction : Vector2
+## Indicates whether the component is in firing mode
+## (is waiting for the post-firing delay)
 var is_shooting : bool = false:
 	set(value):
 		if value == is_shooting:
 			return
-		elif is_shooting && !fighting_enabled:
-			return
 		is_shooting = value
 		if is_shooting:
+			timer.start()
 			shooting_started.emit()
 		else:
 			shooting_stopped.emit()
 
 
 func create_a_projectile_from_argument(bullet: Resource = null) -> void:
-	if !fighting_enabled:
+	if is_shooting or !can_shoot:
 		return
+	var projectile : Bullet
 	if !bullet:
 		projectile = bullet_types.pick_random().instantiate() as Bullet
 	else:
@@ -49,7 +56,8 @@ func create_a_projectile_from_argument(bullet: Resource = null) -> void:
 	
 	projectile.team = team
 	projectile.global_position = global_position
-	
+	timer.wait_time = interval_between_shots
+	is_shooting = true
 	get_node("/root/Game/%Bullets").add_child(projectile)
 
 
@@ -75,3 +83,7 @@ func get_closest_target():
 
 func _get_direction_to_object(target: Node2D) -> Vector2:
 	return (target.global_position - global_position).normalized()
+
+
+func _on_timer_timeout() -> void:
+	is_shooting = false

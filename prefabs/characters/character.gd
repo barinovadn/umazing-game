@@ -57,7 +57,7 @@ var direction: Vector2: ## NOTE Read-only.
 		hurt_component = value
 		if hurt_component:
 			hurt_component.fatal_damage_taken.connect(_on_died)
-@export var shoot_controller: ShootController2D:
+@export var shoot_controller: ShootController:
 	set(value): 
 		if shoot_controller:
 			shoot_controller.shooting_started.disconnect(_on_shooting_started)

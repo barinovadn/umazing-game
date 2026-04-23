@@ -2,41 +2,74 @@ extends Area2D
 
 class_name EnemyController
 
+@export_group("Combat")
+## An array containing all types of projectiles used by the boss
+@export var bullet_types: Array[Resource]
+@export var boss_actions: Array[Action]
+
 ## The array stores the HP percentage values (in the range of 0 to 1) at which the
 ## boss advances to the next phase. You need to record the HP percentage
 ## for each phase, starting with the second one. 
 @export var modulates_for_phase: Array[float]
 
-@export var sound_player: SoundPlayer
-@export var bullet_types: Array[Resource]
-@export var boss_actions: Array[Action]
 @export var movement_patterns: Dictionary[String, MovementController2D]
 
-@onready var action_changer: Timer = $ActionChanger
-@onready var pause_between_shots: Timer = $PauseBetweenShots
-@export var shoot_controller_2d: ShootController2D
+@export_group("Controllers")
+@export var shoot_controller: ShootController
 @export var hurt_controller: HurtComponent
+
+@export_group("Teleports")
 @export var teleport_in : Teleport
 @export var teleport_out: Teleport
 
+## A timer that sets the interval between actions
+@onready var action_changer: Timer = $ActionChanger
+## Sets the interval between shots for a specific type of attack
+@onready var pause_between_shots: Timer = $PauseBetweenShots
+
+@export_group("Interface")
+@export var enemy_name: String
+@export var data_for_interface: BossUIData
+@export var BossInterface: BossUI
+
+## Current boss movement pattern
 var current_movement: MovementController2D
 var current_bullet_type : Resource
-var current_phase: int
+var current_phase: int = 1
 
+func _enemy_ready():
+	pass
 
+func _ready() -> void:
+	_enemy_ready()
+	hurt_controller.damaged.connect(on_damaged)
+	hurt_controller.fatal_damage_taken.connect(on_fatal_damage_taken)
+
+func on_damaged():
+	BossInterface.update_health(enemy_name, hurt_controller.current_health)
+	_check_phase()
+
+func on_fatal_damage_taken():
+	deactivate_interaction()
+	
+	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)
+	
+	_set_portals()
+	BossInterface.remove_boss(enemy_name)
+
+## Allows the boss to move, shoot, and select an action
 func activate_interaction():
-	current_phase = 1
 	_on_action_changer_timeout()
 	action_changer.start()
 	current_movement.movement_enabled = true
-	shoot_controller_2d.fighting_enabled = true
+	shoot_controller.can_shoot = true
 
-
+## Prevents the boss from moving or shooting and selects an action
 func deactivate_interaction():
 	action_changer.stop()
 	current_movement.movement_enabled = false
-	shoot_controller_2d.fighting_enabled = false
-	print(shoot_controller_2d.fighting_enabled)
+	shoot_controller.can_shoot = false
 
 
 func deactivate_portale(portal : Teleport):
@@ -46,7 +79,8 @@ func deactivate_portale(portal : Teleport):
 func activate_portal(portal: Teleport):
 	portal.enabled = true
 
-
+## Overridable logic for each boss;
+## this is where the specific actions and procedures for each action are defined
 func _use_brain(_action: Action):
 	pass
 
@@ -57,15 +91,16 @@ func _set_portals():
 	activate_portal(teleport_out)
 	teleport_out.global_position = hurt_controller.global_position
 
-
+## Replaces the boss's action and plays it
 func _on_action_changer_timeout() -> void:
 	pause_between_shots.stop()
 	var ready_boss_actions: Array[Action] = _select_available_actions()
 	var action_to_play: Action = _select_action_by_weight(ready_boss_actions)
 	_use_brain(action_to_play)
 
+
 func _on_pause_between_shots_timeout() -> void:
-	shoot_controller_2d.create_a_projectile_from_argument(current_bullet_type)
+	shoot_controller.create_a_projectile_from_argument(current_bullet_type)
 
 ## Selects actions from the boss's set of available actions that are available in this phase
 func _select_available_actions() -> Array[Action]:
@@ -80,8 +115,6 @@ func _select_available_actions() -> Array[Action]:
 ## Selects an action available in this phase
 func _select_action_by_weight(ready_boss_actions: Array[Action]) -> Action:
 	var chance_of_action: float = randf()
-	
-	print(chance_of_action)
 	
 	var action_to_play: Action = null
 	
@@ -118,9 +151,8 @@ func _find_heaviest_action(array: Array[Action]):
 			action = element
 			
 	return action
-	
+
 
 func _rebalance_weights(array: Array[Action], rebalance_koef: float):
 	for element in array: 
 		element.weight *= rebalance_koef
-		print(element.weight)
