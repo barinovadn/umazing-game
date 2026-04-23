@@ -264,4 +264,5 @@ position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_oydtv")
 animation = &"downed"
 autoplay = "idle_right"
-frame_progress = 0.0
+frame = 4
+frame_progress = 1.0

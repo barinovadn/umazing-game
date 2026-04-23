@@ -24,7 +24,6 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 @onready var camera_controller: GridCameraFollower2D = $Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
 @onready var timer_for_dash: Timer = $TimerForDash
-@onready var sound_player: SoundPlayer = $SoundPlayer
 @onready var combat_ui: HealthUI = $UI/CombatUI
 
 
@@ -75,7 +74,6 @@ func _input(_event: InputEvent) -> void:
 
 ## Plays random hit sound and updates health
 func on_damaged():
-	sound_player.play_random_hit_sound()
 	combat_ui.update_health(hurt_component.current_health, hurt_component.max_health)
 
 ## Is called when player lost all his hp

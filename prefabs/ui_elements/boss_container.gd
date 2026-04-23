@@ -17,11 +17,11 @@ func _process(delta: float):
 func create_boss(boss_name: String, current_hp: int, max_hp: int,
 	data: BossUIData = null):
 	if data:
-		if bar.texture_under:
+		if data.texture_under:
 			bar.texture_under = data.texture_under
-		if bar.texture_progress:
+		if data.texture_progress:
 			bar.texture_progress = data.texture_progress
-		if bar.texture_over:
+		if data.texture_over:
 			bar.texture_over = data.texture_over
 	
 	bar.max_value = max_hp

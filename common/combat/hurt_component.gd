@@ -4,6 +4,13 @@ extends Area2D
 
 signal fatal_damage_taken
 signal damaged
+# FIXME TODO WARNING Make sure it is only called on "damage" not on "heal"
+# TODO Add heal signal
+# TODO Add health_changed signal (any hp update)
+# Было бы славно передавать в них всех кол-во хила/урона/изменения
+# signal damaged(by_amount: float)        #  +10.0 / -10.0 ?
+# signal healed(by_amount: float)         #   10.0
+# signal health_changed(by_amount: float) # +-10.0
 
 ## Specifies the team to which the parent belongs. 
 enum Team {
@@ -48,5 +55,5 @@ func _disable():
 	set_deferred("monitorable", false)
 	set_deferred("monitoring", false)
 
-func take_damage(amount: int = 0):
+func take_damage(amount: float = 0):
 	current_health -= amount

@@ -10,8 +10,6 @@
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
 [ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/bullets/variations/shuriken/shuriken.tscn" id="7_30gqm"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
-[ext_resource type="PackedScene" uid="uid://c8848ymfq8du6" path="res://prefabs/music/sound_player.tscn" id="7_ot5ig"]
-[ext_resource type="AudioStream" uid="uid://dln050r5k2x3w" path="res://prefabs/characters/sounds/player_hit_sound.wav" id="8_t13t3"]
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://common/ui/health_ui.gd" id="11_30gqm"]
 [ext_resource type="Script" uid="uid://cep3cwaarv32y" path="res://prefabs/player/activation_area.gd" id="11_hvqk4"]
@@ -115,10 +113,6 @@ debug_color = Color(0, 0.6, 0.7019608, 0)
 [node name="TimerForDash" type="Timer" parent="." unique_id=1596072353]
 wait_time = 5.0
 one_shot = true
-
-[node name="SoundPlayer" parent="." unique_id=709493652 instance=ExtResource("7_ot5ig")]
-hits_playlist = Array[AudioStream]([ExtResource("8_t13t3")])
-volume = -6.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=371737396]
 

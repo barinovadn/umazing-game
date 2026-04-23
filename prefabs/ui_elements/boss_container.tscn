@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dn3pwb4lu7m8l"]
 
 [ext_resource type="Script" uid="uid://b37osg36qdo1p" path="res://prefabs/ui_elements/boss_container.gd" id="1_8scsi"]
-[ext_resource type="Texture2D" uid="uid://bcjh0vwxp4kwd" path="res://common/ui/aj.png" id="3_8scsi"]
+[ext_resource type="Texture2D" uid="uid://ciburhuh07it3" path="res://common/ui/gray.png" id="3_8scsi"]
 [ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="3_rw8r3"]
 [ext_resource type="Texture2D" uid="uid://dub4jpdk7iw54" path="res://common/ui/reddd.png" id="4_rw8r3"]
 
