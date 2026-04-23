@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm0f8whcep4y2"
-path="res://.godot/imported/FX001_02.png-62372ac915b5450976f418f44b27fc4e.ctex"
+path="res://.godot/imported/dead_2.png-b6950047c901952a8cbd8b8987ee45a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/cyclopus_cat/FX001_02.png"
-dest_files=["res://.godot/imported/FX001_02.png-62372ac915b5450976f418f44b27fc4e.ctex"]
+source_file="res://prefabs/characters/bosses/cyclopus_cat/dead_2.png"
+dest_files=["res://.godot/imported/dead_2.png-b6950047c901952a8cbd8b8987ee45a6.ctex"]
 
 [params]
 

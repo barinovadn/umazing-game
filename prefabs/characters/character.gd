@@ -24,10 +24,6 @@ extends CharacterBody2D
 			movement.movement_stopped.connect(_on_movement_stopped)
 			movement.direction_changed.connect(_on_direction_changed)
 @export var velocity_koef: float = 1
-var is_moving: bool: ## NOTE Read-only.
-	get(): return movement.is_moving if movement else false
-var direction: Vector2: ## NOTE Read-only.
-	get(): return movement.direction if movement else Vector2.DOWN
 
 @export_group("Collision")
 @export var collider: CollisionShape2D:
@@ -66,19 +62,21 @@ var direction: Vector2: ## NOTE Read-only.
 		if shoot_controller:
 			shoot_controller.shooting_started.connect(_on_shooting_started)
 			shoot_controller.shooting_stopped.connect(_on_shooting_stopped)
+
+var is_moving: bool: ## NOTE Read-only.
+	get(): return movement.is_moving if movement else false
+var direction: Vector2: ## NOTE Read-only.
+	get(): return movement.direction if movement else Vector2.DOWN
 var is_shooting: bool: ## NOTE Read-only.
 	get(): return shoot_controller.is_shooting if shoot_controller else false
-
 
 func _ready():
 	if animator:
 		animator.play(start_animation)
 
-
 func _physics_process(_delta):
 	if is_moving:
 		move_and_slide()
-
 
 func _update_animation():
 	if not animator:
@@ -91,7 +89,6 @@ func _update_animation():
 	else:
 		animator.play_idle(direction)
 
-
 ## Turns off the collision visibility layer and deletes the object after 5 seconds
 func _on_died():
 	visible = false
@@ -103,21 +100,17 @@ func _on_moved(dir: Vector2, speed: float):
 	velocity = dir * speed * velocity_koef
 	_update_animation()
 
-
 func _on_teleported(new_position: Vector2):
 	global_position = new_position
-
 
 func _on_movement_stopped():
 	velocity = Vector2.ZERO
 	_update_animation()
 
-
 func _on_direction_changed(new_dir: Vector2):
 	if interactor:
 		interactor.direction = new_dir
 	_update_animation()
-
 
 func _on_shooting_started():
 	_update_animation()

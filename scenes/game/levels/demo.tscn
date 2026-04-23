@@ -12,23 +12,18 @@
 [ext_resource type="AudioStream" uid="uid://0y5mvxwdmr1y" path="res://prefabs/music/tracks/lost_village.ogg" id="6_bpga3"]
 [ext_resource type="AudioStream" uid="uid://bhixoluecmw23" path="res://prefabs/music/tracks/boss_fight_df.ogg" id="6_js0wq"]
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="7_8qff5"]
-[ext_resource type="PackedScene" uid="uid://crajt1qlujrtt" path="res://common/effects/sparkles.tscn" id="8_sfio8"]
 [ext_resource type="PackedScene" uid="uid://ck2kcqhlhgtlm" path="res://prefabs/teleport/teleport.tscn" id="8_ygfwu"]
 [ext_resource type="PackedScene" uid="uid://bc2kdebobsqlu" path="res://prefabs/interactables/inspectable/inspectable.tscn" id="9_8ic3i"]
 [ext_resource type="PackedScene" uid="uid://uhy5xmcfxpe8" path="res://prefabs/environment/environment_zone.tscn" id="9_q7qle"]
-[ext_resource type="PackedScene" uid="uid://tvv7lk4f7fio" path="res://common/effects/portal_disk.tscn" id="11_7hq71"]
+[ext_resource type="PackedScene" uid="uid://tvv7lk4f7fio" path="res://prefabs/teleport/portal_disk.tscn" id="11_7hq71"]
 [ext_resource type="PackedScene" uid="uid://ckf02713hcpbr" path="res://prefabs/characters/cat/cat.tscn" id="11_7im6l"]
-[ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://common/combat/hurt_component.tscn" id="11_bpga3"]
+[ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="11_bpga3"]
 [ext_resource type="PackedScene" uid="uid://bjb2riattkaaa" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat.tscn" id="14_nfdyi"]
-[ext_resource type="PackedScene" uid="uid://csv6sg13nww7x" path="res://common/movement/controllers/dot_to_dot_movement_controller.tscn" id="15_xrc6b"]
-[ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://common/combat/shoot_controller.tscn" id="16_jqxbl"]
-[ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/enemy/boss_ui_data.gd" id="17_1qwsm"]
+[ext_resource type="PackedScene" uid="uid://csv6sg13nww7x" path="res://prefabs/combat/dot_to_dot_movement_controller.tscn" id="15_xrc6b"]
+[ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="16_jqxbl"]
 [ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/bullets/variations/homing_shot/homing_shot.tscn" id="18_ivmt6"]
-[ext_resource type="Texture2D" uid="uid://dt2r8o2eiegh5" path="res://common/ui/icons/CatHP/cat_3_kit.png" id="18_ky1g4"]
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/bullets/variations/stone_shot/stone_shot.tscn" id="19_ivmt6"]
-[ext_resource type="Texture2D" uid="uid://gsg8mvl6swpd" path="res://common/ui/default_bg.png" id="19_ky1g4"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://common/combat/action.gd" id="20_ivmt6"]
-[ext_resource type="Texture2D" uid="uid://bceld6xt8wthg" path="res://common/ui/default_progress.png" id="21_sfio8"]
 [ext_resource type="Script" uid="uid://jqsqblr1x2hg" path="res://prefabs/characters/bosses/cyclopus_cat/cat_boss_controller.gd" id="22_1qwsm"]
 [ext_resource type="PackedScene" uid="uid://dusfp5le5ooy8" path="res://prefabs/bullets/variations/bunch_of_shots/bunch_of_shots.tscn" id="25_7hq71"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/enemy/enemy_controller.tscn" id="25_ky1g4"]
@@ -83,13 +78,6 @@ action_name = "bunch_of_shots"
 weight = 0.5
 phases = Array[int]([2, 3])
 metadata/_custom_type_script = "uid://dowl0clqumedg"
-
-[sub_resource type="Resource" id="Resource_6ggk5"]
-script = ExtResource("17_1qwsm")
-texture_under = ExtResource("19_ky1g4")
-texture_progress = ExtResource("21_sfio8")
-texture_over = ExtResource("18_ky1g4")
-metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
 
 [node name="Game" unique_id=204430001 instance=ExtResource("1_c3u61")]
 
@@ -213,10 +201,6 @@ position = Vector2(104, 144)
 exit = NodePath("../TeleportCatExit")
 color = Color(0.7058824, 0, 0, 1)
 
-[node name="Sparkles" parent="Teleports/BossTeleports/CatBossTeleports/TeleportCatIn" index="1" unique_id=241787107 instance=ExtResource("8_sfio8")]
-position = Vector2(-1.9073486e-06, 2.861023e-06)
-scale = Vector2(0.33254713, 0.33928585)
-
 [node name="TeleportCatOut" parent="Teleports/BossTeleports/CatBossTeleports" index="1" unique_id=490998921 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 visible = false
 position = Vector2(1000, -475)
@@ -307,8 +291,6 @@ shoot_controller = NodePath("BossController/ShootController")
 
 [node name="HurtComponent" parent="Bosses/CyclopusCat" index="4" unique_id=28986261 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
 collision_layer = 2048
-audio_bus_name = &"Enemy"
-max_health = 4
 
 [node name="BossController" parent="Bosses/CyclopusCat" index="5" unique_id=1818865949 node_paths=PackedStringArray("movement_patterns", "shoot_controller", "hurt_controller", "teleport_in", "teleport_out") instance=ExtResource("25_ky1g4")]
 script = ExtResource("22_1qwsm")
@@ -323,7 +305,6 @@ hurt_controller = NodePath("../HurtComponent")
 teleport_in = NodePath("../../../Teleports/BossTeleports/CatBossTeleports/TeleportCatIn")
 teleport_out = NodePath("../../../Teleports/BossTeleports/CatBossTeleports/TeleportCatOut")
 enemy_name = "Cyclopus Cat"
-data_for_interface = SubResource("Resource_6ggk5")
 
 [node name="CatEnemyMovementController" parent="Bosses/CyclopusCat/BossController" index="2" unique_id=1724548566 node_paths=PackedStringArray("enemy_movement_points") instance=ExtResource("15_xrc6b")]
 enemy_movement_points = NodePath("../../../MovementPoints/CatMovementPoints")

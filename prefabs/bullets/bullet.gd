@@ -11,7 +11,7 @@ signal deletion_initiated
 signal deletion_completed
 
 @export_group("Movement")
-@export var speed: int = 100
+@export var speed: float = 100
 ## The vector that determines the direction in which the bullet will fly
 ## if [member auto_aim] is not enabled
 @export var direction: Vector2
@@ -31,10 +31,10 @@ signal deletion_completed
 			can_ricochet = false
 
 @export_group("Damage")
-@export var damage: int = 1
-@export var team: HurtComponent.HurtComponentTeam
+@export var damage: float = 1.0
+@export var team: HurtComponent.Team
 ## Additional damage that has a [member crit_chance] to be added to the base damage
-@export var crit_damage: int
+@export var crit_damage: float
 ## A chance to deal additional damage
 @export_range(0.0, 1.0) var crit_chance: float
 
@@ -104,7 +104,7 @@ func _calc_damage() -> int:
 	return amount
 
 
-func _move(delta : float) -> void:
+func _move(delta: float) -> void:
 	if auto_aim and target:
 		direction = _get_direction_to_target()
 	position += direction * speed * delta
@@ -116,7 +116,6 @@ func _on_map_collision(_body: Node2D) -> void:
 		number_of_recochets_left -= 1
 	else:
 		destroy()
-
 
 ## If there is a sound effect when removing a bullet, play it.
 ## The bullet will be removed after the last sound effect ends.
@@ -148,7 +147,6 @@ func destroy() -> void:
 	play_random_sound(sounds_die)
 	var timer = get_tree().create_timer(5.0)
 	timer.timeout.connect(_delete_object)
-
 
 ## Loads a random sound from the array passed as an argument into the 2D audio stream player
 func play_random_sound(array: Array[AudioStream]):

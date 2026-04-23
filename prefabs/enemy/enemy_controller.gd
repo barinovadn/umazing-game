@@ -45,40 +45,6 @@ func _ready() -> void:
 	hurt_controller.damaged.connect(on_damaged)
 	hurt_controller.fatal_damage_taken.connect(on_fatal_damage_taken)
 
-func on_damaged():
-	BossInterface.update_health(enemy_name, hurt_controller.current_health)
-	_check_phase()
-
-func on_fatal_damage_taken():
-	deactivate_interaction()
-	
-	set_deferred("monitorable", false)
-	set_deferred("monitoring", false)
-	
-	_set_portals()
-	BossInterface.remove_boss(enemy_name)
-
-## Allows the boss to move, shoot, and select an action
-func activate_interaction():
-	_on_action_changer_timeout()
-	action_changer.start()
-	current_movement.movement_enabled = true
-	shoot_controller.can_shoot = true
-
-## Prevents the boss from moving or shooting and selects an action
-func deactivate_interaction():
-	action_changer.stop()
-	current_movement.movement_enabled = false
-	shoot_controller.can_shoot = false
-
-
-func deactivate_portale(portal : Teleport):
-	portal.enabled = false
-
-
-func activate_portal(portal: Teleport):
-	portal.enabled = true
-
 ## Overridable logic for each boss;
 ## this is where the specific actions and procedures for each action are defined
 func _use_brain(_action: Action):
@@ -97,7 +63,6 @@ func _on_action_changer_timeout() -> void:
 	var ready_boss_actions: Array[Action] = _select_available_actions()
 	var action_to_play: Action = _select_action_by_weight(ready_boss_actions)
 	_use_brain(action_to_play)
-
 
 func _on_pause_between_shots_timeout() -> void:
 	shoot_controller.create_a_projectile_from_argument(current_bullet_type)
@@ -141,7 +106,6 @@ func _check_phase():
 			var heaviest_action = _find_heaviest_action(available_actions)
 			_rebalance_weights(available_actions, 1.0/heaviest_action.weight)
 
-
 func _find_heaviest_action(array: Array[Action]):
 	if !array:
 		return
@@ -152,7 +116,38 @@ func _find_heaviest_action(array: Array[Action]):
 			
 	return action
 
-
 func _rebalance_weights(array: Array[Action], rebalance_koef: float):
 	for element in array: 
 		element.weight *= rebalance_koef
+
+func on_damaged():
+	BossInterface.update_health(enemy_name, hurt_controller.current_health)
+	_check_phase()
+
+func on_fatal_damage_taken():
+	deactivate_interaction()
+	
+	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)
+	
+	_set_portals()
+	BossInterface.remove_boss(enemy_name)
+
+## Allows the boss to move, shoot, and select an action
+func activate_interaction():
+	_on_action_changer_timeout()
+	action_changer.start()
+	current_movement.movement_enabled = true
+	shoot_controller.can_shoot = true
+
+## Prevents the boss from moving or shooting and selects an action
+func deactivate_interaction():
+	action_changer.stop()
+	current_movement.movement_enabled = false
+	shoot_controller.can_shoot = false
+
+func deactivate_portale(portal : Teleport):
+	portal.enabled = false
+
+func activate_portal(portal: Teleport):
+	portal.enabled = true

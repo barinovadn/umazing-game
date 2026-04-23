@@ -6,7 +6,7 @@ signal fatal_damage_taken
 signal damaged
 
 ## Specifies the team to which the parent belongs. 
-enum HurtComponentTeam {
+enum Team {
 	enemy = 0,
 	player = 1,
 	neutral = 2
@@ -20,12 +20,13 @@ enum HurtComponentTeam {
 	set(value):
 		sounds_volume = value
 		sounds_player.sounds_volume_db = value
-@export_group("Health")
-@export var team : HurtComponentTeam
-@export var max_health = 20
 
-var _total_damage : int = 0
-var current_health : int:
+@export_group("Health")
+@export var team: Team
+@export var max_health: float = 20.0
+
+var _total_damage: float = 0.0
+var current_health: float:
 	get():
 		return max_health - _total_damage
 	set(value):
@@ -38,17 +39,14 @@ var current_health : int:
 			_play_random_sound(sounds_damage)
 			damaged.emit()
 
-
 func _play_random_sound(array: Array[AudioStream]):
 	if array.size():
 		sounds_player.stream = array.pick_random()
 		sounds_player.play()
 
-
 func _disable():
 	set_deferred("monitorable", false)
 	set_deferred("monitoring", false)
-
 
 func take_damage(amount: int = 0):
 	current_health -= amount

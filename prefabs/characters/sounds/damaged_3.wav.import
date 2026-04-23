@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b15yojpi2f7s"
-path="res://.godot/imported/11_human_damage_3.wav-9ca863ca7d337c7b4edfae2713ca1735.sample"
+path="res://.godot/imported/damaged_3.wav-245468267589b2b290317b061b7ca481.sample"
 
 [deps]
 
-source_file="res://prefabs/characters/ninja_green/11_human_damage_3.wav"
-dest_files=["res://.godot/imported/11_human_damage_3.wav-9ca863ca7d337c7b4edfae2713ca1735.sample"]
+source_file="res://prefabs/characters/sounds/damaged_3.wav"
+dest_files=["res://.godot/imported/damaged_3.wav-245468267589b2b290317b061b7ca481.sample"]
 
 [params]
 

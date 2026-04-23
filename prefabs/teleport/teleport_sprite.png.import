@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfv136txk440k"
-path="res://.godot/imported/Faceset.png-72918c471e80de8cb54816e5591967a6.ctex"
+uid="uid://ckj16wbvp407p"
+path="res://.godot/imported/teleport_sprite.png-14dc841cd37d95aec4f203325fb3b68c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/cat/Faceset.png"
-dest_files=["res://.godot/imported/Faceset.png-72918c471e80de8cb54816e5591967a6.ctex"]
+source_file="res://prefabs/teleport/teleport_sprite.png"
+dest_files=["res://.godot/imported/teleport_sprite.png-14dc841cd37d95aec4f203325fb3b68c.ctex"]
 
 [params]
 

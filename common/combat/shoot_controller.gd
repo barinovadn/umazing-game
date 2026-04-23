@@ -10,7 +10,7 @@ signal shooting_stopped()
 @onready var timer: Timer = $Timer
 
 @export_group("Projectile behavior")
-@export var team : HurtComponent.HurtComponentTeam
+@export var team : HurtComponent.Team
 @export var is_homing_on : bool = false
 @export var is_bounce_on: bool = false
 @export var number_of_bounces: int
@@ -35,6 +35,11 @@ var is_shooting : bool = false:
 		else:
 			shooting_stopped.emit()
 
+func _get_direction_to_object(target: Node2D) -> Vector2:
+	return (target.global_position - global_position).normalized()
+
+func _on_timer_timeout() -> void:
+	is_shooting = false
 
 func create_a_projectile_from_argument(bullet: Resource = null) -> void:
 	if is_shooting or !can_shoot:
@@ -60,7 +65,6 @@ func create_a_projectile_from_argument(bullet: Resource = null) -> void:
 	is_shooting = true
 	get_node("/root/Game/%Bullets").add_child(projectile)
 
-
 func get_closest_target():
 	var targets = get_tree().get_nodes_in_group("hurt_components")
 	
@@ -79,11 +83,3 @@ func get_closest_target():
 			closest = t
 
 	return closest
-
-
-func _get_direction_to_object(target: Node2D) -> Vector2:
-	return (target.global_position - global_position).normalized()
-
-
-func _on_timer_timeout() -> void:
-	is_shooting = false

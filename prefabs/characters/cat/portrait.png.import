@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckj16wbvp407p"
-path="res://.godot/imported/SpriteSheetSpark.png-fc393d1e693dd03b1a4c74ee30e574fe.ctex"
+uid="uid://bfv136txk440k"
+path="res://.godot/imported/portrait.png-c7a9b99b07d8b5d7e4bca587e6b50f20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/effects/SpriteSheetSpark.png"
-dest_files=["res://.godot/imported/SpriteSheetSpark.png-fc393d1e693dd03b1a4c74ee30e574fe.ctex"]
+source_file="res://prefabs/characters/cat/portrait.png"
+dest_files=["res://.godot/imported/portrait.png-c7a9b99b07d8b5d7e4bca587e6b50f20.ctex"]
 
 [params]
 

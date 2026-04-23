@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_isdfl"]
 [ext_resource type="Texture2D" uid="uid://dvpkv1prd3l8v" path="res://prefabs/characters/bosses/cyclopus_cat/LeftSpriteSheetCyclopAttack.png" id="2_jus4f"]
 [ext_resource type="Texture2D" uid="uid://bfdgfjmh87hj8" path="res://prefabs/characters/bosses/cyclopus_cat/SpriteSheetCyclopAttack.png" id="3_vex6t"]
-[ext_resource type="Texture2D" uid="uid://eh8xlsoojdpd" path="res://prefabs/characters/bosses/cyclopus_cat/FX001_01.png" id="4_bx18v"]
-[ext_resource type="Texture2D" uid="uid://dm0f8whcep4y2" path="res://prefabs/characters/bosses/cyclopus_cat/FX001_02.png" id="5_p6rbj"]
-[ext_resource type="Texture2D" uid="uid://han5cpdulcgb" path="res://prefabs/characters/bosses/cyclopus_cat/FX001_03.png" id="6_us6ao"]
-[ext_resource type="Texture2D" uid="uid://dmsxvi8lyxlie" path="res://prefabs/characters/bosses/cyclopus_cat/FX001_04.png" id="7_f1x0h"]
-[ext_resource type="Texture2D" uid="uid://v5kpv1oegcac" path="res://prefabs/characters/bosses/cyclopus_cat/FX001_05.png" id="8_vl5if"]
+[ext_resource type="Texture2D" uid="uid://eh8xlsoojdpd" path="res://prefabs/characters/bosses/cyclopus_cat/dead_1.png" id="4_bx18v"]
+[ext_resource type="Texture2D" uid="uid://dm0f8whcep4y2" path="res://prefabs/characters/bosses/cyclopus_cat/dead_2.png" id="5_p6rbj"]
+[ext_resource type="Texture2D" uid="uid://han5cpdulcgb" path="res://prefabs/characters/bosses/cyclopus_cat/dead_3.png" id="6_us6ao"]
+[ext_resource type="Texture2D" uid="uid://dmsxvi8lyxlie" path="res://prefabs/characters/bosses/cyclopus_cat/dead_4.png" id="7_f1x0h"]
+[ext_resource type="Texture2D" uid="uid://v5kpv1oegcac" path="res://prefabs/characters/bosses/cyclopus_cat/dead_5.png" id="8_vl5if"]
 [ext_resource type="Texture2D" uid="uid://ddighrvdm4owv" path="res://prefabs/characters/bosses/cyclopus_cat/SpriteSheetCyclop2.png" id="9_sbeg8"]
 [ext_resource type="Texture2D" uid="uid://mvgdglmqxtn3" path="res://prefabs/characters/bosses/cyclopus_cat/SpriteSheetCyclop.png" id="10_nvotv"]
 
@@ -262,7 +262,6 @@ position = Vector2(0, 4)
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_oydtv")
-animation = &"attack_left"
+animation = &"downed"
 autoplay = "idle_right"
-frame = 1
-frame_progress = 1.0
+frame_progress = 0.0

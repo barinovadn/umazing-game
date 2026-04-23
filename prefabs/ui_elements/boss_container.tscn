@@ -1,15 +1,9 @@
 [gd_scene format=3 uid="uid://dn3pwb4lu7m8l"]
 
 [ext_resource type="Script" uid="uid://b37osg36qdo1p" path="res://prefabs/ui_elements/boss_container.gd" id="1_8scsi"]
-[ext_resource type="Texture2D" uid="uid://gsg8mvl6swpd" path="res://common/ui/default_bg.png" id="1_db411"]
-[ext_resource type="Texture2D" uid="uid://bceld6xt8wthg" path="res://common/ui/default_progress.png" id="2_8scsi"]
+[ext_resource type="Texture2D" uid="uid://bcjh0vwxp4kwd" path="res://common/ui/aj.png" id="3_8scsi"]
 [ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="3_rw8r3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sqk3c"]
-atlas = ExtResource("1_db411")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wssct"]
-atlas = ExtResource("2_8scsi")
+[ext_resource type="Texture2D" uid="uid://dub4jpdk7iw54" path="res://common/ui/reddd.png" id="4_rw8r3"]
 
 [node name="BossContainer" type="Control" unique_id=858785610]
 layout_mode = 3
@@ -20,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_8scsi")
+smoothing_speed = 5.0
 
 [node name="Label" type="Label" parent="." unique_id=770514746]
 layout_mode = 1
@@ -28,10 +23,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -60.0
-offset_right = 20.0
-offset_bottom = -37.0
+offset_left = -118.0
+offset_top = -78.0
+offset_right = 118.0
+offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_rw8r3")
@@ -52,5 +47,6 @@ offset_top = -42.0
 offset_right = 369.5
 grow_horizontal = 2
 grow_vertical = 0
-texture_under = SubResource("AtlasTexture_sqk3c")
-texture_progress = SubResource("AtlasTexture_wssct")
+step = 0.0
+texture_under = ExtResource("3_8scsi")
+texture_progress = ExtResource("4_rw8r3")

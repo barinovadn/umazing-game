@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://whkpxo00adq"
-path="res://.godot/imported/SpriteSheet.png-1daabb13fe9e6bdb693166a42ccc23fb.ctex"
+uid="uid://drt4buvqqr6i2"
+path="res://.godot/imported/portrait.png-cad496b2a4773437140b466ad9129861.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/cat/SpriteSheet.png"
-dest_files=["res://.godot/imported/SpriteSheet.png-1daabb13fe9e6bdb693166a42ccc23fb.ctex"]
+source_file="res://prefabs/characters/bosses/cyclopus_cat/portrait.png"
+dest_files=["res://.godot/imported/portrait.png-cad496b2a4773437140b466ad9129861.ctex"]
 
 [params]
 

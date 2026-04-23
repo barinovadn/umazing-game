@@ -39,7 +39,6 @@ func _get_direction() -> Vector2:
 		return (target.global_position - global_position).normalized()
 	return direction.normalized()
 
-
 func _copy_arguments(bullet: Bullet, dir : Vector2):
 	bullet.can_be_broken = can_be_broken
 	bullet.can_break = can_break

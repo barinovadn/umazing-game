@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tvv7lk4f7fio"]
 
-[ext_resource type="Texture2D" uid="uid://ckj16wbvp407p" path="res://common/effects/SpriteSheetSpark.png" id="1_gldxr"]
+[ext_resource type="Texture2D" uid="uid://ckj16wbvp407p" path="res://prefabs/teleport/teleport_sprite.png" id="1_gldxr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lh7u"]
 atlas = ExtResource("1_gldxr")

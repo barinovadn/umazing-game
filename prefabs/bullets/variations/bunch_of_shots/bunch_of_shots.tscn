@@ -10,3 +10,6 @@ bullet_type = ExtResource("3_pi3ct")
 amount_of_bullets = 5
 spacing = 44.0
 offset_from_center = 10.0
+
+[node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
+volume_db = -4.0

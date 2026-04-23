@@ -15,13 +15,6 @@ func _ready():
 	# Connect the death signal to stop movement when the enemy dies.
 	pick_new_target()
 
-func pick_new_target():
-	if movement_points.is_empty():
-		return
-	var random_point = movement_points.pick_random()
-	current_movement_point = random_point.global_position
-	pass
-
 func _physics_process(_delta):
 	var current_pos = triger.global_position
 	var distance_sq = current_pos.distance_squared_to(current_movement_point)
@@ -45,3 +38,10 @@ func _physics_process(_delta):
 		move(movement_speed, move_direction)
 	else:
 		stop()
+
+func pick_new_target():
+	if movement_points.is_empty():
+		return
+	var random_point = movement_points.pick_random()
+	current_movement_point = random_point.global_position
+	pass
