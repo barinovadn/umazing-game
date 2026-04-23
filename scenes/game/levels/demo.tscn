@@ -16,7 +16,6 @@
 modulate = Color(1, 1, 1, 0.039215688)
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
-unique_name_in_owner = true
 character = NodePath("../Characters/NinjaGreen")
 
 [node name="Background" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="0" unique_id=560005983]

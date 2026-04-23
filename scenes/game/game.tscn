@@ -26,6 +26,7 @@ script = ExtResource("5_lfrn8")
 metadata/_custom_type_script = "uid://bp0bnmynw2d1p"
 
 [node name="Player" parent="." unique_id=486757243 instance=ExtResource("6_2a8rs")]
+unique_name_in_owner = true
 
 [node name="Tilemap" type="Node2D" parent="." unique_id=1439768727]
 editor_description = "123"
