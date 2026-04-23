@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddighrvdm4owv"
-path="res://.godot/imported/SpriteSheetCyclop2.png-03edf3b09ea0a5b9648f2088c7700e79.ctex"
+path="res://.godot/imported/cyclopus_cat.png-4b38c5dd11b5892a3e37ceb61bc0c371.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/cyclopus_cat/SpriteSheetCyclop2.png"
-dest_files=["res://.godot/imported/SpriteSheetCyclop2.png-03edf3b09ea0a5b9648f2088c7700e79.ctex"]
+source_file="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat.png"
+dest_files=["res://.godot/imported/cyclopus_cat.png-4b38c5dd11b5892a3e37ceb61bc0c371.ctex"]
 
 [params]
 

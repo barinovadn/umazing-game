@@ -78,6 +78,7 @@ func on_damaged():
 
 ## Is called when player lost all his hp
 func on_fatal_damage_taken():
+	
 	call_deferred("_reload_scene")
 
 ## Reload curent scene

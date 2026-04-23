@@ -117,9 +117,10 @@ func _on_map_collision(_body: Node2D) -> void:
 	else:
 		destroy()
 
+
 ## If there is a sound effect when removing a bullet, play it.
 ## The bullet will be removed after the last sound effect ends.
-func _delete_object():
+func _delete():
 	await audio_player.finished
 	queue_free()
 	deletion_completed.emit()
@@ -146,7 +147,8 @@ func destroy() -> void:
 	audio_player.stop()
 	play_random_sound(sounds_die)
 	var timer = get_tree().create_timer(5.0)
-	timer.timeout.connect(_delete_object)
+	timer.timeout.connect(_delete)
+
 
 ## Loads a random sound from the array passed as an argument into the 2D audio stream player
 func play_random_sound(array: Array[AudioStream]):

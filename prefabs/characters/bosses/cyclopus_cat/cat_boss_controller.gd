@@ -2,8 +2,6 @@ extends EnemyController
 
 var appeared: bool = false
 
-func _enemy_ready():
-	BossInterface = %Player/%BossUI
 
 func _use_brain(action: Action):
 	if !appeared:

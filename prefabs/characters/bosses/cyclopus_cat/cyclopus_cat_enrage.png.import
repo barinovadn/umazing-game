@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmsxvi8lyxlie"
-path="res://.godot/imported/dead_4.png-9522316645553fd2f141cbaa78da4b70.ctex"
+uid="uid://bkvgvxdajupee"
+path="res://.godot/imported/cyclopus_cat_enrage.png-98eb5f1dea2c5490f28f9116c0ecc570.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/cyclopus_cat/dead_4.png"
-dest_files=["res://.godot/imported/dead_4.png-9522316645553fd2f141cbaa78da4b70.ctex"]
+source_file="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat_enrage.png"
+dest_files=["res://.godot/imported/cyclopus_cat_enrage.png-98eb5f1dea2c5490f28f9116c0ecc570.ctex"]
 
 [params]
 

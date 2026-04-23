@@ -63,7 +63,6 @@ tile_set = ExtResource("6_bdhmt")
 z_index = 60
 
 [node name="Teleports" type="Node2D" parent="." unique_id=1760141152]
-modulate = Color(1, 1, 1, 0.39215687)
 z_index = 50
 
 [node name="BossTeleports" type="Node2D" parent="Teleports" unique_id=1420055058]

@@ -1,6 +1,8 @@
 extends Area2D
-
 class_name EnemyController
+
+
+@export var character: Character2D
 
 @export_group("Combat")
 ## An array containing all types of projectiles used by the boss
@@ -22,28 +24,31 @@ class_name EnemyController
 @export var teleport_in : Teleport
 @export var teleport_out: Teleport
 
-## A timer that sets the interval between actions
-@onready var action_changer: Timer = $ActionChanger
-## Sets the interval between shots for a specific type of attack
-@onready var pause_between_shots: Timer = $PauseBetweenShots
-
 @export_group("Interface")
 @export var enemy_name: String
 @export var data_for_interface: BossUIData
 @export var BossInterface: BossUI
+
+## A timer that sets the interval between actions
+@onready var action_changer: Timer = $ActionChanger
+## Sets the interval between shots for a specific type of attack
+@onready var pause_between_shots: Timer = $PauseBetweenShots
 
 ## Current boss movement pattern
 var current_movement: MovementController2D
 var current_bullet_type : Resource
 var current_phase: int = 1
 
-func _enemy_ready():
-	pass
+func _enemy_ready(): pass
 
 func _ready() -> void:
-	_enemy_ready()
+	if not character:
+		character = get_parent() as Character2D
+	character.deleted.connect(_set_portals)
+	BossInterface = %Player/%BossUI
 	hurt_controller.damaged.connect(on_damaged)
 	hurt_controller.fatal_damage_taken.connect(on_fatal_damage_taken)
+	_enemy_ready()
 
 ## Overridable logic for each boss;
 ## this is where the specific actions and procedures for each action are defined
@@ -130,7 +135,6 @@ func on_fatal_damage_taken():
 	set_deferred("monitorable", false)
 	set_deferred("monitoring", false)
 	
-	_set_portals()
 	BossInterface.remove_boss(enemy_name)
 
 ## Allows the boss to move, shoot, and select an action

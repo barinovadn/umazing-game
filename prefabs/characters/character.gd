@@ -3,6 +3,9 @@ class_name Character2D
 extends CharacterBody2D
 ## Base class for all characters, both playable and NPCs.
 
+signal destroyed
+signal deleted
+
 @export_group("Animations")
 @export var animator: AnimationController2D
 @export var start_animation := AnimationController2D.AnimationType.NONE
@@ -23,7 +26,6 @@ extends CharacterBody2D
 			movement.teleported.connect(_on_teleported)
 			movement.movement_stopped.connect(_on_movement_stopped)
 			movement.direction_changed.connect(_on_direction_changed)
-@export var velocity_koef: float = 1
 
 @export_group("Collision")
 @export var collider: CollisionShape2D:
@@ -63,12 +65,18 @@ extends CharacterBody2D
 			shoot_controller.shooting_started.connect(_on_shooting_started)
 			shoot_controller.shooting_stopped.connect(_on_shooting_stopped)
 
+@export_group("Afterlife")
+@export var afterlife_time: float = 7.0
+@export var afterlife_fade_time: float = 2.0
+
 var is_moving: bool: ## NOTE Read-only.
 	get(): return movement.is_moving if movement else false
 var direction: Vector2: ## NOTE Read-only.
 	get(): return movement.direction if movement else Vector2.DOWN
 var is_shooting: bool: ## NOTE Read-only.
 	get(): return shoot_controller.is_shooting if shoot_controller else false
+var is_deleted_with_delay: bool = false
+
 
 func _ready():
 	if animator:
@@ -82,7 +90,9 @@ func _update_animation():
 	if not animator:
 		return
 	
-	if is_shooting:
+	if is_deleted_with_delay:
+		animator.play(animator.AnimationType.DOWNED)
+	elif is_shooting:
 		animator.play_attack(direction)
 	elif is_moving:
 		animator.play_walk(direction)
@@ -91,13 +101,17 @@ func _update_animation():
 
 ## Turns off the collision visibility layer and deletes the object after 5 seconds
 func _on_died():
-	visible = false
-	set_collision_layer_value(2, false)
-	var timer = get_tree().create_timer(5.0)
-	timer.timeout.connect(queue_free)
+	destroy()
+
+## If there is a sound effect when removing a bullet, play it.
+## The bullet will be removed after the last sound effect ends.
+func _delete():
+	queue_free()
+	deleted.emit()
+
 
 func _on_moved(dir: Vector2, speed: float):
-	velocity = dir * speed * velocity_koef
+	velocity = dir * speed
 	_update_animation()
 
 func _on_teleported(new_position: Vector2):
@@ -117,3 +131,17 @@ func _on_shooting_started():
 
 func _on_shooting_stopped():
 	_update_animation()
+
+func destroy():
+	is_deleted_with_delay = true
+	collision_layer = 0
+	destroyed.emit()
+	
+	var timer = get_tree().create_timer(afterlife_time - afterlife_fade_time)
+	await timer.timeout
+	
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, afterlife_fade_time)
+	await tween.finished
+	
+	_delete()

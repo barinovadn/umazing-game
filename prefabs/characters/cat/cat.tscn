@@ -44,6 +44,24 @@ position = Vector2(0, 4)
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_ikwm1")
-animation = &"idle_right"
+animation = &"walk_right"
 autoplay = "idle_right"
 frame_progress = 0.0
+
+[node name="AnimationController" parent="." index="3" unique_id=395358213]
+animations = Dictionary[int, String]({
+1: "idle_right",
+2: "idle_right",
+3: "idle_right",
+4: "idle_right",
+5: "walk_right",
+6: "walk_right",
+7: "walk_right",
+8: "walk_right"
+})
+animations_flip_h = Dictionary[int, bool]({
+3: true,
+4: false,
+7: true,
+8: false
+})
