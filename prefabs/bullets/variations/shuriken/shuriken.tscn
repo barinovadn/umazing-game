@@ -40,6 +40,8 @@ animations = [{
 [node name="Shuriken" unique_id=419752470 instance=ExtResource("1_al8au")]
 can_ricochet = true
 number_of_recochets_left = 2
+lifespan = 5.0
+use_life_timer = true
 sounds_spawn = Array[AudioStream]([ExtResource("4_05pps"), ExtResource("5_evfgd"), ExtResource("6_e73os"), ExtResource("7_me3kd"), ExtResource("8_o1804")])
 sounds_die = Array[AudioStream]([ExtResource("7_5vofu")])
 sounds_hit = Array[AudioStream]([ExtResource("8_me3kd")])

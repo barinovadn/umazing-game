@@ -10,7 +10,7 @@ signal shooting_stopped()
 @onready var timer: Timer = $Timer
 
 @export_group("Projectile behavior")
-@export var team : HurtComponent.Team
+@export var team : HurtController.Team
 @export var is_homing_on : bool = false
 @export var is_bounce_on: bool = false
 @export var number_of_bounces: int
@@ -44,17 +44,21 @@ func _on_timer_timeout() -> void:
 func create_a_projectile_from_argument(bullet: Resource = null) -> void:
 	if is_shooting or !can_shoot:
 		return
+	
 	var projectile : Bullet
+	
 	if !bullet:
 		projectile = bullet_types.pick_random().instantiate() as Bullet
 	else:
 		projectile = bullet.instantiate() as Bullet
+	
 	if is_homing_on:
 		var target = get_closest_target()
 		projectile.direction = _get_direction_to_object(target)
 		projectile.target = target
 	else :
 		projectile.direction = direction
+	
 	if is_bounce_on:
 		projectile.can_ricochet = true
 		projectile.number_of_recochets_left = number_of_bounces
@@ -62,6 +66,7 @@ func create_a_projectile_from_argument(bullet: Resource = null) -> void:
 	projectile.team = team
 	projectile.global_position = global_position
 	timer.wait_time = interval_between_shots
+	
 	is_shooting = true
 	get_node("/root/Game/%Bullets").add_child(projectile)
 

@@ -16,7 +16,7 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		character_changed.emit(character, old_character)
 
 @onready var shoot_controller: ShootController = $ShootController
-@onready var hurt_component: HurtComponent = $HurtComponent
+@onready var hurt_controller: HurtController = $HurtController
 @onready var controller: MovementController2D = $Controller
 @onready var interactor: Interactor = $Interactor
 @onready var trigger: Node2D = $Trigger
@@ -29,9 +29,9 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 
 func _ready():
 	_on_character_changed(character, null)
-	hurt_component.damaged.connect(on_damaged)
-	hurt_component.fatal_damage_taken.connect(on_fatal_damage_taken)
-	combat_ui.update_health(hurt_component.current_health, hurt_component.max_health)
+	hurt_controller.health_changed.connect(on_health_changed)
+	hurt_controller.fatal_damage_taken.connect(on_fatal_damage_taken)
+	combat_ui.update_health(hurt_controller.current_health, hurt_controller.max_health)
 
 
 func _process(_delta: float):
@@ -46,7 +46,7 @@ func _update_component_positions():
 	
 	interactor.global_position = character.global_position
 	trigger.global_position = character.global_position
-	hurt_component.global_position = character.global_position
+	hurt_controller.global_position = character.global_position
 	shoot_controller.global_position = character.global_position
 
 
@@ -55,12 +55,12 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 		old_character.movement = null
 		old_character.interactor = null
 		old_character.shoot_controller = null
-		old_character.hurt_component = null
+		old_character.hurt_controller = null
 	if new_character:
 		new_character.movement = controller
 		new_character.interactor = interactor
 		new_character.shoot_controller = shoot_controller
-		new_character.hurt_component = hurt_component
+		new_character.hurt_controller = hurt_controller
 		
 	if camera_controller:
 		camera_controller.target = new_character
@@ -73,8 +73,8 @@ func _input(_event: InputEvent) -> void:
 
 
 ## Plays random hit sound and updates health
-func on_damaged():
-	combat_ui.update_health(hurt_component.current_health, hurt_component.max_health)
+func on_health_changed(_amount: float):
+	combat_ui.update_health(hurt_controller.current_health, hurt_controller.max_health)
 
 ## Is called when player lost all his hp
 func on_fatal_damage_taken():

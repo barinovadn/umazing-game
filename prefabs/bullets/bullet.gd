@@ -12,6 +12,8 @@ signal deletion_completed
 
 @export_group("Movement")
 @export var speed: float = 100
+## The bullet's angular velocity relative to the target, in degrees per second
+@export var turn_speed_degrees: float = 45.0
 ## The vector that determines the direction in which the bullet will fly
 ## if [member auto_aim] is not enabled
 @export var direction: Vector2
@@ -32,7 +34,7 @@ signal deletion_completed
 
 @export_group("Damage")
 @export var damage: float = 1.0
-@export var team: HurtComponent.Team
+@export var team: HurtController.Team
 ## Additional damage that has a [member crit_chance] to be added to the base damage
 @export var crit_damage: float
 ## A chance to deal additional damage
@@ -41,6 +43,8 @@ signal deletion_completed
 @export_group("Destruction")
 @export var can_be_broken : bool = false
 @export var can_break: bool = false
+@export var lifespan: float = 60.0
+@export var use_life_timer: bool = false
 
 @export_group("Sounds", "sounds")
 @export var sounds_spawn: Array[AudioStream] = []
@@ -74,6 +78,9 @@ func _ready():
 		animated_sprite_2d.play(animation_start)
 	play_random_sound(sounds_spawn)
 	play_sound_being_alive(sounds_alive)
+	if use_life_timer:
+		var timer = get_tree().create_timer(lifespan)
+		timer.timeout.connect(destroy)
 	_bullet_ready() 
 
 
@@ -84,7 +91,7 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.team == team:
 		return
-	if area is HurtComponent:
+	if area is HurtController:
 		hit.emit()
 		play_random_sound(sounds_hit)
 		area.take_damage(_calc_damage())
@@ -96,7 +103,7 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 
 
-func _calc_damage() -> int:
+func _calc_damage() -> float:
 	var amount := damage
 	if randf_range(0, 1) <= crit_chance:
 		crit_damage_delt.emit()
@@ -105,8 +112,13 @@ func _calc_damage() -> int:
 
 
 func _move(delta: float) -> void:
-	if auto_aim and target:
-		direction = _get_direction_to_target()
+	if auto_aim and target and is_instance_valid(target):
+		var target_dir = _get_direction_to_target()
+		var angle_diff = direction.angle_to(target_dir)
+		var max_rotation_this_frame = deg_to_rad(turn_speed_degrees) * delta
+		var rotation_step = sign(angle_diff) * min(abs(angle_diff), max_rotation_this_frame)
+		direction = direction.rotated(rotation_step)
+	rotation = direction.angle()
 	position += direction * speed * delta
 
 
@@ -116,7 +128,6 @@ func _on_map_collision(_body: Node2D) -> void:
 		number_of_recochets_left -= 1
 	else:
 		destroy()
-
 
 ## If there is a sound effect when removing a bullet, play it.
 ## The bullet will be removed after the last sound effect ends.
@@ -140,6 +151,9 @@ func ricochet(_body: Node2D) -> void:
 
 
 func destroy() -> void:
+	if is_deleted_with_delay:
+		return
+	
 	is_deleted_with_delay = true
 	deletion_initiated.emit()
 	stop_and_disable_interaction()
@@ -148,7 +162,6 @@ func destroy() -> void:
 	play_random_sound(sounds_die)
 	var timer = get_tree().create_timer(5.0)
 	timer.timeout.connect(_delete)
-
 
 ## Loads a random sound from the array passed as an argument into the 2D audio stream player
 func play_random_sound(array: Array[AudioStream]):

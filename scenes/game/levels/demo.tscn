@@ -17,21 +17,22 @@
 [ext_resource type="PackedScene" uid="uid://uhy5xmcfxpe8" path="res://prefabs/environment/environment_zone.tscn" id="9_q7qle"]
 [ext_resource type="PackedScene" uid="uid://tvv7lk4f7fio" path="res://prefabs/teleport/portal_disk.tscn" id="11_7hq71"]
 [ext_resource type="PackedScene" uid="uid://ckf02713hcpbr" path="res://prefabs/characters/cat/cat.tscn" id="11_7im6l"]
-[ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="11_bpga3"]
+[ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_controller.tscn" id="11_bpga3"]
 [ext_resource type="PackedScene" uid="uid://bjb2riattkaaa" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat.tscn" id="14_nfdyi"]
 [ext_resource type="PackedScene" uid="uid://csv6sg13nww7x" path="res://prefabs/combat/dot_to_dot_movement_controller.tscn" id="15_xrc6b"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="16_jqxbl"]
 [ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/enemy/boss_ui_data.gd" id="17_1qwsm"]
 [ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/bullets/variations/homing_shot/homing_shot.tscn" id="18_ivmt6"]
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/bullets/variations/stone_shot/stone_shot.tscn" id="19_ivmt6"]
-[ext_resource type="AudioStream" uid="uid://d0n4m0b4a68k0" path="res://prefabs/characters/sounds/meow_1.ogg" id="20_7hq71"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://common/combat/action.gd" id="20_ivmt6"]
-[ext_resource type="AudioStream" uid="uid://hc4wtamv0rka" path="res://prefabs/characters/sounds/meow_2.ogg" id="21_17ap2"]
 [ext_resource type="Script" uid="uid://jqsqblr1x2hg" path="res://prefabs/characters/bosses/cyclopus_cat/cat_boss_controller.gd" id="22_1qwsm"]
-[ext_resource type="AudioStream" uid="uid://cpae5eyecclau" path="res://prefabs/characters/sounds/meow_3.ogg" id="22_roxwf"]
 [ext_resource type="PackedScene" uid="uid://dusfp5le5ooy8" path="res://prefabs/bullets/variations/bunch_of_shots/bunch_of_shots.tscn" id="25_7hq71"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/enemy/enemy_controller.tscn" id="25_ky1g4"]
 [ext_resource type="Texture2D" uid="uid://b2sanref11et1" path="res://common/ui/cattt.png" id="27_sfio8"]
+[ext_resource type="AudioStream" uid="uid://8gkv2s3htxj2" path="res://prefabs/characters/bosses/cyclopus_cat/meow_1.ogg" id="30_roxwf"]
+[ext_resource type="AudioStream" uid="uid://cpvxg4y73gm2r" path="res://prefabs/characters/bosses/cyclopus_cat/meow_2.ogg" id="31_mywxa"]
+[ext_resource type="AudioStream" uid="uid://ctrye6fbih85b" path="res://prefabs/characters/bosses/cyclopus_cat/meow_4.ogg" id="33_psdh3"]
+[ext_resource type="AudioStream" uid="uid://bhu1506kudwdu" path="res://prefabs/characters/bosses/cyclopus_cat/meow_5.ogg" id="34_2p5q4"]
 
 [sub_resource type="GDScript" id="GDScript_17ap2"]
 script/source = "extends Bullet
@@ -288,12 +289,12 @@ description = Array[String](["Blah-blah-blah..."])
 position = Vector2(-536, -120)
 description = Array[String](["<- Free hotdogs this way."])
 
-[node name="CyclopusCat" parent="Bosses" parent_id_path=PackedInt32Array(2090847819) index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("14_nfdyi")]
+[node name="CyclopusCat" parent="Bosses" parent_id_path=PackedInt32Array(2090847819) index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_controller", "shoot_controller") instance=ExtResource("14_nfdyi")]
 position = Vector2(1040, -483)
 scale = Vector2(3, 3)
 collision_mask = 1
 movement = NodePath("BossController/CatEnemyMovementController")
-hurt_component = NodePath("BossController/HurtComponent")
+hurt_controller = NodePath("BossController/HurtController")
 shoot_controller = NodePath("BossController/ShootController")
 
 [node name="BossController" parent="Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("movement_patterns", "shoot_controller", "hurt_controller", "teleport_in", "teleport_out") instance=ExtResource("25_ky1g4")]
@@ -305,7 +306,7 @@ movement_patterns = {
 "CatEnemyDTD": NodePath("CatEnemyMovementController")
 }
 shoot_controller = NodePath("ShootController")
-hurt_controller = NodePath("HurtComponent")
+hurt_controller = NodePath("HurtController")
 teleport_in = NodePath("../../../Characters/Cat/TeleportCatIn")
 teleport_out = NodePath("../../../Teleports/BossTeleports/CatBossTeleports/TeleportCatOut")
 enemy_name = "Cyclopus Cat"
@@ -317,13 +318,18 @@ movement_speed = 60.0
 movement_enabled = false
 
 [node name="ShootController" parent="Bosses/CyclopusCat/BossController" index="3" unique_id=1242481191 instance=ExtResource("16_jqxbl")]
+team = null
 is_homing_on = true
+is_bounce_on = null
+number_of_bounces = null
+bullet_types = null
 interval_between_shots = 0.3
+can_shoot = null
 
-[node name="HurtComponent" parent="Bosses/CyclopusCat/BossController" index="5" unique_id=28986261 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
+[node name="HurtController" parent="Bosses/CyclopusCat/BossController" index="5" unique_id=28986261 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
 collision_layer = 2048
-sounds_damage = Array[AudioStream]([ExtResource("20_7hq71"), ExtResource("21_17ap2"), ExtResource("22_roxwf")])
-max_health = 1.0
+sounds_damage = Array[AudioStream]([ExtResource("31_mywxa"), ExtResource("30_roxwf"), ExtResource("33_psdh3"), ExtResource("34_2p5q4")])
+max_health = 2.0
 
 [node name="CatMovementPoints" type="Node2D" parent="Bosses/MovementPoints" parent_id_path=PackedInt32Array(1878092600) index="0" unique_id=275429518]
 position = Vector2(960, -480)

@@ -1,16 +1,11 @@
 @icon("pixel_hurt.png")
-class_name HurtComponent
+class_name HurtController
 extends Area2D
 
 signal fatal_damage_taken
-signal damaged
-# FIXME TODO WARNING Make sure it is only called on "damage" not on "heal"
-# TODO Add heal signal
-# TODO Add health_changed signal (any hp update)
-# Было бы славно передавать в них всех кол-во хила/урона/изменения
-# signal damaged(by_amount: float)        #  +10.0 / -10.0 ?
-# signal healed(by_amount: float)         #   10.0
-# signal health_changed(by_amount: float) # +-10.0
+signal damaged(by_amount: float)        
+signal healed(by_amount: float)         
+signal health_changed(by_amount: float) 
 
 ## Specifies the team to which the parent belongs. 
 enum Team {
@@ -37,14 +32,15 @@ var current_health: float:
 	get():
 		return max_health - _total_damage
 	set(value):
+		health_changed.emit(_total_damage - (max_health - value))
 		_total_damage = (max_health - value)
+		
 		if max_health - _total_damage <= 0:
 			_disable()
 			_play_random_sound(sounds_die)
 			fatal_damage_taken.emit()
 		else:
 			_play_random_sound(sounds_damage)
-			damaged.emit()
 
 func _play_random_sound(array: Array[AudioStream]):
 	if array.size():
@@ -56,4 +52,9 @@ func _disable():
 	set_deferred("monitoring", false)
 
 func take_damage(amount: float = 0):
+	damaged.emit(amount)
 	current_health -= amount
+
+func heal(amount: float = 0):
+	healed.emit(amount)
+	current_health += amount

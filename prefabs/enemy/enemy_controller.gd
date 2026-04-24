@@ -18,7 +18,7 @@ class_name EnemyController
 
 @export_group("Controllers")
 @export var shoot_controller: ShootController
-@export var hurt_controller: HurtComponent
+@export var hurt_controller: HurtController
 
 @export_group("Teleports")
 @export var teleport_in : Teleport
@@ -46,7 +46,7 @@ func _ready() -> void:
 		character = get_parent() as Character2D
 	character.deleted.connect(_set_portals)
 	BossInterface = %Player/%BossUI
-	hurt_controller.damaged.connect(on_damaged)
+	hurt_controller.health_changed.connect(on_health_changed)
 	hurt_controller.fatal_damage_taken.connect(on_fatal_damage_taken)
 	_enemy_ready()
 
@@ -125,7 +125,7 @@ func _rebalance_weights(array: Array[Action], rebalance_koef: float):
 	for element in array: 
 		element.weight *= rebalance_koef
 
-func on_damaged():
+func on_health_changed(_amount: float):
 	BossInterface.update_health(enemy_name, hurt_controller.current_health)
 	_check_phase()
 

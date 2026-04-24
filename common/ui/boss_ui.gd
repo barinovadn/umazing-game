@@ -9,7 +9,7 @@ const BOSS_CONTAINER = preload("uid://dn3pwb4lu7m8l")
 var active_bars: Dictionary = {}
 
 ## Add the boss's stats to the screen: name and HP bar
-func show_boss(boss_name: String, current_hp: int, max_hp: int, data: BossUIData = null):
+func show_boss(boss_name: String, current_hp: float, max_hp: float, data: BossUIData = null):
 	if active_bars.has(boss_name):
 		return
 	var boss_data = BOSS_CONTAINER.instantiate()
@@ -21,7 +21,7 @@ func show_boss(boss_name: String, current_hp: int, max_hp: int, data: BossUIData
 	}
 
 ## Update the HP bar indicators
-func update_health(name_b: String, current_hp: int):
+func update_health(name_b: String, current_hp: float):
 	if not active_bars.has(name_b):
 		return
 	var container_b: BossContainer = active_bars[name_b]["container"]

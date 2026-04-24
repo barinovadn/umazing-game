@@ -48,13 +48,12 @@ signal deleted
 @export var interactor: Interactor
 
 @export_group("Fight")
-@export var hurt_component: HurtComponent:
+@export var hurt_controller: HurtController:
 	set(value):
-		if hurt_component:
-			hurt_component.fatal_damage_taken.disconnect(_on_died)
-		hurt_component = value
-		if hurt_component:
-			hurt_component.fatal_damage_taken.connect(_on_died)
+		if !hurt_controller:
+			hurt_controller = value
+		if hurt_controller:
+			hurt_controller.fatal_damage_taken.connect(_on_died)
 @export var shoot_controller: ShootController:
 	set(value): 
 		if shoot_controller:
@@ -70,10 +69,13 @@ signal deleted
 @export var afterlife_fade_time: float = 2.0
 
 var is_moving: bool: ## NOTE Read-only.
+	
 	get(): return movement.is_moving if movement else false
 var direction: Vector2: ## NOTE Read-only.
+	
 	get(): return movement.direction if movement else Vector2.DOWN
 var is_shooting: bool: ## NOTE Read-only.
+	
 	get(): return shoot_controller.is_shooting if shoot_controller else false
 var is_deleted_with_delay: bool = false
 
@@ -108,7 +110,6 @@ func _on_died():
 func _delete():
 	queue_free()
 	deleted.emit()
-
 
 func _on_moved(dir: Vector2, speed: float):
 	velocity = dir * speed

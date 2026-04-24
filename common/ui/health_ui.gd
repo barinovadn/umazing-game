@@ -12,7 +12,7 @@ class_name HealthUI
 @export var y_size : int = 20
 
 ## Displays the player's HP on the screen using hearts
-func update_health(current_hp: int, max_hp: int):
+func update_health(current_hp: float, max_hp: float):
 	for child in hearts_container.get_children():
 		child.queue_free()
 	
