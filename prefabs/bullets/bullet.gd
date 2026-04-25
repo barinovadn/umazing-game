@@ -26,7 +26,7 @@ signal deletion_completed
 ## The possibility of a bullet ricocheting off a body on the Map collision layer
 @export var can_ricochet: bool = false
 ## The number of times the bullet ricochets off the surface
-@export var number_of_recochets_left: int = INF:
+@export var number_of_recochets_left: int = 0:
 	set(value):
 		number_of_recochets_left = value
 		if number_of_recochets_left <= 0:
@@ -63,7 +63,7 @@ signal deletion_completed
 
 ## A variable that indicates whether deferred deletion is enabled for the bullet
 var is_deleted_with_delay: bool = false
-
+var _crashed_in_char: bool = false
 
 func _bullet_ready(): pass
 
@@ -73,7 +73,7 @@ func _ready():
 		shape_cast_2d.shape = collision_shape_2d.shape
 	else:
 		shape_cast_2d.enabled = false
-	if( animated_sprite_2d.sprite_frames
+	if (animated_sprite_2d.sprite_frames
 		and animated_sprite_2d.sprite_frames.has_animation(animation_start) ):
 		animated_sprite_2d.play(animation_start)
 	play_random_sound(sounds_spawn)
@@ -92,8 +92,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.team == team:
 		return
 	if area is HurtController:
-		hit.emit()
-		play_random_sound(sounds_hit)
+		_crashed_into_character()
 		area.take_damage(_calc_damage())
 		destroy()
 		return
@@ -102,6 +101,13 @@ func _on_area_entered(area: Area2D) -> void:
 			destroy()
 		return
 
+
+func _crashed_into_character():
+	hit.emit()
+	_crashed_in_char = true
+	audio_player.stream = null
+	audio_player.stop()
+	play_random_sound(sounds_hit)
 
 func _calc_damage() -> float:
 	var amount := damage
@@ -153,13 +159,13 @@ func ricochet(_body: Node2D) -> void:
 func destroy() -> void:
 	if is_deleted_with_delay:
 		return
-	
 	is_deleted_with_delay = true
 	deletion_initiated.emit()
 	stop_and_disable_interaction()
-	audio_player.stream = null
-	audio_player.stop()
-	play_random_sound(sounds_die)
+	if !_crashed_in_char:
+		audio_player.stream = null
+		audio_player.stop()
+		play_random_sound(sounds_die)
 	var timer = get_tree().create_timer(5.0)
 	timer.timeout.connect(_delete)
 

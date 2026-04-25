@@ -2,7 +2,6 @@ extends EnemyController
 
 var appeared: bool = false
 
-
 func _use_brain(action: Action):
 	if !appeared:
 		appeared = true

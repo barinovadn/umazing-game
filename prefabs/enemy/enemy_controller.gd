@@ -1,7 +1,6 @@
 extends Area2D
 class_name EnemyController
 
-
 @export var character: Character2D
 
 @export_group("Combat")

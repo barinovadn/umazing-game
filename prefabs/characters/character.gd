@@ -138,6 +138,8 @@ func destroy():
 	collision_layer = 0
 	destroyed.emit()
 	
+	_update_animation()
+	
 	var timer = get_tree().create_timer(afterlife_time - afterlife_fade_time)
 	await timer.timeout
 	

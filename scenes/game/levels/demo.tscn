@@ -329,7 +329,7 @@ can_shoot = null
 [node name="HurtController" parent="Bosses/CyclopusCat/BossController" index="5" unique_id=28986261 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
 collision_layer = 2048
 sounds_damage = Array[AudioStream]([ExtResource("31_mywxa"), ExtResource("30_roxwf"), ExtResource("33_psdh3"), ExtResource("34_2p5q4")])
-max_health = 2.0
+max_health = 10.0
 
 [node name="CatMovementPoints" type="Node2D" parent="Bosses/MovementPoints" parent_id_path=PackedInt32Array(1878092600) index="0" unique_id=275429518]
 position = Vector2(960, -480)

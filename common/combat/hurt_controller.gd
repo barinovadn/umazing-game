@@ -32,9 +32,8 @@ var current_health: float:
 	get():
 		return max_health - _total_damage
 	set(value):
-		health_changed.emit(_total_damage - (max_health - value))
 		_total_damage = (max_health - value)
-		
+		health_changed.emit(_total_damage - (max_health - value))
 		if max_health - _total_damage <= 0:
 			_disable()
 			_play_random_sound(sounds_die)
