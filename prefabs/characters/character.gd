@@ -93,7 +93,8 @@ func _update_animation():
 		return
 	
 	if is_deleted_with_delay:
-		animator.play(animator.AnimationType.DOWNED)
+		if not animator.play(animator.AnimationType.DOWNED):
+			visible = false
 	elif is_shooting:
 		animator.play_attack(direction)
 	elif is_moving:
@@ -140,11 +141,12 @@ func destroy():
 	
 	_update_animation()
 	
-	var timer = get_tree().create_timer(afterlife_time - afterlife_fade_time)
-	await timer.timeout
-	
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, afterlife_fade_time)
-	await tween.finished
+	if afterlife_time > 0:
+		var timer = get_tree().create_timer(afterlife_time - afterlife_fade_time)
+		await timer.timeout
+		
+		var tween = create_tween()
+		tween.tween_property(self, "modulate:a", 0.0, afterlife_fade_time)
+		await tween.finished
 	
 	_delete()

@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_isdfl"]
 [ext_resource type="Texture2D" uid="uid://bkvgvxdajupee" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat_enrage.png" id="2_iy7vw"]
-[ext_resource type="Texture2D" uid="uid://drt4buvqqr6i2" path="res://prefabs/characters/bosses/cyclopus_cat/portrait.png" id="3_1pqh5"]
 [ext_resource type="Texture2D" uid="uid://ddighrvdm4owv" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat.png" id="9_sbeg8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1pqh5"]
@@ -12,10 +11,6 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6q6y4"]
 atlas = ExtResource("2_iy7vw")
 region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4y1k"]
-atlas = ExtResource("3_1pqh5")
-region = Rect2(0, 0, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_25rct"]
 atlas = ExtResource("9_sbeg8")
@@ -44,14 +39,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b4y1k")
-}],
-"loop": true,
-"name": &"downed",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_25rct")
 }],
 "loop": true,
@@ -72,13 +59,14 @@ animations = [{
 
 [node name="CyclopusCat" unique_id=2065001503 instance=ExtResource("1_isdfl")]
 collision_mask = 0
+afterlife_time = 0.0
 
 [node name="Shadow" parent="." index="1" unique_id=66535912]
 position = Vector2(0, 4)
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_oydtv")
-animation = &"downed"
+animation = &"idle_left"
 autoplay = "idle_left"
 frame_progress = 0.0
 
@@ -95,8 +83,7 @@ animations = Dictionary[int, String]({
 9: "attack_left",
 10: "attack_left",
 11: "attack_left",
-12: "attack_left",
-13: "downed"
+12: "attack_left"
 })
 animations_flip_h = Dictionary[int, bool]({
 3: false,

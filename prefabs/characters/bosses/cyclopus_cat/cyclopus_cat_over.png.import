@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2sanref11et1"
-path="res://.godot/imported/cattt.png-ade9d9d10afaa62e015001b6665a3ad8.ctex"
+path="res://.godot/imported/cyclopus_cat_over.png-09509fab60ab0b57b317764bd8919a74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/ui/cattt.png"
-dest_files=["res://.godot/imported/cattt.png-ade9d9d10afaa62e015001b6665a3ad8.ctex"]
+source_file="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat_over.png"
+dest_files=["res://.godot/imported/cyclopus_cat_over.png-09509fab60ab0b57b317764bd8919a74.ctex"]
 
 [params]
 

@@ -21,7 +21,8 @@ enum Team {
 @export var sounds_volume: float:
 	set(value):
 		sounds_volume = value
-		sounds_player.sounds_volume_db = value
+		if is_node_ready() and sounds_player != null:
+			sounds_player.volume_db = value
 
 @export_group("Health")
 @export var team: Team
@@ -32,14 +33,22 @@ var current_health: float:
 	get():
 		return max_health - _total_damage
 	set(value):
+		var previous_health = max_health - _total_damage
 		_total_damage = (max_health - value)
-		health_changed.emit(_total_damage - (max_health - value))
+		health_changed.emit(value - previous_health) 
+		
 		if max_health - _total_damage <= 0:
 			_disable()
 			_play_random_sound(sounds_die)
 			fatal_damage_taken.emit()
 		else:
 			_play_random_sound(sounds_damage)
+
+
+func _ready():
+	if sounds_player != null:
+		sounds_player.volume_db = sounds_volume
+
 
 func _play_random_sound(array: Array[AudioStream]):
 	if array.size():

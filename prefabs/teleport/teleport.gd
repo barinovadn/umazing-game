@@ -17,7 +17,7 @@ func _process(_delta: float):
 
 
 func _on_body_entered(body: Node2D):
-	if not exit or !enabled:
+	if not exit or !visible:
 		return
 	
 	var character := body as Character2D

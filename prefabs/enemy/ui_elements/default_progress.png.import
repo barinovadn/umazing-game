@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfe7akq685uy0"
-path="res://.godot/imported/empty_heart.png-e11eb60996e9465d0753c9a20c078c93.ctex"
+uid="uid://dub4jpdk7iw54"
+path="res://.godot/imported/default_progress.png-195ce7f8c54d7eeafcb3ec022836d36c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/ui/icons/empty_heart.png"
-dest_files=["res://.godot/imported/empty_heart.png-e11eb60996e9465d0753c9a20c078c93.ctex"]
+source_file="res://prefabs/enemy/ui_elements/default_progress.png"
+dest_files=["res://.godot/imported/default_progress.png-195ce7f8c54d7eeafcb3ec022836d36c.ctex"]
 
 [params]
 

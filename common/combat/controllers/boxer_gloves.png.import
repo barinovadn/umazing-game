@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bceld6xt8wthg"
-path="res://.godot/imported/default_progress.png-b4838409f3663b5bb41c3e61819aef43.ctex"
+uid="uid://boby4k0ujivpp"
+path="res://.godot/imported/boxer_gloves.png-5351252e4a52fffcb1e1d0f672f7d2f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/ui/default_progress.png"
-dest_files=["res://.godot/imported/default_progress.png-b4838409f3663b5bb41c3e61819aef43.ctex"]
+source_file="res://common/combat/controllers/boxer_gloves.png"
+dest_files=["res://.godot/imported/boxer_gloves.png-5351252e4a52fffcb1e1d0f672f7d2f0.ctex"]
 
 [params]
 

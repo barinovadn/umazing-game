@@ -1,5 +1,5 @@
 extends Resource
-class_name BossUIData
+class_name TexturesUI
 
 @export var texture_under: Texture2D
 @export var texture_progress: Texture2D

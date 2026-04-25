@@ -20,12 +20,12 @@ class_name EnemyController
 @export var hurt_controller: HurtController
 
 @export_group("Teleports")
-@export var teleport_in : Teleport
-@export var teleport_out: Teleport
+@export var teleport_in: Node2D
+@export var teleport_out: Node2D
 
 @export_group("Interface")
 @export var enemy_name: String
-@export var data_for_interface: BossUIData
+@export var data_for_interface: TexturesUI
 @export var BossInterface: BossUI
 
 ## A timer that sets the interval between actions
@@ -137,20 +137,20 @@ func on_fatal_damage_taken():
 	BossInterface.remove_boss(enemy_name)
 
 ## Allows the boss to move, shoot, and select an action
-func activate_interaction():
+func activate_interaction(_area: Area2D = null):
 	_on_action_changer_timeout()
 	action_changer.start()
 	current_movement.movement_enabled = true
 	shoot_controller.can_shoot = true
 
 ## Prevents the boss from moving or shooting and selects an action
-func deactivate_interaction():
+func deactivate_interaction(_area: Area2D = null):
 	action_changer.stop()
 	current_movement.movement_enabled = false
 	shoot_controller.can_shoot = false
 
 func deactivate_portale(portal : Teleport):
-	portal.enabled = false
+	portal.visible = false
 
 func activate_portal(portal: Teleport):
-	portal.enabled = true
+	portal.visible = true

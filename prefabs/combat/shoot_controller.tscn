@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://blgi13n2y2fti"]
 
-[ext_resource type="Script" uid="uid://ddbxx3jbsr4yd" path="res://common/combat/shoot_controller.gd" id="1_hko8c"]
+[ext_resource type="Script" uid="uid://ddbxx3jbsr4yd" path="res://common/combat/controllers/shoot_controller.gd" id="1_hko8c"]
 
 [node name="ShootController" type="Node2D" unique_id=1242481191]
 script = ExtResource("1_hko8c")
 
-[node name="Timer" type="Timer" parent="." unique_id=2023093389]
+[node name="TimerNode" type="Timer" parent="." unique_id=2023093389]
 one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Node2D" type="Node2D" parent="." unique_id=79413450]
+
+[connection signal="timeout" from="TimerNode" to="." method="_on_timer_timeout"]

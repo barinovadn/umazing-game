@@ -7,10 +7,8 @@ signal shooting_started()
 ## Signal activation stops the shooting animation on the character
 signal shooting_stopped()
 
-@onready var timer: Timer = $Timer
-
 @export_group("Projectile behavior")
-@export var team : HurtController.Team
+@export var team: HurtController.Team
 @export var is_homing_on : bool = false
 @export var is_bounce_on: bool = false
 @export var number_of_bounces: int
@@ -19,7 +17,9 @@ signal shooting_stopped()
 @export var bullet_types: Array[Resource] 
 @export var interval_between_shots: float
 @export var can_shoot: bool = false
-
+ 
+@onready var timer_node: Timer = $TimerNode
+@onready var node_2d: Node2D = $Node2D
 
 var direction : Vector2
 ## Indicates whether the component is in firing mode
@@ -30,10 +30,12 @@ var is_shooting : bool = false:
 			return
 		is_shooting = value
 		if is_shooting:
-			timer.start()
+			if timer_node != null:
+				timer_node.start()
 			shooting_started.emit()
 		else:
 			shooting_stopped.emit()
+
 
 func _get_direction_to_object(target: Node2D) -> Vector2:
 	return (target.global_position - global_position).normalized()
@@ -54,9 +56,12 @@ func create_a_projectile_from_argument(bullet: Resource = null) -> void:
 	
 	if is_homing_on:
 		var target = get_closest_target()
-		projectile.direction = _get_direction_to_object(target)
-		projectile.target = target
-	else :
+		if target != null:
+			projectile.direction = _get_direction_to_object(target)
+			projectile.target = target
+		else:
+			projectile.direction = direction 
+	else:
 		projectile.direction = direction
 	
 	if is_bounce_on:
@@ -65,12 +70,15 @@ func create_a_projectile_from_argument(bullet: Resource = null) -> void:
 	
 	projectile.team = team
 	projectile.global_position = global_position
-	timer.wait_time = interval_between_shots
+	timer_node.wait_time = interval_between_shots
 	
 	is_shooting = true
 	get_node("/root/Game/%Bullets").add_child(projectile)
 
 func get_closest_target():
+	if not is_inside_tree():
+		return null
+		
 	var targets = get_tree().get_nodes_in_group("hurt_components")
 	
 	var closest = null
@@ -78,7 +86,7 @@ func get_closest_target():
 
 	for t in targets:
 		if t.team == team:
-			continue  # пропускаем своих
+			continue  
 		
 		var target_pos = t.global_position
 		var dist = global_position.distance_to(target_pos)

@@ -53,7 +53,6 @@ var is_moving: bool = false:
 		else:
 			movement_stopped.emit()
 
-
 ## Moves the character by [param speed] amount in the current [member direction].
 ## If [param new_direction] is not [code]Vector2.ZERO[/code] will update
 ## [member direction]. Emits [signal moved].
@@ -73,7 +72,6 @@ func move(speed: float = movement_speed, new_direction: Vector2 = Vector2.ZERO):
 ## Updates [member is_moving].
 func stop():
 	is_moving = false
-
 
 ## Emits [signal teleported].
 func teleport(new_position: Vector2):

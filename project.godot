@@ -26,7 +26,6 @@ buses/default_bus_layout="uid://ghxcyrqhoohu"
 [autoload]
 
 Cursor="*res://autoload/cursor/cursor.gd"
-Hdr="*uid://do7hh7w86nmac"
 
 [display]
 
@@ -108,6 +107,7 @@ hdr={
 2d_physics/layer_3="Interactables"
 2d_physics/layer_4="Player"
 2d_physics/layer_5="Enemies"
+2d_physics/layer_6="Areas"
 2d_physics/layer_11="Bullets"
 2d_physics/layer_12="Hurt Component"
 
