@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dn3pwb4lu7m8l"]
 
 [ext_resource type="Script" uid="uid://b37osg36qdo1p" path="res://common/ui/boss_container.gd" id="1_8scsi"]
-[ext_resource type="Texture2D" uid="uid://ciburhuh07it3" path="res://prefabs/enemy/ui_elements/default_bg.png" id="3_8scsi"]
+[ext_resource type="Texture2D" uid="uid://ciburhuh07it3" path="res://prefabs/enemy/ui/default_under.png" id="3_8scsi"]
 [ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="3_rw8r3"]
-[ext_resource type="Texture2D" uid="uid://dub4jpdk7iw54" path="res://prefabs/enemy/ui_elements/default_progress.png" id="4_rw8r3"]
+[ext_resource type="Texture2D" uid="uid://d3q524kguuk4q" path="res://prefabs/enemy/ui/default_over.png" id="4_qu8x1"]
+[ext_resource type="Texture2D" uid="uid://dub4jpdk7iw54" path="res://prefabs/enemy/ui/default_progress.png" id="4_rw8r3"]
 
 [node name="BossContainer" type="Control" unique_id=858785610]
 layout_mode = 3
@@ -49,4 +50,5 @@ grow_horizontal = 2
 grow_vertical = 0
 step = 0.0
 texture_under = ExtResource("3_8scsi")
+texture_over = ExtResource("4_qu8x1")
 texture_progress = ExtResource("4_rw8r3")

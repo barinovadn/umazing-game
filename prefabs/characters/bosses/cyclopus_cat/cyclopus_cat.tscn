@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bjb2riattkaaa"]
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_isdfl"]
-[ext_resource type="Texture2D" uid="uid://bkvgvxdajupee" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat_enrage.png" id="2_iy7vw"]
-[ext_resource type="Texture2D" uid="uid://ddighrvdm4owv" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat.png" id="9_sbeg8"]
+[ext_resource type="Texture2D" uid="uid://bkvgvxdajupee" path="res://prefabs/characters/bosses/cyclopus_cat/sprite_sheet_enraged.png" id="2_iy7vw"]
+[ext_resource type="Texture2D" uid="uid://ddighrvdm4owv" path="res://prefabs/characters/bosses/cyclopus_cat/sprite_sheet.png" id="9_sbeg8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1pqh5"]
 atlas = ExtResource("2_iy7vw")

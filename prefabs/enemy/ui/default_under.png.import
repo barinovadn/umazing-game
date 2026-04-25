@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dub4jpdk7iw54"
-path="res://.godot/imported/default_progress.png-195ce7f8c54d7eeafcb3ec022836d36c.ctex"
+uid="uid://ciburhuh07it3"
+path="res://.godot/imported/default_under.png-e8793c68e8494ed7886773c6827a502b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/enemy/ui_elements/default_progress.png"
-dest_files=["res://.godot/imported/default_progress.png-195ce7f8c54d7eeafcb3ec022836d36c.ctex"]
+source_file="res://prefabs/enemy/ui/default_under.png"
+dest_files=["res://.godot/imported/default_under.png-e8793c68e8494ed7886773c6827a502b.ctex"]
 
 [params]
 
