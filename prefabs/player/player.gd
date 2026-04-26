@@ -24,14 +24,15 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 @onready var camera_controller: GridCameraFollower2D = $Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
 @onready var timer_for_dash: Timer = $TimerForDash
-@onready var combat_ui: HealthUI = $UI/CombatUI
+@onready var activation_area: Area2D = $ActivationArea
+@onready var health_ui: HealthUI = $UI/HealthUI
 
 
 func _ready():
 	_on_character_changed(character, null)
 	hurt_controller.health_changed.connect(on_health_changed)
 	hurt_controller.fatal_damage_taken.connect(on_fatal_damage_taken)
-	combat_ui.update_health(hurt_controller.current_health, hurt_controller.max_health)
+	health_ui.update_health(hurt_controller.current_health, hurt_controller.max_health)
 
 
 func _process(_delta: float):
@@ -74,7 +75,7 @@ func _input(_event: InputEvent) -> void:
 
 ## Plays random hit sound and updates health
 func on_health_changed(_amount: float):
-	combat_ui.update_health(hurt_controller.current_health, hurt_controller.max_health)
+	health_ui.update_health(hurt_controller.current_health, hurt_controller.max_health)
 
 ## Is called when player lost all his hp
 func on_fatal_damage_taken():
@@ -84,3 +85,8 @@ func on_fatal_damage_taken():
 ## Reload curent scene
 func _reload_scene():
 	get_tree().reload_current_scene()
+
+
+func _on_camera_cell_changed(new_cell: Vector2, _smooth_transition: bool) -> void:
+	if activation_area:
+		activation_area.global_position = Vector2(320, 160) * new_cell

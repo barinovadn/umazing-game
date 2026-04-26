@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://common/ui/health_ui.gd" id="11_30gqm"]
-[ext_resource type="Script" uid="uid://cep3cwaarv32y" path="res://prefabs/player/activation_area.gd" id="11_hvqk4"]
 [ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://common/ui/boss_ui.gd" id="13_b6byk"]
 [ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://common/ui/icons/default_heart.png" id="14_ot5ig"]
 
@@ -104,7 +103,6 @@ transition_duration = 0.5
 z_index = 30
 collision_layer = 32
 collision_mask = 0
-script = ExtResource("11_hvqk4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea" unique_id=1385910216]
 shape = SubResource("RectangleShape2D_30gqm")
@@ -116,7 +114,7 @@ one_shot = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=371737396]
 
-[node name="CombatUI" type="Control" parent="UI" unique_id=343436959]
+[node name="HealthUI" type="Control" parent="UI" unique_id=343436959]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 60.0
@@ -128,7 +126,7 @@ empty_heart = SubResource("AtlasTexture_qdvc2")
 x_size = 22
 y_size = 10
 
-[node name="HeartsContainer" type="HBoxContainer" parent="UI/CombatUI" unique_id=847237741]
+[node name="HeartsContainer" type="HBoxContainer" parent="UI/HealthUI" unique_id=847237741]
 custom_minimum_size = Vector2(18, 20)
 layout_mode = 0
 offset_left = 60.0
@@ -161,4 +159,4 @@ alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [connection signal="character_changed" from="." to="." method="_on_character_changed"]
-[connection signal="cell_changed" from="Camera" to="ActivationArea" method="_on_camera_cell_changed"]
+[connection signal="cell_changed" from="Camera" to="." method="_on_camera_cell_changed"]
