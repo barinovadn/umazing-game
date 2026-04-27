@@ -34,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://ctrye6fbih85b" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_4.ogg" id="33_psdh3"]
 [ext_resource type="AudioStream" uid="uid://bhu1506kudwdu" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_5.ogg" id="34_2p5q4"]
 [ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
+[ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/bullets/variations/damage_area/damage_area.tscn" id="35_mywxa"]
 
 [sub_resource type="GDScript" id="GDScript_17ap2"]
 script/source = "extends Bullet
@@ -271,9 +272,8 @@ collision = false
 exit = NodePath("../../../Teleports/BossTeleports/CatBossTeleports/TeleportCatExit")
 color = Color(0.7058824, 0, 0, 1)
 
-[node name="PathDotMovementController2D" type="Node2D" parent="Characters/Cat" index="5" unique_id=2086079038 node_paths=PackedStringArray("path_node")]
+[node name="PathDotMovementController2D" type="Node2D" parent="Characters/Cat" index="5" unique_id=2086079038]
 script = ExtResource("14_roxwf")
-path_node = NodePath("../../Paths/CatPath")
 break_time = 0.001
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://d34c6a0yetv43"
@@ -351,21 +351,24 @@ interval_between_shots = 0.3
 [node name="HurtController" parent="Bosses/CyclopusCat/BossController" index="4" unique_id=28986261 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
 sounds_damage = Array[AudioStream]([ExtResource("31_mywxa"), ExtResource("30_roxwf"), ExtResource("33_psdh3"), ExtResource("34_2p5q4")])
 
-[node name="PathDotMovementController2D" type="Node2D" parent="Bosses/CyclopusCat/BossController" index="5" unique_id=370687240 node_paths=PackedStringArray("path_node")]
+[node name="PathDotMovementController2D" type="Node2D" parent="Bosses/CyclopusCat/BossController" index="5" unique_id=370687240 node_paths=PackedStringArray("path")]
 script = ExtResource("14_roxwf")
-path_node = NodePath("../../../Movement/CyclopusCat/Path2D")
+path = NodePath("../../../Movement/CyclopusCat/Path2D")
 target_point_radius = 5.0
 break_time = 0.001
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://d34c6a0yetv43"
 
-[node name="AreaMovementController" type="Node2D" parent="Bosses/CyclopusCat/BossController" index="6" unique_id=829655801 node_paths=PackedStringArray("array_of_regions")]
+[node name="AreaMovementController" type="Node2D" parent="Bosses/CyclopusCat/BossController" index="6" unique_id=829655801 node_paths=PackedStringArray("regions")]
 script = ExtResource("34_roxwf")
-array_of_regions = [NodePath("../../../Movement/CyclopusCat/CyclopusCatRegion"), NodePath("../../../Movement/CyclopusCat/CyclopusCatRegion2")]
-break_time = 0.001
+regions = [NodePath("../../../Movement/CyclopusCat/CyclopusCatRegion"), NodePath("../../../Movement/CyclopusCat/CyclopusCatRegion2")]
 min_radius = 200.0
+break_time = 0.001
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
+
+[node name="DamageArea" parent="Bosses/CyclopusCat" index="5" unique_id=419752470 instance=ExtResource("35_mywxa")]
+cooldown_time = 10.0
 
 [node name="CyclopusCat" type="Node2D" parent="Bosses/Movement" parent_id_path=PackedInt32Array(2100014019) index="0" unique_id=275429518]
 position = Vector2(960, -480)

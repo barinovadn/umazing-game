@@ -1,7 +1,14 @@
 extends MovementController2D
 class_name AreaMovementController
 
-@export var array_of_regions: Array[NavigationRegion2D]
+@export var regions: Array[NavigationRegion2D]
+## Determines which area will be used to select points. Set from [BossController]
+@export var current_area_index: int = 0
+## Determines will points from random areas be used.
+## If the answer is yes, it overwrites the current index with a random value
+@export var use_random_area_points: bool = false
+## Radius, to specify the minimum distance at which a point will be selected
+@export var min_radius: float = 0.0
 @export_range(0.001, 60) var break_time: float = 1.0:
 	set(value):
 		break_time = value
@@ -10,11 +17,10 @@ class_name AreaMovementController
 
 @export_group("Stuck Detection", "stuck")
 ## How long (in seconds) the character must be stuck before picking a new target.
-@export var stuck_time_threshold: float = 1.0
+@export var stuck_threshold_time: float = 1.0
 ## If the character moves less than this distance (in pixels) per physics frame, they are considered stuck.
-@export var stuck_distance_threshold: float = 0.5
-## Radius, to specify the minimum distance at which a point will be selected
-@export var min_radius: float = 0.0
+@export var stuck_threshold_distance: float = 0.5
+
 
 var timer: Timer
 var navigation_agent_2d: NavigationAgent2D
@@ -22,7 +28,6 @@ var navigation_agent_2d: NavigationAgent2D
 var _is_on_break_time: bool = false
 var _stuck_timer: float = 0.0
 var _last_position: Vector2 = Vector2.ZERO
-var current_area_index: int = 0
 
 func _ready() -> void:
 	timer = Timer.new()
@@ -58,12 +63,14 @@ func character_setup() -> void:
 
 ## Selects a new targetpoint
 func set_movement_target() -> void:
-	
-	for i in range(0, array_of_regions.size()):
+	if use_random_area_points:
+		current_area_index = randi() % regions.size() - 1
+		
+	for i in range(0, regions.size()):
 		if i != current_area_index:
-			array_of_regions[i].navigation_layers = 0
+			regions[i].navigation_layers = 0
 		else: 
-			array_of_regions[i].navigation_layers = navigation_agent_2d.navigation_layers
+			regions[i].navigation_layers = navigation_agent_2d.navigation_layers
 	
 	var target_position: Vector2 = NavigationServer2D.map_get_random_point(navigation_agent_2d.get_navigation_map(), navigation_agent_2d.navigation_layers, false)
 	
@@ -79,7 +86,7 @@ func set_movement_target() -> void:
 
 
 func _physics_process(_delta : float) -> void:
-	if _is_on_break_time:
+	if _is_on_break_time or !regions.size():
 		return
 		
 	if navigation_agent_2d.is_navigation_finished():
@@ -93,9 +100,9 @@ func _physics_process(_delta : float) -> void:
 	
 	var distance_moved = _last_position.distance_to(global_position)
 	
-	if distance_moved <= stuck_distance_threshold:
+	if distance_moved <= stuck_threshold_distance:
 		_stuck_timer += _delta
-		if _stuck_timer >= stuck_time_threshold:
+		if _stuck_timer >= stuck_threshold_time:
 			set_movement_target()
 			return
 	else:

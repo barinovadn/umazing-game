@@ -1,8 +1,12 @@
 class_name PathDotMovementController2D
 extends MovementController2D
 
-@export var path_node: Path2D
-@export var orderly_use: bool
+@export var path: Path2D
+## Determines whether points will be selected in
+## the order they appear in [member path] or chosen at random
+@export var ordered_use: bool
+## Sets the current index of the node in [member path]
+@export var current_movement_point_index: int = -1
 
 ## Sets the radius within which the character is considered to have reached the point.
 @export var target_point_radius: float = 1.0
@@ -16,9 +20,9 @@ extends MovementController2D
 var timer: Timer
 var current_movement_point_position: Vector2
 var move_direction: Vector2
-var current_movement_point_index: int = -1
 
 var _is_on_break_time: bool = false
+
 
 func _ready():
 	timer = Timer.new()
@@ -50,18 +54,18 @@ func _physics_process(_delta):
 
 
 func pick_new_target():
-	if !path_node or path_node.curve.point_count == 0:
+	if !path or path.curve.point_count == 0:
 		return
 	
-	var curve = path_node.curve
+	var curve = path.curve
 	var count = curve.point_count
 	
 	if count == 1:
-		current_movement_point_position = path_node.to_global(curve.get_point_position(0))
-	elif orderly_use:
+		current_movement_point_position = path.to_global(curve.get_point_position(0))
+	elif ordered_use:
 		current_movement_point_index = (current_movement_point_index + 1) % count
 		var local_point = curve.get_point_position(current_movement_point_index)
-		current_movement_point_position = path_node.to_global(local_point)
+		current_movement_point_position = path.to_global(local_point)
 	else:
 		var new_index = randi() % count
 		while new_index == current_movement_point_index:
@@ -70,7 +74,7 @@ func pick_new_target():
 		current_movement_point_index = new_index
 		
 		var local_point = curve.get_point_position(current_movement_point_index)
-		current_movement_point_position = path_node.to_global(local_point)
+		current_movement_point_position = path.to_global(local_point)
 
 
 func _on_timer_timeout() -> void:

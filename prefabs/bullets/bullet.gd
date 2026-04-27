@@ -95,7 +95,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.team == team:
 		return
 	if area is HurtController:
-		_crashed_into_character()
+		_crashed_into_hurt_component()
 		area.take_damage(_calc_damage())
 		destroy()
 		return
@@ -105,7 +105,7 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 
 
-func _crashed_into_character():
+func _crashed_into_hurt_component():
 	hit.emit()
 	_crashed_in_char = true
 	audio_player.stream = null
