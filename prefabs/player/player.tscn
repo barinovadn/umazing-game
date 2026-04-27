@@ -37,7 +37,7 @@ region = Rect2(1, 3, 14, 11)
 script = ExtResource("1_wv1mm")
 bullet_types = Array[Resource]([ExtResource("7_30gqm")])
 
-[node name="Controller" type="Node" parent="." unique_id=536906422]
+[node name="Controller" type="Node2D" parent="." unique_id=1524632575]
 script = ExtResource("2_wv1mm")
 movement_controls = Dictionary[int, String]({
 0: "move_left",
@@ -66,8 +66,6 @@ interval_between_shots = 0.4
 can_shoot = true
 
 [node name="HurtController" parent="." unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
-collision_layer = 2048
-collision_mask = 1025
 team = 1
 
 [node name="Camera" type="Camera2D" parent="." unique_id=380955172]
@@ -107,10 +105,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea" unique_id=1385910216]
 shape = SubResource("RectangleShape2D_30gqm")
 debug_color = Color(0, 0.6, 0.7019608, 0)
-
-[node name="TimerForDash" type="Timer" parent="." unique_id=1596072353]
-wait_time = 5.0
-one_shot = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=371737396]
 

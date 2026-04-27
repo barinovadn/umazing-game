@@ -1,6 +1,6 @@
 @icon("movement_controller.png")
 class_name MovementController2D
-extends Node
+extends Node2D
 ## Base movement controller for any [Node2D].
 
 

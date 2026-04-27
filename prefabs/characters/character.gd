@@ -69,13 +69,10 @@ signal deleted
 @export var afterlife_fade_time: float = 2.0
 
 var is_moving: bool: ## NOTE Read-only.
-	
 	get(): return movement.is_moving if movement else false
 var direction: Vector2: ## NOTE Read-only.
-	
 	get(): return movement.direction if movement else Vector2.DOWN
 var is_shooting: bool: ## NOTE Read-only.
-	
 	get(): return shoot_controller.is_shooting if shoot_controller else false
 var is_deleted_with_delay: bool = false
 
@@ -91,7 +88,6 @@ func _physics_process(_delta):
 func _update_animation():
 	if not animator:
 		return
-	
 	if is_deleted_with_delay:
 		if not animator.play(animator.AnimationType.DOWNED):
 			visible = false

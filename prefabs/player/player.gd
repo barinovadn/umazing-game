@@ -23,7 +23,6 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 @onready var camera: GridCamera2D = %Camera
 @onready var camera_controller: GridCameraFollower2D = $Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
-@onready var timer_for_dash: Timer = $TimerForDash
 @onready var activation_area: Area2D = $ActivationArea
 @onready var health_ui: HealthUI = $UI/HealthUI
 

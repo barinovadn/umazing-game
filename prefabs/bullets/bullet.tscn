@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cekodkwkeibsj" path="res://prefabs/bullets/bullet.gd" id="1_x5e4k"]
 
-[node name="Bullet" type="Area2D" unique_id=419752470]
+[node name="Bullet" type="Area2D" unique_id=419752470 groups=["bullets"]]
 z_index = 30
 collision_layer = 1024
 collision_mask = 3073

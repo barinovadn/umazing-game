@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ckf02713hcpbr" path="res://prefabs/characters/cat/cat.tscn" id="11_7im6l"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_controller.tscn" id="11_bpga3"]
 [ext_resource type="PackedScene" uid="uid://bjb2riattkaaa" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat.tscn" id="14_nfdyi"]
-[ext_resource type="PackedScene" uid="uid://csv6sg13nww7x" path="res://prefabs/combat/dot_to_dot_movement_controller.tscn" id="15_xrc6b"]
+[ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="14_roxwf"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="16_jqxbl"]
 [ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://common/ui/textures_ui.gd" id="17_1qwsm"]
 [ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/bullets/variations/homing_shot/homing_shot.tscn" id="18_ivmt6"]
@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://cpvxg4y73gm2r" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_2.ogg" id="31_mywxa"]
 [ext_resource type="AudioStream" uid="uid://ctrye6fbih85b" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_4.ogg" id="33_psdh3"]
 [ext_resource type="AudioStream" uid="uid://bhu1506kudwdu" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_5.ogg" id="34_2p5q4"]
+[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
 
 [sub_resource type="GDScript" id="GDScript_17ap2"]
 script/source = "extends Bullet
@@ -64,6 +65,12 @@ _bundled = {
 "version": 3
 }
 
+[sub_resource type="Curve2D" id="Curve2D_roxwf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 32, 112, 0, 0, 0, 0, 96, 160)
+}
+point_count = 2
+
 [sub_resource type="Resource" id="Resource_js0wq"]
 script = ExtResource("20_ivmt6")
 action_name = "homing_shot"
@@ -89,6 +96,19 @@ metadata/_custom_type_script = "uid://dowl0clqumedg"
 script = ExtResource("17_1qwsm")
 texture_over = ExtResource("27_sfio8")
 metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_17ap2"]
+vertices = PackedVector2Array(1093.4609, -448, 1105.3906, -412.1797, 1064.7109, -418, 1026.2969, -465.7578, 1030.3828, -418, 1019.8828, -414.5, 1089.2266, -542, 1107.0938, -546.46094, 1102.2969, -522.5469, 1093.4609, -496, 1028.8672, -521.27344, 1011.4375, -538.6875, 1014.5625, -548.0469, 1038.7734, -542, 1101.4531, -472, 1011.53125, -495.27344)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 3), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13, 9), PackedInt32Array(2, 4, 3), PackedInt32Array(9, 14, 0, 3, 15, 10), PackedInt32Array(9, 13, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1008, -560, 1000, -536, 1016, -520, 1000, -496, 1016, -464, 1008, -400, 1032, -408, 1064, -408, 1120, -400, 1104, -448, 1112, -472, 1104, -496, 1112, -520, 1120, -560, 1088, -552, 1040, -552)])
+parsed_collision_mask = 4294901763
+source_geometry_mode = 2
+
+[sub_resource type="Curve2D" id="Curve2D_mywxa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 48, -24, 0, 0, 0, 0, 128, -32, 0, 0, 0, 0, 40, 8, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 48, 48, 0, 0, 0, 0, 128, 40, 0, 0, 0, 0, 48, -56, 0, 0, 0, 0, 128, -56)
+}
+point_count = 8
 
 [node name="Game" unique_id=204430001 instance=ExtResource("1_c3u61")]
 
@@ -241,22 +261,30 @@ position = Vector2(264, 152)
 collision_mask = 1027
 start_animation = 19
 
-[node name="Cat" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="1" unique_id=2065001503 instance=ExtResource("11_7im6l")]
+[node name="Cat" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="1" unique_id=2065001503 node_paths=PackedStringArray("movement") instance=ExtResource("11_7im6l")]
 position = Vector2(104, 144)
 collision_mask = 1027
+movement = NodePath("PathDotMovementController2D")
 collision = false
 
 [node name="TeleportCatIn" parent="Characters/Cat" index="4" unique_id=1465987655 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 exit = NodePath("../../../Teleports/BossTeleports/CatBossTeleports/TeleportCatExit")
 color = Color(0.7058824, 0, 0, 1)
 
+[node name="PathDotMovementController2D" type="Node2D" parent="Characters/Cat" index="5" unique_id=2086079038 node_paths=PackedStringArray("path_node")]
+script = ExtResource("14_roxwf")
+path_node = NodePath("../../Paths/CatPath")
+break_time = 0.001
+movement_speed = 60.0
+metadata/_custom_type_script = "uid://d34c6a0yetv43"
+
 [node name="Pig" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="2" unique_id=1128731474 node_paths=PackedStringArray("movement") instance=ExtResource("2_r64fy")]
 position = Vector2(-136, 128)
 collision_mask = 1027
-movement = NodePath("BehaviourFollow")
+movement = NodePath("BehaviourFollow2D")
 collision = false
 
-[node name="BehaviourFollow" type="Node" parent="Characters/Pig" index="4" unique_id=840977562 node_paths=PackedStringArray("target")]
+[node name="BehaviourFollow2D" type="Node2D" parent="Characters/Pig" index="4" unique_id=183690025 node_paths=PackedStringArray("target")]
 script = ExtResource("3_fp2w6")
 target = NodePath("../../NinjaBlue")
 distance_min = 17.5
@@ -267,10 +295,10 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 [node name="NinjaBlue" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="3" unique_id=986257099 node_paths=PackedStringArray("movement") instance=ExtResource("4_n6h0s")]
 position = Vector2(-16, 56)
 collision_mask = 1027
-movement = NodePath("BehaviourFollow")
+movement = NodePath("BehaviourFollow2D")
 collision = false
 
-[node name="BehaviourFollow" type="Node" parent="Characters/NinjaBlue" index="0" unique_id=296964927 node_paths=PackedStringArray("target")]
+[node name="BehaviourFollow2D" type="Node2D" parent="Characters/NinjaBlue" index="4" unique_id=640830910 node_paths=PackedStringArray("target")]
 script = ExtResource("3_fp2w6")
 target = NodePath("../../NinjaGreen")
 distance_max = 40.0
@@ -281,6 +309,9 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 position = Vector2(0, 160)
 start_animation = 1
 
+[node name="CatPath" type="Path2D" parent="Characters/Paths" parent_id_path=PackedInt32Array(1358162936) index="0" unique_id=1367530739]
+curve = SubResource("Curve2D_roxwf")
+
 [node name="InspectableSign" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
 position = Vector2(-424, 8)
 description = Array[String](["Blah-blah-blah..."])
@@ -289,21 +320,22 @@ description = Array[String](["Blah-blah-blah..."])
 position = Vector2(-536, -120)
 description = Array[String](["<- Free hotdogs this way."])
 
-[node name="CyclopusCat" parent="Bosses" parent_id_path=PackedInt32Array(2090847819) index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_controller", "shoot_controller") instance=ExtResource("14_nfdyi")]
+[node name="CyclopusCat" parent="Bosses" parent_id_path=PackedInt32Array(2090847819) index="0" unique_id=1477057129 node_paths=PackedStringArray("hurt_controller", "shoot_controller") instance=ExtResource("14_nfdyi")]
 position = Vector2(1040, -483)
 scale = Vector2(3, 3)
 collision_mask = 1
-movement = NodePath("BossController/EnemyMovementController")
 hurt_controller = NodePath("BossController/HurtController")
 shoot_controller = NodePath("BossController/ShootController")
 
-[node name="BossController" parent="Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("movement_patterns", "shoot_controller", "hurt_controller", "teleport_in", "teleport_out") instance=ExtResource("25_ky1g4")]
+[node name="BossController" parent="Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("character", "movement_patterns", "shoot_controller", "hurt_controller", "teleport_in", "teleport_out") instance=ExtResource("25_ky1g4")]
 script = ExtResource("22_1qwsm")
+character = NodePath("..")
 bullet_types = Array[Resource]([ExtResource("18_ivmt6"), ExtResource("19_ivmt6"), ExtResource("25_7hq71")])
 boss_actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_js0wq"), SubResource("Resource_uhdmq"), SubResource("Resource_sfio8")])
 modulates_for_phase = Array[float]([0.7, 0.3])
 movement_patterns = {
-"CatEnemyDTD": NodePath("EnemyMovementController")
+"CatAreaMovement": NodePath("AreaMovementController"),
+"CatEnemyDTD": NodePath("PathDotMovementController2D")
 }
 shoot_controller = NodePath("ShootController")
 hurt_controller = NodePath("HurtController")
@@ -312,40 +344,41 @@ teleport_out = NodePath("../../../Teleports/BossTeleports/CatBossTeleports/Telep
 enemy_name = "Cyclopus Cat"
 data_for_interface = SubResource("Resource_6ggk5")
 
-[node name="EnemyMovementController" parent="Bosses/CyclopusCat/BossController" index="2" unique_id=1724548566 node_paths=PackedStringArray("movement_points") instance=ExtResource("15_xrc6b")]
-movement_points = [NodePath("../../../MovementPoints/CyclopusCat/1"), NodePath("../../../MovementPoints/CyclopusCat/2"), NodePath("../../../MovementPoints/CyclopusCat/3"), NodePath("../../../MovementPoints/CyclopusCat/4"), NodePath("../../../MovementPoints/CyclopusCat/5"), NodePath("../../../MovementPoints/CyclopusCat/6")]
-break_time_available = true
-break_time = 1.0
-movement_speed = 60.0
-movement_enabled = false
-
-[node name="ShootController" parent="Bosses/CyclopusCat/BossController" index="3" unique_id=1242481191 instance=ExtResource("16_jqxbl")]
+[node name="ShootController" parent="Bosses/CyclopusCat/BossController" index="2" unique_id=1242481191 instance=ExtResource("16_jqxbl")]
 is_homing_on = true
 interval_between_shots = 0.3
 
-[node name="HurtController" parent="Bosses/CyclopusCat/BossController" index="5" unique_id=28986261 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
-collision_layer = 2048
+[node name="HurtController" parent="Bosses/CyclopusCat/BossController" index="4" unique_id=28986261 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
 sounds_damage = Array[AudioStream]([ExtResource("31_mywxa"), ExtResource("30_roxwf"), ExtResource("33_psdh3"), ExtResource("34_2p5q4")])
 
-[node name="CyclopusCat" type="Node2D" parent="Bosses/MovementPoints" parent_id_path=PackedInt32Array(1878092600) index="0" unique_id=275429518]
+[node name="PathDotMovementController2D" type="Node2D" parent="Bosses/CyclopusCat/BossController" index="5" unique_id=370687240 node_paths=PackedStringArray("path_node")]
+script = ExtResource("14_roxwf")
+path_node = NodePath("../../../Movement/CyclopusCat/Path2D")
+target_point_radius = 5.0
+break_time = 0.001
+movement_speed = 60.0
+metadata/_custom_type_script = "uid://d34c6a0yetv43"
+
+[node name="AreaMovementController" type="Node2D" parent="Bosses/CyclopusCat/BossController" index="6" unique_id=829655801 node_paths=PackedStringArray("array_of_regions")]
+script = ExtResource("34_roxwf")
+array_of_regions = [NodePath("../../../Movement/CyclopusCat/CyclopusCatRegion"), NodePath("../../../Movement/CyclopusCat/CyclopusCatRegion2")]
+break_time = 0.001
+min_radius = 200.0
+movement_speed = 60.0
+metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
+
+[node name="CyclopusCat" type="Node2D" parent="Bosses/Movement" parent_id_path=PackedInt32Array(2100014019) index="0" unique_id=275429518]
 position = Vector2(960, -480)
 
-[node name="1" type="Marker2D" parent="Bosses/MovementPoints/CyclopusCat" index="0" unique_id=1302536844]
-position = Vector2(48, -56)
+[node name="CyclopusCatRegion" type="NavigationRegion2D" parent="Bosses/Movement/CyclopusCat" index="0" unique_id=352624853]
+position = Vector2(-968, 480)
+navigation_polygon = SubResource("NavigationPolygon_17ap2")
 
-[node name="2" type="Marker2D" parent="Bosses/MovementPoints/CyclopusCat" index="1" unique_id=1490620877]
-position = Vector2(120, -56)
+[node name="CyclopusCatRegion2" type="NavigationRegion2D" parent="Bosses/Movement/CyclopusCat" index="1" unique_id=580567375]
+position = Vector2(-1136, 480)
+navigation_polygon = SubResource("NavigationPolygon_17ap2")
 
-[node name="3" type="Marker2D" parent="Bosses/MovementPoints/CyclopusCat" index="2" unique_id=1946712600]
-position = Vector2(64, 0)
-
-[node name="4" type="Marker2D" parent="Bosses/MovementPoints/CyclopusCat" index="3" unique_id=1385015198]
-position = Vector2(136, 0)
-
-[node name="5" type="Marker2D" parent="Bosses/MovementPoints/CyclopusCat" index="4" unique_id=1516198200]
-position = Vector2(48, 56)
-
-[node name="6" type="Marker2D" parent="Bosses/MovementPoints/CyclopusCat" index="5" unique_id=1073844928]
-position = Vector2(120, 56)
+[node name="Path2D" type="Path2D" parent="Bosses/Movement/CyclopusCat" index="2" unique_id=2026616882]
+curve = SubResource("Curve2D_mywxa")
 
 [connection signal="area_entered" from="Characters/Cat/TeleportCatIn" to="Characters/Cat/TeleportCatIn" method="_on_area_entered"]

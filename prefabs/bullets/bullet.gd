@@ -65,8 +65,10 @@ signal deletion_completed
 var is_deleted_with_delay: bool = false
 var _crashed_in_char: bool = false
 
+
 func _bullet_ready(): pass
 
+func _bullet_process(): pass
 
 func _ready():
 	if collision_shape_2d.shape:
@@ -86,6 +88,7 @@ func _ready():
 
 func _process(delta: float) -> void:
 	_move(delta)
+	_bullet_process()
 
 
 func _on_area_entered(area: Area2D) -> void:
@@ -109,6 +112,7 @@ func _crashed_into_character():
 	audio_player.stop()
 	play_random_sound(sounds_hit)
 
+
 func _calc_damage() -> float:
 	var amount := damage
 	if randf_range(0, 1) <= crit_chance:
@@ -119,6 +123,8 @@ func _calc_damage() -> float:
 
 func _move(delta: float) -> void:
 	if auto_aim and target and is_instance_valid(target):
+		if !direction:
+			direction = _get_direction_to_target()
 		var target_dir = _get_direction_to_target()
 		var angle_diff = direction.angle_to(target_dir)
 		var max_rotation_this_frame = deg_to_rad(turn_speed_degrees) * delta

@@ -52,6 +52,7 @@ inspectable=""
 teleport=""
 environment_zone=""
 hurt_components=""
+bullets=""
 
 [input]
 
