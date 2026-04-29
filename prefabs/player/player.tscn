@@ -8,12 +8,12 @@
 [ext_resource type="Script" uid="uid://rr7lsuj6y4tr" path="res://common/grid_camera/controllers/grid_camera_follower.gd" id="5_ev8v4"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="6_oo3uv"]
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
-[ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/bullets/variations/shuriken/shuriken.tscn" id="7_30gqm"]
+[ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/combat/bullets/variations/shuriken/shuriken.tscn" id="7_30gqm"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
-[ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://common/ui/health_ui.gd" id="11_30gqm"]
-[ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://common/ui/boss_ui.gd" id="13_b6byk"]
-[ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://common/ui/icons/default_heart.png" id="14_ot5ig"]
+[ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://prefabs/player/health_ui.gd" id="11_30gqm"]
+[ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://prefabs/player/boss_ui.gd" id="13_b6byk"]
+[ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/health_default.png" id="14_ot5ig"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ev8v4"]
 radius = 0.01
@@ -65,7 +65,7 @@ bullet_types = Array[Resource]([ExtResource("7_30gqm")])
 interval_between_shots = 0.4
 can_shoot = true
 
-[node name="HurtController" parent="." unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
+[node name="HurtComponent" parent="." unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
 team = 1
 
 [node name="Camera" type="Camera2D" parent="." unique_id=380955172]
@@ -123,10 +123,10 @@ y_size = 10
 [node name="HeartsContainer" type="HBoxContainer" parent="UI/HealthUI" unique_id=847237741]
 custom_minimum_size = Vector2(18, 20)
 layout_mode = 0
-offset_left = 60.0
+offset_left = 20.0
 offset_top = 20.0
-offset_right = 225.0
-offset_bottom = 35.0
+offset_right = 185.0
+offset_bottom = 40.0
 
 [node name="BossUI" type="Control" parent="UI" unique_id=1926342594]
 unique_name_in_owner = true

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blgi13n2y2fti"]
 
-[ext_resource type="Script" uid="uid://ddbxx3jbsr4yd" path="res://common/combat/controllers/shoot_controller.gd" id="1_hko8c"]
+[ext_resource type="Script" uid="uid://ddbxx3jbsr4yd" path="res://prefabs/combat/shoot_controller.gd" id="1_hko8c"]
 
 [node name="ShootController" type="Node2D" unique_id=1242481191]
 script = ExtResource("1_hko8c")

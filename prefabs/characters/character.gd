@@ -47,13 +47,14 @@ signal deleted
 @export_group("Interactions")
 @export var interactor: Interactor
 
-@export_group("Fight")
-@export var hurt_controller: HurtController:
+@export_group("Combat")
+@export var hurt_component: HurtComponent:
 	set(value):
-		if !hurt_controller:
-			hurt_controller = value
-		if hurt_controller:
-			hurt_controller.fatal_damage_taken.connect(_on_died)
+		if hurt_component:
+			hurt_component.fatal_damage_taken.disconnect(_on_died)
+		hurt_component = value
+		if hurt_component:
+			hurt_component.fatal_damage_taken.connect(_on_died)
 @export var shoot_controller: ShootController:
 	set(value): 
 		if shoot_controller:

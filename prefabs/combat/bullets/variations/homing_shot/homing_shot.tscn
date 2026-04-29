@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bf4pqvhwslkq8"]
+
+[ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/combat/bullets/bullet.tscn" id="1_u7vf8"]
+[ext_resource type="Script" uid="uid://b40mi5ura4a78" path="res://prefabs/combat/bullets/variations/homing_shot/homing_shot.gd" id="2_8v6to"]
+[ext_resource type="Texture2D" uid="uid://l6vfpdpbxdk6" path="res://prefabs/combat/bullets/variations/homing_shot/homing_shot.png" id="3_m488l"]
+[ext_resource type="AudioStream" uid="uid://ckoqxe3o41wk4" path="res://prefabs/combat/bullets/sounds/bounce_1.wav" id="4_5f7be"]
+[ext_resource type="AudioStream" uid="uid://bixonmf50tais" path="res://prefabs/combat/bullets/sounds/whoosh_5.wav" id="4_m488l"]
+[ext_resource type="AudioStream" uid="uid://dnf6qcxly6qoy" path="res://prefabs/combat/bullets/sounds/bounce_2.wav" id="5_0wytm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1qbqo"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7wjp"]
+atlas = ExtResource("3_m488l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvmwn"]
+atlas = ExtResource("3_m488l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r7hs"]
+atlas = ExtResource("3_m488l")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11ean"]
+atlas = ExtResource("3_m488l")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axaro"]
+atlas = ExtResource("3_m488l")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_awowh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7wjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvmwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r7hs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11ean")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axaro")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 10.0
+}]
+
+[node name="HomingShot" unique_id=419752470 instance=ExtResource("1_u7vf8")]
+script = ExtResource("2_8v6to")
+auto_aim_time = 6.0
+auto_aim = true
+can_break = true
+sounds_spawn = Array[AudioStream]([ExtResource("4_m488l")])
+sounds_ricochet = Array[AudioStream]([ExtResource("4_5f7be"), ExtResource("5_0wytm")])
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
+shape = SubResource("CircleShape2D_1qbqo")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
+sprite_frames = SubResource("SpriteFrames_awowh")
+animation = &"shot"
+autoplay = "shot"
+frame_progress = 0.14516324

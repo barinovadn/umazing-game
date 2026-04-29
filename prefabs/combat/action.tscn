@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://brxmw83xv3vjf"]
-
-[ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://common/combat/action.gd" id="1_aej4y"]
-
-[node name="Action" type="Node2D" unique_id=2000407186]
-script = ExtResource("1_aej4y")

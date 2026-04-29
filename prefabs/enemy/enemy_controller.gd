@@ -1,32 +1,30 @@
+@icon("enemy_controller.png")
 extends Area2D
 class_name EnemyController
 
+
 @export var character: Character2D
+@export var hurt_component: HurtComponent
+@export var shoot_controller: ShootController
 
 @export_group("Combat")
 ## An array containing all types of projectiles used by the boss
 @export var bullet_types: Array[Resource]
-@export var boss_actions: Array[Action]
-
-## The array stores the HP percentage values (in the range of 0 to 1) at which the
+@export var actions: Array[Action]
+## Stores the HP percentage values (in the range of 0 to 1) at which the
 ## boss advances to the next phase. You need to record the HP percentage
 ## for each phase, starting with the second one. 
 @export var modulates_for_phase: Array[float]
-
 @export var movement_patterns: Dictionary[String, MovementController2D]
-
-@export_group("Controllers")
-@export var shoot_controller: ShootController
-@export var hurt_controller: HurtController
 
 @export_group("Teleports")
 @export var teleport_in: Node2D
 @export var teleport_out: Node2D
 
 @export_group("Interface")
-@export var enemy_name: String
+@export var display_name: String
 @export var data_for_interface: TexturesUI
-@export var BossInterface: BossUI
+@export var display_location: BossUI
 
 ## A timer that sets the interval between actions
 @onready var action_changer: Timer = $ActionChanger
@@ -35,18 +33,19 @@ class_name EnemyController
 
 ## Current boss movement pattern
 var current_movement: MovementController2D
-var current_bullet_type : Resource
+var current_bullet_type: Resource
 var current_phase: int = 1
 
 func _enemy_ready(): pass
 
-func _ready() -> void:
+func _ready():
 	if not character:
 		character = get_parent() as Character2D
 	character.deleted.connect(_set_portals)
-	BossInterface = %Player/%BossUI
-	hurt_controller.health_changed.connect(on_health_changed)
-	hurt_controller.fatal_damage_taken.connect(on_fatal_damage_taken)
+	display_location = %Player/%BossUI
+	print(display_location)
+	hurt_component.health_changed.connect(_on_health_changed)
+	hurt_component.fatal_damage_taken.connect(_on_fatal_damage_taken)
 	_enemy_ready()
 
 ## Overridable logic for each boss;
@@ -59,23 +58,23 @@ func _use_brain(_action: Action):
 func _set_portals():
 	deactivate_portale(teleport_in)
 	activate_portal(teleport_out)
-	teleport_out.global_position = hurt_controller.global_position
+	teleport_out.global_position = hurt_component.global_position
 
 ## Replaces the boss's action and plays it
-func _on_action_changer_timeout() -> void:
+func _on_action_changer_timeout():
 	pause_between_shots.stop()
 	var ready_boss_actions: Array[Action] = _select_available_actions()
 	var action_to_play: Action = _select_action_by_weight(ready_boss_actions)
 	_use_brain(action_to_play)
 
-func _on_pause_between_shots_timeout() -> void:
+func _on_pause_between_shots_timeout():
 	shoot_controller.create_a_projectile_from_argument(current_bullet_type)
 
 ## Selects actions from the boss's set of available actions that are available in this phase
 func _select_available_actions() -> Array[Action]:
 	var ready_boss_actions: Array[Action]
 	
-	for action in boss_actions:
+	for action in actions:
 		if current_phase in action.phases:
 			ready_boss_actions.append(action)
 	
@@ -103,8 +102,8 @@ func _select_action_by_weight(ready_boss_actions: Array[Action]) -> Action:
 ## Checks whether a phase change is necessary and, if the conditions are met, increases it
 func _check_phase():
 	if (current_phase < modulates_for_phase.size() + 1):
-		var hp_for_phase_change: float = hurt_controller.max_health * modulates_for_phase[current_phase-1]
-		if (hurt_controller.current_health <= hp_for_phase_change):
+		var hp_for_phase_change: float = hurt_component.max_health * modulates_for_phase[current_phase-1]
+		if (hurt_component.current_health <= hp_for_phase_change):
 			current_phase+=1
 			var available_actions = _select_available_actions()
 			var heaviest_action = _find_heaviest_action(available_actions)
@@ -124,17 +123,17 @@ func _rebalance_weights(array: Array[Action], rebalance_koef: float):
 	for element in array: 
 		element.weight *= rebalance_koef
 
-func on_health_changed(_amount: float):
-	BossInterface.update_health(enemy_name, hurt_controller.current_health)
+func _on_health_changed(_amount: float):
+	display_location.update_health(display_name, hurt_component.current_health)
 	_check_phase()
 
-func on_fatal_damage_taken():
+func _on_fatal_damage_taken():
 	deactivate_interaction()
 	
 	set_deferred("monitorable", false)
 	set_deferred("monitoring", false)
 	
-	BossInterface.remove_boss(enemy_name)
+	display_location.remove_boss(display_name)
 
 ## Allows the boss to move, shoot, and select an action
 func activate_interaction(_area: Area2D = null):
@@ -151,6 +150,8 @@ func deactivate_interaction(_area: Area2D = null):
 
 func deactivate_portale(portal : Teleport):
 	portal.visible = false
+	portal.enabled = false
 
 func activate_portal(portal: Teleport):
 	portal.visible = true
+	portal.enabled = true
