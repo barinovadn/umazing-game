@@ -2,22 +2,6 @@
 class_name Inspectable
 extends Interactable
 ## Displays a random [member description] when interacted with.
-<<<<<<< Updated upstream
-
-
-## List of possible description texts.
-## A random entry is chosen when the object is inspected using [method interact].
-@export var description: Array[String] = ["..."]
-
-
-func _on_interaction():
-	if not description:
-		return false
-	
-	print('"', description.pick_random(), '"')
-	
-	return true
-=======
 
 
 ## List of possible description texts.
@@ -79,4 +63,3 @@ func _advance_dialogue_request_if_needed() -> void:
 		return
 
 	current_dialogue_index = wrapi(current_dialogue_index + 1, 0, dialogue_requests.size())
->>>>>>> Stashed changes

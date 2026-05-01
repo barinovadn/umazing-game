@@ -7,6 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://br4jv0365g35h" path="res://prefabs/player/player.tscn" id="6_2a8rs"]
 [ext_resource type="Texture2D" uid="uid://cuy6j56l0wd6g" path="res://scenes/grid.png" id="6_5i0tg"]
 [ext_resource type="TileSet" uid="uid://nqowvxb5fi8d" path="res://prefabs/tilesets/system.tres" id="6_bdhmt"]
+[ext_resource type="PackedScene" uid="uid://c5pnd7mjx7pgo" path="res://prefabs/dialogues/speech_bubble.tscn" id="8_bubble"]
+[ext_resource type="Script" uid="uid://dn7b3wdgcun3q" path="res://prefabs/dialogues/dialogue_system.gd" id="9_2a8rs"]
+[ext_resource type="Script" uid="uid://dnbglgxxu70q0" path="res://prefabs/dialogues/dialogue_style.gd" id="10_otnwt"]
+[ext_resource type="PackedScene" uid="uid://c0rxlkv7ld7x6" path="res://prefabs/dialogues/dialogue_window.tscn" id="10_window"]
+[ext_resource type="Resource" uid="uid://dv3oea7ov0maq" path="res://prefabs/dialogues/styles/npc_dialogue_style.tres" id="11_style_npc"]
+[ext_resource type="Resource" uid="uid://q7kvhfjkq0w3" path="res://prefabs/dialogues/styles/player_dialogue_style.tres" id="12_style_player"]
+[ext_resource type="Resource" uid="uid://d2jikmefo2r3y" path="res://prefabs/dialogues/styles/cat_wood_dialogue_style.tres" id="13_style_cat"]
+[ext_resource type="Resource" uid="uid://nma8d2urtth" path="res://prefabs/dialogues/styles/pig_barn_dialogue_style.tres" id="14_style_pig"]
+[ext_resource type="Resource" uid="uid://dgq6v6flp8oi1" path="res://prefabs/dialogues/styles/ninja_night_dialogue_style.tres" id="15_style_ninja"]
 
 [node name="Game" type="Node2D" unique_id=1082399769]
 
@@ -73,8 +82,6 @@ z_index = 30
 
 [node name="Interactables" type="Node2D" parent="." unique_id=233789877]
 z_index = 20
-<<<<<<< Updated upstream
-=======
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1517964194]
 
@@ -84,13 +91,10 @@ z_index = 20
 
 [node name="Bullets" type="Node2D" parent="." unique_id=2040820107]
 unique_name_in_owner = true
->>>>>>> Stashed changes
 
-[node name="Pickups" type="Node2D" parent="." unique_id=1517964194]
-
-[node name="Bosses" type="Node2D" parent="." unique_id=2090847819]
-
-[node name="MovementPoints" type="Node2D" parent="Bosses" unique_id=1878092600]
-
-[node name="Bullets" type="Node2D" parent="." unique_id=2040820107]
-unique_name_in_owner = true
+[node name="DialogueSystem" type="CanvasLayer" parent="." unique_id=1985282199]
+script = ExtResource("9_2a8rs")
+bubble_scene = ExtResource("8_bubble")
+window_scene = ExtResource("10_window")
+default_style = ExtResource("11_style_npc")
+styles = Array[ExtResource("10_otnwt")]([ExtResource("11_style_npc"), ExtResource("12_style_player"), ExtResource("13_style_cat"), ExtResource("14_style_pig"), ExtResource("15_style_ninja")])

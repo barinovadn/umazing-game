@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://c0rxlkv7ld7x6"]
+
+[ext_resource type="Script" uid="uid://d0gjwhcnsxqx0" path="res://prefabs/dialogues/dialogue_window.gd" id="1_krhdo"]
+[ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="2_theme"]
+[ext_resource type="LabelSettings" uid="uid://ct11gc78ulvbc" path="res://common/theme/label_title.tres" id="3_title"]
+[ext_resource type="LabelSettings" uid="uid://dtl3tmpplat3s" path="res://common/theme/label_desc.tres" id="4_desc"]
+[ext_resource type="Shader" uid="uid://mqntupyiu1v2" path="res://prefabs/dialogues/portrait_cutout.gdshader" id="5_shader"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.909804, 0.760784, 0.478431, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.34902, 0.207843, 0.0941176, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.18)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hltaw"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_portrait"]
+shader = ExtResource("5_shader")
+shader_parameter/key_color = Color(0.02, 0.05, 0.07, 1)
+shader_parameter/threshold = 0.1
+
+[node name="DialogueWindow" type="Control" unique_id=986866321]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_krhdo")
+
+[node name="RootMargin" type="MarginContainer" parent="." unique_id=162102179]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 18
+
+[node name="Layout" type="VBoxContainer" parent="RootMargin" unique_id=856334039]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Spacer" type="Control" parent="RootMargin/Layout" unique_id=1512076657]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="RootMargin/Layout" unique_id=1576412241]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(0, 224)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="ContentMargin" type="MarginContainer" parent="RootMargin/Layout/Panel" unique_id=204168697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 18
+
+[node name="Content" type="HBoxContainer" parent="RootMargin/Layout/Panel/ContentMargin" unique_id=1235220810]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 22
+
+[node name="PortraitFrame" type="PanelContainer" parent="RootMargin/Layout/Panel/ContentMargin/Content" unique_id=1793372055]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hltaw")
+
+[node name="PortraitMargin" type="MarginContainer" parent="RootMargin/Layout/Panel/ContentMargin/Content/PortraitFrame" unique_id=355665127]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Portrait" type="TextureRect" parent="RootMargin/Layout/Panel/ContentMargin/Content/PortraitFrame/PortraitMargin" unique_id=2146292283]
+unique_name_in_owner = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_portrait")
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextContent" type="VBoxContainer" parent="RootMargin/Layout/Panel/ContentMargin/Content" unique_id=639260870]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="NameLabel" type="Label" parent="RootMargin/Layout/Panel/ContentMargin/Content/TextContent" unique_id=1726099965]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+layout_mode = 2
+text = "Speaker"
+label_settings = ExtResource("3_title")
+
+[node name="TextLabel" type="Label" parent="RootMargin/Layout/Panel/ContentMargin/Content/TextContent" unique_id=1373095281]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+text = "Dialogue text"
+label_settings = ExtResource("4_desc")
+vertical_alignment = 1
+autowrap_mode = 3

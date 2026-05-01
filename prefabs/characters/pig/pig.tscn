@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_31gvv"]
 [ext_resource type="Texture2D" uid="uid://cwjq41mafh0rm" path="res://prefabs/characters/pig/sprite_sheet.png" id="2_8bdqt"]
+[ext_resource type="Texture2D" path="res://prefabs/characters/pig/portrait.png" id="3_hf0m2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tks81"]
 atlas = ExtResource("2_8bdqt")
@@ -38,12 +39,9 @@ animations = [{
 }]
 
 [node name="Pig" instance=ExtResource("1_31gvv")]
-<<<<<<< Updated upstream
-=======
 
 dialogue_name = "Свинка"
 portrait_texture = ExtResource("3_hf0m2")
->>>>>>> Stashed changes
 
 [node name="Shadow" parent="." index="1"]
 position = Vector2(0, 6)

@@ -9,6 +9,10 @@ signal interacted() ## Emitted after every successful interaction.
 ## If set to [code]false[/code] the [method interact] will always ignore calls.
 @export var enabled: bool = true
 
+@export_group("Interaction Prompt")
+@export var prompt_target_path: NodePath
+@export var prompt_offset: Vector2 = Vector2(0, -44)
+
 
 func _on_interaction() -> bool:
 	return true
@@ -25,8 +29,6 @@ func interact() -> bool:
 	
 	interacted.emit()
 	return true
-<<<<<<< Updated upstream
-=======
 
 
 
@@ -45,4 +47,3 @@ func get_prompt_target() -> CanvasItem:
 
 func get_prompt_offset() -> Vector2:
 	return prompt_offset
->>>>>>> Stashed changes

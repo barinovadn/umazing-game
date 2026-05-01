@@ -3,21 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ydoqhh4qh7vf"
-<<<<<<< Updated upstream
-path="res://.godot/imported/whoosh2.wav-55faaff57e169e490b6bdba5eb767581.sample"
-
-[deps]
-
-source_file="res://prefabs/bullets/stone_shot/whoosh2.wav"
-dest_files=["res://.godot/imported/whoosh2.wav-55faaff57e169e490b6bdba5eb767581.sample"]
-=======
 path="res://.godot/imported/Whoosh2.wav-1355a8b6ce80b077d340194f2c58159a.sample"
 
 [deps]
 
 source_file="res://prefabs/bullets/stone_shot/Whoosh2.wav"
 dest_files=["res://.godot/imported/Whoosh2.wav-1355a8b6ce80b077d340194f2c58159a.sample"]
->>>>>>> Stashed changes
 
 [params]
 
