@@ -25,3 +25,24 @@ func interact() -> bool:
 	
 	interacted.emit()
 	return true
+<<<<<<< Updated upstream
+=======
+
+
+
+func get_prompt_target() -> CanvasItem:
+	if prompt_target_path != NodePath():
+		var prompt_target := get_node_or_null(prompt_target_path)
+		if prompt_target is CanvasItem:
+			return prompt_target
+
+	var parent := get_parent()
+	if parent is Character2D:
+		return parent
+
+	return self
+
+
+func get_prompt_offset() -> Vector2:
+	return prompt_offset
+>>>>>>> Stashed changes

@@ -3,12 +3,21 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ce7fe15edu60n"
+<<<<<<< Updated upstream
 path="res://.godot/imported/slash.wav-5c94915e0a44cc33d091599fa1b07ab3.sample"
 
 [deps]
 
 source_file="res://prefabs/bullets/shuriken/slash.wav"
 dest_files=["res://.godot/imported/slash.wav-5c94915e0a44cc33d091599fa1b07ab3.sample"]
+=======
+path="res://.godot/imported/Slash.wav-4a2f44d121fca1e6c8f50aa9b66c4415.sample"
+
+[deps]
+
+source_file="res://prefabs/bullets/shuriken/Slash.wav"
+dest_files=["res://.godot/imported/Slash.wav-4a2f44d121fca1e6c8f50aa9b66c4415.sample"]
+>>>>>>> Stashed changes
 
 [params]
 

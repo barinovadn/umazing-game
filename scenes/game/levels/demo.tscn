@@ -40,6 +40,78 @@
 [ext_resource type="AudioStream" uid="uid://dvrje6ucftneu" path="res://prefabs/characters/bosses/cyclopus_cat/half-life-scientist-keeps-screaming-at-me.mp3" id="38_n8x4b"]
 [ext_resource type="AudioStream" uid="uid://bd6x52h28kmwf" path="res://prefabs/characters/bosses/cyclopus_cat/half-life-scientist-scream05.mp3" id="39_88b2i"]
 [ext_resource type="AudioStream" uid="uid://c488ksljqwbdg" path="res://prefabs/characters/bosses/cyclopus_cat/agh_uT05NZS.mp3" id="40_4xcp5"]
+<<<<<<< Updated upstream
+
+[sub_resource type="GDScript" id="GDScript_17ap2"]
+script/source = "extends Bullet
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+"
+
+[sub_resource type="PackedScene" id="PackedScene_roxwf"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("DashBullet", "script"),
+"node_count": 1,
+"node_ids": PackedInt32Array(419752470),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0),
+"variants": [ExtResource("3_7hq71"), SubResource("GDScript_17ap2")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_6ggk5"]
+script = ExtResource("17_1qwsm")
+texture_under = ExtResource("19_ky1g4")
+texture_progress = ExtResource("21_sfio8")
+texture_over = ExtResource("18_ky1g4")
+metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
+
+[sub_resource type="Resource" id="Resource_js0wq"]
+script = ExtResource("20_ivmt6")
+action_name = "homing_shot"
+weight = 0.25
+phases = Array[int]([2, 3])
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_uhdmq"]
+script = ExtResource("20_ivmt6")
+action_name = "stone_shot"
+weight = 1.0
+phases = Array[int]([1, 2])
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_sfio8"]
+script = ExtResource("20_ivmt6")
+action_name = "bunch_of_shots"
+weight = 0.5
+phases = Array[int]([2, 3])
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+=======
+[ext_resource type="Texture2D" uid="uid://bjnvle1f867aa" path="res://prefabs/characters/villager_cat/portrait_worried.png" id="12_villager_worried"]
+[ext_resource type="Resource" uid="uid://cq7ffxow5eeb4" path="res://prefabs/dialogues/requests/villager_searching.tres" id="13_villager_searching"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/villager_not_found.tres" id="14_villager_not_found"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/villager_found.tres" id="15_villager_found"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/villager_lost_again.tres" id="16_villager_lost_again"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/villager_hurt.tres" id="17_villager_hurt"]
+[ext_resource type="Resource" uid="uid://cd62a2573n57q" path="res://prefabs/dialogues/requests/villager_killed.tres" id="18_villager_killed"]
+[ext_resource type="Resource" uid="uid://c0e3swtsdsiuh" path="res://prefabs/dialogues/requests/pig_dialogue.tres" id="19_pig_dialogue"]
+[ext_resource type="Resource" uid="uid://dmvfhup7idbok" path="res://prefabs/dialogues/requests/ninja_blue_dialogue.tres" id="20_ninja_blue_dialogue"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/sign_dialogue.tres" id="21_sign_dialogue"]
+[ext_resource type="Resource" path="res://prefabs/dialogues/requests/secret_dialogue.tres" id="22_secret_dialogue"]
+>>>>>>> Stashed changes
 
 [sub_resource type="GDScript" id="GDScript_17ap2"]
 script/source = "extends Bullet
@@ -242,9 +314,23 @@ position = Vector2(866, -475)
 [node name="Dummy1" parent="Characters/Villagers" index="0" unique_id=716987818 instance=ExtResource("7_8qff5")]
 position = Vector2(264, -40)
 start_animation = 18
+<<<<<<< Updated upstream
 
 [node name="InspectableNPC" parent="Characters/Villagers/Dummy1" index="4" unique_id=45048443 instance=ExtResource("9_8ic3i")]
 description = Array[String](["Have you seen my cat?", "Can you help me find my cat?", "I really miss him..."])
+=======
+
+dialogue_name = "Рыжий житель"
+portrait_texture = ExtResource("12_villager_worried")
+
+[node name="InspectableNPC" parent="Characters/Villagers/Dummy1" index="4" unique_id=45048443 instance=ExtResource("9_8ic3i")]
+description = Array[String](["Have you seen my cat?", "Can you help me find my cat?", "I really miss him..."])
+
+dialogue_request = null
+dialogue_requests = Array[Resource]([ExtResource("13_villager_searching"), ExtResource("14_villager_not_found"), ExtResource("15_villager_found"), ExtResource("16_villager_lost_again"), ExtResource("17_villager_hurt"), ExtResource("18_villager_killed")])
+current_dialogue_index = 0
+cycle_dialogue_requests_on_interact = true
+>>>>>>> Stashed changes
 
 [node name="Dummy2" parent="Characters/Villagers" index="1" unique_id=1610470532 instance=ExtResource("7_8qff5")]
 z_index = 15
@@ -280,6 +366,16 @@ distance_max = 30.0
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
+<<<<<<< Updated upstream
+=======
+
+[node name="InspectablePig" parent="Characters/Pig" index="5" unique_id=187512341 instance=ExtResource("9_8ic3i")]
+dialogue_request = ExtResource("19_pig_dialogue")
+dialogue_requests = Array[Resource]([])
+current_dialogue_index = 0
+cycle_dialogue_requests_on_interact = false
+
+>>>>>>> Stashed changes
 [node name="NinjaBlue" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="3" unique_id=986257099 node_paths=PackedStringArray("movement") instance=ExtResource("4_n6h0s")]
 position = Vector2(-16, 56)
 collision_mask = 1027
@@ -293,6 +389,16 @@ distance_max = 40.0
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
+<<<<<<< Updated upstream
+=======
+
+[node name="InspectableBlueNinja" parent="Characters/NinjaBlue" index="1" unique_id=100361512 instance=ExtResource("9_8ic3i")]
+dialogue_request = ExtResource("20_ninja_blue_dialogue")
+dialogue_requests = Array[Resource]([])
+current_dialogue_index = 0
+cycle_dialogue_requests_on_interact = false
+
+>>>>>>> Stashed changes
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="4" unique_id=379324176 instance=ExtResource("5_gfex4")]
 position = Vector2(0, 160)
 start_animation = 1
@@ -300,10 +406,26 @@ start_animation = 1
 [node name="InspectableSign" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
 position = Vector2(-424, 8)
 description = Array[String](["Blah-blah-blah..."])
+<<<<<<< Updated upstream
+=======
+
+dialogue_request = ExtResource("21_sign_dialogue")
+dialogue_requests = Array[Resource]([])
+current_dialogue_index = 0
+cycle_dialogue_requests_on_interact = false
+>>>>>>> Stashed changes
 
 [node name="InspectableSecret" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
 position = Vector2(-536, -120)
 description = Array[String](["<- Free hotdogs this way."])
+<<<<<<< Updated upstream
+=======
+
+dialogue_request = ExtResource("22_secret_dialogue")
+dialogue_requests = Array[Resource]([])
+current_dialogue_index = 0
+cycle_dialogue_requests_on_interact = false
+>>>>>>> Stashed changes
 
 [node name="ItemPickup" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="0" unique_id=645073492 instance=ExtResource("10_q7qle")]
 z_index = 11

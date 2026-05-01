@@ -320,6 +320,12 @@ animations = [{
 }]
 
 [node name="NinjaBlue" instance=ExtResource("1_rmbh0")]
+<<<<<<< Updated upstream
+=======
+
+dialogue_name = "Синий ниндзя"
+portrait_texture = ExtResource("3_7yr8m")
+>>>>>>> Stashed changes
 
 [node name="Sprite" parent="." index="2"]
 sprite_frames = SubResource("SpriteFrames_bs44n")

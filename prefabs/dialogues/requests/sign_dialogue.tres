@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueRequest" format=3 uid="uid://tv76syohru6v"]
+
+[ext_resource type="Script" uid="uid://chbyd6ci8x0c7" path="res://prefabs/dialogues/dialogue_request.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+text = "Обычная деревенская табличка. На ней уже почти ничего не разобрать."
+duration = 2.5
+wait_until_closed = false

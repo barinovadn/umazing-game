@@ -73,6 +73,18 @@ z_index = 30
 
 [node name="Interactables" type="Node2D" parent="." unique_id=233789877]
 z_index = 20
+<<<<<<< Updated upstream
+=======
+
+[node name="Pickups" type="Node2D" parent="." unique_id=1517964194]
+
+[node name="Bosses" type="Node2D" parent="." unique_id=2090847819]
+
+[node name="MovementPoints" type="Node2D" parent="Bosses" unique_id=1878092600]
+
+[node name="Bullets" type="Node2D" parent="." unique_id=2040820107]
+unique_name_in_owner = true
+>>>>>>> Stashed changes
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1517964194]
 

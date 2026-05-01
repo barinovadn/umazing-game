@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueRequest" format=3 uid="uid://bex6cdrt7s68w"]
+
+[ext_resource type="Texture2D" uid="uid://dbv7gfb0bnwpa" path="res://prefabs/characters/villager_cat/portrait_surprised.png" id="1_portrait"]
+[ext_resource type="Script" uid="uid://chbyd6ci8x0c7" path="res://prefabs/dialogues/dialogue_request.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+display_mode = 1
+lines = Array[String](["Кот ранен? Только не это... Давай осторожно, ему сейчас страшнее, чем нам.", "Если он поранился, нужно отнести его домой и дать ему спокойно прийти в себя.", "Бедный мой комок шерсти... Надеюсь, это не серьёзно. Спасибо, что сказал мне сразу.", "Главное, не пугай его. Когда он ранен, он делает вид, что всё под контролем, но я-то знаю этот взгляд.", "Спасибо, что нашёл его вовремя. С раненым котом шутки плохи."])
+portrait = ExtResource("1_portrait")
+speaker_name = "Рыжий житель"
+preset = "cat_wood"
+wait_until_closed = false

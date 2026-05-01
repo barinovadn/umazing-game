@@ -38,6 +38,12 @@ animations = [{
 }]
 
 [node name="Pig" instance=ExtResource("1_31gvv")]
+<<<<<<< Updated upstream
+=======
+
+dialogue_name = "Свинка"
+portrait_texture = ExtResource("3_hf0m2")
+>>>>>>> Stashed changes
 
 [node name="Shadow" parent="." index="1"]
 position = Vector2(0, 6)

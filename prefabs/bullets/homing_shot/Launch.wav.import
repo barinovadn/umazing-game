@@ -3,12 +3,21 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bixonmf50tais"
+<<<<<<< Updated upstream
 path="res://.godot/imported/launch.wav-e2f964faeab6c36217566fe004b1179b.sample"
 
 [deps]
 
 source_file="res://prefabs/bullets/homing_shot/launch.wav"
 dest_files=["res://.godot/imported/launch.wav-e2f964faeab6c36217566fe004b1179b.sample"]
+=======
+path="res://.godot/imported/Launch.wav-bf13468ccab534c9f78720a2afadb333.sample"
+
+[deps]
+
+source_file="res://prefabs/bullets/homing_shot/Launch.wav"
+dest_files=["res://.godot/imported/Launch.wav-bf13468ccab534c9f78720a2afadb333.sample"]
+>>>>>>> Stashed changes
 
 [params]
 

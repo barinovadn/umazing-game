@@ -49,6 +49,35 @@ var direction: Vector2: ## NOTE Read-only.
 @export_group("Interactions")
 @export var interactor: Interactor
 
+<<<<<<< Updated upstream
+@export_group("Fight")
+@export var hurt_component: HurtComponent:
+	set(value):
+		if hurt_component:
+			hurt_component.fatal_damage_taken.disconnect(_on_died)
+		hurt_component = value
+		if hurt_component:
+			hurt_component.fatal_damage_taken.connect(_on_died)
+@export var shoot_controller: ShootController2D:
+	set(value): 
+		if shoot_controller:
+			shoot_controller.shooting_started.disconnect(_on_shooting_started)
+			shoot_controller.shooting_stopped.disconnect(_on_shooting_stopped)
+		shoot_controller = value
+		if shoot_controller:
+			shoot_controller.shooting_started.connect(_on_shooting_started)
+			shoot_controller.shooting_stopped.connect(_on_shooting_stopped)
+var is_shooting: bool: ## NOTE Read-only.
+	get(): return shoot_controller.is_shooting if shoot_controller else false
+=======
+@export_group("Dialogue")
+@export var dialogue_preset: String = "npc"
+@export var dialogue_name: String = ""
+@export var portrait_texture: Texture2D = preload("res://prefabs/characters/portrait.png")
+@export var bubble_target_path: NodePath
+>>>>>>> Stashed changes
+
+
 @export_group("Fight")
 @export var hurt_component: HurtComponent:
 	set(value):
@@ -74,6 +103,10 @@ func _ready():
 	if animator:
 		animator.play(start_animation)
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 func _physics_process(_delta):
 	if is_moving:
