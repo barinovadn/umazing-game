@@ -24,9 +24,9 @@ func _use_brain(action: Action):
 			pause_between_shots.start()
 			current_movement.movement_enabled = true
 		"stone_shot":
-			current_movement = movement_patterns["CatEnemyDTD"]
-			#current_movement.current_area_index = boof % 2
-			#boof+=1
+			current_movement = movement_patterns["CatAreaMovement"]
+			current_movement.current_area_index = boof % 2
+			boof+=1
 			pause_between_shots.wait_time = 0.8
 			current_bullet_type = bullet_types[1]
 			pause_between_shots.start()

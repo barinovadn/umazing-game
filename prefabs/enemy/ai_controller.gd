@@ -17,13 +17,15 @@ class_name EnemyController
 @export var modulates_for_phase: Array[float]
 @export var movement_patterns: Dictionary[String, MovementController2D]
 
-@export_group("Teleports")
-@export var teleport_in: Node2D
-@export var teleport_out: Node2D
+@export_group("Interaction Points")
+@export var source_node: Node2D
+@export var target_node: Node2D
 
 @export_group("Interface")
 @export var display_name: String
 @export var data_for_interface: TexturesUI
+## Allows you to specify the [BossUI] location where the interface will be added.
+## By default, it is displayed in the player's [BossUI].
 @export var display_location: BossUI
 
 ## A timer that sets the interval between actions
@@ -41,7 +43,7 @@ func _enemy_ready(): pass
 func _ready():
 	if not character:
 		character = get_parent() as Character2D
-	character.deleted.connect(_set_portals)
+	character.deleted.connect(_set_target_point)
 	display_location = %Player/%BossUI
 	print(display_location)
 	hurt_component.health_changed.connect(_on_health_changed)
@@ -55,16 +57,16 @@ func _use_brain(_action: Action):
 
 ## Sets up portals associated with the boss. Disables the entrance portal,
 ## spawns an exit portal at the boss's death location, and activates it.
-func _set_portals():
-	deactivate_portale(teleport_in)
-	activate_portal(teleport_out)
-	teleport_out.global_position = hurt_component.global_position
+func _set_target_point():
+	activate_interaction_point(target_node)
+	target_node.global_position = hurt_component.global_position
 
 ## Replaces the boss's action and plays it
 func _on_action_changer_timeout():
 	pause_between_shots.stop()
 	var ready_boss_actions: Array[Action] = _select_available_actions()
 	var action_to_play: Action = _select_action_by_weight(ready_boss_actions)
+	action_changer.wait_time = action_to_play.duration
 	_use_brain(action_to_play)
 
 func _on_pause_between_shots_timeout():
@@ -137,6 +139,7 @@ func _on_fatal_damage_taken():
 
 ## Allows the boss to move, shoot, and select an action
 func activate_interaction(_area: Area2D = null):
+	deactivate_interaction_point(source_node)
 	_on_action_changer_timeout()
 	action_changer.start()
 	current_movement.movement_enabled = true
@@ -148,10 +151,10 @@ func deactivate_interaction(_area: Area2D = null):
 	current_movement.movement_enabled = false
 	shoot_controller.can_shoot = false
 
-func deactivate_portale(portal : Teleport):
+func deactivate_interaction_point(portal : Teleport):
 	portal.visible = false
 	portal.enabled = false
 
-func activate_portal(portal: Teleport):
+func activate_interaction_point(portal: Teleport):
 	portal.visible = true
 	portal.enabled = true
