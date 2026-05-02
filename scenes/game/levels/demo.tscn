@@ -235,7 +235,6 @@ position = Vector2(-72, -216)
 [node name="TeleportCatOut" parent="Teleports/BossTeleports/CatBossTeleports" index="0" unique_id=490998921 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 visible = false
 position = Vector2(1000, -475)
-enabled = false
 exit = NodePath("../../../../Characters/Cat/TeleportCatIn")
 color = Color(0.9529412, 0, 0, 1)
 
@@ -332,11 +331,9 @@ hurt_component = NodePath("BossController/HurtComponent")
 shoot_controller = NodePath("BossController/ShootController")
 afterlife_time = 4.0
 
-[node name="BossController" parent="Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("character", "hurt_component", "shoot_controller", "movement_patterns", "source_node", "target_node") instance=ExtResource("25_ky1g4")]
+[node name="BossController" parent="Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("character", "movement_patterns", "source_node", "target_node") instance=ExtResource("25_ky1g4")]
 script = ExtResource("22_1qwsm")
 character = NodePath("..")
-hurt_component = NodePath("HurtComponent")
-shoot_controller = NodePath("ShootController")
 bullet_types = Array[Resource]([ExtResource("18_ivmt6"), ExtResource("19_ivmt6"), ExtResource("25_7hq71")])
 actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_mywxa"), SubResource("Resource_ebg7x"), SubResource("Resource_psdh3")])
 modulates_for_phase = Array[float]([0.7, 0.3])

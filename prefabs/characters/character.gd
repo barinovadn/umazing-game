@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 signal destroyed
 signal deleted
+signal hurt_component_changed(new_component)
+signal shoot_controller_changed(new_controller)
 
 @export_group("Animations")
 @export var animator: AnimationController2D
@@ -53,6 +55,7 @@ signal deleted
 		if hurt_component:
 			hurt_component.fatal_damage_taken.disconnect(_on_died)
 		hurt_component = value
+		hurt_component_changed.emit(hurt_component)
 		if hurt_component:
 			hurt_component.fatal_damage_taken.connect(_on_died)
 @export var shoot_controller: ShootController:
@@ -61,6 +64,7 @@ signal deleted
 			shoot_controller.shooting_started.disconnect(_on_shooting_started)
 			shoot_controller.shooting_stopped.disconnect(_on_shooting_stopped)
 		shoot_controller = value
+		shoot_controller_changed.emit(shoot_controller)
 		if shoot_controller:
 			shoot_controller.shooting_started.connect(_on_shooting_started)
 			shoot_controller.shooting_stopped.connect(_on_shooting_stopped)
@@ -76,7 +80,6 @@ var direction: Vector2: ## NOTE Read-only.
 var is_shooting: bool: ## NOTE Read-only.
 	get(): return shoot_controller.is_shooting if shoot_controller else false
 var is_deleted_with_delay: bool = false
-
 
 func _ready():
 	if animator:

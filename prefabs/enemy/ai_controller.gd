@@ -4,8 +4,6 @@ class_name EnemyController
 
 
 @export var character: Character2D
-@export var hurt_component: HurtComponent
-@export var shoot_controller: ShootController
 
 @export_group("Combat")
 ## An array containing all types of projectiles used by the boss
@@ -38,6 +36,9 @@ var current_movement: MovementController2D
 var current_bullet_type: Resource
 var current_phase: int = 1
 
+var hurt_component: HurtComponent
+var shoot_controller: ShootController
+
 func _enemy_ready(): pass
 
 func _ready():
@@ -45,7 +46,13 @@ func _ready():
 		character = get_parent() as Character2D
 	character.deleted.connect(_set_target_point)
 	display_location = %Player/%BossUI
-	print(display_location)
+	
+	character.hurt_component_changed.connect(attach_hurt_component)
+	character.shoot_controller_changed.connect(attach_shoot_controller)
+	
+	hurt_component = character.hurt_component
+	shoot_controller = character.shoot_controller
+	
 	hurt_component.health_changed.connect(_on_health_changed)
 	hurt_component.fatal_damage_taken.connect(_on_fatal_damage_taken)
 	_enemy_ready()
@@ -151,10 +158,20 @@ func deactivate_interaction(_area: Area2D = null):
 	current_movement.movement_enabled = false
 	shoot_controller.can_shoot = false
 
+
 func deactivate_interaction_point(portal : Teleport):
 	portal.visible = false
-	portal.enabled = false
+	portal.process_mode = Node.PROCESS_MODE_DISABLED
+
 
 func activate_interaction_point(portal: Teleport):
 	portal.visible = true
-	portal.enabled = true
+	portal.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func attach_hurt_component(component: HurtComponent):
+	hurt_component = component
+
+
+func attach_shoot_controller(controller: ShootController):
+	shoot_controller = controller

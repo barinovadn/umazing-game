@@ -56,6 +56,7 @@ animations = [{
 [node name="HomingShot" unique_id=419752470 instance=ExtResource("1_u7vf8")]
 script = ExtResource("2_8v6to")
 auto_aim_time = 6.0
+turn_speed_degrees = 35.0
 auto_aim = true
 can_break = true
 sounds_spawn = Array[AudioStream]([ExtResource("4_m488l")])

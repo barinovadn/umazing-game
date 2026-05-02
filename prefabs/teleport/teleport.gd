@@ -3,10 +3,7 @@
 class_name Teleport
 extends Area2D
 
-@export var enabled: bool = true:
-	set(value):
-		enabled = value
-		visible = enabled
+
 @export var exit: Node2D
 @export var exit_offset: Vector2
 @export var color: Color
