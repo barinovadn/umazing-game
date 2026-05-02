@@ -55,6 +55,7 @@ can_shoot = true
 
 [node name="HurtComponent" parent="." unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
 team = 1
+max_health = 5.0
 
 [node name="Camera" type="Camera2D" parent="." unique_id=380955172]
 unique_name_in_owner = true

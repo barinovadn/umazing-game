@@ -65,6 +65,7 @@ animations = [{
 
 [node name="StoneShot" unique_id=419752470 instance=ExtResource("1_c5g1p")]
 number_of_recochets_left = 1
+damage = 0.25
 sounds_spawn = Array[AudioStream]([SubResource("AudioStreamWAV_6j76o"), SubResource("AudioStreamWAV_odyxh")])
 sounds_die = Array[AudioStream]([ExtResource("2_odyxh")])
 

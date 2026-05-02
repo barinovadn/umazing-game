@@ -91,9 +91,17 @@ metadata/_custom_type_script = "uid://dowl0clqumedg"
 [sub_resource type="Resource" id="Resource_psdh3"]
 script = ExtResource("20_ivmt6")
 action_name = "bunch_of_shots"
-weight = 0.5
+weight = 0.4
 phases = Array[int]([2, 3])
 duration = 5.0
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_2p5q4"]
+script = ExtResource("20_ivmt6")
+action_name = "rest"
+weight = 0.4
+phases = Array[int]([1, 2, 3])
+duration = 2.0
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
 [sub_resource type="Resource" id="Resource_6ggk5"]
@@ -329,20 +337,22 @@ scale = Vector2(3, 3)
 collision_mask = 1
 hurt_component = NodePath("BossController/HurtComponent")
 shoot_controller = NodePath("BossController/ShootController")
-afterlife_time = 4.0
 
-[node name="BossController" parent="Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("character", "movement_patterns", "source_node", "target_node") instance=ExtResource("25_ky1g4")]
+[node name="BossController" parent="Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("character", "movement_patterns", "hide_on_activation", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
 script = ExtResource("22_1qwsm")
 character = NodePath("..")
+rest_duration = 10.0
+chance_of_rest = 1.0
 bullet_types = Array[Resource]([ExtResource("18_ivmt6"), ExtResource("19_ivmt6"), ExtResource("25_7hq71")])
-actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_mywxa"), SubResource("Resource_ebg7x"), SubResource("Resource_psdh3")])
+actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_mywxa"), SubResource("Resource_ebg7x"), SubResource("Resource_psdh3"), SubResource("Resource_2p5q4")])
 modulates_for_phase = Array[float]([0.7, 0.3])
 movement_patterns = {
 "CatAreaMovement": NodePath("AreaMovement"),
 "CatEnemyDTD": NodePath("PathDotMovement")
 }
-source_node = NodePath("../../../Characters/Cat/TeleportCatIn")
-target_node = NodePath("../../../Teleports/BossTeleports/CatBossTeleports/TeleportCatOut")
+hide_on_activation = [NodePath("../../../Characters/Cat/TeleportCatIn")]
+show_on_death = [NodePath("../../../Teleports/BossTeleports/CatBossTeleports/TeleportCatOut")]
+tp_on_death = NodePath("../../../Teleports/BossTeleports/CatBossTeleports/TeleportCatOut")
 display_name = "Cyclopus Cat"
 data_for_interface = SubResource("Resource_6ggk5")
 
@@ -352,6 +362,7 @@ interval_between_shots = 0.3
 
 [node name="HurtComponent" parent="Bosses/CyclopusCat/BossController" index="4" unique_id=28986261 groups=["hurt_components"] instance=ExtResource("11_bpga3")]
 sounds_damage = Array[AudioStream]([ExtResource("31_mywxa"), ExtResource("30_roxwf"), ExtResource("33_psdh3"), ExtResource("34_2p5q4")])
+max_health = 10.0
 
 [node name="PathDotMovement" type="Node2D" parent="Bosses/CyclopusCat/BossController" index="5" unique_id=370687240 node_paths=PackedStringArray("path")]
 script = ExtResource("14_roxwf")

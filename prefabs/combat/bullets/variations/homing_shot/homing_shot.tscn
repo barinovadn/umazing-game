@@ -58,6 +58,7 @@ script = ExtResource("2_8v6to")
 auto_aim_time = 6.0
 turn_speed_degrees = 35.0
 auto_aim = true
+damage = 0.25
 can_break = true
 sounds_spawn = Array[AudioStream]([ExtResource("4_m488l")])
 sounds_ricochet = Array[AudioStream]([ExtResource("4_5f7be"), ExtResource("5_0wytm")])

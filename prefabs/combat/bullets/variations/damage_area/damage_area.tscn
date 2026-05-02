@@ -20,7 +20,7 @@ script = ExtResource("2_1wbcq")
 cooldown_time = 1.0
 speed = 0.0
 turn_speed_degrees = 0.0
-damage = 2.0
+damage = 0.5
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 scale = Vector2(1.25, 1.25)

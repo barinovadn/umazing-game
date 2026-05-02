@@ -30,6 +30,7 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 func _ready():
 	_on_character_changed(character, null)
 	hurt_component.health_changed.connect(on_health_changed)
+	hurt_component.max_health_changed.connect(on_health_changed)
 	hurt_component.fatal_damage_taken.connect(on_fatal_damage_taken)
 	health_ui.update_health(hurt_component.current_health, hurt_component.max_health)
 
@@ -71,9 +72,8 @@ func _input(_event: InputEvent) -> void:
 		shoot_controller.direction = interactor.direction
 		shoot_controller.create_a_projectile_from_argument(bullet_types[0])
 
-
 ## Plays random hit sound and updates health
-func on_health_changed(_amount: float):
+func on_health_changed(_amount: float = 0.0):
 	health_ui.update_health(hurt_component.current_health, hurt_component.max_health)
 
 ## Is called when player lost all his hp

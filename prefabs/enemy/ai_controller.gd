@@ -6,6 +6,8 @@ class_name EnemyController
 @export var character: Character2D
 
 @export_group("Combat")
+@export var rest_duration: float
+@export_range(0.0, 1.0) var chance_of_rest: float
 ## An array containing all types of projectiles used by the boss
 @export var bullet_types: Array[Resource]
 @export var actions: Array[Action]
@@ -16,8 +18,11 @@ class_name EnemyController
 @export var movement_patterns: Dictionary[String, MovementController2D]
 
 @export_group("Interaction Points")
-@export var source_node: Node2D
-@export var target_node: Node2D
+@export var show_on_activation: Array[Node2D]
+@export var hide_on_activation: Array[Node2D]
+@export var show_on_death: Array[Node2D]
+@export var hide_on_death: Array[Node2D]
+@export var tp_on_death: Node2D
 
 @export_group("Interface")
 @export var display_name: String
@@ -65,15 +70,22 @@ func _use_brain(_action: Action):
 ## Sets up portals associated with the boss. Disables the entrance portal,
 ## spawns an exit portal at the boss's death location, and activates it.
 func _set_target_point():
-	activate_interaction_point(target_node)
-	target_node.global_position = hurt_component.global_position
+	if tp_on_death:
+		tp_on_death.global_position = hurt_component.global_position
+	
+	activate_points(show_on_death)
+	deactivate_points(hide_on_death)
 
 ## Replaces the boss's action and plays it
 func _on_action_changer_timeout():
+	action_changer.stop()
 	pause_between_shots.stop()
+	
 	var ready_boss_actions: Array[Action] = _select_available_actions()
 	var action_to_play: Action = _select_action_by_weight(ready_boss_actions)
+	
 	action_changer.wait_time = action_to_play.duration
+	action_changer.start()
 	_use_brain(action_to_play)
 
 func _on_pause_between_shots_timeout():
@@ -91,17 +103,21 @@ func _select_available_actions() -> Array[Action]:
 
 ## Selects an action available in this phase
 func _select_action_by_weight(ready_boss_actions: Array[Action]) -> Action:
-	var chance_of_action: float = randf()
+	var array_length: float = 0.0
 	
-	var action_to_play: Action = null
+	for action in actions:
+		array_length += action.weight
 	
-	if ready_boss_actions.size() == 1:
-		return ready_boss_actions[0]
-
+	var chance_of_action: float = randf_range(0, array_length)
+	
+	var current_length: float = 0.0
+	var action_to_play: Action
+	
 	for action in ready_boss_actions:
-		if chance_of_action <= action.weight:
-			if !action_to_play or action.weight<= action_to_play.weight:
-				action_to_play = action
+		current_length += action.weight
+		if chance_of_action >= current_length:
+			action_to_play = action
+			break
 	
 	if !action_to_play:
 		return ready_boss_actions.pick_random()
@@ -114,27 +130,12 @@ func _check_phase():
 		var hp_for_phase_change: float = hurt_component.max_health * modulates_for_phase[current_phase-1]
 		if (hurt_component.current_health <= hp_for_phase_change):
 			current_phase+=1
-			var available_actions = _select_available_actions()
-			var heaviest_action = _find_heaviest_action(available_actions)
-			_rebalance_weights(available_actions, 1.0/heaviest_action.weight)
 
-func _find_heaviest_action(array: Array[Action]):
-	if !array:
-		return
-	var action: Action = array[0]
-	for element in array: 
-		if action.weight < element.weight:
-			action = element
-			
-	return action
-
-func _rebalance_weights(array: Array[Action], rebalance_koef: float):
-	for element in array: 
-		element.weight *= rebalance_koef
 
 func _on_health_changed(_amount: float):
 	display_location.update_health(display_name, hurt_component.current_health)
 	_check_phase()
+
 
 func _on_fatal_damage_taken():
 	deactivate_interaction()
@@ -146,7 +147,9 @@ func _on_fatal_damage_taken():
 
 ## Allows the boss to move, shoot, and select an action
 func activate_interaction(_area: Area2D = null):
-	deactivate_interaction_point(source_node)
+	activate_points(show_on_activation)
+	deactivate_points(hide_on_activation)
+	
 	_on_action_changer_timeout()
 	action_changer.start()
 	current_movement.movement_enabled = true
@@ -159,14 +162,16 @@ func deactivate_interaction(_area: Area2D = null):
 	shoot_controller.can_shoot = false
 
 
-func deactivate_interaction_point(portal : Teleport):
-	portal.visible = false
-	portal.process_mode = Node.PROCESS_MODE_DISABLED
+func deactivate_points(points: Array[Node2D]):
+	for point in points:
+		point.visible = false
+		point.process_mode = Node.PROCESS_MODE_DISABLED
 
 
-func activate_interaction_point(portal: Teleport):
-	portal.visible = true
-	portal.process_mode = Node.PROCESS_MODE_INHERIT
+func activate_points(points: Array[Node2D]):
+	for point in points:
+		point.visible = true
+		point.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func attach_hurt_component(component: HurtComponent):

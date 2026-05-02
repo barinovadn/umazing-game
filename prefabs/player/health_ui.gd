@@ -37,40 +37,37 @@ func _create_atlas(region: Rect2) -> AtlasTexture:
 
 ## Displays the player's HP on the screen using hearts
 func update_health(current_hp: float, max_hp: float) -> void:
-	var max_hearts: int = ceil(max_hp / 4.0)
+	var max_hearts: int = ceil(max_hp / 1.0)
 	var current_nodes: int = hearts_container.get_child_count()
 	
-	# 1. Add missing heart nodes (if Max HP increased)
 	while current_nodes < max_hearts:
 		var heart = TextureRect.new()
 		heart.custom_minimum_size = Vector2(x_size, y_size)
 		hearts_container.add_child(heart)
 		current_nodes += 1
-		
-	# 2. Remove excess heart nodes (if Max HP decreased)
+	
 	while current_nodes > max_hearts:
 		var child = hearts_container.get_child(current_nodes - 1)
 		hearts_container.remove_child(child)
 		child.queue_free()
 		current_nodes -= 1
-		
-	# 3. Update the textures of the existing nodes
+	
 	var hp_left: float = current_hp
 	
 	for i in range(max_hearts):
 		var heart = hearts_container.get_child(i) as TextureRect
 		
-		if hp_left >= 4.0:
+		if hp_left > 0.75:
 			heart.texture = full_heart
-			hp_left -= 4.0
-		elif hp_left >= 3.0:
-			heart.texture = three_quarter_heart
-			hp_left -= 3.0
-		elif hp_left >= 2.0:
-			heart.texture = half_heart
-			hp_left -= 2.0
-		elif hp_left >= 1.0:
-			heart.texture = quarter_heart
 			hp_left -= 1.0
+		elif hp_left > 0.5:
+			heart.texture = three_quarter_heart
+			hp_left -= 0.75
+		elif hp_left > 0.25:
+			heart.texture = half_heart
+			hp_left -= 0.5
+		elif hp_left > 0.0:
+			heart.texture = quarter_heart
+			hp_left -= 0.25
 		else:
 			heart.texture = empty_heart

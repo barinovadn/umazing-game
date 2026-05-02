@@ -44,6 +44,43 @@ func _ready() -> void:
 		timer.wait_time = break_time
 	call_deferred("character_setup")
 
+
+func _physics_process(_delta : float) -> void:
+	if _is_on_break_time or !regions.size():
+		return
+		
+	if navigation_agent_2d.is_navigation_finished():
+		_stuck_timer = 0.0
+		if break_time > 0:
+			movement_enabled = false
+			_is_on_break_time = true
+			timer.start()
+			return
+		set_movement_target()
+	
+	var distance_moved = _last_position.distance_to(global_position)
+	
+	if distance_moved <= stuck_threshold_distance:
+		_stuck_timer += _delta
+		if _stuck_timer >= stuck_threshold_time:
+			set_movement_target()
+			return
+	else:
+		_stuck_timer = 0.0
+		
+	_last_position = global_position
+	
+	var target_position : Vector2 = navigation_agent_2d.get_next_path_position()
+	var target_direction = global_position.direction_to(target_position).normalized()
+	
+	move(movement_speed, target_direction)
+
+
+func _on_timer_timeout() -> void:
+	_is_on_break_time = false
+	movement_enabled = true
+	set_movement_target()
+
 ## Verifying that the points appear on the map
 func character_setup() -> void:
 	var max_attempts = 100
@@ -83,40 +120,3 @@ func set_movement_target() -> void:
 			target_position = NavigationServer2D.map_get_random_point(navigation_agent_2d.get_navigation_map(), navigation_agent_2d.navigation_layers, false)
 	navigation_agent_2d.target_position = target_position
 	_stuck_timer = 0.0
-
-
-func _physics_process(_delta : float) -> void:
-	if _is_on_break_time or !regions.size():
-		return
-		
-	if navigation_agent_2d.is_navigation_finished():
-		_stuck_timer = 0.0
-		if break_time > 0:
-			movement_enabled = false
-			_is_on_break_time = true
-			timer.start()
-			return
-		set_movement_target()
-	
-	var distance_moved = _last_position.distance_to(global_position)
-	
-	if distance_moved <= stuck_threshold_distance:
-		_stuck_timer += _delta
-		if _stuck_timer >= stuck_threshold_time:
-			set_movement_target()
-			return
-	else:
-		_stuck_timer = 0.0
-		
-	_last_position = global_position
-	
-	var target_position : Vector2 = navigation_agent_2d.get_next_path_position()
-	var target_direction = global_position.direction_to(target_position).normalized()
-	
-	move(movement_speed, target_direction)
-
-
-func _on_timer_timeout() -> void:
-	_is_on_break_time = false
-	movement_enabled = true
-	set_movement_target()

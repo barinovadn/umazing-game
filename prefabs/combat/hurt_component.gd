@@ -4,9 +4,10 @@ extends Area2D
 
 
 signal fatal_damage_taken
-signal damaged(by_amount: float)        
-signal healed(by_amount: float)         
-signal health_changed(by_amount: float) 
+signal damaged(by_amount: float)
+signal healed(by_amount: float)
+signal health_changed(by_amount: float)
+signal max_health_changed
 
 ## Specifies the team to which the parent belongs. 
 enum Team {
@@ -27,26 +28,32 @@ enum Team {
 
 @export_group("Health")
 @export var team: Team
-@export var max_health: float = 20.0
-
-var _total_damage: float = 0.0
-var current_health: float:
-	get():
-		return max_health - _total_damage
+@export var max_health: float = 20.0:
 	set(value):
-		var previous_health = max_health - _total_damage
-		_total_damage = (max_health - value)
-		health_changed.emit(value - previous_health) 
+		var koef: float = value / max_health
+		if current_health:
+			current_health = (koef * current_health)
+		max_health = value
+		max_health_changed.emit()
+
+
+var _previous_health: float = 0.0
+var current_health: float:
+	set(value):
+		current_health = value
+		health_changed.emit(value - _previous_health) 
 		
-		if max_health - _total_damage <= 0:
+		if current_health<= 0:
 			_disable()
 			_play_random_sound(sounds_die)
 			fatal_damage_taken.emit()
 		else:
 			_play_random_sound(sounds_damage)
+		_previous_health = current_health
 
 
 func _ready():
+	current_health = max_health
 	if sounds_player != null:
 		sounds_player.volume_db = sounds_volume
 
