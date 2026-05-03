@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 class_name Pickup
 
 @export var item_data: ItemData
@@ -9,11 +9,13 @@ class_name Pickup
 
 func _ready():
 	if item_data:
-		sprite.texture = item_data.item_icon
+		sprite.texture = item_data.icon
 
 	
 func collect():
-	if inventory.add_item(item_data):
-		queue_free() 
+	var leftover = inventory.add_item(item_data)
+	
+	if leftover <= 0:
+		queue_free()
 	else:
-		print("Предмет остался на полу :(")
+		item_data.amount = leftover
