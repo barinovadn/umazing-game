@@ -20,6 +20,7 @@ enum Team {
 @export var sounds_player: AudioStreamPlayer2D
 @export var sounds_damage: Array[AudioStream] = []
 @export var sounds_die: Array[AudioStream] = []
+@export var sounds_heal: Array[AudioStream] = []
 @export var sounds_volume: float:
 	set(value):
 		sounds_volume = value
@@ -51,15 +52,15 @@ var current_health: float:
 		
 		if flag == 1:
 			damaged.emit(abs(_previous_health - current_health))
+			_play_random_sound(sounds_damage)
 		elif flag == 2:
 			healed.emit(abs(_previous_health - current_health))
+			_play_random_sound(sounds_heal)
 		
 		if current_health<= 0:
 			_disable()
 			_play_random_sound(sounds_die)
 			fatal_damage_taken.emit()
-		else:
-			_play_random_sound(sounds_damage)
 		_previous_health = current_health
 
 

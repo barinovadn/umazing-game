@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="6_oo3uv"]
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
 [ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/combat/bullets/variations/shuriken/shuriken.tscn" id="7_30gqm"]
+[ext_resource type="AudioStream" uid="uid://d22fcw3uhvd35" path="res://prefabs/player/hit.ogg" id="7_agiw0"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://prefabs/player/health_ui.gd" id="11_30gqm"]
@@ -54,6 +55,7 @@ interval_between_shots = 0.4
 can_shoot = true
 
 [node name="HurtComponent" parent="." unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
+sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
 team = 1
 max_health = 5.0
 

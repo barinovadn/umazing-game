@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://fgbsvngybrki"]
 
-[ext_resource type="Script" uid="uid://c2cxt5deg26ha" path="res://prefabs/enemy/ai_controller.gd" id="1_4vsq4"]
+[ext_resource type="Script" uid="uid://c2cxt5deg26ha" path="res://prefabs/combat/ai/ai_controller.gd" id="1_4vsq4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4vsq4"]
 radius = 0.01

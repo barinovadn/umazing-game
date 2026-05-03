@@ -1,4 +1,4 @@
-@icon("enemy_controller.png")
+@icon("ai_controller.png")
 extends Area2D
 class_name EnemyController
 

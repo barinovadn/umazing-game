@@ -43,8 +43,6 @@ func _use_brain(action: Action):
 			current_movement.movement_enabled = false
 		"rest":
 			current_movement = movement_patterns["CatAreaMovement"]
-			current_movement.current_area_index = boof % 2
-			boof+=1
 			pause_between_shots.wait_time = 1.3
 			shoot_controller.can_shoot = false
 			current_bullet_type = bullet_types[1]

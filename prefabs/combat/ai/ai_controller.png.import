@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bulisbv75sx6w"
-path="res://.godot/imported/ai_controller.png-dafcb2ef35e8184927c6b50f042de34a.ctex"
+path="res://.godot/imported/ai_controller.png-e7e168af938c6594d94ab8e52f70f5c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/enemy/ai_controller.png"
-dest_files=["res://.godot/imported/ai_controller.png-dafcb2ef35e8184927c6b50f042de34a.ctex"]
+source_file="res://prefabs/combat/ai/ai_controller.png"
+dest_files=["res://.godot/imported/ai_controller.png-e7e168af938c6594d94ab8e52f70f5c2.ctex"]
 
 [params]
 

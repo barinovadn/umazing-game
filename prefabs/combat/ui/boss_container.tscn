@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dn3pwb4lu7m8l"]
 
-[ext_resource type="Script" uid="uid://b37osg36qdo1p" path="res://prefabs/enemy/ui/boss_container.gd" id="1_ktm4g"]
+[ext_resource type="Script" uid="uid://b37osg36qdo1p" path="res://prefabs/combat/ui/boss_container.gd" id="1_ktm4g"]
 [ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="2_mb8sh"]
-[ext_resource type="Texture2D" uid="uid://ciburhuh07it3" path="res://prefabs/enemy/ui/default_under.png" id="3_ym1oy"]
-[ext_resource type="Texture2D" uid="uid://d3q524kguuk4q" path="res://prefabs/enemy/ui/default_over.png" id="4_wd21x"]
-[ext_resource type="Texture2D" uid="uid://dub4jpdk7iw54" path="res://prefabs/enemy/ui/default_progress.png" id="5_wutkd"]
+[ext_resource type="Texture2D" uid="uid://ciburhuh07it3" path="res://prefabs/combat/ui/default_under.png" id="3_ym1oy"]
+[ext_resource type="Texture2D" uid="uid://d3q524kguuk4q" path="res://prefabs/combat/ui/default_over.png" id="4_wd21x"]
+[ext_resource type="Texture2D" uid="uid://dub4jpdk7iw54" path="res://prefabs/combat/ui/default_progress.png" id="5_wutkd"]
 
 [node name="BossContainer" type="Control" unique_id=858785610]
 layout_mode = 3

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3q524kguuk4q"
-path="res://.godot/imported/default_over.png-c6455b2f55fb012e8b94766b953bd25b.ctex"
+uid="uid://ciburhuh07it3"
+path="res://.godot/imported/default_under.png-5389d8819ba6eee0ab423821a706cdb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/enemy/ui/default_over.png"
-dest_files=["res://.godot/imported/default_over.png-c6455b2f55fb012e8b94766b953bd25b.ctex"]
+source_file="res://prefabs/combat/ui/default_under.png"
+dest_files=["res://.godot/imported/default_under.png-5389d8819ba6eee0ab423821a706cdb3.ctex"]
 
 [params]
 
