@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2sanref11et1"
-path="res://.godot/imported/cyclopus_cat_over.png-55ae0f4dc48f90856c9e9f0d10cb8afe.ctex"
+uid="uid://ciburhuh07it3"
+path="res://.godot/imported/boss_default_under.png-3bde171b31c119fd521e3ede0430e076.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/cyclopus_cat/demo/cyclopus_cat_over.png"
-dest_files=["res://.godot/imported/cyclopus_cat_over.png-55ae0f4dc48f90856c9e9f0d10cb8afe.ctex"]
+source_file="res://prefabs/combat/ui/boss_default_under.png"
+dest_files=["res://.godot/imported/boss_default_under.png-3bde171b31c119fd521e3ede0430e076.ctex"]
 
 [params]
 

@@ -15,7 +15,7 @@ func _process(delta: float):
 
 
 func create_boss(boss_name: String, current_hp: int, max_hp: int,
-	data: TexturesUI = null):
+	data: BossTexturesUI = null):
 	if data:
 		if data.texture_under:
 			bar.texture_under = data.texture_under

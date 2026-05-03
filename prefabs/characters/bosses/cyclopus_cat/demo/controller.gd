@@ -1,9 +1,9 @@
-extends EnemyController
+extends AIController
 
 var appeared: bool = false
 var boof: int = 0
 
-func _use_brain(action: Action):
+func _use_brain(action: AIAction):
 	if !appeared:
 		appeared = true
 		display_location.show_boss(display_name, hurt_component.current_health,
@@ -16,7 +16,6 @@ func _use_brain(action: Action):
 		shoot_controller.is_bounce_on = true
 		shoot_controller.number_of_bounces = 1
 	
-	print(action.action_name)
 	match action.action_name:
 		"homing_shot":
 			current_movement = movement_patterns["CatEnemyDTD"]

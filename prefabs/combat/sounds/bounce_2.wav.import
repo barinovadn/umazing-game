@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dnf6qcxly6qoy"
-path="res://.godot/imported/bounce_2.wav-c50c159ed36254a90b0019516db1b344.sample"
+path="res://.godot/imported/bounce_2.wav-51dc6ede1a16e924f5cf4bd94afd2664.sample"
 
 [deps]
 
-source_file="res://prefabs/combat/bullets/sounds/bounce_2.wav"
-dest_files=["res://.godot/imported/bounce_2.wav-c50c159ed36254a90b0019516db1b344.sample"]
+source_file="res://prefabs/combat/sounds/bounce_2.wav"
+dest_files=["res://.godot/imported/bounce_2.wav-51dc6ede1a16e924f5cf4bd94afd2664.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c5ao7p1ys2tvu"
-path="res://.godot/imported/impact_1.wav-d493428068fb5d5d7a91ca0c0d4afa23.sample"
+path="res://.godot/imported/impact_1.wav-52a8b2cdb1a55352753805421d4dda28.sample"
 
 [deps]
 
-source_file="res://prefabs/combat/bullets/sounds/impact_1.wav"
-dest_files=["res://.godot/imported/impact_1.wav-d493428068fb5d5d7a91ca0c0d4afa23.sample"]
+source_file="res://prefabs/combat/sounds/impact_1.wav"
+dest_files=["res://.godot/imported/impact_1.wav-52a8b2cdb1a55352753805421d4dda28.sample"]
 
 [params]
 

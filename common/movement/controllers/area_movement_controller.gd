@@ -1,3 +1,4 @@
+@icon("area_movement_controller.png")
 extends MovementController2D
 class_name AreaMovementController
 

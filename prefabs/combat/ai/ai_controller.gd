@@ -1,6 +1,6 @@
 @icon("ai_controller.png")
 extends Area2D
-class_name EnemyController
+class_name AIController
 
 
 @export var character: Character2D
@@ -10,7 +10,7 @@ class_name EnemyController
 @export_range(0.0, 1.0) var chance_of_rest: float
 ## An array containing all types of projectiles used by the boss
 @export var bullet_types: Array[Resource]
-@export var actions: Array[Action]
+@export var actions: Array[AIAction]
 ## Stores the HP percentage values (in the range of 0 to 1) at which the
 ## boss advances to the next phase. You need to record the HP percentage
 ## for each phase, starting with the second one. 
@@ -26,13 +26,13 @@ class_name EnemyController
 
 @export_group("Interface")
 @export var display_name: String
-@export var data_for_interface: TexturesUI
+@export var data_for_interface: BossTexturesUI
 ## Allows you to specify the [BossUI] location where the interface will be added.
 ## By default, it is displayed in the player's [BossUI].
 @export var display_location: BossUI
 
 ## A timer that sets the interval between actions
-@onready var action_changer: Timer = $ActionChanger
+@onready var action_changer: Timer = $AIActionChanger
 ## Sets the interval between shots for a specific type of attack
 @onready var pause_between_shots: Timer = $PauseBetweenShots
 
@@ -64,7 +64,7 @@ func _ready():
 
 ## Overridable logic for each boss;
 ## this is where the specific actions and procedures for each action are defined
-func _use_brain(_action: Action):
+func _use_brain(_action: AIAction):
 	pass
 
 ## Sets up portals associated with the boss. Disables the entrance portal,
@@ -81,8 +81,8 @@ func _on_action_changer_timeout():
 	action_changer.stop()
 	pause_between_shots.stop()
 	
-	var ready_boss_actions: Array[Action] = _select_available_actions()
-	var action_to_play: Action = _select_action_by_weight(ready_boss_actions)
+	var ready_boss_actions: Array[AIAction] = _select_available_actions()
+	var action_to_play: AIAction = _select_action_by_weight(ready_boss_actions)
 	
 	action_changer.wait_time = action_to_play.duration
 	action_changer.start()
@@ -93,8 +93,8 @@ func _on_pause_between_shots_timeout():
 	shoot_controller.create_a_projectile_from_argument(current_bullet_type)
 
 ## Selects actions from the boss's set of available actions that are available in this phase
-func _select_available_actions() -> Array[Action]:
-	var ready_boss_actions: Array[Action]
+func _select_available_actions() -> Array[AIAction]:
+	var ready_boss_actions: Array[AIAction]
 	
 	for action in actions:
 		if current_phase in action.phases:
@@ -103,7 +103,7 @@ func _select_available_actions() -> Array[Action]:
 	return ready_boss_actions
 
 ## Selects an action available in this phase
-func _select_action_by_weight(ready_boss_actions: Array[Action]) -> Action:
+func _select_action_by_weight(ready_boss_actions: Array[AIAction]) -> AIAction:
 	var array_length: float = 0.0
 	
 	for action in ready_boss_actions:
@@ -112,7 +112,7 @@ func _select_action_by_weight(ready_boss_actions: Array[Action]) -> Action:
 	var chance_of_action: float = randf_range(0, array_length)
 	
 	var current_length: float = 0.0
-	var action_to_play: Action
+	var action_to_play: AIAction
 	
 	for action in ready_boss_actions:
 		current_length += action.weight

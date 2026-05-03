@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ce7fe15edu60n"
-path="res://.godot/imported/whoosh_4.wav-6e9d521564b407dfac78c2f9c7c73a15.sample"
+path="res://.godot/imported/whoosh_4.wav-7c2f86af47dfd4d71866591070934974.sample"
 
 [deps]
 
-source_file="res://prefabs/combat/bullets/sounds/whoosh_4.wav"
-dest_files=["res://.godot/imported/whoosh_4.wav-6e9d521564b407dfac78c2f9c7c73a15.sample"]
+source_file="res://prefabs/combat/sounds/whoosh_4.wav"
+dest_files=["res://.godot/imported/whoosh_4.wav-7c2f86af47dfd4d71866591070934974.sample"]
 
 [params]
 

@@ -7,12 +7,12 @@ radius = 0.01
 
 [node name="AIController" type="Area2D" unique_id=359908874]
 collision_layer = 0
-collision_mask = 32
+collision_mask = 16
 script = ExtResource("1_4vsq4")
 
 [node name="PauseBetweenShots" type="Timer" parent="." unique_id=2056193798]
 
-[node name="ActionChanger" type="Timer" parent="." unique_id=485483522]
+[node name="AIActionChanger" type="Timer" parent="." unique_id=485483522]
 
 [node name="Trigger" type="CollisionShape2D" parent="." unique_id=156655188]
 shape = SubResource("CircleShape2D_4vsq4")
@@ -20,4 +20,4 @@ shape = SubResource("CircleShape2D_4vsq4")
 [connection signal="area_entered" from="." to="." method="activate_interaction"]
 [connection signal="area_exited" from="." to="." method="deactivate_interaction"]
 [connection signal="timeout" from="PauseBetweenShots" to="." method="_on_pause_between_shots_timeout"]
-[connection signal="timeout" from="ActionChanger" to="." method="_on_action_changer_timeout"]
+[connection signal="timeout" from="AIActionChanger" to="." method="_on_action_changer_timeout"]

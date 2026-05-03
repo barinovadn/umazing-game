@@ -1,5 +1,5 @@
 extends Resource
-class_name Action
+class_name AIAction
 
 @export var action_name: String
 @export var weight: float

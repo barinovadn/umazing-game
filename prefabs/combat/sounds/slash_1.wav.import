@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://ckwl4unnxv26o"
-path="res://.godot/imported/hit.wav-36fbcccefaa2767c07b1b746a69ec0ad.sample"
+uid="uid://dufrwl8jt5fk2"
+path="res://.godot/imported/slash_1.wav-35cd7b8dfa6a59fd311d3adab47c606c.sample"
 
 [deps]
 
-source_file="res://prefabs/player/hit.wav"
-dest_files=["res://.godot/imported/hit.wav-36fbcccefaa2767c07b1b746a69ec0ad.sample"]
+source_file="res://prefabs/combat/sounds/slash_1.wav"
+dest_files=["res://.godot/imported/slash_1.wav-35cd7b8dfa6a59fd311d3adab47c606c.sample"]
 
 [params]
 

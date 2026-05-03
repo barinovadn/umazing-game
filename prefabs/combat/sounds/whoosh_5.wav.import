@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bixonmf50tais"
-path="res://.godot/imported/whoosh_5.wav-8edc4b16235d4e2dff96a88ec62ffe53.sample"
+path="res://.godot/imported/whoosh_5.wav-d0f46a1cae115582d6166991c0aacd0f.sample"
 
 [deps]
 
-source_file="res://prefabs/combat/bullets/sounds/whoosh_5.wav"
-dest_files=["res://.godot/imported/whoosh_5.wav-8edc4b16235d4e2dff96a88ec62ffe53.sample"]
+source_file="res://prefabs/combat/sounds/whoosh_5.wav"
+dest_files=["res://.godot/imported/whoosh_5.wav-d0f46a1cae115582d6166991c0aacd0f.sample"]
 
 [params]
 

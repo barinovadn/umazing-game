@@ -63,7 +63,7 @@ signal deletion_completed
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 
 ## A variable that indicates whether deferred deletion is enabled for the bullet
-var is_deleted_with_delay: bool = false
+var is_deleted: bool = false
 var _crashed_in_char: bool = false
 
 
@@ -164,9 +164,9 @@ func ricochet(_body: Node2D) -> void:
 
 
 func destroy() -> void:
-	if is_deleted_with_delay:
+	if is_deleted:
 		return
-	is_deleted_with_delay = true
+	is_deleted = true
 	deletion_initiated.emit()
 	stop_and_disable_interaction()
 	if !_crashed_in_char:
@@ -184,7 +184,7 @@ func play_random_sound(array: Array[AudioStream]):
 
 
 func play_sound_being_alive(array: Array[AudioStream]):
-	if not array.size() or is_deleted_with_delay:
+	if not array.size() or is_deleted:
 		return
 	
 	await audio_player.finished

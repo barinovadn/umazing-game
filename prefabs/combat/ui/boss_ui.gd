@@ -9,7 +9,7 @@ const BOSS_CONTAINER = preload("uid://dn3pwb4lu7m8l")
 var active_bars: Dictionary = {}
 
 ## Add the boss's stats to the screen: name and HP bar
-func show_boss(boss_name: String, current_hp: float, max_hp: float, data: TexturesUI = null):
+func show_boss(boss_name: String, current_hp: float, max_hp: float, data: BossTexturesUI = null):
 	if active_bars.has(boss_name):
 		return
 	var boss_data = BOSS_CONTAINER.instantiate()

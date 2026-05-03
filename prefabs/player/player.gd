@@ -19,24 +19,28 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var controller: MovementController2D = $Controller
 @onready var interactor: Interactor = $Interactor
-@onready var trigger: Node2D = $Trigger
+@onready var trigger: Area2D = $Center
+@onready var room: Area2D = $Room
 @onready var camera: GridCamera2D = %Camera
 @onready var camera_controller: GridCameraFollower2D = $Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
-@onready var activation_area: Area2D = $ActivationArea
 @onready var health_ui: HealthUI = $UI/HealthUI
 
 
 func _ready():
 	_on_character_changed(character, null)
-	hurt_component.health_changed.connect(on_health_changed)
-	hurt_component.max_health_changed.connect(on_health_changed)
-	hurt_component.fatal_damage_taken.connect(on_fatal_damage_taken)
 	health_ui.update_health(hurt_component.current_health, hurt_component.max_health)
 
 
 func _process(_delta: float):
 	_update_component_positions()
+
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_pressed("shoot"):
+		shoot_controller.direction = interactor.direction
+		shoot_controller.create_a_projectile_from_argument(bullet_types[0])
+
 
 ## Some components like [member interactor] are expected to be children to the
 ## [member character] directily. This func syncs their positions with the
@@ -67,25 +71,15 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 		camera_controller.target = new_character
 
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_pressed("shoot"):
-		shoot_controller.direction = interactor.direction
-		shoot_controller.create_a_projectile_from_argument(bullet_types[0])
+func _on_health_changed(_amount: float = 0.0):
+	if hurt_component:
+		health_ui.update_health(hurt_component.current_health, hurt_component.max_health)
 
-## Plays random hit sound and updates health
-func on_health_changed(_amount: float = 0.0):
-	health_ui.update_health(hurt_component.current_health, hurt_component.max_health)
 
-## Is called when player lost all his hp
-func on_fatal_damage_taken():
-	
-	call_deferred("_reload_scene")
-
-## Reload curent scene
-func _reload_scene():
-	get_tree().reload_current_scene()
+func _on_fatal_damage_taken():
+	get_tree().reload_current_scene.call_deferred()
 
 
 func _on_camera_cell_changed(new_cell: Vector2, _smooth_transition: bool) -> void:
-	if activation_area:
-		activation_area.global_position = Vector2(320, 160) * new_cell
+	if room:
+		room.global_position = Vector2(320, 160) * new_cell

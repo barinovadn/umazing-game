@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3q524kguuk4q"
-path="res://.godot/imported/default_over.png-eb32027ac4e5a41c851f472fbcdabd45.ctex"
+uid="uid://b387pthn0kjm7"
+path="res://.godot/imported/area_movement_controller.png-74ed6dd866a20cfb637bd619f370f8df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/combat/ui/default_over.png"
-dest_files=["res://.godot/imported/default_over.png-eb32027ac4e5a41c851f472fbcdabd45.ctex"]
+source_file="res://common/movement/controllers/area_movement_controller.png"
+dest_files=["res://.godot/imported/area_movement_controller.png-74ed6dd866a20cfb637bd619f370f8df.ctex"]
 
 [params]
 

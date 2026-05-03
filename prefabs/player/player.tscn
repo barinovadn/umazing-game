@@ -9,12 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="6_oo3uv"]
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
 [ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/combat/bullets/variations/shuriken/shuriken.tscn" id="7_30gqm"]
-[ext_resource type="AudioStream" uid="uid://d22fcw3uhvd35" path="res://prefabs/player/hit.ogg" id="7_agiw0"]
+[ext_resource type="AudioStream" uid="uid://d22fcw3uhvd35" path="res://prefabs/player/player_hit_1.ogg" id="7_agiw0"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
-[ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://prefabs/player/health_ui.gd" id="11_30gqm"]
-[ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://prefabs/player/boss_ui.gd" id="13_b6byk"]
-[ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/health_default.png" id="14_ot5ig"]
+[ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://prefabs/player/player_health_ui.gd" id="11_30gqm"]
+[ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/player_health_default.png" id="14_ot5ig"]
+[ext_resource type="PackedScene" uid="uid://ckcsjxupy60hq" path="res://prefabs/combat/ui/boss_ui.tscn" id="15_agiw0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ev8v4"]
 radius = 0.01
@@ -40,13 +40,22 @@ metadata/_custom_type_script = "uid://cxp2akga3voxj"
 [node name="Interactor" parent="." unique_id=109062155 instance=ExtResource("1_rdx4y")]
 unique_name_in_owner = true
 
-[node name="Trigger" type="Area2D" parent="." unique_id=378323334]
+[node name="Center" type="Area2D" parent="." unique_id=378323334]
 collision_layer = 8
 collision_mask = 0
 monitoring = false
 
-[node name="Collider" type="CollisionShape2D" parent="Trigger" unique_id=1043735703]
+[node name="Collider" type="CollisionShape2D" parent="Center" unique_id=1043735703]
 shape = SubResource("CircleShape2D_ev8v4")
+
+[node name="Room" type="Area2D" parent="." unique_id=1024765016]
+z_index = 30
+collision_layer = 16
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape2D" parent="Room" unique_id=1385910216]
+shape = SubResource("RectangleShape2D_30gqm")
+debug_color = Color(0, 0.6, 0.7019608, 0)
 
 [node name="ShootController" parent="." unique_id=1242481191 instance=ExtResource("6_oo3uv")]
 team = 1
@@ -88,15 +97,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 transition_duration = 0.5
 
-[node name="ActivationArea" type="Area2D" parent="." unique_id=1024765016]
-z_index = 30
-collision_layer = 32
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea" unique_id=1385910216]
-shape = SubResource("RectangleShape2D_30gqm")
-debug_color = Color(0, 0.6, 0.7019608, 0)
-
 [node name="UI" type="CanvasLayer" parent="." unique_id=371737396]
 
 [node name="HealthUI" type="Control" parent="UI" unique_id=343436959]
@@ -116,29 +116,11 @@ offset_top = 20.0
 offset_right = 20.0
 offset_bottom = 20.0
 
-[node name="BossUI" type="Control" parent="UI" unique_id=1926342594]
+[node name="BossUI" parent="UI" unique_id=582167430 instance=ExtResource("15_agiw0")]
 unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("13_b6byk")
-
-[node name="Container" type="VBoxContainer" parent="UI/BossUI" unique_id=1681787510]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 60
-alignment = 2
-metadata/_edit_use_anchors_ = true
 
 [connection signal="character_changed" from="." to="." method="_on_character_changed"]
+[connection signal="fatal_damage_taken" from="HurtComponent" to="." method="_on_fatal_damage_taken"]
+[connection signal="health_changed" from="HurtComponent" to="." method="_on_health_changed"]
+[connection signal="max_health_changed" from="HurtComponent" to="." method="_on_health_changed"]
 [connection signal="cell_changed" from="Camera" to="." method="_on_camera_cell_changed"]

@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[node name="BossUIData" type="ResourcePreloader" unique_id=1442495940]
+[node name="BossTexturesUI" type="ResourcePreloader" unique_id=1442495940]
 script = SubResource("GDScript_28w17")

@@ -65,19 +65,13 @@ z_index = 60
 [node name="Teleports" type="Node2D" parent="." unique_id=1760141152]
 z_index = 50
 
-[node name="BossTeleports" type="Node2D" parent="Teleports" unique_id=1420055058]
-
 [node name="Characters" type="Node2D" parent="." unique_id=207261957]
 z_index = 30
-
-[node name="Paths" type="Node2D" parent="Characters" unique_id=1358162936]
 
 [node name="Interactables" type="Node2D" parent="." unique_id=233789877]
 z_index = 20
 
-[node name="Bosses" type="Node2D" parent="." unique_id=2090847819]
-
-[node name="Movement" type="Node2D" parent="Bosses" unique_id=2100014019]
+[node name="Enemies" type="Node2D" parent="." unique_id=92814873]
 
 [node name="Bullets" type="Node2D" parent="." unique_id=2040820107]
 unique_name_in_owner = true

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ckcsjxupy60hq"]
+
+[ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://prefabs/combat/ui/boss_ui.gd" id="1_gytut"]
+
+[node name="BossUI" type="Control" unique_id=582167430]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_gytut")
+
+[node name="Container" type="VBoxContainer" parent="." unique_id=1108329229]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 60
+alignment = 2
+metadata/_edit_use_anchors_ = true

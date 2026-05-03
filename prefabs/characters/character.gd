@@ -3,6 +3,7 @@ class_name Character2D
 extends CharacterBody2D
 ## Base class for all characters, both playable and NPCs.
 
+
 signal destroyed
 signal deleted
 signal hurt_component_changed(new_component)
@@ -79,7 +80,8 @@ var direction: Vector2: ## NOTE Read-only.
 	get(): return movement.direction if movement else Vector2.DOWN
 var is_shooting: bool: ## NOTE Read-only.
 	get(): return shoot_controller.is_shooting if shoot_controller else false
-var is_deleted_with_delay: bool = false
+var is_deleted: bool = false
+
 
 func _ready():
 	if animator:
@@ -92,7 +94,7 @@ func _physics_process(_delta):
 func _update_animation():
 	if not animator:
 		return
-	if is_deleted_with_delay:
+	if is_deleted:
 		if not animator.play(animator.AnimationType.DOWNED):
 			visible = false
 	elif is_shooting:
@@ -135,7 +137,7 @@ func _on_shooting_stopped():
 	_update_animation()
 
 func destroy():
-	is_deleted_with_delay = true
+	is_deleted = true
 	collision_layer = 0
 	destroyed.emit()
 	
