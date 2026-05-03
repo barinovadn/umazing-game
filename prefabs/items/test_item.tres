@@ -5,8 +5,11 @@
 
 [resource]
 script = ExtResource("1_86nn8")
-item_name = "Креветка"
-item_icon = ExtResource("1_88wyr")
+name = "Креветка"
+icon = ExtResource("1_88wyr")
+max_stack = 4
 description = "Еда"
-heal_amount = 5
+is_consumable = true
+is_active = true
+is_stackable = true
 metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

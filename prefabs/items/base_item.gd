@@ -1,13 +1,14 @@
 extends Resource
 class_name ItemData
 
-@export var item_name: String = "Item"
-@export var item_icon: Texture2D
-@export var max_stack: int = 99
+@export var name: String = "Item"
+@export var icon: Texture2D
+@export var max_stack: int = 99 
+@export var amount: int = 1
 @export var description: String = ""
 @export var is_consumable: bool = false
+@export var is_active: bool = false
+@export var is_stackable: bool = false
 
-@export_enum("Active", "Passive") var item_type: String = "Active"
 
-@export_group("Stats")
-@export var heal_amount: int = 0
+func use(): pass

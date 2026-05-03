@@ -148,61 +148,61 @@ description = Array[String](["<- Free hotdogs this way."])
 z_index = 11
 z_as_relative = false
 position = Vector2(-202, 2)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(1, 1)
 item_data = ExtResource("11_bc555")
 
 [node name="ItemPickup5" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="1" unique_id=90894508 instance=ExtResource("10_q7qle")]
 z_index = 11
 z_as_relative = false
 position = Vector2(-261, -7)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(1, 1)
 item_data = ExtResource("11_bc555")
 
 [node name="ItemPickup6" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="2" unique_id=1311133588 instance=ExtResource("10_q7qle")]
 z_index = 11
 z_as_relative = false
 position = Vector2(-164, 24)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(1, 1)
 item_data = ExtResource("11_bc555")
 
 [node name="ItemPickup7" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="3" unique_id=962905789 instance=ExtResource("10_q7qle")]
 z_index = 11
 z_as_relative = false
 position = Vector2(-34, -7)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(1, 1)
 item_data = ExtResource("11_bc555")
 
 [node name="ItemPickup9" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="4" unique_id=1845446440 instance=ExtResource("10_q7qle")]
 z_index = 11
 z_as_relative = false
 position = Vector2(-23, 28)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(1, 1)
 item_data = ExtResource("11_bc555")
 
 [node name="ItemPickup8" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="5" unique_id=691458593 instance=ExtResource("10_q7qle")]
 z_index = 11
 z_as_relative = false
 position = Vector2(-74, 28)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(1, 1)
 item_data = ExtResource("11_bc555")
 
 [node name="ItemPickup2" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="6" unique_id=1529804816 instance=ExtResource("10_q7qle")]
 z_index = 11
 z_as_relative = false
 position = Vector2(-77, -10)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(1, 1)
 item_data = ExtResource("11_bc555")
 
 [node name="ItemPickup3" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="7" unique_id=445834987 instance=ExtResource("10_q7qle")]
 z_index = 11
 z_as_relative = false
 position = Vector2(-125, 17)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(1, 1)
 item_data = ExtResource("11_bc555")
 
 [node name="ItemPickup4" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="8" unique_id=2127894643 instance=ExtResource("10_q7qle")]
 z_index = 11
 z_as_relative = false
 position = Vector2(-132, -12)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(1, 1)
 item_data = ExtResource("11_bc555")

@@ -23,7 +23,7 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 @onready var camera: GridCamera2D = %Camera
 @onready var camera_controller: GridCameraFollower2D = $Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
-@onready var inventory: Inventory = $UI/Inventory
+@onready var inventory = $UI/InventoryUI
 
 
 func _ready():
@@ -54,9 +54,7 @@ func _input(event):
 	if event.is_action_pressed("inventory"): 
 		inventory.visible = !inventory.visible
 		
-		if inventory.visible:
-			inventory.grab_focus() 
-		else:
+		if not inventory.visible:
 			inventory.action_panel.hide()
 
 
