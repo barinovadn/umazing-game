@@ -75,7 +75,7 @@ point_count = 2
 [sub_resource type="Resource" id="Resource_mywxa"]
 script = ExtResource("20_ivmt6")
 action_name = "homing_shot"
-weight = 0.25
+weight = 1.0
 phases = Array[int]([2, 3])
 duration = 5.0
 metadata/_custom_type_script = "uid://dowl0clqumedg"
@@ -91,7 +91,7 @@ metadata/_custom_type_script = "uid://dowl0clqumedg"
 [sub_resource type="Resource" id="Resource_psdh3"]
 script = ExtResource("20_ivmt6")
 action_name = "bunch_of_shots"
-weight = 0.4
+weight = 1.0
 phases = Array[int]([2, 3])
 duration = 5.0
 metadata/_custom_type_script = "uid://dowl0clqumedg"
@@ -99,9 +99,9 @@ metadata/_custom_type_script = "uid://dowl0clqumedg"
 [sub_resource type="Resource" id="Resource_2p5q4"]
 script = ExtResource("20_ivmt6")
 action_name = "rest"
-weight = 0.4
+weight = 0.5
 phases = Array[int]([1, 2, 3])
-duration = 2.0
+duration = 2.5
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
 [sub_resource type="Resource" id="Resource_6ggk5"]
@@ -382,7 +382,7 @@ movement_speed = 60.0
 metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
 
 [node name="DamageArea" parent="Bosses/CyclopusCat" index="5" unique_id=419752470 instance=ExtResource("35_mywxa")]
-cooldown_time = 10.0
+cooldown_time = 2.5
 
 [node name="CyclopusCat" type="Node2D" parent="Bosses/Movement" parent_id_path=PackedInt32Array(2100014019) index="0" unique_id=275429518]
 position = Vector2(960, -480)

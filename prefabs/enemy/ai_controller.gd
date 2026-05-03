@@ -17,7 +17,7 @@ class_name EnemyController
 @export var modulates_for_phase: Array[float]
 @export var movement_patterns: Dictionary[String, MovementController2D]
 
-@export_group("Interaction Points")
+@export_group("Event Responses")
 @export var show_on_activation: Array[Node2D]
 @export var hide_on_activation: Array[Node2D]
 @export var show_on_death: Array[Node2D]
@@ -88,6 +88,7 @@ func _on_action_changer_timeout():
 	action_changer.start()
 	_use_brain(action_to_play)
 
+
 func _on_pause_between_shots_timeout():
 	shoot_controller.create_a_projectile_from_argument(current_bullet_type)
 
@@ -105,7 +106,7 @@ func _select_available_actions() -> Array[Action]:
 func _select_action_by_weight(ready_boss_actions: Array[Action]) -> Action:
 	var array_length: float = 0.0
 	
-	for action in actions:
+	for action in ready_boss_actions:
 		array_length += action.weight
 	
 	var chance_of_action: float = randf_range(0, array_length)
@@ -115,7 +116,7 @@ func _select_action_by_weight(ready_boss_actions: Array[Action]) -> Action:
 	
 	for action in ready_boss_actions:
 		current_length += action.weight
-		if chance_of_action >= current_length:
+		if chance_of_action <= current_length:
 			action_to_play = action
 			break
 	

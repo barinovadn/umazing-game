@@ -48,7 +48,6 @@ func _use_brain(action: Action):
 			pause_between_shots.wait_time = 1.3
 			shoot_controller.can_shoot = false
 			current_bullet_type = bullet_types[1]
-			pause_between_shots.start()
 			current_movement.movement_enabled = true
 	
 	character.movement = current_movement

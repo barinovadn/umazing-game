@@ -40,8 +40,19 @@ enum Team {
 var _previous_health: float = 0.0
 var current_health: float:
 	set(value):
+		var flag: int
+		if value < current_health:
+			flag = 1
+		elif value > current_health:
+			flag = 2
+		
 		current_health = value
 		health_changed.emit(value - _previous_health) 
+		
+		if flag == 1:
+			damaged.emit(abs(_previous_health - current_health))
+		elif flag == 2:
+			healed.emit(abs(_previous_health - current_health))
 		
 		if current_health<= 0:
 			_disable()
