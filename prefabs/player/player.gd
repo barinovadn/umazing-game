@@ -15,15 +15,16 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		
 		character_changed.emit(character, old_character)
 
+@onready var components: Node2D = $Components
 @onready var shoot_controller: ShootController = $ShootController
 @onready var hurt_component: HurtComponent = $HurtComponent
-@onready var controller: MovementController2D = $Controller
-@onready var interactor: Interactor = $Interactor
+@onready var movement: MovementController2D = %Movement
+@onready var interactor: Interactor = %Interactor
 @onready var trigger: Area2D = $Center
 @onready var room: Area2D = $Room
 @onready var camera: GridCamera2D = %Camera
-@onready var camera_controller: GridCameraFollower2D = $Camera/BehaviorFollow
-@onready var camera_transitioner: GridCameraTransitionFade = $Camera/TransitionFade
+@onready var camera_controller: GridCameraFollower2D = %Camera/BehaviorFollow
+@onready var camera_transitioner: GridCameraTransitionFade = %Camera/TransitionFade
 @onready var health_ui: HealthUI = $UI/HealthUI
 
 
@@ -37,9 +38,17 @@ func _process(_delta: float):
 
 
 func _input(_event: InputEvent) -> void:
+	if event.is_action_pressed("mouse_interact") and character:
+		var mouse_pos := character.get_global_mouse_position()
+		var player_pos := character.global_position
+		
+		movement.direction = player
+		return
+	
 	if Input.is_action_pressed("shoot"):
 		shoot_controller.direction = interactor.direction
 		shoot_controller.create_a_projectile_from_argument(bullet_types[0])
+		return
 
 
 ## Some components like [member interactor] are expected to be children to the
@@ -49,10 +58,7 @@ func _update_component_positions():
 	if not character:
 		return
 	
-	interactor.global_position = character.global_position
-	trigger.global_position = character.global_position
-	hurt_component.global_position = character.global_position
-	shoot_controller.global_position = character.global_position
+	components.global_position = character.global_position
 
 
 func _on_character_changed(new_character: Character2D, old_character: Character2D):
@@ -62,7 +68,7 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 		old_character.shoot_controller = null
 		old_character.hurt_component = null
 	if new_character:
-		new_character.movement = controller
+		new_character.movement = movement
 		new_character.interactor = interactor
 		new_character.shoot_controller = shoot_controller
 		new_character.hurt_component = hurt_component

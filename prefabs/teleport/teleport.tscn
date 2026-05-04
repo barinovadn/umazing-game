@@ -7,10 +7,11 @@
 [node name="Teleport" type="Area2D" unique_id=1465987655 groups=["teleport"]]
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 script = ExtResource("1_crmny")
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=218277445]
 shape = SubResource("CircleShape2D_q61jf")
-debug_color = Color(0, 0.6, 0.7019608, 0.78431374)
+debug_color = Color(1, 0.24313726, 1, 0.78431374)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -26,26 +26,36 @@ size = Vector2(320, 160)
 script = ExtResource("1_wv1mm")
 bullet_types = Array[Resource]([ExtResource("7_30gqm")])
 
-[node name="Controller" type="Node2D" parent="." unique_id=1524632575]
+[node name="Components" type="Node2D" parent="." unique_id=1475945052]
+editor_description = "This node's global_position is synced with the player.character's global_position."
+z_index = 20
+
+[node name="Movement" type="Node" parent="Components" unique_id=536906422 node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
 script = ExtResource("2_wv1mm")
-movement_controls = Dictionary[int, String]({
+player = NodePath("../..")
+controls = Dictionary[int, String]({
 0: "move_left",
 1: "move_right",
 2: "move_up",
-3: "move_down"
+3: "move_down",
+4: "mouse_move"
 })
+mouse_edge_margin = 20.0
 movement_speed = 60.0
 metadata/_custom_type_script = "uid://cxp2akga3voxj"
 
-[node name="Interactor" parent="." unique_id=109062155 instance=ExtResource("1_rdx4y")]
+[node name="Interactor" parent="Components" unique_id=109062155 instance=ExtResource("1_rdx4y")]
 unique_name_in_owner = true
 
-[node name="Center" type="Area2D" parent="." unique_id=378323334]
+[node name="Center" type="Area2D" parent="Components" unique_id=378323334]
+editor_description = "Used as a way to track player's center position.
+Currently triggers environmental zones."
 collision_layer = 8
 collision_mask = 0
 monitoring = false
 
-[node name="Collider" type="CollisionShape2D" parent="Center" unique_id=1043735703]
+[node name="Collider" type="CollisionShape2D" parent="Components/Center" unique_id=1043735703]
 shape = SubResource("CircleShape2D_ev8v4")
 
 [node name="Room" type="Area2D" parent="." unique_id=1024765016]

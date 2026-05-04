@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b0aiwwk5ql1ri"]
+
+[ext_resource type="PackedScene" uid="uid://bi0bh50tpx4bx" path="res://prefabs/vfx/vfx_effect.tscn" id="1_qk24f"]
+[ext_resource type="PackedScene" uid="uid://c1akfo133wrn2" path="res://prefabs/light/light.tscn" id="2_5qs0j"]
+[ext_resource type="Texture2D" uid="uid://bpv3pgnqw7vpt" path="res://prefabs/vfx/static/fireflies.png" id="2_xc362"]
+[ext_resource type="Material" uid="uid://dq0orc3sd2i14" path="res://prefabs/vfx/static/fireflies.tres" id="3_8enl5"]
+
+[node name="Fireflies" unique_id=1228765060 node_paths=PackedStringArray("gpu_particles") instance=ExtResource("1_qk24f")]
+gpu_particles = [NodePath("GPUParticles2D")]
+off_screen_behaviour = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="0" unique_id=1112286403]
+modulate = Color(0.544, 1.572, 0, 1)
+amount = 6
+texture = ExtResource("2_xc362")
+lifetime = 12.0
+process_material = ExtResource("3_8enl5")
+
+[node name="Light" parent="." index="1" unique_id=266634095 instance=ExtResource("2_5qs0j")]
+scale = Vector2(2.5, 2.5)
+color = Color(0.5625, 0.75, 0, 1)
+energy = 0.2

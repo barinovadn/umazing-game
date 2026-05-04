@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bo22fb7lc8uyl"]
+
+[ext_resource type="PackedScene" uid="uid://dco2pch76pmk6" path="res://prefabs/vfx/dynamic/break_rocks.tscn" id="1_s4quo"]
+[ext_resource type="Texture2D" uid="uid://coi2jlel1rumk" path="res://prefabs/vfx/dynamic/break_wood.png" id="2_del08"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_acctr"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Rocks" unique_id=1228765060 instance=ExtResource("1_s4quo")]
+
+[node name="GPUParticles2D" parent="." index="0" unique_id=1593957519]
+material = SubResource("CanvasItemMaterial_acctr")
+texture = ExtResource("2_del08")

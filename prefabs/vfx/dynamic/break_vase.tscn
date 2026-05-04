@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cnda2pv5gwefs"]
+
+[ext_resource type="PackedScene" uid="uid://dco2pch76pmk6" path="res://prefabs/vfx/dynamic/break_rocks.tscn" id="1_t74b8"]
+[ext_resource type="Texture2D" uid="uid://ct42lvydaqtnu" path="res://prefabs/vfx/dynamic/break_vase.png" id="2_f5lwy"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f5lwy"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Vase" unique_id=1228765060 instance=ExtResource("1_t74b8")]
+
+[node name="GPUParticles2D" parent="." index="0" unique_id=1593957519]
+material = SubResource("CanvasItemMaterial_f5lwy")
+texture = ExtResource("2_f5lwy")

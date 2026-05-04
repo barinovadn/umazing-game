@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b7chm4a43nite"]
+
+[ext_resource type="PackedScene" uid="uid://dco2pch76pmk6" path="res://prefabs/vfx/dynamic/break_rocks.tscn" id="1_hglf2"]
+[ext_resource type="Texture2D" uid="uid://dsepnetl61fkp" path="res://prefabs/vfx/dynamic/break_rocks_gray.png" id="2_ce305"]
+
+[node name="RocksGray" unique_id=1228765060 instance=ExtResource("1_hglf2")]
+
+[node name="GPUParticles2D" parent="." index="0" unique_id=1593957519]
+texture = ExtResource("2_ce305")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://1s2f6ryuldsv"]
+
+[ext_resource type="PackedScene" uid="uid://0bkb8m0yweiq" path="res://prefabs/vfx/dynamic/puff_spark.tscn" id="1_wdpka"]
+[ext_resource type="Texture2D" uid="uid://caqaqv8swnq07" path="res://prefabs/vfx/dynamic/puff_snow.png" id="2_u88sn"]
+
+[node name="PuffSpark" unique_id=1228765060 instance=ExtResource("1_wdpka")]
+
+[node name="GPUParticles2D" parent="." index="0" unique_id=1954578229]
+texture = ExtResource("2_u88sn")
