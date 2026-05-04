@@ -16,16 +16,16 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		character_changed.emit(character, old_character)
 
 @onready var components: Node2D = $Components
-@onready var shoot_controller: ShootController = $ShootController
-@onready var hurt_component: HurtComponent = $HurtComponent
+@onready var shoot_controller: ShootController = %ShootController
+@onready var hurt_component: HurtComponent = %HurtComponent
 @onready var movement: MovementController2D = %Movement
 @onready var interactor: Interactor = %Interactor
-@onready var trigger: Area2D = $Center
-@onready var room: Area2D = $Room
+@onready var trigger: Area2D = %Center
+@onready var room: Area2D = %Room
 @onready var camera: GridCamera2D = %Camera
 @onready var camera_controller: GridCameraFollower2D = %Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = %Camera/TransitionFade
-@onready var health_ui: HealthUI = $UI/HealthUI
+@onready var health_ui: HealthUI = %HealthUI
 
 
 func _ready():
@@ -37,15 +37,19 @@ func _process(_delta: float):
 	_update_component_positions()
 
 
-func _input(_event: InputEvent) -> void:
-	if event.is_action_pressed("mouse_interact") and character:
+func _input(event: InputEvent):
+	if( Input.is_action_pressed("mouse_interact")
+		and character and not movement.is_moving):
 		var mouse_pos := character.get_global_mouse_position()
 		var player_pos := character.global_position
 		
-		movement.direction = player
+		movement.direction = player_pos.direction_to(mouse_pos)
+	
+	if event.is_action_released("mouse_interact"):
+		interactor.interact.call_deferred()
 		return
 	
-	if Input.is_action_pressed("shoot"):
+	if event.is_action("shoot"):
 		shoot_controller.direction = interactor.direction
 		shoot_controller.create_a_projectile_from_argument(bullet_types[0])
 		return

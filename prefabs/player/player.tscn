@@ -22,7 +22,7 @@ radius = 0.01
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30gqm"]
 size = Vector2(320, 160)
 
-[node name="Player" type="Node" unique_id=486757243]
+[node name="Player" type="Node" unique_id=1659074022]
 script = ExtResource("1_wv1mm")
 bullet_types = Array[Resource]([ExtResource("7_30gqm")])
 
@@ -30,7 +30,7 @@ bullet_types = Array[Resource]([ExtResource("7_30gqm")])
 editor_description = "This node's global_position is synced with the player.character's global_position."
 z_index = 20
 
-[node name="Movement" type="Node" parent="Components" unique_id=536906422 node_paths=PackedStringArray("player")]
+[node name="Movement" type="Node2D" parent="Components" unique_id=1425964273 node_paths=PackedStringArray("player")]
 unique_name_in_owner = true
 script = ExtResource("2_wv1mm")
 player = NodePath("../..")
@@ -43,12 +43,25 @@ controls = Dictionary[int, String]({
 })
 mouse_edge_margin = 20.0
 movement_speed = 60.0
-metadata/_custom_type_script = "uid://cxp2akga3voxj"
 
 [node name="Interactor" parent="Components" unique_id=109062155 instance=ExtResource("1_rdx4y")]
 unique_name_in_owner = true
 
+[node name="ShootController" parent="Components" unique_id=1242481191 instance=ExtResource("6_oo3uv")]
+unique_name_in_owner = true
+team = 1
+bullet_types = Array[Resource]([ExtResource("7_30gqm")])
+interval_between_shots = 0.4
+can_shoot = true
+
+[node name="HurtComponent" parent="Components" unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
+unique_name_in_owner = true
+sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
+team = 1
+max_health = 5.0
+
 [node name="Center" type="Area2D" parent="Components" unique_id=378323334]
+unique_name_in_owner = true
 editor_description = "Used as a way to track player's center position.
 Currently triggers environmental zones."
 collision_layer = 8
@@ -59,6 +72,7 @@ monitoring = false
 shape = SubResource("CircleShape2D_ev8v4")
 
 [node name="Room" type="Area2D" parent="." unique_id=1024765016]
+unique_name_in_owner = true
 z_index = 30
 collision_layer = 16
 collision_mask = 0
@@ -66,17 +80,6 @@ collision_mask = 0
 [node name="Collider" type="CollisionShape2D" parent="Room" unique_id=1385910216]
 shape = SubResource("RectangleShape2D_30gqm")
 debug_color = Color(0, 0.6, 0.7019608, 0)
-
-[node name="ShootController" parent="." unique_id=1242481191 instance=ExtResource("6_oo3uv")]
-team = 1
-bullet_types = Array[Resource]([ExtResource("7_30gqm")])
-interval_between_shots = 0.4
-can_shoot = true
-
-[node name="HurtComponent" parent="." unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
-sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
-team = 1
-max_health = 5.0
 
 [node name="Camera" type="Camera2D" parent="." unique_id=380955172]
 unique_name_in_owner = true
@@ -110,6 +113,7 @@ transition_duration = 0.5
 [node name="UI" type="CanvasLayer" parent="." unique_id=371737396]
 
 [node name="HealthUI" type="Control" parent="UI" unique_id=343436959]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 60.0
@@ -130,7 +134,7 @@ offset_bottom = 20.0
 unique_name_in_owner = true
 
 [connection signal="character_changed" from="." to="." method="_on_character_changed"]
-[connection signal="fatal_damage_taken" from="HurtComponent" to="." method="_on_fatal_damage_taken"]
-[connection signal="health_changed" from="HurtComponent" to="." method="_on_health_changed"]
-[connection signal="max_health_changed" from="HurtComponent" to="." method="_on_health_changed"]
+[connection signal="fatal_damage_taken" from="Components/HurtComponent" to="." method="_on_fatal_damage_taken"]
+[connection signal="health_changed" from="Components/HurtComponent" to="." method="_on_health_changed"]
+[connection signal="max_health_changed" from="Components/HurtComponent" to="." method="_on_health_changed"]
 [connection signal="cell_changed" from="Camera" to="." method="_on_camera_cell_changed"]
