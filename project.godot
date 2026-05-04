@@ -39,6 +39,7 @@ window/stretch/scale=1.5
 
 folder_colors={
 "res://autoload/": "red",
+"res://build/": "yellow",
 "res://common/": "blue",
 "res://prefabs/": "purple",
 "res://scenes/": "teal"
@@ -47,10 +48,11 @@ folder_colors={
 [global_group]
 
 character=""
-interactable=""
-inspectable=""
-teleport=""
 environment_zone=""
+inspectable=""
+interactable=""
+teleport=""
+vfx_effect=""
 
 [input]
 
