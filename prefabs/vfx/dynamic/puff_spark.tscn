@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://0bkb8m0yweiq"]
+
+[ext_resource type="PackedScene" uid="uid://bi0bh50tpx4bx" path="res://prefabs/vfx/vfx_effect.tscn" id="1_67q7w"]
+[ext_resource type="Texture2D" uid="uid://dn1f58uis74fs" path="res://prefabs/vfx/dynamic/puff_spark.png" id="2_pqlp5"]
+[ext_resource type="Material" uid="uid://q7l3seyeowj6" path="res://prefabs/vfx/dynamic/puff.tres" id="3_bamvj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pqlp5"]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="PuffSpark" unique_id=1228765060 node_paths=PackedStringArray("gpu_particles") instance=ExtResource("1_67q7w")]
+gpu_particles = [NodePath("GPUParticles2D")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="0" unique_id=1954578229]
+modulate = Color(1.2059393, 1.3945211, 1.1520587, 1)
+material = SubResource("CanvasItemMaterial_pqlp5")
+emitting = false
+amount = 4
+texture = ExtResource("2_pqlp5")
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("3_bamvj")

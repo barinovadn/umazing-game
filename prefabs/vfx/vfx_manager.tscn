@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cspmsxmen0mcp"]
+
+[ext_resource type="Script" uid="uid://e4q7s6unpmbd" path="res://prefabs/vfx/vfx_manager.gd" id="1_3o42a"]
+[ext_resource type="PackedScene" uid="uid://dco2pch76pmk6" path="res://prefabs/vfx/dynamic/break_rocks.tscn" id="2_6oe7c"]
+[ext_resource type="PackedScene" uid="uid://b0aiwwk5ql1ri" path="res://prefabs/vfx/static/fireflies.tscn" id="3_6efpr"]
+[ext_resource type="PackedScene" uid="uid://cnda2pv5gwefs" path="res://prefabs/vfx/dynamic/break_vase.tscn" id="4_tojsd"]
+[ext_resource type="PackedScene" uid="uid://b7chm4a43nite" path="res://prefabs/vfx/dynamic/break_rocks_gray.tscn" id="4_un3y0"]
+[ext_resource type="PackedScene" uid="uid://bo22fb7lc8uyl" path="res://prefabs/vfx/dynamic/break_wood.tscn" id="5_ul4fe"]
+[ext_resource type="PackedScene" uid="uid://rdbm71hlvpj1" path="res://prefabs/vfx/dynamic/break_bamboo.tscn" id="6_neuoi"]
+[ext_resource type="PackedScene" uid="uid://cecq38641eusp" path="res://prefabs/vfx/dynamic/burst_grass.tscn" id="8_ul4fe"]
+[ext_resource type="PackedScene" uid="uid://1nb64bwo0hvg" path="res://prefabs/vfx/dynamic/burst_leaves.tscn" id="9_ihx6h"]
+[ext_resource type="PackedScene" uid="uid://ca5q185c200uy" path="res://prefabs/vfx/dynamic/burst_leaves_pink.tscn" id="10_sygg6"]
+[ext_resource type="PackedScene" uid="uid://0bkb8m0yweiq" path="res://prefabs/vfx/dynamic/puff_spark.tscn" id="11_sygg6"]
+[ext_resource type="PackedScene" uid="uid://1s2f6ryuldsv" path="res://prefabs/vfx/dynamic/puff_snow.tscn" id="12_75w64"]
+
+[node name="VFXManager" type="Node2D" unique_id=880750068]
+script = ExtResource("1_3o42a")
+effects = Dictionary[int, PackedScene]({
+10: ExtResource("2_6oe7c"),
+11: ExtResource("4_un3y0"),
+20: ExtResource("4_tojsd"),
+30: ExtResource("5_ul4fe"),
+40: ExtResource("6_neuoi"),
+100: ExtResource("8_ul4fe"),
+110: ExtResource("9_ihx6h"),
+111: ExtResource("10_sygg6"),
+200: ExtResource("11_sygg6"),
+210: ExtResource("12_75w64"),
+10000: ExtResource("3_6efpr")
+})

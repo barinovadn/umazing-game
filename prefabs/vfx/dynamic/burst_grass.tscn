@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cecq38641eusp"]
+
+[ext_resource type="PackedScene" uid="uid://bi0bh50tpx4bx" path="res://prefabs/vfx/vfx_effect.tscn" id="1_14vjh"]
+[ext_resource type="Texture2D" uid="uid://ece8hdc3vbth" path="res://prefabs/vfx/dynamic/burst_grass.png" id="2_ntke3"]
+[ext_resource type="Material" uid="uid://xp3xdjgvbxum" path="res://prefabs/vfx/dynamic/burst.tres" id="3_hya7l"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ntke3"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="BurstGrass" unique_id=1228765060 node_paths=PackedStringArray("gpu_particles") instance=ExtResource("1_14vjh")]
+gpu_particles = [NodePath("GPUParticles2D")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="0" unique_id=66671460]
+material = SubResource("CanvasItemMaterial_ntke3")
+emitting = false
+texture = ExtResource("2_ntke3")
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("3_hya7l")

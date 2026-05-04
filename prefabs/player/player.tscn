@@ -37,14 +37,14 @@ metadata/_custom_type_script = "uid://cxp2akga3voxj"
 [node name="Interactor" parent="Components" unique_id=109062155 instance=ExtResource("1_rdx4y")]
 unique_name_in_owner = true
 
-[node name="Trigger" type="Area2D" parent="Components" unique_id=378323334]
+[node name="Center" type="Area2D" parent="Components" unique_id=378323334]
 editor_description = "Used as a way to track player's center position.
 Currently triggers environmental zones."
 collision_layer = 8
 collision_mask = 0
 monitoring = false
 
-[node name="Collider" type="CollisionShape2D" parent="Components/Trigger" unique_id=1043735703]
+[node name="Collider" type="CollisionShape2D" parent="Components/Center" unique_id=1043735703]
 shape = SubResource("CircleShape2D_ev8v4")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=380955172]

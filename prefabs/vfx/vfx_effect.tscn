@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bi0bh50tpx4bx"]
+
+[ext_resource type="Script" uid="uid://bd4mm35xthy6i" path="res://prefabs/vfx/vfx_effect.gd" id="1_rvq23"]
+
+[node name="Effect" type="Node2D" unique_id=1228765060 groups=["vfx_effect"]]
+script = ExtResource("1_rvq23")
+pause_delay = 1.0
+delete_once_finished = true
+
+[node name="ScreenDetection" type="VisibleOnScreenNotifier2D" parent="." unique_id=461511807]
+rect = Rect2(-0.5, -0.5, 1, 1)
+show_rect = false
+
+[connection signal="screen_entered" from="ScreenDetection" to="." method="_on_screen_entered"]
+[connection signal="screen_exited" from="ScreenDetection" to="." method="_on_screen_exited"]

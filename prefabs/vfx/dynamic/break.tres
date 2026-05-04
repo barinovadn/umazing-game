@@ -1,0 +1,51 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cucgvm4exx51v"]
+
+[sub_resource type="Gradient" id="Gradient_ul7pl"]
+offsets = PackedFloat32Array(0.9, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gidex"]
+gradient = SubResource("Gradient_ul7pl")
+
+[sub_resource type="Curve" id="Curve_gidex"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.40857142, 0), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_count = 12
+
+[sub_resource type="CurveTexture" id="CurveTexture_gdlh6"]
+curve = SubResource("Curve_gidex")
+
+[sub_resource type="Curve" id="Curve_ul7pl"]
+_data = [Vector2(0, 0.75), 0.0, 0.0, 0, 0, Vector2(0.25, 1), -4.050802e-07, -4.050802e-07, 0, 0, Vector2(0.5, 0.9166667), 0.0, 0.0, 0, 0, Vector2(0.9166667, 0.9166667), 0.0, 0.0, 0, 0, Vector2(1, 0.6666667), 0.0, 0.0, 0, 0]
+point_count = 5
+metadata/_snap_count = 12
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_gidex"]
+curve = SubResource("Curve_ul7pl")
+
+[resource]
+lifetime_randomness = 0.25
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(8, 8, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 110.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 250, 0)
+damping_min = 90.00001
+damping_max = 90.00001
+damping_curve = SubResource("CurveTexture_gdlh6")
+scale_min = 0.59999996
+scale_max = 0.79999995
+scale_curve = SubResource("CurveTexture_gidex")
+color_ramp = SubResource("GradientTexture1D_gidex")
+hue_variation_min = -0.020000022
+hue_variation_max = 0.029999977
+anim_offset_max = 1.0

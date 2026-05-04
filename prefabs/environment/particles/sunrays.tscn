@@ -33,7 +33,7 @@ color_ramp = SubResource("GradientTexture1D_kl50p")
 anim_offset_max = 1.0
 
 [node name="Sunrays" type="GPUParticles2D" unique_id=894155489]
-modulate = Color(0.9411765, 0.78431374, 0.50980395, 1)
+modulate = Color(1, 0.84313726, 0.27450982, 1)
 self_modulate = Color(1, 1, 1, 0.6862745)
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_78qn4")

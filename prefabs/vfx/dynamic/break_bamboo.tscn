@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://rdbm71hlvpj1"]
+
+[ext_resource type="PackedScene" uid="uid://dco2pch76pmk6" path="res://prefabs/vfx/dynamic/break_rocks.tscn" id="1_620b3"]
+[ext_resource type="Texture2D" uid="uid://blwcbw1gtxup7" path="res://prefabs/vfx/dynamic/break_bamboo.png" id="2_da406"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bx5w6"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="BreakBamboo" unique_id=1228765060 instance=ExtResource("1_620b3")]
+
+[node name="GPUParticles2D" parent="." index="0" unique_id=1593957519]
+material = SubResource("CanvasItemMaterial_bx5w6")
+texture = ExtResource("2_da406")

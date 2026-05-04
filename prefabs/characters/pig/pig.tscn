@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuxbwbedjhckr"]
+[gd_scene format=3 uid="uid://cuxbwbedjhckr"]
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_31gvv"]
 [ext_resource type="Texture2D" uid="uid://cwjq41mafh0rm" path="res://prefabs/characters/pig/sprite_sheet.png" id="2_8bdqt"]
@@ -37,18 +37,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Pig" instance=ExtResource("1_31gvv")]
+[node name="Pig" unique_id=850560069 instance=ExtResource("1_31gvv")]
 
-[node name="Shadow" parent="." index="1"]
+[node name="Shadow" parent="." index="1" unique_id=66535912]
 position = Vector2(0, 6)
 
-[node name="Sprite" parent="." index="2"]
+[node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_31gvv")
 animation = &"idle_left"
 autoplay = "idle_left"
 frame_progress = 0.0
 
-[node name="AnimationController" parent="." index="3"]
+[node name="AnimationController" parent="." index="3" unique_id=395358213]
 animations = Dictionary[int, String]({
 1: "idle_left",
 2: "idle_left",

@@ -7,6 +7,7 @@
 [node name="Teleport" type="Area2D" unique_id=1465987655 groups=["teleport"]]
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 script = ExtResource("1_crmny")
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=218277445]

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://1nb64bwo0hvg"]
+
+[ext_resource type="PackedScene" uid="uid://cecq38641eusp" path="res://prefabs/vfx/dynamic/burst_grass.tscn" id="1_h3jen"]
+[ext_resource type="Texture2D" uid="uid://cfyi7kfo5g67q" path="res://prefabs/vfx/dynamic/burst_leaves.png" id="2_oj8xa"]
+
+[node name="BurstLeaves" unique_id=1228765060 instance=ExtResource("1_h3jen")]
+
+[node name="GPUParticles2D" parent="." index="0" unique_id=66671460]
+texture = ExtResource("2_oj8xa")

@@ -32,6 +32,14 @@ func _ready():
 
 func _process(_delta: float):
 	_update_component_positions()
+	
+	if Input.is_action_just_pressed("mouse_interact"):
+	#if Input.is_action_pressed("mouse_interact"):
+		var mouse_pos := character.get_global_mouse_position()
+		var vfx := %VFXManager as VFXManager2D
+		var Effect := vfx.Effect
+		
+		vfx.spawn(Effect.BREAK_ROCKS_GRAY, mouse_pos)
 
 
 func _input(event: InputEvent):
