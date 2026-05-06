@@ -4699,15 +4699,9 @@ texture = ExtResource("5_rnc6o")
 0:0/animation_frame_3/duration = 1.0
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nsusa"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tery7"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_loop4"]
 texture = ExtResource("8_tery7")
 1:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m31mh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k00wv"]
 texture = ExtResource("10_jjqe1")
@@ -4755,9 +4749,6 @@ sources/1 = SubResource("TileSetAtlasSource_pgw2t")
 sources/2 = SubResource("TileSetAtlasSource_v6qf6")
 sources/3 = SubResource("TileSetAtlasSource_rnc6o")
 sources/4 = SubResource("TileSetAtlasSource_blq31")
-sources/5 = SubResource("TileSetAtlasSource_nsusa")
-sources/6 = SubResource("TileSetAtlasSource_tery7")
 sources/7 = SubResource("TileSetAtlasSource_loop4")
-sources/8 = SubResource("TileSetAtlasSource_m31mh")
 sources/9 = SubResource("TileSetAtlasSource_k00wv")
 sources/10 = SubResource("TileSetAtlasSource_jjqe1")
