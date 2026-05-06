@@ -3,10 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://bc2na3cqh6r7y" path="res://prefabs/tilesets/terrain_ground.png" id="1_yaauy"]
 [ext_resource type="Texture2D" uid="uid://bntsresdikbl3" path="res://prefabs/tilesets/terrain_floor.png" id="2_0ixgv"]
 [ext_resource type="Texture2D" uid="uid://y4ay0bswekst" path="res://prefabs/tilesets/terrain_walls.png" id="2_v6qf6"]
+[ext_resource type="Texture2D" uid="uid://0qk14lyarjtb" path="res://prefabs/tilesets/lava_water_fire.png" id="3_rcp5w"]
 [ext_resource type="Texture2D" uid="uid://dx72hue8w0j0u" path="res://prefabs/tilesets/TilesetWater.png" id="4_0ixgv"]
 [ext_resource type="Texture2D" uid="uid://c106p7ttbixdh" path="res://prefabs/tilesets/SpriteSheet16x16.png" id="5_rnc6o"]
-[ext_resource type="Texture2D" uid="uid://oxbc12cuf6nr" path="res://prefabs/tilesets/lava.png" id="6_y84p3"]
-[ext_resource type="Texture2D" uid="uid://o27no40y5lga" path="res://prefabs/tilesets/lava2.png" id="7_rcp5w"]
+[ext_resource type="Texture2D" uid="uid://cipgmaqmhv3qq" path="res://prefabs/tilesets/TilesetReliefDetail.png" id="8_tery7"]
+[ext_resource type="Texture2D" uid="uid://c7q5vkichdeyg" path="res://prefabs/tilesets/black.png" id="10_jjqe1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 resource_name = "Ground"
@@ -3960,6 +3961,49 @@ texture = ExtResource("2_0ixgv")
 19:16/0/terrains_peering_bit/left_side = 5
 19:16/0/terrains_peering_bit/top_side = 5
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjqe1"]
+texture = ExtResource("3_rcp5w")
+13:0/animation_frame_0/duration = 0.6
+13:0/animation_frame_1/duration = 0.6
+13:0/animation_frame_2/duration = 0.6
+13:0/animation_frame_3/duration = 0.6
+13:0/animation_frame_4/duration = 1.0
+13:0/0 = 0
+13:1/animation_frame_0/duration = 0.6
+13:1/animation_frame_1/duration = 0.6
+13:1/animation_frame_2/duration = 0.6
+13:1/animation_frame_3/duration = 0.6
+13:1/animation_frame_4/duration = 1.0
+13:1/0 = 0
+20:1/animation_frame_0/duration = 0.6
+20:1/animation_frame_1/duration = 0.6
+20:1/animation_frame_2/duration = 1.0
+20:1/0 = 0
+20:0/animation_frame_0/duration = 0.6
+20:0/animation_frame_1/duration = 0.6
+20:0/animation_frame_2/duration = 1.0
+20:0/0 = 0
+11:4/animation_frame_0/duration = 1.0
+11:4/animation_frame_1/duration = 1.0
+11:4/animation_frame_2/duration = 1.0
+11:4/0 = 0
+14:4/animation_frame_0/duration = 1.0
+14:4/animation_frame_1/duration = 1.0
+14:4/animation_frame_2/duration = 1.0
+14:4/animation_frame_3/duration = 1.0
+14:4/0 = 0
+11:3/animation_frame_0/duration = 1.0
+11:3/animation_frame_1/duration = 1.0
+11:3/0 = 0
+4:0/animation_frame_0/duration = 0.3
+4:0/animation_frame_1/duration = 0.3
+4:0/animation_frame_2/duration = 1.0
+4:0/0 = 0
+4:1/size_in_atlas = Vector2i(2, 2)
+4:1/animation_frame_0/duration = 0.3
+4:1/animation_frame_1/duration = 1.0
+4:1/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v6qf6"]
 texture = ExtResource("2_v6qf6")
 0:0/0 = 0
@@ -4656,36 +4700,20 @@ texture = ExtResource("5_rnc6o")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nsusa"]
-texture = ExtResource("6_y84p3")
-12:0/0 = 0
-11:0/0 = 0
-11:1/0 = 0
-11:2/0 = 0
-11:4/animation_frame_0/duration = 1.0
-11:4/animation_frame_1/duration = 1.0
-11:4/animation_frame_2/duration = 1.0
-11:4/0 = 0
-14:4/animation_frame_0/duration = 1.0
-14:4/animation_frame_1/duration = 1.0
-14:4/animation_frame_2/duration = 1.0
-14:4/animation_frame_3/duration = 1.0
-14:4/0 = 0
-13:0/animation_frame_0/duration = 0.6
-13:0/animation_frame_1/duration = 0.6
-13:0/animation_frame_2/duration = 0.6
-13:0/animation_frame_3/duration = 0.6
-13:0/animation_frame_4/duration = 0.6
-13:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tery7"]
-texture = ExtResource("7_rcp5w")
-20:0/animation_frame_0/duration = 0.6
-20:0/animation_frame_1/duration = 0.6
-20:0/animation_frame_2/duration = 0.6
-20:0/0 = 0
-11:3/animation_frame_0/duration = 1.0
-11:3/animation_frame_1/duration = 1.0
-11:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_loop4"]
+texture = ExtResource("8_tery7")
+1:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m31mh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k00wv"]
+texture = ExtResource("10_jjqe1")
+1:0/0 = 0
+0:0/0 = 0
+2:0/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1
@@ -4729,3 +4757,7 @@ sources/3 = SubResource("TileSetAtlasSource_rnc6o")
 sources/4 = SubResource("TileSetAtlasSource_blq31")
 sources/5 = SubResource("TileSetAtlasSource_nsusa")
 sources/6 = SubResource("TileSetAtlasSource_tery7")
+sources/7 = SubResource("TileSetAtlasSource_loop4")
+sources/8 = SubResource("TileSetAtlasSource_m31mh")
+sources/9 = SubResource("TileSetAtlasSource_k00wv")
+sources/10 = SubResource("TileSetAtlasSource_jjqe1")

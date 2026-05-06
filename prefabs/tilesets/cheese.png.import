@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o27no40y5lga"
-path="res://.godot/imported/lava2.png-3295784e3908650b22dd8d635e007eb4.ctex"
+uid="uid://dty6fkpyoi0ak"
+path="res://.godot/imported/cheese.png-78d0de64acec67d3d2e2d9658faea210.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/lava2.png"
-dest_files=["res://.godot/imported/lava2.png-3295784e3908650b22dd8d635e007eb4.ctex"]
+source_file="res://prefabs/tilesets/cheese.png"
+dest_files=["res://.godot/imported/cheese.png-78d0de64acec67d3d2e2d9658faea210.ctex"]
 
 [params]
 
