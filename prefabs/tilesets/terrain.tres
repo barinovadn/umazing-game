@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0qk14lyarjtb" path="res://prefabs/tilesets/lava_water_fire.png" id="3_rcp5w"]
 [ext_resource type="Texture2D" uid="uid://dx72hue8w0j0u" path="res://prefabs/tilesets/TilesetWater.png" id="4_0ixgv"]
 [ext_resource type="Texture2D" uid="uid://c106p7ttbixdh" path="res://prefabs/tilesets/SpriteSheet16x16.png" id="5_rnc6o"]
+[ext_resource type="Texture2D" uid="uid://cgejekpjgb3oe" path="res://prefabs/tilesets/tileset_camp_1.png" id="7_nsusa"]
 [ext_resource type="Texture2D" uid="uid://cipgmaqmhv3qq" path="res://prefabs/tilesets/TilesetReliefDetail.png" id="8_tery7"]
 [ext_resource type="Texture2D" uid="uid://c7q5vkichdeyg" path="res://prefabs/tilesets/black.png" id="10_jjqe1"]
 
@@ -4716,6 +4717,76 @@ texture = ExtResource("5_rnc6o")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tery7"]
+texture = ExtResource("7_nsusa")
+17:0/0 = 0
+17:1/0 = 0
+17:2/0 = 0
+17:3/0 = 0
+17:4/0 = 0
+17:5/0 = 0
+17:6/0 = 0
+17:7/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+18:7/0 = 0
+18:6/0 = 0
+18:5/0 = 0
+18:4/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+19:2/0 = 0
+19:1/0 = 0
+18:1/0 = 0
+18:2/0 = 0
+19:0/0 = 0
+18:0/0 = 0
+16:1/0 = 0
+16:2/0 = 0
+16:3/0 = 0
+15:3/0 = 0
+15:4/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+16:6/0 = 0
+16:7/0 = 0
+15:7/0 = 0
+15:6/0 = 0
+16:4/0 = 0
+15:2/0 = 0
+14:2/0 = 0
+14:3/0 = 0
+14:4/0 = 0
+14:5/0 = 0
+14:6/0 = 0
+19:7/0 = 0
+20:7/0 = 0
+21:7/0 = 0
+21:6/0 = 0
+21:5/0 = 0
+21:4/0 = 0
+21:3/0 = 0
+21:2/0 = 0
+21:1/0 = 0
+20:1/0 = 0
+20:0/0 = 0
+16:0/0 = 0
+15:1/0 = 0
+14:1/0 = 0
+22:2/0 = 0
+19:6/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+20:4/0 = 0
+20:3/0 = 0
+20:2/0 = 0
+19:4/0 = 0
+20:6/0 = 0
+22:6/0 = 0
+22:5/0 = 0
+22:4/0 = 0
+22:3/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_loop4"]
 texture = ExtResource("8_tery7")
 1:2/0 = 0
@@ -4769,3 +4840,4 @@ sources/4 = SubResource("TileSetAtlasSource_blq31")
 sources/7 = SubResource("TileSetAtlasSource_loop4")
 sources/9 = SubResource("TileSetAtlasSource_k00wv")
 sources/10 = SubResource("TileSetAtlasSource_jjqe1")
+sources/5 = SubResource("TileSetAtlasSource_tery7")
