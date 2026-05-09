@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3q524kguuk4q" path="res://prefabs/combat/ui/boss_default_over.png" id="4_wd21x"]
 [ext_resource type="Texture2D" uid="uid://dub4jpdk7iw54" path="res://prefabs/combat/ui/boss_default_progress.png" id="5_wutkd"]
 
-[node name="BossContainer" type="Control" unique_id=858785610]
+[node name="BossContainerUI" type="Control" unique_id=944611736]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -15,26 +15,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_ktm4g")
-smoothing_speed = 5.0
 
 [node name="Label" type="Label" parent="." unique_id=770514746]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -118.0
-offset_top = -78.0
-offset_right = 118.0
-offset_bottom = -42.0
+offset_top = -80.0
+offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_mb8sh")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.07058824, 0.07058824, 0.07058824, 1)
 theme_override_font_sizes/font_size = 32
-text = "Some Boss Name"
-metadata/_edit_use_anchors_ = true
+text = "Boss Name"
+horizontal_alignment = 1
 
 [node name="Bar" type="TextureProgressBar" parent="." unique_id=1024891036]
 layout_mode = 1
@@ -43,11 +39,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -369.5
-offset_top = -42.0
-offset_right = 369.5
+offset_left = -400.0
+offset_top = -60.0
+offset_right = 400.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 step = 0.0
 texture_under = ExtResource("3_ym1oy")
 texture_over = ExtResource("4_wd21x")

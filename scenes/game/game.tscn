@@ -35,7 +35,7 @@ unique_name_in_owner = true
 
 [node name="VFXManager" parent="." unique_id=880750068 instance=ExtResource("5_87uf6")]
 unique_name_in_owner = true
-z_index = 50
+z_index = 60
 
 [node name="Tilemap" type="Node2D" parent="." unique_id=1439768727]
 y_sort_enabled = true
@@ -83,3 +83,4 @@ z_index = 20
 
 [node name="Bullets" type="Node2D" parent="." unique_id=2040820107]
 unique_name_in_owner = true
+z_index = 50

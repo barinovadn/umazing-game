@@ -22,10 +22,10 @@ signal shooting_stopped()
 @onready var timer_node: Timer = $TimerNode
 @onready var node_2d: Node2D = $Node2D
 
-var direction : Vector2
+var direction: Vector2
 ## Indicates whether the component is in firing mode
 ## (is waiting for the post-firing delay)
-var is_shooting : bool = false:
+var is_shooting: bool = false:
 	set(value):
 		if value == is_shooting:
 			return
@@ -48,7 +48,7 @@ func create_a_projectile_from_argument(bullet: Resource = null) -> void:
 	if is_shooting or !can_shoot:
 		return
 	
-	var projectile : Bullet
+	var projectile: Bullet
 	
 	if !bullet:
 		projectile = bullet_types.pick_random().instantiate() as Bullet

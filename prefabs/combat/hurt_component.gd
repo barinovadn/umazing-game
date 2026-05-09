@@ -11,34 +11,32 @@ signal max_health_changed
 
 ## Specifies the team to which the parent belongs. 
 enum Team {
-	enemy = 0,
-	player = 1,
-	neutral = 2,
-}
+	ENEMY = 0,
+	PLAYER = 1,
+	NEUTRAL = 2,
+	}
+
+@export_group("Health")
+@export var team: Team
+@export var max_health: float = 1.0:
+	set(value):
+		var ratio: float = value / max_health
+		max_health = value
+		if current_health:
+			current_health = (ratio * current_health)
+		max_health_changed.emit()
 
 @export_group("Sounds", "sounds")
 @export var sounds_player: AudioStreamPlayer2D
 @export var sounds_damage: Array[AudioStream] = []
 @export var sounds_die: Array[AudioStream] = []
 @export var sounds_heal: Array[AudioStream] = []
-@export var sounds_volume: float:
+@export var sounds_volume_db: float:
 	set(value):
-		sounds_volume = value
+		sounds_volume_db = value
 		if is_node_ready() and sounds_player != null:
 			sounds_player.volume_db = value
 
-@export_group("Health")
-@export var team: Team
-@export var max_health: float = 20.0:
-	set(value):
-		var koef: float = value / max_health
-		if current_health:
-			current_health = (koef * current_health)
-		max_health = value
-		max_health_changed.emit()
-
-
-var _previous_health: float = 0.0
 var current_health: float:
 	set(value):
 		var flag: int
@@ -47,6 +45,7 @@ var current_health: float:
 		elif value > current_health:
 			flag = 2
 		
+		var _previous_health := current_health
 		current_health = value
 		health_changed.emit(value - _previous_health) 
 		
@@ -67,7 +66,7 @@ var current_health: float:
 func _ready():
 	current_health = max_health
 	if sounds_player != null:
-		sounds_player.volume_db = sounds_volume
+		sounds_player.volume_db = sounds_volume_db
 
 
 func _play_random_sound(array: Array[AudioStream]):

@@ -53,8 +53,10 @@ inspectable=""
 interactable=""
 teleport=""
 vfx_effect=""
-hurt_components=""
-bullets=""
+bullet=""
+hurt_component=""
+shoot_controller=""
+ai_controller=""
 
 [input]
 

@@ -1,6 +1,6 @@
 @icon("area_movement_controller.png")
-extends MovementController2D
 class_name AreaMovementController
+extends MovementController2D
 
 @export var regions: Array[NavigationRegion2D]
 ## Determines which area will be used to select points. Set from [BossController]
@@ -53,7 +53,7 @@ func _physics_process(_delta : float) -> void:
 	if navigation_agent_2d.is_navigation_finished():
 		_stuck_timer = 0.0
 		if break_time > 0:
-			movement_enabled = false
+			enabled = false
 			_is_on_break_time = true
 			timer.start()
 			return
@@ -74,12 +74,12 @@ func _physics_process(_delta : float) -> void:
 	var target_position : Vector2 = navigation_agent_2d.get_next_path_position()
 	var target_direction = global_position.direction_to(target_position).normalized()
 	
-	move(movement_speed, target_direction)
+	move(speed, target_direction)
 
 
 func _on_timer_timeout() -> void:
 	_is_on_break_time = false
-	movement_enabled = true
+	enabled = true
 	set_movement_target()
 
 ## Verifying that the points appear on the map

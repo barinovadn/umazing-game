@@ -27,7 +27,7 @@ func _ready():
 
 
 func _physics_process(_delta):
-	if not movement_enabled or not target or not body:
+	if not enabled or not target or not body:
 		return
 	
 	var keep_moving := false
@@ -46,13 +46,16 @@ func _physics_process(_delta):
 		keep_moving = true
 	
 	if keep_moving:
-		move(movement_speed, get_direction())
+		move(speed, get_direction())
+
 
 func stop_moving():
-	movement_enabled = false
-	
+	enabled = false
+
+
 func start_moving():
-	movement_enabled = true
+	enabled = true
+
 
 ## Returns normalized direction towards the [member target] or [member Vector2.ZERO].
 func get_direction() -> Vector2:

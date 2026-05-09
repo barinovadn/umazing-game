@@ -1,36 +1,34 @@
 extends Control
 class_name BossUI
 
-@onready var container: VBoxContainer = $Container
 
 const BOSS_CONTAINER = preload("uid://dn3pwb4lu7m8l")
 
-## Stores data about the bosses shown on the screen, saves data by boss name
-var active_bars: Dictionary = {}
+var target: Control = self
+var containers: Dictionary[String, BossContainerUI]
 
-## Add the boss's stats to the screen: name and HP bar
-func show_boss(boss_name: String, current_hp: float, max_hp: float, data: BossTexturesUI = null):
-	if active_bars.has(boss_name):
+
+func add(data: BossContainerData, controller: AIController):
+	if containers.has(data.display_name):
 		return
-	var boss_data = BOSS_CONTAINER.instantiate()
-	container.add_child(boss_data)
-	boss_data.create_boss(boss_name, current_hp, max_hp, data)
 	
-	active_bars[boss_name] = {
-		"container" : boss_data
-	}
+	var container := BOSS_CONTAINER.instantiate() as BossContainerUI
+	
+	target.add_child(container)
+	containers[data.display_name] = container
+	update(data, controller)
 
-## Update the HP bar indicators
-func update_health(name_b: String, current_hp: float):
-	if not active_bars.has(name_b):
-		return
-	var container_b: BossContainer = active_bars[name_b]["container"]
-	container_b.update_hp(current_hp)
 
-## Remove the boss's data from the screen
-func remove_boss(name_b: String):
-	if not active_bars.has(name_b):
+func update(data: BossContainerData, controller: AIController):
+	if not containers.has(data.display_name):
 		return
-	var container_b : BossContainer = active_bars[name_b]["container"]
-	container_b.remove_boss()
-	active_bars.erase(name_b)
+	
+	containers[data.display_name].update(data, controller)
+
+
+func remove(data: BossContainerData):
+	if not containers.has(data.display_name):
+		return
+	
+	containers[data.display_name].delete()
+	containers.erase(data.display_name)

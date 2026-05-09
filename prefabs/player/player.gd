@@ -35,24 +35,30 @@ func _ready():
 
 func _process(_delta: float):
 	_update_component_positions()
+	
+	if Input.is_action_pressed("shoot"):
+		shoot_controller.direction = character.direction
+		shoot_controller.bullet_types = [bullet_types[0]]
+		shoot_controller.create_a_projectile_from_argument()
 
 
 func _input(event: InputEvent):
-	if( Input.is_action_pressed("mouse_interact")
-		and character and not movement.is_moving):
+	if not character:
+		return
+	
+	if Input.is_action_pressed("mouse_interact"):
 		var mouse_pos := character.get_global_mouse_position()
 		var player_pos := character.global_position
+		var new_dir := player_pos.direction_to(mouse_pos)
 		
-		movement.direction = player_pos.direction_to(mouse_pos)
+		character.direction = new_dir
+		if not movement.is_moving:
+			movement.direction = new_dir
+	else:
+		character.direction = Vector2.ZERO
 	
 	if event.is_action_released("mouse_interact"):
 		interactor.interact.call_deferred()
-		return
-	
-	if event.is_action("shoot"):
-		shoot_controller.direction = interactor.direction
-		shoot_controller.create_a_projectile_from_argument(bullet_types[0])
-		return
 
 
 ## Some components like [member interactor] are expected to be children to the

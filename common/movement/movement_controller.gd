@@ -12,23 +12,22 @@ signal movement_started()
 signal movement_stopped()
 ## Emitted when [member direction] changes value.
 signal direction_changed(direction: Vector2)
-## Emitted when [member movement_enabled] changes value.
+## Emitted when [member enabled] changes value.
 signal movement_toggled(enabled: bool)
 ## Emitted when character is teleported using [method teleport].
 signal teleported(new_position: Vector2)
 
 
-@export_group("Movement", "movement")
 ## Character movement speed in pixels per second.
-@export var movement_speed: float = 100.0
+@export var speed: float = 100.0
 ## If set to [code]false[/code] movement is disabled and [method stop] is called.
-@export var movement_enabled: bool = true:
+@export var enabled: bool = true:
 	set(value):
-		if movement_enabled != value:
-			movement_enabled = value
+		if enabled != value:
+			enabled = value
 			movement_toggled.emit(value)
 			
-			if not movement_enabled:
+			if not enabled:
 				stop()
 
 ## The direction character is currently moving in if [member is_moving] is
@@ -53,11 +52,12 @@ var is_moving: bool = false:
 		else:
 			movement_stopped.emit()
 
+
 ## Moves the character by [param speed] amount in the current [member direction].
 ## If [param new_direction] is not [code]Vector2.ZERO[/code] will update
 ## [member direction]. Emits [signal moved].
-func move(speed: float = movement_speed, new_direction: Vector2 = Vector2.ZERO):
-	if not movement_enabled:
+func move(speed: float = speed, new_direction: Vector2 = Vector2.ZERO):
+	if not enabled:
 		return
 	
 	if new_direction:

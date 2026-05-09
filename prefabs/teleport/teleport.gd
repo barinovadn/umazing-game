@@ -26,7 +26,8 @@ func _on_body_entered(body: Node2D):
 
 
 func _draw() -> void:
-	if not Engine.is_editor_hint() or not exit or not color:
+	if( not Engine.is_editor_hint() or not exit
+		or not (color.r or color.g or color.b)):
 		return
 	
 	var start = Vector2.ZERO

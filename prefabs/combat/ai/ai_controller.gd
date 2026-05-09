@@ -4,10 +4,9 @@ class_name AIController
 
 
 @export var character: Character2D
+@export var enabled: bool = true
 
 @export_group("Combat")
-@export var rest_duration: float
-@export_range(0.0, 1.0) var chance_of_rest: float
 ## An array containing all types of projectiles used by the boss
 @export var bullet_types: Array[Resource]
 @export var actions: Array[AIAction]
@@ -25,47 +24,51 @@ class_name AIController
 @export var tp_on_death: Node2D
 
 @export_group("Interface")
-@export var display_name: String
-@export var data_for_interface: BossTexturesUI
+@export var data_for_interface: BossContainerData
+
 ## Allows you to specify the [BossUI] location where the interface will be added.
 ## By default, it is displayed in the player's [BossUI].
-@export var display_location: BossUI
-
+@onready var display_location: BossUI = %Player/%BossUI
 ## A timer that sets the interval between actions
 @onready var action_changer: Timer = $AIActionChanger
 ## Sets the interval between shots for a specific type of attack
 @onready var pause_between_shots: Timer = $PauseBetweenShots
 
 ## Current boss movement pattern
-var current_movement: MovementController2D
 var current_bullet_type: Resource
 var current_phase: int = 1
 
 var hurt_component: HurtComponent
 var shoot_controller: ShootController
+var movement_controller: MovementController2D
+
 
 func _enemy_ready(): pass
+
 
 func _ready():
 	if not character:
 		character = get_parent() as Character2D
 	character.deleted.connect(_set_target_point)
-	display_location = %Player/%BossUI
 	
 	character.hurt_component_changed.connect(attach_hurt_component)
 	character.shoot_controller_changed.connect(attach_shoot_controller)
+	character.movement_controller_changed.connect(attach_movement_controller)
 	
 	hurt_component = character.hurt_component
 	shoot_controller = character.shoot_controller
+	movement_controller = character.movement
 	
 	hurt_component.health_changed.connect(_on_health_changed)
 	hurt_component.fatal_damage_taken.connect(_on_fatal_damage_taken)
 	_enemy_ready()
 
+
 ## Overridable logic for each boss;
 ## this is where the specific actions and procedures for each action are defined
 func _use_brain(_action: AIAction):
 	pass
+
 
 ## Sets up portals associated with the boss. Disables the entrance portal,
 ## spawns an exit portal at the boss's death location, and activates it.
@@ -75,6 +78,7 @@ func _set_target_point():
 	
 	activate_points(show_on_death)
 	deactivate_points(hide_on_death)
+
 
 ## Replaces the boss's action and plays it
 func _on_action_changer_timeout():
@@ -92,6 +96,7 @@ func _on_action_changer_timeout():
 func _on_pause_between_shots_timeout():
 	shoot_controller.create_a_projectile_from_argument(current_bullet_type)
 
+
 ## Selects actions from the boss's set of available actions that are available in this phase
 func _select_available_actions() -> Array[AIAction]:
 	var ready_boss_actions: Array[AIAction]
@@ -101,6 +106,7 @@ func _select_available_actions() -> Array[AIAction]:
 			ready_boss_actions.append(action)
 	
 	return ready_boss_actions
+
 
 ## Selects an action available in this phase
 func _select_action_by_weight(ready_boss_actions: Array[AIAction]) -> AIAction:
@@ -125,6 +131,7 @@ func _select_action_by_weight(ready_boss_actions: Array[AIAction]) -> AIAction:
 	
 	return action_to_play
 
+
 ## Checks whether a phase change is necessary and, if the conditions are met, increases it
 func _check_phase():
 	if (current_phase < modulates_for_phase.size() + 1):
@@ -134,7 +141,7 @@ func _check_phase():
 
 
 func _on_health_changed(_amount: float):
-	display_location.update_health(display_name, hurt_component.current_health)
+	display_location.update(data_for_interface, self)
 	_check_phase()
 
 
@@ -144,7 +151,8 @@ func _on_fatal_damage_taken():
 	set_deferred("monitorable", false)
 	set_deferred("monitoring", false)
 	
-	display_location.remove_boss(display_name)
+	display_location.remove(data_for_interface)
+
 
 ## Allows the boss to move, shoot, and select an action
 func activate_interaction(_area: Area2D = null):
@@ -153,13 +161,12 @@ func activate_interaction(_area: Area2D = null):
 	
 	_on_action_changer_timeout()
 	action_changer.start()
-	current_movement.movement_enabled = true
-	shoot_controller.can_shoot = true
+
 
 ## Prevents the boss from moving or shooting and selects an action
 func deactivate_interaction(_area: Area2D = null):
 	action_changer.stop()
-	current_movement.movement_enabled = false
+	movement_controller.enabled = false
 	shoot_controller.can_shoot = false
 
 
@@ -181,3 +188,7 @@ func attach_hurt_component(component: HurtComponent):
 
 func attach_shoot_controller(controller: ShootController):
 	shoot_controller = controller
+
+
+func attach_movement_controller(movement: MovementController2D):
+	movement_controller = movement

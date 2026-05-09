@@ -12,8 +12,10 @@ audio_bus_name = &"World"
 script = ExtResource("1_d8o2c")
 sounds_player = NodePath("AudioPlayer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1053993660]
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1053993660]
+z_index = -1
 shape = SubResource("CircleShape2D_uaqv8")
+debug_color = Color(0.8627451, 0.3137255, 0, 0.39215687)
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1553792975]
 bus = &"World"

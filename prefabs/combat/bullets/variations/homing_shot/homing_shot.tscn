@@ -55,8 +55,9 @@ animations = [{
 
 [node name="HomingShot" unique_id=419752470 instance=ExtResource("1_u7vf8")]
 script = ExtResource("2_8v6to")
-auto_aim_time = 6.0
-turn_speed_degrees = 35.0
+auto_aim_time = 8.0
+speed = 80.0
+turn_speed_degrees = 60.0
 auto_aim = true
 damage = 0.25
 can_break = true

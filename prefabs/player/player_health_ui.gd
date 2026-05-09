@@ -1,7 +1,6 @@
 extends Control
 class_name HealthUI
 
-@onready var hearts_container = $HeartsContainer
 
 @export var hearts_image: Texture2D:
 	set(value):
@@ -11,6 +10,7 @@ class_name HealthUI
 @export var x_size: int = 18
 @export var y_size: int = 20
 
+var target: Control = self
 var empty_heart: AtlasTexture
 var quarter_heart: AtlasTexture
 var half_heart: AtlasTexture
@@ -38,24 +38,24 @@ func _create_atlas(region: Rect2) -> AtlasTexture:
 ## Displays the player's HP on the screen using hearts
 func update_health(current_hp: float, max_hp: float) -> void:
 	var max_hearts: int = ceil(max_hp / 1.0)
-	var current_nodes: int = hearts_container.get_child_count()
+	var current_nodes: int = target.get_child_count()
 	
 	while current_nodes < max_hearts:
 		var heart = TextureRect.new()
 		heart.custom_minimum_size = Vector2(x_size, y_size)
-		hearts_container.add_child(heart)
+		target.add_child(heart)
 		current_nodes += 1
 	
 	while current_nodes > max_hearts:
-		var child = hearts_container.get_child(current_nodes - 1)
-		hearts_container.remove_child(child)
+		var child = target.get_child(current_nodes - 1)
+		target.remove_child(child)
 		child.queue_free()
 		current_nodes -= 1
 	
 	var hp_left: float = current_hp
 	
 	for i in range(max_hearts):
-		var heart = hearts_container.get_child(i) as TextureRect
+		var heart = target.get_child(i) as TextureRect
 		
 		if hp_left > 0.75:
 			heart.texture = full_heart

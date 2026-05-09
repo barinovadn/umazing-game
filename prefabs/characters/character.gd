@@ -6,8 +6,9 @@ extends CharacterBody2D
 
 signal destroyed
 signal deleted
-signal hurt_component_changed(new_component)
-signal shoot_controller_changed(new_controller)
+signal hurt_component_changed(new_component: HurtComponent)
+signal shoot_controller_changed(new_controller: ShootController)
+signal movement_controller_changed(new_controller: MovementController2D)
 
 @export_group("Animations")
 @export var animator: AnimationController2D
@@ -23,6 +24,7 @@ signal shoot_controller_changed(new_controller)
 			movement.direction_changed.disconnect(_on_direction_changed)
 		
 		movement = value
+		movement_controller_changed.emit(movement)
 		
 		if movement:
 			movement.moved.connect(_on_moved)
@@ -55,8 +57,10 @@ signal shoot_controller_changed(new_controller)
 	set(value):
 		if hurt_component:
 			hurt_component.fatal_damage_taken.disconnect(_on_died)
+		
 		hurt_component = value
 		hurt_component_changed.emit(hurt_component)
+		
 		if hurt_component:
 			hurt_component.fatal_damage_taken.connect(_on_died)
 @export var shoot_controller: ShootController:
@@ -64,8 +68,10 @@ signal shoot_controller_changed(new_controller)
 		if shoot_controller:
 			shoot_controller.shooting_started.disconnect(_on_shooting_started)
 			shoot_controller.shooting_stopped.disconnect(_on_shooting_stopped)
+		
 		shoot_controller = value
 		shoot_controller_changed.emit(shoot_controller)
+		
 		if shoot_controller:
 			shoot_controller.shooting_started.connect(_on_shooting_started)
 			shoot_controller.shooting_stopped.connect(_on_shooting_stopped)
@@ -74,10 +80,18 @@ signal shoot_controller_changed(new_controller)
 @export var afterlife_time: float = 7.0
 @export var afterlife_fade_time: float = 2.0
 
+var direction: Vector2:
+	set(value):
+		direction = value
+		_update_animation()
+		if interactor:
+			interactor.direction = direction
+	get():
+		if direction:
+			return direction
+		return movement.direction if movement else Vector2.DOWN
 var is_moving: bool: ## NOTE Read-only.
 	get(): return movement.is_moving if movement else false
-var direction: Vector2: ## NOTE Read-only.
-	get(): return movement.direction if movement else Vector2.DOWN
 var is_shooting: bool: ## NOTE Read-only.
 	get(): return shoot_controller.is_shooting if shoot_controller else false
 var is_deleted: bool = false
@@ -86,6 +100,8 @@ var is_deleted: bool = false
 func _ready():
 	if animator:
 		animator.play(start_animation)
+	if movement:
+		movement.direction = Vector2.DOWN
 
 func _physics_process(_delta):
 	if is_moving:
@@ -104,15 +120,9 @@ func _update_animation():
 	else:
 		animator.play_idle(direction)
 
-## Turns off the collision visibility layer and deletes the object after 5 seconds
+
 func _on_died():
 	destroy()
-
-## If there is a sound effect when removing a bullet, play it.
-## The bullet will be removed after the last sound effect ends.
-func _delete():
-	queue_free()
-	deleted.emit()
 
 func _on_moved(dir: Vector2, speed: float):
 	velocity = dir * speed
@@ -126,7 +136,7 @@ func _on_movement_stopped():
 	_update_animation()
 
 func _on_direction_changed(new_dir: Vector2):
-	if interactor:
+	if interactor and not direction:
 		interactor.direction = new_dir
 	_update_animation()
 
@@ -135,6 +145,7 @@ func _on_shooting_started():
 
 func _on_shooting_stopped():
 	_update_animation()
+
 
 func destroy():
 	is_deleted = true
@@ -151,4 +162,8 @@ func destroy():
 		tween.tween_property(self, "modulate:a", 0.0, afterlife_fade_time)
 		await tween.finished
 	
-	_delete()
+	delete()
+
+func delete():
+	queue_free()
+	deleted.emit()

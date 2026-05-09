@@ -16,13 +16,13 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("9_sbeg8")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ljfcr"]
-atlas = ExtResource("9_sbeg8")
-region = Rect2(16, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4vux"]
 atlas = ExtResource("9_sbeg8")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljfcr"]
+atlas = ExtResource("9_sbeg8")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oydtv"]
 animations = [{
@@ -47,10 +47,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ljfcr")
+"texture": SubResource("AtlasTexture_f4vux")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f4vux")
+"texture": SubResource("AtlasTexture_ljfcr")
 }],
 "loop": true,
 "name": &"walk_left",
@@ -66,7 +66,7 @@ position = Vector2(0, 4)
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_oydtv")
-animation = &"idle_left"
+animation = &"attack_left"
 autoplay = "idle_left"
 frame_progress = 0.0
 

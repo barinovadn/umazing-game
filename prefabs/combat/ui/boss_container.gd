@@ -1,5 +1,5 @@
+class_name BossContainerUI
 extends Control
-class_name BossContainer
 
 
 @export var smoothing_speed: float = 1.0
@@ -14,25 +14,16 @@ func _process(delta: float):
 	bar.value = lerp(bar.value, target_bar_value, smoothing_speed * delta)
 
 
-func create_boss(boss_name: String, current_hp: int, max_hp: int,
-	data: BossTexturesUI = null):
-	if data:
-		if data.texture_under:
-			bar.texture_under = data.texture_under
-		if data.texture_progress:
-			bar.texture_progress = data.texture_progress
-		if data.texture_over:
-			bar.texture_over = data.texture_over
+func update(data: BossContainerData, controller: AIController):
+	if data.texture_under: bar.texture_under = data.texture_under
+	if data.texture_progress: bar.texture_progress = data.texture_progress
+	if data.texture_over: bar.texture_over = data.texture_over
 	
-	bar.max_value = max_hp
-	target_bar_value = current_hp
-	
-	label.text = boss_name
+	label.text = data.display_name
+	label.add_theme_color_override("font_color", data.display_color)
+	bar.max_value = controller.hurt_component.max_health
+	target_bar_value = controller.hurt_component.current_health
 
 
-func update_hp(current_hp):
-	target_bar_value = current_hp
-
-
-func remove_boss():
+func delete():
 	queue_free()

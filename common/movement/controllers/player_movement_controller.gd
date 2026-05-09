@@ -31,13 +31,13 @@ enum Action {
 
 
 func _physics_process(_delta):
-	if not movement_enabled:
+	if not enabled:
 		return
 	
 	var input_direction := get_input_direction()
 	
 	if input_direction:
-		move(movement_speed, input_direction)
+		move(speed, input_direction)
 	else:
 		stop()
 

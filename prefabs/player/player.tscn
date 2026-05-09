@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://prefabs/player/player_health_ui.gd" id="11_30gqm"]
 [ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/player_health_default.png" id="14_ot5ig"]
-[ext_resource type="PackedScene" uid="uid://ckcsjxupy60hq" path="res://prefabs/combat/ui/boss_ui.tscn" id="15_agiw0"]
+[ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://prefabs/combat/ui/boss_ui.gd" id="15_agiw0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ev8v4"]
 radius = 0.01
@@ -42,7 +42,7 @@ controls = Dictionary[int, String]({
 4: "mouse_move"
 })
 mouse_edge_margin = 20.0
-movement_speed = 60.0
+speed = 60.0
 
 [node name="Interactor" parent="Components" unique_id=109062155 instance=ExtResource("1_rdx4y")]
 unique_name_in_owner = true
@@ -51,14 +51,14 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 team = 1
 bullet_types = Array[Resource]([ExtResource("7_30gqm")])
-interval_between_shots = 0.4
+interval_between_shots = 0.5
 can_shoot = true
 
-[node name="HurtComponent" parent="Components" unique_id=949368062 groups=["hurt_components"] instance=ExtResource("4_vhck3")]
+[node name="HurtComponent" parent="Components" unique_id=949368062 groups=["hurt_component"] instance=ExtResource("4_vhck3")]
 unique_name_in_owner = true
-sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
 team = 1
 max_health = 5.0
+sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
 
 [node name="Center" type="Area2D" parent="Components" unique_id=378323334]
 unique_name_in_owner = true
@@ -108,30 +108,34 @@ unique_name_in_owner = true
 
 [node name="EnvironmentFilter" parent="Camera" unique_id=410650844 instance=ExtResource("8_vhck3")]
 unique_name_in_owner = true
-transition_duration = 0.5
+transition_duration = 0.2
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=371737396]
 
-[node name="HealthUI" type="Control" parent="UI" unique_id=343436959]
+[node name="HealthUI" type="HBoxContainer" parent="UI" unique_id=1182080135]
 unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 60.0
-offset_bottom = 30.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 85.0
+offset_bottom = 55.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource("11_30gqm")
 hearts_image = ExtResource("14_ot5ig")
 x_size = 35
 y_size = 30
 
-[node name="HeartsContainer" type="HBoxContainer" parent="UI/HealthUI" unique_id=847237741]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 20.0
-offset_bottom = 20.0
-
-[node name="BossUI" parent="UI" unique_id=582167430 instance=ExtResource("15_agiw0")]
+[node name="BossUI" type="VBoxContainer" parent="UI" unique_id=582167430]
 unique_name_in_owner = true
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 60
+alignment = 2
+script = ExtResource("15_agiw0")
 
 [connection signal="character_changed" from="." to="." method="_on_character_changed"]
 [connection signal="fatal_damage_taken" from="Components/HurtComponent" to="." method="_on_fatal_damage_taken"]

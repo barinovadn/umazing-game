@@ -7,7 +7,6 @@ extends RayCast2D
 
 signal interacted() ## Emitted when a successful interaction occurs.
 
-
 ## Input action name that triggers [method interact].
 @export var action: String
 

@@ -1,83 +1,120 @@
 class_name PathDotMovementController2D
 extends MovementController2D
+## Moves by points on a given [Path2D].
 
+
+enum Order { RANDOM, SEQUENTIAL, BACK_AND_FORTH }
+
+## The [Path2D] to move on.
 @export var path: Path2D
-## Determines whether points will be selected in
-## the order they appear in [member path] or chosen at random
-@export var ordered_use: bool
-## Sets the current index of the node in [member path]
-@export var current_movement_point_index: int = -1
+## Determines the order in which [member Path2D.curve]'s points are visited.
+@export var order: Order = Order.SEQUENTIAL
+## The radius within which the object is considered to have reached a point.
+@export var point_margin: float = 1.0
 
-## Sets the radius within which the character is considered to have reached the point.
-@export var target_point_radius: float = 1.0
-## Determines how long the character stands in one place after reaching the destination.
-@export_range(0.001, 60) var break_time: float = 1.0:
+@export_group("Break", "break")
+## The minimum time the object stays still after reaching a point.
+@export var break_duration_min: float = 0.0:
 	set(value):
-		break_time = value
-		if break_time > 0 and timer != null:
-			timer.wait_time = break_time
+		break_duration_min = clampf(value, 0, break_duration_max)
+## The maximum time the object stays still after reaching a point.
+@export var break_duration_max: float = 0.0:
+	set(value):
+		break_duration_max = clampf(value, break_duration_min, INF)
 
-var timer: Timer
-var current_movement_point_position: Vector2
-var move_direction: Vector2
-
-var _is_on_break_time: bool = false
+var break_timer: Timer
+var break_time: float:
+	get(): return randf_range(break_duration_min, break_duration_max)
+var is_on_break: bool
+var is_current_point_reached: bool:
+	get():
+		var distance_sq = global_position.distance_squared_to(current_point_position)
+		return distance_sq <= point_margin ** 2
+var current_point_index: int = -1
+var current_point_position: Vector2:
+	get():
+		if current_point_index < 0:
+			return Vector2.ZERO
+		var point = path.curve.get_point_position(current_point_index)
+		return path.to_global(point)
+var current_point_direction: Vector2:
+	get():
+		return (current_point_position - global_position).normalized()
+var back_and_forth_direction: int = 1
 
 
 func _ready():
-	timer = Timer.new()
-	timer.one_shot = true
-	timer.wait_time = max(0.001, break_time)
-	timer.timeout.connect(_on_timer_timeout)
-	add_child(timer)
-		
+	_create_break_timer()
 	pick_new_target()
 
 
 func _physics_process(_delta):
-	if _is_on_break_time:
+	if is_on_break:
 		return
 	
-	var distance_sq = global_position.distance_squared_to(current_movement_point_position)
-	
-	if distance_sq < target_point_radius**2:
-		if break_time > 0:
-			movement_enabled = false
-			_is_on_break_time = true
-			timer.start()
+	if is_current_point_reached:
+		if break_start():
 			return
 		else:
 			pick_new_target()
 	
-	move_direction = (current_movement_point_position - global_position).normalized()
-	move(movement_speed, move_direction)
+	move(speed, current_point_direction)
+
+
+func _create_break_timer():
+	break_timer = Timer.new()
+	break_timer.one_shot = true
+	break_timer.timeout.connect(_on_break_ended)
+	add_child(break_timer)
+
+
+func _on_break_ended():
+	is_on_break = false
+	pick_new_target()
+
+
+func _get_next_point_index() -> int:
+	if not path: return -1
+	
+	match path.curve.point_count:
+		0: return -1
+		1: return 0
+	
+	match order:
+		Order.RANDOM:
+			var points := range(0, path.curve.point_count)
+			points.erase(current_point_index)
+			return points.pick_random()
+		Order.SEQUENTIAL:
+			return (current_point_index + 1) % path.curve.point_count
+		Order.BACK_AND_FORTH:
+			var next = current_point_index + back_and_forth_direction
+			if next < 0 or next >= path.curve.point_count:
+				back_and_forth_direction *= -1
+				next = current_point_index + back_and_forth_direction
+			return next
+	
+	return -1
 
 
 func pick_new_target():
-	if !path or path.curve.point_count == 0:
-		return
-	
-	var curve = path.curve
-	var count = curve.point_count
-	
-	if count == 1:
-		current_movement_point_position = path.to_global(curve.get_point_position(0))
-	elif ordered_use:
-		current_movement_point_index = (current_movement_point_index + 1) % count
-		var local_point = curve.get_point_position(current_movement_point_index)
-		current_movement_point_position = path.to_global(local_point)
-	else:
-		var new_index = randi() % count
-		while new_index == current_movement_point_index:
-			new_index = randi() % count
-		
-		current_movement_point_index = new_index
-		
-		var local_point = curve.get_point_position(current_movement_point_index)
-		current_movement_point_position = path.to_global(local_point)
+	current_point_index = _get_next_point_index()
 
 
-func _on_timer_timeout() -> void:
-	_is_on_break_time = false
-	movement_enabled = true
-	pick_new_target()
+func break_start(duration: float = -1.0) -> float:
+	if duration <= 0:
+		duration = break_time
+	
+	if not break_timer or duration <= 0:
+		return 0
+	
+	stop()
+	is_on_break = true
+	break_timer.start(duration)
+	return duration
+
+
+func break_stop():
+	if break_timer:
+		break_timer.stop()
+	_on_break_ended()
