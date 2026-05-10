@@ -10,7 +10,7 @@ particles_anim_h_frames = 5
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[node name="BreakRocks" unique_id=1228765060 node_paths=PackedStringArray("gpu_particles") instance=ExtResource("1_vod8j")]
+[node name="BreakRocksEffect" unique_id=1228765060 node_paths=PackedStringArray("gpu_particles") instance=ExtResource("1_vod8j")]
 gpu_particles = [NodePath("GPUParticles2D")]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="0" unique_id=1593957519]

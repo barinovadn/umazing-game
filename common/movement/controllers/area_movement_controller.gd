@@ -46,7 +46,7 @@ func _ready() -> void:
 	call_deferred("character_setup")
 
 
-func _physics_process(_delta : float) -> void:
+func _physics_process(_delta: float) -> void:
 	if _is_on_break_time or !regions.size():
 		return
 		
@@ -71,7 +71,7 @@ func _physics_process(_delta : float) -> void:
 		
 	_last_position = global_position
 	
-	var target_position : Vector2 = navigation_agent_2d.get_next_path_position()
+	var target_position: Vector2 = navigation_agent_2d.get_next_path_position()
 	var target_direction = global_position.direction_to(target_position).normalized()
 	
 	move(speed, target_direction)

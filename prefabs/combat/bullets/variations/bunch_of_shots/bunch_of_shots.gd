@@ -1,48 +1,31 @@
 extends Bullet
 
-@export var bullet_type: PackedScene
-@export var amount_of_bullets: int = 5
-@export var spacing: float = 44:
-	set(value):
-		pass
-@export var offset_from_center: float = 10
+
+@export var bullets: Array[PackedScene]
+@export var amount: int = 5
+@export var spacing: float
+@export var offset: Vector2
+
 
 func _bullet_ready():
-	var dir = _get_direction()
-	var perp = Vector2(-dir.y, dir.x) # перпендикуляр
-
-	# точка, откуда строится линия (чуть впереди)
-	var base_pos = global_position + dir * offset_from_center
-
-	# центрируем линию относительно base_pos
-	var half = (amount_of_bullets - 1) / 2.0
-
-	for i in amount_of_bullets:
-		var bullet = bullet_type.instantiate() as Bullet
-
-		var offset = (i - half) * spacing
-		var spawn_pos = base_pos + perp * offset
-
+	if not bullets:
+		return
+	
+	var dir = direction
+	var perp = Vector2(-dir.y, dir.x)
+	var base_pos = global_position + dir * offset
+	var half = (amount - 1) / 2.0
+	
+	for i in amount:
+		var bullet = bullets.pick_random().instantiate() as Bullet
+		var offset2 = (i - half) * spacing
+		var spawn_pos = base_pos + perp * offset2
+		
 		bullet.global_position = spawn_pos
-		_copy_arguments(bullet, dir)
-
-		get_node("/root/Game/%Bullets").add_child(bullet)
+		bullet.team = team
+		bullet.direction = dir
+		
+		Game.bullets.add_child(bullet)
 		bullet.audio_player.volume_db = audio_player.volume_db
-
+	
 	destroy()
-
-func  _process(_delta: float) -> void:
-	pass
-
-func _get_direction() -> Vector2:
-	if target:
-		return (target.global_position - global_position).normalized()
-	return direction.normalized()
-
-func _copy_arguments(bullet: Bullet, dir : Vector2):
-	bullet.can_be_broken = can_be_broken
-	bullet.can_break = can_break
-	bullet.can_ricochet = can_ricochet
-	bullet.number_of_recochets_left = number_of_recochets_left
-	# если у пули есть направление — передаём
-	bullet.direction = dir

@@ -1,15 +1,29 @@
 [gd_scene format=3 uid="uid://buhslpn3jaek5"]
 
+[ext_resource type="Script" uid="uid://c7mf3fvirecsj" path="res://scenes/game/game.gd" id="1_2a8rs"]
 [ext_resource type="TileSet" uid="uid://cpkody5agfhcc" path="res://prefabs/tilesets/terrain.tres" id="4_5i0tg"]
 [ext_resource type="PackedScene" uid="uid://dosm88jd4axk1" path="res://prefabs/music/music_player.tscn" id="4_bdhmt"]
 [ext_resource type="TileSet" uid="uid://cq0gpukdqan4w" path="res://prefabs/tilesets/general.tres" id="4_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://cspmsxmen0mcp" path="res://prefabs/vfx/vfx_manager.tscn" id="5_87uf6"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_params.gd" id="5_kp23o"]
 [ext_resource type="Script" uid="uid://bp0bnmynw2d1p" path="res://common/utils/hide_at_runtime.gd" id="5_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://br4jv0365g35h" path="res://prefabs/player/player.tscn" id="6_2a8rs"]
 [ext_resource type="Texture2D" uid="uid://cuy6j56l0wd6g" path="res://scenes/grid.png" id="6_5i0tg"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="6_5jirj"]
 [ext_resource type="TileSet" uid="uid://nqowvxb5fi8d" path="res://prefabs/tilesets/system.tres" id="6_bdhmt"]
 
-[node name="Game" type="Node2D" unique_id=1082399769]
+[sub_resource type="Resource" id="Resource_kp23o"]
+script = ExtResource("6_5jirj")
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_ftsea"]
+script = ExtResource("5_kp23o")
+effect = 100
+settings = SubResource("Resource_kp23o")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[node name="Game2" type="Node2D" unique_id=1082399769]
+script = ExtResource("1_2a8rs")
 
 [node name="GridBackground" type="Sprite2D" parent="." unique_id=1459108817]
 texture_filter = 1
@@ -29,6 +43,7 @@ metadata/_custom_type_script = "uid://bp0bnmynw2d1p"
 
 [node name="Player" parent="." unique_id=486757243 instance=ExtResource("6_2a8rs")]
 unique_name_in_owner = true
+mouse_vfx = SubResource("Resource_ftsea")
 
 [node name="MusicPlayer" parent="." unique_id=1068287036 instance=ExtResource("4_bdhmt")]
 unique_name_in_owner = true
@@ -64,6 +79,9 @@ z_index = 60
 texture_filter = 1
 tile_set = ExtResource("6_bdhmt")
 
+[node name="Enviroments" type="Node2D" parent="." unique_id=1656547831]
+z_index = 60
+
 [node name="Lights" type="Node2D" parent="." unique_id=627849650]
 
 [node name="Teleports" type="Node2D" parent="." unique_id=1760141152]
@@ -73,9 +91,6 @@ z_index = 50
 z_index = 30
 y_sort_enabled = true
 
-[node name="Enviroments" type="Node2D" parent="." unique_id=1656547831]
-z_index = 60
-
 [node name="Interactables" type="Node2D" parent="." unique_id=233789877]
 z_index = 20
 
@@ -83,4 +98,4 @@ z_index = 20
 
 [node name="Bullets" type="Node2D" parent="." unique_id=2040820107]
 unique_name_in_owner = true
-z_index = 50
+z_index = 39

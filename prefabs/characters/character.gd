@@ -76,9 +76,9 @@ signal movement_controller_changed(new_controller: MovementController2D)
 			shoot_controller.shooting_started.connect(_on_shooting_started)
 			shoot_controller.shooting_stopped.connect(_on_shooting_stopped)
 
-@export_group("Afterlife")
-@export var afterlife_time: float = 7.0
-@export var afterlife_fade_time: float = 2.0
+@export_group("Afterlife", "afterlife")
+@export var afterlife_duration: float = 7.0
+@export var afterlife_fade_out_duration: float = 2.0
 
 var direction: Vector2:
 	set(value):
@@ -89,7 +89,9 @@ var direction: Vector2:
 	get():
 		if direction:
 			return direction
-		return movement.direction if movement else Vector2.DOWN
+		if movement:
+			return movement.direction
+		return Vector2.DOWN
 var is_moving: bool: ## NOTE Read-only.
 	get(): return movement.is_moving if movement else false
 var is_shooting: bool: ## NOTE Read-only.
@@ -135,9 +137,11 @@ func _on_movement_stopped():
 	velocity = Vector2.ZERO
 	_update_animation()
 
-func _on_direction_changed(new_dir: Vector2):
-	if interactor and not direction:
-		interactor.direction = new_dir
+func _on_direction_changed(_new_dir: Vector2):
+	if interactor:
+		interactor.direction = direction
+	if shoot_controller:
+		shoot_controller.direction = direction
 	_update_animation()
 
 func _on_shooting_started():
@@ -154,12 +158,12 @@ func destroy():
 	
 	_update_animation()
 	
-	if afterlife_time > 0:
-		var timer = get_tree().create_timer(afterlife_time - afterlife_fade_time)
+	if afterlife_duration > 0:
+		var timer = get_tree().create_timer(afterlife_duration - afterlife_fade_out_duration)
 		await timer.timeout
 		
 		var tween = create_tween()
-		tween.tween_property(self, "modulate:a", 0.0, afterlife_fade_time)
+		tween.tween_property(self, "modulate:a", 0.0, afterlife_fade_out_duration)
 		await tween.finished
 	
 	delete()

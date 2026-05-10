@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://b86ksiklisu71"]
+
+[ext_resource type="PackedScene" uid="uid://bi0bh50tpx4bx" path="res://prefabs/vfx/vfx_effect.tscn" id="1_eatmf"]
+[ext_resource type="Texture2D" uid="uid://ckj16wbvp407p" path="res://prefabs/vfx/effects/portal.png" id="2_v8a7t"]
+[ext_resource type="PackedScene" uid="uid://c1akfo133wrn2" path="res://prefabs/light/light.tscn" id="3_5k1au"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8a7t"]
+atlas = ExtResource("2_v8a7t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k1au"]
+atlas = ExtResource("2_v8a7t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80g3q"]
+atlas = ExtResource("2_v8a7t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq6ie"]
+atlas = ExtResource("2_v8a7t")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi8ae"]
+atlas = ExtResource("2_v8a7t")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4m0g"]
+atlas = ExtResource("2_v8a7t")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5k1au"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8a7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k1au")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80g3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mq6ie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi8ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4m0g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_5k1au"]
+offsets = PackedFloat32Array(0.1, 0.8, 1)
+colors = PackedColorArray(1.353256, 1.353256, 1.353256, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_80g3q"]
+gradient = SubResource("Gradient_5k1au")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5k1au"]
+lifetime_randomness = 0.35
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 160.0
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, -20, 0)
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_80g3q")
+turbulence_enabled = true
+turbulence_noise_strength = 0.25
+turbulence_noise_scale = 6.0
+turbulence_influence_min = 0.05
+turbulence_influence_max = 0.05
+
+[node name="PortalEffect" unique_id=1228765060 node_paths=PackedStringArray("gpu_particles") instance=ExtResource("1_eatmf")]
+modulate = Color(1, 1, 0.72156864, 1)
+gpu_particles = [NodePath("GPUParticles2D")]
+type = 1
+off_screen_behaviour = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=1981389305]
+sprite_frames = SubResource("SpriteFrames_5k1au")
+autoplay = "default"
+frame_progress = 0.57517314
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="1" unique_id=1387436866]
+modulate = Color(1.0789914, 1.0789914, 1.0789914, 1)
+emitting = false
+amount = 16
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5k1au")
+
+[node name="Light" parent="." index="2" unique_id=266634095 instance=ExtResource("3_5k1au")]
+scale = Vector2(3, 3)
+color = Color(1, 1, 0.45882353, 1)
+energy = 0.25

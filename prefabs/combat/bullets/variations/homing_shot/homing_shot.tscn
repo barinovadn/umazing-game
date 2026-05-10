@@ -55,14 +55,14 @@ animations = [{
 
 [node name="HomingShot" unique_id=419752470 instance=ExtResource("1_u7vf8")]
 script = ExtResource("2_8v6to")
-auto_aim_time = 8.0
+homing_time = 16.0
 speed = 80.0
-turn_speed_degrees = 60.0
-auto_aim = true
+turn_rate = 360.0
+homing = true
 damage = 0.25
 can_break = true
 sounds_spawn = Array[AudioStream]([ExtResource("4_m488l")])
-sounds_ricochet = Array[AudioStream]([ExtResource("4_5f7be"), ExtResource("5_0wytm")])
+sounds_bounce = Array[AudioStream]([ExtResource("4_5f7be"), ExtResource("5_0wytm")])
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 shape = SubResource("CircleShape2D_1qbqo")

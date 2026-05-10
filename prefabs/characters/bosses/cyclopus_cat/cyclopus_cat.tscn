@@ -59,7 +59,7 @@ animations = [{
 
 [node name="CyclopusCat" unique_id=2065001503 instance=ExtResource("1_isdfl")]
 collision_mask = 0
-afterlife_time = 0.0
+afterlife_duration = 0.0
 
 [node name="Shadow" parent="." index="1" unique_id=66535912]
 position = Vector2(0, 4)

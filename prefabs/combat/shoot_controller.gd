@@ -3,24 +3,23 @@ class_name ShootController
 extends Node2D
 
 
-## Signal activation plays the shooting animation on the character
 signal shooting_started()
-## Signal activation stops the shooting animation on the character
 signal shooting_stopped()
 
-@export_group("Projectile behavior")
-@export var team: HurtComponent.Team
-@export var is_homing_on: bool = false
-@export var is_bounce_on: bool = false
-@export var number_of_bounces: int
+@export var team := HurtComponent.Team.NEUTRAL
+@export var auto_aim: bool
+@export var bullets: Array[PackedScene]
+@export_range(0.001, 60) var interval_between_shots: float = 0.1
+@export var enabled: bool = true
 
-@export_group("Shoot controller behavior")
-@export var bullet_types: Array[Resource] 
-@export var interval_between_shots: float
-@export var can_shoot: bool = false
+@export_group("Projectile Behavior", "projectile")
+@export var projectile_homing: bool
+@export var projectile_homing_target: Node2D
+@export var projectile_turn_rate_min: float = 0.0
+@export var projectile_bounce: bool
+@export var projectile_bounces_min: int = 1
  
-@onready var timer_node: Timer = $TimerNode
-@onready var node_2d: Node2D = $Node2D
+@onready var cooldown_timer: Timer = $Cooldown
 
 var direction: Vector2
 ## Indicates whether the component is in firing mode
@@ -31,69 +30,81 @@ var is_shooting: bool = false:
 			return
 		is_shooting = value
 		if is_shooting:
-			if timer_node != null:
-				timer_node.start()
+			if cooldown_timer != null:
+				cooldown_timer.start(interval_between_shots)
 			shooting_started.emit()
 		else:
 			shooting_stopped.emit()
 
 
-func _get_direction_to_object(target: Node2D) -> Vector2:
-	return (target.global_position - global_position).normalized()
-
-func _on_timer_timeout() -> void:
+func _on_cooldown_ended():
 	is_shooting = false
 
-func create_a_projectile_from_argument(bullet: Resource = null) -> void:
-	if is_shooting or !can_shoot:
+
+func _direction_to(target: Node2D) -> Vector2:
+	if not target:
+		return Vector2.ZERO
+	return (target.global_position - global_position).normalized()
+
+
+func _set_bullet_direction(bullet: Bullet):
+	if auto_aim:
+		bullet.direction = _direction_to(get_closest_target())
 		return
 	
-	var projectile: Bullet
-	
-	if !bullet:
-		projectile = bullet_types.pick_random().instantiate() as Bullet
-	else:
-		projectile = bullet.instantiate() as Bullet
-	
-	if is_homing_on:
-		var target = get_closest_target()
-		if target != null:
-			projectile.direction = _get_direction_to_object(target)
-			projectile.target = target
-		else:
-			projectile.direction = direction 
-	else:
-		projectile.direction = direction
-	
-	if is_bounce_on:
-		projectile.can_ricochet = true
-		projectile.number_of_recochets_left = number_of_bounces
-	
-	projectile.team = team
-	projectile.global_position = global_position
-	timer_node.wait_time = interval_between_shots
-	
-	is_shooting = true
-	get_node("/root/Game/%Bullets").add_child(projectile)
+	bullet.direction = direction
 
-func get_closest_target():
+
+func _apply_behavior(bullet: Bullet):
+	if projectile_homing:
+		bullet.homing = true
+		bullet.target = ( projectile_homing_target if projectile_homing_target
+			else get_closest_target() )
+	
+	if projectile_bounce:
+		bullet.bounces = max(bullet.bounces, bullet.bounces)
+	
+	bullet.turn_rate = max(bullet.turn_rate, projectile_turn_rate_min)
+
+
+func get_closest_target() -> HurtComponent:
 	if not is_inside_tree():
 		return null
-		
-	var targets = get_tree().get_nodes_in_group("hurt_components")
 	
+	var targets = get_tree().get_nodes_in_group("hurt_component")
 	var closest = null
 	var closest_dist = INF
 
-	for t in targets:
-		if t.team == team:
-			continue  
+	for target in targets:
+		if target.team == team:
+			continue
 		
-		var target_pos = t.global_position
+		var target_pos = target.global_position
 		var dist = global_position.distance_to(target_pos)
-
+		
 		if dist < closest_dist:
 			closest_dist = dist
-			closest = t
+			closest = target
 
 	return closest
+
+
+func shoot(bullet_scene: PackedScene = null):
+	if is_shooting or not enabled:
+		return
+	
+	is_shooting = true
+	var bullet: Bullet
+	
+	if bullet_scene:
+		bullet = bullet_scene.instantiate() as Bullet
+	else:
+		bullet = bullets.pick_random().instantiate() as Bullet
+	
+	bullet.team = team
+	bullet.global_position = global_position
+	
+	_set_bullet_direction(bullet)
+	_apply_behavior(bullet)
+	
+	Game.bullets.add_child(bullet)

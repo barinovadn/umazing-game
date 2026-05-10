@@ -4,16 +4,21 @@ extends Node
 
 signal character_changed(new_character: Character2D, old_character: Character2D)
 
-@export var bullet_types: Array[Resource] 
+@export var bullets: Array[PackedScene]
 @export var character: Character2D:
 	set(value):
 		if value == character:
 			return
-		
 		var old_character = character
 		character = value
-		
 		character_changed.emit(character, old_character)
+@export var allow_cheats: bool = false
+
+var noclip: bool:
+	set(value):
+		noclip = value
+		character.collision = !noclip
+		character.movement.speed *= (2 if noclip else .5)
 
 @onready var components: Node2D = $Components
 @onready var shoot_controller: ShootController = %ShootController
@@ -22,6 +27,7 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 @onready var interactor: Interactor = %Interactor
 @onready var trigger: Area2D = %Center
 @onready var room: Area2D = %Room
+@onready var cursor: Area2D = %Cursor
 @onready var camera: GridCamera2D = %Camera
 @onready var camera_controller: GridCameraFollower2D = %Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = %Camera/TransitionFade
@@ -35,22 +41,21 @@ func _ready():
 
 func _process(_delta: float):
 	_update_component_positions()
+	_update_cursor_position()
 	
 	if Input.is_action_pressed("shoot"):
-		shoot_controller.direction = character.direction
-		shoot_controller.bullet_types = [bullet_types[0]]
-		shoot_controller.create_a_projectile_from_argument()
+		shoot_controller.shoot(bullets.pick_random())
 
 
 func _input(event: InputEvent):
 	if not character:
 		return
 	
+	var mouse_pos := character.get_global_mouse_position()
+	var player_pos := character.global_position
+	var new_dir := player_pos.direction_to(mouse_pos)
+	
 	if Input.is_action_pressed("mouse_interact"):
-		var mouse_pos := character.get_global_mouse_position()
-		var player_pos := character.global_position
-		var new_dir := player_pos.direction_to(mouse_pos)
-		
 		character.direction = new_dir
 		if not movement.is_moving:
 			movement.direction = new_dir
@@ -59,6 +64,10 @@ func _input(event: InputEvent):
 	
 	if event.is_action_released("mouse_interact"):
 		interactor.interact.call_deferred()
+		return
+	
+	if event.is_action_pressed("noclip") and allow_cheats:
+		noclip = !noclip
 
 
 ## Some components like [member interactor] are expected to be children to the
@@ -69,6 +78,10 @@ func _update_component_positions():
 		return
 	
 	components.global_position = character.global_position
+
+
+func _update_cursor_position():
+	cursor.global_position = components.get_global_mouse_position()
 
 
 func _on_character_changed(new_character: Character2D, old_character: Character2D):
@@ -98,4 +111,4 @@ func _on_fatal_damage_taken():
 
 func _on_camera_cell_changed(new_cell: Vector2, _smooth_transition: bool) -> void:
 	if room:
-		room.global_position = Vector2(320, 160) * new_cell
+		room.global_position = camera.grid_size * new_cell

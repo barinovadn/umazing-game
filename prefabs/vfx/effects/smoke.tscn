@@ -10,9 +10,10 @@ particles_anim_h_frames = 6
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[node name="Smoke" unique_id=1228765060 node_paths=PackedStringArray("gpu_particles") instance=ExtResource("1_k5pbt")]
+[node name="SmokeEffect" unique_id=1228765060 node_paths=PackedStringArray("gpu_particles") instance=ExtResource("1_k5pbt")]
 modulate = Color(0.7176471, 0.7176471, 0.7176471, 0.78431374)
 gpu_particles = [NodePath("GPUParticles2D")]
+type = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="0" unique_id=1282792795]
 material = SubResource("CanvasItemMaterial_4q6n7")

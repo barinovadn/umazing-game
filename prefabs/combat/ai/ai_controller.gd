@@ -8,7 +8,7 @@ class_name AIController
 
 @export_group("Combat")
 ## An array containing all types of projectiles used by the boss
-@export var bullet_types: Array[Resource]
+@export var bullets: Array[PackedScene]
 @export var actions: Array[AIAction]
 ## Stores the HP percentage values (in the range of 0 to 1) at which the
 ## boss advances to the next phase. You need to record the HP percentage
@@ -94,7 +94,7 @@ func _on_action_changer_timeout():
 
 
 func _on_pause_between_shots_timeout():
-	shoot_controller.create_a_projectile_from_argument(current_bullet_type)
+	shoot_controller.shoot(current_bullet_type)
 
 
 ## Selects actions from the boss's set of available actions that are available in this phase
@@ -167,7 +167,7 @@ func activate_interaction(_area: Area2D = null):
 func deactivate_interaction(_area: Area2D = null):
 	action_changer.stop()
 	movement_controller.enabled = false
-	shoot_controller.can_shoot = false
+	shoot_controller.enabled = false
 
 
 func deactivate_points(points: Array[Node2D]):

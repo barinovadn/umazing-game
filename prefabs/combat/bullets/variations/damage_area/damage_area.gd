@@ -21,7 +21,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.team == team:
 		return
 	if area is HurtComponent and _can_damage:
-		_crashed_into_hurt_component()
+		_crashed_into_hurt_component(area)
 		area.take_damage(_calc_damage())
 		set_deferred("monitorable", false)
 		set_deferred("monitoring", false)

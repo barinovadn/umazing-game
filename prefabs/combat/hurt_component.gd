@@ -9,11 +9,10 @@ signal healed(by_amount: float)
 signal health_changed(by_amount: float)
 signal max_health_changed
 
-## Specifies the team to which the parent belongs. 
 enum Team {
-	ENEMY = 0,
-	PLAYER = 1,
 	NEUTRAL = 2,
+	PLAYER = 1,
+	ENEMY = 0,
 	}
 
 @export_group("Health")

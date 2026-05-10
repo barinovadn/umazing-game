@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://budubdvptewnu" path="res://prefabs/vfx/effects/smoke.tscn" id="1_l6no1"]
 [ext_resource type="Material" uid="uid://crjhb6jrwitbu" path="res://prefabs/vfx/effects/smoke_explosion.tres" id="3_uf7jg"]
 
-[node name="Smoke" unique_id=1228765060 instance=ExtResource("1_l6no1")]
+[node name="SmokeExplosionEffect" unique_id=1228765060 instance=ExtResource("1_l6no1")]
 modulate = Color(1.1638972, 1.1638972, 1.1638972, 0.89411765)
 
 [node name="GPUParticles2D" parent="." index="0" unique_id=1282792795]

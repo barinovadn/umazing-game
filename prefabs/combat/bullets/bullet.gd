@@ -2,36 +2,27 @@
 extends Area2D
 class_name Bullet
 
-## Crashed into [HurtComponent]
-signal hit
-## Critical damage was dealt
-signal crit_damage_delt
-## Scheduled deletion has been initiated
-signal deletion_initiated
-## Bullet removal complete
-signal deletion_completed
+
+signal hit(hurt_component: HurtComponent)
+signal bounced(body: Node2D, normal: Vector2)
+signal crit
+signal destroyed
+signal deleted
 
 @export_group("Movement")
 @export var speed: float = 100
 ## The bullet's angular velocity relative to the target, in degrees per second
-@export var turn_speed_degrees: float = 45.0
+@export var turn_rate: float = 45.0
 ## The vector that determines the direction in which the bullet will fly
-## if [member auto_aim] is not enabled
+## if [member homing] is not enabled
 @export var direction: Vector2
-## The node that the bullet will be aimed at if [member auto_aim] is enabled
-@export var target: Node2D
+## The number of times the bullet bounces off the surface
+@export var bounces: int = 0
+@export_subgroup("Homing")
 ## Determines whether the bullet's auto-targeting feature is enabled
-@export var auto_aim : bool = false:
-	set(value):
-		auto_aim = value
-## The possibility of a bullet ricocheting off a body on the Map collision layer
-@export var can_ricochet: bool = false
-## The number of times the bullet ricochets off the surface
-@export var number_of_recochets_left: int = 0:
-	set(value):
-		number_of_recochets_left = value
-		if number_of_recochets_left <= 0:
-			can_ricochet = false
+@export var homing: bool = false
+## The node that the bullet will be aimed at if [member homing] is enabled
+@export var target: Node2D
 
 @export_group("Damage")
 @export var damage: float = 1.0
@@ -42,20 +33,19 @@ signal deletion_completed
 @export_range(0.0, 1.0) var crit_chance: float
 
 @export_group("Destruction")
-@export var can_be_broken : bool = false
+@export var can_be_broken: bool = false
 @export var can_break: bool = false
-@export var lifespan: float = 60.0
-@export var use_life_timer: bool = false
+@export var lifespan: float = 0.0
 
 @export_group("Sounds", "sounds")
 @export var sounds_spawn: Array[AudioStream] = []
-@export var sounds_die: Array[AudioStream] = []
+@export var sounds_destroy: Array[AudioStream] = []
 @export var sounds_hit: Array[AudioStream] = []
 @export var sounds_alive: Array[AudioStream] = []
-@export var sounds_ricochet: Array[AudioStream] = []
+@export var sounds_bounce: Array[AudioStream] = []
 
-@export_group("Animations", "animation")
-@export var animation_start: String = "shot"
+@export_group("Afterlife", "afterlife")
+@export var afterlife_duration: float = 7.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -68,35 +58,32 @@ var _crashed_in_char: bool = false
 
 
 func _bullet_ready(): pass
-
 func _bullet_process(): pass
+
 
 func _ready():
 	if collision_shape_2d.shape:
 		shape_cast_2d.shape = collision_shape_2d.shape
 	else:
 		shape_cast_2d.enabled = false
-	if (animated_sprite_2d.sprite_frames
-		and animated_sprite_2d.sprite_frames.has_animation(animation_start) ):
-		animated_sprite_2d.play(animation_start)
-	play_random_sound(sounds_spawn)
+	_play_random_sound(sounds_spawn)
 	play_sound_being_alive(sounds_alive)
-	if use_life_timer:
+	if lifespan > 0:
 		var timer = get_tree().create_timer(lifespan)
 		timer.timeout.connect(destroy)
 	_bullet_ready() 
 
 
-func _process(delta: float) -> void:
+func _process(delta: float):
 	_move(delta)
 	_bullet_process()
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D):
 	if area.team == team:
 		return
 	if area is HurtComponent:
-		_crashed_into_hurt_component()
+		_crashed_into_hurt_component(area)
 		area.take_damage(_calc_damage())
 		destroy()
 		return
@@ -106,81 +93,84 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 
 
-func _crashed_into_hurt_component():
-	hit.emit()
+func _play_random_sound(array: Array[AudioStream]):
+	if array.size():
+		audio_player.stream = array.pick_random()
+		audio_player.play()
+
+
+func _crashed_into_hurt_component(hurt_component: HurtComponent):
+	hit.emit(hurt_component)
 	_crashed_in_char = true
 	audio_player.stream = null
 	audio_player.stop()
-	play_random_sound(sounds_hit)
+	_play_random_sound(sounds_hit)
 
 
 func _calc_damage() -> float:
 	var amount := damage
 	if randf_range(0, 1) <= crit_chance:
-		crit_damage_delt.emit()
+		crit.emit()
 		amount += crit_damage
 	return amount
 
 
-func _move(delta: float) -> void:
-	if auto_aim and target and is_instance_valid(target):
+func _move(delta: float):
+	if homing and target and is_instance_valid(target):
 		if !direction:
 			direction = _get_direction_to_target()
 		var target_dir = _get_direction_to_target()
 		var angle_diff = direction.angle_to(target_dir)
-		var max_rotation_this_frame = deg_to_rad(turn_speed_degrees) * delta
+		var max_rotation_this_frame = deg_to_rad(turn_rate) * delta
 		var rotation_step = sign(angle_diff) * min(abs(angle_diff), max_rotation_this_frame)
 		direction = direction.rotated(rotation_step)
 	rotation = direction.angle()
 	position += direction * speed * delta
 
 
-func _on_map_collision(_body: Node2D) -> void:
-	if can_ricochet:
-		ricochet(_body)
-		number_of_recochets_left -= 1
+func _on_map_collision(_body: Node2D):
+	if bounces > 0:
+		bounce(_body)
+		bounces -= 1
 	else:
 		destroy()
+
 
 ## If there is a sound effect when removing a bullet, play it.
 ## The bullet will be removed after the last sound effect ends.
 func _delete():
-	await audio_player.finished
 	queue_free()
-	deletion_completed.emit()
+	deleted.emit()
 
 
 func _get_direction_to_target() -> Vector2:
+	if not target:
+		return direction
 	return (target.global_position - animated_sprite_2d.global_position).normalized()
 
 
-func ricochet(_body: Node2D) -> void:
+func bounce(body: Node2D):
 	var normal = shape_cast_2d.get_collision_normal(0)
 	if not normal:
 		direction *= -1
 		return
-	play_random_sound(sounds_ricochet)
+	_play_random_sound(sounds_bounce)
 	direction = direction.bounce(normal)
+	bounced.emit(body, normal)
 
 
-func destroy() -> void:
+func destroy():
 	if is_deleted:
 		return
 	is_deleted = true
-	deletion_initiated.emit()
+	destroyed.emit()
 	stop_and_disable_interaction()
 	if !_crashed_in_char:
 		audio_player.stream = null
 		audio_player.stop()
-		play_random_sound(sounds_die)
-	var timer = get_tree().create_timer(5.0)
+		_play_random_sound(sounds_destroy)
+	var timer = get_tree().create_timer(afterlife_duration)
 	timer.timeout.connect(_delete)
-
-## Loads a random sound from the array passed as an argument into the 2D audio stream player
-func play_random_sound(array: Array[AudioStream]):
-	if array.size():
-		audio_player.stream = array.pick_random()
-		audio_player.play()
 
 
 func play_sound_being_alive(array: Array[AudioStream]):

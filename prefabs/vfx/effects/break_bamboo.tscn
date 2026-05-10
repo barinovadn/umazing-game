@@ -9,7 +9,7 @@ particles_anim_h_frames = 6
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[node name="BreakBamboo" unique_id=1228765060 instance=ExtResource("1_620b3")]
+[node name="BreakBambooEffect" unique_id=1228765060 instance=ExtResource("1_620b3")]
 
 [node name="GPUParticles2D" parent="." index="0" unique_id=1593957519]
 material = SubResource("CanvasItemMaterial_bx5w6")

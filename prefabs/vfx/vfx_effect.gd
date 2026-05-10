@@ -11,16 +11,24 @@ signal finished
 signal deleted
 
 enum OffScreenBehaviour {
-	NONE,
-	PAUSE,
-	DELETE,
-	FINISH,
+	NONE, ## No behaviour;
+	PAUSE, ## Will call [method pause] once off screen and [method unpause] once back.
+	DELETE, ## Will call [method delete] once off screen.
+	FINISH, ## Will call [method finish] once off screen.
+	}
+
+enum Type {
+	## Will call [method delete] once [member is_finished] is [code]true[/code];
+	DYNAMIC,
+	## Does not call [method delete] on finish.
+	STATIC,
 	}
 
 @export var gpu_particles: Array[GPUParticles2D]
+@export var type: Type = Type.DYNAMIC
 @export var off_screen_behaviour: OffScreenBehaviour
+@export var settings: VFXEffectSettings
 @export var pause_delay: float = 0.0
-@export var delete_once_finished: bool
 
 var _gpu_particles_awaiting_count: int = 0
 var _gpu_particles_finished_count: int = 0:
@@ -40,11 +48,13 @@ var is_finished: bool = false:
 	set(value):
 		if is_finished == value or is_finished:
 			return
+		
 		is_finished = value
+		
 		if is_finished:
 			finished.emit()
-			if delete_once_finished:
-				delete()
+			match type:
+				Type.DYNAMIC: delete()
 var is_paused: bool = false:
 	set(value):
 		if value == is_paused:
@@ -67,6 +77,7 @@ func _ready():
 		particles.emitting = true
 		_gpu_particles_awaiting_count += 1
 		particles.finished.connect(_on_gpu_particles_finished)
+	_apply_settings()
 
 
 func _on_screen_exited():
@@ -81,6 +92,18 @@ func _on_screen_entered():
 	match off_screen_behaviour:
 		OffScreenBehaviour.PAUSE: unpause()
 		OffScreenBehaviour.NONE, _: pass
+
+
+func _apply_settings():
+	if not settings:
+		return
+	
+	modulate = settings.modulate
+	position += settings.offset
+	scale = settings.scale
+	
+	for gpu_particle in gpu_particles:
+		gpu_particle.amount_ratio = settings.DENSITY_VALUES[settings.density]
 
 
 func _finished_check():

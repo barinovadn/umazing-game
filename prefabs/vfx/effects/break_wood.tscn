@@ -9,7 +9,7 @@ particles_anim_h_frames = 6
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[node name="Rocks" unique_id=1228765060 instance=ExtResource("1_s4quo")]
+[node name="BreakRocksEffect" unique_id=1228765060 instance=ExtResource("1_s4quo")]
 
 [node name="GPUParticles2D" parent="." index="0" unique_id=1593957519]
 material = SubResource("CanvasItemMaterial_acctr")

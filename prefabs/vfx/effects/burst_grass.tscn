@@ -10,7 +10,7 @@ particles_anim_h_frames = 6
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[node name="BurstGrass" unique_id=1228765060 node_paths=PackedStringArray("gpu_particles") instance=ExtResource("1_14vjh")]
+[node name="BurstGrassEffect" unique_id=1228765060 node_paths=PackedStringArray("gpu_particles") instance=ExtResource("1_14vjh")]
 gpu_particles = [NodePath("GPUParticles2D")]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="0" unique_id=66671460]
