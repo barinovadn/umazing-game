@@ -6,5 +6,4 @@
 [node name="PuffSnowEffect" unique_id=1228765060 instance=ExtResource("1_wdpka")]
 
 [node name="GPUParticles2D" parent="." index="0" unique_id=1954578229]
-amount = 8
 texture = ExtResource("2_u88sn")

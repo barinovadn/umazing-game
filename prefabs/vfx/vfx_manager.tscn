@@ -15,17 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://budubdvptewnu" path="res://prefabs/vfx/effects/smoke.tscn" id="13_gd1t3"]
 [ext_resource type="PackedScene" uid="uid://74d2ka18na87" path="res://prefabs/vfx/effects/smoke_explosion.tscn" id="14_bjeu4"]
 [ext_resource type="PackedScene" uid="uid://b86ksiklisu71" path="res://prefabs/vfx/effects/portal.tscn" id="15_t8ax2"]
-[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_params.gd" id="16_1n23f"]
-[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="17_64qxl"]
-
-[sub_resource type="Resource" id="Resource_jqf1p"]
-script = ExtResource("17_64qxl")
-metadata/_custom_type_script = "uid://b7nceugqtlef1"
-
-[sub_resource type="Resource" id="Resource_64qxl"]
-script = ExtResource("16_1n23f")
-settings = SubResource("Resource_jqf1p")
-metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [node name="VFXManager" type="Node2D" unique_id=880750068]
 script = ExtResource("1_3o42a")
@@ -45,4 +34,3 @@ effects = Dictionary[int, PackedScene]({
 500: ExtResource("15_t8ax2"),
 10000: ExtResource("3_6efpr")
 })
-params = SubResource("Resource_64qxl")

@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://buhslpn3jaek5" path="res://scenes/game/game.tscn" id="1_c3u61"]
 [ext_resource type="PackedScene" uid="uid://c1akfo133wrn2" path="res://prefabs/light/light.tscn" id="2_nfdyi"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_psdh3"]
 [ext_resource type="PackedScene" uid="uid://cuxbwbedjhckr" path="res://prefabs/characters/animals/pig/pig.tscn" id="2_r64fy"]
 [ext_resource type="PackedScene" uid="uid://b0aiwwk5ql1ri" path="res://prefabs/vfx/effects/fireflies.tscn" id="2_xrc6b"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="3_2p5q4"]
 [ext_resource type="AudioStream" uid="uid://cnm1ov4xyujgv" path="res://prefabs/music/tracks/curse.ogg" id="3_bc555"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="3_fp2w6"]
 [ext_resource type="PackedScene" uid="uid://btijf5b1ejuaj" path="res://prefabs/environment/environment_zone_collider.tscn" id="3_q7qle"]
@@ -36,6 +38,17 @@
 [ext_resource type="AudioStream" uid="uid://bhu1506kudwdu" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_5.ogg" id="34_2p5q4"]
 [ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="35_mywxa"]
+
+[sub_resource type="Resource" id="Resource_fscrj"]
+script = ExtResource("3_2p5q4")
+modulate = Color(0.42799452, 0.99999994, 0.66915125, 1)
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_5cmlo"]
+script = ExtResource("2_psdh3")
+effect = 400
+settings = SubResource("Resource_fscrj")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqxbl"]
 atlas = ExtResource("5_xrc6b")
@@ -100,6 +113,7 @@ modulate = Color(1, 1, 1, 0.039215688)
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
 allow_cheats = true
+cursor_vfx = SubResource("Resource_5cmlo")
 
 [node name="SwampFireflies1" parent="VFXManager" parent_id_path=PackedInt32Array(880750068) index="0" unique_id=1228765060 instance=ExtResource("2_xrc6b")]
 position = Vector2(-400, 152)
@@ -329,7 +343,7 @@ speed = 60.0
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="5" unique_id=379324176 instance=ExtResource("5_gfex4")]
-position = Vector2(-144, -176)
+position = Vector2(0, 160)
 start_animation = 1
 
 [node name="InspectableSign" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
