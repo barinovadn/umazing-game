@@ -5,10 +5,11 @@
 
 [resource]
 script = ExtResource("1_86nn8")
+rarity = 1
 name = "Креветка"
 icon = ExtResource("1_88wyr")
-max_stack = 4
 description = "Еда"
+max_stack = 4
 is_consumable = true
 is_active = true
 is_stackable = true
