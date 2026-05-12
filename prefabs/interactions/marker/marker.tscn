@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://cdtekl4l4f04o"]
+
+[ext_resource type="Script" uid="uid://seadrteyhr5" path="res://prefabs/interactions/marker/marker.gd" id="1_0rodi"]
+[ext_resource type="Texture2D" uid="uid://inbq66n0vb7n" path="res://prefabs/interactions/marker/marker_sprite_sheet.png" id="2_vuhap"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hle0c"]
+atlas = ExtResource("2_vuhap")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf77b"]
+atlas = ExtResource("2_vuhap")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm1gl"]
+atlas = ExtResource("2_vuhap")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuhap"]
+atlas = ExtResource("2_vuhap")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ddlv"]
+atlas = ExtResource("2_vuhap")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rodi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hle0c")
+}],
+"loop": true,
+"name": &"chest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf77b")
+}],
+"loop": true,
+"name": &"eye",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm1gl")
+}],
+"loop": true,
+"name": &"key",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"none",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuhap")
+}],
+"loop": true,
+"name": &"question_mark",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ddlv")
+}],
+"loop": true,
+"name": &"x",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_sf77b"]
+resource_name = "FLOAT"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Pivot:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vuhap"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ddlv"]
+_data = {
+&"FLOAT": SubResource("Animation_sf77b"),
+&"RESET": SubResource("Animation_vuhap")
+}
+
+[node name="InteractionMarker" type="Node2D" unique_id=1940503036 groups=["interaction_marker"]]
+z_index = 100
+z_as_relative = false
+texture_filter = 1
+script = ExtResource("1_0rodi")
+sprite = 1
+animation = 1
+animation_speed = -1
+
+[node name="Offset" type="Node2D" parent="." unique_id=729750740]
+position = Vector2(0, -10)
+
+[node name="Pivot" type="Node2D" parent="Offset" unique_id=25633493]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Offset/Pivot" unique_id=562826199]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_0rodi")
+animation = &"question_mark"
+autoplay = "none"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1625749635]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_3ddlv")
+autoplay = &"FLOAT"

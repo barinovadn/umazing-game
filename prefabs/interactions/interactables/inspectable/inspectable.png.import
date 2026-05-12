@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj5yv3qjuljg6"
-path="res://.godot/imported/inspectable.png-a8a19049602cf9bd4b09bfac93c019f1.ctex"
+path="res://.godot/imported/inspectable.png-f9cbcc4ead83df44a632439650f01c46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/interactables/inspectable/inspectable.png"
-dest_files=["res://.godot/imported/inspectable.png-a8a19049602cf9bd4b09bfac93c019f1.ctex"]
+source_file="res://prefabs/interactions/interactables/inspectable/inspectable.png"
+dest_files=["res://.godot/imported/inspectable.png-f9cbcc4ead83df44a632439650f01c46.ctex"]
 
 [params]
 

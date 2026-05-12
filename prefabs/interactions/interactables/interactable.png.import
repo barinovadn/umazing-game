@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r26wg330doy5"
-path="res://.godot/imported/interactor.png-91da90b86c2c98a94bc19275d2c91830.ctex"
+uid="uid://d111vgcx7fb0k"
+path="res://.godot/imported/interactable.png-bf54223d96aacd17bd941b72e30cd27f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/interactor/interactor.png"
-dest_files=["res://.godot/imported/interactor.png-91da90b86c2c98a94bc19275d2c91830.ctex"]
+source_file="res://prefabs/interactions/interactables/interactable.png"
+dest_files=["res://.godot/imported/interactable.png-bf54223d96aacd17bd941b72e30cd27f.ctex"]
 
 [params]
 

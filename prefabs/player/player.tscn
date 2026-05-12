@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://br4jv0365g35h"]
 
-[ext_resource type="PackedScene" uid="uid://cd4mxmywy2qdo" path="res://prefabs/interactor/interactor.tscn" id="1_rdx4y"]
+[ext_resource type="PackedScene" uid="uid://cd4mxmywy2qdo" path="res://prefabs/interactions/interactor/interactor.tscn" id="1_rdx4y"]
 [ext_resource type="Script" uid="uid://dg10rouiowrl4" path="res://prefabs/player/player.gd" id="1_wv1mm"]
 [ext_resource type="Script" uid="uid://cxp2akga3voxj" path="res://common/movement/controllers/player_movement_controller.gd" id="2_wv1mm"]
 [ext_resource type="Script" uid="uid://dnfhvouh77e1x" path="res://common/grid_camera/grid_camera.gd" id="4_iylwk"]

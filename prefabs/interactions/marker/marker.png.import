@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d111vgcx7fb0k"
-path="res://.godot/imported/interactable.png-11cae7fe8d1818f7cf71edd952b8c36f.ctex"
+uid="uid://du77qn1oc7hfp"
+path="res://.godot/imported/marker.png-5ac097bb71b19ebc301684d8991f2988.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/interactables/interactable.png"
-dest_files=["res://.godot/imported/interactable.png-11cae7fe8d1818f7cf71edd952b8c36f.ctex"]
+source_file="res://prefabs/interactions/marker/marker.png"
+dest_files=["res://.godot/imported/marker.png-5ac097bb71b19ebc301684d8991f2988.ctex"]
 
 [params]
 

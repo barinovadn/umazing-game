@@ -18,5 +18,5 @@ process_material = ExtResource("3_8enl5")
 
 [node name="Light" parent="." index="1" unique_id=266634095 instance=ExtResource("2_5qs0j")]
 scale = Vector2(3, 3)
-color = Color(0.5625, 0.75, 0, 1)
-energy = 0.25
+color = Color(0.5568628, 1, 0, 1)
+energy = 0.15

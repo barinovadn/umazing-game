@@ -58,6 +58,7 @@ bullet=""
 hurt_component=""
 shoot_controller=""
 ai_controller=""
+interaction_marker=""
 
 [input]
 
