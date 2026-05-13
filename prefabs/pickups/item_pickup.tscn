@@ -1,14 +1,9 @@
 [gd_scene format=3 uid="uid://ds7r5gr45oetv"]
 
 [ext_resource type="Script" uid="uid://yg4ldwcka3qa" path="res://prefabs/pickups/item_pickup.gd" id="1_jlyx3"]
-[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/items/base_item.gd" id="2_cg6j6"]
 [ext_resource type="Texture2D" uid="uid://cgaygxeatd046" path="res://prefabs/items/Shrimp.png" id="2_ynwc8"]
 [ext_resource type="Resource" uid="uid://blylgxx5kc83n" path="res://prefabs/items/test_item.tres" id="3_jvv1q"]
 [ext_resource type="Texture2D" uid="uid://buoyg5fif6m8i" path="res://prefabs/pickups/gradient.png" id="5_xgv4m"]
-
-[sub_resource type="Resource" id="Resource_xgv4m"]
-script = ExtResource("2_cg6j6")
-metadata/_custom_type_script = "uid://cb3e76qpw5nv7"
 
 [sub_resource type="Animation" id="Animation_cg6j6"]
 length = 0.001
@@ -56,7 +51,7 @@ collision_layer = 512
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_jlyx3")
-item_data = SubResource("Resource_xgv4m")
+item_data = ExtResource("3_jvv1q")
 test_item = ExtResource("3_jvv1q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=955703347]

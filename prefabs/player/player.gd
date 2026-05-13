@@ -28,9 +28,6 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 
 func _ready():
 	_on_character_changed(character, null)
-	## TODO Move to inventory (isolate logic)
-	if inventory:
-		inventory.hide()
 
 
 func _process(_delta: float):
@@ -47,15 +44,6 @@ func _update_component_positions():
 	interactor.global_position = character.global_position
 	trigger.global_position = character.global_position
 	pickup_area.global_position = character.global_position
-
-
-## TODO Move to inventory (isolate logic)
-func _input(event):
-	if event.is_action_pressed("inventory"): 
-		inventory.visible = !inventory.visible
-		
-		if not inventory.visible:
-			inventory.action_panel.hide()
 
 
 func _on_character_changed(new_character: Character2D, old_character: Character2D):

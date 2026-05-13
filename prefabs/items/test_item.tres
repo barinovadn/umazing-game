@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_86nn8")
-rarity = 1
+rarity = 2
 name = "Креветка"
 icon = ExtResource("1_88wyr")
 description = "Еда"

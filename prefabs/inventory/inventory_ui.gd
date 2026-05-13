@@ -9,14 +9,24 @@ extends Node
 @onready var info_button = $VBox/ActionPanel/InfoButton
 @onready var drop_button = $VBox/ActionPanel/DropButton
 @onready var inventory_logic = %Inventory
+@onready var inventory_ui = %UI/InventoryUI
 
 var selected_item: String = ""
 
 
 func _ready():
 	action_panel.hide()
+	inventory_ui.hide()
 	if inventory_logic:
 		inventory_logic.updated.connect(refresh_ui)
+
+
+func _input(event):
+	if event.is_action_pressed("inventory"): 
+		inventory_ui.visible = !inventory_ui.visible
+		
+		if not inventory_ui.visible:
+			inventory_ui.action_panel.hide()
 
 
 func setup_action_panel(item: ItemData):
