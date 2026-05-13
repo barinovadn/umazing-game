@@ -53,21 +53,21 @@ var is_moving: bool = false:
 			movement_stopped.emit()
 
 
-## Moves the character by [param speed] amount in the current [member direction].
+## Moves the character by [param dist] amount in the current [member direction].
 ## If [param new_direction] is not [code]Vector2.ZERO[/code] will update
 ## [member direction]. Emits [signal moved].
-func move(speed: float = speed, new_direction: Vector2 = Vector2.ZERO):
+func move(dist: float = speed, new_direction: Vector2 = Vector2.ZERO):
 	if not enabled:
 		return
 	
 	if new_direction:
 		direction = new_direction
 	
-	if not speed or not direction:
+	if not dist or not direction:
 		return
 	
 	is_moving = true
-	moved.emit(direction, speed)
+	moved.emit(direction, dist)
 
 ## Updates [member is_moving].
 func stop():

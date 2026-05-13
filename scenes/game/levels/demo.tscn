@@ -220,9 +220,10 @@ exit_offset = Vector2(0, -24)
 color = Color(1, 0, 0, 0.39215687)
 
 [node name="InteractionMarker" parent="Teleports/TeleportRedIn" index="1" unique_id=1940503036 instance=ExtResource("37_psdh3")]
-modulate = Color(1, 0.25, 0.25, 1)
+modulate = Color(1, 0.5, 0.25, 1)
 position = Vector2(16, -8)
-color = 3
+color = 2
+animation = 2
 
 [node name="TeleportRedOut" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="1" unique_id=1197379040 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 position = Vector2(-312, -440)
@@ -281,6 +282,7 @@ description = Array[String](["Have you seen my cat?", "Can you help me find my c
 modulate = Color(1, 0.25, 0.25, 1)
 position = Vector2(0, -8)
 color = 3
+animation = 3
 
 [node name="Dummy2" parent="Characters/Villagers" index="1" unique_id=1610470532 instance=ExtResource("7_8qff5")]
 z_index = 15
@@ -316,6 +318,7 @@ metadata/_custom_type_script = "uid://d34c6a0yetv43"
 modulate = Color(1, 0.25, 0.25, 1)
 position = Vector2(-120, -136)
 color = 3
+animation = 3
 
 [node name="CatPath" type="Path2D" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="3" unique_id=1367530739]
 position = Vector2(-120, -160)

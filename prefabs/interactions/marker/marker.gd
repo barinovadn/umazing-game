@@ -15,6 +15,8 @@ enum MarkerSprite {
 enum MarkerAnimation {
 	NONE,
 	FLOAT,
+	WIGGLE,
+	WOBBLE,
 	}
 enum MarkerAnimationSpeed {
 	ZERO = -2,
@@ -42,6 +44,8 @@ const MARKER_SPRITES: Dictionary[MarkerSprite, String] = {
 const MARKER_ANIMATIONS: Dictionary[MarkerAnimation, String] = {
 	MarkerAnimation.NONE: "RESET",
 	MarkerAnimation.FLOAT: "FLOAT",
+	MarkerAnimation.WIGGLE: "WIGGLE",
+	MarkerAnimation.WOBBLE: "WOBBLE",
 	}
 const MARKER_ANIMATION_SPEEDS: Dictionary[MarkerAnimationSpeed, float] = {
 	MarkerAnimationSpeed.ZERO: 0,
@@ -52,12 +56,13 @@ const MARKER_ANIMATION_SPEEDS: Dictionary[MarkerAnimationSpeed, float] = {
 const MARKER_COLORS: Dictionary[MarkerColor, Color] = {
 	MarkerColor.WHITE: Color.WHITE,
 	MarkerColor.YELLOW: Color(1.0, 1.0, 0.5),
-	MarkerColor.ORANGE: Color(1.0, 0.5, 0.0),
+	MarkerColor.ORANGE: Color(1.0, 0.5, 0.25),
 	MarkerColor.RED: Color(1.0, 0.25, 0.25),
 	MarkerColor.GREEN: Color(0.0, 1.0, 0.5),
 	MarkerColor.BLUE: Color(0.5, 0.5, 1.0),
 	}
 
+@export_group("Visuals")
 @export var sprite: MarkerSprite:
 	set(value):
 		sprite = value
@@ -75,7 +80,7 @@ const MARKER_COLORS: Dictionary[MarkerColor, Color] = {
 		animation_speed = value
 		_apply_settings.call_deferred()
 
-@export_group("Custom Overwrites", "custom")
+@export_subgroup("Custom Overwrites", "custom")
 @export var custom_color: Color:
 	set(value):
 		custom_color = value

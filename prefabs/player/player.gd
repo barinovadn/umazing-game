@@ -4,7 +4,6 @@ extends Node
 
 signal character_changed(new_character: Character2D, old_character: Character2D)
 
-@export var bullets: Array[PackedScene]
 @export var character: Character2D:
 	set(value):
 		if value == character:
@@ -12,25 +11,33 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		var old_character = character
 		character = value
 		character_changed.emit(character, old_character)
+@export var bullets: Array[PackedScene]
 @export var allow_cheats: bool = false
 
 var noclip: bool:
 	set(value):
 		noclip = value
 		character.collision = !noclip
-		character.movement.speed *= (2 if noclip else .5)
+		character.movement.speed *= (2. if noclip else .5)
 
 @onready var components: Node2D = $Components
+
 @onready var shoot_controller: ShootController = %ShootController
 @onready var hurt_component: HurtComponent = %HurtComponent
 @onready var movement: MovementController2D = %Movement
 @onready var interactor: Interactor = %Interactor
+
 @onready var trigger: Area2D = %Center
 @onready var room: Area2D = %Room
 @onready var cursor: Area2D = %Cursor
+
 @onready var camera: GridCamera2D = %Camera
 @onready var camera_controller: GridCameraFollower2D = %Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = %Camera/TransitionFade
+
+@onready var env_particles: EnvironmentParticles = %EnvironmentParticles
+@onready var env_filter: EnvironmentFilter = %EnvironmentFilter
+
 @onready var health_ui: HealthUI = %HealthUI
 
 
@@ -44,7 +51,8 @@ func _process(_delta: float):
 	_update_cursor_position()
 	
 	if Input.is_action_pressed("shoot"):
-		shoot_controller.shoot(bullets.pick_random())
+		shoot_controller.bullets = bullets
+		shoot_controller.shoot()
 
 
 func _input(event: InputEvent):
