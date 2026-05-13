@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dosm88jd4axk1"]
+
+[ext_resource type="Script" uid="uid://bds41jjviynyj" path="res://prefabs/music/music_player.gd" id="1_nskqu"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" unique_id=1068287036]
+bus = &"Music"
+script = ExtResource("1_nskqu")
+
+[node name="Break" type="Timer" parent="." unique_id=122721142]
+
+[connection signal="finished" from="." to="." method="_on_track_ended"]
+[connection signal="timeout" from="Break" to="." method="_on_break_ended"]

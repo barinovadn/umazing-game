@@ -49,10 +49,10 @@ enum AnimationType {
 	AnimationType.WALK_LEFT: 'walk_left',
 	AnimationType.WALK_RIGHT: 'walk_right',
 	
-	AnimationType.ATTACK_DOWN: 'interact_down',
-	AnimationType.ATTACK_UP: 'interact_up',
-	AnimationType.ATTACK_LEFT: 'interact_left',
-	AnimationType.ATTACK_RIGHT: 'interact_right',
+	AnimationType.ATTACK_DOWN: 'attack_down',
+	AnimationType.ATTACK_UP: 'attack_up',
+	AnimationType.ATTACK_LEFT: 'attack_left',
+	AnimationType.ATTACK_RIGHT: 'attack_right',
 	
 	AnimationType.DOWNED: 'downed',
 	AnimationType.STANCE: 'stance',
@@ -145,11 +145,12 @@ func has_animation(animation: AnimationType) -> bool:
 
 ## Plays the specified [param animation] if it exists in [member animations].
 ## Will ignore the call if given [member AnimationType.NONE].
-func play(animation: AnimationType):
+## Returns [code]true[/code] if the animation started, [code]false[/code] otherwise.
+func play(animation: AnimationType) -> bool:
 	if not has_animation(animation):
 		if animation:
 			push_warning("No animation with type #", animation, " found.")
-		return
+		return false
 	
 	if animations_flip_h.has(animation):
 		animated_sprite.flip_h = animations_flip_h[animation]
@@ -157,6 +158,7 @@ func play(animation: AnimationType):
 		animated_sprite.flip_v = animations_flip_v[animation]
 	
 	animated_sprite.play(animations[animation])
+	return true
 
 
 ## Plays an idle animation based on [param direction].

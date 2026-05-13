@@ -29,6 +29,7 @@ enum Ratio {
 
 ## Maps particle [enum Types] to their corresponding [GPUParticles2D] nodes.
 @onready var particles: Dictionary[Type, GPUParticles2D] = {
+	# NOTE Make sure to update _apply_mutations if the node names are changed.
 	Type.LEAVES: $Leaves,
 	Type.LEAVES_PINK: $LeavesPink,
 	Type.RAIN: $Rain,
@@ -43,7 +44,7 @@ enum Ratio {
 func _update_particles(node: GPUParticles2D, emitting: bool, ratio: float = 1.0):
 	node.amount_ratio = ratio
 	node.emitting = emitting
-	if enable_particle_mutations:
+	if enable_particle_mutations and emitting:
 		_apply_mutations(node)
 
 

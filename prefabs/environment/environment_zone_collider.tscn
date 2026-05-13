@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://btijf5b1ejuaj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7qle"]
+size = Vector2(1, 1)
+
+[node name="Collider" type="CollisionShape2D" unique_id=33740918]
+editor_description = "Could also use CollisionPolygon2D for env zones but I dont like the ugly rainbow it generates in the editor"
+shape = SubResource("RectangleShape2D_q7qle")
+debug_color = Color(1, 1, 1, 0.19607843)

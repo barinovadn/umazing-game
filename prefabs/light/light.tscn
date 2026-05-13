@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c1akfo133wrn2"]
+
+[ext_resource type="Texture2D" uid="uid://ln2snpg7hoim" path="res://prefabs/light/light.png" id="1_tt4vu"]
+
+[node name="Light" type="PointLight2D" unique_id=266634095]
+energy = 0.5
+texture = ExtResource("1_tt4vu")
+texture_scale = 0.05
