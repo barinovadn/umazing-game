@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ckf02713hcpbr" path="res://prefabs/characters/animals/cat/cat.tscn" id="11_7im6l"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_controller.tscn" id="11_bpga3"]
 [ext_resource type="PackedScene" uid="uid://bjb2riattkaaa" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat.tscn" id="14_nfdyi"]
-[ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="14_roxwf"]
+[ext_resource type="Script" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="14_roxwf"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="16_jqxbl"]
 [ext_resource type="PackedScene" uid="uid://b86ksiklisu71" path="res://prefabs/vfx/effects/portal.tscn" id="16_qex4a"]
 [ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/combat/ui/boss_container_data.gd" id="17_1qwsm"]
@@ -34,7 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://cpvxg4y73gm2r" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_2.ogg" id="31_mywxa"]
 [ext_resource type="AudioStream" uid="uid://ctrye6fbih85b" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_4.ogg" id="33_psdh3"]
 [ext_resource type="AudioStream" uid="uid://bhu1506kudwdu" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_5.ogg" id="34_2p5q4"]
-[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
+[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="35_mywxa"]
 [ext_resource type="PackedScene" uid="uid://cdtekl4l4f04o" path="res://prefabs/interactions/marker/marker.tscn" id="37_psdh3"]
 
@@ -117,7 +117,7 @@ scale = Vector2(2, 2)
 [node name="PigLeavesBurst" parent="VFXManager" parent_id_path=PackedInt32Array(880750068) index="3" unique_id=1905084222 instance=ExtResource("17_qex4a")]
 position = Vector2(-128, 128)
 
-[node name="Tilemap" parent="." index="5" unique_id=1439768727]
+[node name="Tilemap" parent="." index="6" unique_id=1439768727]
 y_sort_enabled = false
 
 [node name="Background" parent="Tilemap" index="0" unique_id=560005983]
@@ -276,7 +276,6 @@ position = Vector2(264, -40)
 start_animation = 18
 
 [node name="InspectableNPC" parent="Characters/Villagers/Dummy1" index="4" unique_id=45048443 instance=ExtResource("9_8ic3i")]
-description = Array[String](["Have you seen my cat?", "Can you help me find my cat?", "I really miss him..."])
 
 [node name="InteractionMarker" parent="Characters/Villagers/Dummy1/InspectableNPC" index="1" unique_id=334963736 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 0.25, 0.25, 1)
@@ -312,7 +311,6 @@ order = 2
 break_duration_min = 0.5
 break_duration_max = 2.0
 speed = 45.0
-metadata/_custom_type_script = "uid://d34c6a0yetv43"
 
 [node name="CatInteractionMarker" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="2" unique_id=1711861751 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 0.25, 0.25, 1)
@@ -357,27 +355,22 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 position = Vector2(0, 160)
 start_animation = 1
 
-[node name="InspectableSign" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
+[node name="SignForest" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
 position = Vector2(-424, 8)
-description = Array[String](["Blah-blah-blah..."])
 
-[node name="InteractionMarker" parent="Interactables/InspectableSign" index="1" unique_id=639358266 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignForest" index="1" unique_id=639358266 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
 sprite = 2
 color = 1
 
-[node name="InspectableSecret" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
+[node name="SignSecret" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
 position = Vector2(-536, -120)
-description = Array[String](["<- Free hotdogs this way."])
 
-[node name="InteractionMarker" parent="Interactables/InspectableSecret" index="1" unique_id=1434231170 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 instance=ExtResource("37_psdh3")]
 position = Vector2(0, -8)
 
-[node name="Enemies" parent="." index="11" unique_id=92814873]
-unique_name_in_owner = true
-
-[node name="Bosses" type="Node2D" parent="Enemies" index="0" unique_id=1580441644]
+[node name="Bosses" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="0" unique_id=1580441644]
 
 [node name="CyclopusCat" parent="Enemies/Bosses" index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("14_nfdyi")]
 position = Vector2(416, -480)
@@ -413,7 +406,6 @@ regions = [NodePath("../../../CyclopusCatRegion1"), NodePath("../../../CyclopusC
 min_radius = 200.0
 break_time = 0.001
 speed = 60.0
-metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
 
 [node name="DamageArea" parent="Enemies/Bosses/CyclopusCat" index="5" unique_id=419752470 instance=ExtResource("35_mywxa")]
 z_index = -10
