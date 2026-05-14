@@ -11,9 +11,22 @@ font_size = 24
 
 [node name="DialogueSystem" type="CanvasLayer" unique_id=459583272]
 script = ExtResource("1_muyoo")
+char_type_speed_multipliers = Dictionary[String, float]({
+" ": 2.0,
+"!": 6.0,
+"+": 2.5,
+",": 3.0,
+"-": 2.5,
+".": 4.0,
+":": 3.5,
+";": 4.0,
+"=": 2.5,
+"?": 6.0
+})
 
 [node name="DialogueWindow" type="Control" parent="." unique_id=1500275694]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -74,3 +87,8 @@ theme = ExtResource("2_8yse7")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 label_settings = SubResource("LabelSettings_tlicu")
 autowrap_mode = 3
+
+[node name="Typing" type="Timer" parent="." unique_id=1707925895]
+one_shot = true
+
+[connection signal="timeout" from="Typing" to="." method="_on_character_typed"]
