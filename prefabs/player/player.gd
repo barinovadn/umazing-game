@@ -49,10 +49,6 @@ func _ready():
 func _process(_delta: float):
 	_update_component_positions()
 	_update_cursor_position()
-	
-	if Input.is_action_pressed("shoot"):
-		shoot_controller.bullets = bullets
-		shoot_controller.shoot()
 
 
 func _input(event: InputEvent):
@@ -74,8 +70,17 @@ func _input(event: InputEvent):
 		interactor.interact.call_deferred()
 		return
 	
+	if event.is_action_pressed("shoot"):
+		shoot_controller.shoot()
+		return
+		
+	if event.is_action_released("shoot"):
+		shoot_controller.stop_shooting()
+		return
+	
 	if event.is_action_pressed("noclip") and allow_cheats:
 		noclip = !noclip
+		
 
 
 ## Some components like [member interactor] are expected to be children to the

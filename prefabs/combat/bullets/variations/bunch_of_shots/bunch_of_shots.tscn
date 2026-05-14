@@ -6,11 +6,14 @@
 
 [node name="BunchOfShots" unique_id=419752470 instance=ExtResource("1_arhei")]
 script = ExtResource("2_pi3ct")
+use_bullet_autoaim = false
 bullets = Array[PackedScene]([ExtResource("3_pi3ct")])
 amount = 3
 spacing = 45.0
 offset = Vector2(0, 0)
 damage = 0.0
+can_be_broken = true
+can_break = true
 
 [node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
 volume_db = -4.0

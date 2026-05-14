@@ -7,4 +7,5 @@ extends Resource
 
 
 func spawn(at: Vector2):
-	Game.vfx_manager.spawn(effect, at, settings)
+	if Game.vfx_manager:
+		Game.vfx_manager.spawn(effect, at, settings)

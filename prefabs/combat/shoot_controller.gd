@@ -5,21 +5,25 @@ extends Node2D
 
 signal shooting_started()
 signal shooting_stopped()
+signal shooting_is_available()
+signal post_shot_cd_started()
+signal post_shot_cd_finished()
 
 @export var team := HurtComponent.Team.NEUTRAL
-@export var auto_aim: bool
 @export var bullets: Array[PackedScene]
-@export_range(0.001, 60) var interval_between_shots: float = 0.1
+@export_range(0.001, 60) var interval_between_shots: float = 0.4
 @export var enabled: bool = true
+@export var post_shot_cd_interval: float = 0.2
 
 @export_group("Projectile Behavior", "projectile")
 @export var projectile_homing: bool
-@export var projectile_homing_target: Node2D
 @export var projectile_turn_rate_min: float = 0.0
 @export var projectile_bounce: bool
 @export var projectile_bounces_min: int = 1
- 
+@onready var animation_cooldown: Timer = $AnimationCooldown
+
 @onready var cooldown_timer: Timer = $Cooldown
+
 
 var direction: Vector2
 ## Indicates whether the component is in firing mode
@@ -33,12 +37,21 @@ var is_shooting: bool = false:
 			if cooldown_timer != null:
 				cooldown_timer.start(interval_between_shots)
 			shooting_started.emit()
-		else:
-			shooting_stopped.emit()
+
+var on_shoot_cooldown: bool
+var is_animation_needed: bool = false:
+	set(value):
+		is_animation_needed = value
+		if is_animation_needed and animation_cooldown:
+			animation_cooldown.start(post_shot_cd_interval)
 
 
 func _on_cooldown_ended():
-	is_shooting = false
+	on_shoot_cooldown = false
+	if is_shooting:
+		shoot()
+	else:
+		shooting_is_available.emit()
 
 
 func _direction_to(target: Node2D) -> Vector2:
@@ -47,64 +60,47 @@ func _direction_to(target: Node2D) -> Vector2:
 	return (target.global_position - global_position).normalized()
 
 
-func _set_bullet_direction(bullet: Bullet):
-	if auto_aim:
-		bullet.direction = _direction_to(get_closest_target())
-		return
+func _apply_behavior(bullet: Bullet):
+	
+	bullet.team = team
+	
+	bullet.global_position = global_position
 	
 	bullet.direction = direction
-
-
-func _apply_behavior(bullet: Bullet):
-	if projectile_homing:
-		bullet.homing = true
-		bullet.target = ( projectile_homing_target if projectile_homing_target
-			else get_closest_target() )
+	
+	bullet.homing = projectile_homing
 	
 	if projectile_bounce:
-		bullet.bounces = max(bullet.bounces, bullet.bounces)
-	
+		bullet.bounces = max(projectile_bounces_min, bullet.bounces)
 	bullet.turn_rate = max(bullet.turn_rate, projectile_turn_rate_min)
 
 
-func get_closest_target() -> HurtComponent:
-	if not is_inside_tree():
-		return null
-	
-	var targets = get_tree().get_nodes_in_group("hurt_component")
-	var closest = null
-	var closest_dist = INF
-
-	for target in targets:
-		if target.team == team:
-			continue
-		
-		var target_pos = target.global_position
-		var dist = global_position.distance_to(target_pos)
-		
-		if dist < closest_dist:
-			closest_dist = dist
-			closest = target
-
-	return closest
-
-
-func shoot(bullet_scene: PackedScene = null):
-	if is_shooting or not enabled:
+func shoot():
+	if on_shoot_cooldown or not enabled or not bullets:
 		return
 	
 	is_shooting = true
-	var bullet: Bullet
 	
-	if bullet_scene:
-		bullet = bullet_scene.instantiate() as Bullet
-	else:
-		bullet = bullets.pick_random().instantiate() as Bullet
-	
-	bullet.team = team
-	bullet.global_position = global_position
-	
-	_set_bullet_direction(bullet)
+	var bullet = bullets.pick_random().instantiate() as Bullet
 	_apply_behavior(bullet)
-	
 	Game.bullets.add_child(bullet)
+	
+	is_animation_needed = true
+	post_shot_cd_started.emit()
+	
+	on_shoot_cooldown = true
+	cooldown_timer.start(interval_between_shots)
+
+
+func stop_shooting():
+	is_shooting = false
+	shooting_stopped.emit()
+
+
+func set_bullet_array(array: Array[PackedScene]):
+	bullets = array
+
+
+func _on_animation_cooldown_timeout() -> void:
+	is_animation_needed = false
+	post_shot_cd_finished.emit()

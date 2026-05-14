@@ -7,14 +7,15 @@ class_name AIController
 @export var enabled: bool = true
 
 @export_group("Combat")
-## An array containing all types of projectiles used by the boss
-@export var bullets: Array[PackedScene]
 @export var actions: Array[AIAction]
 ## Stores the HP percentage values (in the range of 0 to 1) at which the
 ## boss advances to the next phase. You need to record the HP percentage
 ## for each phase, starting with the second one. 
 @export var modulates_for_phase: Array[float]
 @export var movement_patterns: Dictionary[String, MovementController2D]
+
+@export_group("VFX", "vfx")
+@export var vfx_on_phase_change: VFXProfile
 
 @export_group("Event Responses")
 @export var show_on_activation: Array[Node2D]
@@ -31,19 +32,28 @@ class_name AIController
 @onready var display_location: BossUI = %Player/%BossUI
 ## A timer that sets the interval between actions
 @onready var action_changer: Timer = $AIActionChanger
-## Sets the interval between shots for a specific type of attack
-@onready var pause_between_shots: Timer = $PauseBetweenShots
+
 
 ## Current boss movement pattern
 var current_bullet_type: Resource
-var current_phase: int = 1
+var current_phase: int = 0:
+	set(value):
+		if value == current_phase:
+			return
+		current_phase = clamp(value, 0, INF)
+		_on_phase_changed()
+		if vfx_on_phase_change:
+			vfx_on_phase_change.spawn(global_position)
 
 var hurt_component: HurtComponent
 var shoot_controller: ShootController
 var movement_controller: MovementController2D
 
 
-func _enemy_ready(): pass
+func _ai_ready(): pass
+func _on_action(_action: AIAction): pass
+func _on_phase_changed(): pass
+func _on_death(): pass
 
 
 func _ready():
@@ -59,15 +69,12 @@ func _ready():
 	shoot_controller = character.shoot_controller
 	movement_controller = character.movement
 	
-	hurt_component.health_changed.connect(_on_health_changed)
-	hurt_component.fatal_damage_taken.connect(_on_fatal_damage_taken)
-	_enemy_ready()
-
-
-## Overridable logic for each boss;
-## this is where the specific actions and procedures for each action are defined
-func _use_brain(_action: AIAction):
-	pass
+	if hurt_component:
+		hurt_component.health_changed.connect(_on_health_changed)
+		hurt_component.fatal_damage_taken.connect(_on_fatal_damage_taken)
+	
+	current_phase = 1
+	_ai_ready()
 
 
 ## Sets up portals associated with the boss. Disables the entrance portal,
@@ -82,19 +89,30 @@ func _set_target_point():
 
 ## Replaces the boss's action and plays it
 func _on_action_changer_timeout():
-	action_changer.stop()
-	pause_between_shots.stop()
+	shoot_controller.stop_shooting()
 	
 	var ready_boss_actions: Array[AIAction] = _select_available_actions()
 	var action_to_play: AIAction = _select_action_by_weight(ready_boss_actions)
 	
-	action_changer.wait_time = action_to_play.duration
-	action_changer.start()
-	_use_brain(action_to_play)
-
-
-func _on_pause_between_shots_timeout():
-	shoot_controller.shoot(current_bullet_type)
+	movement_controller = movement_patterns[action_to_play.action_name]
+	shoot_controller.set_bullet_array(action_to_play.bullet_types)
+	shoot_controller.interval_between_shots = action_to_play.shoot_interval
+	shoot_controller.post_shot_cd_interval = action_to_play.shooting_animation_interval
+	movement_controller.enabled = action_to_play.can_move
+	shoot_controller.enabled = action_to_play.can_shoot
+	
+	_on_action(action_to_play)
+	
+	character.movement = movement_controller
+	
+	action_changer.start(action_to_play.duration)
+	
+	if shoot_controller.enabled:
+		if shoot_controller.on_shoot_cooldown:
+			await shoot_controller.shooting_is_available
+			shoot_controller.shoot.call_deferred()
+		else:
+			shoot_controller.shoot.call_deferred()
 
 
 ## Selects actions from the boss's set of available actions that are available in this phase
@@ -137,7 +155,7 @@ func _check_phase():
 	if (current_phase < modulates_for_phase.size() + 1):
 		var hp_for_phase_change: float = hurt_component.max_health * modulates_for_phase[current_phase-1]
 		if (hurt_component.current_health <= hp_for_phase_change):
-			current_phase+=1
+			current_phase += 1
 
 
 func _on_health_changed(_amount: float):
@@ -152,13 +170,14 @@ func _on_fatal_damage_taken():
 	set_deferred("monitoring", false)
 	
 	display_location.remove(data_for_interface)
+	_on_death()
 
 
 ## Allows the boss to move, shoot, and select an action
 func activate_interaction(_area: Area2D = null):
 	activate_points(show_on_activation)
 	deactivate_points(hide_on_activation)
-	
+	display_location.add(data_for_interface, self)
 	_on_action_changer_timeout()
 	action_changer.start()
 
@@ -168,6 +187,7 @@ func deactivate_interaction(_area: Area2D = null):
 	action_changer.stop()
 	movement_controller.enabled = false
 	shoot_controller.enabled = false
+	display_location.remove(data_for_interface)
 
 
 func deactivate_points(points: Array[Node2D]):
