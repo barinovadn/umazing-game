@@ -93,7 +93,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-48, -48, -48, 64, 32, 
 parsed_collision_mask = 4294901763
 source_geometry_mode = 2
 
-[node name="Game" unique_id=204430001 instance=ExtResource("1_c3u61")]
+[node name="Game2" unique_id=204430001 instance=ExtResource("1_c3u61")]
 
 [node name="GridForeground" parent="." index="1" unique_id=1598882271]
 modulate = Color(1, 1, 1, 0.039215688)
@@ -427,5 +427,8 @@ navigation_polygon = SubResource("NavigationPolygon_17ap2")
 [node name="CyclopusCatRegion2" type="NavigationRegion2D" parent="Enemies/Bosses" index="2" unique_id=580567375]
 position = Vector2(232, -488)
 navigation_polygon = SubResource("NavigationPolygon_17ap2")
+
+[node name="Pickups" parent="." index="13" unique_id=1517964194]
+z_index = 20
 
 [connection signal="area_entered" from="Characters/Cat/TeleportGreenIn" to="Characters/Cat/TeleportGreenIn" method="_on_area_entered"]

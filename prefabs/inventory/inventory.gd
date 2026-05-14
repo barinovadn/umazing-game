@@ -1,4 +1,7 @@
-class_name Inventory extends Node
+@icon("inventory.png")
+class_name Inventory
+extends Node
+
 
 signal updated
 signal full
@@ -8,6 +11,7 @@ signal item_amount_changed(item: ItemData, index: int)
 signal item_used(item: ItemData)
 
 @export var capacity: int = 7
+
 var items: Array[ItemData] = []
 
 

@@ -1,11 +1,18 @@
+class_name InventorySlot
 extends Button
 
 
 signal item_selected(data: ItemData)
 
-@onready var icon_rect = $HBox/Icon
-@onready var name_label = $HBox/Name
-@onready var amount_label = $HBox/Amount
+@export_group("Selection", "selection")
+@export var selection_active_modulate: Color = Color.WHITE
+@export var selection_default_modulate: Color = Color.WHITE
+
+@onready var icon_rect: TextureRect = $HBox/Icon
+@onready var name_label: Label = $HBox/Name
+@onready var amount_label: Label = $HBox/Amount
+@onready var background: ColorRect = $BG
+
 
 var is_selected: bool:
 	set(value):
@@ -14,6 +21,9 @@ var is_selected: bool:
 		if is_selected:
 			grab_focus()
 			item_selected.emit(item_data)
+			background.modulate = selection_active_modulate
+		else:
+			background.modulate = selection_default_modulate
 var item_data: ItemData = null
 
 

@@ -126,6 +126,7 @@ inventory={
 2d_physics/layer_4="Player"
 2d_physics/layer_5="PlayerRoom"
 2d_physics/layer_6="Cursor"
+2d_physics/layer_10="Pickups"
 2d_physics/layer_11="Bullets"
 2d_physics/layer_12="Hurt Component"
 

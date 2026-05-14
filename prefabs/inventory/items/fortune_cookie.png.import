@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buoyg5fif6m8i"
-path="res://.godot/imported/gradient.png-14ce0b82ab4a7a1b9c702d5ad78d296e.ctex"
+uid="uid://c1e8nny86mp2a"
+path="res://.godot/imported/fortune_cookie.png-b08ecc39490ae0600c8dbf836b59938e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/pickups/gradient.png"
-dest_files=["res://.godot/imported/gradient.png-14ce0b82ab4a7a1b9c702d5ad78d296e.ctex"]
+source_file="res://prefabs/inventory/items/fortune_cookie.png"
+dest_files=["res://.godot/imported/fortune_cookie.png-b08ecc39490ae0600c8dbf836b59938e.ctex"]
 
 [params]
 

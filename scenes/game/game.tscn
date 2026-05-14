@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cuy6j56l0wd6g" path="res://scenes/grid.png" id="6_5i0tg"]
 [ext_resource type="TileSet" uid="uid://nqowvxb5fi8d" path="res://prefabs/tilesets/system.tres" id="6_bdhmt"]
 
-[node name="Game2" type="Node2D" unique_id=1082399769]
+[node name="Game" type="Node2D" unique_id=1082399769]
 script = ExtResource("1_2a8rs")
 
 [node name="GridBackground" type="Sprite2D" parent="." unique_id=1459108817]
@@ -89,3 +89,4 @@ unique_name_in_owner = true
 z_index = 39
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1517964194]
+unique_name_in_owner = true

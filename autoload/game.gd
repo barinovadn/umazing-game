@@ -10,3 +10,4 @@ var env_filter: EnvironmentFilter
 
 var enemies: Node2D
 var bullets: Node2D
+var pickups: Node2D

@@ -26,6 +26,7 @@ var noclip: bool:
 @onready var hurt_component: HurtComponent = %HurtComponent
 @onready var movement: MovementController2D = %Movement
 @onready var interactor: Interactor = %Interactor
+@onready var inventory: Inventory = %Inventory
 
 @onready var trigger: Area2D = %Center
 @onready var room: Area2D = %Room
@@ -39,8 +40,9 @@ var noclip: bool:
 @onready var env_particles: EnvironmentParticles = %EnvironmentParticles
 @onready var env_filter: EnvironmentFilter = %EnvironmentFilter
 
+@onready var inventory_ui: InventoryUI = %InventoryUI
 @onready var health_ui: HealthUI = %HealthUI
-@onready var inventory = $UI/InventoryUI
+@onready var boss_ui: BossUI = %BossUI
 
 
 func _ready():
@@ -86,7 +88,7 @@ func _input(event: InputEvent):
 func _update_component_positions():
 	if not character:
 		return
-	pickup_area.global_position = character.global_position
+	
 	components.global_position = character.global_position
 
 
@@ -119,6 +121,15 @@ func _on_fatal_damage_taken():
 	get_tree().reload_current_scene.call_deferred()
 
 
-func _on_camera_cell_changed(new_cell: Vector2, _smooth_transition: bool) -> void:
+func _on_camera_cell_changed(new_cell: Vector2, _smooth_transition: bool):
 	if room:
 		room.global_position = camera.grid_size * new_cell
+
+
+func _on_pickup_found(body: Node2D):
+	var pickup := body as Pickup
+	
+	if not pickup:
+		return
+	
+	pickup.collect()
