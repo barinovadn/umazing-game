@@ -31,8 +31,8 @@ var noclip: bool:
 @onready var trigger: Area2D = %Center
 @onready var room: Area2D = %Room
 @onready var cursor: Area2D = %Cursor
+@onready var pickup_area: Node2D = %Picker
 
-@onready var pickup_area: Node2D = $PickUp
 @onready var camera: GridCamera2D = %Camera
 @onready var camera_controller: GridCameraFollower2D = %Camera/BehaviorFollow
 @onready var camera_transitioner: GridCameraTransitionFade = %Camera/TransitionFade
