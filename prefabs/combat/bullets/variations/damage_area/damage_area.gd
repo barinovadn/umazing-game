@@ -22,7 +22,7 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 	if area is HurtComponent and _can_damage:
 		_crashed_into_hurt_component(area)
-		area.take_damage(_calc_damage())
+		area.take_damage(_calc_damage(area))
 		set_deferred("monitorable", false)
 		set_deferred("monitoring", false)
 		_can_damage = false

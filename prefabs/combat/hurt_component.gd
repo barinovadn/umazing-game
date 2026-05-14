@@ -54,7 +54,6 @@ var current_health: float:
 		elif flag == 2:
 			healed.emit(abs(_previous_health - current_health))
 			_play_random_sound(sounds_heal)
-		
 		if current_health<= 0:
 			_disable()
 			_play_random_sound(sounds_die)

@@ -66,15 +66,15 @@ signal movement_controller_changed(new_controller: MovementController2D)
 @export var shoot_controller: ShootController:
 	set(value): 
 		if shoot_controller:
-			shoot_controller.shooting_started.disconnect(_on_shooting_started)
-			shoot_controller.shooting_stopped.disconnect(_on_shooting_stopped)
+			shoot_controller.post_shot_cd_started.disconnect(_on_shooting_started)
+			shoot_controller.post_shot_cd_finished.disconnect(_on_shooting_stopped)
 		
 		shoot_controller = value
 		shoot_controller_changed.emit(shoot_controller)
 		
 		if shoot_controller:
-			shoot_controller.shooting_started.connect(_on_shooting_started)
-			shoot_controller.shooting_stopped.connect(_on_shooting_stopped)
+			shoot_controller.post_shot_cd_started.connect(_on_shooting_started)
+			shoot_controller.post_shot_cd_finished.connect(_on_shooting_stopped)
 
 @export_group("Afterlife", "afterlife")
 @export var afterlife_duration: float = 7.0
@@ -95,7 +95,7 @@ var direction: Vector2:
 var is_moving: bool: ## NOTE Read-only.
 	get(): return movement.is_moving if movement else false
 var is_shooting: bool: ## NOTE Read-only.
-	get(): return shoot_controller.is_shooting if shoot_controller else false
+	get(): return shoot_controller.is_animation_needed if shoot_controller else false
 var is_deleted: bool = false
 
 

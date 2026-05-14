@@ -55,18 +55,17 @@ speed = 60.0
 [node name="Interactor" parent="Components" unique_id=109062155 instance=ExtResource("1_rdx4y")]
 unique_name_in_owner = true
 
-[node name="ShootController" parent="Components" unique_id=1242481191 node_paths=PackedStringArray("projectile_homing_target") instance=ExtResource("6_oo3uv")]
+[node name="ShootController" parent="Components" unique_id=1242481191 instance=ExtResource("6_oo3uv")]
 unique_name_in_owner = true
 team = 1
-bullets = Array[PackedScene]([null])
-interval_between_shots = 0.5
-projectile_homing_target = NodePath("../../Cursor")
+bullets = Array[PackedScene]([ExtResource("7_30gqm")])
+interval_between_shots = 0.35
 projectile_turn_rate_min = 360.0
 
 [node name="HurtComponent" parent="Components" unique_id=949368062 groups=["hurt_component"] instance=ExtResource("4_vhck3")]
 unique_name_in_owner = true
 team = 1
-max_health = 5.0
+max_health = 10.0
 sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
 
 [node name="Center" type="Area2D" parent="Components" unique_id=378323334]
