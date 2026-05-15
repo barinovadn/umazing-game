@@ -92,7 +92,6 @@ debug_color = Color(0.8914327, 0.18792155, 0.65711296, 0.41960785)
 [node name="Reflection" parent="Components" unique_id=419752470 instance=ExtResource("8_8hk3c")]
 cd_enble_interval = 0.25
 is_unbrocable = true
-can_destroy_bullets = false
 team = 1
 lifespan = 0.0
 

@@ -14,7 +14,7 @@ var can_reflect: bool = false
 var on_cd_reflect: bool = false
 
 func _on_area_entered(area: Area2D):
-	if (!can_reflect or on_cd_reflect) or area.team == team or area is HurtComponent:
+	if !can_reflect or on_cd_reflect or area.team == team or area is HurtComponent:
 		return
 	if area is Bullet:
 		area.team = team
@@ -27,13 +27,14 @@ func _on_area_entered(area: Area2D):
 		else:
 			area.can_break = false
 		area.set_target_direction()
-		
 
 
 func enable():
+	if on_cd_reflect or can_reflect:
+		return
 	can_reflect = true
 	timer_enable.start(cd_enble_interval)
-	
+
 
 func disable():
 	can_reflect = false
