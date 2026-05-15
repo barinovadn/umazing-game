@@ -27,6 +27,7 @@ var noclip: bool:
 @onready var movement: MovementController2D = %Movement
 @onready var interactor: Interactor = %Interactor
 @onready var inventory: Inventory = %Inventory
+@onready var reflection: Area2D = $Components/Reflection
 
 @onready var trigger: Area2D = %Center
 @onready var room: Area2D = %Room
@@ -72,6 +73,10 @@ func _input(event: InputEvent):
 	
 	if event.is_action_released("mouse_interact"):
 		interactor.interact.call_deferred()
+		return
+		
+	if event.is_action_pressed("reflect"):
+		reflection.enable()
 		return
 	
 	if event.is_action_pressed("shoot"):
