@@ -12,7 +12,7 @@ font_size = 24
 [node name="DialogueSystem" type="CanvasLayer" unique_id=459583272]
 script = ExtResource("1_muyoo")
 char_type_speed_multipliers = Dictionary[String, float]({
-" ": 2.0,
+" ": 1.35,
 "!": 6.0,
 "+": 2.5,
 ",": 3.0,
@@ -26,7 +26,6 @@ char_type_speed_multipliers = Dictionary[String, float]({
 
 [node name="DialogueWindow" type="Control" parent="." unique_id=1500275694]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5

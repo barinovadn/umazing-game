@@ -38,7 +38,12 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("inventory"):
 		inventory_ui.visible = !inventory_ui.visible
-
+		
+		# WARNING FIXME NOTE TODO TEMP SOLUTION
+		Game.player.interactor.enabled = !inventory_ui.visible
+		Game.player.shoot_controller.enabled = !inventory_ui.visible
+		Game.player.movement.enabled = !inventory_ui.visible
+		
 		if not inventory_ui.visible:
 			inventory_ui.action_panel.hide()
 
@@ -83,8 +88,9 @@ func _on_use_button_pressed():
 
 func _on_info_button_pressed():
 	if selected_item:
-		var item = inventory_logic.get_item(selected_item)
-		print("Инфа о предмете: ", item.description)
+		var item := inventory_logic.get_item(selected_item) as ItemData
+		if len(item.description):
+			Game.dialogue_system.display(item.description.pick_random())
 
 
 func _on_drop_button_pressed():
