@@ -45,7 +45,7 @@ var current_health: float:
 			flag = 2
 		
 		var _previous_health := current_health
-		current_health = value
+		current_health = clamp(value, 0, max_health)
 		health_changed.emit(value - _previous_health) 
 		
 		if flag == 1:

@@ -15,5 +15,5 @@ max_stack = 4
 is_consumable = true
 is_active = true
 is_stackable = true
-description = "Еда"
+heal = 1.5
 metadata/_custom_type_script = "uid://cb3e76qpw5nv7"
