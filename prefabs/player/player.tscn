@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="Script" uid="uid://ex0o8hepffvv" path="res://prefabs/inventory/inventory.gd" id="9_oo3uv"]
 [ext_resource type="PackedScene" uid="uid://wwa44iu3nw2s" path="res://prefabs/inventory/inventory_ui.tscn" id="9_whck3"]
-[ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://prefabs/player/player_health_ui.gd" id="11_30gqm"]
+[ext_resource type="Script" path="res://prefabs/player/player_health_ui.gd" id="11_30gqm"]
 [ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/player_health_default.png" id="14_ot5ig"]
 [ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://prefabs/combat/ui/boss_ui.gd" id="15_agiw0"]
 
@@ -90,7 +90,7 @@ shape = SubResource("CircleShape2D_vhck3")
 debug_color = Color(0.8914327, 0.18792155, 0.65711296, 0.41960785)
 
 [node name="Reflection" parent="Components" unique_id=419752470 instance=ExtResource("8_8hk3c")]
-cd_enble_interval = 0.25
+cd_enble_interval = 0.35
 is_unbrocable = true
 team = 1
 lifespan = 0.0

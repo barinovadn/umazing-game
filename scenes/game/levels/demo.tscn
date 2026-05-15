@@ -57,6 +57,7 @@
 [ext_resource type="PackedScene" uid="uid://ds7r5gr45oetv" path="res://prefabs/inventory/pickups/pickup.tscn" id="50_3cfp0"]
 [ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi.tres" id="51_8ifb1"]
 [ext_resource type="Resource" uid="uid://b7ifocc5sni0u" path="res://prefabs/inventory/items/fortune_cookie.tres" id="52_yr011"]
+[ext_resource type="Texture2D" uid="uid://vbh036luwsu2" path="res://prefabs/characters/bosses/giant_frog/demo/boss_progress.png" id="53_ctk38"]
 
 [sub_resource type="Resource" id="Resource_tlnmc"]
 script = ExtResource("5_tlnmc")
@@ -344,6 +345,7 @@ metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 script = ExtResource("17_1qwsm")
 display_name = "Giant Frog"
 display_color = null
+texture_progress = ExtResource("53_ctk38")
 metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
 
 [sub_resource type="Curve2D" id="Curve2D_88b2i"]

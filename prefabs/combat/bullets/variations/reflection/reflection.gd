@@ -6,6 +6,8 @@ extends Bullet
 @export var is_unbrocable: bool = false
 @export var can_destroy_bullets: bool = false
 
+@export var vfx_success: VFXProfile
+
 @onready var timer_enable: Timer = $TimerEnable
 @onready var timer_disable: Timer = $TimerDisable
 
@@ -13,20 +15,31 @@ extends Bullet
 var can_reflect: bool = false
 var on_cd_reflect: bool = false
 
+
 func _on_area_entered(area: Area2D):
 	if !can_reflect or on_cd_reflect or area.team == team or area is HurtComponent:
 		return
-	if area is Bullet:
-		area.team = team
+	
+	var bullet := area as Bullet
+	
+	if bullet:
+		bullet.team = team
+		
 		if is_unbrocable:
-			area.can_be_broken = false
+			bullet.can_be_broken = false
 		else:
-			area.can_be_broken = false
+			bullet.can_be_broken = false
+		
 		if can_destroy_bullets:
-			area.can_break = true
+			bullet.can_break = true
 		else:
-			area.can_break = false
-		area.set_target_direction()
+			bullet.can_break = false
+		
+		bullet.damage *= 3
+		bullet.speed *= 1.35
+		vfx_success.spawn(bullet.global_position)
+		_play_random_sound(sounds_hit)
+		bullet.set_target_direction()
 
 
 func enable():
