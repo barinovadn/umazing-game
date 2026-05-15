@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/impact_2.ogg-fc49b720ff6c61dcf8473f5003b965e0
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

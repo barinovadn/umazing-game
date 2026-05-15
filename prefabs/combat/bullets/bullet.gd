@@ -110,7 +110,7 @@ func _on_area_entered(area: Area2D):
 func _crashed_into_hurt_component(hurt_component: HurtComponent):
 	hit.emit(hurt_component)
 	if vfx_hit:
-		vfx_hit.spawn(global_position)
+		vfx_hit.spawn(hurt_component.global_position)
 	_crashed_in_char = true
 	audio_player.stream = null
 	audio_player.stop()
@@ -201,10 +201,9 @@ func destroy():
 	if vfx_destroy:
 		vfx_destroy.spawn(global_position)
 	stop_and_disable_interaction()
-	if !_crashed_in_char:
-		audio_player.stream = null
-		audio_player.stop()
-		_play_random_sound(sounds_destroy)
+	audio_player.stream = null
+	audio_player.stop()
+	_play_random_sound(sounds_destroy)
 	var timer = get_tree().create_timer(afterlife_duration)
 	timer.timeout.connect(_delete)
 

@@ -1,6 +1,5 @@
 extends Node
 
-
 var player: Player
 
 var music_player: MusicPlayer
