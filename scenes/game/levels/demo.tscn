@@ -549,7 +549,6 @@ position = Vector2(264, -40)
 start_animation = 18
 
 [node name="InspectableNPC" parent="Characters/Villagers/Dummy1" index="4" unique_id=45048443 instance=ExtResource("9_8ic3i")]
-description = Array[String](["Have you seen my cat?", "Can you help me find my cat?", "I really miss him..."])
 
 [node name="InteractionMarker" parent="Characters/Villagers/Dummy1/InspectableNPC" index="1" unique_id=334963736 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 0.25, 0.25, 1)
@@ -658,27 +657,22 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 position = Vector2(0, 160)
 start_animation = 1
 
-[node name="InspectableSign" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
+[node name="SignForest" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
 position = Vector2(-424, 8)
-description = Array[String](["Blah-blah-blah..."])
 
-[node name="InteractionMarker" parent="Interactables/InspectableSign" index="1" unique_id=639358266 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignForest" index="1" unique_id=639358266 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
 sprite = 0
 color = 1
 
-[node name="InspectableSecret" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
+[node name="SignSecret" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
 position = Vector2(-536, -120)
-description = Array[String](["<- Free hotdogs this way."])
 
-[node name="InteractionMarker" parent="Interactables/InspectableSecret" index="1" unique_id=1434231170 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 instance=ExtResource("37_psdh3")]
 position = Vector2(0, -8)
 
-[node name="Enemies" parent="." index="11" unique_id=92814873]
-unique_name_in_owner = true
-
-[node name="Bosses" type="Node2D" parent="Enemies" index="0" unique_id=1580441644]
+[node name="Bosses" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="0" unique_id=1580441644]
 
 [node name="CyclopusCat" parent="Enemies/Bosses" index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("14_nfdyi")]
 position = Vector2(416, -480)
