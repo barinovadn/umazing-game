@@ -1,18 +1,14 @@
 @icon("inspectable.png")
 class_name Inspectable
 extends Interactable
-## Displays a random [member description] when interacted with.
 
 
-## List of possible description texts.
-## A random entry is chosen when the object is inspected using [method interact].
-@export var description: Array[String] = ["..."]
+@export var dialogues: Array[Dialogue]
 
 
-func _on_interaction():
-	if not description:
+func _on_interaction() -> bool:
+	if not len(dialogues):
 		return false
 	
-	print('"', description.pick_random(), '"')
-	
+	Game.dialogue_system.display(dialogues.pick_random())
 	return true
