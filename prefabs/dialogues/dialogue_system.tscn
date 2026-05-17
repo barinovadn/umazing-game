@@ -13,6 +13,7 @@ font_size = 24
 [node name="DialogueSystem" type="CanvasLayer" unique_id=459583272]
 script = ExtResource("1_muyoo")
 skip_cooldown = 0.25
+auto_skip_delay = 0.5
 char_type_speed_multipliers = Dictionary[String, float]({
 " ": 1.35,
 "!": 6.0,
@@ -98,11 +99,25 @@ theme_override_fonts/font = ExtResource("4_tlicu")
 text = "Skip"
 flat = true
 
+[node name="AutoSkip" type="Button" parent="DialogueWindow/CanvasGroup" unique_id=1706960877]
+offset_left = 519.0
+offset_top = 96.0
+offset_right = 593.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("4_tlicu")
+toggle_mode = true
+text = "Auto Skip"
+flat = true
+
 [node name="Typing" type="Timer" parent="." unique_id=1707925895]
 one_shot = true
 
 [node name="Skip" type="Timer" parent="." unique_id=1062141526]
 one_shot = true
 
+[node name="AutoSkip" type="Timer" parent="." unique_id=1735179497]
+
 [connection signal="pressed" from="DialogueWindow/CanvasGroup/Skip" to="." method="_on_skip_pressed"]
+[connection signal="toggled" from="DialogueWindow/CanvasGroup/AutoSkip" to="." method="_on_auto_skip_toggled"]
 [connection signal="timeout" from="Typing" to="." method="_on_character_typed"]
+[connection signal="timeout" from="AutoSkip" to="." method="_on_auto_skip_timeout"]

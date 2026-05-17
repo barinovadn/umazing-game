@@ -6,6 +6,17 @@ extends CanvasLayer
 enum State { LOADING, HIDDEN, APPEARING, ACTIVE, HIDING }
 
 @export var skip_cooldown: float = 1.0
+@export var auto_skip: bool = false:
+	set(value):
+		auto_skip = value
+		if auto_skip_button:
+			auto_skip_button.modulate = Color.LIME if auto_skip else Color.WHITE
+		if auto_skip_timer:
+			if auto_skip:
+				auto_skip_timer.start(auto_skip_delay)
+			else:
+				auto_skip_timer.stop()
+@export var auto_skip_delay: float = 1.0
 
 @export_group("Typing")
 @export var char_type_speed_multipliers: Dictionary[String, float]
@@ -24,6 +35,8 @@ enum State { LOADING, HIDDEN, APPEARING, ACTIVE, HIDING }
 
 @onready var typing_timer: Timer = $Typing
 @onready var skip_timer: Timer = $Skip
+@onready var auto_skip_timer: Timer = $AutoSkip
+@onready var auto_skip_button: Button = $DialogueWindow/CanvasGroup/AutoSkip
 
 var state: State:
 	set(value):
@@ -62,6 +75,7 @@ var is_on_skip_cooldown: bool:
 
 func _ready():
 	state = State.HIDDEN
+	auto_skip = auto_skip
 
 
 func _input(event: InputEvent):
@@ -75,6 +89,14 @@ func _on_character_typed():
 
 func _on_skip_pressed():
 	skip()
+
+
+func _on_auto_skip_toggled(toggled_on: bool):
+	auto_skip = toggled_on
+
+
+func _on_auto_skip_timeout():
+	skip(true, false)
 
 
 func _get_character_type_speed(character: String) -> float:
@@ -188,16 +210,17 @@ func display(new_dialogue: Dialogue):
 	dialogue = new_dialogue
 
 
-func skip(ignore_cooldown: bool = false):
+func skip(ignore_cooldown: bool = false, close_on_finish: bool = true):
 	if is_on_skip_cooldown and not ignore_cooldown:
 		return
 	
 	if not is_fully_typed:
 		show_whole_message()
-	else:
+	elif close_on_finish:
 		close()
 	
-	skip_timer.start(skip_cooldown)
+	if not ignore_cooldown:
+		skip_timer.start(skip_cooldown)
 
 
 func close():
