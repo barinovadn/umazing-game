@@ -137,6 +137,7 @@ script = ExtResource("22_5cmlo")
 name = "Странная Свинья"
 message = "Вспомните звук своего имени. Скоро вы услышите его шепотом из пустой комнаты, и вам придется ответить."
 type_speed = 1
+font_color = Color(0.9727711, 0, 0.13847193, 1)
 angle = 1.0
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
@@ -370,11 +371,6 @@ position = Vector2(-3.9999998, 2.9999998)
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
 allow_cheats = true
-
-[node name="DialogueSystem" parent="." index="4" unique_id=453214567]
-auto_skip = null
-window_appear_duration = null
-window_hide_duration = null
 
 [node name="SwampFireflies1" parent="VFXManager" parent_id_path=PackedInt32Array(880750068) index="0" unique_id=1228765060 instance=ExtResource("2_xrc6b")]
 position = Vector2(-400, 152)

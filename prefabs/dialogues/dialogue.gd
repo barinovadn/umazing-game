@@ -31,6 +31,7 @@ const TYPE_SPEEDS = {
 
 @export_group("Extra")
 @export var background: Color = Color(0.078, 0.106, 0.106)
+@export var font_color: Color = Color.WHITE
 @export var angle: float:
 	get(): return angle if angle else (fallback.angle if fallback else angle)
 @export var offset: Vector2:

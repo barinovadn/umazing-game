@@ -29,6 +29,7 @@ char_type_speed_multipliers = Dictionary[String, float]({
 
 [node name="DialogueWindow" type="Control" parent="." unique_id=1500275694]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5

@@ -54,6 +54,8 @@ var dialogue: Dialogue:
 		
 		dialogue_icon.texture = dialogue.icon
 		dialogue_name.text = dialogue.name
+		dialogue_name.label_settings.font_color = dialogue.font_color
+		dialogue_message.label_settings.font_color = dialogue.font_color
 		dialogue_background.color = dialogue.background
 		dialogue_window.rotation = deg_to_rad(dialogue.angle)
 		
