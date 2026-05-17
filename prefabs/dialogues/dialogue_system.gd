@@ -110,7 +110,7 @@ func _get_character_type_speed(character: String) -> float:
 	if is_special_char:
 		char_type_speed_multiplier *= dialogue.punctuation_significance
 	
-	return dialogue.TYPE_SPEED[dialogue.type_speed] * char_type_speed_multiplier
+	return dialogue.TYPE_SPEEDS[dialogue.type_speed] * char_type_speed_multiplier
 
 
 func _update_animation():
