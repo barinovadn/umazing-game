@@ -5,6 +5,8 @@ extends CanvasLayer
 
 enum State { LOADING, HIDDEN, APPEARING, ACTIVE, HIDING }
 
+@export var skip_cooldown: float = 1.0
+
 @export_group("Typing")
 @export var char_type_speed_multipliers: Dictionary[String, float]
 
@@ -21,6 +23,7 @@ enum State { LOADING, HIDDEN, APPEARING, ACTIVE, HIDING }
 @onready var dialogue_background: ColorRect = %Background
 
 @onready var typing_timer: Timer = $Typing
+@onready var skip_timer: Timer = $Skip
 
 var state: State:
 	set(value):
@@ -45,13 +48,16 @@ var dialogue: Dialogue:
 		_start_typing_animation()
 var _active_tween: Tween # NOTE Using tweens for dynamic UI
 var _typing_index: int
-var _is_fully_typed: bool:
+var is_fully_typed: bool:
 	get():
 		if not dialogue:
 			return false
 		return (
 			dialogue_message.text == dialogue.message
 			or _typing_index >= len(dialogue.message) )
+var is_on_skip_cooldown: bool:
+	get():
+		return not skip_timer.is_stopped()
 
 
 func _ready():
@@ -60,14 +66,15 @@ func _ready():
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("dialogue_skip"):
-		if not _is_fully_typed:
-			show_whole_message()
-		else:
-			close()
+		skip()
 
 
 func _on_character_typed():
 	type_next_character()
+
+
+func _on_skip_pressed():
+	skip()
 
 
 func _get_character_type_speed(character: String) -> float:
@@ -156,7 +163,7 @@ func show_whole_message():
 
 
 func type_next_character():
-	if not dialogue or _is_fully_typed:
+	if not dialogue or is_fully_typed:
 		return
 	
 	var new_char := dialogue.message[_typing_index]
@@ -179,6 +186,18 @@ func display(new_dialogue: Dialogue):
 		State.HIDDEN: state = State.APPEARING
 	
 	dialogue = new_dialogue
+
+
+func skip(ignore_cooldown: bool = false):
+	if is_on_skip_cooldown and not ignore_cooldown:
+		return
+	
+	if not is_fully_typed:
+		show_whole_message()
+	else:
+		close()
+	
+	skip_timer.start(skip_cooldown)
 
 
 func close():
