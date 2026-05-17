@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://bal20vivit0x5"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_p2vac"]
+[ext_resource type="Texture2D" uid="uid://dfbd38msyjsx6" path="res://prefabs/characters/ninja_blue/portrait.png" id="1_ys42s"]
+
+[resource]
+script = ExtResource("1_p2vac")
+icon = ExtResource("1_ys42s")
+name = "Синий Ниндзя"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"

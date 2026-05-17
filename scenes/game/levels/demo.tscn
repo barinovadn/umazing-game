@@ -30,14 +30,15 @@
 [ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/combat/bullets/variations/homing_shot/homing_shot.tscn" id="18_ivmt6"]
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/stone_shot/stone_shot.tscn" id="19_ivmt6"]
 [ext_resource type="Texture2D" uid="uid://dcibnmbuaoqrq" path="res://prefabs/characters/portrait.png" id="20_axe6u"]
+[ext_resource type="Resource" uid="uid://d14ny2m0r5s2a" path="res://prefabs/characters/dialogue_preset.tres" id="20_ctk38"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://prefabs/combat/ai/ai_action.gd" id="20_ivmt6"]
 [ext_resource type="Script" uid="uid://jqsqblr1x2hg" path="res://prefabs/characters/bosses/cyclopus_cat/demo/ai_controller.gd" id="22_1qwsm"]
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="22_5cmlo"]
 [ext_resource type="PackedScene" uid="uid://2qbijnkgja5r" path="res://prefabs/characters/animals/frog/frog.tscn" id="22_qex4a"]
 [ext_resource type="Script" uid="uid://ngbx2hlpm1kr" path="res://prefabs/characters/animals/cat/demo.gd" id="22_vs2yr"]
-[ext_resource type="Texture2D" uid="uid://brwvm4t4a2r82" path="res://prefabs/characters/animals/pig/portrait.png" id="23_fscrj"]
 [ext_resource type="PackedScene" uid="uid://dusfp5le5ooy8" path="res://prefabs/combat/bullets/variations/bunch_of_shots/bunch_of_shots.tscn" id="25_7hq71"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/combat/ai/ai_controller.tscn" id="25_ky1g4"]
+[ext_resource type="Resource" uid="uid://cir684lrq6f3b" path="res://prefabs/characters/animals/pig/dialogue_preset.tres" id="28_ctk38"]
 [ext_resource type="AudioStream" uid="uid://8gkv2s3htxj2" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_1.ogg" id="30_roxwf"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="31_ctk38"]
 [ext_resource type="AudioStream" uid="uid://cpvxg4y73gm2r" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_2.ogg" id="31_mywxa"]
@@ -74,33 +75,26 @@ region = Rect2(0, 0, 70, 80)
 
 [sub_resource type="Resource" id="Resource_f2r25"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("20_axe6u")
-name = "Джим"
 message = "О, живой! Слушай сюда. Моя кошка - лучшая кошка в мире. Она пропала. Твоя задача - найти. Бегом."
 type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_8r7lj"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("20_axe6u")
-name = "Джим"
 message = "Ты выглядишь как человек, который умеет ползать под кустами. Мне нужен такой. Кошка пропала. Давай, работай."
 type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_o8fgc"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("20_axe6u")
-name = "Джим"
 message = "Ты мне нравишься. У тебя лицо человека, которому всё равно, куда идти. Иди ищи Мурку. Она рыжая. Или серая. Короче, кошка."
 type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_ffajp"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("20_axe6u")
-name = "Джим"
 message = "О, ты! Да, ты! Слушай сюда. Если ты найдёшь мою кошку быстрее, чем за час - я разрешу тебе гордиться собой целых пять секунд."
+type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_ukxex"]
@@ -120,16 +114,12 @@ point_count = 3
 
 [sub_resource type="Resource" id="Resource_65kbd"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("23_fscrj")
-name = "Мини Пиг"
 message = "Хрю-Хрю-Хрю-Хрю-Хрю-Хрю! Хрю-Хрю... Хрю-Хрю, Хрю-Хрю-Хрю!!!"
 type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_g6xjd"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("23_fscrj")
-name = "Мини Пиг"
 message = "Хрюк! Хрум-хрум-хрум... Хрю-Хрю, Хрю-Хрю-Хрю!!!"
 type_speed = 3
 punctuation_significance = 1.25
@@ -137,8 +127,6 @@ metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_axe6u"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("23_fscrj")
-name = "Мини Пиг"
 message = " Хрю-Хрю-Хрю! Хрююю... Хрю-Хрю, Хрю-Хрю!!!"
 type_speed = 3
 punctuation_significance = 1.25
@@ -146,7 +134,6 @@ metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_vs2yr"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("23_fscrj")
 name = "Странная Свинья"
 message = "Вспомните звук своего имени. Скоро вы услышите его шепотом из пустой комнаты, и вам придется ответить."
 type_speed = 1
@@ -383,6 +370,11 @@ position = Vector2(-3.9999998, 2.9999998)
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
 allow_cheats = true
+
+[node name="DialogueSystem" parent="." index="4" unique_id=453214567]
+auto_skip = null
+window_appear_duration = null
+window_hide_duration = null
 
 [node name="SwampFireflies1" parent="VFXManager" parent_id_path=PackedInt32Array(880750068) index="0" unique_id=1228765060 instance=ExtResource("2_xrc6b")]
 position = Vector2(-400, 152)
@@ -687,6 +679,7 @@ start_animation = 18
 
 [node name="InspectableNPC" parent="Characters/Villagers/Dummy1" index="4" unique_id=45048443 instance=ExtResource("9_8ic3i")]
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_f2r25"), SubResource("Resource_8r7lj"), SubResource("Resource_o8fgc"), SubResource("Resource_ffajp")])
+preset = ExtResource("20_ctk38")
 
 [node name="InteractionMarker" parent="Characters/Villagers/Dummy1/InspectableNPC" index="1" unique_id=334963736 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 0.25, 0.25, 1)
@@ -788,6 +781,7 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
 [node name="Dialogue" parent="Characters/Animals/Pig" index="5" unique_id=2087367069 instance=ExtResource("9_8ic3i")]
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_65kbd"), SubResource("Resource_g6xjd"), SubResource("Resource_axe6u"), SubResource("Resource_vs2yr")])
+preset = ExtResource("28_ctk38")
 
 [node name="InteractionMarker" parent="Characters/Animals/Pig/Dialogue" index="1" unique_id=1249724427 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
@@ -816,6 +810,7 @@ start_animation = 1
 [node name="SignForest" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
 position = Vector2(-424, 8)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ctk38")])
+preset = null
 
 [node name="InteractionMarker" parent="Interactables/SignForest" index="1" unique_id=639358266 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
@@ -826,6 +821,7 @@ color = 1
 [node name="SignSecret" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
 position = Vector2(-536, -120)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_5alrq")])
+preset = null
 
 [node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 instance=ExtResource("37_psdh3")]
 position = Vector2(0, -8)
@@ -833,6 +829,7 @@ position = Vector2(0, -8)
 [node name="SignTown" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="2" unique_id=1091406645 instance=ExtResource("9_8ic3i")]
 position = Vector2(216, -24)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_myoci")])
+preset = null
 
 [node name="InteractionMarker" parent="Interactables/SignTown" index="1" unique_id=1261774437 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
@@ -843,6 +840,7 @@ color = 1
 position = Vector2(-344, 184.00002)
 scale = Vector2(1.25, 1.25)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_xaepa")])
+preset = null
 
 [node name="Bosses" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="0" unique_id=1580441644]
 
