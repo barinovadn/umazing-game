@@ -30,16 +30,16 @@
 [ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/combat/bullets/variations/homing_shot/homing_shot.tscn" id="18_ivmt6"]
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/stone_shot/stone_shot.tscn" id="19_ivmt6"]
 [ext_resource type="Texture2D" uid="uid://dcibnmbuaoqrq" path="res://prefabs/characters/portrait.png" id="20_axe6u"]
-[ext_resource type="Resource" uid="uid://d14ny2m0r5s2a" path="res://prefabs/characters/dialogue_preset.tres" id="20_ctk38"]
+[ext_resource type="Resource" path="res://prefabs/characters/dialogue_preset.tres" id="20_ctk38"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://prefabs/combat/ai/ai_action.gd" id="20_ivmt6"]
 [ext_resource type="Resource" uid="uid://cv1alk2n7e2pi" path="res://prefabs/characters/ninja_green/dialogue_preset.tres" id="21_f2r25"]
 [ext_resource type="Script" uid="uid://jqsqblr1x2hg" path="res://prefabs/characters/bosses/cyclopus_cat/demo/ai_controller.gd" id="22_1qwsm"]
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="22_5cmlo"]
 [ext_resource type="PackedScene" uid="uid://2qbijnkgja5r" path="res://prefabs/characters/animals/frog/frog.tscn" id="22_qex4a"]
 [ext_resource type="Script" uid="uid://ngbx2hlpm1kr" path="res://prefabs/characters/animals/cat/demo.gd" id="22_vs2yr"]
+[ext_resource type="Texture2D" uid="uid://brwvm4t4a2r82" path="res://prefabs/characters/animals/pig/portrait.png" id="23_fscrj"]
 [ext_resource type="PackedScene" uid="uid://dusfp5le5ooy8" path="res://prefabs/combat/bullets/variations/bunch_of_shots/bunch_of_shots.tscn" id="25_7hq71"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/combat/ai/ai_controller.tscn" id="25_ky1g4"]
-[ext_resource type="Resource" uid="uid://cir684lrq6f3b" path="res://prefabs/characters/animals/pig/dialogue_preset.tres" id="28_ctk38"]
 [ext_resource type="AudioStream" uid="uid://8gkv2s3htxj2" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_1.ogg" id="30_roxwf"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="31_ctk38"]
 [ext_resource type="AudioStream" uid="uid://cpvxg4y73gm2r" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_2.ogg" id="31_mywxa"]
@@ -166,6 +166,12 @@ message = "Вспомните звук своего имени. Скоро вы 
 type_speed = 1
 font_color = Color(0.9727711, 0, 0.13847193, 1)
 angle = 1.0
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_44nog"]
+script = ExtResource("22_5cmlo")
+icon = ExtResource("23_fscrj")
+name = "Маленький Поросёнок"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vs2yr"]
@@ -974,7 +980,7 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 [node name="Dialogue" parent="Characters/Animals/Pig" index="5" unique_id=1118765200 instance=ExtResource("9_8ic3i")]
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_c6p6q"), SubResource("Resource_dhc5m"), SubResource("Resource_8djdq"), SubResource("Resource_ohh6k")])
 order = 0
-preset = ExtResource("28_ctk38")
+preset = SubResource("Resource_44nog")
 
 [node name="InteractionMarker" parent="Characters/Animals/Pig/Dialogue" index="1" unique_id=1249724427 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
