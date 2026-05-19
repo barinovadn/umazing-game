@@ -7,6 +7,7 @@ extends Area2D
 @export var exit: Node2D
 @export var exit_offset: Vector2
 @export var color: Color
+@export var teleport_effect: VFXProfile
 
 
 func _process(_delta: float):
@@ -14,7 +15,7 @@ func _process(_delta: float):
 
 
 func _on_body_entered(body: Node2D):
-	if not exit:
+	if not exit or !visible:
 		return
 	
 	var character := body as Character2D
@@ -23,10 +24,13 @@ func _on_body_entered(body: Node2D):
 		return
 	
 	character.global_position = exit.global_position + exit_offset
+	if teleport_effect:
+		teleport_effect.spawn(character.global_position)
 
 
 func _draw() -> void:
-	if not Engine.is_editor_hint() or not exit or not color:
+	if( not Engine.is_editor_hint() or not exit
+		or not (color.r or color.g or color.b)):
 		return
 	
 	var start = Vector2.ZERO

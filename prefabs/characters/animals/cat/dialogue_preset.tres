@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://k82psoi386ui"]
+
+[ext_resource type="Texture2D" uid="uid://bfv136txk440k" path="res://prefabs/characters/animals/cat/portrait.png" id="1_avqcc"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_yhjp2"]
+
+[resource]
+script = ExtResource("1_yhjp2")
+icon = ExtResource("1_avqcc")
+name = "Котёнок"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"

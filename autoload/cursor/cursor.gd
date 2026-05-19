@@ -12,7 +12,7 @@ func _ready():
 
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton:
 		if event.pressed:
 			Input.set_custom_mouse_cursor(click)
 		else:

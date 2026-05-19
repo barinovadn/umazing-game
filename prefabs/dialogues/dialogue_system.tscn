@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://q10pxyiyicdf"]
+
+[ext_resource type="Script" uid="uid://cx4biykyio06w" path="res://prefabs/dialogues/dialogue_system.gd" id="1_muyoo"]
+[ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="2_8yse7"]
+[ext_resource type="Texture2D" uid="uid://dcibnmbuaoqrq" path="res://prefabs/characters/portrait.png" id="3_tijig"]
+[ext_resource type="FontFile" uid="uid://c7b6uwmntv2d7" path="res://common/theme/fonts/tiny5_regular.ttf" id="4_tlicu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tijig"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_tlicu"]
+line_spacing = 1.0
+
+[node name="DialogueSystem" type="CanvasLayer" unique_id=459583272]
+script = ExtResource("1_muyoo")
+skip_cooldown = 0.25
+auto_skip_delay = 0.5
+char_type_speed_multipliers = Dictionary[String, float]({
+" ": 1.15,
+"!": 6.0,
+"+": 2.5,
+",": 3.0,
+"-": 2.5,
+".": 4.0,
+":": 3.5,
+";": 4.0,
+"=": 2.5,
+"?": 6.0
+})
+
+[node name="DialogueWindow" type="Control" parent="." unique_id=1500275694]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -325.0
+offset_top = -150.0
+offset_right = 325.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="DialogueWindow" unique_id=1978464914]
+unique_name_in_owner = true
+editor_description = "This is very optional and as of moment of writing this - unused. This node could be used to (using it's self_modulate property) change opacity of the dialogue window, without icon & bg textures overlaping poorly. However - I do not think it is a good idea to use a 2D node in a UI env... (P.S. Seems OK so far tho, so Im leaving it be, since it took me a while to get to this point T_T). (UPD: It is now used for dialogue.offset)"
+
+[node name="Background" type="ColorRect" parent="DialogueWindow/CanvasGroup" unique_id=543587982]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 650.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8yse7")
+color = Color(0.078431375, 0.105882354, 0.105882354, 1)
+
+[node name="Icon" type="TextureRect" parent="DialogueWindow/CanvasGroup" unique_id=749893968]
+unique_name_in_owner = true
+offset_left = 12.5
+offset_top = 12.5
+offset_right = 112.5
+offset_bottom = 112.5
+texture = ExtResource("3_tijig")
+expand_mode = 4
+
+[node name="Name" type="Label" parent="DialogueWindow/CanvasGroup" unique_id=1096713797]
+unique_name_in_owner = true
+offset_left = 127.0
+offset_top = 8.0
+offset_right = 631.0
+offset_bottom = 35.0
+theme = ExtResource("2_8yse7")
+text = "NameNameNameNameNameNameNameNameNameNameName"
+label_settings = SubResource("LabelSettings_tijig")
+clip_text = true
+text_overrun_behavior = 5
+
+[node name="Message" type="Label" parent="DialogueWindow/CanvasGroup" unique_id=868546769]
+unique_name_in_owner = true
+offset_left = 127.0
+offset_top = 40.0
+offset_right = 631.0
+offset_bottom = 112.0
+theme = ExtResource("2_8yse7")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+label_settings = SubResource("LabelSettings_tlicu")
+autowrap_mode = 3
+
+[node name="Skip" type="Button" parent="DialogueWindow/CanvasGroup" unique_id=1522441924]
+offset_left = 599.0
+offset_top = 96.0
+offset_right = 637.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("4_tlicu")
+text = "Skip"
+flat = true
+
+[node name="AutoSkip" type="Button" parent="DialogueWindow/CanvasGroup" unique_id=1706960877]
+offset_left = 519.0
+offset_top = 96.0
+offset_right = 593.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("4_tlicu")
+toggle_mode = true
+text = "Auto Skip"
+flat = true
+
+[node name="Typing" type="Timer" parent="." unique_id=1707925895]
+one_shot = true
+
+[node name="Skip" type="Timer" parent="." unique_id=1062141526]
+one_shot = true
+
+[node name="AutoSkip" type="Timer" parent="." unique_id=1735179497]
+
+[connection signal="pressed" from="DialogueWindow/CanvasGroup/Skip" to="." method="_on_skip_pressed"]
+[connection signal="toggled" from="DialogueWindow/CanvasGroup/AutoSkip" to="." method="_on_auto_skip_toggled"]
+[connection signal="timeout" from="Typing" to="." method="_on_character_typed"]
+[connection signal="timeout" from="AutoSkip" to="." method="_on_auto_skip_timeout"]

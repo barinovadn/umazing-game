@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://fgbsvngybrki"]
+
+[ext_resource type="Script" uid="uid://c2cxt5deg26ha" path="res://prefabs/combat/ai/ai_controller.gd" id="1_4vsq4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vsq4"]
+radius = 0.01
+
+[node name="AIController" type="Area2D" unique_id=359908874 groups=["ai_controller"]]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_4vsq4")
+
+[node name="PauseBetweenShots" type="Timer" parent="." unique_id=2056193798]
+
+[node name="AIActionChanger" type="Timer" parent="." unique_id=485483522]
+
+[node name="Trigger" type="CollisionShape2D" parent="." unique_id=156655188]
+shape = SubResource("CircleShape2D_4vsq4")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[connection signal="area_entered" from="." to="." method="activate_interaction"]
+[connection signal="area_exited" from="." to="." method="deactivate_interaction"]
+[connection signal="timeout" from="PauseBetweenShots" to="." method="_on_pause_between_shots_timeout"]
+[connection signal="timeout" from="AIActionChanger" to="." method="_on_action_changer_timeout"]

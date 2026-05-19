@@ -1,9 +1,8 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ct11gc78ulvbc"]
+[gd_resource type="LabelSettings" format=3 uid="uid://ct11gc78ulvbc"]
 
 [ext_resource type="FontFile" uid="uid://c7b6uwmntv2d7" path="res://common/theme/fonts/tiny5_regular.ttf" id="1_c520w"]
 
 [resource]
 line_spacing = -8.0
 font = ExtResource("1_c520w")
-font_size = 32
-font_color = Color(0.341666, 0.232968, 0.136773, 1)
+font_size = 44

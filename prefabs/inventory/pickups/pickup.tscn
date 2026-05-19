@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://ds7r5gr45oetv"]
+
+[ext_resource type="Script" uid="uid://yg4ldwcka3qa" path="res://prefabs/inventory/pickups/pickup.gd" id="1_ijpd1"]
+[ext_resource type="Resource" uid="uid://blylgxx5kc83n" path="res://prefabs/inventory/items/shrimp.tres" id="2_ff4de"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_a7oa7"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="4_4sid4"]
+[ext_resource type="Texture2D" uid="uid://cgaygxeatd046" path="res://prefabs/inventory/items/shrimp.png" id="5_7h5v3"]
+[ext_resource type="Texture2D" uid="uid://buoyg5fif6m8i" path="res://prefabs/inventory/pickups/pickup_glow.png" id="6_5dapo"]
+
+[sub_resource type="Resource" id="Resource_y66sm"]
+script = ExtResource("4_4sid4")
+effect = 200
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_hy17o"]
+script = ExtResource("4_4sid4")
+effect = 310
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cg6j6"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_cg6j6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jvv1q"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2.5), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xgv4m"]
+_data = {
+&"RESET": SubResource("Animation_cg6j6"),
+&"idle": SubResource("Animation_jvv1q")
+}
+
+[node name="Pickup" type="RigidBody2D" unique_id=1796102070]
+collision_layer = 512
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_ijpd1")
+item_data = ExtResource("2_ff4de")
+default_sound_pickup = ExtResource("3_a7oa7")
+default_vfx_spawn = SubResource("Resource_y66sm")
+default_vfx_collect = SubResource("Resource_hy17o")
+afterlife_duration = null
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1208475]
+shape = SubResource("CircleShape2D_cg6j6")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=524928323]
+texture = ExtResource("5_7h5v3")
+
+[node name="RarityLight" type="PointLight2D" parent="Icon" unique_id=2050712986]
+scale = Vector2(0.75, 0.75)
+color = Color(1.8247963, 1.8247963, 1.8247963, 1)
+energy = 2.0
+texture = ExtResource("6_5dapo")
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1644152615]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=955703347]
+libraries/ = SubResource("AnimationLibrary_xgv4m")
+autoplay = &"idle"

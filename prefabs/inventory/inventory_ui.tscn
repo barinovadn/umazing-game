@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://wwa44iu3nw2s"]
+
+[ext_resource type="Script" uid="uid://diadybj8feukq" path="res://prefabs/inventory/inventory_ui.gd" id="1_bkj06"]
+[ext_resource type="LabelSettings" uid="uid://ct11gc78ulvbc" path="res://common/theme/label_title.tres" id="4_uar5f"]
+[ext_resource type="FontFile" uid="uid://c7b6uwmntv2d7" path="res://common/theme/fonts/tiny5_regular.ttf" id="8_bjqoh"]
+[ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="10_8bim2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_t5h7q"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_61b2v"]
+light_mode = 1
+
+[node name="Inventory" type="Control" unique_id=1205771470]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_bkj06")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1963337106]
+material = SubResource("CanvasItemMaterial_t5h7q")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.89786726, 0.70497304, 0.47560543, 1)
+
+[node name="Border" type="ReferenceRect" parent="BG" unique_id=265438642]
+material = SubResource("CanvasItemMaterial_61b2v")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.93333334, 0.64705884, 0.42745098, 1)
+border_width = 14.0
+editor_only = false
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1392865102]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -198.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="VBox" unique_id=2054776434]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_bjqoh")
+theme_override_font_sizes/font_size = 64
+text = "ИНВЕНТАРЬ"
+label_settings = ExtResource("4_uar5f")
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="VBox" unique_id=615478461]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ItemList" type="VBoxContainer" parent="VBox/Scroll" unique_id=84127645]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionPanel" type="HBoxContainer" parent="VBox" unique_id=1136475369]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="UseButton" type="Button" parent="VBox/ActionPanel" unique_id=1829278061]
+layout_mode = 2
+focus_neighbor_left = NodePath("../DropButton")
+focus_neighbor_right = NodePath("../InfoButton")
+theme = ExtResource("10_8bim2")
+theme_override_fonts/font = ExtResource("8_bjqoh")
+theme_override_font_sizes/font_size = 42
+text = "ИСП"
+
+[node name="InfoButton" type="Button" parent="VBox/ActionPanel" unique_id=1726134815]
+layout_mode = 2
+focus_neighbor_left = NodePath("../UseButton")
+focus_neighbor_right = NodePath("../DropButton")
+theme = ExtResource("10_8bim2")
+theme_override_fonts/font = ExtResource("8_bjqoh")
+theme_override_font_sizes/font_size = 42
+text = "ИНФО"
+
+[node name="DropButton" type="Button" parent="VBox/ActionPanel" unique_id=225888254]
+layout_mode = 2
+focus_neighbor_left = NodePath("../InfoButton")
+focus_neighbor_right = NodePath("../UseButton")
+theme = ExtResource("10_8bim2")
+theme_override_fonts/font = ExtResource("8_bjqoh")
+theme_override_font_sizes/font_size = 42
+text = "УДАЛИТЬ"
+
+[node name="AudioStream" type="AudioStreamPlayer2D" parent="." unique_id=2011670380]
+
+[connection signal="pressed" from="VBox/ActionPanel/UseButton" to="." method="_on_use_button_pressed"]
+[connection signal="pressed" from="VBox/ActionPanel/InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="VBox/ActionPanel/DropButton" to="." method="_on_drop_button_pressed"]

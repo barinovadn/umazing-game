@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://cv1alk2n7e2pi"]
+
+[ext_resource type="Texture2D" uid="uid://brohl0w08y2a6" path="res://prefabs/characters/ninja_green/portrait.png" id="1_5v2io"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_rubt8"]
+
+[resource]
+script = ExtResource("1_rubt8")
+icon = ExtResource("1_5v2io")
+name = "Зелёный Ниндзя"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"

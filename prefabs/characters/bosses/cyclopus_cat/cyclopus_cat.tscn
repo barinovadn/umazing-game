@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bjb2riattkaaa"]
+
+[ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_isdfl"]
+[ext_resource type="Texture2D" uid="uid://bkvgvxdajupee" path="res://prefabs/characters/bosses/cyclopus_cat/sprite_sheet_enraged.png" id="2_iy7vw"]
+[ext_resource type="Texture2D" uid="uid://ddighrvdm4owv" path="res://prefabs/characters/bosses/cyclopus_cat/sprite_sheet.png" id="9_sbeg8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pqh5"]
+atlas = ExtResource("2_iy7vw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q6y4"]
+atlas = ExtResource("2_iy7vw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25rct"]
+atlas = ExtResource("9_sbeg8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4vux"]
+atlas = ExtResource("9_sbeg8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljfcr"]
+atlas = ExtResource("9_sbeg8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oydtv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pqh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q6y4")
+}],
+"loop": true,
+"name": &"attack_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25rct")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4vux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljfcr")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}]
+
+[node name="CyclopusCat" unique_id=2065001503 instance=ExtResource("1_isdfl")]
+collision_mask = 0
+afterlife_duration = 0.0
+
+[node name="Shadow" parent="." index="1" unique_id=66535912]
+position = Vector2(0, 4)
+
+[node name="Sprite" parent="." index="2" unique_id=2042220320]
+sprite_frames = SubResource("SpriteFrames_oydtv")
+animation = &"attack_left"
+autoplay = "idle_left"
+frame_progress = 0.0
+
+[node name="AnimationController" parent="." index="3" unique_id=395358213]
+animations = Dictionary[int, String]({
+1: "idle_left",
+2: "idle_left",
+3: "idle_left",
+4: "idle_left",
+5: "walk_left",
+6: "walk_left",
+7: "walk_left",
+8: "walk_left",
+9: "attack_left",
+10: "attack_left",
+11: "attack_left",
+12: "attack_left"
+})
+animations_flip_h = Dictionary[int, bool]({
+3: false,
+4: true,
+7: false,
+8: true,
+11: false,
+12: true
+})
