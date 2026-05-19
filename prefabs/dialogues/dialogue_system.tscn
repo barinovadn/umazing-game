@@ -16,7 +16,7 @@ script = ExtResource("1_muyoo")
 skip_cooldown = 0.25
 auto_skip_delay = 0.5
 char_type_speed_multipliers = Dictionary[String, float]({
-" ": 1.35,
+" ": 1.15,
 "!": 6.0,
 "+": 2.5,
 ",": 3.0,
