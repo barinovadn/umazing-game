@@ -29,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://1nb64bwo0hvg" path="res://prefabs/vfx/effects/burst_leaves.tscn" id="17_qex4a"]
 [ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/combat/bullets/variations/homing_shot/homing_shot.tscn" id="18_ivmt6"]
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/stone_shot/stone_shot.tscn" id="19_ivmt6"]
-[ext_resource type="Texture2D" uid="uid://dcibnmbuaoqrq" path="res://prefabs/characters/portrait.png" id="20_axe6u"]
 [ext_resource type="Resource" uid="uid://d14ny2m0r5s2a" path="res://prefabs/characters/dialogue_preset.tres" id="20_ctk38"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://prefabs/combat/ai/ai_action.gd" id="20_ivmt6"]
 [ext_resource type="Resource" uid="uid://cv1alk2n7e2pi" path="res://prefabs/characters/ninja_green/dialogue_preset.tres" id="21_f2r25"]
@@ -128,9 +127,21 @@ metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_ukxex"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("20_axe6u")
-name = "Джим"
-message = "Мог бы найти быстрее... Хм... А ты уверен, что это мой кот?"
+message = "Мог бы найти быстрее..."
+type_speed = 3
+punctuation_significance = 1.25
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_2ntx4"]
+script = ExtResource("22_5cmlo")
+message = "Хм..."
+type_speed = 3
+punctuation_significance = 1.5
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_6vpi3"]
+script = ExtResource("22_5cmlo")
+message = "А ты уверен, что это мой кот?"
 type_speed = 3
 punctuation_significance = 1.25
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
@@ -176,6 +187,78 @@ icon = ExtResource("23_fscrj")
 name = "Маленький Поросёнок"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
+[sub_resource type="Resource" id="Resource_aaj01"]
+script = ExtResource("22_5cmlo")
+message = "Взаимодействовать с объектами можно на \"E\",
+А также левой кнопкой мыши!"
+punctuation_significance = 2.0
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_6wp27"]
+script = ExtResource("22_5cmlo")
+message = "Двигаться можно на клавиши WASD,
+А также зажав правую кнопку мыши!"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_55rf0"]
+script = ExtResource("22_5cmlo")
+message = ". . . "
+punctuation_significance = 2.0
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_q2oqs"]
+script = ExtResource("22_5cmlo")
+name = "Бесполезная Дубовая Табличка"
+message = "Но, кажется, вы и без меня все это знали..."
+type_speed = 3
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlq0y"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(144, 176, 16, 16)
+
+[sub_resource type="Resource" id="Resource_dq4oe"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_hlq0y")
+name = "Дружелюбная Дубовая Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_aokcs"]
+script = ExtResource("22_5cmlo")
+message = "Пункт № 1.
+Не все объекты, с которыми можно взаимодействовать, отмечены маркерами. Как, например, этот."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_6s036"]
+script = ExtResource("22_5cmlo")
+message = "Пункт № 2.
+Диалоги можно пропускать на клавишу \"E\" или \"Пробел\"."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_fvuxf"]
+script = ExtResource("22_5cmlo")
+message = "Пункт № 3.
+Зажав левую кнопку мыши - персоонаж всгеда будет повернут в сторону курсора, даже при ходьбе. Эту особенность можно применять для стрельбы."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_ib0lp"]
+script = ExtResource("22_5cmlo")
+message = "Пункт ЭКСТРА.
+Кажется другая табличка забыла сказать вам..
+Для открытия инвентаря - нажмите \"I\".
+Чтобы атаковать - зажмите \"Пробел\"."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr466"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(160, 176, 16, 16)
+
+[sub_resource type="Resource" id="Resource_fue4y"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_cr466")
+name = "Странная Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vs2yr"]
 atlas = ExtResource("31_ctk38")
 region = Rect2(1.904, 80.336, 13, 13)
@@ -188,21 +271,46 @@ message = "Одна древняя китайская мудрость глас�
 “  左边的寿司比他面前的雕像还要古老。”"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ctk38"]
-atlas = ExtResource("31_ctk38")
-region = Rect2(144.349, 176.367, 15, 15)
-
 [sub_resource type="Resource" id="Resource_5alrq"]
 script = ExtResource("22_5cmlo")
-icon = SubResource("AtlasTexture_ctk38")
-name = "???"
 message = "Эти суши так провоняли, что начали светиться.
-Мы спрятали их тут, на пока что...
-P.S. Раньше порций было 5, если найдете суши в лесу - перед едой обязательно помолитесь..."
+Мы спрятали их тут, на пока что..."
 type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[sub_resource type="Resource" id="Resource_aaj01"]
+[sub_resource type="Resource" id="Resource_egtfp"]
+script = ExtResource("22_5cmlo")
+message = "P.S. Раньше порций было 5, если найдете суши в лесу - перед едой обязательно помолитесь..."
+type_speed = 3
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6p6q"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(144, 176, 16, 16)
+
+[sub_resource type="Resource" id="Resource_tb3tm"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_c6p6q")
+name = "???"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_ww48r"]
+script = ExtResource("22_5cmlo")
+message = "Кажется, я наконец-то нашёл способ перебраться через эту стену!
+Нужно всего лишь нажать на \"N\" - и тогда стена поддастся!"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0joy"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(160, 176, 16, 16)
+
+[sub_resource type="Resource" id="Resource_4pdjg"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_p0joy")
+name = "Подозрительная Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_ttas0"]
 script = ExtResource("22_5cmlo")
 message = "Официально признано - это самый смешной анекдот:
 \"Заходит как-то улитка в ба-...\"
@@ -210,11 +318,7 @@ message = "Официально признано - это самый смешн�
 punctuation_significance = 2.0
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hlq0y"]
-atlas = ExtResource("31_ctk38")
-region = Rect2(144, 176, 16, 16)
-
-[sub_resource type="Resource" id="Resource_dq4oe"]
+[sub_resource type="Resource" id="Resource_cr466"]
 script = ExtResource("22_5cmlo")
 icon = SubResource("AtlasTexture_hlq0y")
 name = "Дряхлая Дубовая Табличка"
@@ -643,7 +747,7 @@ tile_map_data = PackedByteArray("AADr//v/AAAHAAgAAADq//v/AAAAAAkAAADr//r/AAACAAc
 tile_map_data = PackedByteArray("AAD5//n/AwAIAAMAAAD///T/AwAGAAMAAAAAAPX/AwAIAAMAAAACAPX/AwAKAAQAAAAAAPb/AwAEAAUAAAAGAPT/AwAFAAUAAADs//P/AwAFAAUAAADm//f/AwAFAAUAAADy//f/AwAFAAUAAADp//r/AwAEAAUAAADq//X/AwAEAAUAAADz//T/AwAEAAUAAADk//7/AwAIAAMAAADl////AwAGAAMAAADm////AwAKAAQAAADm/wEAAwAHAAMAAAAOAAkAAwAIAAMAAAATAA0AAwAIAAMAAAAVAAwAAwAKAAQAAAAQAAwAAwAGAAMAAAANAPb/AwAIAAMAAAAOAPf/AwAHAAQAAADw/w4AAwAFAAsAABDs/w0AAwAFAAsAAADy/woAAwAFAAsAAADj/wgAAwAFAAsAABDi/wwAAwAFAAsAAADk/w4AAwAEAAsAAAD0/wsAAwAEAAsAAADu/wgAAwAEAAsAAADl/woAAwAFAAsAAADt/wsAAwAEAAUAAADo/wwAAwAFAAUAAADo/wkAAwAEAAUAAADm/wcAAwAFAAUAAADs/wUAAwAFAAUAAADr/wQAAwAFAAUAAADo//7/AwAEAAUAAADu////AwAEAAUAAADx//7/AwAFAAUAAADv//7/AwAFAAgAAADm//z/AwAFAAgAAADl/wIAAwAFAAgAAADt/wIAAwAFAAgAAADy/wEAAwAFAAgAAADx/wIAAwAEAAgAAADj//v/AwAEAAgAAADu//z/AwAEAAgAAADi//3/AwAFAAgAAAAEAAQAAwAFAAUAAAD9//z/AwAEAAUAAAD5/wIAAwAEAAUAAAD5/wkAAwAEAAUAAAAEAAYAAwAFAAUAAAD3/w0AAwAFAAUAAAD3/wUAAwAEAAUAAAAEAA4AAwAEAAUAAAAIAAoAAwAFAAUAAAAOAPr/AwAEAAUAAAAZAPn/AwAEAAUAAAAYAPX/AwAFAAUAAAAdAPb/AwAEAAUAAAASAPL/AwAFAAUAAAAbAPL/AwAEAAUAAAAMAPj/AwAFAAUAAAAUAPX/AwAFAAUAAAD3//P/AwAFAAUAAAD3//j/AwAEAAUAAAD9//P/AwAFAAUAAAARAAgAAwAEAAUAAAAbAAcAAwAFAAUAAAANAAoAAwAFAAUAAAAOAA0AAwAEAAUAAAAYAA4AAwAEAAUAAAAMAAEAAwAEAAUAAAAMAP3/AwAFAAUAAAAWAP3/AwAFAAUAAADi/wIAAwAEAAgAAADq/wEAAwAEAAgAAAAaAAoAAwAFAAUAAADq/woAAwAHAAUAAAD7//L/AwAHAAUAAAAKAOX/AwAFAAgAAAALAOb/AwAEAAgAAAAOAOb/AwAFAAgAABAdAN//AwAFAAUAAAAZAOb/AwAEAAgAAAAKAOL/AwAFAAgAABAPAN7/AwAFAAgAAAAbAOL/AwAKAAMAAAAaAOL/AwAIAAMAAAAbAOH/AwAGAAMAAAAaAOP/AwAKAAQAAAAZAOL/AwAHAAQAAAASAOb/AwAEAAUAAAARAN7/AwAFAAUAAAAVAN3/AwAEAAUAAAAVAOX/AwAEAAUAAAAZAN7/AwAFAAUAAAAXAOb/AwAFAAUAAAA6AO3/AwAFAAgAABA5AOv/AwAEAAgAAAA+AOz/AwAFAAgAAABAAO7/AwAFAAgAAAA5AO7/AwAEAAgAAADy/xcAAwAFAAsAAADm/xYAAwAFAAsAAADi/xAAAwAFAAsAAADo/w8AAwAFAAsAAADz/xMAAwAFAAsAAADz/xAAAwAFAAsAAADk/xIAAwAFAAsAABDj/xQAAwAFAAsAABDr/xcAAwAFAAsAABDx/xYAAwAFAAsAABDw/xIAAwAFAAsAABDo/xEAAwAEAAsAAADr/xAAAwAEAAsAAADk/xUAAwAEAAsAABD0/xUAAwAEAAsAAADk/xQAAwAEAAUAAADs/xYAAwAFAAUAAADz/xQAAwAFAAUAAADx/xEAAwAFAAUAAADp/xAAAwAFAAUAAADr/xEAAwAEAAUAAADp/xIAAwAEAAUAAADn/xYAAwAEAAUAAADv/xcAAwAEAAUAAADx/xQAAwAEAAUAAADn/xQAAwAHAAQAAADm/xQAAwAHAAUAAADn/xUAAwAIAAMAAADo/xQAAwAKAAQAAADp/xYAAwAIAAMAABDo/xUAAwAHAAQAAADl/xEAAwAEAAUAAADj/xEAAwAFAAUAAACm//z/AwAFAAUAAACp//v/AwAFAAUAAAC3//v/AwAFAAUAAAC5////AwAFAAUAAAC4/wMAAwAFAAUAAAC2/wQAAwAFAAUAAACs/wQAAwAFAAUAAACn/wMAAwAFAAUAAACq/wMAAwAEAAUAAACo//3/AwAEAAUAAAC0/wMAAwAEAAUAAACm/wAAAwAEAAUAAACt//v/AwAEAAUAAACo/wQAAwAFAAsAAACm//3/AwAFAAsAAAC4/wQAAwAFAAsAAAC5//z/AwAFAAsAABC2//v/AwAEAAsAAACm/wIAAwAEAAsAAACq/wQAAwAEAAsAABCs////AwAHAAUAAACt////AwAIAAMAAACw/wIAAwAHAAUAABCv/wIAAwAIAAMAABCv/wEAAwAIAAMAAACw/wAAAwAIAAMAABCu////AwAHAAUAAACx//7/AwAHAAUAAACv//7/AwAIAAMAAACy////AwAIAAMAAACz/wEAAwAIAAMAABCy/wAAAwAGAAMAAACt/wEAAwAIAAMAAACx//3/AwAKAAMAAACw/wMAAwAKAAMAAACr////AwAHAAQAAACz//7/AwAKAAQAAACy/wEAAwAKAAQAAACw//3/AwAKAAQAAACu/wIAAwAKAAQAAACr/wEAAwAHAAMAAACy/wMAAwAHAAMAABC0////AwAHAAMAABCv////AwAHAAMAAACw//7/AwAHAAMAAACx/wMAAwAFAAUAAACq//7/AwAFAAUAAAC1/wAAAwAHAAQAAACw//z/AwAEAAUAAACx//z/AwAHAAMAAAC1//z/AwAFAAUAAAA8APX/AwAFAAgAABA/APb/AwAEAAgAAAA5APf/AwAFAAgAAABEAPL/AwAEAAgAABBOAPT/AwAEAAgAAABQAPX/AwAEAAgAABBLAPf/AwAFAAgAAABIAPP/AwAFAAgAABA=")
 
 [node name="Structrures" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="3" unique_id=1670858595]
-tile_map_data = PackedByteArray("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")
+tile_map_data = PackedByteArray("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")
 
 [node name="Foreground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="4" unique_id=720212395]
 tile_map_data = PackedByteArray("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AAAJAN3/AAAEAAUAAAAJAN7/AAAEAAUAAAAJAN//AAAEAAUAAAAJAOD/AAAEAAUAAAAJAOH/AAAEAAUAAAAJAOL/AAAEAAUAAAAJAOP/AAAEAAUAAAAJAOT/AAAEAAUAAAAJAOX/AAAEAAUAAAAJAOb/AAAEAAUAAAAKANz/AAAEAAUAAAAKAOf/AAAEAAUAAAALANz/AAAEAAUAAAALAOf/AAAEAAUAAAAMANz/AAAEAAUAAAAMAOf/AAAEAAUAAAANANz/AAAEAAUAAAANAOf/AAAEAAUAAAAOANz/AAAEAAUAAAAOAOf/AAAEAAUAAAAPANz/AAAEAAUAAAAPAOf/AAAEAAUAAAAQANz/AAAEAAUAAAAQAOf/AAAEAAUAAAARANz/AAAEAAUAAAARAOf/AAAEAAUAAAASANz/AAAEAAUAAAASAOf/AAAEAAUAAAATANz/AAAEAAUAAAATAOf/AAAEAAUAAAAUANz/AAAEAAUAAAAUAOf/AAAEAAUAAAAVANz/AAAEAAUAAAAVAOf/AAAEAAUAAAAWANz/AAAEAAUAAAAWAOf/AAAEAAUAAAAXANz/AAAEAAUAAAAXAOf/AAAEAAUAAAAYANz/AAAEAAUAAAAYAOf/AAAEAAUAAAAZANz/AAAEAAUAAAAZAOf/AAAEAAUAAAAaANz/AAAEAAUAAAAaAOf/AAAEAAUAAAAbANz/AAAEAAUAAAAbAOf/AAAEAAUAAAAcANz/AAAEAAUAAAAcAOf/AAAEAAUAAAAdANz/AAAEAAUAAAAdAOf/AAAEAAUAAAAeAN3/AAAEAAUAAAAeAN7/AAAEAAUAAAAeAN//AAAEAAUAAAAeAOD/AAAEAAUAAAAeAOH/AAAEAAUAAAAeAOL/AAAEAAUAAAAeAOP/AAAEAAUAAAAeAOT/AAAEAAUAAAAeAOX/AAAEAAUAAAAeAOb/AAAEAAUAAAD2/xAAAAAEAAUAAAD2/xEAAAAEAAUAAAD2/xIAAAAEAAUAAAD2/xMAAAAEAAUAAAD2/xQAAAAEAAUAAAD2/xUAAAAEAAUAAAD2/xYAAAAEAAUAAAD2/xcAAAAEAAUAAAD2/xgAAAAEAAUAAADh/w8AAAAEAAUAAADh/xAAAAAEAAUAAADh/xEAAAAEAAUAAADh/xIAAAAEAAUAAADh/xMAAAAEAAUAAADh/xQAAAAEAAUAAADh/xUAAAAEAAUAAADh/xYAAAAEAAUAAADh/xcAAAAEAAUAAADh/xgAAAAEAAUAAADi/xkAAAAEAAUAAADj/xkAAAAEAAUAAADk/xkAAAAEAAUAAADl/xkAAAAEAAUAAADm/xkAAAAEAAUAAADn/xkAAAAEAAUAAADo/xkAAAAEAAUAAADp/xkAAAAEAAUAAADq/xkAAAAEAAUAAADr/xkAAAAEAAUAAADs/xkAAAAEAAUAAADt/xkAAAAEAAUAAADu/xkAAAAEAAUAAADv/xkAAAAEAAUAAADw/xkAAAAEAAUAAADx/xkAAAAEAAUAAADy/xkAAAAEAAUAAADz/xkAAAAEAAUAAAD0/xkAAAAEAAUAAAD1/xkAAAAEAAUAAAC5/wUAAAAEAAUAAAC6/wQAAAAEAAUAAACl//v/AAAEAAUAAACl//z/AAAEAAUAAACl//3/AAAEAAUAAACl//7/AAAEAAUAAACl////AAAEAAUAAACl/wAAAAAEAAUAAACl/wEAAAAEAAUAAACl/wIAAAAEAAUAAACl/wMAAAAEAAUAAACl/wQAAAAEAAUAAACm//r/AAAEAAUAAACm/wUAAAAEAAUAAACn//r/AAAEAAUAAACn/wUAAAAEAAUAAACo//r/AAAEAAUAAACo/wUAAAAEAAUAAACp//r/AAAEAAUAAACp/wUAAAAEAAUAAACq//r/AAAEAAUAAACq/wUAAAAEAAUAAACr//r/AAAEAAUAAACr/wUAAAAEAAUAAACs//r/AAAEAAUAAACs/wUAAAAEAAUAAACt//r/AAAEAAUAAACt/wUAAAAEAAUAAACu//r/AAAEAAUAAACu/wUAAAAEAAUAAACv//r/AAAEAAUAAACv/wUAAAAEAAUAAACw//r/AAAEAAUAAACw/wUAAAAEAAUAAACx//r/AAAEAAUAAACx/wUAAAAEAAUAAACy//r/AAAEAAUAAACy/wUAAAAEAAUAAACz//r/AAAEAAUAAACz/wUAAAAEAAUAAAC0//r/AAAEAAUAAAC0/wUAAAAEAAUAAAC1//r/AAAEAAUAAAC1/wUAAAAEAAUAAAC2//r/AAAEAAUAAAC2/wUAAAAEAAUAAAC3//r/AAAEAAUAAAC3/wUAAAAEAAUAAAC4//r/AAAEAAUAAAC4/wUAAAAEAAUAAAC5//r/AAAEAAUAAAC6//v/AAAEAAUAAAC6//z/AAAEAAUAAAC6//3/AAAEAAUAAAC6//7/AAAEAAUAAAC6////AAAEAAUAAAC6/wAAAAAEAAUAAAC6/wEAAAAEAAUAAAC6/wIAAAAEAAUAAAC6/wMAAAAEAAUAAADY//H/AAAEAAUAAADY//L/AAAEAAUAAADY//P/AAAEAAUAAADY//T/AAAEAAUAAADY//X/AAAEAAUAAADY//b/AAAEAAUAAADY//f/AAAEAAUAAADY//j/AAAEAAUAAADY//n/AAAEAAUAAADY//r/AAAEAAUAAAA=")
@@ -651,7 +755,6 @@ tile_map_data = PackedByteArray("AAAeAAUAAAAEAAUAAAAeAAYAAAAEAAUAAAAeAAcAAAAEAAU
 [node name="Village" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="0" unique_id=702969072 instance=ExtResource("9_q7qle")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, 1.5258789e-05)
-enter_particles_strict = true
 enter_particles_enable = Array[int]([500, 400])
 enter_filter_color = Color(0.6862745, 0.49019608, 0, 0.13725491)
 music_playlist = Array[AudioStream]([ExtResource("3_bc555")])
@@ -673,7 +776,6 @@ scale = Vector2(0.5999999, 0.9999998)
 [node name="House" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="1" unique_id=341142702 instance=ExtResource("9_q7qle")]
 position = Vector2(-319.99994, -479.99994)
 scale = Vector2(319.99997, 159.99998)
-enter_particles_strict = true
 enter_particles_enable = Array[int]([400])
 enter_filter_color = Color(0, 0, 0.2, 0.39215687)
 music_playlist = Array[AudioStream]([ExtResource("6_bpga3")])
@@ -685,7 +787,6 @@ position = Vector2(-1.9073488e-07, -3.8146976e-07)
 [node name="Tunnel" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="2" unique_id=1122927016 instance=ExtResource("9_q7qle")]
 position = Vector2(1120, -160)
 scale = Vector2(319.99997, 159.99998)
-enter_particles_strict = true
 enter_particles_enable = Array[int]([400, 200])
 enter_filter_color = Color(0.07058824, 0.03137255, 0, 0.19607843)
 
@@ -696,7 +797,6 @@ scale = Vector2(2, 1)
 [node name="Barn" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="3" unique_id=742797130 instance=ExtResource("9_q7qle")]
 position = Vector2(960, -320)
 scale = Vector2(319.99997, 159.99998)
-enter_particles_strict = true
 enter_particles_enable = Array[int]([400])
 enter_filter_color = Color(0.5916591, 0.460917, 0.26939556, 0.39215687)
 music_playlist = Array[AudioStream]([ExtResource("6_bpga3")])
@@ -707,7 +807,7 @@ music_delay = 0
 [node name="Forest" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="4" unique_id=310265255 instance=ExtResource("9_q7qle")]
 modulate = Color(0.39215687, 0.98039216, 0, 1)
 position = Vector2(-320, 4.7683716e-07)
-enter_particles_enable = Array[int]([100])
+enter_particles_enable = Array[int]([100, 500, 400])
 enter_filter_color = Color(0.19549997, 0.69, 0, 0.13725491)
 music_delay = 1
 exit_particles_clear = false
@@ -722,7 +822,6 @@ scale = Vector2(1.4, 1)
 [node name="Swamp" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="5" unique_id=1539163547 instance=ExtResource("9_q7qle")]
 modulate = Color(0.19215687, 1, 0.57254905, 1)
 position = Vector2(-319.99997, 159.99998)
-enter_particles_strict = true
 enter_particles_enable = Array[int]([200, 500, 400])
 enter_particles_ratio = Array[int]([25, 25, 50])
 enter_filter_color = Color(0, 0.6901961, 0.49411765, 0.13725491)
@@ -735,7 +834,6 @@ scale = Vector2(1, 2)
 
 [node name="Cyclopus" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="6" unique_id=535175681 instance=ExtResource("9_q7qle")]
 position = Vector2(320.00012, -479.99997)
-enter_particles_strict = true
 enter_particles_enable = Array[int]([500, 200])
 enter_particles_ratio = Array[int]([25, 50])
 enter_filter_color = Color(0.07627655, 0.23468134, 0.33583182, 0.15294118)
@@ -746,7 +844,6 @@ music_delay = 0
 
 [node name="Frog" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="7" unique_id=6919117 instance=ExtResource("9_q7qle")]
 position = Vector2(-1280, -1.8189894e-12)
-enter_particles_strict = true
 enter_particles_enable = Array[int]([200, 400, 500])
 enter_particles_ratio = Array[int]([100, 50, 25])
 enter_filter_color = Color(0, 0.6901961, 0.49411765, 0.19607843)
@@ -822,6 +919,7 @@ scale = Vector2(2, 2)
 exit = NodePath("../TeleportGreenOut")
 use_limit = 1
 color = Color(0, 1, 0, 0.78431374)
+delete_on_disable = false
 
 [node name="TeleportGreenOut" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="3" unique_id=1465987655 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 visible = false
@@ -950,9 +1048,11 @@ position = Vector2(-112, -128)
 collision_mask = 1027
 script = ExtResource("22_vs2yr")
 pet_owner = NodePath("../../Villagers/Dummy1")
-pet_owner_distance_required = 75.0
 pet_owner_inspectable = NodePath("../../Villagers/Dummy1/InspectableNPC")
-owner_reaction = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ukxex")])
+pet_owner_distance_required = 75.0
+owner_reaction = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ukxex"), SubResource("Resource_2ntx4"), SubResource("Resource_6vpi3")])
+owner_reaction_mode = 1
+owner_reaction_order = 1
 movement = NodePath("PathDotMovement")
 collision = false
 
@@ -999,6 +1099,7 @@ speed = 30.0
 exit = NodePath("../../../../Teleports/TeleportPinkOut")
 use_limit = 1
 color = Color(0.9372549, 0.68235296, 0.9019608, 0.78431374)
+delete_on_disable = false
 
 [node name="FrogPath" type="Path2D" parent="Characters/Animals" index="4" unique_id=1079200010]
 position = Vector2(-384, 330)
@@ -1056,7 +1157,25 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 position = Vector2(0, 160)
 start_animation = 1
 
-[node name="SignForest" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=555053349 instance=ExtResource("9_8ic3i")]
+[node name="SignGuide" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=836831447 instance=ExtResource("9_8ic3i")]
+position = Vector2(-72, 216)
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_aaj01"), SubResource("Resource_6wp27"), SubResource("Resource_55rf0"), SubResource("Resource_q2oqs")])
+mode = 1
+preset = SubResource("Resource_dq4oe")
+
+[node name="InteractionMarker" parent="Interactables/SignGuide" index="1" unique_id=305823956 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
+modulate = Color(1, 1, 0.5, 1)
+position = Vector2(0, -8)
+interactable = NodePath("..")
+sprite = 2
+color = 1
+
+[node name="SignTips" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=281271323 instance=ExtResource("9_8ic3i")]
+position = Vector2(88, 120)
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_aokcs"), SubResource("Resource_6s036"), SubResource("Resource_fvuxf"), SubResource("Resource_ib0lp")])
+preset = SubResource("Resource_fue4y")
+
+[node name="SignForest" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="2" unique_id=555053349 instance=ExtResource("9_8ic3i")]
 position = Vector2(-424, 8)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ctk38")])
 
@@ -1067,18 +1186,25 @@ interactable = NodePath("..")
 sprite = 2
 color = 1
 
-[node name="SignSecret" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
+[node name="SignSecret" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="3" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
 position = Vector2(-536, -120)
-dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_5alrq")])
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_5alrq"), SubResource("Resource_egtfp")])
+mode = 1
+preset = SubResource("Resource_tb3tm")
 
 [node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 position = Vector2(0, -8)
 interactable = NodePath("..")
 
-[node name="SignTown" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="2" unique_id=1091406645 instance=ExtResource("9_8ic3i")]
+[node name="SignSecretExtra" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="4" unique_id=2080740542 instance=ExtResource("9_8ic3i")]
+position = Vector2(-600, -216)
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ww48r")])
+preset = SubResource("Resource_4pdjg")
+
+[node name="SignTown" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="5" unique_id=1091406645 instance=ExtResource("9_8ic3i")]
 position = Vector2(216, -24)
-dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_aaj01")])
-preset = SubResource("Resource_dq4oe")
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ttas0")])
+preset = SubResource("Resource_cr466")
 
 [node name="InteractionMarker" parent="Interactables/SignTown" index="1" unique_id=1261774437 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
@@ -1087,60 +1213,61 @@ interactable = NodePath("..")
 sprite = 2
 color = 1
 
-[node name="SignTeleport" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="3" unique_id=686526375 instance=ExtResource("9_8ic3i")]
+[node name="SignTeleport" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="6" unique_id=686526375 instance=ExtResource("9_8ic3i")]
 position = Vector2(-72, -232)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_cpr8r")])
 preset = SubResource("Resource_ylt0s")
 
-[node name="StatueBigFrog" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="4" unique_id=1921131287 instance=ExtResource("9_8ic3i")]
+[node name="StatueBigFrog" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="7" unique_id=1921131287 instance=ExtResource("9_8ic3i")]
 position = Vector2(-344, 184.00002)
 scale = Vector2(1.25, 1.25)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_xaepa"), SubResource("Resource_hlq0y"), SubResource("Resource_p0joy")])
 preset = SubResource("Resource_lt3al")
 
-[node name="InteractionMarker" parent="Interactables/StatueBigFrog" index="1" unique_id=1888378893 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/StatueBigFrog" index="1" unique_id=1888378893 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -15)
 scale = Vector2(0.7999999, 0.7999999)
+interactable = NodePath("..")
 color = 1
 
-[node name="StatueMonk" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="5" unique_id=355364315 instance=ExtResource("9_8ic3i")]
+[node name="StatueMonk" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="8" unique_id=355364315 instance=ExtResource("9_8ic3i")]
 position = Vector2(-440, -48)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_uqh75"), SubResource("Resource_gdi2t"), SubResource("Resource_w4sko")])
 preset = SubResource("Resource_uwd8t")
 
-[node name="Ruins1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="6" unique_id=809237368 instance=ExtResource("9_8ic3i")]
+[node name="Ruins1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="9" unique_id=809237368 instance=ExtResource("9_8ic3i")]
 position = Vector2(232, 112)
 scale = Vector2(3, 3)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_myoci")])
 preset = SubResource("Resource_m7kcb")
 
-[node name="Ruins2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="7" unique_id=1005995538 instance=ExtResource("9_8ic3i")]
+[node name="Ruins2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="10" unique_id=1005995538 instance=ExtResource("9_8ic3i")]
 position = Vector2(328, 232)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_wgeg8")])
 preset = SubResource("Resource_4rt4v")
 
-[node name="Ruins3" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="8" unique_id=350907845 instance=ExtResource("9_8ic3i")]
+[node name="Ruins3" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="11" unique_id=350907845 instance=ExtResource("9_8ic3i")]
 position = Vector2(264, 216)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_s05wy")])
 preset = SubResource("Resource_lc3an")
 
-[node name="Guard" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="9" unique_id=1166024463 instance=ExtResource("9_8ic3i")]
+[node name="Guard" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="12" unique_id=1166024463 instance=ExtResource("9_8ic3i")]
 position = Vector2(296, 40)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_seufi"), SubResource("Resource_n4ako"), SubResource("Resource_cdh57")])
 preset = SubResource("Resource_ym1oc")
 
-[node name="Log" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="10" unique_id=643257027 instance=ExtResource("9_8ic3i")]
+[node name="Log" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="13" unique_id=643257027 instance=ExtResource("9_8ic3i")]
 position = Vector2(-296.00003, -168.00002)
 scale = Vector2(1.25, 1.25)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_5jj6o"), SubResource("Resource_kj6vj")])
 preset = SubResource("Resource_i14ea")
 
-[node name="LogOld" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="11" unique_id=1519470469 instance=ExtResource("9_8ic3i")]
+[node name="LogOld" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="14" unique_id=1519470469 instance=ExtResource("9_8ic3i")]
 position = Vector2(-344, 279.99994)
 scale = Vector2(1.25, 1.25)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_oa5ce"), SubResource("Resource_nw43l")])

@@ -43,7 +43,7 @@ signal movement_controller_changed(new_controller: MovementController2D)
 	set(value):
 		if not collider:
 			return
-		collider.disabled = not value
+		collider.set_deferred("disabled", not value)
 	get():
 		if not collider:
 			return false
@@ -113,7 +113,9 @@ func _update_animation():
 	if not animator:
 		return
 	if is_deleted:
-		if not animator.play(animator.AnimationType.DOWNED):
+		if animator.has_animation(animator.AnimationType.DOWNED):
+			animator.play(animator.AnimationType.DOWNED)
+		else:
 			visible = false
 	elif is_shooting:
 		animator.play_attack(direction)
