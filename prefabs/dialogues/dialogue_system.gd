@@ -48,9 +48,16 @@ var dialogue: Dialogue:
 	set(value):
 		if value == dialogue:
 			return
+		
 		dialogue = value
+		
 		if not dialogue:
+			match state:
+				State.ACTIVE: state = State.HIDING
 			return
+	
+		match state:
+			State.HIDDEN: state = State.APPEARING
 		
 		dialogue_icon.texture = dialogue.icon
 		dialogue_name.text = dialogue.name
@@ -61,6 +68,11 @@ var dialogue: Dialogue:
 		
 		_update_animation()
 		_start_typing_animation()
+var dialogue_queue: Array[Dialogue]: # NOTE Only setting, no appending
+	set(value):
+		dialogue_queue = value
+		if not dialogue:
+			next()
 var _active_tween: Tween # NOTE Using tweens for dynamic UI
 var _typing_index: int
 var is_fully_typed: bool:
@@ -202,13 +214,13 @@ func type_next_character():
 	typing_timer.start(new_speed)
 
 
-func display(new_dialogue: Dialogue):
-	if not new_dialogue:
-		return
-	
-	match state:
-		State.HIDDEN: state = State.APPEARING
-	
+func queue_dialogues(new_dialogue_queue: Array[Dialogue]):
+	dialogue_queue = new_dialogue_queue
+
+
+func display(new_dialogue: Dialogue, clear_queue: bool = true):
+	if clear_queue:
+		dialogue_queue = []
 	dialogue = new_dialogue
 
 
@@ -218,6 +230,8 @@ func skip(ignore_cooldown: bool = false, close_on_finish: bool = true):
 	
 	if not is_fully_typed:
 		show_whole_message()
+	elif len(dialogue_queue) > 0:
+		next()
 	elif close_on_finish:
 		close()
 	
@@ -225,6 +239,13 @@ func skip(ignore_cooldown: bool = false, close_on_finish: bool = true):
 		skip_timer.start(skip_cooldown)
 
 
+func next():
+	for i in len(dialogue_queue):
+		if dialogue_queue[i]:
+			display(dialogue_queue[i], false)
+			dialogue_queue = dialogue_queue.slice(i+1, len(dialogue_queue))
+			break
+
+
 func close():
-	match state:
-		State.ACTIVE: state = State.HIDING
+	dialogue = null

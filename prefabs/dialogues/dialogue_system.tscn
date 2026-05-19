@@ -9,6 +9,7 @@
 font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_tlicu"]
+line_spacing = 1.0
 
 [node name="DialogueSystem" type="CanvasLayer" unique_id=459583272]
 script = ExtResource("1_muyoo")
