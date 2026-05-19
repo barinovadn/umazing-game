@@ -14,7 +14,7 @@ signal used()
 @export var enabled: bool = true:
 	set(value):
 		enabled = value
-		monitoring = enabled
+		set_deferred("monitoring", enabled)
 		if delete_on_disable and not enabled:
 			delete()
 @export var delete_on_disable: bool = true
