@@ -8,7 +8,13 @@ signal interacted() ## Emitted after every successful interaction.
 signal interaction_limit_reached() ## Emitted once the interaction limit reached.
 
 ## If set to [code]false[/code] the [method interact] will always ignore calls.
-@export var enabled: bool = true
+@export var enabled: bool = true:
+	set(value):
+		enabled = value
+		if delete_on_disable and not enabled:
+			delete()
+## Calls [method delete] whenever [member enabled] is set to [code]false[/code].
+@export var delete_on_disable: bool
 ## The maximum number of interactions possible.
 ## Once reached [member enabled] is set to [code]false[/code].
 @export var interaction_limit: int = 0
@@ -37,3 +43,8 @@ func interact() -> bool:
 	interaction_count += 1
 	interacted.emit()
 	return true
+
+
+## Queue free.
+func delete():
+	queue_free()
