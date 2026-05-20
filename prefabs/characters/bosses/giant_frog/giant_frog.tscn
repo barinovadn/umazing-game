@@ -153,9 +153,9 @@ collision_mask = 1
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_c8jkh")
-animation = &"walk_left"
+animation = &"idle_left"
 autoplay = "idle_left"
-frame_progress = 0.9020916
+frame_progress = 0.0
 
 [node name="AnimationController" parent="." index="3" unique_id=395358213]
 animations = Dictionary[int, String]({
