@@ -59,7 +59,7 @@ hurt_component=""
 shoot_controller=""
 ai_controller=""
 interaction_marker=""
-pickups=""
+pickup=""
 
 [input]
 

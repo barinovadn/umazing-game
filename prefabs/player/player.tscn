@@ -142,7 +142,7 @@ transition_duration = 0.2
 unique_name_in_owner = true
 layer = 0
 
-[node name="InventoryUI" parent="UI" unique_id=1205771470 groups=["pickups"] instance=ExtResource("9_whck3")]
+[node name="InventoryUI" parent="UI" unique_id=1205771470 groups=["pickup"] instance=ExtResource("9_whck3")]
 unique_name_in_owner = true
 visible = false
 z_index = 10
