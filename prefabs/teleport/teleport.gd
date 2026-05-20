@@ -8,8 +8,22 @@ signal used()
 
 @export var exit: Node2D
 @export var exit_offset: Vector2
+@export var exit_effect: VFXProfile
+@export var use_limit: int = 0
 @export var color: Color
-@export var teleport_effect: VFXProfile
+@export var enabled: bool = true:
+	set(value):
+		enabled = value
+		set_deferred("monitoring", enabled)
+		if delete_on_disable and not enabled:
+			delete()
+@export var delete_on_disable: bool = true
+
+var use_count: int = 0:
+	set(value):
+		use_count = value
+		if use_limit > 0 and use_count >= 1:
+			enabled = false
 
 
 func _process(_delta: float):
@@ -41,7 +55,12 @@ func use(character: Character2D):
 	
 	character.global_position = exit.global_position + exit_offset
 	
+	use_count += 1
 	used.emit()
 	
-	if teleport_effect:
-		teleport_effect.spawn(character.global_position)
+	if exit_effect:
+		exit_effect.spawn(character.global_position)
+
+
+func delete():
+	queue_free()

@@ -14,7 +14,6 @@ func _on_death():
 	
 	npc.global_position = global_position
 	npc.movement = npc_new_movement
-	npc.collision = true
 
 
 func _on_phase_changed():

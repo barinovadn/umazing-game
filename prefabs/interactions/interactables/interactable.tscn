@@ -9,6 +9,7 @@ z_index = -1
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_2vx2n")
+delete_on_disable = true
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1178125224]
 shape = SubResource("CircleShape2D_58f12")

@@ -4,14 +4,16 @@
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_qafio"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="3_1iwm0"]
 
-[sub_resource type="Resource" id="Resource_hmayv"]
+[sub_resource type="Resource" id="Resource_qafio"]
 script = ExtResource("3_1iwm0")
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+density = 3
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 
-[sub_resource type="Resource" id="Resource_t6ehd"]
+[sub_resource type="Resource" id="Resource_1iwm0"]
 script = ExtResource("2_qafio")
 effect = 310
-settings = SubResource("Resource_hmayv")
+settings = SubResource("Resource_qafio")
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q61jf"]
@@ -21,8 +23,8 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_crmny")
+exit_effect = SubResource("Resource_1iwm0")
 color = Color(0, 0, 0, 0.78431374)
-teleport_effect = SubResource("Resource_t6ehd")
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=218277445]
 z_index = -1
