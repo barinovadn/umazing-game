@@ -1046,7 +1046,8 @@ y_sort_enabled = true
 
 [node name="Cat" parent="Characters/Animals" index="0" unique_id=2065001503 node_paths=PackedStringArray("pet_owner", "pet_owner_inspectable", "movement") instance=ExtResource("11_7im6l")]
 position = Vector2(-112, -128)
-collision_mask = 1027
+collision_layer = 0
+collision_mask = 1
 script = ExtResource("22_vs2yr")
 pet_owner = NodePath("../../Villagers/Dummy1")
 pet_owner_inspectable = NodePath("../../Villagers/Dummy1/InspectableNPC")
@@ -1055,7 +1056,6 @@ owner_reaction = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ukxex"), 
 owner_reaction_mode = 1
 owner_reaction_order = 1
 movement = NodePath("PathDotMovement")
-collision = false
 
 [node name="PathDotMovement" type="Node2D" parent="Characters/Animals/Cat" index="4" unique_id=2086079038 node_paths=PackedStringArray("path")]
 script = ExtResource("14_roxwf")
