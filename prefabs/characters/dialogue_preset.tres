@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://d14ny2m0r5s2a"]
+
+[ext_resource type="Texture2D" uid="uid://dcibnmbuaoqrq" path="res://prefabs/characters/portrait.png" id="1_17i8u"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="2_6x8h3"]
+
+[resource]
+script = ExtResource("2_6x8h3")
+icon = ExtResource("1_17i8u")
+name = "Мальчик"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"

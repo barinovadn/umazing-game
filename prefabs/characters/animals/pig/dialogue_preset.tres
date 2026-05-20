@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://cir684lrq6f3b"]
+
+[ext_resource type="Texture2D" uid="uid://brwvm4t4a2r82" path="res://prefabs/characters/animals/pig/portrait.png" id="1_abgbj"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_m8gcy"]
+
+[resource]
+script = ExtResource("1_m8gcy")
+icon = ExtResource("1_abgbj")
+name = "Маленький Поросёнок"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"

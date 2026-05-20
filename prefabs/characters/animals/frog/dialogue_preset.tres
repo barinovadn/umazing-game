@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://cec4hmaaviok7"]
+
+[ext_resource type="Texture2D" uid="uid://bfdkm5gup38a" path="res://prefabs/characters/animals/frog/portrait.png" id="1_fs0ej"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_r1edn"]
+
+[resource]
+script = ExtResource("1_r1edn")
+icon = ExtResource("1_fs0ej")
+name = "Лягкушка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"

@@ -30,6 +30,8 @@ enum Type {
 @export var settings: VFXEffectSettings
 @export var pause_delay: float = 0.0
 
+@onready var screen_detection: VisibleOnScreenNotifier2D = $ScreenDetection
+
 var _gpu_particles_awaiting_count: int = 0
 var _gpu_particles_finished_count: int = 0:
 	set(value):
@@ -60,17 +62,23 @@ var is_paused: bool = false:
 		if value == is_paused:
 			return
 		is_paused = value
+		
 		if is_paused:
 			if pause_delay > 0.001:
 				await get_tree().create_timer(pause_delay).timeout
+		
+		if is_paused:
 			process_mode = Node.PROCESS_MODE_DISABLED
 			paused.emit()
 		else:
 			process_mode = Node.PROCESS_MODE_INHERIT
 			unpaused.emit()
+var is_on_screen: bool:
+	get(): return screen_detection.is_on_screen()
 
 
 func _ready():
+	_update_off_screen_status()
 	for particles in gpu_particles:
 		if particles.finished.is_connected(_on_gpu_particles_finished):
 			continue
@@ -81,17 +89,24 @@ func _ready():
 
 
 func _on_screen_exited():
-	match off_screen_behaviour:
-		OffScreenBehaviour.PAUSE: pause()
-		OffScreenBehaviour.DELETE: delete()
-		OffScreenBehaviour.FINISH: finish()
-		OffScreenBehaviour.NONE, _: pass
+	_update_off_screen_status()
 
 
 func _on_screen_entered():
-	match off_screen_behaviour:
-		OffScreenBehaviour.PAUSE: unpause()
-		OffScreenBehaviour.NONE, _: pass
+	_update_off_screen_status()
+
+
+func _update_off_screen_status():
+	if is_on_screen:
+		match off_screen_behaviour:
+			OffScreenBehaviour.PAUSE: unpause()
+			OffScreenBehaviour.NONE, _: pass
+	else:
+		match off_screen_behaviour:
+			OffScreenBehaviour.PAUSE: pause()
+			OffScreenBehaviour.DELETE: delete()
+			OffScreenBehaviour.FINISH: finish()
+			OffScreenBehaviour.NONE, _: pass
 
 
 func _apply_settings():

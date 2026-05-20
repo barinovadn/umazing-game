@@ -30,7 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/combat/bullets/variations/homing_shot/homing_shot.tscn" id="18_ivmt6"]
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/stone_shot/stone_shot.tscn" id="19_ivmt6"]
 [ext_resource type="Texture2D" uid="uid://dcibnmbuaoqrq" path="res://prefabs/characters/portrait.png" id="20_axe6u"]
+[ext_resource type="Resource" uid="uid://d14ny2m0r5s2a" path="res://prefabs/characters/dialogue_preset.tres" id="20_ctk38"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://prefabs/combat/ai/ai_action.gd" id="20_ivmt6"]
+[ext_resource type="Resource" uid="uid://cv1alk2n7e2pi" path="res://prefabs/characters/ninja_green/dialogue_preset.tres" id="21_f2r25"]
 [ext_resource type="Script" uid="uid://jqsqblr1x2hg" path="res://prefabs/characters/bosses/cyclopus_cat/demo/ai_controller.gd" id="22_1qwsm"]
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="22_5cmlo"]
 [ext_resource type="PackedScene" uid="uid://2qbijnkgja5r" path="res://prefabs/characters/animals/frog/frog.tscn" id="22_qex4a"]
@@ -41,6 +43,7 @@
 [ext_resource type="AudioStream" uid="uid://8gkv2s3htxj2" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_1.ogg" id="30_roxwf"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="31_ctk38"]
 [ext_resource type="AudioStream" uid="uid://cpvxg4y73gm2r" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_2.ogg" id="31_mywxa"]
+[ext_resource type="Texture2D" uid="uid://conyoi5pkdyav" path="res://prefabs/characters/sprite_sheet.png" id="33_8r7lj"]
 [ext_resource type="AudioStream" uid="uid://ctrye6fbih85b" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_4.ogg" id="33_psdh3"]
 [ext_resource type="AudioStream" uid="uid://bhu1506kudwdu" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_5.ogg" id="34_2p5q4"]
 [ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
@@ -75,33 +78,51 @@ region = Rect2(0, 0, 70, 80)
 
 [sub_resource type="Resource" id="Resource_f2r25"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("20_axe6u")
-name = "Джим"
 message = "О, живой! Слушай сюда. Моя кошка - лучшая кошка в мире. Она пропала. Твоя задача - найти. Бегом."
 type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_8r7lj"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("20_axe6u")
-name = "Джим"
 message = "Ты выглядишь как человек, который умеет ползать под кустами. Мне нужен такой. Кошка пропала. Давай, работай."
 type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_o8fgc"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("20_axe6u")
-name = "Джим"
 message = "Ты мне нравишься. У тебя лицо человека, которому всё равно, куда идти. Иди ищи Мурку. Она рыжая. Или серая. Короче, кошка."
 type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_ffajp"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("20_axe6u")
-name = "Джим"
 message = "О, ты! Да, ты! Слушай сюда. Если ты найдёшь мою кошку быстрее, чем за час - я разрешу тебе гордиться собой целых пять секунд."
+type_speed = 3
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_yp2gc"]
+script = ExtResource("22_5cmlo")
+name = " "
+message = "(Мальчик стоит в странной позе, затем резко меняет стойку на другую, ещё более нелепую.)"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_aqv1i"]
+script = ExtResource("22_5cmlo")
+message = "Видишь? Это убийственная стойка \"Летящий журавль\"!"
+type_speed = 3
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_ljux8"]
+script = ExtResource("22_5cmlo")
+message = ". . . "
+punctuation_significance = 1.25
+fallback = ExtResource("21_f2r25")
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_avne1"]
+script = ExtResource("22_5cmlo")
+message = "А теперь бойся!"
+type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_ukxex"]
@@ -119,39 +140,39 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Resource" id="Resource_65kbd"]
+[sub_resource type="Resource" id="Resource_c6p6q"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("23_fscrj")
-name = "Мини Пиг"
 message = "Хрю-Хрю-Хрю-Хрю-Хрю-Хрю! Хрю-Хрю... Хрю-Хрю, Хрю-Хрю-Хрю!!!"
 type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[sub_resource type="Resource" id="Resource_g6xjd"]
+[sub_resource type="Resource" id="Resource_dhc5m"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("23_fscrj")
-name = "Мини Пиг"
 message = "Хрюк! Хрум-хрум-хрум... Хрю-Хрю, Хрю-Хрю-Хрю!!!"
 type_speed = 3
 punctuation_significance = 1.25
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[sub_resource type="Resource" id="Resource_axe6u"]
+[sub_resource type="Resource" id="Resource_8djdq"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("23_fscrj")
-name = "Мини Пиг"
 message = " Хрю-Хрю-Хрю! Хрююю... Хрю-Хрю, Хрю-Хрю!!!"
 type_speed = 3
 punctuation_significance = 1.25
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[sub_resource type="Resource" id="Resource_vs2yr"]
+[sub_resource type="Resource" id="Resource_ohh6k"]
 script = ExtResource("22_5cmlo")
-icon = ExtResource("23_fscrj")
 name = "Странная Свинья"
 message = "Вспомните звук своего имени. Скоро вы услышите его шепотом из пустой комнаты, и вам придется ответить."
 type_speed = 1
+font_color = Color(0.9727711, 0, 0.13847193, 1)
 angle = 1.0
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_44nog"]
+script = ExtResource("22_5cmlo")
+icon = ExtResource("23_fscrj")
+name = "Маленький Поросёнок"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vs2yr"]
@@ -180,29 +201,204 @@ P.S. Раньше порций было 5, если найдете суши в �
 type_speed = 3
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8r7lj"]
-atlas = ExtResource("31_ctk38")
-region = Rect2(161, 176, 14, 14)
-
-[sub_resource type="Resource" id="Resource_myoci"]
+[sub_resource type="Resource" id="Resource_aaj01"]
 script = ExtResource("22_5cmlo")
-icon = SubResource("AtlasTexture_8r7lj")
-name = "Дряхлая Дубовая Табличка"
 message = "Официально признано - это самый смешной анекдот:
 \"Заходит как-то улитка в ба-...\"
 (далee неразборчиво, табличка сгнила)"
 punctuation_significance = 2.0
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f2r25"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlq0y"]
 atlas = ExtResource("31_ctk38")
-region = Rect2(145.25078, 83.71184, 29.205826, 27.530075)
+region = Rect2(144, 176, 16, 16)
+
+[sub_resource type="Resource" id="Resource_dq4oe"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_hlq0y")
+name = "Дряхлая Дубовая Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_cpr8r"]
+script = ExtResource("22_5cmlo")
+message = "\"Что сказала жаба, когда наступила на грабли?
+   . . . 
+Ква-а-а-а-а…\""
+punctuation_significance = 1.25
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffajp"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(1, 80, 15, 15)
+
+[sub_resource type="Resource" id="Resource_ylt0s"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_ffajp")
+name = "Мокрая Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_xaepa"]
 script = ExtResource("22_5cmlo")
-icon = SubResource("AtlasTexture_f2r25")
-name = "Статуя"
 message = "Вы слышите как кто-то квакает в кустах неподалеку."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_hlq0y"]
+script = ExtResource("22_5cmlo")
+message = "Кто-то увлечённо квакает в зарослях неподалёку."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_p0joy"]
+script = ExtResource("22_5cmlo")
+message = "В зарослях неподалёку раздаётся квакающий звук."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8fgc"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(146, 85, 24, 24)
+
+[sub_resource type="Resource" id="Resource_lt3al"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_o8fgc")
+name = "Странная Статуя"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_uqh75"]
+script = ExtResource("22_5cmlo")
+message = "Вы подходите ближе и всматриваетесь в каменное лицо монаха. Оно кажется застывшим в вечной молитве."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_gdi2t"]
+script = ExtResource("22_5cmlo")
+message = "Статуя монаха неподвижна, но вам кажется, что её пустые глаза следят за вами."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_w4sko"]
+script = ExtResource("22_5cmlo")
+message = "Вы разглядываете статую. В руках монаха зажата маленькая глиняная чаша."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2r25"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(7, 48, 18, 18)
+
+[sub_resource type="Resource" id="Resource_uwd8t"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_f2r25")
+name = "Странная Статуя"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_myoci"]
+script = ExtResource("22_5cmlo")
+message = "Когда-то здесь жили люди. Теперь тут живёт только мох."
+punctuation_significance = 2.0
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r7lj"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(89, 2, 32, 32)
+
+[sub_resource type="Resource" id="Resource_m7kcb"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_8r7lj")
+name = "Руины"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_wgeg8"]
+script = ExtResource("22_5cmlo")
+message = "Внутри тихо. Даже мыши съехали."
+punctuation_significance = 2.0
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myoci"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(138, 5, 32, 32)
+
+[sub_resource type="Resource" id="Resource_4rt4v"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_myoci")
+name = "Руины"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_s05wy"]
+script = ExtResource("22_5cmlo")
+message = "Дверной проём смотрит в никуда. И ему, кажется, всё равно."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukxex"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(273, 46, 16, 16)
+
+[sub_resource type="Resource" id="Resource_lc3an"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_ukxex")
+name = "Руины"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_seufi"]
+script = ExtResource("22_5cmlo")
+message = "(Кажется, он уснул...)"
+punctuation_significance = 2.0
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_n4ako"]
+script = ExtResource("22_5cmlo")
+message = "(Видимо, он охраняет эти руины.)"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_cdh57"]
+script = ExtResource("22_5cmlo")
+message = "(Если враг вернётся добивать руины - он даже не заметит.)"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5alrq"]
+atlas = ExtResource("33_8r7lj")
+region = Rect2(0, 96, 15, 15)
+
+[sub_resource type="Resource" id="Resource_ym1oc"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_5alrq")
+name = "Дозорный"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_5jj6o"]
+script = ExtResource("22_5cmlo")
+message = "Внутри сухо и гладко. Кто-то явно жил здесь до того, как дерево упало."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_kj6vj"]
+script = ExtResource("22_5cmlo")
+message = "Внутри лежит засохший жук. Очень старый. Очень мёртвый. Очень одинокий."
+punctuation_significance = 2.0
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaepa"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(96, 95, 16, 16)
+
+[sub_resource type="Resource" id="Resource_i14ea"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_xaepa")
+name = "Поваленный Ствол Дерева"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_oa5ce"]
+script = ExtResource("22_5cmlo")
+message = "Пахнет так, будто внутри умерло что-то ещё, кроме дерева."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_nw43l"]
+script = ExtResource("22_5cmlo")
+message = "Похоже на декорацию к хоррору, где убийца - грибок."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt3al"]
+atlas = ExtResource("31_ctk38")
+region = Rect2(96, 144, 16, 16)
+
+[sub_resource type="Resource" id="Resource_8wjkm"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("AtlasTexture_lt3al")
+name = "Гнилой Ствол Дерева"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_mywxa"]
@@ -452,7 +648,7 @@ tile_map_data = PackedByteArray("AAD5//n/AwAIAAMAAAD///T/AwAGAAMAAAAAAPX/AwAIAAM
 tile_map_data = PackedByteArray("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")
 
 [node name="Foreground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="4" unique_id=720212395]
-tile_map_data = PackedByteArray("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AAAJAN3/AAAEAAUAAAAJAN7/AAAEAAUAAAAJAN//AAAEAAUAAAAJAOD/AAAEAAUAAAAJAOH/AAAEAAUAAAAJAOL/AAAEAAUAAAAJAOP/AAAEAAUAAAAJAOT/AAAEAAUAAAAJAOX/AAAEAAUAAAAJAOb/AAAEAAUAAAAKANz/AAAEAAUAAAAKAOf/AAAEAAUAAAALANz/AAAEAAUAAAALAOf/AAAEAAUAAAAMANz/AAAEAAUAAAAMAOf/AAAEAAUAAAANANz/AAAEAAUAAAANAOf/AAAEAAUAAAAOANz/AAAEAAUAAAAOAOf/AAAEAAUAAAAPANz/AAAEAAUAAAAPAOf/AAAEAAUAAAAQANz/AAAEAAUAAAAQAOf/AAAEAAUAAAARANz/AAAEAAUAAAARAOf/AAAEAAUAAAASANz/AAAEAAUAAAASAOf/AAAEAAUAAAATANz/AAAEAAUAAAATAOf/AAAEAAUAAAAUANz/AAAEAAUAAAAUAOf/AAAEAAUAAAAVANz/AAAEAAUAAAAVAOf/AAAEAAUAAAAWANz/AAAEAAUAAAAWAOf/AAAEAAUAAAAXANz/AAAEAAUAAAAXAOf/AAAEAAUAAAAYANz/AAAEAAUAAAAYAOf/AAAEAAUAAAAZANz/AAAEAAUAAAAZAOf/AAAEAAUAAAAaANz/AAAEAAUAAAAaAOf/AAAEAAUAAAAbANz/AAAEAAUAAAAbAOf/AAAEAAUAAAAcANz/AAAEAAUAAAAcAOf/AAAEAAUAAAAdANz/AAAEAAUAAAAdAOf/AAAEAAUAAAAeAN3/AAAEAAUAAAAeAN7/AAAEAAUAAAAeAN//AAAEAAUAAAAeAOD/AAAEAAUAAAAeAOH/AAAEAAUAAAAeAOL/AAAEAAUAAAAeAOP/AAAEAAUAAAAeAOT/AAAEAAUAAAAeAOX/AAAEAAUAAAAeAOb/AAAEAAUAAAD2/xAAAAAEAAUAAAD2/xEAAAAEAAUAAAD2/xIAAAAEAAUAAAD2/xMAAAAEAAUAAAD2/xQAAAAEAAUAAAD2/xUAAAAEAAUAAAD2/xYAAAAEAAUAAAD2/xcAAAAEAAUAAAD2/xgAAAAEAAUAAADh/w8AAAAEAAUAAADh/xAAAAAEAAUAAADh/xEAAAAEAAUAAADh/xIAAAAEAAUAAADh/xMAAAAEAAUAAADh/xQAAAAEAAUAAADh/xUAAAAEAAUAAADh/xYAAAAEAAUAAADh/xcAAAAEAAUAAADh/xgAAAAEAAUAAADi/xkAAAAEAAUAAADj/xkAAAAEAAUAAADk/xkAAAAEAAUAAADl/xkAAAAEAAUAAADm/xkAAAAEAAUAAADn/xkAAAAEAAUAAADo/xkAAAAEAAUAAADp/xkAAAAEAAUAAADq/xkAAAAEAAUAAADr/xkAAAAEAAUAAADs/xkAAAAEAAUAAADt/xkAAAAEAAUAAADu/xkAAAAEAAUAAADv/xkAAAAEAAUAAADw/xkAAAAEAAUAAADx/xkAAAAEAAUAAADy/xkAAAAEAAUAAADz/xkAAAAEAAUAAAD0/xkAAAAEAAUAAAD1/xkAAAAEAAUAAAC5/wUAAAAEAAUAAAC6/wQAAAAEAAUAAACl//v/AAAEAAUAAACl//z/AAAEAAUAAACl//3/AAAEAAUAAACl//7/AAAEAAUAAACl////AAAEAAUAAACl/wAAAAAEAAUAAACl/wEAAAAEAAUAAACl/wIAAAAEAAUAAACl/wMAAAAEAAUAAACl/wQAAAAEAAUAAACm//r/AAAEAAUAAACm/wUAAAAEAAUAAACn//r/AAAEAAUAAACn/wUAAAAEAAUAAACo//r/AAAEAAUAAACo/wUAAAAEAAUAAACp//r/AAAEAAUAAACp/wUAAAAEAAUAAACq//r/AAAEAAUAAACq/wUAAAAEAAUAAACr//r/AAAEAAUAAACr/wUAAAAEAAUAAACs//r/AAAEAAUAAACs/wUAAAAEAAUAAACt//r/AAAEAAUAAACt/wUAAAAEAAUAAACu//r/AAAEAAUAAACu/wUAAAAEAAUAAACv//r/AAAEAAUAAACv/wUAAAAEAAUAAACw//r/AAAEAAUAAACw/wUAAAAEAAUAAACx//r/AAAEAAUAAACx/wUAAAAEAAUAAACy//r/AAAEAAUAAACy/wUAAAAEAAUAAACz//r/AAAEAAUAAACz/wUAAAAEAAUAAAC0//r/AAAEAAUAAAC0/wUAAAAEAAUAAAC1//r/AAAEAAUAAAC1/wUAAAAEAAUAAAC2//r/AAAEAAUAAAC2/wUAAAAEAAUAAAC3//r/AAAEAAUAAAC3/wUAAAAEAAUAAAC4//r/AAAEAAUAAAC4/wUAAAAEAAUAAAC5//r/AAAEAAUAAAC6//v/AAAEAAUAAAC6//z/AAAEAAUAAAC6//3/AAAEAAUAAAC6//7/AAAEAAUAAAC6////AAAEAAUAAAC6/wAAAAAEAAUAAAC6/wEAAAAEAAUAAAC6/wIAAAAEAAUAAAC6/wMAAAAEAAUAAAA=")
+tile_map_data = PackedByteArray("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AAAJAN3/AAAEAAUAAAAJAN7/AAAEAAUAAAAJAN//AAAEAAUAAAAJAOD/AAAEAAUAAAAJAOH/AAAEAAUAAAAJAOL/AAAEAAUAAAAJAOP/AAAEAAUAAAAJAOT/AAAEAAUAAAAJAOX/AAAEAAUAAAAJAOb/AAAEAAUAAAAKANz/AAAEAAUAAAAKAOf/AAAEAAUAAAALANz/AAAEAAUAAAALAOf/AAAEAAUAAAAMANz/AAAEAAUAAAAMAOf/AAAEAAUAAAANANz/AAAEAAUAAAANAOf/AAAEAAUAAAAOANz/AAAEAAUAAAAOAOf/AAAEAAUAAAAPANz/AAAEAAUAAAAPAOf/AAAEAAUAAAAQANz/AAAEAAUAAAAQAOf/AAAEAAUAAAARANz/AAAEAAUAAAARAOf/AAAEAAUAAAASANz/AAAEAAUAAAASAOf/AAAEAAUAAAATANz/AAAEAAUAAAATAOf/AAAEAAUAAAAUANz/AAAEAAUAAAAUAOf/AAAEAAUAAAAVANz/AAAEAAUAAAAVAOf/AAAEAAUAAAAWANz/AAAEAAUAAAAWAOf/AAAEAAUAAAAXANz/AAAEAAUAAAAXAOf/AAAEAAUAAAAYANz/AAAEAAUAAAAYAOf/AAAEAAUAAAAZANz/AAAEAAUAAAAZAOf/AAAEAAUAAAAaANz/AAAEAAUAAAAaAOf/AAAEAAUAAAAbANz/AAAEAAUAAAAbAOf/AAAEAAUAAAAcANz/AAAEAAUAAAAcAOf/AAAEAAUAAAAdANz/AAAEAAUAAAAdAOf/AAAEAAUAAAAeAN3/AAAEAAUAAAAeAN7/AAAEAAUAAAAeAN//AAAEAAUAAAAeAOD/AAAEAAUAAAAeAOH/AAAEAAUAAAAeAOL/AAAEAAUAAAAeAOP/AAAEAAUAAAAeAOT/AAAEAAUAAAAeAOX/AAAEAAUAAAAeAOb/AAAEAAUAAAD2/xAAAAAEAAUAAAD2/xEAAAAEAAUAAAD2/xIAAAAEAAUAAAD2/xMAAAAEAAUAAAD2/xQAAAAEAAUAAAD2/xUAAAAEAAUAAAD2/xYAAAAEAAUAAAD2/xcAAAAEAAUAAAD2/xgAAAAEAAUAAADh/w8AAAAEAAUAAADh/xAAAAAEAAUAAADh/xEAAAAEAAUAAADh/xIAAAAEAAUAAADh/xMAAAAEAAUAAADh/xQAAAAEAAUAAADh/xUAAAAEAAUAAADh/xYAAAAEAAUAAADh/xcAAAAEAAUAAADh/xgAAAAEAAUAAADi/xkAAAAEAAUAAADj/xkAAAAEAAUAAADk/xkAAAAEAAUAAADl/xkAAAAEAAUAAADm/xkAAAAEAAUAAADn/xkAAAAEAAUAAADo/xkAAAAEAAUAAADp/xkAAAAEAAUAAADq/xkAAAAEAAUAAADr/xkAAAAEAAUAAADs/xkAAAAEAAUAAADt/xkAAAAEAAUAAADu/xkAAAAEAAUAAADv/xkAAAAEAAUAAADw/xkAAAAEAAUAAADx/xkAAAAEAAUAAADy/xkAAAAEAAUAAADz/xkAAAAEAAUAAAD0/xkAAAAEAAUAAAD1/xkAAAAEAAUAAAC5/wUAAAAEAAUAAAC6/wQAAAAEAAUAAACl//v/AAAEAAUAAACl//z/AAAEAAUAAACl//3/AAAEAAUAAACl//7/AAAEAAUAAACl////AAAEAAUAAACl/wAAAAAEAAUAAACl/wEAAAAEAAUAAACl/wIAAAAEAAUAAACl/wMAAAAEAAUAAACl/wQAAAAEAAUAAACm//r/AAAEAAUAAACm/wUAAAAEAAUAAACn//r/AAAEAAUAAACn/wUAAAAEAAUAAACo//r/AAAEAAUAAACo/wUAAAAEAAUAAACp//r/AAAEAAUAAACp/wUAAAAEAAUAAACq//r/AAAEAAUAAACq/wUAAAAEAAUAAACr//r/AAAEAAUAAACr/wUAAAAEAAUAAACs//r/AAAEAAUAAACs/wUAAAAEAAUAAACt//r/AAAEAAUAAACt/wUAAAAEAAUAAACu//r/AAAEAAUAAACu/wUAAAAEAAUAAACv//r/AAAEAAUAAACv/wUAAAAEAAUAAACw//r/AAAEAAUAAACw/wUAAAAEAAUAAACx//r/AAAEAAUAAACx/wUAAAAEAAUAAACy//r/AAAEAAUAAACy/wUAAAAEAAUAAACz//r/AAAEAAUAAACz/wUAAAAEAAUAAAC0//r/AAAEAAUAAAC0/wUAAAAEAAUAAAC1//r/AAAEAAUAAAC1/wUAAAAEAAUAAAC2//r/AAAEAAUAAAC2/wUAAAAEAAUAAAC3//r/AAAEAAUAAAC3/wUAAAAEAAUAAAC4//r/AAAEAAUAAAC4/wUAAAAEAAUAAAC5//r/AAAEAAUAAAC6//v/AAAEAAUAAAC6//z/AAAEAAUAAAC6//3/AAAEAAUAAAC6//7/AAAEAAUAAAC6////AAAEAAUAAAC6/wAAAAAEAAUAAAC6/wEAAAAEAAUAAAC6/wIAAAAEAAUAAAC6/wMAAAAEAAUAAADY//H/AAAEAAUAAADY//L/AAAEAAUAAADY//P/AAAEAAUAAADY//T/AAAEAAUAAADY//X/AAAEAAUAAADY//b/AAAEAAUAAADY//f/AAAEAAUAAADY//j/AAAEAAUAAADY//n/AAAEAAUAAADY//r/AAAEAAUAAAA=")
 
 [node name="Village" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="0" unique_id=702969072 instance=ExtResource("9_q7qle")]
 modulate = Color(1, 1, 0, 1)
@@ -575,9 +771,10 @@ exit_offset = Vector2(0, -24)
 color = Color(1, 0, 0, 0.39215687)
 teleport_effect = null
 
-[node name="InteractionMarker" parent="Teleports/TeleportRedIn" index="1" unique_id=1940503036 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Teleports/TeleportRedIn" index="1" unique_id=1940503036 node_paths=PackedStringArray("teleport") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 0.5, 0.25, 1)
 position = Vector2(16, -8)
+teleport = NodePath("..")
 color = 2
 animation = 2
 
@@ -621,10 +818,11 @@ position = Vector2(13, -24)
 scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("AtlasTexture_jqxbl")
 
-[node name="InteractionMarker" parent="Teleports/TeleportBlue" index="3" unique_id=1888378893 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Teleports/TeleportBlue" index="3" unique_id=1888378893 node_paths=PackedStringArray("teleport") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(-5.722046e-06, 1.9073486e-06)
 scale = Vector2(0.79999995, 0.79999995)
+teleport = NodePath("..")
 color = 1
 
 [node name="TeleportBlueExit" type="Marker2D" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="5" unique_id=1889251809]
@@ -689,10 +887,13 @@ start_animation = 18
 
 [node name="InspectableNPC" parent="Characters/Villagers/Dummy1" index="4" unique_id=45048443 instance=ExtResource("9_8ic3i")]
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_f2r25"), SubResource("Resource_8r7lj"), SubResource("Resource_o8fgc"), SubResource("Resource_ffajp")])
+order = 0
+preset = ExtResource("20_ctk38")
 
-[node name="InteractionMarker" parent="Characters/Villagers/Dummy1/InspectableNPC" index="1" unique_id=334963736 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Characters/Villagers/Dummy1/InspectableNPC" index="1" unique_id=334963736 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 0.25, 0.25, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 color = 3
 animation = 3
 
@@ -706,6 +907,18 @@ collision = false
 position = Vector2(264, 152)
 collision_mask = 1027
 start_animation = 19
+
+[node name="InspectableNPC" parent="Characters/Villagers/Dummy3" index="4" unique_id=2087367069 instance=ExtResource("9_8ic3i")]
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_yp2gc"), SubResource("Resource_aqv1i"), SubResource("Resource_ljux8"), SubResource("Resource_avne1")])
+mode = 1
+preset = ExtResource("20_ctk38")
+
+[node name="InteractionMarker" parent="Characters/Villagers/Dummy3/InspectableNPC" index="1" unique_id=1706186242 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
+modulate = Color(1, 1, 0.5, 1)
+position = Vector2(0, -8)
+interactable = NodePath("..")
+color = 1
+animation = 3
 
 [node name="Animals" type="Node2D" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="1" unique_id=132735515]
 y_sort_enabled = true
@@ -740,9 +953,10 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 position = Vector2(-120, -136)
 curve = SubResource("Curve2D_qex4a")
 
-[node name="InteractionMarker" parent="Characters/Animals" index="2" unique_id=1711861751 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Characters/Animals" index="2" unique_id=1711861751 node_paths=PackedStringArray("teleport") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 0.25, 0.25, 1)
 position = Vector2(-128, -144)
+teleport = NodePath("../../../Teleports/TeleportGreenIn")
 color = 3
 animation = 3
 
@@ -767,9 +981,10 @@ color = Color(0.9372549, 0.68235296, 0.9019608, 0.78431374)
 position = Vector2(-384, 330)
 curve = SubResource("Curve2D_qex4a")
 
-[node name="FrogInteractionMarker" parent="Characters/Animals" index="5" unique_id=2067249397 instance=ExtResource("37_psdh3")]
+[node name="FrogInteractionMarker" parent="Characters/Animals" index="5" unique_id=2067249397 node_paths=PackedStringArray("teleport") instance=ExtResource("37_psdh3")]
 modulate = Color(0, 1, 0.5, 1)
 position = Vector2(-400, 344)
+teleport = NodePath("../Frog/TeleportPinkIn")
 color = 4
 animation = 3
 
@@ -788,12 +1003,15 @@ distance_max = 30.0
 speed = 60.0
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
-[node name="Dialogue" parent="Characters/Animals/Pig" index="5" unique_id=2087367069 instance=ExtResource("9_8ic3i")]
-dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_65kbd"), SubResource("Resource_g6xjd"), SubResource("Resource_axe6u"), SubResource("Resource_vs2yr")])
+[node name="Dialogue" parent="Characters/Animals/Pig" index="5" unique_id=1118765200 instance=ExtResource("9_8ic3i")]
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_c6p6q"), SubResource("Resource_dhc5m"), SubResource("Resource_8djdq"), SubResource("Resource_ohh6k")])
+order = 0
+preset = SubResource("Resource_44nog")
 
-[node name="InteractionMarker" parent="Characters/Animals/Pig/Dialogue" index="1" unique_id=1249724427 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Characters/Animals/Pig/Dialogue" index="1" unique_id=1249724427 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 color = 1
 animation = 3
 
@@ -819,32 +1037,85 @@ start_animation = 1
 position = Vector2(-424, 8)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ctk38")])
 
-[node name="InteractionMarker" parent="Interactables/SignForest" index="1" unique_id=639358266 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignForest" index="1" unique_id=639358266 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
-sprite = 0
+interactable = NodePath("..")
+sprite = 2
 color = 1
 
 [node name="SignSecret" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1390420116 instance=ExtResource("9_8ic3i")]
 position = Vector2(-536, -120)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_5alrq")])
 
-[node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 position = Vector2(0, -8)
+interactable = NodePath("..")
 
 [node name="SignTown" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="2" unique_id=1091406645 instance=ExtResource("9_8ic3i")]
 position = Vector2(216, -24)
-dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_myoci")])
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_aaj01")])
+preset = SubResource("Resource_dq4oe")
 
-[node name="InteractionMarker" parent="Interactables/SignTown" index="1" unique_id=1261774437 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignTown" index="1" unique_id=1261774437 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
+sprite = 2
 color = 1
 
-[node name="BigFrogStatue" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="3" unique_id=1921131287 instance=ExtResource("9_8ic3i")]
+[node name="SignTeleport" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="3" unique_id=686526375 instance=ExtResource("9_8ic3i")]
+position = Vector2(-72, -232)
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_cpr8r")])
+preset = SubResource("Resource_ylt0s")
+
+[node name="StatueBigFrog" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="4" unique_id=1921131287 instance=ExtResource("9_8ic3i")]
 position = Vector2(-344, 184.00002)
 scale = Vector2(1.25, 1.25)
-dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_xaepa")])
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_xaepa"), SubResource("Resource_hlq0y"), SubResource("Resource_p0joy")])
+preset = SubResource("Resource_lt3al")
+
+[node name="StatueMonk" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="5" unique_id=355364315 instance=ExtResource("9_8ic3i")]
+position = Vector2(-440, -48)
+scale = Vector2(2, 2)
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_uqh75"), SubResource("Resource_gdi2t"), SubResource("Resource_w4sko")])
+preset = SubResource("Resource_uwd8t")
+
+[node name="Ruins1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="6" unique_id=809237368 instance=ExtResource("9_8ic3i")]
+position = Vector2(232, 112)
+scale = Vector2(3, 3)
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_myoci")])
+preset = SubResource("Resource_m7kcb")
+
+[node name="Ruins2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="7" unique_id=1005995538 instance=ExtResource("9_8ic3i")]
+position = Vector2(328, 232)
+scale = Vector2(2, 2)
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_wgeg8")])
+preset = SubResource("Resource_4rt4v")
+
+[node name="Ruins3" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="8" unique_id=350907845 instance=ExtResource("9_8ic3i")]
+position = Vector2(264, 216)
+scale = Vector2(2, 2)
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_s05wy")])
+preset = SubResource("Resource_lc3an")
+
+[node name="Guard" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="9" unique_id=1166024463 instance=ExtResource("9_8ic3i")]
+position = Vector2(296, 40)
+scale = Vector2(2, 2)
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_seufi"), SubResource("Resource_n4ako"), SubResource("Resource_cdh57")])
+preset = SubResource("Resource_ym1oc")
+
+[node name="Log" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="10" unique_id=643257027 instance=ExtResource("9_8ic3i")]
+position = Vector2(-296.00003, -168.00002)
+scale = Vector2(1.25, 1.25)
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_5jj6o"), SubResource("Resource_kj6vj")])
+preset = SubResource("Resource_i14ea")
+
+[node name="LogOld" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="11" unique_id=1519470469 instance=ExtResource("9_8ic3i")]
+position = Vector2(-344, 279.99994)
+scale = Vector2(1.25, 1.25)
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_oa5ce"), SubResource("Resource_nw43l")])
+preset = SubResource("Resource_8wjkm")
 
 [node name="Bosses" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="0" unique_id=1580441644]
 

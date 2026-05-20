@@ -7,3 +7,6 @@
 [node name="Inspectable" unique_id=2087367069 groups=["inspectable"] instance=ExtResource("1_cshry")]
 script = ExtResource("2_2puox")
 dialogues = Array[ExtResource("3_ankgq")]([])
+mode = 0
+order = 1
+preset = null

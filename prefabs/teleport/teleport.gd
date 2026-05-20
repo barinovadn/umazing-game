@@ -4,6 +4,8 @@ class_name Teleport
 extends Area2D
 
 
+signal used()
+
 @export var exit: Node2D
 @export var exit_offset: Vector2
 @export var color: Color
@@ -15,17 +17,7 @@ func _process(_delta: float):
 
 
 func _on_body_entered(body: Node2D):
-	if not exit or !visible:
-		return
-	
-	var character := body as Character2D
-	
-	if not character:
-		return
-	
-	character.global_position = exit.global_position + exit_offset
-	if teleport_effect:
-		teleport_effect.spawn(character.global_position)
+	use(body as Character2D)
 
 
 func _draw() -> void:
@@ -41,3 +33,15 @@ func _draw() -> void:
 	draw_dashed_line(start, mid, color, 2.5)
 	draw_dashed_line(mid, end, color, 2.5)
 	draw_circle(end, 5, color)
+
+
+func use(character: Character2D):
+	if not exit or not visible or not character:
+		return
+	
+	character.global_position = exit.global_position + exit_offset
+	
+	used.emit()
+	
+	if teleport_effect:
+		teleport_effect.spawn(character.global_position)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://c2hluhs3vkvrp"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_jta86"]
+[ext_resource type="Texture2D" uid="uid://clewy44lb1woo" path="res://prefabs/characters/bosses/giant_frog/portrait.png" id="1_yvmoe"]
+
+[resource]
+script = ExtResource("1_jta86")
+icon = ExtResource("1_yvmoe")
+name = "Большая Лягушка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"

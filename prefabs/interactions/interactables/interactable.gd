@@ -5,9 +5,20 @@ extends StaticBody2D
 
 
 signal interacted() ## Emitted after every successful interaction.
+signal interaction_limit_reached() ## Emitted once the interaction limit reached.
 
 ## If set to [code]false[/code] the [method interact] will always ignore calls.
 @export var enabled: bool = true
+## The maximum number of interactions possible.
+## Once reached [member enabled] is set to [code]false[/code].
+@export var interaction_limit: int = 0
+
+var interaction_count: int:
+	set(value):
+		interaction_count = value
+		if interaction_limit > 0 and interaction_count >= interaction_limit:
+			enabled = false
+			interaction_limit_reached.emit()
 
 
 func _on_interaction() -> bool:
@@ -23,5 +34,6 @@ func interact() -> bool:
 	if not enabled or not _on_interaction():
 		return false
 	
+	interaction_count += 1
 	interacted.emit()
 	return true
