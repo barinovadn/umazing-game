@@ -3,7 +3,6 @@ class_name Character2D
 extends CharacterBody2D
 ## Base class for all characters, both playable and NPCs.
 
-
 signal destroyed
 signal deleted
 signal hurt_component_changed(new_component: HurtComponent)
@@ -80,6 +79,12 @@ signal movement_controller_changed(new_controller: MovementController2D)
 @export var afterlife_duration: float = 7.0
 @export var afterlife_fade_out_duration: float = 2.0
 
+@export_group("Stats", "stat")
+@export var stat_speed_ratio: Stat
+@export var stat_invincibility: Stat
+@export var stat_armor: Stat
+@export var stat_health_ratio: Stat
+
 var direction: Vector2:
 	set(value):
 		direction = value
@@ -105,9 +110,11 @@ func _ready():
 	if movement:
 		movement.direction = Vector2.DOWN
 
+
 func _physics_process(_delta):
 	if is_moving:
 		move_and_slide()
+
 
 func _update_animation():
 	if not animator:
@@ -128,16 +135,23 @@ func _update_animation():
 func _on_died():
 	destroy()
 
+
 func _on_moved(dir: Vector2, speed: float):
-	velocity = dir * speed
+	velocity = dir * speed * (
+		stat_speed_ratio.value if stat_speed_ratio
+		else 1.0)
+	
 	_update_animation()
+
 
 func _on_teleported(new_position: Vector2):
 	global_position = new_position
 
+
 func _on_movement_stopped():
 	velocity = Vector2.ZERO
 	_update_animation()
+
 
 func _on_direction_changed(_new_dir: Vector2):
 	if interactor:
@@ -146,8 +160,10 @@ func _on_direction_changed(_new_dir: Vector2):
 		shoot_controller.direction = direction
 	_update_animation()
 
+
 func _on_shooting_started():
 	_update_animation()
+
 
 func _on_shooting_stopped():
 	_update_animation()
@@ -169,6 +185,7 @@ func destroy():
 		await tween.finished
 	
 	delete()
+
 
 func delete():
 	queue_free()

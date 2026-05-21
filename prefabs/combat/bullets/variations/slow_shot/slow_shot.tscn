@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://died6n7flmmvr"]
+
+[ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/combat/bullets/bullet.tscn" id="1_v7olg"]
+[ext_resource type="Script" uid="uid://bi3tgh8331foh" path="res://prefabs/combat/bullets/variations/slow_shot/slow_shot.gd" id="2_kbmd3"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_xb78r"]
+[ext_resource type="Texture2D" uid="uid://5vbnqy106kl5" path="res://prefabs/combat/bullets/variations/slow_shot/slow_shot.png" id="3_y5lbp"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="4_6ujrb"]
+
+[sub_resource type="Resource" id="Resource_6ujrb"]
+script = ExtResource("3_xb78r")
+duration = 5.0
+value = 10.0
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[sub_resource type="Resource" id="Resource_8uklw"]
+script = ExtResource("4_6ujrb")
+effect = 210
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_bqnlg"]
+script = ExtResource("4_6ujrb")
+effect = 210
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xb78r"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ujrb"]
+atlas = ExtResource("3_y5lbp")
+region = Rect2(0, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uklw"]
+atlas = ExtResource("3_y5lbp")
+region = Rect2(18, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqnlg"]
+atlas = ExtResource("3_y5lbp")
+region = Rect2(36, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ovbv"]
+atlas = ExtResource("3_y5lbp")
+region = Rect2(54, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ku7k"]
+atlas = ExtResource("3_y5lbp")
+region = Rect2(72, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwr5s"]
+atlas = ExtResource("3_y5lbp")
+region = Rect2(90, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw53n"]
+atlas = ExtResource("3_y5lbp")
+region = Rect2(108, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvqai"]
+atlas = ExtResource("3_y5lbp")
+region = Rect2(126, 0, 18, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xalwm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ujrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uklw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqnlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ovbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ku7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwr5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw53n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvqai")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 5.0
+}]
+
+[node name="SlowShot" unique_id=419752470 instance=ExtResource("1_v7olg")]
+script = ExtResource("2_kbmd3")
+modification = SubResource("Resource_6ujrb")
+turn_rate = 0.0
+homing = true
+damage = 0.25
+team = 0
+crit_damage = 0.25
+crit_chance = 0.1
+can_break = true
+vfx_destroy = SubResource("Resource_8uklw")
+vfx_hit = SubResource("Resource_bqnlg")
+metadata/_edit_vertical_guides_ = [-482.0]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_xb78r")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
+sprite_frames = SubResource("SpriteFrames_xalwm")
+animation = &"shot"
+frame_progress = 0.5713996

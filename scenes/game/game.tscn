@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://buhslpn3jaek5"]
 
-[ext_resource type="Script" uid="uid://c7mf3fvirecsj" path="res://scenes/game/game.gd" id="1_2a8rs"]
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_2a8rs"]
 [ext_resource type="TileSet" uid="uid://cpkody5agfhcc" path="res://prefabs/tilesets/terrain.tres" id="4_5i0tg"]
 [ext_resource type="PackedScene" uid="uid://dosm88jd4axk1" path="res://prefabs/music/music_player.tscn" id="4_bdhmt"]
 [ext_resource type="TileSet" uid="uid://cq0gpukdqan4w" path="res://prefabs/tilesets/general.tres" id="4_lfrn8"]

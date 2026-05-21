@@ -20,6 +20,7 @@ signal teleported(new_position: Vector2)
 
 ## Character movement speed in pixels per second.
 @export var speed: float = 100.0
+
 ## If set to [code]false[/code] movement is disabled and [method stop] is called.
 @export var enabled: bool = true:
 	set(value):

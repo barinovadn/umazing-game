@@ -1,13 +1,16 @@
-extends Node2D
+extends Resource
 class_name Stat
 
-var min_value: float
-var max_value: float
-var modifications: Dictionary[String, Modification]
+signal value_changed()
+signal min_value_reached()
+signal max_value_reached()
 
-
-var value: float:
+@export var min_value: float = -INF
+@export var max_value: float = INF
+@export var modifications: Dictionary[String, Modification]
+@export var value: float:
 	get():
+		check_modifications()
 		var return_value = value
 		var late_modifications: Dictionary[String, Modification]
 		modifications.keys()
@@ -30,7 +33,23 @@ var value: float:
 					return_value *= el.value
 				el.Operation.divide:
 					return_value /= el.value
+		
+		if return_value < min_value:
+			return_value = min_value
+		elif return_value > max_value:
+			return_value = max_value
+		
 		return return_value
+		
+	set(some_value):
+		value = some_value
+		if value < min_value:
+			value = min_value
+			min_value_reached.emit()
+		elif value > max_value:
+			value = max_value
+			max_value_reached.emit()
+		value_changed.emit()
 
 
 func add_modifier(mod_name:String, mod: Modification) -> void:
@@ -42,8 +61,8 @@ func remove_modifier(mod_name) -> void:
 	modifications.erase(mod_name)
 
 
-func _process(_delta: float) -> void:
+func check_modifications() -> void:
 	for key in modifications.keys():
-			var el = modifications[key]
-			if Time.get_unix_time_from_system() > el.creation_time + el.duration:
-				remove_modifier(key)
+		var el = modifications[key]
+		if Time.get_unix_time_from_system() > el.creation_time + el.duration:
+			remove_modifier(key)

@@ -63,11 +63,14 @@ bullets = Array[PackedScene]([ExtResource("7_30gqm")])
 interval_between_shots = 0.35
 projectile_turn_rate_min = 360.0
 
-[node name="HurtComponent" parent="Components" unique_id=949368062 groups=["hurt_component"] instance=ExtResource("4_vhck3")]
+[node name="HurtComponent" parent="Components" unique_id=949368062 instance=ExtResource("4_vhck3")]
 unique_name_in_owner = true
 team = 1
 max_health = 5.0
 sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
+sounds_die = null
+sounds_heal = null
+sounds_volume_db = null
 
 [node name="Center" type="Area2D" parent="Components" unique_id=378323334]
 unique_name_in_owner = true

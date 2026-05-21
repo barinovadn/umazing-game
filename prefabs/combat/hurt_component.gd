@@ -15,6 +15,9 @@ enum Team {
 	ENEMY = 0,
 	}
 
+
+@export var character: Character2D
+
 @export_group("Health")
 @export var team: Team
 @export var max_health: float = 1.0:

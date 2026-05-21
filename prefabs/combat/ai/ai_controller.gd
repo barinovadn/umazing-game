@@ -65,6 +65,8 @@ func _ready():
 	character.shoot_controller_changed.connect(attach_shoot_controller)
 	character.movement_controller_changed.connect(attach_movement_controller)
 	
+	
+	
 	hurt_component = character.hurt_component
 	shoot_controller = character.shoot_controller
 	movement_controller = character.movement
