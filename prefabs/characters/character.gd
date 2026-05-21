@@ -91,6 +91,8 @@ var direction: Vector2:
 		_update_animation()
 		if interactor:
 			interactor.direction = direction
+		if shoot_controller:
+			shoot_controller.direction = direction
 	get():
 		if direction:
 			return direction
@@ -154,10 +156,7 @@ func _on_movement_stopped():
 
 
 func _on_direction_changed(_new_dir: Vector2):
-	if interactor:
-		interactor.direction = direction
-	if shoot_controller:
-		shoot_controller.direction = direction
+	direction = direction
 	_update_animation()
 
 
