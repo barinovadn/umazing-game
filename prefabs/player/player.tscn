@@ -68,9 +68,6 @@ unique_name_in_owner = true
 team = 1
 max_health = 5.0
 sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
-sounds_die = null
-sounds_heal = null
-sounds_volume_db = null
 
 [node name="Center" type="Area2D" parent="Components" unique_id=378323334]
 unique_name_in_owner = true

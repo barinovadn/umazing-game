@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_vbdnq"]
 script = ExtResource("3_br2vh")
-value = 1.0
+base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_up5c1"]

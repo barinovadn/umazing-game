@@ -19,7 +19,7 @@ enum Action {
 	Action.LEFT: "ui_left",
 	Action.RIGHT: "ui_right",
 	Action.UP: "ui_up",
-	Action.DOWN: "ui_down",
+	Action.DOWN: "ui_down"
 	}
 
 @export_group("Mouse", "mouse")
@@ -43,8 +43,8 @@ func _physics_process(_delta):
 
 
 func _is_mouse_active() -> bool:
-	return ( controls.has(Action.MOUSE)
-		and Input.is_action_pressed(controls[Action.MOUSE]) )
+	return (controls.has(Action.MOUSE)
+		and Input.is_action_pressed(controls[Action.MOUSE]))
 
 
 func _get_screen_edge_direction() -> Vector2:

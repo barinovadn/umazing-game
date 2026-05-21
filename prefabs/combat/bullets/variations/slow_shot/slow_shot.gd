@@ -4,6 +4,7 @@ extends Bullet
 
 func _crashed_into_hurt_component(hurt_component: HurtComponent):
 	hit.emit(hurt_component)
+	hurt_component.character.apply_speed_modifier(modification)
 	if vfx_hit:
 		vfx_hit.spawn(hurt_component.global_position)
 	_crashed_in_char = true

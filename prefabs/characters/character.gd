@@ -14,6 +14,7 @@ signal movement_controller_changed(new_controller: MovementController2D)
 @export var start_animation := AnimationController2D.AnimationType.NONE
 
 @export_group("Movement")
+@export var use_movement_direction: bool = true
 @export var movement: MovementController2D:
 	set(value):
 		if movement:
@@ -83,7 +84,8 @@ signal movement_controller_changed(new_controller: MovementController2D)
 @export var stat_speed_ratio: Stat
 @export var stat_invincibility: Stat
 @export var stat_armor: Stat
-@export var stat_health_ratio: Stat
+@export var stat_can_move: Stat
+@export var stat_can_shoot: Stat
 
 var direction: Vector2:
 	set(value):
@@ -94,6 +96,9 @@ var direction: Vector2:
 		if shoot_controller:
 			shoot_controller.direction = direction
 	get():
+		if use_movement_direction:
+			if movement:
+				return movement.direction
 		if direction:
 			return direction
 		if movement:
@@ -109,8 +114,8 @@ var is_deleted: bool = false
 func _ready():
 	if animator:
 		animator.play(start_animation)
-	if movement:
-		movement.direction = Vector2.DOWN
+	#if movement:
+		#movement.direction = Vector2.DOWN
 
 
 func _physics_process(_delta):
@@ -139,10 +144,10 @@ func _on_died():
 
 
 func _on_moved(dir: Vector2, speed: float):
+	
 	velocity = dir * speed * (
 		stat_speed_ratio.value if stat_speed_ratio
 		else 1.0)
-	
 	_update_animation()
 
 
@@ -156,6 +161,8 @@ func _on_movement_stopped():
 
 
 func _on_direction_changed(_new_dir: Vector2):
+	if name == "Pig":
+		print("HOE-HOE")
 	direction = direction
 	_update_animation()
 
@@ -189,3 +196,7 @@ func destroy():
 func delete():
 	queue_free()
 	deleted.emit()
+
+
+func apply_speed_modifier(modifier: Modification):
+	stat_speed_ratio.add_modifier(var_to_str(hash(modifier)), modifier)

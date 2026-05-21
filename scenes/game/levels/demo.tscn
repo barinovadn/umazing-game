@@ -51,6 +51,7 @@
 [ext_resource type="PackedScene" uid="uid://cf7gqlpmmeph3" path="res://prefabs/characters/bosses/giant_frog/giant_frog.tscn" id="38_2p5q4"]
 [ext_resource type="Script" uid="uid://dbc35i8owb7ya" path="res://prefabs/characters/bosses/giant_frog/demo/ai_controller.gd" id="40_5cmlo"]
 [ext_resource type="PackedScene" uid="uid://dtwff03frdapj" path="res://prefabs/combat/bullets/variations/stone_bounce_shot/stone_bounce_shot.tscn" id="41_fscrj"]
+[ext_resource type="PackedScene" uid="uid://died6n7flmmvr" path="res://prefabs/combat/bullets/variations/slow_shot/slow_shot.tscn" id="42_myoci"]
 [ext_resource type="PackedScene" uid="uid://cqg5fx2eubt1p" path="res://prefabs/combat/bullets/variations/triple_shot/multy_shot.tscn" id="42_n8x4b"]
 [ext_resource type="PackedScene" uid="uid://cg3b2r5sjj7fk" path="res://prefabs/combat/bullets/variations/circle_shot/circle_shot.tscn" id="43_88b2i"]
 [ext_resource type="AudioStream" uid="uid://dwlyixt203ro4" path="res://prefabs/characters/bosses/giant_frog/demo/kwa_1.ogg" id="44_s4min"]
@@ -551,6 +552,19 @@ weight = 2.0
 phases = Array[int]([1, 2, 3])
 duration = 2.0
 can_move = true
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_okcse"]
+script = ExtResource("20_ivmt6")
+action_name = "slow_shot"
+weight = 1000.0
+phases = Array[int]([1])
+duration = 10.0
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("42_myoci")])
+shoot_interval = 0.8
+shooting_animation_interval = 0.4
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
 [sub_resource type="Resource" id="Resource_ejbv0"]
@@ -1159,6 +1173,7 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="3" unique_id=379324176 instance=ExtResource("5_gfex4")]
 position = Vector2(0, 160)
 start_animation = 1
+use_movement_direction = false
 
 [node name="SignGuide" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=836831447 instance=ExtResource("9_8ic3i")]
 position = Vector2(-72, 216)
@@ -1291,12 +1306,13 @@ script = ExtResource("22_1qwsm")
 npc = NodePath("../../../../Characters/Animals/Cat")
 npc_new_movement = NodePath("../../../../Characters/Animals/Cat/BehaviourFollow")
 character = NodePath("..")
-actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_mywxa"), SubResource("Resource_ebg7x"), SubResource("Resource_psdh3"), SubResource("Resource_2p5q4")])
+actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_mywxa"), SubResource("Resource_ebg7x"), SubResource("Resource_psdh3"), SubResource("Resource_2p5q4"), SubResource("Resource_okcse")])
 modulates_for_phase = Array[float]([0.7, 0.3])
 movement_patterns = {
 "bunch_of_shots": NodePath("AreaMovement"),
 "homing_shots": NodePath("AreaMovement"),
 "rest": NodePath("AreaMovement"),
+"slow_shot": NodePath("AreaMovement"),
 "stone_shots": NodePath("AreaMovement")
 }
 vfx_on_phase_change = SubResource("Resource_8ifb1")
@@ -1309,7 +1325,8 @@ team = 0
 interval_between_shots = 0.2
 projectile_homing = true
 
-[node name="HurtComponent" parent="Enemies/Bosses/CyclopusCat/EnemyController" index="4" unique_id=28986261 instance=ExtResource("11_bpga3")]
+[node name="HurtComponent" parent="Enemies/Bosses/CyclopusCat/EnemyController" index="4" unique_id=28986261 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
+character = NodePath("../..")
 max_health = 10.0
 sounds_damage = Array[AudioStream]([ExtResource("31_mywxa"), ExtResource("30_roxwf"), ExtResource("33_psdh3"), ExtResource("34_2p5q4")])
 
@@ -1364,7 +1381,8 @@ show_on_death = [NodePath("../../../../Teleports/TeleportPinkOut")]
 tp_on_death = NodePath("../../../../Teleports/TeleportPinkOut")
 data_for_interface = SubResource("Resource_28icf")
 
-[node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=949368062 instance=ExtResource("11_bpga3")]
+[node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
+character = NodePath("../..")
 max_health = 10.0
 sounds_damage = Array[AudioStream]([ExtResource("44_s4min"), ExtResource("45_28icf")])
 

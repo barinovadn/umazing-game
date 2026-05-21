@@ -89,7 +89,6 @@ func _input(event: InputEvent):
 	
 	if event.is_action_pressed("noclip") and allow_cheats:
 		noclip = !noclip
-		
 
 
 ## Some components like [member interactor] are expected to be children to the
@@ -112,11 +111,14 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 		old_character.interactor = null
 		old_character.shoot_controller = null
 		old_character.hurt_component = null
+		old_character.hurt_component.character = null
 	if new_character:
 		new_character.movement = movement
 		new_character.interactor = interactor
 		new_character.shoot_controller = shoot_controller
 		new_character.hurt_component = hurt_component
+		if new_character.hurt_component:
+			new_character.hurt_component.character = new_character
 		
 	if camera_controller:
 		camera_controller.target = new_character
