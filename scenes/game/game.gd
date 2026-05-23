@@ -13,3 +13,4 @@ func _ready():
 	Game.bullets = %Bullets
 	Game.enemies = %Enemies
 	Game.pickups = %Pickups
+	Game.timers = %Timers

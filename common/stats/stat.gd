@@ -15,6 +15,7 @@ signal value_changed()
 			base_value = max_value
 		value_changed.emit()
 
+var _timers: Dictionary[String, Timer]
 var value: float:
 	get():
 		var return_value = base_value
@@ -48,20 +49,40 @@ var value: float:
 		return return_value
 
 
-func add_modifier(mod_name: String, mod: Modification) -> void:
+func add_modifier(mod_id: String, mod: Modification):
 	mod.creation_time = Time.get_unix_time_from_system()
-	modifications[mod_name] = mod
-	value_changed.emit()
-	Game.get_tree().create_timer(mod.duration + 0.05).timeout.connect(check_modifications)
+	modifications[mod_id] = mod
+	
+	if _timers.has(mod_id):
+		var existing_timer: Timer = _timers[mod_id]
+		existing_timer.wait_time = mod.duration + 0.05
+		existing_timer.start()
+	else:
+		var new_timer: Timer = Timer.new()
+		new_timer.one_shot = true
+		new_timer.wait_time = mod.duration + 0.05
+		
+		Game.timers.add_child(new_timer)
+		_timers[mod_id] = new_timer
+		
+		new_timer.timeout.connect(func(): remove_modifier(mod_id))
+		new_timer.start()
+		value_changed.emit()
 
+func remove_modifier(mod_id: String):
+	if _timers.has(mod_id):
+		var timer: Timer = _timers[mod_id]
+		if is_instance_valid(timer):
+			timer.queue_free()
+		_timers.erase(mod_id)
+		
+	if modifications.has(mod_id):
+		modifications.erase(mod_id)
+		value_changed.emit()
 
-func remove_modifier(mod_name) -> void:
-	modifications.erase(mod_name)
-	value_changed.emit()
-
-
-func check_modifications() -> void:
-	for key in modifications.keys():
-		var el = modifications[key]
-		if Time.get_unix_time_from_system() > el.creation_time + el.duration:
-			remove_modifier(key)
+func remote_all_modifiers():
+	for key in _timers.keys():
+		var timer = _timers[key]
+		timer.queue_free()
+		_timers.erase(key)
+		modifications.erase(key)

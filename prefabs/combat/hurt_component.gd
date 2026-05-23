@@ -83,7 +83,6 @@ func _disable():
 func take_damage(amount: float = 0):
 	if is_invulnerable:
 		return
-	damaged.emit(amount)
 	current_health -= amount
 
 

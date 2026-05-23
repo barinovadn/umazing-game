@@ -200,6 +200,7 @@ func destroy():
 	destroyed.emit()
 	
 	_update_animation()
+	remote_all_modifications()
 	
 	if afterlife_duration > 0:
 		var timer = get_tree().create_timer(afterlife_duration - afterlife_fade_out_duration)
@@ -209,7 +210,17 @@ func destroy():
 		tween.tween_property(self, "modulate:a", 0.0, afterlife_fade_out_duration)
 		await tween.finished
 	
+	
+	
 	delete()
+
+
+func remote_all_modifications():
+	stat_armor.remote_all_modifiers()
+	stat_cant_move.remote_all_modifiers()
+	stat_cant_shoot.remote_all_modifiers()
+	stat_invulnerable.remote_all_modifiers()
+	stat_speed_ratio.remote_all_modifiers()
 
 
 func delete():
@@ -218,8 +229,8 @@ func delete():
 
 
 func apply_speed_modifier(modifier: Modification):
-	stat_speed_ratio.add_modifier(var_to_str(hash(modifier)), modifier)
+	stat_speed_ratio.add_modifier(var_to_str(modifier.get_instance_id()), modifier)
 
 
 func apply_invincibility_modifier(modifier: Modification):
-	stat_invulnerable.add_modifier(var_to_str(hash(modifier)), modifier)
+	stat_invulnerable.add_modifier(var_to_str(modifier.get_instance_id()), modifier)
