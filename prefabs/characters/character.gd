@@ -53,15 +53,18 @@ signal movement_controller_changed(new_controller: MovementController2D)
 @export var interactor: Interactor
 
 @export_group("Combat")
+@export var invincibility_duration: float = 0.0 
 @export var hurt_component: HurtComponent:
 	set(value):
 		if hurt_component:
+			hurt_component.damaged.disconnect(_on_damaged)
 			hurt_component.fatal_damage_taken.disconnect(_on_died)
 		
 		hurt_component = value
 		hurt_component_changed.emit(hurt_component)
 		
 		if hurt_component:
+			hurt_component.damaged.connect(_on_damaged)
 			hurt_component.fatal_damage_taken.connect(_on_died)
 @export var shoot_controller: ShootController:
 	set(value): 
@@ -82,10 +85,16 @@ signal movement_controller_changed(new_controller: MovementController2D)
 
 @export_group("Stats", "stat")
 @export var stat_speed_ratio: Stat
-@export var stat_invincibility: Stat
+@export var stat_invulnerable: Stat:
+	set(value):
+		if stat_invulnerable:
+			stat_invulnerable.value_changed.disconnect(_on_invincibility_changed)
+		stat_invulnerable = value
+		if stat_invulnerable and !stat_invulnerable.value_changed.is_connected(_on_invincibility_changed):
+			stat_invulnerable.value_changed.connect(_on_invincibility_changed)
 @export var stat_armor: Stat
-@export var stat_can_move: Stat
-@export var stat_can_shoot: Stat
+@export var stat_cant_move: Stat
+@export var stat_cant_shoot: Stat
 
 var direction: Vector2:
 	set(value):
@@ -114,8 +123,6 @@ var is_deleted: bool = false
 func _ready():
 	if animator:
 		animator.play(start_animation)
-	#if movement:
-		#movement.direction = Vector2.DOWN
 
 
 func _physics_process(_delta):
@@ -137,6 +144,20 @@ func _update_animation():
 		animator.play_walk(direction)
 	else:
 		animator.play_idle(direction)
+
+
+func _on_damaged(_value: float = 1.0):
+	if !invincibility_duration:
+		return
+	var modifier = Modification.new()
+	modifier.duration = invincibility_duration
+	modifier.value = 1.0
+	modifier.operation = Modification.Operation.increase
+	apply_invincibility_modifier(modifier)
+
+
+func _on_invincibility_changed():
+	hurt_component.is_invulnerable = stat_invulnerable.value
 
 
 func _on_died():
@@ -161,8 +182,6 @@ func _on_movement_stopped():
 
 
 func _on_direction_changed(_new_dir: Vector2):
-	if name == "Pig":
-		print("HOE-HOE")
 	direction = direction
 	_update_animation()
 
@@ -200,3 +219,7 @@ func delete():
 
 func apply_speed_modifier(modifier: Modification):
 	stat_speed_ratio.add_modifier(var_to_str(hash(modifier)), modifier)
+
+
+func apply_invincibility_modifier(modifier: Modification):
+	stat_invulnerable.add_modifier(var_to_str(hash(modifier)), modifier)

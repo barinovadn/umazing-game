@@ -74,6 +74,7 @@ func _bullet_process(): pass
 func _ready():
 	if collision_shape_2d.shape:
 		shape_cast_2d.shape = collision_shape_2d.shape
+		shape_cast_2d.transform = collision_shape_2d.transform
 	else:
 		shape_cast_2d.enabled = false
 	if homing:

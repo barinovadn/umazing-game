@@ -1,11 +1,15 @@
 extends Bullet
 
+@export var damage_scale: float = 1.0
+@export var speed_scale: float = 1.0
+
+@export_group("Behavior")
 @export var cd_enble_interval: float = 0.1
 @export var cd_disable_interval: float = 1.0
-
+@export_group("Destruction")
 @export var is_unbrocable: bool = false
 @export var can_destroy_bullets: bool = false
-
+@export_group("VFX", "vfx")
 @export var vfx_success: VFXProfile
 
 @onready var timer_enable: Timer = $TimerEnable
@@ -35,8 +39,8 @@ func _on_area_entered(area: Area2D):
 		else:
 			bullet.can_break = false
 		
-		bullet.damage *= 3
-		bullet.speed *= 1.35
+		bullet.damage *= damage_scale
+		bullet.speed *= speed_scale
 		vfx_success.spawn(bullet.global_position)
 		_play_random_sound(sounds_hit)
 		bullet.set_target_direction()

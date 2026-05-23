@@ -9,6 +9,7 @@ signal healed(by_amount: float)
 signal health_changed(by_amount: float)
 signal max_health_changed
 
+
 enum Team {
 	NEUTRAL = 2,
 	PLAYER = 1,
@@ -17,7 +18,6 @@ enum Team {
 
 
 @export var character: Character2D
-
 @export_group("Health")
 @export var team: Team
 @export var max_health: float = 1.0:
@@ -27,7 +27,6 @@ enum Team {
 		if current_health:
 			current_health = (ratio * current_health)
 		max_health_changed.emit()
-
 @export_group("Sounds", "sounds")
 @export var sounds_player: AudioStreamPlayer2D
 @export var sounds_damage: Array[AudioStream] = []
@@ -62,7 +61,7 @@ var current_health: float:
 			_play_random_sound(sounds_die)
 			fatal_damage_taken.emit()
 		_previous_health = current_health
-
+var is_invulnerable: bool = false
 
 func _ready():
 	current_health = max_health
@@ -82,6 +81,8 @@ func _disable():
 
 
 func take_damage(amount: float = 0):
+	if is_invulnerable:
+		return
 	damaged.emit(amount)
 	current_health -= amount
 

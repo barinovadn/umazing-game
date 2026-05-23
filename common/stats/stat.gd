@@ -17,7 +17,6 @@ signal value_changed()
 
 var value: float:
 	get():
-		check_modifications()
 		var return_value = base_value
 		var late_modifications: Dictionary[String, Modification]
 		modifications.keys()
@@ -52,10 +51,13 @@ var value: float:
 func add_modifier(mod_name: String, mod: Modification) -> void:
 	mod.creation_time = Time.get_unix_time_from_system()
 	modifications[mod_name] = mod
+	value_changed.emit()
+	Game.get_tree().create_timer(mod.duration + 0.05).timeout.connect(check_modifications)
 
 
 func remove_modifier(mod_name) -> void:
 	modifications.erase(mod_name)
+	value_changed.emit()
 
 
 func check_modifications() -> void:
