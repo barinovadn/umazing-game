@@ -16,7 +16,6 @@ enum Team {
 	ENEMY = 0,
 	}
 
-
 @export var character: Character2D
 @export_group("Health")
 @export var team: Team
@@ -38,6 +37,7 @@ enum Team {
 		if is_node_ready() and sounds_player != null:
 			sounds_player.volume_db = value
 
+var is_invulnerable: bool = false
 var current_health: float:
 	set(value):
 		var flag: int
@@ -61,7 +61,7 @@ var current_health: float:
 			_play_random_sound(sounds_die)
 			fatal_damage_taken.emit()
 		_previous_health = current_health
-var is_invulnerable: bool = false
+var armor: float = 0.0
 
 func _ready():
 	current_health = max_health
@@ -83,7 +83,10 @@ func _disable():
 func take_damage(amount: float = 0):
 	if is_invulnerable:
 		return
-	current_health -= amount
+	if !armor:
+		current_health -= amount
+	else:
+		current_health -= (amount / 2**(amount / armor))
 
 
 func heal(amount: float = 0):

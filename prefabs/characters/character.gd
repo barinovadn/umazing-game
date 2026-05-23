@@ -92,7 +92,13 @@ signal movement_controller_changed(new_controller: MovementController2D)
 		stat_invulnerable = value
 		if stat_invulnerable and !stat_invulnerable.value_changed.is_connected(_on_invincibility_changed):
 			stat_invulnerable.value_changed.connect(_on_invincibility_changed)
-@export var stat_armor: Stat
+@export var stat_armor: Stat:
+	set(value):
+		if stat_armor:
+			stat_armor.value_changed.disconnect(_on_armor_changed)
+		stat_armor = value
+		if stat_armor and !stat_armor.value_changed.is_connected(_on_armor_changed):
+			stat_armor.value_changed.connect(_on_armor_changed)
 @export var stat_cant_move: Stat
 @export var stat_cant_shoot: Stat
 
@@ -123,6 +129,8 @@ var is_deleted: bool = false
 func _ready():
 	if animator:
 		animator.play(start_animation)
+	if stat_armor.value:
+		_on_armor_changed()
 
 
 func _physics_process(_delta):
@@ -153,11 +161,15 @@ func _on_damaged(_value: float = 1.0):
 	modifier.duration = invincibility_duration
 	modifier.value = 1.0
 	modifier.operation = Modification.Operation.increase
-	apply_invincibility_modifier(modifier)
+	stat_invulnerable.add_modifier(var_to_str(modifier.get_instance_id()), modifier)
 
 
 func _on_invincibility_changed():
 	hurt_component.is_invulnerable = stat_invulnerable.value
+
+
+func _on_armor_changed():
+	hurt_component.armor = stat_armor.value
 
 
 func _on_died():
@@ -165,7 +177,6 @@ func _on_died():
 
 
 func _on_moved(dir: Vector2, speed: float):
-	
 	velocity = dir * speed * (
 		stat_speed_ratio.value if stat_speed_ratio
 		else 1.0)
@@ -232,5 +243,5 @@ func apply_speed_modifier(modifier: Modification):
 	stat_speed_ratio.add_modifier(var_to_str(modifier.get_instance_id()), modifier)
 
 
-func apply_invincibility_modifier(modifier: Modification):
-	stat_invulnerable.add_modifier(var_to_str(modifier.get_instance_id()), modifier)
+func apply_armor_modifier(modifier: Modification):
+	stat_armor.add_modifier(var_to_str(modifier.get_instance_id()), modifier)

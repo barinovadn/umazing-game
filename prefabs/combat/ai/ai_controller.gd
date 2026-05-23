@@ -60,13 +60,9 @@ func _ready():
 	if not character:
 		character = get_parent() as Character2D
 	character.deleted.connect(_set_target_point)
-	
 	character.hurt_component_changed.connect(attach_hurt_component)
 	character.shoot_controller_changed.connect(attach_shoot_controller)
 	character.movement_controller_changed.connect(attach_movement_controller)
-	
-	
-	
 	hurt_component = character.hurt_component
 	shoot_controller = character.shoot_controller
 	movement_controller = character.movement

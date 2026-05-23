@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="Script" uid="uid://ex0o8hepffvv" path="res://prefabs/inventory/inventory.gd" id="9_oo3uv"]
 [ext_resource type="PackedScene" uid="uid://wwa44iu3nw2s" path="res://prefabs/inventory/inventory_ui.tscn" id="9_whck3"]
-[ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://prefabs/player/player_health_ui.gd" id="11_30gqm"]
+[ext_resource type="Script" path="res://prefabs/player/player_health_ui.gd" id="11_30gqm"]
 [ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/player_health_default.png" id="14_ot5ig"]
 [ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://prefabs/combat/ui/boss_ui.gd" id="15_agiw0"]
 
@@ -66,7 +66,7 @@ projectile_turn_rate_min = 360.0
 [node name="HurtComponent" parent="Components" unique_id=949368062 instance=ExtResource("4_vhck3")]
 unique_name_in_owner = true
 team = 1
-max_health = 3.0
+max_health = 4.0
 sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
 
 [node name="Center" type="Area2D" parent="Components" unique_id=378323334]

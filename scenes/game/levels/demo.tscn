@@ -261,24 +261,24 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_u2gco"]
+[sub_resource type="Resource" id="Resource_wfbku"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_xnr8q"]
+[sub_resource type="Resource" id="Resource_kcjvo"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_k1d3v"]
+[sub_resource type="Resource" id="Resource_1an88"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_nca3v"]
+[sub_resource type="Resource" id="Resource_whful"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_rjdhe"]
+[sub_resource type="Resource" id="Resource_pthgk"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
@@ -317,45 +317,45 @@ icon = ExtResource("23_fscrj")
 name = "Маленький Поросёнок"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[sub_resource type="Resource" id="Resource_qkatc"]
+[sub_resource type="Resource" id="Resource_a78ug"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_rt8fo"]
+[sub_resource type="Resource" id="Resource_pos45"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_lkl3l"]
+[sub_resource type="Resource" id="Resource_280sb"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_bhdxb"]
+[sub_resource type="Resource" id="Resource_yb1t1"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_s8xc4"]
+[sub_resource type="Resource" id="Resource_eg7g7"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_yonm5"]
+[sub_resource type="Resource" id="Resource_u2gco"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_fe38e"]
+[sub_resource type="Resource" id="Resource_xnr8q"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_pvjng"]
+[sub_resource type="Resource" id="Resource_k1d3v"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_kwmfl"]
+[sub_resource type="Resource" id="Resource_nca3v"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_jeoah"]
+[sub_resource type="Resource" id="Resource_rjdhe"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
@@ -678,24 +678,24 @@ icon = SubResource("AtlasTexture_lt3al")
 name = "Гнилой Ствол Дерева"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[sub_resource type="Resource" id="Resource_wfbku"]
+[sub_resource type="Resource" id="Resource_qkatc"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_kcjvo"]
+[sub_resource type="Resource" id="Resource_rt8fo"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_1an88"]
+[sub_resource type="Resource" id="Resource_lkl3l"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_whful"]
+[sub_resource type="Resource" id="Resource_bhdxb"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_pthgk"]
+[sub_resource type="Resource" id="Resource_s8xc4"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
@@ -783,24 +783,24 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-48, -48, -48, 96, 32, 
 parsed_collision_mask = 3
 source_geometry_mode = 2
 
-[sub_resource type="Resource" id="Resource_a78ug"]
+[sub_resource type="Resource" id="Resource_yonm5"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_pos45"]
+[sub_resource type="Resource" id="Resource_fe38e"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_280sb"]
+[sub_resource type="Resource" id="Resource_pvjng"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_yb1t1"]
+[sub_resource type="Resource" id="Resource_kwmfl"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_eg7g7"]
+[sub_resource type="Resource" id="Resource_jeoah"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
@@ -1371,11 +1371,11 @@ position = Vector2(-136, 128)
 collision_layer = 0
 collision_mask = 1
 movement = NodePath("BehaviourFollow")
-stat_speed_ratio = SubResource("Resource_u2gco")
-stat_invulnerable = SubResource("Resource_xnr8q")
-stat_armor = SubResource("Resource_k1d3v")
-stat_cant_move = SubResource("Resource_nca3v")
-stat_cant_shoot = SubResource("Resource_rjdhe")
+stat_speed_ratio = SubResource("Resource_wfbku")
+stat_invulnerable = SubResource("Resource_kcjvo")
+stat_armor = SubResource("Resource_1an88")
+stat_cant_move = SubResource("Resource_whful")
+stat_cant_shoot = SubResource("Resource_pthgk")
 
 [node name="BehaviourFollow" type="Node2D" parent="Characters/Animals/Pig" index="4" unique_id=183690025 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("3_fp2w6")
@@ -1403,11 +1403,11 @@ position = Vector2(-16, 56)
 collision_layer = 0
 collision_mask = 1
 movement = NodePath("BehaviourFollow")
-stat_speed_ratio = SubResource("Resource_qkatc")
-stat_invulnerable = SubResource("Resource_rt8fo")
-stat_armor = SubResource("Resource_lkl3l")
-stat_cant_move = SubResource("Resource_bhdxb")
-stat_cant_shoot = SubResource("Resource_s8xc4")
+stat_speed_ratio = SubResource("Resource_a78ug")
+stat_invulnerable = SubResource("Resource_pos45")
+stat_armor = SubResource("Resource_280sb")
+stat_cant_move = SubResource("Resource_yb1t1")
+stat_cant_shoot = SubResource("Resource_eg7g7")
 
 [node name="BehaviourFollow" type="Node2D" parent="Characters/NinjaBlue" index="4" unique_id=640830910 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("3_fp2w6")
@@ -1422,11 +1422,11 @@ position = Vector2(0, 160)
 start_animation = 1
 use_movement_direction = false
 invincibility_duration = 1.0
-stat_speed_ratio = SubResource("Resource_yonm5")
-stat_invulnerable = SubResource("Resource_fe38e")
-stat_armor = SubResource("Resource_pvjng")
-stat_cant_move = SubResource("Resource_kwmfl")
-stat_cant_shoot = SubResource("Resource_jeoah")
+stat_speed_ratio = SubResource("Resource_u2gco")
+stat_invulnerable = SubResource("Resource_xnr8q")
+stat_armor = SubResource("Resource_k1d3v")
+stat_cant_move = SubResource("Resource_nca3v")
+stat_cant_shoot = SubResource("Resource_rjdhe")
 
 [node name="SignGuide" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=836831447 instance=ExtResource("9_8ic3i")]
 position = Vector2(-72, 216)
@@ -1553,11 +1553,11 @@ collision_mask = 1
 movement = NodePath("EnemyController/AreaMovement")
 hurt_component = NodePath("EnemyController/HurtComponent")
 shoot_controller = NodePath("EnemyController/ShootController")
-stat_speed_ratio = SubResource("Resource_wfbku")
-stat_invulnerable = SubResource("Resource_kcjvo")
-stat_armor = SubResource("Resource_1an88")
-stat_cant_move = SubResource("Resource_whful")
-stat_cant_shoot = SubResource("Resource_pthgk")
+stat_speed_ratio = SubResource("Resource_qkatc")
+stat_invulnerable = SubResource("Resource_rt8fo")
+stat_armor = SubResource("Resource_lkl3l")
+stat_cant_move = SubResource("Resource_bhdxb")
+stat_cant_shoot = SubResource("Resource_s8xc4")
 
 [node name="EnemyController" parent="Enemies/Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("npc", "npc_new_movement", "character", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
 script = ExtResource("22_1qwsm")
@@ -1583,8 +1583,7 @@ team = 0
 interval_between_shots = 0.2
 projectile_homing = true
 
-[node name="HurtComponent" parent="Enemies/Bosses/CyclopusCat/EnemyController" index="4" unique_id=28986261 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
-character = NodePath("../..")
+[node name="HurtComponent" parent="Enemies/Bosses/CyclopusCat/EnemyController" index="4" unique_id=28986261 instance=ExtResource("11_bpga3")]
 max_health = 10.0
 sounds_damage = Array[AudioStream]([ExtResource("31_mywxa"), ExtResource("30_roxwf"), ExtResource("33_psdh3"), ExtResource("34_2p5q4")])
 
@@ -1617,11 +1616,11 @@ movement = NodePath("EnemyController/AreaMovementController")
 hurt_component = NodePath("EnemyController/HurtComponent")
 shoot_controller = NodePath("EnemyController/ShootController")
 afterlife_duration = 2.0
-stat_speed_ratio = SubResource("Resource_a78ug")
-stat_invulnerable = SubResource("Resource_pos45")
-stat_armor = SubResource("Resource_280sb")
-stat_cant_move = SubResource("Resource_yb1t1")
-stat_cant_shoot = SubResource("Resource_eg7g7")
+stat_speed_ratio = SubResource("Resource_yonm5")
+stat_invulnerable = SubResource("Resource_fe38e")
+stat_armor = SubResource("Resource_pvjng")
+stat_cant_move = SubResource("Resource_kwmfl")
+stat_cant_shoot = SubResource("Resource_jeoah")
 
 [node name="EnemyController" parent="Enemies/Bosses/GiantFrog" index="4" unique_id=29310194 node_paths=PackedStringArray("paths_array", "character", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
 script = ExtResource("40_5cmlo")
@@ -1644,8 +1643,7 @@ show_on_death = [NodePath("../../../../Teleports/TeleportPinkOut")]
 tp_on_death = NodePath("../../../../Teleports/TeleportPinkOut")
 data_for_interface = SubResource("Resource_28icf")
 
-[node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
-character = NodePath("../..")
+[node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=949368062 instance=ExtResource("11_bpga3")]
 max_health = 10.0
 sounds_damage = Array[AudioStream]([ExtResource("44_s4min"), ExtResource("45_28icf")])
 

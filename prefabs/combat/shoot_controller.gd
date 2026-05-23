@@ -9,10 +9,10 @@ signal shooting_is_available()
 signal post_shot_cd_started()
 signal post_shot_cd_finished()
 
+@export var enabled: bool = true
 @export var team := HurtComponent.Team.NEUTRAL
 @export var bullets: Array[PackedScene]
 @export_range(0.001, 60) var interval_between_shots: float = 0.4
-@export var enabled: bool = true
 @export var post_shot_cd_interval: float = 0.2
 
 @export_group("Projectile Behavior", "projectile")
@@ -20,8 +20,8 @@ signal post_shot_cd_finished()
 @export var projectile_turn_rate_min: float = 0.0
 @export var projectile_bounce: bool
 @export var projectile_bounces_min: int = 1
-@onready var animation_cooldown: Timer = $AnimationCooldown
 
+@onready var animation_cooldown: Timer = $AnimationCooldown
 @onready var cooldown_timer: Timer = $Cooldown
 
 
