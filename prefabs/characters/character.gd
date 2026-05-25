@@ -100,7 +100,13 @@ signal movement_controller_changed(new_controller: MovementController2D)
 		if stat_armor and !stat_armor.value_changed.is_connected(_on_armor_changed):
 			stat_armor.value_changed.connect(_on_armor_changed)
 @export var stat_cant_move: Stat
-@export var stat_cant_shoot: Stat
+@export var stat_cant_shoot: Stat:
+	set(value):
+		if stat_cant_shoot:
+			stat_cant_shoot.value_changed.disconnect(_on_cant_shoot_changed)
+		stat_cant_shoot = value
+		if stat_cant_shoot and !stat_cant_shoot.value_changed.is_connected(_on_cant_shoot_changed):
+			stat_cant_shoot.value_changed.connect(_on_cant_shoot_changed)
 
 var direction: Vector2:
 	set(value):
@@ -168,6 +174,9 @@ func _on_invincibility_changed():
 	hurt_component.is_invulnerable = stat_invulnerable.value
 
 
+func _on_cant_shoot_changed():
+	shoot_controller.can_shoot = not stat_cant_shoot.value
+
 func _on_armor_changed():
 	hurt_component.armor = stat_armor.value
 
@@ -179,7 +188,9 @@ func _on_died():
 func _on_moved(dir: Vector2, speed: float):
 	velocity = dir * speed * (
 		stat_speed_ratio.value if stat_speed_ratio
-		else 1.0)
+		else 1.0) * (
+		0.0 if (stat_cant_move and stat_cant_move.value)
+		 else 1.0)
 	_update_animation()
 
 

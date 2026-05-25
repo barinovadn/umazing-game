@@ -37,14 +37,13 @@ var is_shooting: bool = false:
 			if cooldown_timer != null:
 				cooldown_timer.start(interval_between_shots)
 			shooting_started.emit()
-
 var on_shoot_cooldown: bool
 var is_animation_needed: bool = false:
 	set(value):
 		is_animation_needed = value
 		if is_animation_needed and animation_cooldown:
 			animation_cooldown.start(post_shot_cd_interval)
-
+var can_shoot: bool = true
 
 func _on_cooldown_ended():
 	on_shoot_cooldown = false
@@ -76,7 +75,7 @@ func _apply_behavior(bullet: Bullet):
 
 
 func shoot():
-	if on_shoot_cooldown or not enabled or not bullets:
+	if on_shoot_cooldown or not enabled or not bullets or not can_shoot:
 		return
 	
 	is_shooting = true

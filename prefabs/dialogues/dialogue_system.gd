@@ -85,11 +85,16 @@ var is_fully_typed: bool:
 var is_on_skip_cooldown: bool:
 	get():
 		return not skip_timer.is_stopped()
-
+var mod: Modification
 
 func _ready():
 	state = State.HIDDEN
 	auto_skip = auto_skip
+	
+	mod = Modification.new()
+	mod.value = 1.0
+	mod.duration = 0.0
+	mod.operation = Modification.Operation.increase
 
 
 func _input(event: InputEvent):
@@ -221,6 +226,8 @@ func queue_dialogues(new_dialogue_queue: Array[Dialogue]):
 func display(new_dialogue: Dialogue, clear_queue: bool = true):
 	if clear_queue:
 		dialogue_queue = []
+	Game.player.character.stat_cant_move.add_modifier(var_to_str(mod.get_instance_id()), mod)
+	Game.player.character.stat_cant_shoot.add_modifier(var_to_str(mod.get_instance_id()), mod)
 	dialogue = new_dialogue
 
 
@@ -249,3 +256,5 @@ func next():
 
 func close():
 	dialogue = null
+	Game.player.character.stat_cant_move.remove_modifier(var_to_str(mod.get_instance_id()))
+	Game.player.character.stat_cant_shoot.remove_modifier(var_to_str(mod.get_instance_id()))
