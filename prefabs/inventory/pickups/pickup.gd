@@ -11,8 +11,8 @@ extends RigidBody2D
 @export_group("Afterlife", "afterlife")
 @export var afterlife_duration: float = 7.0
 
+@onready var inventory = Game.inventory
 @onready var sprite = $Icon
-@onready var inventory = %Player/%Inventory
 @onready var light = $Icon/RarityLight
 @onready var audio_player = $SoundPlayer 
 

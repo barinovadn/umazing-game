@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://br4jv0365g35h" path="res://prefabs/player/player.tscn" id="6_2a8rs"]
 [ext_resource type="Texture2D" uid="uid://cuy6j56l0wd6g" path="res://scenes/grid.png" id="6_5i0tg"]
 [ext_resource type="TileSet" uid="uid://nqowvxb5fi8d" path="res://prefabs/tilesets/system.tres" id="6_bdhmt"]
+[ext_resource type="PackedScene" uid="uid://b4q2ixmh0tsd5" path="res://prefabs/inventory/pickups/pickup_manager.tscn" id="7_4j704"]
 
 [node name="Game" type="Node2D" unique_id=1082399769]
 script = ExtResource("1_2a8rs")
@@ -38,6 +39,9 @@ unique_name_in_owner = true
 [node name="VFXManager" parent="." unique_id=880750068 instance=ExtResource("5_87uf6")]
 unique_name_in_owner = true
 z_index = 60
+
+[node name="PickupManager" parent="." unique_id=1873301165 instance=ExtResource("7_4j704")]
+unique_name_in_owner = true
 
 [node name="Tilemap" type="Node2D" parent="." unique_id=1439768727]
 y_sort_enabled = true

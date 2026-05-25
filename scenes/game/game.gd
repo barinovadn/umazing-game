@@ -8,7 +8,9 @@ func _ready():
 	Game.vfx_manager = %VFXManager
 	Game.env_particles = Game.player.env_particles
 	Game.env_filter = Game.player.env_filter
+	Game.pickup_manager = %PickupManager
 	
 	Game.bullets = %Bullets
 	Game.enemies = %Enemies
 	Game.pickups = %Pickups
+	Game.inventory = %Player/%Inventory

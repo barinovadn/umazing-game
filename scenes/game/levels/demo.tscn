@@ -632,7 +632,7 @@ description = Array[String](["<- Free hotdogs this way."])
 [node name="InteractionMarker" parent="Interactables/InspectableSecret" index="1" unique_id=1434231170 instance=ExtResource("37_psdh3")]
 position = Vector2(0, -8)
 
-[node name="Enemies" parent="." index="11" unique_id=92814873]
+[node name="Enemies" parent="." index="12" unique_id=92814873]
 unique_name_in_owner = true
 
 [node name="Bosses" type="Node2D" parent="Enemies" index="0" unique_id=1580441644]
@@ -691,12 +691,6 @@ navigation_polygon = SubResource("NavigationPolygon_17ap2")
 [node name="CyclopusCatRegion2" type="NavigationRegion2D" parent="Enemies/Bosses" index="2" unique_id=580567375]
 position = Vector2(232, -504)
 navigation_polygon = SubResource("NavigationPolygon_17ap2")
-
-[node name="Pickups" parent="." index="13" unique_id=1517964194]
-z_index = 20
-
-[node name="Pickups" parent="." index="13" unique_id=1517964194]
-z_index = 20
 
 [node name="GiantFrog" parent="Enemies/Bosses" index="3" unique_id=645695922 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("38_2p5q4")]
 position = Vector2(-1168, -31.999996)
@@ -768,5 +762,8 @@ navigation_polygon = SubResource("NavigationPolygon_28icf")
 [node name="GiantFrogWater" type="Sprite2D" parent="Enemies/Bosses" index="7" unique_id=1015665125]
 position = Vector2(-1280, 0)
 texture = SubResource("GradientTexture2D_3jqjo")
+
+[node name="Pickups" parent="." index="14" unique_id=1517964194]
+z_index = 20
 
 [connection signal="area_entered" from="Characters/Animals/Cat/TeleportGreenIn" to="Characters/Animals/Cat/TeleportGreenIn" method="_on_area_entered"]
