@@ -85,6 +85,9 @@ y_sort_enabled = true
 [node name="Interactables" type="Node2D" parent="." unique_id=233789877]
 z_index = 20
 
+[node name="Breakables" type="Node2D" parent="." unique_id=1931600874]
+z_index = 40
+
 [node name="Enemies" type="Node2D" parent="." unique_id=92814873]
 unique_name_in_owner = true
 z_index = 30

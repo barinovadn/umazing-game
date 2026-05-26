@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://cwanhpw0hd3db"]
+
+[ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="1_th38g"]
+[ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="2_gw8ik"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="3_1rm8c"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="4_2d5q5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhc5m"]
+atlas = ExtResource("2_gw8ik")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="Resource" id="Resource_5gp4r"]
+script = ExtResource("4_2d5q5")
+scale = Vector2(0.75, 0.75)
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_hgtxf"]
+script = ExtResource("3_1rm8c")
+effect = 100
+settings = SubResource("Resource_5gp4r")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_bhnie"]
+script = ExtResource("4_2d5q5")
+scale = Vector2(0.5, 0.5)
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_c4k2v"]
+script = ExtResource("3_1rm8c")
+effect = 100
+settings = SubResource("Resource_bhnie")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[resource]
+script = ExtResource("1_th38g")
+texture = SubResource("AtlasTexture_dhc5m")
+hp = 0.1
+respawn_enabled = true
+respawn_duration = 10.0
+vfx_spawn = SubResource("Resource_c4k2v")
+vfx_break = SubResource("Resource_hgtxf")
+metadata/_custom_type_script = "uid://c5vdwmd0iexxp"
