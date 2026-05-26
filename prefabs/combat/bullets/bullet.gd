@@ -189,7 +189,8 @@ func get_nearest_target() -> HurtComponent:
 	var closest_dist = INF
 
 	for aim in targets:
-		if aim.team == team:
+		if( not _can_damage_team(aim.team)
+			or aim.team == HurtComponent.Team.BREAKABLE ):
 			continue
 		
 		var target_pos = aim.global_position
