@@ -86,6 +86,18 @@ const MARKER_COLORS: Dictionary[MarkerColor, Color] = {
 		
 		if teleport and not teleport.used.is_connected(_on_teleport):
 			teleport.used.connect(_on_teleport)
+@export var breakable: Breakable2D:
+	set(value):
+		if value == breakable:
+			return
+		
+		if breakable and breakable.broken.is_connected(_on_breakable_broken):
+			breakable.broken.disconnect(_on_breakable_broken)
+		
+		breakable = value
+		
+		if breakable and not breakable.broken.is_connected(_on_breakable_broken):
+			breakable.broken.connect(_on_breakable_broken)
 
 @export_group("Visuals")
 @export var sprite: MarkerSprite:
@@ -124,6 +136,8 @@ func _ready():
 		interactable = get_parent() as Interactable
 	if not teleport:
 		teleport = get_parent() as Teleport
+	if not breakable:
+		breakable = get_parent() as Breakable2D
 	_apply_settings()
 
 
@@ -132,6 +146,10 @@ func _on_interaction():
 
 
 func _on_teleport():
+	disappear()
+
+
+func _on_breakable_broken():
 	disappear()
 
 
