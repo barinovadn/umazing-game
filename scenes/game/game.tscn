@@ -83,7 +83,7 @@ z_index = 30
 y_sort_enabled = true
 
 [node name="Interactables" type="Node2D" parent="." unique_id=233789877]
-z_index = 20
+z_index = 30
 
 [node name="Breakables" type="Node2D" parent="." unique_id=1931600874]
 z_index = 40

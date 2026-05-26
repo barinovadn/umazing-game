@@ -60,6 +60,7 @@ shoot_controller=""
 ai_controller=""
 interaction_marker=""
 pickup=""
+breakable=""
 
 [input]
 

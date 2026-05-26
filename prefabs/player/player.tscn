@@ -55,6 +55,7 @@ speed = 60.0
 
 [node name="Interactor" parent="Components" unique_id=109062155 instance=ExtResource("1_rdx4y")]
 unique_name_in_owner = true
+hit_from_inside = true
 
 [node name="ShootController" parent="Components" unique_id=1242481191 instance=ExtResource("6_oo3uv")]
 unique_name_in_owner = true
@@ -69,6 +70,15 @@ team = 1
 max_health = 4.0
 sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
 
+[node name="Reflection" parent="Components" unique_id=419752470 instance=ExtResource("8_8hk3c")]
+damage_scale = 2.0
+speed_scale = 1.35
+cd_enble_interval = 0.2
+cd_disable_interval = 0.7
+is_unbrocable = true
+team = 1
+lifespan = 0.0
+
 [node name="Center" type="Area2D" parent="Components" unique_id=378323334]
 unique_name_in_owner = true
 editor_description = "Used as a way to track player's center position.
@@ -81,21 +91,13 @@ shape = SubResource("CircleShape2D_ev8v4")
 
 [node name="Picker" type="Area2D" parent="Components" unique_id=719858848]
 unique_name_in_owner = true
+z_index = -1
 collision_layer = 0
 collision_mask = 512
 
 [node name="Collider" type="CollisionShape2D" parent="Components/Picker" unique_id=1639741327]
 shape = SubResource("CircleShape2D_vhck3")
 debug_color = Color(0.8914327, 0.18792155, 0.65711296, 0.41960785)
-
-[node name="Reflection" parent="Components" unique_id=419752470 instance=ExtResource("8_8hk3c")]
-damage_scale = 2.0
-speed_scale = 1.35
-cd_enble_interval = 0.2
-cd_disable_interval = 0.7
-is_unbrocable = true
-team = 1
-lifespan = 0.0
 
 [node name="Inventory" type="Node2D" parent="." unique_id=1399606706]
 unique_name_in_owner = true

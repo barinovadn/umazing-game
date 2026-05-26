@@ -1503,19 +1503,19 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_uqh75"), SubRe
 preset = SubResource("Resource_uwd8t")
 
 [node name="Ruins1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="9" unique_id=809237368 instance=ExtResource("9_8ic3i")]
-position = Vector2(232, 112)
+position = Vector2(232, 128)
 scale = Vector2(3, 3)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_myoci")])
 preset = SubResource("Resource_m7kcb")
 
 [node name="Ruins2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="10" unique_id=1005995538 instance=ExtResource("9_8ic3i")]
-position = Vector2(328, 232)
+position = Vector2(328, 224)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_wgeg8")])
 preset = SubResource("Resource_4rt4v")
 
 [node name="Ruins3" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="11" unique_id=350907845 instance=ExtResource("9_8ic3i")]
-position = Vector2(264, 216)
+position = Vector2(264, 208)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_s05wy")])
 preset = SubResource("Resource_lc3an")
