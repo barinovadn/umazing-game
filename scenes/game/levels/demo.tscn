@@ -49,7 +49,7 @@
 [ext_resource type="AudioStream" uid="uid://ctrye6fbih85b" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_4.ogg" id="33_psdh3"]
 [ext_resource type="AudioStream" uid="uid://bhu1506kudwdu" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_5.ogg" id="34_2p5q4"]
 [ext_resource type="Resource" uid="uid://cfvqawhunbipu" path="res://prefabs/breakables/variations/jug.tres" id="34_o8fgc"]
-[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
+[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
 [ext_resource type="Resource" uid="uid://br85rp62bcmo1" path="res://prefabs/breakables/variations/barrel.tres" id="35_ffajp"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="35_mywxa"]
 [ext_resource type="Resource" uid="uid://cwanhpw0hd3db" path="res://prefabs/breakables/variations/grass_1.tres" id="36_myoci"]
@@ -1561,71 +1561,69 @@ breakable = NodePath("..")
 sprite = 3
 color = 2
 
-[node name="Grass1" parent="Breakables" parent_id_path=PackedInt32Array(1931600874) index="4" unique_id=716506408 instance=ExtResource("33_o8fgc")]
+[node name="Grass1" parent="Breakables/Grass" parent_id_path=PackedInt32Array(1779556321) index="0" unique_id=716506408 instance=ExtResource("33_o8fgc")]
 position = Vector2(88, 200)
 settings = ExtResource("36_myoci")
 
-[node name="Grass2" parent="Breakables" parent_id_path=PackedInt32Array(1931600874) index="5" unique_id=852956898 instance=ExtResource("33_o8fgc")]
+[node name="Grass2" parent="Breakables/Grass" parent_id_path=PackedInt32Array(1779556321) index="1" unique_id=852956898 instance=ExtResource("33_o8fgc")]
 position = Vector2(136, 168)
 settings = ExtResource("36_myoci")
 
-[node name="Grass3" parent="Breakables" parent_id_path=PackedInt32Array(1931600874) index="6" unique_id=1366501584 instance=ExtResource("33_o8fgc")]
+[node name="Grass3" parent="Breakables/Grass" parent_id_path=PackedInt32Array(1779556321) index="2" unique_id=1366501584 instance=ExtResource("33_o8fgc")]
 position = Vector2(72, 104)
 settings = ExtResource("36_myoci")
 
-[node name="Grass4" parent="Breakables" parent_id_path=PackedInt32Array(1931600874) index="7" unique_id=386066602 instance=ExtResource("33_o8fgc")]
+[node name="Grass4" parent="Breakables/Grass" parent_id_path=PackedInt32Array(1779556321) index="3" unique_id=386066602 instance=ExtResource("33_o8fgc")]
 position = Vector2(-136, 208)
 settings = ExtResource("36_myoci")
 
-[node name="Grass5" parent="Breakables" parent_id_path=PackedInt32Array(1931600874) index="8" unique_id=2107751804 instance=ExtResource("33_o8fgc")]
+[node name="Grass5" parent="Breakables/Grass" parent_id_path=PackedInt32Array(1779556321) index="4" unique_id=2107751804 instance=ExtResource("33_o8fgc")]
 position = Vector2(-104, 152)
 settings = ExtResource("37_ukxex")
 
-[node name="Grass6" parent="Breakables" parent_id_path=PackedInt32Array(1931600874) index="9" unique_id=1377390105 instance=ExtResource("33_o8fgc")]
+[node name="Grass6" parent="Breakables/Grass" parent_id_path=PackedInt32Array(1779556321) index="5" unique_id=1377390105 instance=ExtResource("33_o8fgc")]
 position = Vector2(72, 232)
 settings = ExtResource("37_ukxex")
 
-[node name="GrassField" type="Node2D" parent="Breakables" parent_id_path=PackedInt32Array(1931600874) index="10" unique_id=1732113928]
+[node name="GrassField" type="Node2D" parent="Breakables/Grass" parent_id_path=PackedInt32Array(1779556321) index="6" unique_id=1732113928]
 
-[node name="Grass1" parent="Breakables/GrassField" index="0" unique_id=62420625 instance=ExtResource("33_o8fgc")]
+[node name="Grass1" parent="Breakables/Grass/GrassField" index="0" unique_id=62420625 instance=ExtResource("33_o8fgc")]
 position = Vector2(-72, 104)
 settings = ExtResource("37_ukxex")
 
-[node name="Grass2" parent="Breakables/GrassField" index="1" unique_id=956852075 instance=ExtResource("33_o8fgc")]
+[node name="Grass2" parent="Breakables/Grass/GrassField" index="1" unique_id=956852075 instance=ExtResource("33_o8fgc")]
 position = Vector2(-56, 104)
 settings = ExtResource("37_ukxex")
 
-[node name="Grass3" parent="Breakables/GrassField" index="2" unique_id=1454852974 instance=ExtResource("33_o8fgc")]
+[node name="Grass3" parent="Breakables/Grass/GrassField" index="2" unique_id=1454852974 instance=ExtResource("33_o8fgc")]
 position = Vector2(-40, 104)
 settings = ExtResource("37_ukxex")
 
-[node name="Grass4" parent="Breakables/GrassField" index="3" unique_id=977103675 instance=ExtResource("33_o8fgc")]
+[node name="Grass4" parent="Breakables/Grass/GrassField" index="3" unique_id=977103675 instance=ExtResource("33_o8fgc")]
 position = Vector2(-72, 112)
 settings = ExtResource("37_ukxex")
 
-[node name="Grass5" parent="Breakables/GrassField" index="4" unique_id=1593717999 instance=ExtResource("33_o8fgc")]
+[node name="Grass5" parent="Breakables/Grass/GrassField" index="4" unique_id=1593717999 instance=ExtResource("33_o8fgc")]
 position = Vector2(-56, 112)
 settings = ExtResource("37_ukxex")
 
-[node name="Grass6" parent="Breakables/GrassField" index="5" unique_id=1406137563 instance=ExtResource("33_o8fgc")]
+[node name="Grass6" parent="Breakables/Grass/GrassField" index="5" unique_id=1406137563 instance=ExtResource("33_o8fgc")]
 position = Vector2(-40, 112)
 settings = ExtResource("37_ukxex")
 
-[node name="Grass7" parent="Breakables/GrassField" index="6" unique_id=1227415957 instance=ExtResource("33_o8fgc")]
+[node name="Grass7" parent="Breakables/Grass/GrassField" index="6" unique_id=1227415957 instance=ExtResource("33_o8fgc")]
 position = Vector2(-72, 120)
 settings = ExtResource("37_ukxex")
 
-[node name="Grass8" parent="Breakables/GrassField" index="7" unique_id=1764130127 instance=ExtResource("33_o8fgc")]
+[node name="Grass8" parent="Breakables/Grass/GrassField" index="7" unique_id=1764130127 instance=ExtResource("33_o8fgc")]
 position = Vector2(-56, 120)
 settings = ExtResource("37_ukxex")
 
-[node name="Grass9" parent="Breakables/GrassField" index="8" unique_id=10763806 instance=ExtResource("33_o8fgc")]
+[node name="Grass9" parent="Breakables/Grass/GrassField" index="8" unique_id=10763806 instance=ExtResource("33_o8fgc")]
 position = Vector2(-40, 120)
 settings = ExtResource("37_ukxex")
 
-[node name="Bosses" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="0" unique_id=1580441644]
-
-[node name="CyclopusCat" parent="Enemies/Bosses" index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("14_nfdyi")]
+[node name="CyclopusCat" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("14_nfdyi")]
 position = Vector2(416, -480)
 scale = Vector2(3, 3)
 collision_mask = 1
@@ -1679,15 +1677,15 @@ scale = Vector2(1.25, 1.25)
 team = 0
 lifespan = 0.0
 
-[node name="CyclopusCatRegion1" type="NavigationRegion2D" parent="Enemies/Bosses" index="1" unique_id=352624853]
+[node name="CyclopusCatRegion1" type="NavigationRegion2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="1" unique_id=352624853]
 position = Vector2(400, -504)
 navigation_polygon = SubResource("NavigationPolygon_17ap2")
 
-[node name="CyclopusCatRegion2" type="NavigationRegion2D" parent="Enemies/Bosses" index="2" unique_id=580567375]
+[node name="CyclopusCatRegion2" type="NavigationRegion2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="2" unique_id=580567375]
 position = Vector2(232, -504)
 navigation_polygon = SubResource("NavigationPolygon_17ap2")
 
-[node name="GiantFrog" parent="Enemies/Bosses" index="3" unique_id=645695922 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("38_2p5q4")]
+[node name="GiantFrog" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="3" unique_id=645695922 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("38_2p5q4")]
 position = Vector2(-840, 136)
 scale = Vector2(1.8000001, 1.8000001)
 collision_mask = 0
@@ -1748,19 +1746,19 @@ scale = Vector2(1.25, 1.25)
 team = 0
 lifespan = 0.0
 
-[node name="GiantFrogPath1" type="Path2D" parent="Enemies/Bosses" index="4" unique_id=40876543]
+[node name="GiantFrogPath1" type="Path2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="4" unique_id=40876543]
 position = Vector2(-960, 160)
 curve = SubResource("Curve2D_88b2i")
 
-[node name="GiantFrogPath2" type="Path2D" parent="Enemies/Bosses" index="5" unique_id=1830135793]
+[node name="GiantFrogPath2" type="Path2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="5" unique_id=1830135793]
 position = Vector2(-960, 160)
 curve = SubResource("Curve2D_5cmlo")
 
-[node name="GiantFrogRegion" type="NavigationRegion2D" parent="Enemies/Bosses" index="6" unique_id=313250915]
+[node name="GiantFrogRegion" type="NavigationRegion2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="6" unique_id=313250915]
 position = Vector2(-944, 96)
 navigation_polygon = SubResource("NavigationPolygon_28icf")
 
-[node name="GiantFrogGroundFilter" type="Sprite2D" parent="Enemies/Bosses" index="7" unique_id=1015665125]
+[node name="GiantFrogGroundFilter" type="Sprite2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="7" unique_id=1015665125]
 position = Vector2(-960, 160)
 texture = SubResource("GradientTexture2D_3jqjo")
 
