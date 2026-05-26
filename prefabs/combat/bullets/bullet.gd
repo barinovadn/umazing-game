@@ -94,8 +94,16 @@ func _process(delta: float):
 	_bullet_process()
 
 
+func _can_damage_team(opposing_team) -> bool:
+	match team:
+		HurtComponent.Team.BREAKABLE:
+			return opposing_team == HurtComponent.Team.BREAKABLE
+		_:
+			return opposing_team != team or opposing_team == HurtComponent.Team.BREAKABLE
+
+
 func _on_area_entered(area: Area2D):
-	if area.team == team:
+	if not _can_damage_team(area.team):
 		return
 	if area is HurtComponent:
 		_crashed_into_hurt_component(area)

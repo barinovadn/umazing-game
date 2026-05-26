@@ -1235,10 +1235,9 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_f2r25"), SubRe
 order = 0
 preset = ExtResource("20_ctk38")
 
-[node name="InteractionMarker" parent="Characters/Villagers/Dummy1/InspectableNPC" index="1" unique_id=334963736 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Characters/Villagers/Dummy1/InspectableNPC" index="1" unique_id=334963736 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 0.25, 0.25, 1)
 position = Vector2(0, -8)
-interactable = NodePath("..")
 color = 3
 animation = 3
 
@@ -1268,10 +1267,9 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_yp2gc"), SubRe
 mode = 1
 preset = ExtResource("20_ctk38")
 
-[node name="InteractionMarker" parent="Characters/Villagers/Dummy3/InspectableNPC" index="1" unique_id=1706186242 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Characters/Villagers/Dummy3/InspectableNPC" index="1" unique_id=1706186242 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
-interactable = NodePath("..")
 color = 1
 animation = 3
 
@@ -1383,10 +1381,9 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_c6p6q"), SubRe
 order = 0
 preset = SubResource("Resource_44nog")
 
-[node name="InteractionMarker" parent="Characters/Animals/Pig/Dialogue" index="1" unique_id=1249724427 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Characters/Animals/Pig/Dialogue" index="1" unique_id=1249724427 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
-interactable = NodePath("..")
 color = 1
 animation = 3
 
@@ -1427,10 +1424,9 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_aaj01"), SubRe
 mode = 1
 preset = SubResource("Resource_dq4oe")
 
-[node name="InteractionMarker" parent="Interactables/SignGuide" index="1" unique_id=305823956 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignGuide" index="1" unique_id=305823956 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
-interactable = NodePath("..")
 sprite = 2
 color = 1
 
@@ -1443,10 +1439,9 @@ preset = SubResource("Resource_fue4y")
 position = Vector2(-424, 8)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ctk38")])
 
-[node name="InteractionMarker" parent="Interactables/SignForest" index="1" unique_id=639358266 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignForest" index="1" unique_id=639358266 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
-interactable = NodePath("..")
 sprite = 2
 color = 1
 
@@ -1456,9 +1451,8 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_5alrq"), SubRe
 mode = 1
 preset = SubResource("Resource_tb3tm")
 
-[node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 instance=ExtResource("37_psdh3")]
 position = Vector2(0, -8)
-interactable = NodePath("..")
 
 [node name="SignSecretExtra" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="4" unique_id=2080740542 instance=ExtResource("9_8ic3i")]
 position = Vector2(-600, -216)
@@ -1470,10 +1464,9 @@ position = Vector2(216, -24)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ttas0")])
 preset = SubResource("Resource_cr466")
 
-[node name="InteractionMarker" parent="Interactables/SignTown" index="1" unique_id=1261774437 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignTown" index="1" unique_id=1261774437 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
-interactable = NodePath("..")
 sprite = 2
 color = 1
 
@@ -1488,11 +1481,10 @@ scale = Vector2(1.25, 1.25)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_xaepa"), SubResource("Resource_hlq0y"), SubResource("Resource_p0joy")])
 preset = SubResource("Resource_lt3al")
 
-[node name="InteractionMarker" parent="Interactables/StatueBigFrog" index="1" unique_id=1888378893 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/StatueBigFrog" index="1" unique_id=1888378893 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -15)
 scale = Vector2(0.7999999, 0.7999999)
-interactable = NodePath("..")
 color = 1
 
 [node name="StatueMonk" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="8" unique_id=355364315 instance=ExtResource("9_8ic3i")]

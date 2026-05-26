@@ -13,6 +13,7 @@ enum Team {
 	NEUTRAL = 2,
 	PLAYER = 1,
 	ENEMY = 0,
+	BREAKABLE = 3,
 	}
 
 @export var character: Character2D

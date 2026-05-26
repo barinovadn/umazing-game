@@ -21,7 +21,7 @@ var on_cd_reflect: bool = false
 
 
 func _on_area_entered(area: Area2D):
-	if !can_reflect or on_cd_reflect or area.team == team or area is HurtComponent:
+	if !can_reflect or on_cd_reflect or not _can_damage_team(area.team) or area is HurtComponent:
 		return
 	
 	var bullet := area as Bullet

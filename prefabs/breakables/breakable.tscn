@@ -16,7 +16,7 @@ debug_color = Color(0, 0.6, 0.7019608, 0)
 
 [node name="HurtComponent" parent="." unique_id=949368062 instance=ExtResource("2_pivkx")]
 is_one_shot = false
-team = 2
+team = 3
 
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1025049130]
 bus = &"World"
