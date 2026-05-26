@@ -108,6 +108,7 @@ signal movement_controller_changed(new_controller: MovementController2D)
 		if stat_cant_shoot and !stat_cant_shoot.value_changed.is_connected(_on_cant_shoot_changed):
 			stat_cant_shoot.value_changed.connect(_on_cant_shoot_changed)
 
+
 var direction: Vector2:
 	set(value):
 		direction = value
@@ -158,6 +159,19 @@ func _update_animation():
 		animator.play_walk(direction)
 	else:
 		animator.play_idle(direction)
+
+
+func _duplicate_stats():
+	if stat_speed_ratio:
+		stat_speed_ratio = stat_speed_ratio.duplicate()
+	if stat_armor:
+		stat_armor = stat_armor.duplicate()
+	if stat_cant_move:
+		stat_cant_move = stat_cant_move.duplicate()
+	if stat_cant_shoot:
+		stat_cant_shoot = stat_cant_shoot.duplicate()
+	if stat_invulnerable:
+		stat_invulnerable = stat_invulnerable.duplicate()
 
 
 func _on_damaged(_value: float = 1.0):
@@ -248,11 +262,3 @@ func remote_all_modifications():
 func delete():
 	queue_free()
 	deleted.emit()
-
-
-func apply_speed_modifier(modifier: Modification):
-	stat_speed_ratio.add_modifier(var_to_str(modifier.get_instance_id()), modifier)
-
-
-func apply_armor_modifier(modifier: Modification):
-	stat_armor.add_modifier(var_to_str(modifier.get_instance_id()), modifier)

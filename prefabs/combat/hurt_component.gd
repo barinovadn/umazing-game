@@ -47,7 +47,7 @@ var current_health: float:
 		
 		var _previous_health := current_health
 		current_health = clamp(value, 0, max_health)
-		health_changed.emit(value - _previous_health) 
+		health_changed.emit(value - _previous_health)
 		
 		if flag == 1:
 			damaged.emit(abs(_previous_health - current_health))
@@ -55,7 +55,7 @@ var current_health: float:
 		elif flag == 2:
 			healed.emit(abs(_previous_health - current_health))
 			_play_random_sound(sounds_heal)
-			if not is_one_shot: _enable() 
+			if not is_one_shot: _enable()
 		if current_health<= 0:
 			_disable()
 			_play_random_sound(sounds_die)
@@ -89,6 +89,7 @@ func _enable():
 
 
 func take_damage(amount: float = 0):
+
 	if is_invulnerable:
 		return
 	if !armor:
