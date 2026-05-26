@@ -19,4 +19,5 @@ shape = SubResource("CircleShape2D_uaqv8")
 debug_color = Color(0.8627451, 0.3137255, 0, 0.39215687)
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1553792975]
+max_distance = 600.0
 bus = &"World"

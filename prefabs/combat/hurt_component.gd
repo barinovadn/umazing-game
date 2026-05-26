@@ -83,6 +83,8 @@ func _ready():
 
 
 func _update_shape():
+	if not is_inside_tree():
+		return
 	if not _collider:
 		await get_tree().process_frame
 	if not _collider:

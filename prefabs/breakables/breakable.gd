@@ -56,7 +56,8 @@ func _on_hurt_component_damaged(_by_amount: float):
 func _on_state_changed():
 	match state:
 		State.SPAWNING:
-			if settings and settings.vfx_spawn:
+			if( settings and settings.vfx_spawn
+				and (settings.vfx_emit_spawn_on_ready or _respawn_count) ):
 				settings.vfx_spawn.spawn(global_position)
 			set_deferred("state", State.IDLE)
 		State.IDLE:

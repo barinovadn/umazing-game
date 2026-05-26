@@ -39,6 +39,7 @@ texture = SubResource("AtlasTexture_dhc5m")
 hp = 0.1
 respawn_enabled = true
 respawn_lifes = 3
+respawn_duration = 10.0
 sounds_break = Array[AudioStream]([ExtResource("2_2d5q5"), ExtResource("3_2d5q5")])
 vfx_spawn = SubResource("Resource_c4k2v")
 vfx_break = SubResource("Resource_hgtxf")

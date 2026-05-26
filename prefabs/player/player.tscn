@@ -105,7 +105,7 @@ collision_mask = 512
 
 [node name="Collider" type="CollisionShape2D" parent="Components/Picker" unique_id=1639741327]
 shape = SubResource("CircleShape2D_vhck3")
-debug_color = Color(0.8914327, 0.18792155, 0.65711296, 0.41960785)
+debug_color = Color(0, 0.6431373, 0.28235295, 0.41960785)
 
 [node name="Inventory" type="Node2D" parent="." unique_id=1399606706]
 unique_name_in_owner = true

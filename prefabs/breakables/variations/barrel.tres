@@ -45,6 +45,7 @@ script = ExtResource("1_q7uue")
 texture = SubResource("AtlasTexture_dhc5m")
 shape = SubResource("CircleShape2D_q7uue")
 hp = 0.5
+sounds_hit = Array[AudioStream]([ExtResource("2_b7kpv")])
 sounds_break = Array[AudioStream]([ExtResource("2_b7kpv")])
 vfx_spawn = SubResource("Resource_ksnff")
 vfx_hit = SubResource("Resource_hgtxf")
