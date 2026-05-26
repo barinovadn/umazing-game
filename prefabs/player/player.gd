@@ -74,10 +74,6 @@ func _input(event: InputEvent):
 		interactor.interact.call_deferred()
 		return
 	
-	if event.is_action_pressed("mouse_interact"):
-		var item = preload("res://prefabs/inventory/items/fortune_cookie.tres")
-		Game.pickup_manager.spawn(item, mouse_pos)
-	
 	if event.is_action_pressed("shoot"):
 		shoot_controller.shoot()
 		return
