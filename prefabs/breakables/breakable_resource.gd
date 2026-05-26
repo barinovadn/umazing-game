@@ -11,7 +11,8 @@ extends Resource
 @export_group("Respawn", "respawn")
 @export var respawn_enabled: bool = false
 @export var respawn_lifes: int = 0
-@export var respawn_duration: float = 1.0
+@export var respawn_duration_min: float = 1.0
+@export var respawn_duration_max: float = 1.0
 
 @export_group("Sounds", "sounds")
 @export var sounds_spawn: Array[AudioStream]
@@ -26,3 +27,6 @@ extends Resource
 
 @export_group("Afterlife", "afterlife")
 @export var afterlife_duration: float = 7.0
+
+var respawn_duration: float:
+	get(): return randf_range(respawn_duration_min, respawn_duration_max)

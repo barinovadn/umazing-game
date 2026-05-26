@@ -96,7 +96,7 @@ func _on_state_changed():
 
 
 func _apply_settings():
-	_sprite.texture = settings.texture
+	if settings.texture: _sprite.texture = settings.texture
 	_collider.shape = settings.shape
 	if settings.shape: _hurt_component.shape = settings.shape
 	_hurt_component.max_health = settings.hp
