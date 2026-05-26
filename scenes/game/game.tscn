@@ -89,6 +89,8 @@ z_index = 30
 z_index = 40
 
 [node name="Grass" type="Node2D" parent="Breakables" unique_id=1779556321]
+z_index = 20
+z_as_relative = false
 
 [node name="Enemies" type="Node2D" parent="." unique_id=92814873]
 unique_name_in_owner = true

@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://d22fcw3uhvd35" path="res://prefabs/player/player_hit_1.ogg" id="7_agiw0"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
 [ext_resource type="PackedScene" uid="uid://snn0mqvjipik" path="res://prefabs/combat/bullets/variations/reflection/reflection.tscn" id="8_8hk3c"]
+[ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="8_ocyg1"]
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="Script" uid="uid://ex0o8hepffvv" path="res://prefabs/inventory/inventory.gd" id="9_oo3uv"]
 [ext_resource type="PackedScene" uid="uid://wwa44iu3nw2s" path="res://prefabs/inventory/inventory_ui.tscn" id="9_whck3"]
@@ -70,7 +71,14 @@ team = 1
 max_health = 4.0
 sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
 
-[node name="Reflection" parent="Components" unique_id=419752470 instance=ExtResource("8_8hk3c")]
+[node name="DamageArea" parent="Components" unique_id=419752470 instance=ExtResource("8_ocyg1")]
+editor_description = "Grass Annihilator 3000"
+scale = Vector2(0.9, 0.9)
+cooldown_time = 0.00999999999999999
+team = 1
+
+[node name="Reflection" parent="Components" unique_id=376206875 instance=ExtResource("8_8hk3c")]
+modulate = Color(1, 1, 1, 0)
 damage_scale = 2.0
 speed_scale = 1.35
 cd_enble_interval = 0.2
@@ -91,7 +99,7 @@ shape = SubResource("CircleShape2D_ev8v4")
 
 [node name="Picker" type="Area2D" parent="Components" unique_id=719858848]
 unique_name_in_owner = true
-z_index = -1
+z_index = -2
 collision_layer = 0
 collision_mask = 512
 

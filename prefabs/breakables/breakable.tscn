@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://b2cm5pqgalhs8" path="res://prefabs/breakables/breakable.gd" id="1_ur6pr"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="2_pivkx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pivkx"]
-
 [node name="Breakable" type="StaticBody2D" unique_id=514792727 groups=["breakable"]]
 collision_layer = 64
 collision_mask = 0
@@ -13,13 +11,12 @@ script = ExtResource("1_ur6pr")
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1322896327]
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1646208646]
-shape = SubResource("CircleShape2D_pivkx")
 disabled = true
-debug_color = Color(0, 0.6, 0.69803923, 0)
+debug_color = Color(0, 0.6, 0.7019608, 0)
 
 [node name="HurtComponent" parent="." unique_id=949368062 instance=ExtResource("2_pivkx")]
-team = 2
 is_one_shot = false
+team = 2
 
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1025049130]
 bus = &"World"

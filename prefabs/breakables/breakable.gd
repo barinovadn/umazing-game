@@ -25,49 +25,13 @@ enum State { LOADING, SPAWNING, IDLE, BROKEN, RESPAWNING, DELETING }
 var _respawn_count: int = 0
 var state: State:
 	set(value):
-		if value == state or state == State.DELETING or Engine.is_editor_hint():
+		if value == state or state == State.DELETING:
 			return
 		
 		state = value
 		
-		match state:
-			State.SPAWNING:
-				if settings and settings.vfx_spawn:
-					settings.vfx_spawn.spawn(global_position)
-				set_deferred("state", State.IDLE) # WARNING Not sure if it works
-			State.IDLE:
-				visible = true
-				_collider.set_deferred("disabled", false if _collider.shape else true)
-				_hurt_component.current_health = _hurt_component.max_health
-				spawned.emit()
-				if len(settings.sounds_spawn) > 0:
-					_sound_player.stream = settings.sounds_spawn.pick_random()
-					_sound_player.play()
-			State.BROKEN:
-				visible = false
-				_collider.set_deferred("disabled", true)
-				broken.emit()
-				if not settings:
-					return delete()
-				if settings.vfx_break:
-					settings.vfx_break.spawn(global_position)
-				if settings.respawn_enabled:
-					if( settings.delete_once_broken
-						and settings.respawn_lifes > 0
-						and settings.respawn_lifes < _respawn_count ):
-						return delete()
-					if settings.respawn_duration > 0:
-						_respawn_timer.start(settings.respawn_duration)
-						state = State.RESPAWNING
-					else:
-						spawn()
-					_respawn_count += 1
-				else:
-					delete()
-			State.DELETING:
-				if settings and settings.afterlife_duration > 0:
-					await get_tree().create_timer(settings.afterlife_duration).timeout
-				queue_free()
+		if not Engine.is_editor_hint():
+			_on_state_changed()
 
 
 func _ready():
@@ -89,9 +53,51 @@ func _on_hurt_component_damaged(_by_amount: float):
 		settings.vfx_hit.spawn(global_position)
 
 
+func _on_state_changed():
+	match state:
+		State.SPAWNING:
+			if settings and settings.vfx_spawn:
+				settings.vfx_spawn.spawn(global_position)
+			set_deferred("state", State.IDLE)
+		State.IDLE:
+			visible = true
+			_collider.set_deferred("disabled", false if _collider.shape else true)
+			_hurt_component.current_health = _hurt_component.max_health
+			spawned.emit()
+			if len(settings.sounds_spawn) > 0:
+				_sound_player.stream = settings.sounds_spawn.pick_random()
+				_sound_player.play()
+		State.BROKEN:
+			visible = false
+			_collider.set_deferred("disabled", true)
+			broken.emit()
+			if not settings:
+				return delete()
+			if settings.vfx_break:
+				settings.vfx_break.spawn(global_position)
+			if settings.respawn_enabled:
+				if( settings.delete_once_broken
+					and settings.respawn_lifes > 0
+					and _respawn_count >= settings.respawn_lifes ):
+					return delete()
+				if settings.respawn_duration > 0:
+					_respawn_timer.start(settings.respawn_duration)
+					state = State.RESPAWNING
+				else:
+					spawn()
+				_respawn_count += 1
+			else:
+				delete()
+		State.DELETING:
+			if settings and settings.afterlife_duration > 0:
+				await get_tree().create_timer(settings.afterlife_duration).timeout
+			queue_free()
+
+
 func _apply_settings():
 	_sprite.texture = settings.texture
 	_collider.shape = settings.shape
+	if settings.shape: _hurt_component.shape = settings.shape
 	_hurt_component.max_health = settings.hp
 	_hurt_component.sounds_damage = settings.sounds_hit
 	_hurt_component.sounds_die = settings.sounds_break

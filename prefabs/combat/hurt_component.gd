@@ -16,6 +16,12 @@ enum Team {
 	}
 
 @export var character: Character2D
+@export var shape: Shape2D:
+	set(value):
+		shape = value
+		_update_shape()
+@export var is_one_shot: bool = true
+
 @export_group("Health")
 @export var team: Team
 @export var max_health: float = 1.0:
@@ -25,6 +31,7 @@ enum Team {
 		if current_health:
 			current_health = (ratio * current_health)
 		max_health_changed.emit()
+
 @export_group("Sounds", "sounds")
 @export var sounds_player: AudioStreamPlayer2D
 @export var sounds_damage: Array[AudioStream] = []
@@ -35,6 +42,8 @@ enum Team {
 		sounds_volume_db = value
 		if is_node_ready() and sounds_player != null:
 			sounds_player.volume_db = value
+
+@onready var _collider: CollisionShape2D = %Collider
 
 var is_invulnerable: bool = false
 var current_health: float:
@@ -63,13 +72,24 @@ var current_health: float:
 		_previous_health = current_health
 var armor: float = 0.0
 
-@export var is_one_shot: bool = true
-
 
 func _ready():
 	current_health = max_health
-	if sounds_player != null:
+	if sounds_player:
 		sounds_player.volume_db = sounds_volume_db
+	if shape:
+		_update_shape()
+
+
+func _update_shape():
+	if not _collider:
+		await get_tree().process_frame
+	if not _collider:
+		push_error("Could not load _collider in time")
+		return
+	
+	_collider.disabled = not shape
+	_collider.shape = shape
 
 
 func _play_random_sound(array: Array[AudioStream]):
@@ -89,7 +109,6 @@ func _enable():
 
 
 func take_damage(amount: float = 0):
-
 	if is_invulnerable:
 		return
 	if !armor:

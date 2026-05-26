@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://cfvqawhunbipu"]
 
 [ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="1_jpsgh"]
+[ext_resource type="AudioStream" uid="uid://c5ao7p1ys2tvu" path="res://prefabs/combat/sounds/impact_1.wav" id="2_0avmg"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="2_sa5o1"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="3_0avmg"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="4_yobjg"]
@@ -44,6 +45,7 @@ script = ExtResource("1_jpsgh")
 texture = SubResource("AtlasTexture_dhc5m")
 shape = SubResource("CircleShape2D_jpsgh")
 hp = 0.25
+sounds_break = Array[AudioStream]([ExtResource("2_0avmg")])
 vfx_spawn = SubResource("Resource_ksnff")
 vfx_hit = SubResource("Resource_bhnie")
 vfx_break = SubResource("Resource_5gp4r")

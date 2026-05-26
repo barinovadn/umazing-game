@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://dwwje51kuj5iv"]
 
 [ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="1_utyr4"]
+[ext_resource type="AudioStream" uid="uid://c2rmco6qav23v" path="res://prefabs/combat/sounds/whoosh_1.wav" id="2_2vuli"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="2_p2kli"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="3_2vuli"]
+[ext_resource type="AudioStream" uid="uid://bixonmf50tais" path="res://prefabs/combat/sounds/whoosh_5.wav" id="3_imxki"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="4_imxki"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dhc5m"]
@@ -36,7 +38,8 @@ script = ExtResource("1_utyr4")
 texture = SubResource("AtlasTexture_dhc5m")
 hp = 0.1
 respawn_enabled = true
-respawn_duration = 10.0
+respawn_lifes = 3
+sounds_break = Array[AudioStream]([ExtResource("2_2vuli"), ExtResource("3_imxki")])
 vfx_spawn = SubResource("Resource_c4k2v")
 vfx_break = SubResource("Resource_hgtxf")
 metadata/_custom_type_script = "uid://c5vdwmd0iexxp"
