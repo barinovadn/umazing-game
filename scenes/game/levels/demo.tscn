@@ -1583,7 +1583,8 @@ team = 0
 interval_between_shots = 0.2
 projectile_homing = true
 
-[node name="HurtComponent" parent="Enemies/Bosses/CyclopusCat/EnemyController" index="4" unique_id=28986261 instance=ExtResource("11_bpga3")]
+[node name="HurtComponent" parent="Enemies/Bosses/CyclopusCat/EnemyController" index="4" unique_id=28986261 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
+character = NodePath("../..")
 max_health = 10.0
 sounds_damage = Array[AudioStream]([ExtResource("31_mywxa"), ExtResource("30_roxwf"), ExtResource("33_psdh3"), ExtResource("34_2p5q4")])
 
@@ -1643,7 +1644,8 @@ show_on_death = [NodePath("../../../../Teleports/TeleportPinkOut")]
 tp_on_death = NodePath("../../../../Teleports/TeleportPinkOut")
 data_for_interface = SubResource("Resource_28icf")
 
-[node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=949368062 instance=ExtResource("11_bpga3")]
+[node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
+character = NodePath("../..")
 max_health = 10.0
 sounds_damage = Array[AudioStream]([ExtResource("44_s4min"), ExtResource("45_28icf")])
 

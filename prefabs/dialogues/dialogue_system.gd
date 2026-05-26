@@ -256,5 +256,6 @@ func next():
 
 func close():
 	dialogue = null
+	await get_tree().process_frame
 	Game.player.character.stat_cant_move.remove_modifier(var_to_str(mod.get_instance_id()))
 	Game.player.character.stat_cant_shoot.remove_modifier(var_to_str(mod.get_instance_id()))

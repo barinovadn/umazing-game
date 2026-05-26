@@ -21,7 +21,7 @@ signal post_shot_cd_finished()
 @export var projectile_bounce: bool
 @export var projectile_bounces_min: int = 1
 
-@onready var animation_cooldown: Timer = $AnimationCooldown
+@onready var post_shot_cooldown: Timer = $PostShotCooldown
 @onready var cooldown_timer: Timer = $Cooldown
 
 
@@ -41,8 +41,8 @@ var on_shoot_cooldown: bool
 var is_animation_needed: bool = false:
 	set(value):
 		is_animation_needed = value
-		if is_animation_needed and animation_cooldown:
-			animation_cooldown.start(post_shot_cd_interval)
+		if is_animation_needed and post_shot_cooldown:
+			post_shot_cooldown.start(post_shot_cd_interval)
 var can_shoot: bool = true
 
 func _on_cooldown_ended():
@@ -100,6 +100,6 @@ func set_bullet_array(array: Array[PackedScene]):
 	bullets = array
 
 
-func _on_animation_cooldown_timeout() -> void:
+func _on_post_shot_cooldown_timeout() -> void:
 	is_animation_needed = false
 	post_shot_cd_finished.emit()

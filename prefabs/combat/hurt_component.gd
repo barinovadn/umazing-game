@@ -9,7 +9,6 @@ signal healed(by_amount: float)
 signal health_changed(by_amount: float)
 signal max_health_changed
 
-
 enum Team {
 	NEUTRAL = 2,
 	PLAYER = 1,
@@ -56,12 +55,16 @@ var current_health: float:
 		elif flag == 2:
 			healed.emit(abs(_previous_health - current_health))
 			_play_random_sound(sounds_heal)
+			if not is_one_shot: _enable() 
 		if current_health<= 0:
 			_disable()
 			_play_random_sound(sounds_die)
 			fatal_damage_taken.emit()
 		_previous_health = current_health
 var armor: float = 0.0
+
+@export var is_one_shot: bool = true
+
 
 func _ready():
 	current_health = max_health
@@ -78,6 +81,11 @@ func _play_random_sound(array: Array[AudioStream]):
 func _disable():
 	set_deferred("monitorable", false)
 	set_deferred("monitoring", false)
+
+
+func _enable():
+	set_deferred("monitorable", true)
+	set_deferred("monitoring", true)
 
 
 func take_damage(amount: float = 0):
