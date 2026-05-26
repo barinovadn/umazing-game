@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bocwvxmy6wlgw"]
 
 [ext_resource type="Script" uid="uid://b2cm5pqgalhs8" path="res://prefabs/breakables/breakable.gd" id="1_ur6pr"]
-[ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_controller.tscn" id="2_pivkx"]
+[ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="2_pivkx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pivkx"]
 
@@ -19,6 +19,7 @@ debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="HurtComponent" parent="." unique_id=949368062 instance=ExtResource("2_pivkx")]
 team = 2
+is_one_shot = false
 
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1025049130]
 bus = &"World"
