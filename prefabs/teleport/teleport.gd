@@ -4,9 +4,26 @@ class_name Teleport
 extends Area2D
 
 
+signal used()
+
 @export var exit: Node2D
 @export var exit_offset: Vector2
+@export var exit_effect: VFXProfile
+@export var use_limit: int = 0
 @export var color: Color
+@export var enabled: bool = true:
+	set(value):
+		enabled = value
+		set_deferred("monitoring", enabled)
+		if delete_on_disable and not enabled:
+			delete()
+@export var delete_on_disable: bool = true
+
+var use_count: int = 0:
+	set(value):
+		use_count = value
+		if use_limit > 0 and use_count >= 1:
+			enabled = false
 
 
 func _process(_delta: float):
@@ -14,15 +31,7 @@ func _process(_delta: float):
 
 
 func _on_body_entered(body: Node2D):
-	if not exit or !visible:
-		return
-	
-	var character := body as Character2D
-	
-	if not character:
-		return
-	
-	character.global_position = exit.global_position + exit_offset
+	use(body as Character2D)
 
 
 func _draw() -> void:
@@ -38,3 +47,20 @@ func _draw() -> void:
 	draw_dashed_line(start, mid, color, 2.5)
 	draw_dashed_line(mid, end, color, 2.5)
 	draw_circle(end, 5, color)
+
+
+func use(character: Character2D):
+	if not exit or not visible or not character:
+		return
+	
+	character.global_position = exit.global_position + exit_offset
+	
+	use_count += 1
+	used.emit()
+	
+	if exit_effect:
+		exit_effect.spawn(character.global_position)
+
+
+func delete():
+	queue_free()

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cspmsxmen0mcp" path="res://prefabs/vfx/vfx_manager.tscn" id="5_87uf6"]
 [ext_resource type="Script" uid="uid://bp0bnmynw2d1p" path="res://common/utils/hide_at_runtime.gd" id="5_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://br4jv0365g35h" path="res://prefabs/player/player.tscn" id="6_2a8rs"]
+[ext_resource type="PackedScene" uid="uid://q10pxyiyicdf" path="res://prefabs/dialogues/dialogue_system.tscn" id="6_4j704"]
 [ext_resource type="Texture2D" uid="uid://cuy6j56l0wd6g" path="res://scenes/grid.png" id="6_5i0tg"]
 [ext_resource type="TileSet" uid="uid://nqowvxb5fi8d" path="res://prefabs/tilesets/system.tres" id="6_bdhmt"]
 [ext_resource type="PackedScene" uid="uid://b4q2ixmh0tsd5" path="res://prefabs/inventory/pickups/pickup_manager.tscn" id="7_4j704"]
@@ -34,6 +35,9 @@ metadata/_custom_type_script = "uid://bp0bnmynw2d1p"
 unique_name_in_owner = true
 
 [node name="MusicPlayer" parent="." unique_id=1068287036 instance=ExtResource("4_bdhmt")]
+unique_name_in_owner = true
+
+[node name="DialogueSystem" parent="." unique_id=453214567 instance=ExtResource("6_4j704")]
 unique_name_in_owner = true
 
 [node name="VFXManager" parent="." unique_id=880750068 instance=ExtResource("5_87uf6")]
@@ -83,14 +87,23 @@ z_index = 30
 y_sort_enabled = true
 
 [node name="Interactables" type="Node2D" parent="." unique_id=233789877]
-z_index = 20
+z_index = 30
+
+[node name="Breakables" type="Node2D" parent="." unique_id=1931600874]
+z_index = 40
 
 [node name="Enemies" type="Node2D" parent="." unique_id=92814873]
+unique_name_in_owner = true
 z_index = 30
+
+[node name="Bosses" type="Node2D" parent="Enemies" unique_id=2011286109]
 
 [node name="Bullets" type="Node2D" parent="." unique_id=2040820107]
 unique_name_in_owner = true
 z_index = 39
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1517964194]
+unique_name_in_owner = true
+
+[node name="Timers" type="Node2D" parent="." unique_id=1241851836]
 unique_name_in_owner = true

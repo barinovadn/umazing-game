@@ -9,8 +9,8 @@ interval_between_shots = 0.25
 [node name="Cooldown" type="Timer" parent="." unique_id=2023093389]
 one_shot = true
 
-[node name="AnimationCooldown" type="Timer" parent="." unique_id=851006006]
+[node name="PostShotCooldown" type="Timer" parent="." unique_id=851006006]
 one_shot = true
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_ended"]
-[connection signal="timeout" from="AnimationCooldown" to="." method="_on_animation_cooldown_timeout"]
+[connection signal="timeout" from="PostShotCooldown" to="." method="_on_post_shot_cooldown_timeout"]

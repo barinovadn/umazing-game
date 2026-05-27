@@ -1,6 +1,9 @@
 extends AIController
 
 
+@export var npc: Character2D
+@export var npc_new_movement: MovementController2D
+
 var boof: int = 0
 
 
@@ -8,6 +11,9 @@ func _on_death():
 	var env := Game.env_particles
 	env.disable_all()
 	env.enable(env.Type.SUNRAYS, env.Ratio.MEDIUM)
+	
+	npc.global_position = global_position
+	npc.movement = npc_new_movement
 
 
 func _on_phase_changed():

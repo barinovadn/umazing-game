@@ -2,6 +2,7 @@
 class_name Pickup
 extends RigidBody2D
 
+
 @export var item_data: ItemData
 @export var default_sound_pickup: AudioStream
 

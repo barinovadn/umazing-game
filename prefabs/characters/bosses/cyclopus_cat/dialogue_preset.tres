@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://dx3xi476u0yee"]
+
+[ext_resource type="Texture2D" uid="uid://drt4buvqqr6i2" path="res://prefabs/characters/bosses/cyclopus_cat/portrait.png" id="1_5eame"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_g3jwb"]
+
+[resource]
+script = ExtResource("1_g3jwb")
+icon = ExtResource("1_5eame")
+name = "Кот Циклоп"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"

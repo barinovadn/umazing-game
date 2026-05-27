@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dlbume15opln"]
 
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_4tr8c"]
 [ext_resource type="Texture2D" uid="uid://vb3atl3xsv2c" path="res://prefabs/inventory/items/sushi.png" id="1_r8eu6"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_4tr8c"]
 [ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_ragds"]
@@ -7,13 +8,22 @@
 [ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="5_b88qf"]
 [ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_m21i1"]
 
+[sub_resource type="Resource" id="Resource_ragds"]
+script = ExtResource("1_4tr8c")
+icon = ExtResource("1_r8eu6")
+name = "Суши"
+message = "Ломтик свежей рыбы премиального качества на подушке из идеального риса."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
 [resource]
 script = ExtResource("6_m21i1")
 rarity = 1
 name = "Суши"
 icon = ExtResource("1_r8eu6")
 max_stack = 4
+description = Array[ExtResource("1_4tr8c")]([SubResource("Resource_ragds")])
 is_consumable = true
 is_active = true
 is_stackable = true
+heal = 3.0
 metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

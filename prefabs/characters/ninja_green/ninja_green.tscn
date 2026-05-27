@@ -369,6 +369,6 @@ animations = [{
 
 [node name="NinjaGreen" unique_id=297187452 instance=ExtResource("1_wk3db")]
 
-[node name="Sprite" parent="." index="2"]
+[node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_ejar4")
 frame_progress = 0.866455

@@ -13,7 +13,15 @@ enum Team {
 	NEUTRAL = 2,
 	PLAYER = 1,
 	ENEMY = 0,
+	BREAKABLE = 3,
 	}
+
+@export var character: Character2D
+@export var shape: Shape2D:
+	set(value):
+		shape = value
+		_update_shape()
+@export var is_one_shot: bool = true
 
 @export_group("Health")
 @export var team: Team
@@ -36,6 +44,9 @@ enum Team {
 		if is_node_ready() and sounds_player != null:
 			sounds_player.volume_db = value
 
+@onready var _collider: CollisionShape2D = %Collider
+
+var is_invulnerable: bool = false
 var current_health: float:
 	set(value):
 		var flag: int
@@ -45,8 +56,8 @@ var current_health: float:
 			flag = 2
 		
 		var _previous_health := current_health
-		current_health = value
-		health_changed.emit(value - _previous_health) 
+		current_health = clamp(value, 0, max_health)
+		health_changed.emit(value - _previous_health)
 		
 		if flag == 1:
 			damaged.emit(abs(_previous_health - current_health))
@@ -54,17 +65,34 @@ var current_health: float:
 		elif flag == 2:
 			healed.emit(abs(_previous_health - current_health))
 			_play_random_sound(sounds_heal)
+			if not is_one_shot: _enable()
 		if current_health<= 0:
 			_disable()
 			_play_random_sound(sounds_die)
 			fatal_damage_taken.emit()
 		_previous_health = current_health
+var armor: float = 0.0
 
 
 func _ready():
 	current_health = max_health
-	if sounds_player != null:
+	if sounds_player:
 		sounds_player.volume_db = sounds_volume_db
+	if shape:
+		_update_shape()
+
+
+func _update_shape():
+	if not is_inside_tree():
+		return
+	if not _collider:
+		await get_tree().process_frame
+	if not _collider:
+		push_error("Could not load _collider in time")
+		return
+	
+	_collider.disabled = not shape
+	_collider.shape = shape
 
 
 func _play_random_sound(array: Array[AudioStream]):
@@ -78,9 +106,18 @@ func _disable():
 	set_deferred("monitoring", false)
 
 
+func _enable():
+	set_deferred("monitorable", true)
+	set_deferred("monitoring", true)
+
+
 func take_damage(amount: float = 0):
-	damaged.emit(amount)
-	current_health -= amount
+	if is_invulnerable:
+		return
+	if !armor:
+		current_health -= amount
+	else:
+		current_health -= (amount / 2**(amount / armor))
 
 
 func heal(amount: float = 0):

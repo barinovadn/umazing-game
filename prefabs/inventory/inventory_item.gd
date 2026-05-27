@@ -9,13 +9,17 @@ enum Rarity { COMMON, RARE, EPIC }
 @export var icon: Texture2D
 @export var amount: int = 1
 @export var max_stack: int = 99
+@export var description: Array[Dialogue]
+@export var description_on_use: Array[Dialogue]
 
 @export_group("Flags")
 @export var is_consumable: bool = false
 @export var is_active: bool = false
 @export var is_stackable: bool = false
 
-@export_multiline var description: String = ""
+@export_group("Effects")
+@export var heal: float = 0.0
+@export var max_hp_increase: float = 0.0
 
 @export_group("Visuals & Sounds", "rarity")
 @export var rarity_colors: Dictionary[Rarity, Color] = {
@@ -41,4 +45,7 @@ enum Rarity { COMMON, RARE, EPIC }
 
 
 func use():
-	pass
+	Game.player.hurt_component.max_health += max_hp_increase
+	Game.player.hurt_component.current_health += heal
+	if len(description_on_use):
+		Game.dialogue_system.display(description_on_use.pick_random())

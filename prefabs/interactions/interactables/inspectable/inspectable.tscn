@@ -2,7 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dc56s2m04x2is" path="res://prefabs/interactions/interactables/interactable.tscn" id="1_cshry"]
 [ext_resource type="Script" uid="uid://c0r2xruglspcl" path="res://prefabs/interactions/interactables/inspectable/inspectable.gd" id="2_2puox"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="3_ankgq"]
 
 [node name="Inspectable" unique_id=2087367069 groups=["inspectable"] instance=ExtResource("1_cshry")]
 script = ExtResource("2_2puox")
-description = Array[String](["..."])
+dialogues = Array[ExtResource("3_ankgq")]([])
+mode = 0
+order = 1
+preset = null

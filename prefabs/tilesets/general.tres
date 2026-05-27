@@ -1,6 +1,17 @@
 [gd_resource type="TileSet" format=3 uid="uid://cq0gpukdqan4w"]
 
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="1_gwfjr"]
+[ext_resource type="PackedScene" uid="uid://jso3i61nb4aa" path="res://prefabs/breakables/variations/barrel.tscn" id="1_itcdf"]
+[ext_resource type="PackedScene" uid="uid://mn7spuibg1fm" path="res://prefabs/breakables/variations/grass_1.tscn" id="2_0af6e"]
+[ext_resource type="PackedScene" uid="uid://csad76ph0qbk4" path="res://prefabs/breakables/variations/grass_2.tscn" id="3_0t3f4"]
+[ext_resource type="PackedScene" uid="uid://6tfahr63aain" path="res://prefabs/breakables/variations/jug.tscn" id="4_6og5x"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_v24pi"]
+resource_name = "Breakables"
+scenes/2/scene = ExtResource("1_itcdf")
+scenes/3/scene = ExtResource("2_0af6e")
+scenes/4/scene = ExtResource("3_0t3f4")
+scenes/5/scene = ExtResource("4_6og5x")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfrn8"]
 resource_name = "Abandoned Village"
@@ -200,3 +211,4 @@ texture = ExtResource("1_gwfjr")
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/3 = SubResource("TileSetAtlasSource_lfrn8")
+sources/100 = SubResource("TileSetScenesCollectionSource_v24pi")

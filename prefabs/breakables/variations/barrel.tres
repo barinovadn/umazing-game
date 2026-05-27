@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://br85rp62bcmo1"]
+
+[ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="1_q7uue"]
+[ext_resource type="AudioStream" uid="uid://dticsqhs05poe" path="res://prefabs/combat/sounds/impact_2.wav" id="2_b7kpv"]
+[ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="2_c1dv0"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="3_b7kpv"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="4_xrv5n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7uue"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhc5m"]
+atlas = ExtResource("2_c1dv0")
+region = Rect2(64, 48, 16, 32)
+margin = Rect2(0, -8, 0, 0)
+
+[sub_resource type="Resource" id="Resource_bhnie"]
+script = ExtResource("4_xrv5n")
+density = 3
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_okcse"]
+script = ExtResource("3_b7kpv")
+effect = 30
+settings = SubResource("Resource_bhnie")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_5gp4r"]
+script = ExtResource("4_xrv5n")
+density = 1
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_hgtxf"]
+script = ExtResource("3_b7kpv")
+effect = 30
+settings = SubResource("Resource_5gp4r")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_ksnff"]
+script = ExtResource("3_b7kpv")
+effect = 100
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[resource]
+script = ExtResource("1_q7uue")
+texture = SubResource("AtlasTexture_dhc5m")
+shape = SubResource("CircleShape2D_q7uue")
+hp = 0.5
+sounds_hit = Array[AudioStream]([ExtResource("2_b7kpv")])
+sounds_break = Array[AudioStream]([ExtResource("2_b7kpv")])
+vfx_spawn = SubResource("Resource_ksnff")
+vfx_hit = SubResource("Resource_hgtxf")
+vfx_break = SubResource("Resource_okcse")
+metadata/_custom_type_script = "uid://c5vdwmd0iexxp"

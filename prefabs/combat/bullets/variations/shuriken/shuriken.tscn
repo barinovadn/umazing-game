@@ -41,7 +41,6 @@ speed = 120.0
 bounces = 1
 damage = 0.25
 can_be_broken = true
-can_break = true
 lifespan = 7.0
 sounds_spawn = Array[AudioStream]([ExtResource("4_05pps"), ExtResource("5_evfgd"), ExtResource("6_e73os"), ExtResource("7_me3kd"), ExtResource("8_o1804")])
 sounds_hit = Array[AudioStream]([ExtResource("8_me3kd")])
