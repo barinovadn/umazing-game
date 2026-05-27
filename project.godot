@@ -61,6 +61,7 @@ ai_controller=""
 interaction_marker=""
 pickup=""
 breakable=""
+vfx_notification=""
 
 [input]
 
