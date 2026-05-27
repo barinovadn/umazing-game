@@ -47,7 +47,6 @@ func _ready():
 func _on_cooldown_ended():
 	on_shoot_cooldown = false
 	if is_shooting:
-		print('_on_cooldown_ended CD ', interval_between_shots)
 		_shoot()
 	else:
 		shooting_is_available.emit()
