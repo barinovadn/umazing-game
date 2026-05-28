@@ -40,7 +40,7 @@ animations = [{
 [node name="Frog" unique_id=2065001503 instance=ExtResource("1_utv2a")]
 
 [node name="Shadow" parent="." index="1" unique_id=66535912]
-position = Vector2(0, 4)
+offset = Vector2(0, 4)
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_mknfh")

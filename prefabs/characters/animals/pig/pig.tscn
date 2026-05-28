@@ -40,7 +40,7 @@ animations = [{
 [node name="Pig" unique_id=850560069 instance=ExtResource("1_31gvv")]
 
 [node name="Shadow" parent="." index="1" unique_id=66535912]
-position = Vector2(0, 6)
+offset = Vector2(0, 6.5)
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_31gvv")

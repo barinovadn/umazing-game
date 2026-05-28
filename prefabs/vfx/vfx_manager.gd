@@ -31,6 +31,8 @@ enum Effect {
 	FIREFLIES = 40_0,
 	
 	PORTAL = 50_0,
+	
+	NOTIFICATION = 1000_0,
 	}
 
 ## Maps [VFXEffect2D] IDs from the [enum Effect] to сorresponding effect scenes.

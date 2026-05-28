@@ -271,8 +271,6 @@ func destroy():
 		tween.tween_property(self, "modulate:a", 0.0, afterlife_fade_out_duration)
 		await tween.finished
 	
-	
-	
 	delete()
 
 

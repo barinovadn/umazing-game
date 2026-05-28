@@ -5,6 +5,7 @@ extends Node2D
 
 signal gpu_particles_finished
 signal all_gpu_particles_finished
+signal settings_applied
 signal paused
 signal unpaused
 signal finished
@@ -119,6 +120,8 @@ func _apply_settings():
 	
 	for gpu_particle in gpu_particles:
 		gpu_particle.amount_ratio = settings.DENSITY_VALUES[settings.density]
+	
+	settings_applied.emit()
 
 
 func _finished_check():
