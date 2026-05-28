@@ -6,6 +6,7 @@ extends Resource
 @export var settings: VFXEffectSettings
 
 
-func spawn(at: Vector2):
-	if Game.vfx_manager:
-		Game.vfx_manager.spawn(effect, at, settings)
+func spawn(at: Vector2) -> VFXEffect2D:
+	if not Game.vfx_manager:
+		return null
+	return Game.vfx_manager.spawn(effect, at, settings)

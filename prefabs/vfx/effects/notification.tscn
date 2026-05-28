@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bd88t5c07t1x2"]
+
+[ext_resource type="PackedScene" uid="uid://bi0bh50tpx4bx" path="res://prefabs/vfx/vfx_effect.tscn" id="1_wjkqe"]
+[ext_resource type="Script" uid="uid://frhdh5hy0wwv" path="res://prefabs/vfx/effects/notification.gd" id="2_gl2av"]
+[ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="2_n2h0e"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wjkqe"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Gradient" id="Gradient_gl2av"]
+offsets = PackedFloat32Array(0, 0.1, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uoft8"]
+gradient = SubResource("Gradient_gl2av")
+
+[sub_resource type="Curve" id="Curve_gl2av"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.16666667, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 0.8333334), 0.0, 0.0, 0, 0, Vector2(0.33333334, 0.9166667), 0.0, 0.0, 0, 0, Vector2(0.5, 0.9166667), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 6
+metadata/_snap_enabled = true
+metadata/_snap_count = 12
+
+[sub_resource type="CurveTexture" id="CurveTexture_uoft8"]
+curve = SubResource("Curve_gl2av")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n2h0e"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, -75, 0)
+scale_min = 0.39999998
+scale_max = 0.45
+scale_curve = SubResource("CurveTexture_uoft8")
+color_ramp = SubResource("GradientTexture1D_uoft8")
+turbulence_enabled = true
+turbulence_noise_strength = 0.25
+turbulence_noise_scale = 6.0
+turbulence_noise_speed = Vector3(0, -1, 0)
+turbulence_influence_min = 0.075
+turbulence_influence_max = 0.075
+
+[node name="Effect" unique_id=1228765060 node_paths=PackedStringArray("gpu_particles") groups=["vfx_notification"] instance=ExtResource("1_wjkqe")]
+script = ExtResource("2_gl2av")
+gpu_particles = [NodePath("GPUParticles2D")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="0" unique_id=2006811474]
+z_index = 60
+emitting = false
+amount = 1
+sub_emitter = NodePath(".")
+texture = SubResource("ViewportTexture_wjkqe")
+lifetime = 1.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_n2h0e")
+
+[node name="SubViewport" type="SubViewport" parent="." index="2" unique_id=166401814]
+transparent_bg = true
+
+[node name="Label" type="Label" parent="SubViewport" index="0" unique_id=236911572]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_n2h0e")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+text = "NOTIFICATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="settings_applied" from="." to="." method="_on_settings_applied"]

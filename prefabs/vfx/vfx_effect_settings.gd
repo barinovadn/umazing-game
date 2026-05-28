@@ -9,6 +9,10 @@ enum Density { NONE, LOW, MEDIUM, HIGH, FULL }
 @export var scale: Vector2 = Vector2.ONE
 @export var density: Density = Density.MEDIUM
 
+@export_group("Notification", "notification")
+@export var notification_text: String
+@export var notification_text_color: Color = Color.WHITE
+
 const DENSITY_VALUES = {
 	Density.NONE: 0.0,
 	Density.LOW: 0.25,

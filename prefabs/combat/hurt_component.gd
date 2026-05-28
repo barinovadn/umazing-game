@@ -44,6 +44,18 @@ enum Team {
 		if is_node_ready() and sounds_player != null:
 			sounds_player.volume_db = value
 
+@export_group("VFX", "vfx")
+@export var vfx_damage_marker: VFXProfile
+@export var vfx_heal_marker: VFXProfile
+@export_subgroup("Damage Marker Colors", "vfx_damage_marker_color")
+@export var vfx_damage_marker_color_default: Color = Color.WHITE
+@export var vfx_damage_marker_color_low_threshhold: float = 0.0
+@export var vfx_damage_marker_color_low: Color = Color.YELLOW
+@export var vfx_damage_marker_color_mid_threshhold: float = 0.5
+@export var vfx_damage_marker_color_mid: Color = Color.ORANGE
+@export var vfx_damage_marker_color_high_threshhold: float = 1.0
+@export var vfx_damage_marker_color_high: Color = Color.RED
+
 @onready var _collider: CollisionShape2D = %Collider
 
 var is_invulnerable: bool = false
@@ -60,13 +72,18 @@ var current_health: float:
 		health_changed.emit(value - _previous_health)
 		
 		if flag == 1:
-			damaged.emit(abs(_previous_health - current_health))
+			var dmg_amount: float = abs(_previous_health - current_health)
+			damaged.emit(dmg_amount)
+			_play_damage_marker_vfx(dmg_amount)
 			_play_random_sound(sounds_damage)
 		elif flag == 2:
-			healed.emit(abs(_previous_health - current_health))
+			var heal_amount: float = abs(_previous_health - current_health)
+			healed.emit(heal_amount)
+			_play_heal_marker_vfx(heal_amount)
 			_play_random_sound(sounds_heal)
 			if not is_one_shot: _enable()
-		if current_health<= 0:
+		
+		if current_health <= 0:
 			_disable()
 			_play_random_sound(sounds_die)
 			fatal_damage_taken.emit()
@@ -99,6 +116,33 @@ func _play_random_sound(array: Array[AudioStream]):
 	if array.size():
 		sounds_player.stream = array.pick_random()
 		sounds_player.play()
+
+
+func _calc_damage_marker_color(dmg_amount: float) -> Color:
+	if dmg_amount >= vfx_damage_marker_color_high_threshhold:
+		return vfx_damage_marker_color_high
+	if dmg_amount >= vfx_damage_marker_color_mid_threshhold:
+		return vfx_damage_marker_color_mid
+	if dmg_amount >= vfx_damage_marker_color_low_threshhold:
+		return vfx_damage_marker_color_low
+	return vfx_damage_marker_color_default
+
+
+func _play_damage_marker_vfx(dmg_amount: float):
+	if not vfx_damage_marker:
+		return
+	
+	vfx_damage_marker.settings.modulate = _calc_damage_marker_color(dmg_amount)
+	vfx_damage_marker.settings.notification_text = '-' + str(int(dmg_amount * 100))
+	vfx_damage_marker.spawn(global_position)
+
+
+func _play_heal_marker_vfx(heal_amount: float):
+	if not vfx_heal_marker:
+		return
+	
+	vfx_heal_marker.settings.notification_text = '+' + str(int(heal_amount * 100))
+	vfx_heal_marker.spawn(global_position)
 
 
 func _disable():
