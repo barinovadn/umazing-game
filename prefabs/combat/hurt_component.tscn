@@ -1,6 +1,31 @@
 [gd_scene format=3 uid="uid://0khe4brka8l3"]
 
 [ext_resource type="Script" uid="uid://el1245ygwstr" path="res://prefabs/combat/hurt_component.gd" id="1_d8o2c"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_g72lm"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="3_qgtci"]
+
+[sub_resource type="Resource" id="Resource_g72lm"]
+script = ExtResource("3_qgtci")
+density = 4
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_qgtci"]
+script = ExtResource("2_g72lm")
+effect = 10000
+settings = SubResource("Resource_g72lm")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_gf3lf"]
+script = ExtResource("3_qgtci")
+modulate = Color(0.5176471, 0.7921569, 0.19215687, 1)
+density = 4
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_73mab"]
+script = ExtResource("2_g72lm")
+effect = 10000
+settings = SubResource("Resource_gf3lf")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uaqv8"]
 radius = 8.0
@@ -11,6 +36,13 @@ collision_mask = 1024
 audio_bus_name = &"World"
 script = ExtResource("1_d8o2c")
 sounds_player = NodePath("AudioPlayer")
+vfx_damage_marker = SubResource("Resource_qgtci")
+vfx_heal_marker = SubResource("Resource_73mab")
+vfx_damage_marker_color_default = Color(0.9999996, 0.9300016, 0.41184643, 1)
+vfx_damage_marker_color_low_threshhold = 0.25
+vfx_damage_marker_color_low = Color(0.9271268, 0.6438095, 0, 1)
+vfx_damage_marker_color_mid = Color(1, 0.2901961, 0, 1)
+vfx_damage_marker_color_high = Color(1, 0.05882353, 0.18039216, 1)
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1053993660]
 unique_name_in_owner = true
