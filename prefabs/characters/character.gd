@@ -13,6 +13,7 @@ signal movement_controller_changed(new_controller: MovementController2D)
 @export var animator: AnimationController2D
 @export var start_animation := AnimationController2D.AnimationType.NONE
 
+
 @export_group("Movement")
 @export var movement: MovementController2D:
 	set(value):
@@ -107,6 +108,7 @@ signal movement_controller_changed(new_controller: MovementController2D)
 		if stat_cant_shoot and !stat_cant_shoot.value_changed.is_connected(_on_cant_shoot_changed):
 			stat_cant_shoot.value_changed.connect(_on_cant_shoot_changed)
 
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 var direction: Vector2:
 	set(value):
@@ -178,6 +180,7 @@ func _on_damaged(_value: float = 1.0):
 
 func _on_invincibility_changed():
 	hurt_component.is_invulnerable = stat_invulnerable.value
+	animation_player.play("FLICKER" if stat_invulnerable.value else "RESET")
 
 
 func _on_cant_shoot_changed():
