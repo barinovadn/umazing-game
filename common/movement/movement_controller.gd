@@ -20,6 +20,7 @@ signal teleported(new_position: Vector2)
 
 ## Character movement speed in pixels per second.
 @export var speed: float = 100.0
+
 ## If set to [code]false[/code] movement is disabled and [method stop] is called.
 @export var enabled: bool = true:
 	set(value):
@@ -32,11 +33,10 @@ signal teleported(new_position: Vector2)
 
 ## The direction character is currently moving in if [member is_moving] is
 ## [code]true[/code], the direction character last moved in otherwise.
-var direction: Vector2 = Vector2.ZERO:
+var direction: Vector2 = Vector2.DOWN:
 	set(value):
 		if value == direction:
 			return
-		
 		direction = value
 		direction_changed.emit(direction)
 ## Whether the character is currently moving.

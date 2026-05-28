@@ -93,7 +93,6 @@ func _get_next_point_index() -> int:
 				back_and_forth_direction *= -1
 				next = current_point_index + back_and_forth_direction
 			return next
-	
 	return -1
 
 

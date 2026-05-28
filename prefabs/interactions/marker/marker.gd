@@ -62,6 +62,43 @@ const MARKER_COLORS: Dictionary[MarkerColor, Color] = {
 	MarkerColor.BLUE: Color(0.5, 0.5, 1.0),
 	}
 
+@export var interactable: Interactable:
+	set(value):
+		if value == interactable or Engine.is_editor_hint():
+			return
+		
+		if interactable and interactable.interacted.is_connected(_on_interaction):
+			interactable.interacted.disconnect(_on_interaction)
+		
+		interactable = value
+		
+		if interactable and not interactable.interacted.is_connected(_on_interaction):
+			interactable.interacted.connect(_on_interaction)
+@export var teleport: Teleport:
+	set(value):
+		if value == teleport:
+			return
+		
+		if teleport and teleport.used.is_connected(_on_teleport):
+			teleport.used.disconnect(_on_teleport)
+		
+		teleport = value
+		
+		if teleport and not teleport.used.is_connected(_on_teleport):
+			teleport.used.connect(_on_teleport)
+@export var breakable: Breakable2D:
+	set(value):
+		if value == breakable:
+			return
+		
+		if breakable and breakable.broken.is_connected(_on_breakable_broken):
+			breakable.broken.disconnect(_on_breakable_broken)
+		
+		breakable = value
+		
+		if breakable and not breakable.broken.is_connected(_on_breakable_broken):
+			breakable.broken.connect(_on_breakable_broken)
+
 @export_group("Visuals")
 @export var sprite: MarkerSprite:
 	set(value):
@@ -95,7 +132,25 @@ const MARKER_COLORS: Dictionary[MarkerColor, Color] = {
 
 
 func _ready():
+	if not interactable:
+		interactable = get_parent() as Interactable
+	if not teleport:
+		teleport = get_parent() as Teleport
+	if not breakable:
+		breakable = get_parent() as Breakable2D
 	_apply_settings()
+
+
+func _on_interaction():
+	disappear()
+
+
+func _on_teleport():
+	disappear()
+
+
+func _on_breakable_broken():
+	disappear()
 
 
 func _apply_settings():
@@ -108,3 +163,7 @@ func _apply_settings():
 	animation_player.speed_scale = (
 		custom_animation_speed if custom_animation_speed
 		else MARKER_ANIMATION_SPEEDS[animation_speed] )
+
+
+func disappear():
+	queue_free()

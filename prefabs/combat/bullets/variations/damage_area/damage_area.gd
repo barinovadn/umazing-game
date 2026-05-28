@@ -18,7 +18,7 @@ func _bullet_ready():
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.team == team:
+	if not _can_damage_team(area.team):
 		return
 	if area is HurtComponent and _can_damage:
 		_crashed_into_hurt_component(area)

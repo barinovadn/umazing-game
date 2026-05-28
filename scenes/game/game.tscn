@@ -83,15 +83,23 @@ z_index = 30
 y_sort_enabled = true
 
 [node name="Interactables" type="Node2D" parent="." unique_id=233789877]
-z_index = 20
+z_index = 30
+
+[node name="Breakables" type="Node2D" parent="." unique_id=1931600874]
+z_index = 40
 
 [node name="Enemies" type="Node2D" parent="." unique_id=92814873]
 unique_name_in_owner = true
 z_index = 30
+
+[node name="Bosses" type="Node2D" parent="Enemies" unique_id=2011286109]
 
 [node name="Bullets" type="Node2D" parent="." unique_id=2040820107]
 unique_name_in_owner = true
 z_index = 39
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1517964194]
+unique_name_in_owner = true
+
+[node name="Timers" type="Node2D" parent="." unique_id=1241851836]
 unique_name_in_owner = true

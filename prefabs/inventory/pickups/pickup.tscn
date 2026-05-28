@@ -71,6 +71,7 @@ afterlife_duration = null
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1208475]
 shape = SubResource("CircleShape2D_cg6j6")
+debug_color = Color(1.92523e-06, 0.6439638, 0.28314334, 0.41960785)
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=524928323]
 texture = ExtResource("5_7h5v3")

@@ -5,6 +5,7 @@ extends Node2D
 
 signal gpu_particles_finished
 signal all_gpu_particles_finished
+signal settings_applied
 signal paused
 signal unpaused
 signal finished
@@ -119,6 +120,8 @@ func _apply_settings():
 	
 	for gpu_particle in gpu_particles:
 		gpu_particle.amount_ratio = settings.DENSITY_VALUES[settings.density]
+	
+	settings_applied.emit()
 
 
 func _finished_check():
@@ -142,7 +145,6 @@ func finish():
 		return
 	
 	if not _all_gpu_particles_finished:
-		print('FINISH FASTER GODDAMIT')
 		for particles in gpu_particles:
 			# BUG Issue whith Godot's (4.6.2.stable) GPUParticles2D.one_shot:
 			#     Changing it's value to "true" at runtime will not trigger

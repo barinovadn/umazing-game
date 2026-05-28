@@ -74,6 +74,7 @@ func _bullet_process(): pass
 func _ready():
 	if collision_shape_2d.shape:
 		shape_cast_2d.shape = collision_shape_2d.shape
+		shape_cast_2d.transform = collision_shape_2d.transform
 	else:
 		shape_cast_2d.enabled = false
 	if homing:
@@ -93,8 +94,16 @@ func _process(delta: float):
 	_bullet_process()
 
 
+func _can_damage_team(opposing_team) -> bool:
+	match team:
+		HurtComponent.Team.BREAKABLE:
+			return opposing_team == HurtComponent.Team.BREAKABLE
+		_:
+			return opposing_team != team or opposing_team == HurtComponent.Team.BREAKABLE
+
+
 func _on_area_entered(area: Area2D):
-	if area.team == team:
+	if not _can_damage_team(area.team):
 		return
 	if area is HurtComponent:
 		_crashed_into_hurt_component(area)
@@ -110,7 +119,7 @@ func _on_area_entered(area: Area2D):
 func _crashed_into_hurt_component(hurt_component: HurtComponent):
 	hit.emit(hurt_component)
 	if vfx_hit:
-		vfx_hit.spawn(global_position)
+		vfx_hit.spawn(hurt_component.global_position)
 	_crashed_in_char = true
 	audio_player.stream = null
 	audio_player.stop()
@@ -180,7 +189,8 @@ func get_nearest_target() -> HurtComponent:
 	var closest_dist = INF
 
 	for aim in targets:
-		if aim.team == team:
+		if( not _can_damage_team(aim.team)
+			or aim.team == HurtComponent.Team.BREAKABLE ):
 			continue
 		
 		var target_pos = aim.global_position
@@ -201,10 +211,9 @@ func destroy():
 	if vfx_destroy:
 		vfx_destroy.spawn(global_position)
 	stop_and_disable_interaction()
-	if !_crashed_in_char:
-		audio_player.stream = null
-		audio_player.stop()
-		_play_random_sound(sounds_destroy)
+	audio_player.stream = null
+	audio_player.stop()
+	_play_random_sound(sounds_destroy)
 	var timer = get_tree().create_timer(afterlife_duration)
 	timer.timeout.connect(_delete)
 

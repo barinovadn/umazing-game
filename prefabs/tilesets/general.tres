@@ -2,6 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://djoroxbekeacc" path="res://prefabs/tilesets/TilesetNature.png" id="1_0p7gv"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="1_gwfjr"]
+[ext_resource type="PackedScene" uid="uid://jso3i61nb4aa" path="res://prefabs/breakables/variations/barrel.tscn" id="1_itcdf"]
+[ext_resource type="PackedScene" uid="uid://mn7spuibg1fm" path="res://prefabs/breakables/variations/grass_1.tscn" id="2_0af6e"]
+[ext_resource type="PackedScene" uid="uid://csad76ph0qbk4" path="res://prefabs/breakables/variations/grass_2.tscn" id="3_0t3f4"]
+[ext_resource type="PackedScene" uid="uid://6tfahr63aain" path="res://prefabs/breakables/variations/jug.tscn" id="4_6og5x"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_v24pi"]
+resource_name = "Breakables"
+scenes/2/scene = ExtResource("1_itcdf")
+scenes/3/scene = ExtResource("2_0af6e")
+scenes/4/scene = ExtResource("3_0t3f4")
+scenes/5/scene = ExtResource("4_6og5x")
 [ext_resource type="Texture2D" uid="uid://bur7x452f1f67" path="res://prefabs/tilesets/TilesetDesert.png" id="3_ssxej"]
 [ext_resource type="Texture2D" uid="uid://c7q5vkichdeyg" path="res://prefabs/tilesets/black.png" id="4_5q0ry"]
 [ext_resource type="Texture2D" uid="uid://dwtdlv6ixm7kg" path="res://prefabs/tilesets/gate3.png" id="4_w74ho"]
@@ -1899,6 +1910,7 @@ texture = ExtResource("11_5q0ry")
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/3 = SubResource("TileSetAtlasSource_lfrn8")
+sources/100 = SubResource("TileSetScenesCollectionSource_v24pi")
 sources/2 = SubResource("TileSetAtlasSource_v24pi")
 sources/0 = SubResource("TileSetAtlasSource_0af6e")
 sources/4 = SubResource("TileSetAtlasSource_6og5x")

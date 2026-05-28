@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://e4q7s6unpmbd" path="res://prefabs/vfx/vfx_manager.gd" id="1_3o42a"]
 [ext_resource type="PackedScene" uid="uid://dco2pch76pmk6" path="res://prefabs/vfx/effects/break_rocks.tscn" id="2_6oe7c"]
-[ext_resource type="PackedScene" uid="uid://b0aiwwk5ql1ri" path="res://prefabs/vfx/effects/fireflies.tscn" id="3_6efpr"]
 [ext_resource type="PackedScene" uid="uid://cnda2pv5gwefs" path="res://prefabs/vfx/effects/break_vase.tscn" id="4_tojsd"]
 [ext_resource type="PackedScene" uid="uid://b7chm4a43nite" path="res://prefabs/vfx/effects/break_rocks_gray.tscn" id="4_un3y0"]
 [ext_resource type="PackedScene" uid="uid://bo22fb7lc8uyl" path="res://prefabs/vfx/effects/break_wood.tscn" id="5_ul4fe"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://1s2f6ryuldsv" path="res://prefabs/vfx/effects/puff_snow.tscn" id="12_75w64"]
 [ext_resource type="PackedScene" uid="uid://budubdvptewnu" path="res://prefabs/vfx/effects/smoke.tscn" id="13_gd1t3"]
 [ext_resource type="PackedScene" uid="uid://74d2ka18na87" path="res://prefabs/vfx/effects/smoke_explosion.tscn" id="14_bjeu4"]
+[ext_resource type="PackedScene" uid="uid://bd88t5c07t1x2" path="res://prefabs/vfx/effects/notification.tscn" id="15_1n23f"]
 [ext_resource type="PackedScene" uid="uid://b86ksiklisu71" path="res://prefabs/vfx/effects/portal.tscn" id="15_t8ax2"]
 
 [node name="VFXManager" type="Node2D" unique_id=880750068]
@@ -32,5 +32,5 @@ effects = Dictionary[int, PackedScene]({
 300: ExtResource("13_gd1t3"),
 310: ExtResource("14_bjeu4"),
 500: ExtResource("15_t8ax2"),
-10000: ExtResource("3_6efpr")
+10000: ExtResource("15_1n23f")
 })

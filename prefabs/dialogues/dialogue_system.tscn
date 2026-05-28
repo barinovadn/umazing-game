@@ -83,6 +83,7 @@ text_overrun_behavior = 5
 
 [node name="Message" type="Label" parent="DialogueWindow/CanvasGroup" unique_id=868546769]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.78431374)
 offset_left = 127.0
 offset_top = 40.0
 offset_right = 631.0
