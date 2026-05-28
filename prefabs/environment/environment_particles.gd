@@ -13,6 +13,7 @@ enum Type {
 	SNOW = 300,
 	SUNRAYS = 400,
 	CLOUDS = 500,
+	FOG = 600,
 	}
 
 enum Ratio {
@@ -36,6 +37,7 @@ enum Ratio {
 	Type.SNOW: $Snow,
 	Type.SUNRAYS: $Sunrays,
 	Type.CLOUDS: $Clouds/Clouds,
+	Type.FOG: $Fog/Fog,
 	}
 
 
@@ -55,6 +57,11 @@ func _apply_mutations(node: GPUParticles2D):
 			var alpha_max = .2
 			var alpha = alpha_min + (node.amount_ratio * (alpha_max - alpha_min))
 			$Clouds.self_modulate = Color(0, 0, 0, alpha)
+		'Fog':
+			var alpha_min = .25
+			var alpha_max = .5
+			var alpha = alpha_min + (node.amount_ratio * (alpha_max - alpha_min))
+			$Fog.self_modulate = Color(1, 1, 1, alpha)
 		'Rain':
 			var speed_min = 0.85
 			var speed_max = 1.5

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c32tyxj6sjun"]
+
+[ext_resource type="PackedScene" uid="uid://d38up01cl6ubu" path="res://prefabs/environment/particles/clouds.tscn" id="1_hnveo"]
+
+[node name="Clouds" unique_id=996622902 instance=ExtResource("1_hnveo")]
+modulate = Color(1, 1, 1, 1)
