@@ -887,10 +887,10 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_28icf"]
-vertices = PackedVector2Array(-39.148438, 61.34375, -19.828125, 58.921875, -19.828125, 58.929688, 21.421875, 79.75781, -8, 82.9375, -40.609375, 79.40625, -47.03125, 73.421875, -5.578125, 57.25, 20.953125, 69.22656, 23.75, 72.390625)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6, 0, 2, 7, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-21, 49, -45, 52, -60, 75, -45, 89, -8, 93, 29, 89, 35, 70, 27, 61, -4, 47)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lt3al"]
+vertices = PackedVector2Array(-1.203125, 54.492188, 22.648438, 64.5, 22.1875, 73.828125, 12.78125, 83.86719, -17.273438, 83.00781, -45.609375, 79.77344, -50.773438, 64.85156, -41.351563, 52.726563, -30.632813, 46.703125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-48, 45, -62, 63, -53, 89, -18, 93, 17, 94, 32, 78, 33, 58, 2, 45, -32, 36)])
 parsed_collision_mask = 3
 source_geometry_mode = 2
 
@@ -1401,6 +1401,18 @@ interactable = NodePath("..")
 color = 1
 animation = 3
 
+[node name="Pig2" parent="Characters/Animals" index="7" unique_id=850560069 node_paths=PackedStringArray("hurt_component") instance=ExtResource("2_r64fy")]
+position = Vector2(24, -11)
+hurt_component = NodePath("AIController/HurtComponent")
+
+[node name="AIController" parent="Characters/Animals/Pig2" index="4" unique_id=359908874 node_paths=PackedStringArray("character") instance=ExtResource("25_ky1g4")]
+character = NodePath("..")
+
+[node name="HurtComponent" parent="Characters/Animals/Pig2/AIController" index="3" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
+character = NodePath("../..")
+team = 2
+max_health = 10.0
+
 [node name="NinjaBlue" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="2" unique_id=986257099 node_paths=PackedStringArray("movement") instance=ExtResource("4_n6h0s")]
 position = Vector2(-16, 56)
 collision_layer = 0
@@ -1669,6 +1681,7 @@ vfx_on_phase_change = SubResource("Resource_8ifb1")
 show_on_death = [NodePath("../../../../Teleports/TeleportGreenOut")]
 tp_on_death = NodePath("../../../../Teleports/TeleportGreenOut")
 data_for_interface = SubResource("Resource_qex4a")
+interface_needed = true
 
 [node name="ShootController" parent="Enemies/Bosses/CyclopusCat/EnemyController" index="2" unique_id=1242481191 instance=ExtResource("16_jqxbl")]
 team = 0
@@ -1686,6 +1699,7 @@ regions = [NodePath("../../../CyclopusCatRegion1"), NodePath("../../../CyclopusC
 min_radius = 200.0
 break_time = 0.001
 speed = 60.0
+enabled = false
 
 [node name="DamageArea" parent="Enemies/Bosses/CyclopusCat" index="5" unique_id=419752470 instance=ExtResource("35_mywxa")]
 z_index = -10
@@ -1696,10 +1710,12 @@ lifespan = 0.0
 [node name="CyclopusCatRegion1" type="NavigationRegion2D" parent="Enemies/Bosses" index="1" unique_id=352624853]
 position = Vector2(400, -504)
 navigation_polygon = SubResource("NavigationPolygon_17ap2")
+navigation_layers = 4
 
 [node name="CyclopusCatRegion2" type="NavigationRegion2D" parent="Enemies/Bosses" index="2" unique_id=580567375]
 position = Vector2(232, -504)
 navigation_polygon = SubResource("NavigationPolygon_17ap2")
+navigation_layers = 2
 
 [node name="GiantFrog" parent="Enemies/Bosses" index="3" unique_id=645695922 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("38_2p5q4")]
 position = Vector2(-840, 136)
@@ -1736,8 +1752,9 @@ vfx_on_phase_change = SubResource("Resource_3jqjo")
 show_on_death = [NodePath("../../../../Teleports/TeleportPinkOut")]
 tp_on_death = NodePath("../../../../Teleports/TeleportPinkOut")
 data_for_interface = SubResource("Resource_28icf")
+interface_needed = true
 
-[node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
+[node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=848658870 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
 character = NodePath("../..")
 max_health = 10.0
 sounds_damage = Array[AudioStream]([ExtResource("44_s4min"), ExtResource("45_28icf")])
@@ -1773,7 +1790,7 @@ curve = SubResource("Curve2D_5cmlo")
 
 [node name="GiantFrogRegion" type="NavigationRegion2D" parent="Enemies/Bosses" index="6" unique_id=313250915]
 position = Vector2(-944, 96)
-navigation_polygon = SubResource("NavigationPolygon_28icf")
+navigation_polygon = SubResource("NavigationPolygon_lt3al")
 
 [node name="GiantFrogGroundFilter" type="Sprite2D" parent="Enemies/Bosses" index="7" unique_id=1015665125]
 position = Vector2(-960, 160)

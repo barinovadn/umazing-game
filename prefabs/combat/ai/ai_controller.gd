@@ -4,7 +4,6 @@ class_name AIController
 
 
 @export var character: Character2D
-@export var enabled: bool = true
 
 @export_group("Combat")
 @export var actions: Array[AIAction]
@@ -26,6 +25,7 @@ class_name AIController
 
 @export_group("Interface")
 @export var data_for_interface: BossContainerData
+@export var interface_needed: bool = false
 
 ## Allows you to specify the [BossUI] location where the interface will be added.
 ## By default, it is displayed in the player's [BossUI].
@@ -94,25 +94,25 @@ func _set_target_point():
 
 ## Replaces the boss's action and plays it
 func _on_action_changer_timeout():
-	shoot_controller.stop_shooting()
+	if shoot_controller:
+		shoot_controller.stop_shooting()
 	
 	var ready_boss_actions: Array[AIAction] = _select_available_actions()
 	var action_to_play: AIAction = _select_action_by_weight(ready_boss_actions)
-	
-	movement_controller = movement_patterns[action_to_play.action_name]
-	shoot_controller.set_bullet_array(action_to_play.bullet_types)
-	shoot_controller.interval_between_shots = action_to_play.shoot_interval
-	shoot_controller.post_shot_cd_interval = action_to_play.shooting_animation_interval
-	movement_controller.enabled = action_to_play.can_move
-	shoot_controller.enabled = action_to_play.can_shoot
-	
-	_on_action(action_to_play)
-	
+	if action_to_play:
+		movement_controller = movement_patterns[action_to_play.action_name]
+		shoot_controller.set_bullet_array(action_to_play.bullet_types)
+		shoot_controller.interval_between_shots = action_to_play.shoot_interval
+		shoot_controller.post_shot_cd_interval = action_to_play.shooting_animation_interval
+		movement_controller.enabled = action_to_play.can_move
+		shoot_controller.enabled = action_to_play.can_shoot
+		
+		_on_action(action_to_play)
+		action_changer.start(action_to_play.duration)
+		
 	character.movement = movement_controller
 	
-	action_changer.start(action_to_play.duration)
-	
-	if shoot_controller.enabled:
+	if shoot_controller and shoot_controller.enabled:
 		if shoot_controller.on_shoot_cooldown:
 			await shoot_controller.shooting_is_available
 			shoot_controller.shoot.call_deferred()
@@ -150,7 +150,7 @@ func _select_action_by_weight(ready_boss_actions: Array[AIAction]) -> AIAction:
 			break
 	
 	if !action_to_play:
-		return ready_boss_actions.pick_random()
+		return ready_boss_actions.pick_random() if ready_boss_actions else null
 	
 	return action_to_play
 
@@ -182,7 +182,8 @@ func _on_fatal_damage_taken():
 func activate_interaction(_area: Area2D = null):
 	activate_points(show_on_activation)
 	deactivate_points(hide_on_activation)
-	display_location.add(data_for_interface, self)
+	if interface_needed:
+		display_location.add(data_for_interface, self)
 	_on_action_changer_timeout()
 	action_changer.start()
 	Game.player.stat_cant_use_inventory.add_modifier(var_to_str(modifier.get_instance_id()), modifier)
@@ -192,9 +193,12 @@ func activate_interaction(_area: Area2D = null):
 func deactivate_interaction(_area: Area2D = null):
 	Game.player.stat_cant_use_inventory.remove_modifier(var_to_str(modifier.get_instance_id()))
 	action_changer.stop()
-	movement_controller.enabled = false
-	shoot_controller.enabled = false
-	display_location.remove(data_for_interface)
+	if movement_controller:
+		movement_controller.enabled = false
+	if shoot_controller:
+		shoot_controller.enabled = false
+	if interface_needed:
+		display_location.remove(data_for_interface)
 
 
 func deactivate_points(points: Array[Node2D]):

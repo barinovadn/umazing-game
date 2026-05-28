@@ -157,4 +157,5 @@ func _on_pickup_found(body: Node2D):
 
 
 func _on_block_inventory_changed():
-	inventory_ui.can_open_inventory = not stat_cant_use_inventory.value
+	if inventory_ui:
+		inventory_ui.can_open_inventory = not stat_cant_use_inventory.value

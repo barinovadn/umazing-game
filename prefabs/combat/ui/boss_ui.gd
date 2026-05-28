@@ -20,14 +20,15 @@ func add(data: BossContainerData, controller: AIController):
 
 
 func update(data: BossContainerData, controller: AIController):
-	if not containers.has(data.display_name):
+
+	if not data or not containers.has(data.display_name):
 		return
 	
 	containers[data.display_name].update(data, controller)
 
 
 func remove(data: BossContainerData):
-	if not containers.has(data.display_name):
+	if not data or not containers.has(data.display_name):
 		return
 	
 	containers[data.display_name].delete()
