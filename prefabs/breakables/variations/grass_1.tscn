@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://mn7spuibg1fm"]
+
+[ext_resource type="PackedScene" uid="uid://bocwvxmy6wlgw" path="res://prefabs/breakables/breakable.tscn" id="1_j5qp0"]
+[ext_resource type="Resource" uid="uid://cwanhpw0hd3db" path="res://prefabs/breakables/variations/grass_1.tres" id="2_4kjd4"]
+[ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="3_qpp3d"]
+[ext_resource type="AudioStream" uid="uid://c2rmco6qav23v" path="res://prefabs/combat/sounds/whoosh_1.wav" id="4_43a11"]
+[ext_resource type="AudioStream" uid="uid://bixonmf50tais" path="res://prefabs/combat/sounds/whoosh_5.wav" id="5_uk4jp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhc5m"]
+atlas = ExtResource("3_qpp3d")
+region = Rect2(80, 80, 16, 16)
+
+[node name="Breakable" unique_id=514792727 instance=ExtResource("1_j5qp0")]
+settings = ExtResource("2_4kjd4")
+
+[node name="Sprite" parent="." index="0" unique_id=1322896327]
+texture = SubResource("AtlasTexture_dhc5m")
+
+[node name="HurtComponent" parent="." index="2" unique_id=949368062]
+max_health = 0.1
+sounds_die = Array[AudioStream]([ExtResource("4_43a11"), ExtResource("5_uk4jp")])

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://yg4ldwcka3qa" path="res://prefabs/inventory/pickups/pickup.gd" id="1_ijpd1"]
 [ext_resource type="Resource" uid="uid://blylgxx5kc83n" path="res://prefabs/inventory/items/shrimp.tres" id="2_ff4de"]
 [ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_a7oa7"]
-[ext_resource type="Script" path="res://prefabs/vfx/vfx_effect_profile.gd" id="4_4sid4"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="4_4sid4"]
 [ext_resource type="Texture2D" uid="uid://cgaygxeatd046" path="res://prefabs/inventory/items/shrimp.png" id="5_7h5v3"]
 [ext_resource type="Texture2D" uid="uid://buoyg5fif6m8i" path="res://prefabs/inventory/pickups/pickup_glow.png" id="6_5dapo"]
 
@@ -71,6 +71,7 @@ afterlife_duration = null
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1208475]
 shape = SubResource("CircleShape2D_cg6j6")
+debug_color = Color(1.92523e-06, 0.6439638, 0.28314334, 0.41960785)
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=524928323]
 texture = ExtResource("5_7h5v3")

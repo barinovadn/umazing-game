@@ -142,7 +142,6 @@ func finish():
 		return
 	
 	if not _all_gpu_particles_finished:
-		print('FINISH FASTER GODDAMIT')
 		for particles in gpu_particles:
 			# BUG Issue whith Godot's (4.6.2.stable) GPUParticles2D.one_shot:
 			#     Changing it's value to "true" at runtime will not trigger

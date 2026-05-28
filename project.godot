@@ -60,6 +60,7 @@ shoot_controller=""
 ai_controller=""
 interaction_marker=""
 pickup=""
+breakable=""
 
 [input]
 
@@ -141,6 +142,10 @@ reflect={
 2d_physics/layer_10="Pickups"
 2d_physics/layer_11="Bullets"
 2d_physics/layer_12="Hurt Component"
+
+[navigation]
+
+2d/warnings/navmesh_edge_merge_errors=false
 
 [rendering]
 
