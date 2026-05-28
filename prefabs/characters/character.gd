@@ -213,7 +213,7 @@ func _on_cant_interract_changed():
 
 
 func _on_shooting_speed_changed():
-	shoot_controller.interval_between_shots *= stat_shooting_speed.value
+	shoot_controller.shoot_ratio = stat_shooting_speed.value
 
 
 func _on_armor_changed():

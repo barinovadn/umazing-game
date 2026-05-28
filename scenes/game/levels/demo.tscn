@@ -25,7 +25,7 @@
 [ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="14_roxwf"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="16_jqxbl"]
 [ext_resource type="PackedScene" uid="uid://b86ksiklisu71" path="res://prefabs/vfx/effects/portal.tscn" id="16_qex4a"]
-[ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/combat/ui/boss_container_data.gd" id="17_1qwsm"]
+[ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/combat/ui/bosses/boss_container_data.gd" id="17_1qwsm"]
 [ext_resource type="PackedScene" uid="uid://1nb64bwo0hvg" path="res://prefabs/vfx/effects/burst_leaves.tscn" id="17_qex4a"]
 [ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/combat/bullets/variations/homing_shot/homing_shot.tscn" id="18_ivmt6"]
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/stone_shot/stone_shot.tscn" id="19_ivmt6"]
@@ -49,7 +49,7 @@
 [ext_resource type="AudioStream" uid="uid://ctrye6fbih85b" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_4.ogg" id="33_psdh3"]
 [ext_resource type="AudioStream" uid="uid://bhu1506kudwdu" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_5.ogg" id="34_2p5q4"]
 [ext_resource type="Resource" uid="uid://cfvqawhunbipu" path="res://prefabs/breakables/variations/jug.tres" id="34_o8fgc"]
-[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
+[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
 [ext_resource type="Resource" uid="uid://br85rp62bcmo1" path="res://prefabs/breakables/variations/barrel.tres" id="35_ffajp"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="35_mywxa"]
 [ext_resource type="PackedScene" uid="uid://cdtekl4l4f04o" path="res://prefabs/interactions/marker/marker.tscn" id="37_psdh3"]
@@ -79,10 +79,8 @@ density = 4
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 
 [sub_resource type="Resource" id="Resource_okcse"]
-script = ExtResource("5_tlnmc")
-scale = Vector2(3, 3)
-density = 1
-metadata/_custom_type_script = "uid://b7nceugqtlef1"
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqxbl"]
 atlas = ExtResource("5_xrc6b")
@@ -346,10 +344,6 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
-[sub_resource type="Resource" id="Resource_okcse"]
-script = ExtResource("32_ukxex")
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
 [sub_resource type="Resource" id="Resource_u2gco"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
@@ -373,6 +367,11 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_dlede"]
 script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_up64m"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_aaj01"]
@@ -1406,18 +1405,6 @@ position = Vector2(0, -8)
 color = 1
 animation = 3
 
-[node name="Pig2" parent="Characters/Animals" index="7" unique_id=850560069 node_paths=PackedStringArray("hurt_component") instance=ExtResource("2_r64fy")]
-position = Vector2(24, -11)
-hurt_component = NodePath("AIController/HurtComponent")
-
-[node name="AIController" parent="Characters/Animals/Pig2" index="4" unique_id=359908874 node_paths=PackedStringArray("character") instance=ExtResource("25_ky1g4")]
-character = NodePath("..")
-
-[node name="HurtComponent" parent="Characters/Animals/Pig2/AIController" index="3" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
-character = NodePath("../..")
-team = 2
-max_health = 10.0
-
 [node name="NinjaBlue" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="2" unique_id=986257099 node_paths=PackedStringArray("movement") instance=ExtResource("4_n6h0s")]
 position = Vector2(-16, 56)
 collision_layer = 0
@@ -1450,6 +1437,7 @@ stat_armor = SubResource("Resource_k1d3v")
 stat_cant_move = SubResource("Resource_nca3v")
 stat_cant_shoot = SubResource("Resource_rjdhe")
 stat_cant_interract = SubResource("Resource_dlede")
+stat_shooting_speed = SubResource("Resource_up64m")
 
 [node name="SignGuide" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=836831447 instance=ExtResource("9_8ic3i")]
 position = Vector2(-72, 216)

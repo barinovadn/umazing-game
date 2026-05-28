@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciburhuh07it3"
-path="res://.godot/imported/boss_default_under.png-3bde171b31c119fd521e3ede0430e076.ctex"
+uid="uid://d3h8k5wrqgc2b"
+path="res://.godot/imported/mob_default_progress.png-1fa4200fb1a7e9cc24c64b9b1b8807ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/combat/ui/boss_default_under.png"
-dest_files=["res://.godot/imported/boss_default_under.png-3bde171b31c119fd521e3ede0430e076.ctex"]
+source_file="res://prefabs/combat/ui/mobs/mob_default_progress.png"
+dest_files=["res://.godot/imported/mob_default_progress.png-1fa4200fb1a7e9cc24c64b9b1b8807ac.ctex"]
 
 [params]
 

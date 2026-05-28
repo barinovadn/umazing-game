@@ -36,8 +36,11 @@ var is_animation_needed: bool = false:
 	set(value):
 		is_animation_needed = value
 		if is_animation_needed and post_shot_cooldown:
-			post_shot_cooldown.start(post_shot_cd_interval)
+			post_shot_cooldown.start(post_shot_cd_interval * shoot_ratio if 
+			post_shot_cd_interval * shoot_ratio <= 0.5
+			 else post_shot_cd_interval)
 var can_shoot: bool = true
+var shoot_ratio: float = 1.0
 
 
 func _ready():
