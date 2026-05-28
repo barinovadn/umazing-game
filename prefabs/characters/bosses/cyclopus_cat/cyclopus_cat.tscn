@@ -62,12 +62,11 @@ collision_mask = 0
 afterlife_duration = 0.0
 
 [node name="Shadow" parent="." index="1" unique_id=66535912]
-position = Vector2(0, 4)
-offset = Vector2(0, 0)
+offset = Vector2(0, 4)
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_oydtv")
-animation = &"attack_left"
+animation = &"idle_left"
 autoplay = "idle_left"
 frame_progress = 0.0
 

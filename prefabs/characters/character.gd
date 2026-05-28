@@ -14,15 +14,15 @@ signal movement_controller_changed(new_controller: MovementController2D)
 @export var animator: AnimationController2D
 @export var start_animation := AnimationController2D.AnimationType.NONE
 
+
 @export_group("Movement")
-@export var use_movement_direction: bool = true
 @export var movement: MovementController2D:
 	set(value):
 		if movement:
 			movement.moved.disconnect(_on_moved)
 			movement.teleported.disconnect(_on_teleported)
 			movement.movement_stopped.disconnect(_on_movement_stopped)
-			movement.direction_changed.disconnect(_on_direction_changed)
+			movement.direction_changed.disconnect(_on_movement_direction_changed)
 		
 		movement = value
 		movement_controller_changed.emit(movement)
@@ -31,7 +31,7 @@ signal movement_controller_changed(new_controller: MovementController2D)
 			movement.moved.connect(_on_moved)
 			movement.teleported.connect(_on_teleported)
 			movement.movement_stopped.connect(_on_movement_stopped)
-			movement.direction_changed.connect(_on_direction_changed)
+			movement.direction_changed.connect(_on_movement_direction_changed)
 
 @export_group("Collision")
 @export var collider: CollisionShape2D:
@@ -125,18 +125,13 @@ signal movement_controller_changed(new_controller: MovementController2D)
 		if stat_shooting_speed and !stat_shooting_speed.value_changed.is_connected(_on_shooting_speed_changed):
 			stat_shooting_speed.value_changed.connect(_on_shooting_speed_changed)
 
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
 var direction: Vector2:
 	set(value):
 		direction = value
-		_update_animation()
-		if interactor:
-			interactor.direction = direction
-		if shoot_controller:
-			shoot_controller.direction = direction
+		_on_direction_changed()
 	get():
-		if use_movement_direction:
-			if movement:
-				return movement.direction
 		if direction:
 			return direction
 		if movement:
@@ -202,6 +197,7 @@ func _on_damaged(_value: float = 1.0):
 
 func _on_invincibility_changed():
 	hurt_component.is_invulnerable = stat_invulnerable.value
+	animation_player.play("FLICKER" if stat_invulnerable.value else "RESET")
 
 
 func _on_cant_shoot_changed():
@@ -241,8 +237,15 @@ func _on_movement_stopped():
 	_update_animation()
 
 
-func _on_direction_changed(_new_dir: Vector2):
-	direction = direction
+func _on_movement_direction_changed(_new_dir: Vector2):
+	_on_direction_changed()
+
+
+func _on_direction_changed():
+	if interactor:
+		interactor.direction = direction
+	if shoot_controller:
+		shoot_controller.direction = direction
 	_update_animation()
 
 
