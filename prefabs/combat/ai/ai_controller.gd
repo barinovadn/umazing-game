@@ -198,6 +198,7 @@ func deactivate_interaction(_area: Area2D = null):
 	if movement_controller:
 		movement_controller.enabled = false
 	if shoot_controller:
+		shoot_controller.stop_shooting()
 		shoot_controller.enabled = false
 	if interface_needed:
 		display_location.remove(data_for_interface)
