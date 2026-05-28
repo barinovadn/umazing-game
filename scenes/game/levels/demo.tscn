@@ -344,6 +344,13 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
+[sub_resource type="Resource" id="Resource_axdxq"]
+script = ExtResource("31_myoci")
+duration = 1.0
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
 [sub_resource type="Resource" id="Resource_u2gco"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
@@ -693,6 +700,18 @@ icon = SubResource("AtlasTexture_lt3al")
 name = "Гнилой Ствол Дерева"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
+[sub_resource type="Resource" id="Resource_ruwpk"]
+script = ExtResource("20_ivmt6")
+action_name = "default"
+weight = 1.0
+phases = Array[int]([1])
+duration = 100.0
+can_shoot = true
+can_move = true
+shoot_interval = 1.0
+shooting_animation_interval = 0.2
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
 [sub_resource type="Resource" id="Resource_qkatc"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
@@ -804,6 +823,15 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_jeoah"]
 script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_2766p"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_jmt7w"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_5cmlo"]
@@ -1303,6 +1331,7 @@ owner_reaction = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ukxex"), 
 owner_reaction_mode = 1
 owner_reaction_order = 1
 movement = NodePath("PathDotMovement")
+modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_ryfdy")
 stat_invulnerable = SubResource("Resource_dlo6x")
 stat_armor = SubResource("Resource_axnic")
@@ -1341,6 +1370,7 @@ position = Vector2(-408, 320)
 collision_mask = 3
 movement = NodePath("PathDotMovement")
 collision = false
+modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_hf1mc")
 stat_invulnerable = SubResource("Resource_cmpeo")
 stat_armor = SubResource("Resource_ixjtd")
@@ -1378,6 +1408,7 @@ position = Vector2(-136, 128)
 collision_layer = 0
 collision_mask = 65
 movement = NodePath("BehaviourFollow")
+modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_wfbku")
 stat_invulnerable = SubResource("Resource_kcjvo")
 stat_armor = SubResource("Resource_1an88")
@@ -1410,6 +1441,7 @@ position = Vector2(-16, 56)
 collision_layer = 0
 collision_mask = 65
 movement = NodePath("BehaviourFollow")
+modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_a78ug")
 stat_invulnerable = SubResource("Resource_pos45")
 stat_armor = SubResource("Resource_280sb")
@@ -1430,7 +1462,8 @@ y_sort_enabled = true
 position = Vector2(0, 160)
 start_animation = 1
 use_movement_direction = false
-invincibility_duration = 1.0
+invulnerability_duration = 0.7
+modifier_invulnerability = SubResource("Resource_axdxq")
 stat_speed_ratio = SubResource("Resource_u2gco")
 stat_invulnerable = SubResource("Resource_xnr8q")
 stat_armor = SubResource("Resource_k1d3v")
@@ -1573,13 +1606,47 @@ breakable = NodePath("..")
 sprite = 3
 color = 2
 
-[node name="CyclopusCat" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("14_nfdyi")]
+[node name="Pig" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="0" unique_id=850560069 node_paths=PackedStringArray("movement", "hurt_component", "afterlife_delete_on_destruction") instance=ExtResource("2_r64fy")]
+position = Vector2(79, 8)
+movement = NodePath("AIController/Node2D")
+collision = false
+hurt_component = NodePath("AIController/HurtComponent")
+modifier_invulnerability = null
+afterlife_delete_on_destruction = [NodePath("DamageArea")]
+
+[node name="AIController" parent="Enemies/Pig" index="4" unique_id=359908874 node_paths=PackedStringArray("character", "movement_patterns") instance=ExtResource("25_ky1g4")]
+character = NodePath("..")
+deactivate_on_room_change = false
+actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_ruwpk")])
+movement_patterns = {
+"default": NodePath("Node2D")
+}
+
+[node name="HurtComponent" parent="Enemies/Pig/AIController" index="3" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
+character = NodePath("../..")
+visible_hp_bar = true
+max_health = 3.0
+
+[node name="Node2D" type="Node2D" parent="Enemies/Pig/AIController" index="4" unique_id=1096391438 node_paths=PackedStringArray("target", "body")]
+script = ExtResource("3_fp2w6")
+target = NodePath("../../../../Characters/NinjaGreen")
+body = NodePath("../..")
+distance_min = 2.0
+distance_max = 10.0
+speed = 40.0
+
+[node name="DamageArea" parent="Enemies/Pig" index="5" unique_id=419752470 instance=ExtResource("35_mywxa")]
+scale = Vector2(1.1, 1.1)
+team = 0
+
+[node name="CyclopusCat" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("14_nfdyi")]
 position = Vector2(416, -480)
 scale = Vector2(3, 3)
 collision_mask = 1
 movement = NodePath("EnemyController/AreaMovement")
 hurt_component = NodePath("EnemyController/HurtComponent")
 shoot_controller = NodePath("EnemyController/ShootController")
+afterlife_delete_on_destruction = [NodePath("DamageArea")]
 stat_speed_ratio = SubResource("Resource_qkatc")
 stat_invulnerable = SubResource("Resource_rt8fo")
 stat_armor = SubResource("Resource_lkl3l")
@@ -1624,7 +1691,7 @@ break_time = 0.001
 speed = 60.0
 enabled = false
 
-[node name="DamageArea" parent="Enemies/Bosses/CyclopusCat" index="5" unique_id=419752470 instance=ExtResource("35_mywxa")]
+[node name="DamageArea" parent="Enemies/Bosses/CyclopusCat" index="5" unique_id=1327453622 instance=ExtResource("35_mywxa")]
 z_index = -10
 scale = Vector2(1.25, 1.25)
 team = 0
@@ -1639,20 +1706,23 @@ position = Vector2(232, -504)
 navigation_polygon = SubResource("NavigationPolygon_17ap2")
 navigation_layers = 2
 
-[node name="GiantFrog" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="3" unique_id=645695922 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("38_2p5q4")]
+[node name="GiantFrog" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="3" unique_id=645695922 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("38_2p5q4")]
 position = Vector2(-840, 136)
 scale = Vector2(1.8000001, 1.8000001)
 collision_mask = 0
 movement = NodePath("EnemyController/AreaMovementController")
 hurt_component = NodePath("EnemyController/HurtComponent")
 shoot_controller = NodePath("EnemyController/ShootController")
+modifier_invulnerability = null
 afterlife_duration = 2.0
+afterlife_delete_on_destruction = [NodePath("DamageArea")]
 stat_speed_ratio = SubResource("Resource_yonm5")
 stat_invulnerable = SubResource("Resource_fe38e")
 stat_armor = SubResource("Resource_pvjng")
 stat_cant_move = SubResource("Resource_kwmfl")
 stat_cant_shoot = SubResource("Resource_jeoah")
-stat_cant_interract = null
+stat_cant_interract = SubResource("Resource_2766p")
+stat_shooting_speed = SubResource("Resource_jmt7w")
 
 [node name="EnemyController" parent="Enemies/Bosses/GiantFrog" index="4" unique_id=29310194 node_paths=PackedStringArray("paths_array", "character", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
 script = ExtResource("40_5cmlo")
@@ -1698,7 +1768,7 @@ min_radius = 100.0
 speed = 60.0
 
 [node name="DamageArea" parent="Enemies/Bosses/GiantFrog" index="5" unique_id=190409882 instance=ExtResource("35_mywxa")]
-scale = Vector2(1.25, 1.25)
+scale = Vector2(1.5, 1.5)
 team = 0
 
 [node name="GiantFrogPath1" type="Path2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="4" unique_id=40876543]

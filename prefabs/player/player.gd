@@ -22,7 +22,6 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 			stat_cant_use_inventory.value_changed.connect(_on_block_inventory_changed)
 
 
-
 var noclip: bool:
 	set(value):
 		noclip = value

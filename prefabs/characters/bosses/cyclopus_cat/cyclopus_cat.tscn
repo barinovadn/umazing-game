@@ -63,6 +63,7 @@ afterlife_duration = 0.0
 
 [node name="Shadow" parent="." index="1" unique_id=66535912]
 position = Vector2(0, 4)
+offset = Vector2(0, 0)
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_oydtv")

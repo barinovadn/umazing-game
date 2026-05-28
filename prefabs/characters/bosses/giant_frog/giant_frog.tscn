@@ -151,6 +151,10 @@ animations = [{
 [node name="GiantFrog" unique_id=2065001503 instance=ExtResource("1_cpui0")]
 collision_mask = 1
 
+[node name="Shadow" parent="." index="1" unique_id=66535912]
+scale = Vector2(2, 1)
+offset = Vector2(0, 12)
+
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_c8jkh")
 animation = &"idle_left"

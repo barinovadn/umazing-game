@@ -4,6 +4,7 @@ class_name AIController
 
 
 @export var character: Character2D
+@export var deactivate_on_room_change: bool = true
 
 @export_group("Combat")
 @export var actions: Array[AIAction]
@@ -12,6 +13,7 @@ class_name AIController
 ## for each phase, starting with the second one. 
 @export var modulates_for_phase: Array[float]
 @export var movement_patterns: Dictionary[String, MovementController2D]
+@export var modifier: Modifier
 
 @export_group("VFX", "vfx")
 @export var vfx_on_phase_change: VFXProfile
@@ -44,7 +46,6 @@ var current_phase: int = 0:
 		_on_phase_changed()
 		if vfx_on_phase_change:
 			vfx_on_phase_change.spawn(global_position)
-var modifier: Modification
 var hurt_component: HurtComponent
 var shoot_controller: ShootController
 var movement_controller: MovementController2D
@@ -72,11 +73,6 @@ func _ready():
 		hurt_component.fatal_damage_taken.connect(_on_fatal_damage_taken)
 	
 	current_phase = 1
-	
-	modifier = Modification.new()
-	modifier.value = 1.0
-	modifier.duration = 0.0
-	modifier.operation = Modification.Operation.increase
 
 	
 	_ai_ready()
@@ -101,11 +97,13 @@ func _on_action_changer_timeout():
 	var action_to_play: AIAction = _select_action_by_weight(ready_boss_actions)
 	if action_to_play:
 		movement_controller = movement_patterns[action_to_play.action_name]
-		shoot_controller.set_bullet_array(action_to_play.bullet_types)
-		shoot_controller.interval_between_shots = action_to_play.shoot_interval
-		shoot_controller.post_shot_cd_interval = action_to_play.shooting_animation_interval
-		movement_controller.enabled = action_to_play.can_move
-		shoot_controller.enabled = action_to_play.can_shoot
+		if shoot_controller:
+			shoot_controller.set_bullet_array(action_to_play.bullet_types)
+			shoot_controller.interval_between_shots = action_to_play.shoot_interval
+			shoot_controller.post_shot_cd_interval = action_to_play.shooting_animation_interval
+			shoot_controller.enabled = action_to_play.can_shoot
+		if movement_controller:
+			movement_controller.enabled = action_to_play.can_move
 		
 		_on_action(action_to_play)
 		action_changer.start(action_to_play.duration)
@@ -186,12 +184,16 @@ func activate_interaction(_area: Area2D = null):
 		display_location.add(data_for_interface, self)
 	_on_action_changer_timeout()
 	action_changer.start()
+	Game.player.character.stat_cant_interract.add_modifier(var_to_str(modifier.get_instance_id()), modifier)
 	Game.player.stat_cant_use_inventory.add_modifier(var_to_str(modifier.get_instance_id()), modifier)
 
 
 ## Prevents the boss from moving or shooting and selects an action
 func deactivate_interaction(_area: Area2D = null):
+	if (_area and not deactivate_on_room_change):
+		return
 	Game.player.stat_cant_use_inventory.remove_modifier(var_to_str(modifier.get_instance_id()))
+	Game.player.character.stat_cant_interract.remove_modifier(var_to_str(modifier.get_instance_id()))
 	action_changer.stop()
 	if movement_controller:
 		movement_controller.enabled = false

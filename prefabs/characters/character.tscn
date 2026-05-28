@@ -7,6 +7,13 @@
 [ext_resource type="Script" uid="uid://dyqeulekjrh6q" path="res://common/animations/animation_controller.gd" id="2_o6vhl"]
 [ext_resource type="Script" uid="uid://6h6n0jvs1c7u" path="res://common/stats/stat.gd" id="3_br2vh"]
 
+[sub_resource type="Resource" id="Resource_1ua3n"]
+script = ExtResource("2_n8fqr")
+duration = 1.0
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
 [sub_resource type="Resource" id="Resource_vbdnq"]
 script = ExtResource("3_br2vh")
 base_value = 1.0
@@ -410,6 +417,7 @@ collision_mask = 67
 script = ExtResource("1_87xpb")
 animator = NodePath("AnimationController")
 collider = NodePath("Collider")
+modifier_invulnerability = SubResource("Resource_1ua3n")
 stat_speed_ratio = SubResource("Resource_vbdnq")
 stat_invulnerable = SubResource("Resource_n8fqr")
 stat_armor = SubResource("Resource_br2vh")
