@@ -84,3 +84,12 @@ z_index = 51
 [node name="Clouds" parent="Clouds" unique_id=996622902 instance=ExtResource("7_47dis")]
 position = Vector2(-40, -40)
 emitting = false
+
+[node name="Fog" type="CanvasGroup" parent="." unique_id=1782848304]
+self_modulate = Color(1, 1, 1, 0.19607843)
+z_index = 51
+
+[node name="Fog" parent="Fog" unique_id=109689973 instance=ExtResource("7_47dis")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-40, -40)
+emitting = false
