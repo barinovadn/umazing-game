@@ -413,8 +413,8 @@ shape = SubResource("CircleShape2D_up5c1")
 [node name="Shadow" type="Sprite2D" parent="." unique_id=66535912]
 modulate = Color(1, 1, 1, 0.392157)
 texture_filter = 1
-position = Vector2(0, 8)
 texture = ExtResource("1_up5c1")
+offset = Vector2(0, 8)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2042220320]
 texture_filter = 1
