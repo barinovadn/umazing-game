@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bpioy8hqc3714" path="res://prefabs/tilesets/tileset_lantern.png" id="8_1xkgj"]
 [ext_resource type="Texture2D" uid="uid://dy45hmekks582" path="res://prefabs/tilesets/tileset_camp.png" id="10_w74ho"]
 [ext_resource type="Texture2D" uid="uid://cipgmaqmhv3qq" path="res://prefabs/tilesets/TilesetReliefDetail.png" id="11_5q0ry"]
-[ext_resource type="Texture2D" uid="uid://c1h2g34iqb6c7" path="res://prefabs/tilesets/lava and fire.png" id="13_gdly7"]
+[ext_resource type="Texture2D" uid="uid://0qk14lyarjtb" path="res://prefabs/tilesets/lava_water_fire.png" id="13_gdly7"]
 [ext_resource type="Texture2D" uid="uid://bxa02hmx88bw4" path="res://prefabs/tilesets/SpriteSpirit.png" id="13_uvgyf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_abdxh"]
