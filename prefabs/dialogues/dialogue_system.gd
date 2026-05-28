@@ -228,6 +228,7 @@ func display(new_dialogue: Dialogue, clear_queue: bool = true):
 		dialogue_queue = []
 	Game.player.character.stat_cant_move.add_modifier(var_to_str(mod.get_instance_id()), mod)
 	Game.player.character.stat_cant_shoot.add_modifier(var_to_str(mod.get_instance_id()), mod)
+	Game.player.character.stat_cant_interract.add_modifier(var_to_str(mod.get_instance_id()), mod)
 	dialogue = new_dialogue
 
 
@@ -259,3 +260,4 @@ func close():
 	await get_tree().process_frame
 	Game.player.character.stat_cant_move.remove_modifier(var_to_str(mod.get_instance_id()))
 	Game.player.character.stat_cant_shoot.remove_modifier(var_to_str(mod.get_instance_id()))
+	Game.player.character.stat_cant_interract.remove_modifier(var_to_str(mod.get_instance_id()))

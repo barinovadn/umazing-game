@@ -44,7 +44,7 @@ var current_phase: int = 0:
 		_on_phase_changed()
 		if vfx_on_phase_change:
 			vfx_on_phase_change.spawn(global_position)
-
+var modifier: Modification
 var hurt_component: HurtComponent
 var shoot_controller: ShootController
 var movement_controller: MovementController2D
@@ -72,6 +72,13 @@ func _ready():
 		hurt_component.fatal_damage_taken.connect(_on_fatal_damage_taken)
 	
 	current_phase = 1
+	
+	modifier = Modification.new()
+	modifier.value = 1.0
+	modifier.duration = 0.0
+	modifier.operation = Modification.Operation.increase
+
+	
 	_ai_ready()
 
 
@@ -178,10 +185,12 @@ func activate_interaction(_area: Area2D = null):
 	display_location.add(data_for_interface, self)
 	_on_action_changer_timeout()
 	action_changer.start()
+	Game.player.stat_cant_use_inventory.add_modifier(var_to_str(modifier.get_instance_id()), modifier)
 
 
 ## Prevents the boss from moving or shooting and selects an action
 func deactivate_interaction(_area: Area2D = null):
+	Game.player.stat_cant_use_inventory.remove_modifier(var_to_str(modifier.get_instance_id()))
 	action_changer.stop()
 	movement_controller.enabled = false
 	shoot_controller.enabled = false

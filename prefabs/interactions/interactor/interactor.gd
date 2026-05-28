@@ -24,6 +24,7 @@ var length: float = -1:
 	set(value):
 		length = value
 		_update_target_position()
+var can_interract: bool = true
 
 
 func _ready():
@@ -46,6 +47,9 @@ func _update_target_position():
 ## Returns the found [Interactable] if interaction was successful,
 ## [code]null[/code] otherwise. Emits [signal interacted] on success.
 func interact() -> Interactable:
+	if not can_interract:
+		return
+	
 	var interactable := get_collider() as Interactable
 	
 	if not interactable or not interactable.interact():

@@ -342,6 +342,10 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
+[sub_resource type="Resource" id="Resource_okcse"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
 [sub_resource type="Resource" id="Resource_u2gco"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
@@ -360,6 +364,10 @@ script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_rjdhe"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_dlede"]
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
@@ -899,7 +907,7 @@ height = 160
 
 [node name="GridForeground" parent="." index="1" unique_id=1598882271]
 modulate = Color(1, 1, 1, 0.039215688)
-position = Vector2(-3.9999998, 2.9999998)
+position = Vector2(-1.4210855e-14, 1.4210855e-14)
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
@@ -1295,6 +1303,7 @@ stat_invulnerable = SubResource("Resource_dlo6x")
 stat_armor = SubResource("Resource_axnic")
 stat_cant_move = SubResource("Resource_urt2a")
 stat_cant_shoot = SubResource("Resource_n1mjl")
+stat_cant_interract = null
 
 [node name="PathDotMovement" type="Node2D" parent="Characters/Animals/Cat" index="4" unique_id=2086079038 node_paths=PackedStringArray("path")]
 script = ExtResource("14_roxwf")
@@ -1332,6 +1341,7 @@ stat_invulnerable = SubResource("Resource_cmpeo")
 stat_armor = SubResource("Resource_ixjtd")
 stat_cant_move = SubResource("Resource_bylm8")
 stat_cant_shoot = SubResource("Resource_ldxg4")
+stat_cant_interract = null
 
 [node name="PathDotMovement" type="Node2D" parent="Characters/Animals/Frog" index="4" unique_id=1758182799 node_paths=PackedStringArray("path")]
 script = ExtResource("14_roxwf")
@@ -1368,6 +1378,7 @@ stat_invulnerable = SubResource("Resource_kcjvo")
 stat_armor = SubResource("Resource_1an88")
 stat_cant_move = SubResource("Resource_whful")
 stat_cant_shoot = SubResource("Resource_pthgk")
+stat_cant_interract = null
 
 [node name="BehaviourFollow" type="Node2D" parent="Characters/Animals/Pig" index="4" unique_id=183690025 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("3_fp2w6")
@@ -1400,6 +1411,7 @@ stat_invulnerable = SubResource("Resource_pos45")
 stat_armor = SubResource("Resource_280sb")
 stat_cant_move = SubResource("Resource_yb1t1")
 stat_cant_shoot = SubResource("Resource_eg7g7")
+stat_cant_interract = SubResource("Resource_okcse")
 
 [node name="BehaviourFollow" type="Node2D" parent="Characters/NinjaBlue" index="4" unique_id=640830910 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("3_fp2w6")
@@ -1421,6 +1433,7 @@ stat_invulnerable = SubResource("Resource_xnr8q")
 stat_armor = SubResource("Resource_k1d3v")
 stat_cant_move = SubResource("Resource_nca3v")
 stat_cant_shoot = SubResource("Resource_rjdhe")
+stat_cant_interract = SubResource("Resource_dlede")
 
 [node name="SignGuide" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=836831447 instance=ExtResource("9_8ic3i")]
 position = Vector2(-72, 216)
@@ -1637,6 +1650,7 @@ stat_invulnerable = SubResource("Resource_rt8fo")
 stat_armor = SubResource("Resource_lkl3l")
 stat_cant_move = SubResource("Resource_bhdxb")
 stat_cant_shoot = SubResource("Resource_s8xc4")
+stat_cant_interract = null
 
 [node name="EnemyController" parent="Enemies/Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("npc", "npc_new_movement", "character", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
 script = ExtResource("22_1qwsm")
@@ -1700,6 +1714,7 @@ stat_invulnerable = SubResource("Resource_fe38e")
 stat_armor = SubResource("Resource_pvjng")
 stat_cant_move = SubResource("Resource_kwmfl")
 stat_cant_shoot = SubResource("Resource_jeoah")
+stat_cant_interract = null
 
 [node name="EnemyController" parent="Enemies/Bosses/GiantFrog" index="4" unique_id=29310194 node_paths=PackedStringArray("paths_array", "character", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
 script = ExtResource("40_5cmlo")

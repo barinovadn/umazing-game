@@ -107,7 +107,20 @@ signal movement_controller_changed(new_controller: MovementController2D)
 		stat_cant_shoot = value
 		if stat_cant_shoot and !stat_cant_shoot.value_changed.is_connected(_on_cant_shoot_changed):
 			stat_cant_shoot.value_changed.connect(_on_cant_shoot_changed)
-
+@export var stat_cant_interract: Stat:
+	set(value):
+		if stat_cant_interract:
+			stat_cant_interract.value_changed.disconnect(_on_cant_interract_changed)
+		stat_cant_interract = value
+		if stat_cant_interract and !stat_cant_interract.value_changed.is_connected(_on_cant_interract_changed):
+			stat_cant_interract.value_changed.connect(_on_cant_interract_changed)
+@export var stat_shooting_speed: Stat:
+	set(value):
+		if stat_shooting_speed:
+			stat_shooting_speed.value_changed.disconnect(_on_shooting_speed_changed)
+		stat_shooting_speed = value
+		if stat_shooting_speed and !stat_shooting_speed.value_changed.is_connected(_on_shooting_speed_changed):
+			stat_shooting_speed.value_changed.connect(_on_shooting_speed_changed)
 
 var direction: Vector2:
 	set(value):
@@ -172,6 +185,9 @@ func _duplicate_stats():
 		stat_cant_shoot = stat_cant_shoot.duplicate()
 	if stat_invulnerable:
 		stat_invulnerable = stat_invulnerable.duplicate()
+	if stat_cant_interract:
+		stat_cant_interract = stat_cant_interract.duplicate()
+	## TODO
 
 
 func _on_damaged(_value: float = 1.0):
@@ -190,6 +206,15 @@ func _on_invincibility_changed():
 
 func _on_cant_shoot_changed():
 	shoot_controller.can_shoot = not stat_cant_shoot.value
+
+
+func _on_cant_interract_changed():
+	interactor.can_interract = not stat_cant_interract.value
+
+
+func _on_shooting_speed_changed():
+	shoot_controller.interval_between_shots *= stat_shooting_speed.value
+
 
 func _on_armor_changed():
 	hurt_component.armor = stat_armor.value

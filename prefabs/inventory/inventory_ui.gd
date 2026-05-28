@@ -17,6 +17,8 @@ extends Node
 @onready var inventory_ui = %UI/InventoryUI
 @onready var sfx_player = $AudioStream
 
+var can_open_inventory: bool = true
+
 var selected_item: String = "":
 	set(value):
 		selected_item = value
@@ -37,6 +39,9 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("inventory"):
+		if !can_open_inventory:
+			return
+			
 		inventory_ui.visible = !inventory_ui.visible
 		
 		# WARNING FIXME NOTE TODO TEMP SOLUTION
