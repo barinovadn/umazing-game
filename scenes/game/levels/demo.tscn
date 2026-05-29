@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://dyiccrsoeqmc1" path="res://prefabs/music/tracks/fight.ogg" id="9_28icf"]
 [ext_resource type="PackedScene" uid="uid://uhy5xmcfxpe8" path="res://prefabs/environment/environment_zone.tscn" id="9_q7qle"]
 [ext_resource type="PackedScene" uid="uid://ckf02713hcpbr" path="res://prefabs/characters/animals/cat/cat.tscn" id="11_7im6l"]
-[ext_resource type="PackedScene" path="res://prefabs/combat/hurt_component.tscn" id="11_bpga3"]
+[ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="11_bpga3"]
 [ext_resource type="PackedScene" uid="uid://bjb2riattkaaa" path="res://prefabs/characters/bosses/cyclopus_cat/cyclopus_cat.tscn" id="14_nfdyi"]
 [ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="14_roxwf"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="16_jqxbl"]
@@ -1418,7 +1418,6 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 y_sort_enabled = true
 position = Vector2(0, 160)
 start_animation = 1
-use_movement_direction = false
 invincibility_duration = 1.0
 stat_speed_ratio = SubResource("Resource_u2gco")
 stat_invulnerable = SubResource("Resource_xnr8q")
