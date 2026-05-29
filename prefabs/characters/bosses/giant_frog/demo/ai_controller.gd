@@ -6,18 +6,23 @@ extends AIController
 var current_path_index: int = 0
 
 
+func _on_death():
+	var env: EnvironmentParticles = Game.env_particles
+	env.set_particles(env.Type.FOG, false)
+
+
 func _on_phase_changed():
 	var env: EnvironmentParticles = Game.env_particles
 	match current_phase:
 		2:
 			env.set_particles(env.Type.SUNRAYS, true, env.Ratio.SMALL)
-			env.set_particles(env.Type.CLOUDS, true, env.Ratio.MEDIUM)
+			env.set_particles(env.Type.FOG, true, env.Ratio.MEDIUM)
 		3:
 			shoot_controller.projectile_bounce = true
 			shoot_controller.projectile_bounces_min = 2
 			
 			env.set_particles(env.Type.SUNRAYS, false)
-			env.set_particles(env.Type.CLOUDS, true, env.Ratio.LARGE)
+			env.set_particles(env.Type.FOG, true, env.Ratio.LARGE)
 
 
 func _on_action(action: AIAction):

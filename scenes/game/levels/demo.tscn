@@ -1072,7 +1072,7 @@ music_delay = 0
 
 [node name="Frog" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="7" unique_id=6919117 instance=ExtResource("9_q7qle")]
 position = Vector2(-960, 159.99998)
-enter_particles_enable = Array[int]([200, 400, 500])
+enter_particles_enable = Array[int]([200, 400, 600])
 enter_particles_ratio = Array[int]([100, 50, 25])
 enter_filter_color = Color(0, 0.6901961, 0.49411765, 0.19607843)
 music_playlist = Array[AudioStream]([ExtResource("9_28icf")])

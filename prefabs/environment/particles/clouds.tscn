@@ -4,13 +4,13 @@
 
 [sub_resource type="Gradient" id="Gradient_47dis"]
 offsets = PackedFloat32Array(0, 0.1, 0.8, 1)
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1dw8h"]
 gradient = SubResource("Gradient_47dis")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1dw8h"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kx7np"]
 lifetime_randomness = 0.15
 particle_flag_disable_z = true
 emission_shape = 3
@@ -29,4 +29,4 @@ amount = 288
 texture = ExtResource("1_kx7np")
 lifetime = 25.0
 visibility_rect = Rect2(-720, -360, 1440, 720)
-process_material = SubResource("ParticleProcessMaterial_1dw8h")
+process_material = SubResource("ParticleProcessMaterial_kx7np")
