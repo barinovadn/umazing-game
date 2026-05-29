@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djoroxbekeacc"
-path="res://.godot/imported/TilesetNature.png-0e2b7f06aed148f16480d4d4c210c9b2.ctex"
+uid="uid://cipgmaqmhv3qq"
+path="res://.godot/imported/general_mines.png-1ce36f7c5a59c34f8d38199c5a333e92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/TilesetNature.png"
-dest_files=["res://.godot/imported/TilesetNature.png-0e2b7f06aed148f16480d4d4c210c9b2.ctex"]
+source_file="res://prefabs/tilesets/general_mines.png"
+dest_files=["res://.godot/imported/general_mines.png-1ce36f7c5a59c34f8d38199c5a333e92.ctex"]
 
 [params]
 

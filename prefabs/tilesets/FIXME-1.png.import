@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bacdmi0lf5bwv"
-path="res://.godot/imported/TilesetDungeon.png-5b3baf5a8dc4edbcfd1a9405540903a8.ctex"
+uid="uid://br4dmrdmmqxv1"
+path="res://.godot/imported/FIXME-1.png-8f45cd800f2be9b12183c090ccdfbdc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/TilesetDungeon.png"
-dest_files=["res://.godot/imported/TilesetDungeon.png-5b3baf5a8dc4edbcfd1a9405540903a8.ctex"]
+source_file="res://prefabs/tilesets/FIXME-1.png"
+dest_files=["res://.godot/imported/FIXME-1.png-8f45cd800f2be9b12183c090ccdfbdc4.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1h2g34iqb6c7"
-path="res://.godot/imported/lava and fire.png-df65fb337e6d793231e9f8d7e50e4006.ctex"
+uid="uid://c7q5vkichdeyg"
+path="res://.godot/imported/DELETEME-4.png-cfa4df1841da9889a06d29948a54e0a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/lava and fire.png"
-dest_files=["res://.godot/imported/lava and fire.png-df65fb337e6d793231e9f8d7e50e4006.ctex"]
+source_file="res://prefabs/tilesets/DELETEME-4.png"
+dest_files=["res://.godot/imported/DELETEME-4.png-cfa4df1841da9889a06d29948a54e0a8.ctex"]
 
 [params]
 

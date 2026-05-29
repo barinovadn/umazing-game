@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dx72hue8w0j0u"
-path="res://.godot/imported/TilesetWater.png-8bd1e9597b86f8b5600c0bed2d627e87.ctex"
+path="res://.godot/imported/general_dock.png-4ab594debfe0e914123d980d2ada8c24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/TilesetWater.png"
-dest_files=["res://.godot/imported/TilesetWater.png-8bd1e9597b86f8b5600c0bed2d627e87.ctex"]
+source_file="res://prefabs/tilesets/general_dock.png"
+dest_files=["res://.godot/imported/general_dock.png-4ab594debfe0e914123d980d2ada8c24.ctex"]
 
 [params]
 

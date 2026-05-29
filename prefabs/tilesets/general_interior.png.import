@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpioy8hqc3714"
-path="res://.godot/imported/tileset_lantern.png-6ac739c2f92754f7ac7f087d3a5a7fcf.ctex"
+uid="uid://smrgmlqxlrlc"
+path="res://.godot/imported/general_interior.png-93ea463fb49a346969c83ecef6f6a887.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/tileset_lantern.png"
-dest_files=["res://.godot/imported/tileset_lantern.png-6ac739c2f92754f7ac7f087d3a5a7fcf.ctex"]
+source_file="res://prefabs/tilesets/general_interior.png"
+dest_files=["res://.godot/imported/general_interior.png-93ea463fb49a346969c83ecef6f6a887.ctex"]
 
 [params]
 

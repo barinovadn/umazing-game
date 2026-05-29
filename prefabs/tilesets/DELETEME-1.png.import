@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c106p7ttbixdh"
-path="res://.godot/imported/SpriteSheet16x16.png-b491469f7110812b9a656b5e49d3c242.ctex"
+uid="uid://cgejekpjgb3oe"
+path="res://.godot/imported/DELETEME-1.png-c37686fb58abbb9ba70f3beb1a8eaad9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/SpriteSheet16x16.png"
-dest_files=["res://.godot/imported/SpriteSheet16x16.png-b491469f7110812b9a656b5e49d3c242.ctex"]
+source_file="res://prefabs/tilesets/DELETEME-1.png"
+dest_files=["res://.godot/imported/DELETEME-1.png-c37686fb58abbb9ba70f3beb1a8eaad9.ctex"]
 
 [params]
 

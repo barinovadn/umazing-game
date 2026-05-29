@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwtdlv6ixm7kg"
-path="res://.godot/imported/gate3.png-403ac7585b1bfe904e7c0b5edcfd2848.ctex"
+uid="uid://bur7x452f1f67"
+path="res://.godot/imported/general_village_desert.png-1ee45032d73d42f9fec4a8091c5a4944.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/gate3.png"
-dest_files=["res://.godot/imported/gate3.png-403ac7585b1bfe904e7c0b5edcfd2848.ctex"]
+source_file="res://prefabs/tilesets/general_village_desert.png"
+dest_files=["res://.godot/imported/general_village_desert.png-1ee45032d73d42f9fec4a8091c5a4944.ctex"]
 
 [params]
 

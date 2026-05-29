@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tjlibe4fe234"
-path="res://.godot/imported/tileset_bed.png-7d08386cfcb0ba27ba3df884ecc33545.ctex"
+uid="uid://c106p7ttbixdh"
+path="res://.godot/imported/FIXME-4.png-609008f8a983a83cd59088ac9dbfc0f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/tileset_bed.png"
-dest_files=["res://.godot/imported/tileset_bed.png-7d08386cfcb0ba27ba3df884ecc33545.ctex"]
+source_file="res://prefabs/tilesets/FIXME-4.png"
+dest_files=["res://.godot/imported/FIXME-4.png-609008f8a983a83cd59088ac9dbfc0f8.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0qk14lyarjtb"
-path="res://.godot/imported/lava_water_fire.png-a0157a261a691da2b3ae8db17823b0d3.ctex"
+path="res://.godot/imported/FIXME-3.png-384c9faea0c76854067ceffb9f37992d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/lava_water_fire.png"
-dest_files=["res://.godot/imported/lava_water_fire.png-a0157a261a691da2b3ae8db17823b0d3.ctex"]
+source_file="res://prefabs/tilesets/FIXME-3.png"
+dest_files=["res://.godot/imported/FIXME-3.png-384c9faea0c76854067ceffb9f37992d.ctex"]
 
 [params]
 

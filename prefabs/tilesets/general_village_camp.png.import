@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cipgmaqmhv3qq"
-path="res://.godot/imported/TilesetReliefDetail.png-c7219a3788d937de0dad0a301a15a34c.ctex"
+uid="uid://dy45hmekks582"
+path="res://.godot/imported/general_village_camp.png-3f3dc7a393eda8d1834c99daa16f85e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/TilesetReliefDetail.png"
-dest_files=["res://.godot/imported/TilesetReliefDetail.png-c7219a3788d937de0dad0a301a15a34c.ctex"]
+source_file="res://prefabs/tilesets/general_village_camp.png"
+dest_files=["res://.godot/imported/general_village_camp.png-3f3dc7a393eda8d1834c99daa16f85e3.ctex"]
 
 [params]
 

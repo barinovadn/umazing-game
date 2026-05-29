@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxa02hmx88bw4"
-path="res://.godot/imported/SpriteSpirit.png-b5c5a1dc3fea9ed422080847cdffb83c.ctex"
+uid="uid://b133akl1u88c5"
+path="res://.godot/imported/FIXME-6.png-2288495531903680eeb1e5b1eecfbf08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/tilesets/SpriteSpirit.png"
-dest_files=["res://.godot/imported/SpriteSpirit.png-b5c5a1dc3fea9ed422080847cdffb83c.ctex"]
+source_file="res://prefabs/tilesets/FIXME-6.png"
+dest_files=["res://.godot/imported/FIXME-6.png-2288495531903680eeb1e5b1eecfbf08.ctex"]
 
 [params]
 
