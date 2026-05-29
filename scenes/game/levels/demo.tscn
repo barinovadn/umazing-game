@@ -61,6 +61,7 @@
 [ext_resource type="AudioStream" uid="uid://dwlyixt203ro4" path="res://prefabs/characters/bosses/giant_frog/demo/kwa_1.ogg" id="44_s4min"]
 [ext_resource type="AudioStream" uid="uid://duxaunwluj3f8" path="res://prefabs/characters/bosses/giant_frog/demo/kwa_2.ogg" id="45_28icf"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="45_kf7lw"]
+[ext_resource type="PackedScene" uid="uid://b7jopm86b0plu" path="res://prefabs/combat/bullets/variations/stone_rickoshet_shot/stone_rickoshet_shot.tscn" id="47_xaepa"]
 [ext_resource type="PackedScene" uid="uid://ds7r5gr45oetv" path="res://prefabs/inventory/pickups/pickup.tscn" id="50_3cfp0"]
 [ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi.tres" id="51_8ifb1"]
 [ext_resource type="Resource" uid="uid://b7ifocc5sni0u" path="res://prefabs/inventory/items/fortune_cookie.tres" id="52_yr011"]
@@ -240,6 +241,15 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
+[sub_resource type="Resource" id="Resource_xsaom"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_u2xuf"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
 [sub_resource type="Curve2D" id="Curve2D_qex4a"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -24, -10, 0, 0, 0, 0, -8, 14, 0, 0, 0, 0, 24, 14)
@@ -265,6 +275,15 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_ldxg4"]
 script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_ku8pj"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_40j7a"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_wfbku"]
@@ -342,6 +361,15 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_eg7g7"]
 script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_bokxc"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_nc3i2"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_axdxq"]
@@ -700,6 +728,36 @@ icon = SubResource("AtlasTexture_lt3al")
 name = "Гнилой Ствол Дерева"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
+[sub_resource type="Resource" id="Resource_1p1va"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_s76d0"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_sl7rd"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_2dy1b"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_1hg2r"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_atocy"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_cx3ft"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
 [sub_resource type="Resource" id="Resource_ruwpk"]
 script = ExtResource("20_ivmt6")
 action_name = "default"
@@ -731,6 +789,15 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_s8xc4"]
 script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_shkhy"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_ek345"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_mywxa"]
@@ -777,6 +844,19 @@ weight = 2.0
 phases = Array[int]([1, 2, 3])
 duration = 2.0
 can_move = true
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_hpl4s"]
+script = ExtResource("20_ivmt6")
+action_name = "stone_rick_shot"
+weight = 2.0
+phases = Array[int]([3])
+duration = 5.7
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("47_xaepa")])
+shoot_interval = 0.7
+shooting_animation_interval = 0.35
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
 [sub_resource type="Resource" id="Resource_ejbv0"]
@@ -838,7 +918,7 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("20_ivmt6")
 action_name = "homing_shot"
 weight = 2.0
-phases = Array[int]([1, 2, 3])
+phases = Array[int]([1, 2])
 duration = 10.0
 can_shoot = true
 can_move = true
@@ -851,7 +931,7 @@ metadata/_custom_type_script = "uid://dowl0clqumedg"
 script = ExtResource("20_ivmt6")
 action_name = "rest"
 weight = 1.0
-phases = Array[int]([1])
+phases = Array[int]([1, 2])
 duration = 3.0
 can_move = true
 metadata/_custom_type_script = "uid://dowl0clqumedg"
@@ -860,7 +940,7 @@ metadata/_custom_type_script = "uid://dowl0clqumedg"
 script = ExtResource("20_ivmt6")
 action_name = "stone_bounce"
 weight = 2.0
-phases = Array[int]([2, 3])
+phases = Array[int]([1, 2])
 duration = 5.0
 can_shoot = true
 can_move = true
@@ -1337,7 +1417,8 @@ stat_invulnerable = SubResource("Resource_dlo6x")
 stat_armor = SubResource("Resource_axnic")
 stat_cant_move = SubResource("Resource_urt2a")
 stat_cant_shoot = SubResource("Resource_n1mjl")
-stat_cant_interract = null
+stat_cant_interract = SubResource("Resource_xsaom")
+stat_shooting_speed = SubResource("Resource_u2xuf")
 
 [node name="PathDotMovement" type="Node2D" parent="Characters/Animals/Cat" index="4" unique_id=2086079038 node_paths=PackedStringArray("path")]
 script = ExtResource("14_roxwf")
@@ -1376,7 +1457,8 @@ stat_invulnerable = SubResource("Resource_cmpeo")
 stat_armor = SubResource("Resource_ixjtd")
 stat_cant_move = SubResource("Resource_bylm8")
 stat_cant_shoot = SubResource("Resource_ldxg4")
-stat_cant_interract = null
+stat_cant_interract = SubResource("Resource_ku8pj")
+stat_shooting_speed = SubResource("Resource_40j7a")
 
 [node name="PathDotMovement" type="Node2D" parent="Characters/Animals/Frog" index="4" unique_id=1758182799 node_paths=PackedStringArray("path")]
 script = ExtResource("14_roxwf")
@@ -1447,7 +1529,8 @@ stat_invulnerable = SubResource("Resource_pos45")
 stat_armor = SubResource("Resource_280sb")
 stat_cant_move = SubResource("Resource_yb1t1")
 stat_cant_shoot = SubResource("Resource_eg7g7")
-stat_cant_interract = SubResource("Resource_okcse")
+stat_cant_interract = SubResource("Resource_bokxc")
+stat_shooting_speed = SubResource("Resource_nc3i2")
 
 [node name="BehaviourFollow" type="Node2D" parent="Characters/NinjaBlue" index="4" unique_id=640830910 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("3_fp2w6")
@@ -1461,7 +1544,6 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 y_sort_enabled = true
 position = Vector2(0, 160)
 start_animation = 1
-use_movement_direction = false
 invulnerability_duration = 0.7
 modifier_invulnerability = SubResource("Resource_axdxq")
 stat_speed_ratio = SubResource("Resource_u2gco")
@@ -1613,6 +1695,13 @@ collision = false
 hurt_component = NodePath("AIController/HurtComponent")
 modifier_invulnerability = null
 afterlife_delete_on_destruction = [NodePath("DamageArea")]
+stat_speed_ratio = SubResource("Resource_1p1va")
+stat_invulnerable = SubResource("Resource_s76d0")
+stat_armor = SubResource("Resource_sl7rd")
+stat_cant_move = SubResource("Resource_2dy1b")
+stat_cant_shoot = SubResource("Resource_1hg2r")
+stat_cant_interract = SubResource("Resource_atocy")
+stat_shooting_speed = SubResource("Resource_cx3ft")
 
 [node name="AIController" parent="Enemies/Pig" index="4" unique_id=359908874 node_paths=PackedStringArray("character", "movement_patterns") instance=ExtResource("25_ky1g4")]
 character = NodePath("..")
@@ -1652,19 +1741,21 @@ stat_invulnerable = SubResource("Resource_rt8fo")
 stat_armor = SubResource("Resource_lkl3l")
 stat_cant_move = SubResource("Resource_bhdxb")
 stat_cant_shoot = SubResource("Resource_s8xc4")
-stat_cant_interract = null
+stat_cant_interract = SubResource("Resource_shkhy")
+stat_shooting_speed = SubResource("Resource_ek345")
 
 [node name="EnemyController" parent="Enemies/Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("npc", "npc_new_movement", "character", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
 script = ExtResource("22_1qwsm")
 npc = NodePath("../../../../Characters/Animals/Cat")
 npc_new_movement = NodePath("../../../../Characters/Animals/Cat/BehaviourFollow")
 character = NodePath("..")
-actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_mywxa"), SubResource("Resource_ebg7x"), SubResource("Resource_psdh3"), SubResource("Resource_2p5q4")])
+actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_mywxa"), SubResource("Resource_ebg7x"), SubResource("Resource_psdh3"), SubResource("Resource_2p5q4"), SubResource("Resource_hpl4s")])
 modulates_for_phase = Array[float]([0.7, 0.3])
 movement_patterns = {
 "bunch_of_shots": NodePath("AreaMovement"),
 "homing_shots": NodePath("AreaMovement"),
 "rest": NodePath("AreaMovement"),
+"stone_rick_shot": NodePath("AreaMovement"),
 "stone_shots": NodePath("AreaMovement")
 }
 vfx_on_phase_change = SubResource("Resource_8ifb1")
@@ -1748,7 +1839,7 @@ interface_needed = true
 
 [node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=848658870 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
 character = NodePath("../..")
-max_health = 10.0
+max_health = 15.0
 sounds_damage = Array[AudioStream]([ExtResource("44_s4min"), ExtResource("45_28icf")])
 
 [node name="ShootController" parent="Enemies/Bosses/GiantFrog/EnemyController" index="4" unique_id=675331126 instance=ExtResource("16_jqxbl")]

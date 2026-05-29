@@ -18,9 +18,6 @@ func _on_phase_changed():
 			env.set_particles(env.Type.SUNRAYS, true, env.Ratio.SMALL)
 			env.set_particles(env.Type.FOG, true, env.Ratio.MEDIUM)
 		3:
-			shoot_controller.projectile_bounce = true
-			shoot_controller.projectile_bounces_min = 2
-			
 			env.set_particles(env.Type.SUNRAYS, false)
 			env.set_particles(env.Type.FOG, true, env.Ratio.LARGE)
 
