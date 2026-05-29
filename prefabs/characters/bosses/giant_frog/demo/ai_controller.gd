@@ -29,8 +29,7 @@ func _on_action(action: AIAction):
 			movement_controller.path = paths_array["path_1"]
 		"stone_bounce":
 			movement_controller.order = PathDotMovementController2D.Order.BACK_AND_FORTH
-			movement_controller.current_point_index = 0
-			movement_controller.path = paths_array["path_2"]
+			movement_controller.path = paths_array["path_1"]
 		"multi_shot":
 			movement_controller.order = PathDotMovementController2D.Order.SEQUENTIAL
 			movement_controller.current_point_index = 0

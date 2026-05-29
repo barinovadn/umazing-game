@@ -2,10 +2,6 @@ extends Bullet
 
 
 func _on_map_collision(_body: Node2D):
-	if speed >= 40:
-		speed -= 30
-		if speed < 40:
-			speed = 40
 	if bounces > 0:
 		bounce(_body)
 		bounces -= 1
