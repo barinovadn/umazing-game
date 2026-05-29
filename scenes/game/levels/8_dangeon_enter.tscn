@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://d0t6yhjp0obuo"]
 
 [ext_resource type="PackedScene" uid="uid://buhslpn3jaek5" path="res://scenes/game/game.tscn" id="1_jyo8l"]
-[ext_resource type="PackedScene" uid="uid://cuxbwbedjhckr" path="res://prefabs/characters/pig/pig.tscn" id="2_fp6mm"]
+[ext_resource type="PackedScene" uid="uid://cuxbwbedjhckr" path="res://prefabs/characters/animals/pig/pig.tscn" id="2_fp6mm"]
 
 [node name="Game" unique_id=1082399769 instance=ExtResource("1_jyo8l")]
 
