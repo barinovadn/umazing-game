@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4rmrkumwcawl"
-path="res://.godot/imported/Charge.png-e7f5a53dc414b2f7240984b4eb85b186.ctex"
+uid="uid://022sg5y1hce1"
+path="res://.godot/imported/portrait.png-1f9f3f4571f816e5039388c70a4d4b66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/giant_bamboo/Charge.png"
-dest_files=["res://.godot/imported/Charge.png-e7f5a53dc414b2f7240984b4eb85b186.ctex"]
+source_file="res://prefabs/characters/bosses/giant_bamboo/portrait.png"
+dest_files=["res://.godot/imported/portrait.png-1f9f3f4571f816e5039388c70a4d4b66.ctex"]
 
 [params]
 

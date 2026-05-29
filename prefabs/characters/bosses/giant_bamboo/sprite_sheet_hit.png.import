@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d12vkb5vp6gkr"
-path="res://.godot/imported/Walk.png-c2dd9345de3c26852787b635a70fa8d2.ctex"
+uid="uid://dp0m8t7b1yba4"
+path="res://.godot/imported/sprite_sheet_hit.png-dfc2220fa2acf341528d40f60ee6dd44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/giant_bamboo/Walk.png"
-dest_files=["res://.godot/imported/Walk.png-c2dd9345de3c26852787b635a70fa8d2.ctex"]
+source_file="res://prefabs/characters/bosses/giant_bamboo/sprite_sheet_hit.png"
+dest_files=["res://.godot/imported/sprite_sheet_hit.png-dfc2220fa2acf341528d40f60ee6dd44.ctex"]
 
 [params]
 

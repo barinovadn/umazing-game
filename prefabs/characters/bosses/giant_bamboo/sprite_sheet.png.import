@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4j8bbin8yxs8"
-path="res://.godot/imported/Idle.png-02ae4ab690cd92ce4bd0eb98c7575034.ctex"
+path="res://.godot/imported/sprite_sheet.png-b1f1efc47c9d63ce63d6b11f58164bfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/giant_bamboo/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-02ae4ab690cd92ce4bd0eb98c7575034.ctex"]
+source_file="res://prefabs/characters/bosses/giant_bamboo/sprite_sheet.png"
+dest_files=["res://.godot/imported/sprite_sheet.png-b1f1efc47c9d63ce63d6b11f58164bfb.ctex"]
 
 [params]
 

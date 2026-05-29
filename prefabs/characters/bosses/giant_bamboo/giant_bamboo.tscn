@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cathu8h71gfg7"]
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_54ysm"]
-[ext_resource type="Texture2D" uid="uid://cmq7newg58g4d" path="res://prefabs/characters/bosses/giant_bamboo/Attack.png" id="2_yn0h6"]
+[ext_resource type="Texture2D" uid="uid://cmq7newg58g4d" path="res://prefabs/characters/bosses/giant_bamboo/sprite_sheet_attack.png" id="2_yn0h6"]
 [ext_resource type="Texture2D" uid="uid://conyoi5pkdyav" path="res://prefabs/characters/sprite_sheet.png" id="3_7xa5f"]
-[ext_resource type="Texture2D" uid="uid://4j8bbin8yxs8" path="res://prefabs/characters/bosses/giant_bamboo/Idle.png" id="4_s13dy"]
+[ext_resource type="Texture2D" uid="uid://4j8bbin8yxs8" path="res://prefabs/characters/bosses/giant_bamboo/sprite_sheet.png" id="4_s13dy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yn0h6"]
 radius = 26.0

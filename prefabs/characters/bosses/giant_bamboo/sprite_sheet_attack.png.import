@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmq7newg58g4d"
-path="res://.godot/imported/Attack.png-2b4bd14242a3cbe6af0f42e8d0b50284.ctex"
+path="res://.godot/imported/sprite_sheet_attack.png-e6ac09ab18ae48bd74a67bf3ee8fc0ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/giant_bamboo/Attack.png"
-dest_files=["res://.godot/imported/Attack.png-2b4bd14242a3cbe6af0f42e8d0b50284.ctex"]
+source_file="res://prefabs/characters/bosses/giant_bamboo/sprite_sheet_attack.png"
+dest_files=["res://.godot/imported/sprite_sheet_attack.png-e6ac09ab18ae48bd74a67bf3ee8fc0ba.ctex"]
 
 [params]
 
