@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_qdvc2"]
 script = ExtResource("3_2btik")
+density = 4
 notification_text_color = Color(0.6313726, 0.56078434, 1, 1)
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 
@@ -18,6 +19,7 @@ metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 [sub_resource type="Resource" id="Resource_pfkkx"]
 script = ExtResource("3_2btik")
 modulate = Color(0.8611049, 0.40507108, 1, 1)
+density = 4
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 
 [sub_resource type="Resource" id="Resource_m0lym"]
@@ -28,6 +30,7 @@ metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [sub_resource type="Resource" id="Resource_2btik"]
 script = ExtResource("3_2btik")
+density = 4
 notification_text_color = Color(0.6313726, 0.56078434, 1, 1)
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 

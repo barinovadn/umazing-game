@@ -20,7 +20,6 @@ signal item_used(item: ItemData)
 var items: Array[ItemData] = []
 
 
-
 func _get_stackable_item(item_name: String):
 	for item in items:
 		if item.name == item_name and item.amount < item.max_stack:
@@ -44,7 +43,10 @@ func _fill_existing_stacks(data: ItemData, amount: int) -> int:
 func _on_item_added(item: ItemData, amount: int):
 	if vfx_notification_item_added:
 		vfx_notification_item_added.settings.notification_text = (
-			"x" + str(amount) + " " + item.name )
+			"+"
+			+ ( (str(amount) + " ") if amount > 1 else "" )
+			+ item.name
+		)
 		vfx_notification_item_added.spawn(Game.player.character.global_position)
 
 
