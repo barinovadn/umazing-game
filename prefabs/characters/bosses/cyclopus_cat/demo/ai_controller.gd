@@ -8,7 +8,7 @@ var boof: int = 0
 
 
 func _on_death():
-	var env := Game.env_particles
+	var env = Game.env_particles
 	env.disable_all()
 	env.enable(env.Type.SUNRAYS, env.Ratio.MEDIUM)
 	
@@ -17,7 +17,7 @@ func _on_death():
 
 
 func _on_phase_changed():
-	var env := Game.env_particles
+	var env = Game.env_particles
 	match current_phase:
 		2:
 			env.set_particles(env.Type.CLOUDS, true, env.Ratio.MEDIUM)
