@@ -30,7 +30,6 @@ var state: State:
 			return
 		
 		state = value
-		print(state)
 		if not Engine.is_editor_hint():
 			_on_state_changed()
 
