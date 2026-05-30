@@ -12,7 +12,7 @@ extends RigidBody2D
 @export_group("Afterlife", "afterlife")
 @export var afterlife_duration: float = 7.0
 
-@onready var inventory = Game.inventory
+#@onready var inventory = Game.inventory
 @onready var sprite = $Icon
 @onready var light = $Icon/RarityLight
 @onready var audio_player = $SoundPlayer 
@@ -46,31 +46,34 @@ func set_light_by_rarity(data: ItemData):
 		light.color = data.rarity_colors.get(data.rarity, Color.WHITE)
 
 
-func collect():
+func collect(inventory: Inventory):
+	if not inventory:
+		return
+
 	var leftover = inventory.add_item(item_data)
-
-	if leftover <= 0:
-		if item_data and audio_player:
-			var target_sound = item_data.rarity_sounds.get(item_data.rarity)
-
-			if not target_sound:
-				target_sound = default_sound_pickup
-
-			if target_sound:
-				audio_player.stream = target_sound
-				audio_player.play()
-
-		if item_data:
-			var vfx_collect = item_data.rarity_collect_vfx.get(item_data.rarity)
-			if not vfx_collect:
-				vfx_collect = default_vfx_collect
-				
-			if vfx_collect:
-				vfx_collect.spawn(global_position)
-
-		delete()
-	else:
+	if leftover > 0:
 		item_data.amount = leftover
+		return
+
+	if item_data:
+		_play_pickup_sfx()
+		_spawn_pickup_vfx()
+	
+	delete()
+
+
+func _play_pickup_sfx():
+	if not audio_player: return
+	var target_sound = item_data.rarity_sounds.get(item_data.rarity, default_sound_pickup)
+	if target_sound:
+		audio_player.stream = target_sound
+		audio_player.play()
+
+
+func _spawn_pickup_vfx():
+	var vfx_collect = item_data.rarity_collect_vfx.get(item_data.rarity, default_vfx_collect)
+	if vfx_collect:
+		vfx_collect.spawn(global_position)
 
 
 func delete():

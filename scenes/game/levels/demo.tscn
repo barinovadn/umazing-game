@@ -49,7 +49,7 @@
 [ext_resource type="AudioStream" uid="uid://ctrye6fbih85b" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_4.ogg" id="33_psdh3"]
 [ext_resource type="AudioStream" uid="uid://bhu1506kudwdu" path="res://prefabs/characters/bosses/cyclopus_cat/demo/meow_5.ogg" id="34_2p5q4"]
 [ext_resource type="Resource" uid="uid://cfvqawhunbipu" path="res://prefabs/breakables/variations/jug.tres" id="34_o8fgc"]
-[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
+[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
 [ext_resource type="Resource" uid="uid://br85rp62bcmo1" path="res://prefabs/breakables/variations/barrel.tres" id="35_ffajp"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="35_mywxa"]
 [ext_resource type="PackedScene" uid="uid://cdtekl4l4f04o" path="res://prefabs/interactions/marker/marker.tscn" id="37_psdh3"]
@@ -1418,7 +1418,6 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 y_sort_enabled = true
 position = Vector2(0, 160)
 start_animation = 1
-use_movement_direction = false
 invincibility_duration = 1.0
 stat_speed_ratio = SubResource("Resource_u2gco")
 stat_invulnerable = SubResource("Resource_xnr8q")
@@ -1697,10 +1696,7 @@ navigation_polygon = SubResource("NavigationPolygon_28icf")
 position = Vector2(-960, 160)
 texture = SubResource("GradientTexture2D_3jqjo")
 
-[node name="Pickups" parent="." index="14" unique_id=1517964194]
-z_index = 20
-
-[node name="Pickups" parent="." index="15" unique_id=1517964194]
+[node name="Pickups" parent="." index="16" unique_id=1517964194]
 z_index = 20
 
 [node name="Shrimp1" parent="Pickups" index="0" unique_id=1796102070 instance=ExtResource("50_3cfp0")]
