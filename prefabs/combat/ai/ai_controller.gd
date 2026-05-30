@@ -19,9 +19,6 @@ class_name AIController
 @export_group("VFX", "vfx")
 @export var vfx_on_phase_change: VFXProfile
 
-@export_group("Dialogue", "dialogue")
-@export var dialogue_boss_phrase: Array[Dialogue]
-
 @export_group("Event Responses")
 @export var show_on_activation: Array[Node2D]
 @export var hide_on_activation: Array[Node2D]

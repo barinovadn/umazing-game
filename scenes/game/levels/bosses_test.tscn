@@ -6,7 +6,49 @@
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/combat/ai/ai_controller.tscn" id="4_lonoe"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="5_olh6k"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="6_1e2a1"]
-[ext_resource type="PackedScene" uid="uid://dobj6xx5d4p2c" path="res://prefabs/breakables/variations/bamboo_1.tscn" id="7_olh6k"]
+[ext_resource type="PackedScene" uid="uid://cgvgap0xmvt73" path="res://prefabs/characters/enemies/bamboo_enemy/bamboo_enemy.tscn" id="7_1e2a1"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="8_j4jck"]
+[ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://prefabs/combat/ai/ai_action.gd" id="9_fflhd"]
+[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="9_j4jck"]
+[ext_resource type="PackedScene" uid="uid://cdxo427r3dbg6" path="res://prefabs/combat/bullets/variations/plant_spike_shot/plant_spike_shot.tscn" id="10_7tf5d"]
+
+[sub_resource type="Resource" id="Resource_fflhd"]
+script = ExtResource("8_j4jck")
+duration = 1.0
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[sub_resource type="Resource" id="Resource_7tf5d"]
+script = ExtResource("9_fflhd")
+action_name = "shooting"
+weight = 1.0
+phases = Array[int]([1])
+duration = 5.0
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("10_7tf5d")])
+shoot_interval = 0.7
+shooting_animation_interval = 0.5
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_5yt0q"]
+script = ExtResource("9_fflhd")
+action_name = "rest"
+weight = 1.0
+phases = Array[int]([1])
+duration = 3.0
+can_move = true
+shoot_interval = 0.5
+shooting_animation_interval = 0.3
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5yt0q"]
+vertices = PackedVector2Array(16.492188, 26.90625, 54.007813, 35.328125, 49.703125, 48.242188, -2.609375, 49.976563, -51.15625, 44.78125, -54.828125, 31.476563, -29.773438, 23.132813)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-67, 25, -59, 54, -3, 60, 57, 58, 67, 28, 18, 17, -31, 13)])
+parsed_collision_mask = 1
+source_geometry_mode = 2
 
 [node name="Game" unique_id=1082399769 instance=ExtResource("1_o2p3v")]
 
@@ -18,13 +60,10 @@ allow_cheats = true
 tile_map_data = PackedByteArray("AAAJAAQAAAACAAkAAAAJAAMAAAACAAcAAAAJAAIAAAAEAAwAAAAJAAEAAAADAAwAAAAJAAAAAAABAAwAAAAJAP//AAAAAAwAAAAJAP7/AAAEAAwAAAAJAP3/AAAAAAwAAAAJAPz/AAAAAAwAAAAJAPv/AAAAAAwAAAAIAAQAAAABAAkAAAAIAAMAAAABAAcAAAAIAAIAAAAAAAwAAAAIAAEAAAAEAAwAAAAIAAAAAAAAAAwAAAAIAP//AAAAAAwAAAAIAP7/AAAAAAwAAAAIAP3/AAAEAAwAAAAIAPz/AAABAAwAAAAIAPv/AAAAAAwAAAAHAAQAAAAAAAkAAAAHAAMAAAAAAAcAAAAHAAIAAAAEAAwAAAAHAAEAAAAEAAwAAAAHAAAAAAAEAAwAAAAHAP//AAADAAwAAAAHAP7/AAAAAAwAAAAHAP3/AAAAAAwAAAAHAPz/AAAEAAwAAAAHAPv/AAAEAAwAAAAGAAQAAAAAAAwAAAAGAAMAAAAAAAwAAAAGAAIAAAAAAAwAAAAGAAEAAAACAAwAAAAGAAAAAAAAAAwAAAAGAP//AAAAAAwAAAAGAP7/AAAAAAwAAAAGAP3/AAAAAAwAAAAGAPz/AAADAAwAAAAGAPv/AAAAAAwAAAAFAAQAAAADAAwAAAAFAAMAAAAEAAwAAAAFAAIAAAAAAAwAAAAFAAEAAAAAAAwAAAAFAAAAAAAAAAwAAAAFAP//AAAAAAwAAAAFAP7/AAAEAAwAAAAFAP3/AAAAAAwAAAAFAPz/AAADAAwAAAAFAPv/AAAAAAwAAAAEAAQAAAAAAAwAAAAEAAMAAAADAAwAAAAEAAIAAAAAAAwAAAAEAAEAAAAEAAwAAAAEAAAAAAAAAAwAAAAEAP//AAAEAAwAAAAEAP7/AAAEAAwAAAAEAP3/AAAAAAwAAAAEAPz/AAAAAAwAAAAEAPv/AAAEAAwAAAADAAQAAAAAAAwAAAADAAMAAAAAAAwAAAADAAIAAAAAAAwAAAADAAEAAAAAAAwAAAADAAAAAAAAAAwAAAADAP//AAAAAAwAAAADAP7/AAAEAAwAAAADAP3/AAAAAAwAAAADAPz/AAAAAAwAAAADAPv/AAAAAAwAAAACAAQAAAAEAAwAAAACAAMAAAAAAAwAAAACAAIAAAAAAAwAAAACAAEAAAAEAAwAAAACAAAAAAAAAAwAAAACAP//AAAEAAwAAAACAP7/AAACAAwAAAACAP3/AAAAAAwAAAACAPz/AAAAAAwAAAACAPv/AAAAAAwAAAABAAQAAAAAAAwAAAABAAMAAAAAAAwAAAABAAIAAAACAAwAAAABAAEAAAAEAAwAAAABAAAAAAAAAAwAAAABAP//AAAAAAwAAAABAP7/AAAAAAwAAAABAP3/AAAAAAwAAAABAPz/AAAEAAwAAAABAPv/AAAAAAwAAAAAAAQAAAACAAoAAAAAAAMAAAAAAAwAAAAAAAIAAAAAAAwAAAAAAAEAAAABAAwAAAAAAAAAAAAAAAwAAAAAAP//AAAAAAwAAAAAAP7/AAAAAAwAAAAAAP3/AAAAAAwAAAAAAPz/AAACAAwAAAAAAPv/AAACAAwAAAD//wQAAAABAAoAAAD//wMAAAADAAwAAAD//wIAAAAAAAwAAAD//wEAAAAEAAwAAAD//wAAAAADAAwAAAD/////AAAAAAwAAAD///7/AAADAAwAAAD///3/AAAEAAwAAAD///z/AAAEAAwAAAD///v/AAAAAAwAAAD+/wQAAAAAAAoAAAD+/wMAAAACAAwAAAD+/wIAAAAAAAwAAAD+/wEAAAADAAwAAAD+/wAAAAAAAAwAAAD+////AAAAAAwAAAD+//7/AAAAAAwAAAD+//3/AAAAAAwAAAD+//z/AAAEAAwAAAD+//v/AAAEAAwAAAD9/wQAAAAAAAwAAAD9/wMAAAAAAAwAAAD9/wIAAAAAAAwAAAD9/wEAAAAAAAwAAAD9/wAAAAAAAAwAAAD9////AAAAAAwAAAD9//7/AAAEAAwAAAD9//3/AAAEAAwAAAD9//z/AAAAAAwAAAD9//v/AAAAAAwAAAD8/wQAAAAEAAwAAAD8/wMAAAAAAAwAAAD8/wIAAAAAAAwAAAD8/wEAAAAEAAwAAAD8/wAAAAAAAAwAAAD8////AAAAAAwAAAD8//7/AAAAAAwAAAD8//3/AAAEAAwAAAD8//z/AAAEAAwAAAD8//v/AAAAAAwAAAD7/wQAAAADAAwAAAD7/wMAAAAAAAwAAAD7/wIAAAAAAAwAAAD7/wEAAAAEAAwAAAD7/wAAAAAEAAwAAAD7////AAADAAwAAAD7//7/AAAAAAwAAAD7//3/AAAAAAwAAAD7//z/AAAAAAwAAAD7//v/AAADAAwAAAD6/wQAAAAEAAwAAAD6/wMAAAAAAAwAAAD6/wIAAAAAAAwAAAD6/wEAAAAEAAwAAAD6/wAAAAAEAAwAAAD6////AAAEAAwAAAD6//7/AAAAAAwAAAD6//3/AAADAAwAAAD6//z/AAAAAAwAAAD6//v/AAAEAAwAAAD5/wQAAAACAAkAAAD5/wMAAAACAAcAAAD5/wIAAAAAAAwAAAD5/wEAAAAAAAwAAAD5/wAAAAAAAAwAAAD5////AAAEAAwAAAD5//7/AAAAAAwAAAD5//3/AAAAAAwAAAD5//z/AAAAAAwAAAD5//v/AAADAAwAAAD4/wQAAAABAAkAAAD4/wMAAAABAAcAAAD4/wIAAAADAAwAAAD4/wEAAAADAAwAAAD4/wAAAAAEAAwAAAD4////AAAAAAwAAAD4//7/AAAEAAwAAAD4//3/AAAAAAwAAAD4//z/AAAEAAwAAAD4//v/AAAEAAwAAAD3/wQAAAABAAkAAAD3/wMAAAABAAcAAAD3/wIAAAAAAAwAAAD3/wEAAAAAAAwAAAD3/wAAAAAAAAwAAAD3////AAABAAwAAAD3//7/AAAEAAwAAAD3//3/AAAAAAwAAAD3//z/AAAAAAwAAAD3//v/AAABAAwAAAD2/wQAAAAAAAkAAAD2/wMAAAAAAAcAAAD2/wIAAAAAAAwAAAD2/wEAAAAAAAwAAAD2/wAAAAAAAAwAAAD2////AAAAAAwAAAD2//7/AAAAAAwAAAD2//3/AAACAAwAAAD2//z/AAAAAAwAAAD2//v/AAACAAwAAAA=")
 
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="0" unique_id=297187452 instance=ExtResource("2_o2p3v")]
-position = Vector2(-117, 0)
-
-[node name="Breakable" parent="Breakables" parent_id_path=PackedInt32Array(1931600874) index="0" unique_id=514792727 instance=ExtResource("7_olh6k")]
-position = Vector2(-81, 32)
+position = Vector2(-148, -43)
 
 [node name="GiantBamboo" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=2065001503 node_paths=PackedStringArray("hurt_component") instance=ExtResource("3_cp8gd")]
-position = Vector2(37, -11)
+position = Vector2(375, -11)
 hurt_component = NodePath("AIController/HurtComponent")
 afterlife_duration = 2.0
 
@@ -36,3 +75,38 @@ character = NodePath("../..")
 
 [node name="ShootController" parent="Enemies/Bosses/GiantBamboo/AIController" index="4" unique_id=1242481191 instance=ExtResource("6_1e2a1")]
 interval_between_shots = 0.5
+
+[node name="BambooEnemy" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="1" unique_id=1635512271 node_paths=PackedStringArray("hurt_component", "shoot_controller") instance=ExtResource("7_1e2a1")]
+position = Vector2(-32, -8)
+hurt_component = NodePath("AIController/HurtComponent")
+shoot_controller = NodePath("AIController/ShootController")
+modifier_invulnerability = SubResource("Resource_fflhd")
+
+[node name="AIController" parent="Enemies/BambooEnemy" index="5" unique_id=1905422274 node_paths=PackedStringArray("character", "movement_patterns") instance=ExtResource("4_lonoe")]
+character = NodePath("..")
+deactivate_on_room_change = false
+actions = Array[ExtResource("9_fflhd")]([SubResource("Resource_7tf5d"), SubResource("Resource_5yt0q")])
+movement_patterns = {
+"rest": NodePath("AreaMovementController"),
+"shooting": NodePath("AreaMovementController")
+}
+
+[node name="ShootController" parent="Enemies/BambooEnemy/AIController" index="3" unique_id=518680887 instance=ExtResource("6_1e2a1")]
+team = 0
+projectile_homing = true
+projectile_bounce = true
+
+[node name="HurtComponent" parent="Enemies/BambooEnemy/AIController" index="4" unique_id=948753511 node_paths=PackedStringArray("character") instance=ExtResource("5_olh6k")]
+character = NodePath("../..")
+visible_hp_bar = true
+max_health = 2.0
+
+[node name="AreaMovementController" type="Node2D" parent="Enemies/BambooEnemy/AIController" index="5" unique_id=888065150 node_paths=PackedStringArray("regions")]
+script = ExtResource("9_j4jck")
+regions = [NodePath("../../../BambooEnemyRegion1")]
+min_radius = 20.0
+speed = 45.0
+metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
+
+[node name="BambooEnemyRegion1" type="NavigationRegion2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="2" unique_id=1883405314]
+navigation_polygon = SubResource("NavigationPolygon_5yt0q")

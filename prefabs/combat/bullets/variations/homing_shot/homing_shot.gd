@@ -5,5 +5,3 @@ extends Bullet
 func _bullet_ready():
 	var tween = create_tween()
 	tween.tween_property(self, "turn_rate", 0.0, homing_time)
-
- 
