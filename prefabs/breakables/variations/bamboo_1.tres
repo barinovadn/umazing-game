@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://ohhlmelggbac"]
 
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_i1oa7"]
 [ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="1_wh6fa"]
 [ext_resource type="AudioStream" uid="uid://c5ao7p1ys2tvu" path="res://prefabs/combat/sounds/impact_1.wav" id="2_wh6fa"]
 [ext_resource type="Texture2D" uid="uid://djoroxbekeacc" path="res://prefabs/tilesets/general_nature.png" id="3_wh6fa"]
