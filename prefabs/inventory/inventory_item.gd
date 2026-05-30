@@ -44,6 +44,18 @@ enum Rarity { COMMON, RARE, EPIC }
 	}
 
 
+func is_in_inventory():
+	if Game.player and Game.player.inventory:
+		return Game.player.inventory.has_item(name, 1)
+	return false
+
+
+func get_total_amount():
+	if Game.player and Game.player.inventory:
+		return Game.player.inventory.get_item_amount(name)
+	return 0
+
+
 func use():
 	Game.player.hurt_component.max_health += max_hp_increase
 	Game.player.hurt_component.current_health += heal
