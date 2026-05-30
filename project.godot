@@ -25,6 +25,8 @@ buses/default_bus_layout="uid://ghxcyrqhoohu"
 
 [autoload]
 
+SceneManager="*uid://d0d8fhf3rmy6l"
+SaveManager="*uid://dnd1vk6fvfsd4"
 Game="*uid://cmd6bsjenc2hf"
 Cursor="*res://autoload/cursor/cursor.gd"
 
