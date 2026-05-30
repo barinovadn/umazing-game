@@ -4,6 +4,8 @@ extends RigidBody2D
 
 
 @export var item_data: ItemData
+
+@export_group("Sounds", "default_sound")
 @export var default_sound_pickup: AudioStream
 
 @export_group("VFX", "default_vfx")
@@ -16,7 +18,7 @@ extends RigidBody2D
 @export var afterlife_duration: float = 7.0
 
 @onready var sprite = $Icon
-@onready var light = $Icon/RarityLight
+@onready var light = $Icon/Light
 @onready var audio_player = $SoundPlayer 
 
 var is_deleted: bool = false:
