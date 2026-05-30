@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/combat/ai/ai_controller.tscn" id="4_lonoe"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="5_olh6k"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="6_1e2a1"]
-[ext_resource type="PackedScene" uid="uid://ik6dpd1qhkci" path="res://prefabs/characters/bosses/giant_racoon/giant_racoon.tscn" id="7_olh6k"]
 
 [node name="Game" unique_id=1082399769 instance=ExtResource("1_o2p3v")]
 
@@ -29,6 +28,3 @@ position = Vector2(37, -11)
 
 [node name="ShootController" parent="Enemies/Bosses/GiantBamboo/AIController" index="4" unique_id=1242481191 instance=ExtResource("6_1e2a1")]
 interval_between_shots = 0.5
-
-[node name="GiantRacoon" parent="Enemies/Bosses/GiantBamboo/AIController" index="5" unique_id=2094553861 instance=ExtResource("7_olh6k")]
-position = Vector2(-138, -34)

@@ -92,7 +92,7 @@ vfx_bounce = SubResource("Resource_kt0dt")
 shape = SubResource("CircleShape2D_x04w1")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
-modulate = Color(0.5389071, 0.49000555, 0.91789854, 1)
+self_modulate = Color(0.16862746, 0.8784314, 1, 1)
 sprite_frames = SubResource("SpriteFrames_g2r2f")
 animation = &"shot"
 autoplay = "shot"

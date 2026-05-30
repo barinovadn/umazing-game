@@ -53,6 +53,7 @@ var current_phase: int = 0:
 var hurt_component: HurtComponent
 var shoot_controller: ShootController
 var movement_controller: MovementController2D
+var _ones_activated: bool = false
 
 
 func _ai_ready(): pass
@@ -187,7 +188,7 @@ func activate_interaction(_area: Area2D = null):
 	
 	dialogue()
 
-func on_continue():
+func _after_dialogue_behaviour():
 	if interface_needed:
 		display_location.add(data_for_interface, self)
 	_on_action_changer_timeout()
@@ -237,8 +238,9 @@ func attach_movement_controller(movement: MovementController2D):
 
 
 func dialogue():
-	if inspectable and inspectable.dialogues:
+	if inspectable and inspectable.dialogues and not _ones_activated:
 		inspectable.inspect()
-		Game.dialogue_system.dialogue_closed.connect(on_continue)
+		Game.dialogue_system.dialogue_closed.connect(_after_dialogue_behaviour)
+		_ones_activated = true
 	else:
-		on_continue()
+		_after_dialogue_behaviour()

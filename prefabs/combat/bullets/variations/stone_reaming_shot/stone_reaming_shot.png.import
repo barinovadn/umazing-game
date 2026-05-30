@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://eeldbsx4h6kh"
-path="res://.godot/imported/stone_bounce_shot.png-76b85baa22a0f3f26f7a7a725cc9b177.ctex"
+path="res://.godot/imported/stone_reaming_shot.png-ec8f10398e8a2e58d1171d2d7260af4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/combat/bullets/variations/stone_bounce_shot/stone_bounce_shot.png"
-dest_files=["res://.godot/imported/stone_bounce_shot.png-76b85baa22a0f3f26f7a7a725cc9b177.ctex"]
+source_file="res://prefabs/combat/bullets/variations/stone_reaming_shot/stone_reaming_shot.png"
+dest_files=["res://.godot/imported/stone_reaming_shot.png-ec8f10398e8a2e58d1171d2d7260af4f.ctex"]
 
 [params]
 

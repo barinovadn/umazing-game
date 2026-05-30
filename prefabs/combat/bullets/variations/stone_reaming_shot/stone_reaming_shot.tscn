@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dtwff03frdapj"]
 
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/stone_shot/stone_shot.tscn" id="1_liukp"]
-[ext_resource type="Script" uid="uid://du2rgy010v0vy" path="res://prefabs/combat/bullets/variations/stone_bounce_shot/stone_bounce_shot.gd" id="2_w5rlu"]
+[ext_resource type="Script" uid="uid://du2rgy010v0vy" path="res://prefabs/combat/bullets/variations/stone_reaming_shot/stone_reaming_shot.gd" id="2_w5rlu"]
 [ext_resource type="Texture2D" uid="uid://hg6nan0pms0m" path="res://prefabs/combat/bullets/variations/stone_shot/stone_shot.png" id="3_w5rlu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2k33n"]
@@ -45,5 +45,5 @@ script = ExtResource("2_w5rlu")
 bounces = 1
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
-modulate = Color(0.4080746, 0.7406779, 0.31023446, 1)
+modulate = Color(0.28627452, 0.45882353, 0.28627452, 1)
 sprite_frames = SubResource("SpriteFrames_nudhm")

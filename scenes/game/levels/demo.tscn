@@ -65,6 +65,7 @@
 [ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi.tres" id="51_8ifb1"]
 [ext_resource type="Resource" uid="uid://b7ifocc5sni0u" path="res://prefabs/inventory/items/fortune_cookie.tres" id="52_yr011"]
 [ext_resource type="Resource" uid="uid://r2g8ur6mpjpn" path="res://prefabs/characters/bosses/giant_frog/ui.tres" id="60_5alrq"]
+[ext_resource type="Texture2D" uid="uid://clewy44lb1woo" path="res://prefabs/characters/bosses/giant_frog/portrait.png" id="63_xaepa"]
 
 [sub_resource type="Resource" id="Resource_tlnmc"]
 script = ExtResource("5_tlnmc")
@@ -989,7 +990,7 @@ duration = 5.0
 can_shoot = true
 can_move = true
 bullet_types = Array[PackedScene]([ExtResource("42_n8x4b")])
-shoot_interval = 1.0
+shoot_interval = 1.5
 shooting_animation_interval = 0.4
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
@@ -998,10 +999,10 @@ script = ExtResource("20_ivmt6")
 action_name = "circle_shot"
 weight = 2.0
 phases = Array[int]([2, 3])
-duration = 3.0
+duration = 4.6
 can_shoot = true
 bullet_types = Array[PackedScene]([ExtResource("43_88b2i")])
-shoot_interval = 1.0
+shoot_interval = 1.5
 shooting_animation_interval = 0.4
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
@@ -1009,6 +1010,19 @@ metadata/_custom_type_script = "uid://dowl0clqumedg"
 script = ExtResource("45_kf7lw")
 effect = 310
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_b7117"]
+script = ExtResource("22_5cmlo")
+message = "Ква-а-а... К-к-к-к-в-в-в-АаАаАаА!
+"
+type_speed = 1
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_5167o"]
+script = ExtResource("22_5cmlo")
+icon = ExtResource("63_xaepa")
+name = "Froggy"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Curve2D" id="Curve2D_88b2i"]
 _data = {
@@ -1415,9 +1429,10 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_yp2gc"), SubRe
 mode = 1
 preset = ExtResource("20_ctk38")
 
-[node name="InteractionMarker" parent="Characters/Villagers/Dummy3/InspectableNPC" index="1" unique_id=1706186242 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Characters/Villagers/Dummy3/InspectableNPC" index="1" unique_id=1706186242 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 color = 1
 animation = 3
 
@@ -1537,9 +1552,10 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_c6p6q"), SubRe
 order = 0
 preset = SubResource("Resource_44nog")
 
-[node name="InteractionMarker" parent="Characters/Animals/Pig/Dialogue" index="1" unique_id=1249724427 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Characters/Animals/Pig/Dialogue" index="1" unique_id=1249724427 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 color = 1
 animation = 3
 
@@ -1585,9 +1601,10 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_aaj01"), SubRe
 mode = 1
 preset = SubResource("Resource_dq4oe")
 
-[node name="InteractionMarker" parent="Interactables/SignGuide" index="1" unique_id=305823956 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignGuide" index="1" unique_id=305823956 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 sprite = 2
 color = 1
 
@@ -1600,9 +1617,10 @@ preset = SubResource("Resource_fue4y")
 position = Vector2(-424, 8)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ctk38")])
 
-[node name="InteractionMarker" parent="Interactables/SignForest" index="1" unique_id=639358266 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignForest" index="1" unique_id=639358266 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 sprite = 2
 color = 1
 
@@ -1612,8 +1630,9 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_5alrq"), SubRe
 mode = 1
 preset = SubResource("Resource_tb3tm")
 
-[node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 position = Vector2(0, -8)
+interactable = NodePath("..")
 
 [node name="SignSecretExtra" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="4" unique_id=2080740542 instance=ExtResource("9_8ic3i")]
 position = Vector2(-600, -216)
@@ -1625,9 +1644,10 @@ position = Vector2(216, -24)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ttas0")])
 preset = SubResource("Resource_cr466")
 
-[node name="InteractionMarker" parent="Interactables/SignTown" index="1" unique_id=1261774437 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignTown" index="1" unique_id=1261774437 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 sprite = 2
 color = 1
 
@@ -1642,10 +1662,11 @@ scale = Vector2(1.25, 1.25)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_xaepa"), SubResource("Resource_hlq0y"), SubResource("Resource_p0joy")])
 preset = SubResource("Resource_lt3al")
 
-[node name="InteractionMarker" parent="Interactables/StatueBigFrog" index="1" unique_id=1888378893 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/StatueBigFrog" index="1" unique_id=1888378893 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -15)
 scale = Vector2(0.7999999, 0.7999999)
+interactable = NodePath("..")
 color = 1
 
 [node name="StatueMonk" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="8" unique_id=355364315 instance=ExtResource("9_8ic3i")]
@@ -1745,7 +1766,7 @@ max_health = 3.0
 script = ExtResource("3_fp2w6")
 target = NodePath("../../../../Characters/NinjaGreen")
 body = NodePath("../..")
-distance_min = 2.0
+distance_min = 5.0
 distance_max = 10.0
 speed = 40.0
 
@@ -1846,13 +1867,14 @@ stat_cant_shoot = SubResource("Resource_jeoah")
 stat_cant_interract = SubResource("Resource_2766p")
 stat_shooting_speed = SubResource("Resource_jmt7w")
 
-[node name="EnemyController" parent="Enemies/Bosses/GiantFrog" index="4" unique_id=29310194 node_paths=PackedStringArray("paths_array", "character", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
+[node name="EnemyController" parent="Enemies/Bosses/GiantFrog" index="4" unique_id=29310194 node_paths=PackedStringArray("paths_array", "character", "inspectable", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
 script = ExtResource("40_5cmlo")
 paths_array = {
 "path_1": NodePath("../../GiantFrogPath1"),
 "path_2": NodePath("../../GiantFrogPath2")
 }
 character = NodePath("..")
+inspectable = NodePath("Inspectable")
 actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_5cmlo"), SubResource("Resource_fscrj"), SubResource("Resource_88b2i"), SubResource("Resource_4xcp5"), SubResource("Resource_s4min")])
 modulates_for_phase = Array[float]([0.7, 0.3])
 movement_patterns = {
@@ -1888,6 +1910,12 @@ script = ExtResource("34_roxwf")
 regions = [NodePath("../../../GiantFrogRegion")]
 min_radius = 100.0
 speed = 60.0
+
+[node name="Inspectable" parent="Enemies/Bosses/GiantFrog/EnemyController" index="7" unique_id=1641324653 instance=ExtResource("9_8ic3i")]
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_b7117")])
+preset = SubResource("Resource_5167o")
+delete_on_disable = false
+enabled = false
 
 [node name="DamageArea" parent="Enemies/Bosses/GiantFrog" index="5" unique_id=190409882 instance=ExtResource("35_mywxa")]
 scale = Vector2(1.5, 1.5)
