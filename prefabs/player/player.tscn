@@ -89,7 +89,7 @@ sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
 
 [node name="DamageArea" parent="Components" unique_id=419752470 instance=ExtResource("8_ocyg1")]
 editor_description = "Grass Annihilator 3000"
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.85, 0.85)
 cooldown_time = 0.00999999999999999
 team = 3
 

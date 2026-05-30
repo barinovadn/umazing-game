@@ -1100,7 +1100,7 @@ music_delay = 1
 exit_particles_clear = false
 
 [node name="Collider1" parent="Enviroments/Village" index="0" unique_id=2147011793 instance=ExtResource("3_q7qle")]
-position = Vector2(0.17499998, 0.5624999)
+position = Vector2(1.8626451e-09, 0.49999988)
 scale = Vector2(0.99999976, 1.9999995)
 
 [node name="Collider2" parent="Enviroments/Village" index="1" unique_id=33740918 instance=ExtResource("3_q7qle")]

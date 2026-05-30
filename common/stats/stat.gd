@@ -68,8 +68,7 @@ func add_modifier(mod_id: String, mod: Modifier):
 			
 			new_timer.timeout.connect(func(): remove_modifier(mod_id))
 			new_timer.start()
-			
-			
+
 
 func remove_modifier(mod_id: String):
 	if _timers.has(mod_id):
