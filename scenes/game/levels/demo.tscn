@@ -1684,6 +1684,7 @@ settings = ExtResource("35_ffajp")
 [node name="Breakable4" parent="Breakables" parent_id_path=PackedInt32Array(1931600874) index="3" unique_id=740597903 instance=ExtResource("33_o8fgc")]
 position = Vector2(48, 224)
 settings = ExtResource("35_ffajp")
+loot_drop_guaranteed = true
 
 [node name="InteractionMarker" parent="Breakables/Breakable4" index="4" unique_id=2018154867 node_paths=PackedStringArray("breakable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 0.5, 0.25, 1)
@@ -1856,62 +1857,52 @@ navigation_polygon = SubResource("NavigationPolygon_lt3al")
 position = Vector2(-960, 160)
 texture = SubResource("GradientTexture2D_3jqjo")
 
-[node name="Pickups" parent="." index="15" unique_id=1517964194]
+[node name="Pickups" parent="." index="16" unique_id=1517964194]
 z_index = 20
 
 [node name="Shrimp1" parent="Pickups" index="0" unique_id=1796102070 instance=ExtResource("50_3cfp0")]
 z_index = 100
 position = Vector2(1000, -288)
-afterlife_duration = 7.0
 
 [node name="Shrimp2" parent="Pickups" index="1" unique_id=1305786683 instance=ExtResource("50_3cfp0")]
 position = Vector2(960, -336)
-afterlife_duration = 7.0
 
 [node name="Shrimp3" parent="Pickups" index="2" unique_id=907822108 instance=ExtResource("50_3cfp0")]
 z_index = 100
 position = Vector2(-296, 144)
-afterlife_duration = 7.0
 
 [node name="Sushi1" parent="Pickups" index="3" unique_id=1475724617 instance=ExtResource("50_3cfp0")]
 z_index = 100
 position = Vector2(-440, -32)
 item_data = ExtResource("51_8ifb1")
-afterlife_duration = 7.0
 
 [node name="Sushi2" parent="Pickups" index="4" unique_id=393189603 instance=ExtResource("50_3cfp0")]
 z_index = 100
 position = Vector2(-704, -120)
 item_data = ExtResource("51_8ifb1")
-afterlife_duration = 7.0
 
 [node name="Sushi3" parent="Pickups" index="5" unique_id=1789582254 instance=ExtResource("50_3cfp0")]
 z_index = 100
 position = Vector2(-688, -128)
 item_data = ExtResource("51_8ifb1")
-afterlife_duration = 7.0
 
 [node name="Sushi4" parent="Pickups" index="6" unique_id=1963985346 instance=ExtResource("50_3cfp0")]
 z_index = 100
 position = Vector2(-720, -136)
 item_data = ExtResource("51_8ifb1")
-afterlife_duration = 7.0
 
 [node name="Sushi5" parent="Pickups" index="7" unique_id=1017634834 instance=ExtResource("50_3cfp0")]
 z_index = 100
 position = Vector2(-720, -96)
 item_data = ExtResource("51_8ifb1")
-afterlife_duration = 7.0
 
 [node name="Cookie1" parent="Pickups" index="8" unique_id=1274586784 instance=ExtResource("50_3cfp0")]
 position = Vector2(-328, -512)
 item_data = ExtResource("52_yr011")
-afterlife_duration = 7.0
 
 [node name="Cookie2" parent="Pickups" index="9" unique_id=534317050 instance=ExtResource("50_3cfp0")]
 position = Vector2(1024, -208)
 item_data = ExtResource("52_yr011")
-afterlife_duration = 7.0
 
 [connection signal="area_entered" from="Teleports/TeleportGreenIn" to="Teleports/TeleportGreenIn" method="_on_area_entered"]
 [connection signal="moved" from="Characters/Animals/Cat/BehaviourFollow" to="Characters/Animals/Cat" method="_on_behaviour_follow_moved"]

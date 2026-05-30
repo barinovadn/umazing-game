@@ -7,6 +7,7 @@ func _ready():
 	Game.music_player = %MusicPlayer
 	Game.dialogue_system = %DialogueSystem
 	Game.vfx_manager = %VFXManager
+	Game.pickup_manager = %PickupManager
 	Game.env_particles = Game.player.env_particles
 	Game.env_filter = Game.player.env_filter
 	
@@ -14,3 +15,4 @@ func _ready():
 	Game.enemies = %Enemies
 	Game.pickups = %Pickups
 	Game.timers = %Timers
+	Game.inventory = %Player/%Inventory

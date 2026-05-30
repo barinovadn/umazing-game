@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://dwwje51kuj5iv"]
 
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_imxki"]
 [ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="1_utyr4"]
 [ext_resource type="AudioStream" uid="uid://c2rmco6qav23v" path="res://prefabs/combat/sounds/whoosh_1.wav" id="2_2vuli"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="2_p2kli"]

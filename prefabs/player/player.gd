@@ -152,7 +152,7 @@ func _on_pickup_found(body: Node2D):
 	if not pickup:
 		return
 	
-	pickup.collect()
+	pickup.collect(inventory)
 
 
 func _on_block_inventory_changed():
