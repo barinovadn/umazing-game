@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dnfhvouh77e1x" path="res://common/grid_camera/grid_camera.gd" id="4_iylwk"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="4_vhck3"]
 [ext_resource type="Script" uid="uid://rr7lsuj6y4tr" path="res://common/grid_camera/controllers/grid_camera_follower.gd" id="5_ev8v4"]
+[ext_resource type="PackedScene" uid="uid://ca72fbnfggsgb" path="res://prefabs/inventory/inventory.tscn" id="5_ocyg1"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="6_oo3uv"]
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
 [ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/combat/bullets/variations/shuriken/shuriken.tscn" id="7_30gqm"]
@@ -14,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://snn0mqvjipik" path="res://prefabs/combat/bullets/variations/reflection/reflection.tscn" id="8_8hk3c"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="8_ocyg1"]
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
-[ext_resource type="Script" uid="uid://ex0o8hepffvv" path="res://prefabs/inventory/inventory.gd" id="9_oo3uv"]
 [ext_resource type="PackedScene" uid="uid://wwa44iu3nw2s" path="res://prefabs/inventory/inventory_ui.tscn" id="9_whck3"]
 [ext_resource type="Script" path="res://prefabs/player/player_health_ui.gd" id="11_30gqm"]
 [ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/player_health_default.png" id="14_ot5ig"]
@@ -57,6 +57,9 @@ speed = 60.0
 [node name="Interactor" parent="Components" unique_id=109062155 instance=ExtResource("1_rdx4y")]
 unique_name_in_owner = true
 hit_from_inside = true
+
+[node name="Inventory" parent="Components" unique_id=956569913 instance=ExtResource("5_ocyg1")]
+unique_name_in_owner = true
 
 [node name="ShootController" parent="Components" unique_id=1242481191 instance=ExtResource("6_oo3uv")]
 unique_name_in_owner = true
@@ -106,10 +109,6 @@ collision_mask = 512
 [node name="Collider" type="CollisionShape2D" parent="Components/Picker" unique_id=1639741327]
 shape = SubResource("CircleShape2D_vhck3")
 debug_color = Color(0, 0.6431373, 0.28235295, 0.41960785)
-
-[node name="Inventory" type="Node2D" parent="." unique_id=1399606706]
-unique_name_in_owner = true
-script = ExtResource("9_oo3uv")
 
 [node name="Room" type="Area2D" parent="." unique_id=1024765016]
 unique_name_in_owner = true

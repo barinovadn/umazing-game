@@ -11,8 +11,6 @@ extends RigidBody2D
 @export_group("VFX", "default_vfx")
 @export var default_vfx_spawn: VFXProfile
 @export var default_vfx_collect: VFXProfile
-@export_subgroup("Notifications", "default_vfx_notification")
-@export var default_vfx_notification_inventory_full: VFXProfile
 
 @export_group("Afterlife", "afterlife")
 @export var afterlife_duration: float = 7.0
@@ -57,10 +55,6 @@ func collect(inventory: Inventory):
 	var leftover := inventory.add_item(item_data)
 	
 	if leftover > 0:
-		if leftover == item_data.amount:
-			default_vfx_notification_inventory_full.spawn(global_position)
-			return
-		
 		item_data.amount = leftover
 		return
 
