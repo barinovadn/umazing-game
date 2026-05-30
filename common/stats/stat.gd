@@ -5,7 +5,7 @@ signal value_changed()
 
 @export var min_value: float = -INF
 @export var max_value: float = INF
-@export var modifications: Dictionary[String, Modification]
+@export var modifications: Dictionary[String, Modifier]
 @export var base_value: float:
 	set(some_value):
 		base_value = some_value
@@ -19,7 +19,7 @@ var _timers: Dictionary[String, Timer]
 var value: float:
 	get():
 		var return_value = base_value
-		var late_modifications: Dictionary[String, Modification]
+		var late_modifications: Dictionary[String, Modifier]
 		modifications.keys()
 		for key in modifications.keys():
 			var el = modifications[key]
@@ -49,7 +49,7 @@ var value: float:
 		return return_value
 
 
-func add_modifier(mod_id: String, mod: Modification):
+func add_modifier(mod_id: String, mod: Modifier):
 	mod.creation_time = Time.get_unix_time_from_system()
 	modifications[mod_id] = mod
 	value_changed.emit()

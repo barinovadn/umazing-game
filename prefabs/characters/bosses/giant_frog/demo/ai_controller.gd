@@ -18,9 +18,6 @@ func _on_phase_changed():
 			env.set_particles(env.Type.SUNRAYS, true, env.Ratio.SMALL)
 			env.set_particles(env.Type.FOG, true, env.Ratio.MEDIUM)
 		3:
-			shoot_controller.projectile_bounce = true
-			shoot_controller.projectile_bounces_min = 2
-			
 			env.set_particles(env.Type.SUNRAYS, false)
 			env.set_particles(env.Type.FOG, true, env.Ratio.LARGE)
 
@@ -30,10 +27,9 @@ func _on_action(action: AIAction):
 		"homing_shot":
 			movement_controller.order = PathDotMovementController2D.Order.SEQUENTIAL
 			movement_controller.path = paths_array["path_1"]
-		"stone_bounce":
+		"stone_rickoshet":
 			movement_controller.order = PathDotMovementController2D.Order.BACK_AND_FORTH
-			movement_controller.current_point_index = 0
-			movement_controller.path = paths_array["path_2"]
+			movement_controller.path = paths_array["path_1"]
 		"multi_shot":
 			movement_controller.order = PathDotMovementController2D.Order.SEQUENTIAL
 			movement_controller.current_point_index = 0

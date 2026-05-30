@@ -22,6 +22,7 @@ enum Team {
 		shape = value
 		_update_shape()
 @export var is_one_shot: bool = true
+@export var visible_hp_bar: bool = false
 
 @export_group("Health")
 @export var team: Team
@@ -57,6 +58,7 @@ enum Team {
 @export var vfx_damage_marker_color_high: Color = Color.RED
 
 @onready var _collider: CollisionShape2D = %Collider
+@onready var mob_hp: MobHP = $MobHP
 
 var is_invulnerable: bool = false
 var current_health: float:
@@ -93,6 +95,7 @@ var armor: float = 0.0
 
 func _ready():
 	current_health = max_health
+	mob_hp.visible = visible_hp_bar
 	if sounds_player:
 		sounds_player.volume_db = sounds_volume_db
 	if shape:

@@ -1,5 +1,5 @@
 extends Resource
-class_name Modification
+class_name Modifier
 
 enum Operation {
 	decrease,

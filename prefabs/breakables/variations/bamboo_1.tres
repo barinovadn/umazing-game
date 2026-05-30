@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://ohhlmelggbac"]
+
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_i1oa7"]
+[ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="1_wh6fa"]
+[ext_resource type="AudioStream" uid="uid://c5ao7p1ys2tvu" path="res://prefabs/combat/sounds/impact_1.wav" id="2_wh6fa"]
+[ext_resource type="Texture2D" uid="uid://djoroxbekeacc" path="res://prefabs/tilesets/general_nature.png" id="3_wh6fa"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="4_w3pfs"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="5_whkgi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7uue"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhc5m"]
+atlas = ExtResource("3_wh6fa")
+region = Rect2(192, 160, 16, 16)
+
+[sub_resource type="Resource" id="Resource_bhnie"]
+script = ExtResource("5_whkgi")
+density = 3
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_okcse"]
+script = ExtResource("4_w3pfs")
+effect = 40
+settings = SubResource("Resource_bhnie")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_5gp4r"]
+script = ExtResource("5_whkgi")
+density = 1
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_hgtxf"]
+script = ExtResource("4_w3pfs")
+effect = 40
+settings = SubResource("Resource_5gp4r")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_ksnff"]
+script = ExtResource("4_w3pfs")
+effect = 100
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[resource]
+script = ExtResource("1_wh6fa")
+texture = SubResource("AtlasTexture_dhc5m")
+shape = SubResource("CircleShape2D_q7uue")
+respawn_enabled = true
+respawn_lifes = 5
+respawn_duration_min = 1000.0
+respawn_duration_max = 1001.0
+sounds_break = Array[AudioStream]([ExtResource("2_wh6fa")])
+vfx_spawn = SubResource("Resource_ksnff")
+vfx_hit = SubResource("Resource_hgtxf")
+vfx_break = SubResource("Resource_okcse")
+metadata/_custom_type_script = "uid://c5vdwmd0iexxp"

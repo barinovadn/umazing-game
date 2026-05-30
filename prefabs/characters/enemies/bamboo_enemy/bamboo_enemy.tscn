@@ -1,7 +1,31 @@
 [gd_scene format=3 uid="uid://cgvgap0xmvt73"]
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_h4x3x"]
-[ext_resource type="Texture2D" uid="uid://2kqe2ioabodo" path="res://prefabs/characters/bamboo_enemy/SpriteSheet.png" id="2_aqent"]
+[ext_resource type="Texture2D" uid="uid://2kqe2ioabodo" path="res://prefabs/characters/enemies/bamboo_enemy/sprite_sheet.png" id="2_aqent"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqsmu"]
+atlas = ExtResource("2_aqent")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suaqw"]
+atlas = ExtResource("2_aqent")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtaqn"]
+atlas = ExtResource("2_aqent")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfr54"]
+atlas = ExtResource("2_aqent")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t21p1"]
+atlas = ExtResource("2_aqent")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2jos"]
+atlas = ExtResource("2_aqent")
+region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_agfqx"]
 atlas = ExtResource("2_aqent")
@@ -101,6 +125,29 @@ region = Rect2(16, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_541un"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqsmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suaqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtaqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfr54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t21p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2jos")
+}],
+"loop": true,
+"name": &"attack_left",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_agfqx")
@@ -223,4 +270,21 @@ animations = [{
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_541un")
-frame_progress = 0.0
+animation = &"attack_left"
+frame_progress = 0.054820113
+
+[node name="AnimationController" parent="." index="3" unique_id=395358213]
+animations = Dictionary[int, String]({
+1: "idle_down",
+2: "idle_up",
+3: "idle_left",
+4: "idle_right",
+5: "walk_down",
+6: "walk_up",
+7: "walk_left",
+8: "walk_right",
+9: "attack_left",
+10: "attack_left",
+11: "attack_left",
+12: "attack_left"
+})

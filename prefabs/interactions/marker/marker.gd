@@ -64,7 +64,7 @@ const MARKER_COLORS: Dictionary[MarkerColor, Color] = {
 
 @export var interactable: Interactable:
 	set(value):
-		if value == interactable or Engine.is_editor_hint():
+		if value == interactable:
 			return
 		
 		if interactable and interactable.interacted.is_connected(_on_interaction):

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://el1245ygwstr" path="res://prefabs/combat/hurt_component.gd" id="1_d8o2c"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_g72lm"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="3_qgtci"]
+[ext_resource type="PackedScene" uid="uid://ct8hw3g5hkdjm" path="res://prefabs/combat/ui/mobs/mob_hp.tscn" id="4_gf3lf"]
+[ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/combat/ui/bosses/boss_container_data.gd" id="5_73mab"]
 
 [sub_resource type="Resource" id="Resource_g72lm"]
 script = ExtResource("3_qgtci")
@@ -30,6 +32,11 @@ metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 [sub_resource type="CircleShape2D" id="CircleShape2D_uaqv8"]
 radius = 8.0
 
+[sub_resource type="Resource" id="Resource_30uly"]
+script = ExtResource("5_73mab")
+display_color = null
+metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
+
 [node name="HurtComponent" type="Area2D" unique_id=949368062 node_paths=PackedStringArray("sounds_player") groups=["hurt_component"]]
 collision_layer = 2048
 collision_mask = 1024
@@ -53,3 +60,9 @@ debug_color = Color(0.8627451, 0.3137255, 0, 0.39215687)
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1553792975]
 max_distance = 600.0
 bus = &"World"
+
+[node name="MobHP" parent="." unique_id=573745475 node_paths=PackedStringArray("hurt_component") instance=ExtResource("4_gf3lf")]
+visible = false
+smoothing_speed = 3.0
+hurt_component = NodePath("..")
+data = SubResource("Resource_30uly")

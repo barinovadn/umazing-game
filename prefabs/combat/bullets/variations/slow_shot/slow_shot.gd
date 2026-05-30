@@ -1,6 +1,6 @@
 extends Bullet
 
-@export var modification: Modification
+@export var modification: Modifier
 func _crashed_into_hurt_component(hurt_component: HurtComponent):
 	hit.emit(hurt_component)
 	hurt_component.character.stat_speed_ratio.add_modifier(var_to_str(modification.get_instance_id()), modification)

@@ -22,9 +22,6 @@ func _on_phase_changed():
 		2:
 			env.set_particles(env.Type.CLOUDS, true, env.Ratio.MEDIUM)
 		3:
-			shoot_controller.projectile_bounce = true
-			shoot_controller.projectile_bounces_min = 1
-			
 			env.set_particles(env.Type.CLOUDS, true, env.Ratio.LARGE)
 
 

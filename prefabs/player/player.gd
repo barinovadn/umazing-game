@@ -13,6 +13,14 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		character_changed.emit(character, old_character)
 @export var bullets: Array[PackedScene]
 @export var allow_cheats: bool = false
+@export var stat_cant_use_inventory: Stat:
+	set(value):
+		if stat_cant_use_inventory:
+			stat_cant_use_inventory.value_changed.disconnect(_on_block_inventory_changed)
+		stat_cant_use_inventory = value
+		if stat_cant_use_inventory and !stat_cant_use_inventory.value_changed.is_connected(_on_block_inventory_changed):
+			stat_cant_use_inventory.value_changed.connect(_on_block_inventory_changed)
+
 
 var noclip: bool:
 	set(value):
@@ -145,3 +153,8 @@ func _on_pickup_found(body: Node2D):
 		return
 	
 	pickup.collect(inventory)
+
+
+func _on_block_inventory_changed():
+	if inventory_ui:
+		inventory_ui.can_open_inventory = not stat_cant_use_inventory.value

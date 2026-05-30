@@ -7,14 +7,14 @@ extends StaticBody2D
 signal interacted() ## Emitted after every successful interaction.
 signal interaction_limit_reached() ## Emitted once the interaction limit reached.
 
+## Calls [method delete] whenever [member enabled] is set to [code]false[/code].
+@export var delete_on_disable: bool
 ## If set to [code]false[/code] the [method interact] will always ignore calls.
 @export var enabled: bool = true:
 	set(value):
 		enabled = value
 		if delete_on_disable and not enabled:
 			delete()
-## Calls [method delete] whenever [member enabled] is set to [code]false[/code].
-@export var delete_on_disable: bool
 ## The maximum number of interactions possible.
 ## Once reached [member enabled] is set to [code]false[/code].
 @export var interaction_limit: int = 0

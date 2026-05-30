@@ -48,23 +48,24 @@
 [ext_resource type="AudioStream" uid="uid://ctrye6fbih85b" path="res://prefabs/characters/bosses/cyclopus_cat/sounds/meow_4.ogg" id="33_psdh3"]
 [ext_resource type="AudioStream" uid="uid://bhu1506kudwdu" path="res://prefabs/characters/bosses/cyclopus_cat/sounds/meow_5.ogg" id="34_2p5q4"]
 [ext_resource type="Resource" uid="uid://cfvqawhunbipu" path="res://prefabs/breakables/variations/jug.tres" id="34_o8fgc"]
-[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
+[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
 [ext_resource type="Resource" uid="uid://br85rp62bcmo1" path="res://prefabs/breakables/variations/barrel.tres" id="35_ffajp"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="35_mywxa"]
 [ext_resource type="PackedScene" uid="uid://cdtekl4l4f04o" path="res://prefabs/interactions/marker/marker.tscn" id="37_psdh3"]
 [ext_resource type="PackedScene" uid="uid://cf7gqlpmmeph3" path="res://prefabs/characters/bosses/giant_frog/giant_frog.tscn" id="38_2p5q4"]
 [ext_resource type="Script" uid="uid://dbc35i8owb7ya" path="res://prefabs/characters/bosses/giant_frog/demo/ai_controller.gd" id="40_5cmlo"]
-[ext_resource type="PackedScene" uid="uid://dtwff03frdapj" path="res://prefabs/combat/bullets/variations/stone_bounce_shot/stone_bounce_shot.tscn" id="41_fscrj"]
 [ext_resource type="PackedScene" uid="uid://cqg5fx2eubt1p" path="res://prefabs/combat/bullets/variations/triple_shot/multy_shot.tscn" id="42_n8x4b"]
 [ext_resource type="PackedScene" uid="uid://cg3b2r5sjj7fk" path="res://prefabs/combat/bullets/variations/circle_shot/circle_shot.tscn" id="43_88b2i"]
 [ext_resource type="AudioStream" uid="uid://dwlyixt203ro4" path="res://prefabs/characters/bosses/giant_frog/sounds/kwa_1.ogg" id="44_s4min"]
 [ext_resource type="AudioStream" uid="uid://duxaunwluj3f8" path="res://prefabs/characters/bosses/giant_frog/sounds/kwa_2.ogg" id="45_28icf"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="45_kf7lw"]
 [ext_resource type="Resource" uid="uid://dnhc78ehcao44" path="res://prefabs/characters/bosses/cyclopus_cat/ui.tres" id="46_5alrq"]
+[ext_resource type="PackedScene" uid="uid://b7jopm86b0plu" path="res://prefabs/combat/bullets/variations/stone_rickoshet_shot/stone_rickoshet_shot.tscn" id="47_xaepa"]
 [ext_resource type="PackedScene" uid="uid://ds7r5gr45oetv" path="res://prefabs/inventory/pickups/pickup.tscn" id="50_3cfp0"]
 [ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi.tres" id="51_8ifb1"]
 [ext_resource type="Resource" uid="uid://b7ifocc5sni0u" path="res://prefabs/inventory/items/fortune_cookie.tres" id="52_yr011"]
 [ext_resource type="Resource" uid="uid://r2g8ur6mpjpn" path="res://prefabs/characters/bosses/giant_frog/ui.tres" id="60_5alrq"]
+[ext_resource type="Texture2D" uid="uid://clewy44lb1woo" path="res://prefabs/characters/bosses/giant_frog/portrait.png" id="63_xaepa"]
 
 [sub_resource type="Resource" id="Resource_tlnmc"]
 script = ExtResource("5_tlnmc")
@@ -79,10 +80,8 @@ density = 4
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 
 [sub_resource type="Resource" id="Resource_okcse"]
-script = ExtResource("5_tlnmc")
-scale = Vector2(3, 3)
-density = 1
-metadata/_custom_type_script = "uid://b7nceugqtlef1"
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqxbl"]
 atlas = ExtResource("5_xrc6b")
@@ -131,6 +130,15 @@ metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 script = ExtResource("22_5cmlo")
 message = "О, ты! Да, ты! Слушай сюда. Если ты найдёшь мою кошку быстрее, чем за час - я разрешу тебе гордиться собой целых пять секунд."
 type_speed = 3
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5alrq"]
+load_path = "res://.godot/imported/portrait.png-ae6a2fb6ddddd3586ed1364f370eef22.ctex"
+
+[sub_resource type="Resource" id="Resource_d8mu3"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("CompressedTexture2D_5alrq")
+name = "Cyclopus Cat"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_c4k2v"]
@@ -242,6 +250,15 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
+[sub_resource type="Resource" id="Resource_xsaom"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_u2xuf"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
 [sub_resource type="Curve2D" id="Curve2D_qex4a"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -24, -10, 0, 0, 0, 0, -8, 14, 0, 0, 0, 0, 24, 14)
@@ -267,6 +284,15 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_ldxg4"]
 script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_ku8pj"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_40j7a"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_wfbku"]
@@ -346,6 +372,22 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
+[sub_resource type="Resource" id="Resource_bokxc"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_nc3i2"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_axdxq"]
+script = ExtResource("31_myoci")
+duration = 1.0
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
 [sub_resource type="Resource" id="Resource_u2gco"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
@@ -365,6 +407,15 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_rjdhe"]
 script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_dlede"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_up64m"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_aaj01"]
@@ -686,6 +737,13 @@ icon = SubResource("AtlasTexture_lt3al")
 name = "Гнилой Ствол Дерева"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
+[sub_resource type="Resource" id="Resource_3svh0"]
+script = ExtResource("31_myoci")
+duration = 1.0
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
 [sub_resource type="Resource" id="Resource_qkatc"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
@@ -705,6 +763,15 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_s8xc4"]
 script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_shkhy"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_ek345"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_mywxa"]
@@ -753,6 +820,19 @@ duration = 2.0
 can_move = true
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
+[sub_resource type="Resource" id="Resource_hpl4s"]
+script = ExtResource("20_ivmt6")
+action_name = "stone_rick_shot"
+weight = 2.0
+phases = Array[int]([3])
+duration = 5.7
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("47_xaepa")])
+shoot_interval = 0.7
+shooting_animation_interval = 0.35
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
 [sub_resource type="Resource" id="Resource_ejbv0"]
 script = ExtResource("5_tlnmc")
 scale = Vector2(2, 2)
@@ -765,12 +845,34 @@ effect = 100
 settings = SubResource("Resource_ejbv0")
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
+[sub_resource type="Resource" id="Resource_7hhak"]
+script = ExtResource("22_5cmlo")
+message = "Мяу...Мяу...МЯУ!
+(ну а что вы ещё ожидали от кошки?)"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b7117"]
+load_path = "res://.godot/imported/portrait.png-cad496b2a4773437140b466ad9129861.ctex"
+
+[sub_resource type="Resource" id="Resource_vk48t"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("CompressedTexture2D_b7117")
+name = "Cyclopus Cat"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_17ap2"]
 vertices = PackedVector2Array(22, 86, -38, 86, -38, -38, 22, -38)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-48, -48, -48, 96, 32, 96, 32, -48)])
 parsed_collision_mask = 3
 source_geometry_mode = 2
+
+[sub_resource type="Resource" id="Resource_3t3xf"]
+script = ExtResource("31_myoci")
+duration = 1.0
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
 
 [sub_resource type="Resource" id="Resource_yonm5"]
 script = ExtResource("32_ukxex")
@@ -793,11 +895,20 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("32_ukxex")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
+[sub_resource type="Resource" id="Resource_2766p"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_jmt7w"]
+script = ExtResource("32_ukxex")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
 [sub_resource type="Resource" id="Resource_5cmlo"]
 script = ExtResource("20_ivmt6")
 action_name = "homing_shot"
 weight = 2.0
-phases = Array[int]([1, 2, 3])
+phases = Array[int]([1, 2])
 duration = 10.0
 can_shoot = true
 can_move = true
@@ -810,20 +921,20 @@ metadata/_custom_type_script = "uid://dowl0clqumedg"
 script = ExtResource("20_ivmt6")
 action_name = "rest"
 weight = 1.0
-phases = Array[int]([1])
+phases = Array[int]([1, 2])
 duration = 3.0
 can_move = true
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
 [sub_resource type="Resource" id="Resource_88b2i"]
 script = ExtResource("20_ivmt6")
-action_name = "stone_bounce"
+action_name = "stone_rickoshet"
 weight = 2.0
-phases = Array[int]([2, 3])
+phases = Array[int]([1, 2])
 duration = 5.0
 can_shoot = true
 can_move = true
-bullet_types = Array[PackedScene]([ExtResource("41_fscrj")])
+bullet_types = Array[PackedScene]([ExtResource("47_xaepa")])
 shoot_interval = 0.7
 shooting_animation_interval = 0.4
 metadata/_custom_type_script = "uid://dowl0clqumedg"
@@ -837,7 +948,7 @@ duration = 5.0
 can_shoot = true
 can_move = true
 bullet_types = Array[PackedScene]([ExtResource("42_n8x4b")])
-shoot_interval = 1.0
+shoot_interval = 1.5
 shooting_animation_interval = 0.4
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
@@ -846,10 +957,10 @@ script = ExtResource("20_ivmt6")
 action_name = "circle_shot"
 weight = 2.0
 phases = Array[int]([2, 3])
-duration = 3.0
+duration = 4.6
 can_shoot = true
 bullet_types = Array[PackedScene]([ExtResource("43_88b2i")])
-shoot_interval = 1.0
+shoot_interval = 1.5
 shooting_animation_interval = 0.4
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
@@ -857,6 +968,19 @@ metadata/_custom_type_script = "uid://dowl0clqumedg"
 script = ExtResource("45_kf7lw")
 effect = 310
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_b7117"]
+script = ExtResource("22_5cmlo")
+message = "Ква-а-а... К-к-к-к-в-в-в-АаАаАаА!
+"
+type_speed = 1
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_5167o"]
+script = ExtResource("22_5cmlo")
+icon = ExtResource("63_xaepa")
+name = "Froggy"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Curve2D" id="Curve2D_88b2i"]
 _data = {
@@ -870,10 +994,10 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_28icf"]
-vertices = PackedVector2Array(-39.148438, 61.34375, -19.828125, 58.921875, -19.828125, 58.929688, 21.421875, 79.75781, -8, 82.9375, -40.609375, 79.40625, -47.03125, 73.421875, -5.578125, 57.25, 20.953125, 69.22656, 23.75, 72.390625)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6, 0, 2, 7, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-21, 49, -45, 52, -60, 75, -45, 89, -8, 93, 29, 89, 35, 70, 27, 61, -4, 47)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lt3al"]
+vertices = PackedVector2Array(-1.203125, 54.492188, 22.648438, 64.5, 22.1875, 73.828125, 12.78125, 83.86719, -17.273438, 83.00781, -45.609375, 79.77344, -50.773438, 64.85156, -41.351563, 52.726563, -30.632813, 46.703125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-48, 45, -62, 63, -53, 89, -18, 93, 17, 94, 32, 78, 33, 58, 2, 45, -32, 36)])
 parsed_collision_mask = 3
 source_geometry_mode = 2
 
@@ -890,7 +1014,7 @@ height = 160
 
 [node name="GridForeground" parent="." index="1" unique_id=1598882271]
 modulate = Color(1, 1, 1, 0.039215688)
-position = Vector2(-3.9999998, 2.9999998)
+position = Vector2(-1.4210855e-14, 1.4210855e-14)
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
@@ -976,7 +1100,7 @@ music_delay = 1
 exit_particles_clear = false
 
 [node name="Collider1" parent="Enviroments/Village" index="0" unique_id=2147011793 instance=ExtResource("3_q7qle")]
-position = Vector2(0, 0.49999988)
+position = Vector2(0.17499998, 0.5624999)
 scale = Vector2(0.99999976, 1.9999995)
 
 [node name="Collider2" parent="Enviroments/Village" index="1" unique_id=33740918 instance=ExtResource("3_q7qle")]
@@ -1228,11 +1352,12 @@ stat_cant_shoot = SubResource("Resource_bhnie")
 [node name="InspectableNPC" parent="Characters/Villagers/Dummy1" index="4" unique_id=45048443 instance=ExtResource("9_8ic3i")]
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_f2r25"), SubResource("Resource_8r7lj"), SubResource("Resource_o8fgc"), SubResource("Resource_ffajp")])
 order = 0
-preset = ExtResource("20_ctk38")
+preset = SubResource("Resource_d8mu3")
 
-[node name="InteractionMarker" parent="Characters/Villagers/Dummy1/InspectableNPC" index="1" unique_id=334963736 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Characters/Villagers/Dummy1/InspectableNPC" index="1" unique_id=334963736 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 0.25, 0.25, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 color = 3
 animation = 3
 
@@ -1262,9 +1387,10 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_yp2gc"), SubRe
 mode = 1
 preset = ExtResource("20_ctk38")
 
-[node name="InteractionMarker" parent="Characters/Villagers/Dummy3/InspectableNPC" index="1" unique_id=1706186242 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Characters/Villagers/Dummy3/InspectableNPC" index="1" unique_id=1706186242 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 color = 1
 animation = 3
 
@@ -1283,11 +1409,14 @@ owner_reaction = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ukxex"), 
 owner_reaction_mode = 1
 owner_reaction_order = 1
 movement = NodePath("PathDotMovement")
+modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_ryfdy")
 stat_invulnerable = SubResource("Resource_dlo6x")
 stat_armor = SubResource("Resource_axnic")
 stat_cant_move = SubResource("Resource_urt2a")
 stat_cant_shoot = SubResource("Resource_n1mjl")
+stat_cant_interract = SubResource("Resource_xsaom")
+stat_shooting_speed = SubResource("Resource_u2xuf")
 
 [node name="PathDotMovement" type="Node2D" parent="Characters/Animals/Cat" index="4" unique_id=2086079038 node_paths=PackedStringArray("path")]
 script = ExtResource("14_roxwf")
@@ -1320,11 +1449,14 @@ position = Vector2(-408, 320)
 collision_mask = 3
 movement = NodePath("PathDotMovement")
 collision = false
+modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_hf1mc")
 stat_invulnerable = SubResource("Resource_cmpeo")
 stat_armor = SubResource("Resource_ixjtd")
 stat_cant_move = SubResource("Resource_bylm8")
 stat_cant_shoot = SubResource("Resource_ldxg4")
+stat_cant_interract = SubResource("Resource_ku8pj")
+stat_shooting_speed = SubResource("Resource_40j7a")
 
 [node name="PathDotMovement" type="Node2D" parent="Characters/Animals/Frog" index="4" unique_id=1758182799 node_paths=PackedStringArray("path")]
 script = ExtResource("14_roxwf")
@@ -1356,11 +1488,13 @@ position = Vector2(-136, 128)
 collision_layer = 0
 collision_mask = 65
 movement = NodePath("BehaviourFollow")
+modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_wfbku")
 stat_invulnerable = SubResource("Resource_kcjvo")
 stat_armor = SubResource("Resource_1an88")
 stat_cant_move = SubResource("Resource_whful")
 stat_cant_shoot = SubResource("Resource_pthgk")
+stat_cant_interract = null
 
 [node name="BehaviourFollow" type="Node2D" parent="Characters/Animals/Pig" index="4" unique_id=183690025 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("3_fp2w6")
@@ -1376,9 +1510,10 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_c6p6q"), SubRe
 order = 0
 preset = SubResource("Resource_44nog")
 
-[node name="InteractionMarker" parent="Characters/Animals/Pig/Dialogue" index="1" unique_id=1249724427 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Characters/Animals/Pig/Dialogue" index="1" unique_id=1249724427 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 color = 1
 animation = 3
 
@@ -1387,11 +1522,14 @@ position = Vector2(-16, 56)
 collision_layer = 0
 collision_mask = 65
 movement = NodePath("BehaviourFollow")
+modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_a78ug")
 stat_invulnerable = SubResource("Resource_pos45")
 stat_armor = SubResource("Resource_280sb")
 stat_cant_move = SubResource("Resource_yb1t1")
 stat_cant_shoot = SubResource("Resource_eg7g7")
+stat_cant_interract = SubResource("Resource_bokxc")
+stat_shooting_speed = SubResource("Resource_nc3i2")
 
 [node name="BehaviourFollow" type="Node2D" parent="Characters/NinjaBlue" index="4" unique_id=640830910 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("3_fp2w6")
@@ -1405,12 +1543,15 @@ metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 y_sort_enabled = true
 position = Vector2(0, 160)
 start_animation = 1
-invincibility_duration = 1.0
+invulnerability_duration = 0.7
+modifier_invulnerability = SubResource("Resource_axdxq")
 stat_speed_ratio = SubResource("Resource_u2gco")
 stat_invulnerable = SubResource("Resource_xnr8q")
 stat_armor = SubResource("Resource_k1d3v")
 stat_cant_move = SubResource("Resource_nca3v")
 stat_cant_shoot = SubResource("Resource_rjdhe")
+stat_cant_interract = SubResource("Resource_dlede")
+stat_shooting_speed = SubResource("Resource_up64m")
 
 [node name="SignGuide" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=836831447 instance=ExtResource("9_8ic3i")]
 position = Vector2(-72, 216)
@@ -1418,9 +1559,10 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_aaj01"), SubRe
 mode = 1
 preset = SubResource("Resource_dq4oe")
 
-[node name="InteractionMarker" parent="Interactables/SignGuide" index="1" unique_id=305823956 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignGuide" index="1" unique_id=305823956 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 sprite = 2
 color = 1
 
@@ -1433,9 +1575,10 @@ preset = SubResource("Resource_fue4y")
 position = Vector2(-424, 8)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ctk38")])
 
-[node name="InteractionMarker" parent="Interactables/SignForest" index="1" unique_id=639358266 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignForest" index="1" unique_id=639358266 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 sprite = 2
 color = 1
 
@@ -1445,8 +1588,9 @@ dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_5alrq"), SubRe
 mode = 1
 preset = SubResource("Resource_tb3tm")
 
-[node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignSecret" index="1" unique_id=1434231170 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 position = Vector2(0, -8)
+interactable = NodePath("..")
 
 [node name="SignSecretExtra" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="4" unique_id=2080740542 instance=ExtResource("9_8ic3i")]
 position = Vector2(-600, -216)
@@ -1458,9 +1602,10 @@ position = Vector2(216, -24)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ttas0")])
 preset = SubResource("Resource_cr466")
 
-[node name="InteractionMarker" parent="Interactables/SignTown" index="1" unique_id=1261774437 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/SignTown" index="1" unique_id=1261774437 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -8)
+interactable = NodePath("..")
 sprite = 2
 color = 1
 
@@ -1475,10 +1620,11 @@ scale = Vector2(1.25, 1.25)
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_xaepa"), SubResource("Resource_hlq0y"), SubResource("Resource_p0joy")])
 preset = SubResource("Resource_lt3al")
 
-[node name="InteractionMarker" parent="Interactables/StatueBigFrog" index="1" unique_id=1888378893 instance=ExtResource("37_psdh3")]
+[node name="InteractionMarker" parent="Interactables/StatueBigFrog" index="1" unique_id=1888378893 node_paths=PackedStringArray("interactable") instance=ExtResource("37_psdh3")]
 modulate = Color(1, 1, 0.5, 1)
 position = Vector2(0, -15)
 scale = Vector2(0.7999999, 0.7999999)
+interactable = NodePath("..")
 color = 1
 
 [node name="StatueMonk" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="8" unique_id=355364315 instance=ExtResource("9_8ic3i")]
@@ -1547,36 +1693,42 @@ breakable = NodePath("..")
 sprite = 3
 color = 2
 
-[node name="CyclopusCat" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("14_nfdyi")]
+[node name="CyclopusCat" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1477057129 node_paths=PackedStringArray("hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("14_nfdyi")]
 position = Vector2(416, -480)
 scale = Vector2(3, 3)
 collision_mask = 1
-movement = NodePath("EnemyController/AreaMovement")
 hurt_component = NodePath("EnemyController/HurtComponent")
 shoot_controller = NodePath("EnemyController/ShootController")
+modifier_invulnerability = SubResource("Resource_3svh0")
+afterlife_delete_on_destruction = [NodePath("DamageArea")]
 stat_speed_ratio = SubResource("Resource_qkatc")
 stat_invulnerable = SubResource("Resource_rt8fo")
 stat_armor = SubResource("Resource_lkl3l")
 stat_cant_move = SubResource("Resource_bhdxb")
 stat_cant_shoot = SubResource("Resource_s8xc4")
+stat_cant_interract = SubResource("Resource_shkhy")
+stat_shooting_speed = SubResource("Resource_ek345")
 
-[node name="EnemyController" parent="Enemies/Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("npc", "npc_new_movement", "character", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
+[node name="EnemyController" parent="Enemies/Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("npc", "npc_new_movement", "character", "inspectable", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
 script = ExtResource("22_1qwsm")
 npc = NodePath("../../../../Characters/Animals/Cat")
 npc_new_movement = NodePath("../../../../Characters/Animals/Cat/BehaviourFollow")
 character = NodePath("..")
-actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_mywxa"), SubResource("Resource_ebg7x"), SubResource("Resource_psdh3"), SubResource("Resource_2p5q4")])
+inspectable = NodePath("Inspectable")
+actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_mywxa"), SubResource("Resource_ebg7x"), SubResource("Resource_psdh3"), SubResource("Resource_2p5q4"), SubResource("Resource_hpl4s")])
 modulates_for_phase = Array[float]([0.7, 0.3])
 movement_patterns = {
 "bunch_of_shots": NodePath("AreaMovement"),
 "homing_shots": NodePath("AreaMovement"),
 "rest": NodePath("AreaMovement"),
+"stone_rick_shot": NodePath("AreaMovement"),
 "stone_shots": NodePath("AreaMovement")
 }
 vfx_on_phase_change = SubResource("Resource_8ifb1")
 show_on_death = [NodePath("../../../../Teleports/TeleportGreenOut")]
 tp_on_death = NodePath("../../../../Teleports/TeleportGreenOut")
 data_for_interface = ExtResource("46_5alrq")
+interface_needed = true
 
 [node name="ShootController" parent="Enemies/Bosses/CyclopusCat/EnemyController" index="2" unique_id=990647810 instance=ExtResource("16_jqxbl")]
 team = 0
@@ -1594,8 +1746,15 @@ regions = [NodePath("../../../CyclopusCatRegion1"), NodePath("../../../CyclopusC
 min_radius = 200.0
 break_time = 0.001
 speed = 60.0
+enabled = false
 
-[node name="DamageArea" parent="Enemies/Bosses/CyclopusCat" index="5" unique_id=419752470 instance=ExtResource("35_mywxa")]
+[node name="Inspectable" parent="Enemies/Bosses/CyclopusCat/EnemyController" index="6" unique_id=1897645833 instance=ExtResource("9_8ic3i")]
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_7hhak")])
+preset = SubResource("Resource_vk48t")
+delete_on_disable = false
+enabled = false
+
+[node name="DamageArea" parent="Enemies/Bosses/CyclopusCat" index="5" unique_id=1327453622 instance=ExtResource("35_mywxa")]
 z_index = -10
 scale = Vector2(1.25, 1.25)
 team = 0
@@ -1603,32 +1762,38 @@ team = 0
 [node name="CyclopusCatRegion1" type="NavigationRegion2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="1" unique_id=352624853]
 position = Vector2(400, -504)
 navigation_polygon = SubResource("NavigationPolygon_17ap2")
+navigation_layers = 4
 
 [node name="CyclopusCatRegion2" type="NavigationRegion2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="2" unique_id=580567375]
 position = Vector2(232, -504)
 navigation_polygon = SubResource("NavigationPolygon_17ap2")
+navigation_layers = 2
 
-[node name="GiantFrog" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="3" unique_id=645695922 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller") instance=ExtResource("38_2p5q4")]
+[node name="GiantFrog" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="3" unique_id=645695922 node_paths=PackedStringArray("hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("38_2p5q4")]
 position = Vector2(-840, 136)
 scale = Vector2(1.8000001, 1.8000001)
 collision_mask = 0
-movement = NodePath("EnemyController/AreaMovementController")
 hurt_component = NodePath("EnemyController/HurtComponent")
 shoot_controller = NodePath("EnemyController/ShootController")
+modifier_invulnerability = SubResource("Resource_3t3xf")
 afterlife_duration = 2.0
+afterlife_delete_on_destruction = [NodePath("DamageArea")]
 stat_speed_ratio = SubResource("Resource_yonm5")
 stat_invulnerable = SubResource("Resource_fe38e")
 stat_armor = SubResource("Resource_pvjng")
 stat_cant_move = SubResource("Resource_kwmfl")
 stat_cant_shoot = SubResource("Resource_jeoah")
+stat_cant_interract = SubResource("Resource_2766p")
+stat_shooting_speed = SubResource("Resource_jmt7w")
 
-[node name="EnemyController" parent="Enemies/Bosses/GiantFrog" index="4" unique_id=29310194 node_paths=PackedStringArray("paths_array", "character", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
+[node name="EnemyController" parent="Enemies/Bosses/GiantFrog" index="4" unique_id=29310194 node_paths=PackedStringArray("paths_array", "character", "inspectable", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
 script = ExtResource("40_5cmlo")
 paths_array = {
 "path_1": NodePath("../../GiantFrogPath1"),
 "path_2": NodePath("../../GiantFrogPath2")
 }
 character = NodePath("..")
+inspectable = NodePath("Inspectable")
 actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_5cmlo"), SubResource("Resource_fscrj"), SubResource("Resource_88b2i"), SubResource("Resource_4xcp5"), SubResource("Resource_s4min")])
 modulates_for_phase = Array[float]([0.7, 0.3])
 movement_patterns = {
@@ -1636,16 +1801,18 @@ movement_patterns = {
 "homing_shot": NodePath("PathDotMovement"),
 "multi_shot": NodePath("PathDotMovement"),
 "rest": NodePath("AreaMovementController"),
-"stone_bounce": NodePath("PathDotMovement")
+"stone_rickoshet": NodePath("PathDotMovement")
 }
 vfx_on_phase_change = SubResource("Resource_3jqjo")
 show_on_death = [NodePath("../../../../Teleports/TeleportPinkOut")]
 tp_on_death = NodePath("../../../../Teleports/TeleportPinkOut")
 data_for_interface = ExtResource("60_5alrq")
+interface_needed = true
 
-[node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
+[node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=848658870 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
+scale = Vector2(1.45, 1.45)
 character = NodePath("../..")
-max_health = 10.0
+max_health = 15.0
 sounds_damage = Array[AudioStream]([ExtResource("44_s4min"), ExtResource("45_28icf")])
 
 [node name="ShootController" parent="Enemies/Bosses/GiantFrog/EnemyController" index="4" unique_id=675331126 instance=ExtResource("16_jqxbl")]
@@ -1664,8 +1831,14 @@ regions = [NodePath("../../../GiantFrogRegion")]
 min_radius = 100.0
 speed = 60.0
 
+[node name="Inspectable" parent="Enemies/Bosses/GiantFrog/EnemyController" index="7" unique_id=1641324653 instance=ExtResource("9_8ic3i")]
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_b7117")])
+preset = SubResource("Resource_5167o")
+delete_on_disable = false
+enabled = false
+
 [node name="DamageArea" parent="Enemies/Bosses/GiantFrog" index="5" unique_id=190409882 instance=ExtResource("35_mywxa")]
-scale = Vector2(1.25, 1.25)
+scale = Vector2(1.5, 1.5)
 team = 0
 
 [node name="GiantFrogPath1" type="Path2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="4" unique_id=40876543]
@@ -1678,7 +1851,7 @@ curve = SubResource("Curve2D_5cmlo")
 
 [node name="GiantFrogRegion" type="NavigationRegion2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="6" unique_id=313250915]
 position = Vector2(-944, 96)
-navigation_polygon = SubResource("NavigationPolygon_28icf")
+navigation_polygon = SubResource("NavigationPolygon_lt3al")
 
 [node name="GiantFrogGroundFilter" type="Sprite2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="7" unique_id=1015665125]
 position = Vector2(-960, 160)
