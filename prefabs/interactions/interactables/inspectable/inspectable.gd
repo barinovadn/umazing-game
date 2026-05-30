@@ -17,7 +17,6 @@ var _sequence_index: int = -1
 func _on_interaction() -> bool:
 	if not len(dialogues):
 		return false
-	
 	inspect()
 	return true
 
@@ -83,6 +82,7 @@ func inspect():
 	if len(dialogues) <= 0:
 		return
 	
+	interacted.emit()
 	_resolve_preset()
 	
 	match mode:
