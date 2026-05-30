@@ -38,10 +38,6 @@ region = Rect2(62, 0, 62, 62)
 atlas = ExtResource("3_1maae")
 region = Rect2(124, 0, 62, 62)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w130g"]
-atlas = ExtResource("3_1maae")
-region = Rect2(186, 0, 62, 62)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_tw8u1"]
 atlas = ExtResource("4_qxl2k")
 region = Rect2(0, 0, 62, 62)
@@ -129,13 +125,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2qdf2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w130g")
 }],
 "loop": true,
 "name": &"downed",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -194,9 +187,9 @@ animations = [{
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_eyo8q")
-animation = &"idle_left"
+animation = &"downed"
 autoplay = "idle_left"
-frame_progress = 0.16141595
+frame_progress = 0.0
 
 [node name="AnimationController" parent="." index="3" unique_id=395358213]
 animations = Dictionary[int, String]({

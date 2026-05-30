@@ -737,48 +737,6 @@ icon = SubResource("AtlasTexture_lt3al")
 name = "Гнилой Ствол Дерева"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[sub_resource type="Resource" id="Resource_1p1va"]
-script = ExtResource("32_ukxex")
-base_value = 1.0
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_s76d0"]
-script = ExtResource("32_ukxex")
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_sl7rd"]
-script = ExtResource("32_ukxex")
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_2dy1b"]
-script = ExtResource("32_ukxex")
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_1hg2r"]
-script = ExtResource("32_ukxex")
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_atocy"]
-script = ExtResource("32_ukxex")
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_cx3ft"]
-script = ExtResource("32_ukxex")
-base_value = 1.0
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_ruwpk"]
-script = ExtResource("20_ivmt6")
-action_name = "default"
-weight = 1.0
-phases = Array[int]([1])
-duration = 100.0
-can_shoot = true
-can_move = true
-shoot_interval = 1.0
-shooting_animation_interval = 0.2
-metadata/_custom_type_script = "uid://dowl0clqumedg"
-
 [sub_resource type="Resource" id="Resource_3svh0"]
 script = ExtResource("31_myoci")
 duration = 1.0
@@ -1734,46 +1692,6 @@ breakable = NodePath("..")
 sprite = 3
 color = 2
 
-[node name="Pig" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="0" unique_id=850560069 node_paths=PackedStringArray("movement", "hurt_component", "afterlife_delete_on_destruction") instance=ExtResource("2_r64fy")]
-position = Vector2(79, 8)
-movement = NodePath("AIController/Node2D")
-collision = false
-hurt_component = NodePath("AIController/HurtComponent")
-modifier_invulnerability = null
-afterlife_delete_on_destruction = [NodePath("DamageArea")]
-stat_speed_ratio = SubResource("Resource_1p1va")
-stat_invulnerable = SubResource("Resource_s76d0")
-stat_armor = SubResource("Resource_sl7rd")
-stat_cant_move = SubResource("Resource_2dy1b")
-stat_cant_shoot = SubResource("Resource_1hg2r")
-stat_cant_interract = SubResource("Resource_atocy")
-stat_shooting_speed = SubResource("Resource_cx3ft")
-
-[node name="AIController" parent="Enemies/Pig" index="4" unique_id=359908874 node_paths=PackedStringArray("character", "movement_patterns") instance=ExtResource("25_ky1g4")]
-character = NodePath("..")
-deactivate_on_room_change = false
-actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_ruwpk")])
-movement_patterns = {
-"default": NodePath("Node2D")
-}
-
-[node name="HurtComponent" parent="Enemies/Pig/AIController" index="3" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
-character = NodePath("../..")
-visible_hp_bar = true
-max_health = 3.0
-
-[node name="Node2D" type="Node2D" parent="Enemies/Pig/AIController" index="4" unique_id=1096391438 node_paths=PackedStringArray("target", "body")]
-script = ExtResource("3_fp2w6")
-target = NodePath("../../../../Characters/NinjaGreen")
-body = NodePath("../..")
-distance_min = 5.0
-distance_max = 10.0
-speed = 40.0
-
-[node name="DamageArea" parent="Enemies/Pig" index="5" unique_id=419752470 instance=ExtResource("35_mywxa")]
-scale = Vector2(1.1, 1.1)
-team = 0
-
 [node name="CyclopusCat" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1477057129 node_paths=PackedStringArray("hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("14_nfdyi")]
 position = Vector2(416, -480)
 scale = Vector2(3, 3)
@@ -1891,6 +1809,7 @@ data_for_interface = ExtResource("60_5alrq")
 interface_needed = true
 
 [node name="HurtComponent" parent="Enemies/Bosses/GiantFrog/EnemyController" index="3" unique_id=848658870 node_paths=PackedStringArray("character") instance=ExtResource("11_bpga3")]
+scale = Vector2(1.45, 1.45)
 character = NodePath("../..")
 max_health = 15.0
 sounds_damage = Array[AudioStream]([ExtResource("44_s4min"), ExtResource("45_28icf")])

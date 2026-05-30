@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/combat/ai/ai_controller.tscn" id="4_lonoe"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="5_olh6k"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="6_1e2a1"]
+[ext_resource type="PackedScene" uid="uid://dobj6xx5d4p2c" path="res://prefabs/breakables/variations/bamboo_1.tscn" id="7_olh6k"]
 
 [node name="Game" unique_id=1082399769 instance=ExtResource("1_o2p3v")]
 
@@ -19,12 +20,19 @@ tile_map_data = PackedByteArray("AAAJAAQAAAACAAkAAAAJAAMAAAACAAcAAAAJAAIAAAAEAAw
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="0" unique_id=297187452 instance=ExtResource("2_o2p3v")]
 position = Vector2(-117, 0)
 
-[node name="GiantBamboo" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=2065001503 instance=ExtResource("3_cp8gd")]
+[node name="Breakable" parent="Breakables" parent_id_path=PackedInt32Array(1931600874) index="0" unique_id=514792727 instance=ExtResource("7_olh6k")]
+position = Vector2(-81, 32)
+
+[node name="GiantBamboo" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=2065001503 node_paths=PackedStringArray("hurt_component") instance=ExtResource("3_cp8gd")]
 position = Vector2(37, -11)
+hurt_component = NodePath("AIController/HurtComponent")
+afterlife_duration = 2.0
 
 [node name="AIController" parent="Enemies/Bosses/GiantBamboo" index="5" unique_id=359908874 instance=ExtResource("4_lonoe")]
 
-[node name="HurtComponent" parent="Enemies/Bosses/GiantBamboo/AIController" index="3" unique_id=949368062 instance=ExtResource("5_olh6k")]
+[node name="HurtComponent" parent="Enemies/Bosses/GiantBamboo/AIController" index="3" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("5_olh6k")]
+scale = Vector2(2, 3)
+character = NodePath("../..")
 
 [node name="ShootController" parent="Enemies/Bosses/GiantBamboo/AIController" index="4" unique_id=1242481191 instance=ExtResource("6_1e2a1")]
 interval_between_shots = 0.5

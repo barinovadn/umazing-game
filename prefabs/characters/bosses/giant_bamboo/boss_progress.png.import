@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vbh036luwsu2"
-path="res://.godot/imported/ui_progress.png-0cf840430ee40a9f66e6879957523c91.ctex"
+uid="uid://c4nnlcpg33wi6"
+path="res://.godot/imported/boss_progress.png-e6e4482acda10c7fd787bd16ed06c60d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/giant_frog/ui_progress.png"
-dest_files=["res://.godot/imported/ui_progress.png-0cf840430ee40a9f66e6879957523c91.ctex"]
+source_file="res://prefabs/characters/bosses/giant_bamboo/boss_progress.png"
+dest_files=["res://.godot/imported/boss_progress.png-e6e4482acda10c7fd787bd16ed06c60d.ctex"]
 
 [params]
 
