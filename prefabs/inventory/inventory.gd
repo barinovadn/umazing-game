@@ -14,6 +14,7 @@ signal item_used(item: ItemData)
 
 @export_subgroup("Notifications", "vfx_notification")
 @export var vfx_notification_inventory_full: VFXProfile
+@export var vfx_notification_item_added: VFXProfile
 @export var vfx_notification_item_used: VFXProfile
 
 var items: Array[ItemData] = []
@@ -41,10 +42,16 @@ func _fill_existing_stacks(data: ItemData, amount: int) -> int:
 
 
 func _on_item_added(item: ItemData, amount: int):
-	if vfx_notification_item_used:
-		vfx_notification_item_used.settings.notification_text = (
+	if vfx_notification_item_added:
+		vfx_notification_item_added.settings.notification_text = (
 			"x" + str(amount) + " " + item.name )
-		vfx_notification_item_used.spawn(Game.player.character.global_position)
+		vfx_notification_item_added.spawn(Game.player.character.global_position)
+
+
+func _on_item_used(item: ItemData):
+	if vfx_notification_item_added:
+		vfx_notification_item_added.settings.notification_text = "-" + item.name
+		vfx_notification_item_added.spawn(Game.player.character.global_position)
 
 
 func get_item(item_name: String) -> ItemData:
@@ -115,7 +122,7 @@ func use_item(item_name: String):
 	
 	item.use()
 	item_used.emit(item)
-	
+	Game.player.inventory_ui.close()
 	
 	if item.is_consumable:
 		remove_item(item_name)

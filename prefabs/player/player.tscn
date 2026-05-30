@@ -38,12 +38,6 @@ size = Vector2(320, 160)
 [sub_resource type="CircleShape2D" id="CircleShape2D_agiw0"]
 radius = 0.01
 
-[sub_resource type="Resource" id="Resource_dxdrd"]
-script = ExtResource("3_408ek")
-value = 1.0
-operation = 1
-metadata/_custom_type_script = "uid://ctqdits5kj2tk"
-
 [node name="Player" type="Node" unique_id=1659074022]
 script = ExtResource("1_wv1mm")
 bullets = Array[PackedScene]([ExtResource("7_30gqm")])
@@ -73,6 +67,7 @@ hit_from_inside = true
 
 [node name="Inventory" parent="Components" unique_id=956569913 instance=ExtResource("5_ocyg1")]
 unique_name_in_owner = true
+vfx_notification_item_used = null
 
 [node name="ShootController" parent="Components" unique_id=1242481191 instance=ExtResource("6_oo3uv")]
 unique_name_in_owner = true
@@ -89,7 +84,7 @@ sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
 
 [node name="DamageArea" parent="Components" unique_id=419752470 instance=ExtResource("8_ocyg1")]
 editor_description = "Grass Annihilator 3000"
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.85, 0.85)
 cooldown_time = 0.00999999999999999
 team = 3
 
@@ -178,7 +173,6 @@ layer = 0
 unique_name_in_owner = true
 visible = false
 z_index = 10
-modifier = SubResource("Resource_dxdrd")
 
 [node name="HealthUI" type="HBoxContainer" parent="UI" unique_id=1182080135]
 unique_name_in_owner = true

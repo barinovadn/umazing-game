@@ -13,6 +13,8 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		character_changed.emit(character, old_character)
 @export var bullets: Array[PackedScene]
 @export var allow_cheats: bool = false
+
+@export_group("Restrictions", "stat")
 @export var stat_cant_use_inventory: Stat:
 	set(value):
 		if stat_cant_use_inventory:
