@@ -6,13 +6,15 @@ extends RigidBody2D
 @export var item_data: ItemData
 @export var default_sound_pickup: AudioStream
 
+@export_group("VFX", "default_vfx")
 @export var default_vfx_spawn: VFXProfile
 @export var default_vfx_collect: VFXProfile
+@export_subgroup("Notifications", "default_vfx_notification")
+@export var default_vfx_notification_inventory_full: VFXProfile
 
 @export_group("Afterlife", "afterlife")
 @export var afterlife_duration: float = 7.0
 
-#@onready var inventory = Game.inventory
 @onready var sprite = $Icon
 @onready var light = $Icon/RarityLight
 @onready var audio_player = $SoundPlayer 
@@ -49,9 +51,14 @@ func set_light_by_rarity(data: ItemData):
 func collect(inventory: Inventory):
 	if not inventory:
 		return
-
-	var leftover = inventory.add_item(item_data)
+	
+	var leftover := inventory.add_item(item_data)
+	
 	if leftover > 0:
+		if leftover == item_data.amount:
+			default_vfx_notification_inventory_full.spawn(global_position)
+			return
+		
 		item_data.amount = leftover
 		return
 

@@ -14,6 +14,6 @@ func spawn(item_data: ItemData, global_pos: Vector2) -> Pickup:
 	new_pickup.item_data = item_data.duplicate()
 	new_pickup.global_position = global_pos
 	
-	get_tree().current_scene.add_child(new_pickup)
+	get_tree().current_scene.add_child.call_deferred(new_pickup)
 
 	return new_pickup

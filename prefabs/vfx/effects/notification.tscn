@@ -52,7 +52,7 @@ emitting = false
 amount = 1
 sub_emitter = NodePath(".")
 texture = SubResource("ViewportTexture_wjkqe")
-lifetime = 1.5
+lifetime = 2.0
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_n2h0e")
 

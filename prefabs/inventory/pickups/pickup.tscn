@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_a7oa7"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="4_4sid4"]
 [ext_resource type="Texture2D" uid="uid://cgaygxeatd046" path="res://prefabs/inventory/items/shrimp.png" id="5_7h5v3"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="5_ff4de"]
 [ext_resource type="Texture2D" uid="uid://buoyg5fif6m8i" path="res://prefabs/inventory/pickups/pickup_glow.png" id="6_5dapo"]
 
 [sub_resource type="Resource" id="Resource_y66sm"]
@@ -15,6 +16,18 @@ metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 [sub_resource type="Resource" id="Resource_hy17o"]
 script = ExtResource("4_4sid4")
 effect = 310
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_ff4de"]
+script = ExtResource("5_ff4de")
+modulate = Color(0.6255617, 0.5866338, 0.999999, 1)
+notification_text = "ИНВЕНТАРЬ ПЕРЕПОЛНЕН!"
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_a7oa7"]
+script = ExtResource("4_4sid4")
+effect = 10000
+settings = SubResource("Resource_ff4de")
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cg6j6"]
@@ -67,7 +80,7 @@ item_data = ExtResource("2_ff4de")
 default_sound_pickup = ExtResource("3_a7oa7")
 default_vfx_spawn = SubResource("Resource_y66sm")
 default_vfx_collect = SubResource("Resource_hy17o")
-afterlife_duration = null
+default_vfx_notification_inventory_full = SubResource("Resource_a7oa7")
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1208475]
 shape = SubResource("CircleShape2D_cg6j6")
