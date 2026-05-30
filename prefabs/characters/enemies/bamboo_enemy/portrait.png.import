@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2kqe2ioabodo"
-path="res://.godot/imported/SpriteSheet.png-0b62aa3c57ead67a6d05909db02fbcb7.ctex"
+uid="uid://co0t4ugk7xjxj"
+path="res://.godot/imported/portrait.png-3f056827bc7819c4fa6540c9191a5686.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/enemies/bamboo_enemy/SpriteSheet.png"
-dest_files=["res://.godot/imported/SpriteSheet.png-0b62aa3c57ead67a6d05909db02fbcb7.ctex"]
+source_file="res://prefabs/characters/enemies/bamboo_enemy/portrait.png"
+dest_files=["res://.godot/imported/portrait.png-3f056827bc7819c4fa6540c9191a5686.ctex"]
 
 [params]
 

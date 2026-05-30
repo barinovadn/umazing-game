@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgvgap0xmvt73"]
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_h4x3x"]
-[ext_resource type="Texture2D" uid="uid://2kqe2ioabodo" path="res://prefabs/characters/enemies/bamboo_enemy/SpriteSheet.png" id="2_aqent"]
+[ext_resource type="Texture2D" uid="uid://2kqe2ioabodo" path="res://prefabs/characters/enemies/bamboo_enemy/sprite_sheet.png" id="2_aqent"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqsmu"]
 atlas = ExtResource("2_aqent")

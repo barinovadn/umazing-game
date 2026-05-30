@@ -2,7 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/combat/bullets/bullet.tscn" id="1_25ujy"]
 [ext_resource type="Texture2D" uid="uid://q8j2wc8mc47g" path="res://prefabs/combat/bullets/variations/plant_spike_shot/plant_spike_shot.png" id="2_dfbsn"]
-[ext_resource type="Script" uid="uid://bwvu7w44dnof6" path="res://prefabs/combat/bullets/variations/plant_spike_shot/plant_spike_shot.gd" id="2_v0lnh"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_v0lnh"]
+
+[sub_resource type="Resource" id="Resource_qm0ak"]
+script = ExtResource("2_v0lnh")
+effect = 40
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_or8qu"]
+script = ExtResource("2_v0lnh")
+effect = 40
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_enlk5"]
+script = ExtResource("2_v0lnh")
+effect = 40
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0lnh"]
 atlas = ExtResource("2_dfbsn")
@@ -42,14 +57,16 @@ animations = [{
 
 [node name="Bullet" unique_id=419752470 instance=ExtResource("1_25ujy")]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("2_v0lnh")
-base_amplitude = 0.0
-amplitude_growth = 5.0
-frequency = 30.0
 turn_rate = 0.0
 homing = true
 damage = 0.25
 team = 0
+can_be_broken = true
+can_break = true
+lifespan = 0.0
+vfx_destroy = SubResource("Resource_qm0ak")
+vfx_hit = SubResource("Resource_or8qu")
+vfx_bounce = SubResource("Resource_enlk5")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
 sprite_frames = SubResource("SpriteFrames_j0hr4")

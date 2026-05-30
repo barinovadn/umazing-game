@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://ctqdits5kj2tk"
 [sub_resource type="Resource" id="Resource_7tf5d"]
 script = ExtResource("9_fflhd")
 action_name = "shooting"
-weight = 1.0
+weight = 3.0
 phases = Array[int]([1])
 duration = 5.0
 can_shoot = true
@@ -105,7 +105,7 @@ max_health = 2.0
 script = ExtResource("9_j4jck")
 regions = [NodePath("../../../BambooEnemyRegion1")]
 min_radius = 20.0
-speed = 45.0
+speed = 50.0
 metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
 
 [node name="BambooEnemyRegion1" type="NavigationRegion2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="2" unique_id=1883405314]
