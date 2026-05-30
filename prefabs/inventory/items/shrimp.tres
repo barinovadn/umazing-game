@@ -24,5 +24,5 @@ description = Array[ExtResource("1_3hjnu")]([SubResource("Resource_pylf1")])
 is_consumable = true
 is_active = true
 is_stackable = true
-heal = 1.5
+heal = 2.0
 metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

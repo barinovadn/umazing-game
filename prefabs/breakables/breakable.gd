@@ -15,6 +15,7 @@ enum State { LOADING, SPAWNING, IDLE, BROKEN, RESPAWNING, DELETING }
 		settings = value
 		if is_inside_tree():
 			_apply_settings()
+@export var loot_drop_guaranteed: bool = false
 
 @onready var _sprite: Sprite2D = $Sprite
 @onready var _collider: CollisionShape2D = $Collider
@@ -72,11 +73,21 @@ func _on_state_changed():
 			visible = false
 			_collider.set_deferred("disabled", true)
 			broken.emit()
+			
 			if not settings:
 				return delete()
+			
 			if settings.vfx_break:
 				settings.vfx_break.spawn(global_position)
+			
+			var loot_pickup := settings.roll_loot(
+				0.0 if loot_drop_guaranteed else -1.0
+				)
+			if loot_pickup:
+				Game.pickup_manager.spawn(loot_pickup, global_position)
+			
 			if settings.respawn_enabled:
+				
 				if( settings.delete_once_broken
 					and settings.respawn_lifes > 0
 					and _respawn_count >= settings.respawn_lifes ):
@@ -87,6 +98,7 @@ func _on_state_changed():
 				else:
 					spawn()
 				_respawn_count += 1
+			
 			else:
 				delete()
 		State.DELETING:

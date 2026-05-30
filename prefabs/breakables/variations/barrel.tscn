@@ -24,4 +24,5 @@ shape = SubResource("CircleShape2D_q7uue")
 [node name="HurtComponent" parent="." index="2" unique_id=949368062]
 shape = SubResource("CircleShape2D_q7uue")
 max_health = 0.5
+sounds_damage = Array[AudioStream]([ExtResource("4_v2hcu")])
 sounds_die = Array[AudioStream]([ExtResource("4_v2hcu")])
