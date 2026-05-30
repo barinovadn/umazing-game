@@ -70,8 +70,7 @@ func _on_state_changed():
 				_sound_player.stream = settings.sounds_spawn.pick_random()
 				_sound_player.play()
 		State.BROKEN:
-			visible = false
-			_collider.set_deferred("disabled", true)
+			_hide()
 			broken.emit()
 			
 			if not settings:
@@ -81,8 +80,7 @@ func _on_state_changed():
 				settings.vfx_break.spawn(global_position)
 			
 			var loot_pickup := settings.roll_loot(
-				0.0 if loot_drop_guaranteed else -1.0
-				)
+				0.0 if loot_drop_guaranteed else -1.0 )
 			if loot_pickup:
 				Game.pickup_manager.spawn(loot_pickup, global_position)
 			
@@ -99,12 +97,19 @@ func _on_state_changed():
 					spawn()
 				_respawn_count += 1
 			
-			else:
+			elif settings.delete_once_broken:
 				delete()
 		State.DELETING:
+			_hide()
 			if settings and settings.afterlife_duration > 0:
 				await get_tree().create_timer(settings.afterlife_duration).timeout
 			queue_free()
+
+
+func _hide():
+	visible = false
+	_collider.set_deferred("disabled", true)
+	_hurt_component.current_health = 0
 
 
 func _apply_settings():

@@ -5,7 +5,11 @@
 [ext_resource type="Script" uid="uid://dnfhvouh77e1x" path="res://common/grid_camera/grid_camera.gd" id="3_rcuxh"]
 [ext_resource type="TileSet" uid="uid://cpkody5agfhcc" path="res://prefabs/tilesets/terrain.tres" id="4_64m6r"]
 [ext_resource type="TileSet" uid="uid://cq0gpukdqan4w" path="res://prefabs/tilesets/general.tres" id="5_pjdsv"]
+[ext_resource type="PackedScene" uid="uid://dosm88jd4axk1" path="res://prefabs/music/music_player.tscn" id="5_y4i35"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="6_2j8sj"]
+[ext_resource type="AudioStream" uid="uid://cnm1ov4xyujgv" path="res://prefabs/music/tracks/curse.ogg" id="6_rcuxh"]
+[ext_resource type="AudioStream" uid="uid://0y5mvxwdmr1y" path="res://prefabs/music/tracks/lost_village.ogg" id="7_64m6r"]
+[ext_resource type="AudioStream" uid="uid://c0sdii7cxequs" path="res://prefabs/music/tracks/tension.ogg" id="8_pjdsv"]
 [ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="9_faisu"]
 [ext_resource type="LabelSettings" uid="uid://ct11gc78ulvbc" path="res://common/theme/label_title.tres" id="11_fb4qf"]
 [ext_resource type="Script" uid="uid://bp0bnmynw2d1p" path="res://common/utils/hide_at_runtime.gd" id="12_riv3r"]
@@ -16,7 +20,7 @@ region = Rect2(144, 85, 32, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbqo6"]
 atlas = ExtResource("6_2j8sj")
-region = Rect2(95, 145, 16, 32)
+region = Rect2(95, 144, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4hu8"]
 atlas = ExtResource("6_2j8sj")
@@ -181,6 +185,13 @@ script = ExtResource("3_rcuxh")
 grid_size = Vector2(320, 160)
 metadata/_custom_type_script = "uid://dnfhvouh77e1x"
 
+[node name="MusicPlayer" parent="." unique_id=1068287036 instance=ExtResource("5_y4i35")]
+unique_name_in_owner = true
+playlist = Array[AudioStream]([ExtResource("6_rcuxh"), ExtResource("7_64m6r"), ExtResource("8_pjdsv")])
+order = 1
+delay = 1
+fade = 5.0
+
 [node name="Tilemap" type="Node2D" parent="." unique_id=308671319]
 
 [node name="Background" type="TileMapLayer" parent="Tilemap" unique_id=1252428118]
@@ -239,15 +250,16 @@ libraries/ = SubResource("AnimationLibrary_p1nwe")
 [node name="UI" type="CanvasLayer" parent="." unique_id=908448884]
 
 [node name="Menu" type="VBoxContainer" parent="UI" unique_id=656153263]
+texture_filter = 1
 offset_left = 110.0
 offset_top = 35.0
 offset_right = 250.0
 offset_bottom = 171.0
-scale = Vector2(2, 2)
+scale = Vector2(1.45, 1.45)
 
 [node name="Title" type="Label" parent="UI/Menu" unique_id=154666289]
 texture_filter = 1
-custom_minimum_size = Vector2(0, 85)
+custom_minimum_size = Vector2(0, 115)
 layout_mode = 2
 theme = ExtResource("9_faisu")
 text = "Ninja
@@ -255,17 +267,27 @@ Adventure"
 label_settings = ExtResource("11_fb4qf")
 horizontal_alignment = 1
 
-[node name="ButtonPlay" type="Button" parent="UI/Menu" unique_id=1644942497]
+[node name="ButtonContinue" type="Button" parent="UI/Menu" unique_id=887687493]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("9_faisu")
-text = "Играть"
+theme_override_font_sizes/font_size = 20
+text = "Продолжить"
+
+[node name="ButtonNewGame" type="Button" parent="UI/Menu" unique_id=1644942497]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("9_faisu")
+theme_override_font_sizes/font_size = 20
+text = "Новая Игра"
 
 [node name="ButtonQuit" type="Button" parent="UI/Menu" unique_id=358028812]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("9_faisu")
+theme_override_font_sizes/font_size = 20
 text = "Выход"
 
-[connection signal="pressed" from="UI/Menu/ButtonPlay" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="UI/Menu/ButtonContinue" to="." method="_on_conitnue_pressed"]
+[connection signal="pressed" from="UI/Menu/ButtonNewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="UI/Menu/ButtonQuit" to="." method="_on_quit_pressed"]

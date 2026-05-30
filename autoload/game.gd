@@ -1,6 +1,7 @@
 extends Node
 
 var player: Player
+var inventory: Inventory
 
 var music_player: MusicPlayer
 var dialogue_system: DialogueSystem
@@ -13,4 +14,3 @@ var enemies: Node2D
 var bullets: Node2D
 var pickups: Node2D
 var timers: Node2D
-var inventory: Inventory

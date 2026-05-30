@@ -48,7 +48,7 @@
 [ext_resource type="AudioStream" uid="uid://ctrye6fbih85b" path="res://prefabs/characters/bosses/cyclopus_cat/sounds/meow_4.ogg" id="33_psdh3"]
 [ext_resource type="AudioStream" uid="uid://bhu1506kudwdu" path="res://prefabs/characters/bosses/cyclopus_cat/sounds/meow_5.ogg" id="34_2p5q4"]
 [ext_resource type="Resource" uid="uid://cfvqawhunbipu" path="res://prefabs/breakables/variations/jug.tres" id="34_o8fgc"]
-[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
+[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="34_roxwf"]
 [ext_resource type="Resource" uid="uid://br85rp62bcmo1" path="res://prefabs/breakables/variations/barrel.tres" id="35_ffajp"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="35_mywxa"]
 [ext_resource type="PackedScene" uid="uid://cdtekl4l4f04o" path="res://prefabs/interactions/marker/marker.tscn" id="37_psdh3"]
@@ -1100,7 +1100,7 @@ music_delay = 1
 exit_particles_clear = false
 
 [node name="Collider1" parent="Enviroments/Village" index="0" unique_id=2147011793 instance=ExtResource("3_q7qle")]
-position = Vector2(1.8626451e-09, 0.49999988)
+position = Vector2(2.9802322e-08, 0.49999988)
 scale = Vector2(0.99999976, 1.9999995)
 
 [node name="Collider2" parent="Enviroments/Village" index="1" unique_id=33740918 instance=ExtResource("3_q7qle")]
@@ -1236,6 +1236,7 @@ energy = 0.75
 [node name="TeleportRedIn" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="0" unique_id=1365302331 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 position = Vector2(216, -184)
 exit = NodePath("../TeleportRedOut")
+exit_level_index = -1
 exit_offset = Vector2(0, -24)
 color = Color(1, 0, 0, 0.39215687)
 
@@ -1249,6 +1250,7 @@ animation = 2
 [node name="TeleportRedOut" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="1" unique_id=1197379040 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 position = Vector2(-312, -440)
 exit = NodePath("../TeleportRedIn")
+exit_level_index = -1
 exit_offset = Vector2(0, 24)
 color = Color(1, 0, 0, 0.39215687)
 
@@ -1256,6 +1258,7 @@ color = Color(1, 0, 0, 0.39215687)
 position = Vector2(-120, -136)
 scale = Vector2(2, 2)
 exit = NodePath("../TeleportGreenOut")
+exit_level_index = -1
 use_limit = 1
 color = Color(0, 1, 0, 0.78431374)
 delete_on_disable = false
@@ -1264,6 +1267,7 @@ delete_on_disable = false
 visible = false
 position = Vector2(192, -480)
 exit = NodePath("../TeleportGreenIn")
+exit_level_index = -1
 exit_offset = Vector2(0, -24)
 color = Color(0, 1, 0, 0.78431374)
 
@@ -1273,6 +1277,7 @@ color = Color(0, 1, 0, 0.78431374)
 position = Vector2(-344, 160)
 scale = Vector2(1.25, 1.25)
 exit = NodePath("../TeleportBlueExit")
+exit_level_index = -1
 use_limit = 1
 color = Color(0, 0, 1, 0.78431374)
 
@@ -1289,6 +1294,7 @@ position = Vector2(-72, -216)
 [node name="TeleportAvocadoIn" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="6" unique_id=789487673 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 position = Vector2(392, -8)
 exit = NodePath("../TeleportAvocadoOut")
+exit_level_index = -1
 exit_offset = Vector2(0, -24)
 exit_effect = null
 color = Color(0.53333336, 0.7882353, 0.5411765, 0.39215687)
@@ -1296,6 +1302,7 @@ color = Color(0.53333336, 0.7882353, 0.5411765, 0.39215687)
 [node name="TeleportAvocadoOut" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="7" unique_id=49203066 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 position = Vector2(969, -265)
 exit = NodePath("../TeleportAvocadoIn")
+exit_level_index = -1
 exit_offset = Vector2(0, 24)
 exit_effect = null
 color = Color(0.53333336, 0.7882353, 0.5411765, 0.39215687)
@@ -1303,6 +1310,7 @@ color = Color(0.53333336, 0.7882353, 0.5411765, 0.39215687)
 [node name="TeleportMangoIn" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="8" unique_id=1040128339 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 position = Vector2(432, -8)
 exit = NodePath("../TeleportMangoOut")
+exit_level_index = -1
 exit_offset = Vector2(24, 0)
 exit_effect = null
 color = Color(0.93009627, 0.65409225, 0.09505915, 0.39215687)
@@ -1310,6 +1318,7 @@ color = Color(0.93009627, 0.65409225, 0.09505915, 0.39215687)
 [node name="TeleportMangoOut" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="9" unique_id=1952933162 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 position = Vector2(872, -152)
 exit = NodePath("../TeleportMangoIn")
+exit_level_index = -1
 exit_offset = Vector2(0, 24)
 exit_effect = null
 color = Color(0.93009627, 0.65409225, 0.09505915, 0.39215687)
@@ -1317,6 +1326,7 @@ color = Color(0.93009627, 0.65409225, 0.09505915, 0.39215687)
 [node name="TeleportBananaIn" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="10" unique_id=1308337573 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 position = Vector2(8, -200)
 exit = NodePath("../TeleportBananaOut")
+exit_level_index = -1
 exit_offset = Vector2(-24, 0)
 exit_effect = null
 color = Color(0.93009627, 0.65409225, 0.09505915, 0.39215687)
@@ -1324,6 +1334,7 @@ color = Color(0.93009627, 0.65409225, 0.09505915, 0.39215687)
 [node name="TeleportBananaOut" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="11" unique_id=681766620 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 position = Vector2(1304, -152)
 exit = NodePath("../TeleportBananaIn")
+exit_level_index = -1
 exit_offset = Vector2(0, 24)
 exit_effect = null
 color = Color(0.93009627, 0.65409225, 0.09505915, 0.39215687)
@@ -1332,6 +1343,7 @@ color = Color(0.93009627, 0.65409225, 0.09505915, 0.39215687)
 visible = false
 position = Vector2(-1072, 152)
 exit = NodePath("../../Characters/Animals/Frog/TeleportPinkIn")
+exit_level_index = -1
 exit_offset = Vector2(0, -24)
 color = Color(0.92156863, 0.59607846, 0.8745098, 0.78431374)
 
@@ -1409,7 +1421,6 @@ owner_reaction = Array[ExtResource("22_5cmlo")]([SubResource("Resource_ukxex"), 
 owner_reaction_mode = 1
 owner_reaction_order = 1
 movement = NodePath("PathDotMovement")
-modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_ryfdy")
 stat_invulnerable = SubResource("Resource_dlo6x")
 stat_armor = SubResource("Resource_axnic")
@@ -1449,7 +1460,6 @@ position = Vector2(-408, 320)
 collision_mask = 3
 movement = NodePath("PathDotMovement")
 collision = false
-modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_hf1mc")
 stat_invulnerable = SubResource("Resource_cmpeo")
 stat_armor = SubResource("Resource_ixjtd")
@@ -1468,6 +1478,7 @@ speed = 30.0
 
 [node name="TeleportPinkIn" parent="Characters/Animals/Frog" index="5" unique_id=643987933 node_paths=PackedStringArray("exit") instance=ExtResource("8_ygfwu")]
 exit = NodePath("../../../../Teleports/TeleportPinkOut")
+exit_level_index = -1
 use_limit = 1
 color = Color(0.9372549, 0.68235296, 0.9019608, 0.78431374)
 delete_on_disable = false
@@ -1488,13 +1499,11 @@ position = Vector2(-136, 128)
 collision_layer = 0
 collision_mask = 65
 movement = NodePath("BehaviourFollow")
-modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_wfbku")
 stat_invulnerable = SubResource("Resource_kcjvo")
 stat_armor = SubResource("Resource_1an88")
 stat_cant_move = SubResource("Resource_whful")
 stat_cant_shoot = SubResource("Resource_pthgk")
-stat_cant_interract = null
 
 [node name="BehaviourFollow" type="Node2D" parent="Characters/Animals/Pig" index="4" unique_id=183690025 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("3_fp2w6")
@@ -1522,7 +1531,6 @@ position = Vector2(-16, 56)
 collision_layer = 0
 collision_mask = 65
 movement = NodePath("BehaviourFollow")
-modifier_invulnerability = null
 stat_speed_ratio = SubResource("Resource_a78ug")
 stat_invulnerable = SubResource("Resource_pos45")
 stat_armor = SubResource("Resource_280sb")

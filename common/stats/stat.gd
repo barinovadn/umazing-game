@@ -49,7 +49,13 @@ var value: float:
 		return return_value
 
 
-func add_modifier(mod_id: String, mod: Modifier):
+func add_modifier(mod_id: String, mod: Modifier = null):
+	if not mod:
+		mod = Modifier.new()
+		mod.value = 1.0
+		mod.duration = 0.0
+		mod.operation = Modifier.Operation.increase
+	
 	mod.creation_time = Time.get_unix_time_from_system()
 	modifications[mod_id] = mod
 	value_changed.emit()
@@ -68,7 +74,6 @@ func add_modifier(mod_id: String, mod: Modifier):
 			
 			new_timer.timeout.connect(func(): remove_modifier(mod_id))
 			new_timer.start()
-
 
 func remove_modifier(mod_id: String):
 	if _timers.has(mod_id):
