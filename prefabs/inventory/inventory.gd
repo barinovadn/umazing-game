@@ -116,6 +116,7 @@ func use_item(item_name: String):
 	item.use()
 	item_used.emit(item)
 	
+	
 	if item.is_consumable:
 		remove_item(item_name)
 
