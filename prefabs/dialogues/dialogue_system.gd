@@ -2,6 +2,7 @@
 class_name DialogueSystem
 extends CanvasLayer
 
+signal dialogue_closed()
 
 enum State { LOADING, HIDDEN, APPEARING, ACTIVE, HIDING }
 
@@ -263,3 +264,5 @@ func close():
 	Game.player.character.stat_cant_move.remove_modifier(var_to_str(mod.get_instance_id()))
 	Game.player.character.stat_cant_shoot.remove_modifier(var_to_str(mod.get_instance_id()))
 	Game.player.character.stat_cant_interract.remove_modifier(var_to_str(mod.get_instance_id()))
+	
+	dialogue_closed.emit()

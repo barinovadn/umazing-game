@@ -5,6 +5,7 @@ class_name AIController
 
 @export var character: Character2D
 @export var deactivate_on_room_change: bool = true
+@export var inspectable: Inspectable
 
 @export_group("Combat")
 @export var actions: Array[AIAction]
@@ -17,6 +18,9 @@ class_name AIController
 
 @export_group("VFX", "vfx")
 @export var vfx_on_phase_change: VFXProfile
+
+@export_group("Dialogue", "dialogue")
+@export var dialogue_boss_phrase: Array[Dialogue]
 
 @export_group("Event Responses")
 @export var show_on_activation: Array[Node2D]
@@ -180,6 +184,10 @@ func _on_fatal_damage_taken():
 func activate_interaction(_area: Area2D = null):
 	activate_points(show_on_activation)
 	deactivate_points(hide_on_activation)
+	
+	dialogue()
+
+func on_continue():
 	if interface_needed:
 		display_location.add(data_for_interface, self)
 	_on_action_changer_timeout()
@@ -226,3 +234,11 @@ func attach_shoot_controller(controller: ShootController):
 
 func attach_movement_controller(movement: MovementController2D):
 	movement_controller = movement
+
+
+func dialogue():
+	if inspectable and inspectable.dialogues:
+		inspectable.inspect()
+		Game.dialogue_system.dialogue_closed.connect(on_continue)
+	else:
+		on_continue()

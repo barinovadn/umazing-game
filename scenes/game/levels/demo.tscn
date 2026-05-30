@@ -55,7 +55,6 @@
 [ext_resource type="PackedScene" uid="uid://cdtekl4l4f04o" path="res://prefabs/interactions/marker/marker.tscn" id="37_psdh3"]
 [ext_resource type="PackedScene" uid="uid://cf7gqlpmmeph3" path="res://prefabs/characters/bosses/giant_frog/giant_frog.tscn" id="38_2p5q4"]
 [ext_resource type="Script" uid="uid://dbc35i8owb7ya" path="res://prefabs/characters/bosses/giant_frog/demo/ai_controller.gd" id="40_5cmlo"]
-[ext_resource type="PackedScene" uid="uid://dtwff03frdapj" path="res://prefabs/combat/bullets/variations/stone_bounce_shot/stone_bounce_shot.tscn" id="41_fscrj"]
 [ext_resource type="PackedScene" uid="uid://cqg5fx2eubt1p" path="res://prefabs/combat/bullets/variations/triple_shot/multy_shot.tscn" id="42_n8x4b"]
 [ext_resource type="PackedScene" uid="uid://cg3b2r5sjj7fk" path="res://prefabs/combat/bullets/variations/circle_shot/circle_shot.tscn" id="43_88b2i"]
 [ext_resource type="AudioStream" uid="uid://dwlyixt203ro4" path="res://prefabs/characters/bosses/giant_frog/demo/kwa_1.ogg" id="44_s4min"]
@@ -130,6 +129,15 @@ metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 script = ExtResource("22_5cmlo")
 message = "О, ты! Да, ты! Слушай сюда. Если ты найдёшь мою кошку быстрее, чем за час - я разрешу тебе гордиться собой целых пять секунд."
 type_speed = 3
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5alrq"]
+load_path = "res://.godot/imported/portrait.png-ae6a2fb6ddddd3586ed1364f370eef22.ctex"
+
+[sub_resource type="Resource" id="Resource_d8mu3"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("CompressedTexture2D_5alrq")
+name = "Cyclopus Cat"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_c4k2v"]
@@ -770,6 +778,13 @@ shoot_interval = 1.0
 shooting_animation_interval = 0.2
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
+[sub_resource type="Resource" id="Resource_3svh0"]
+script = ExtResource("31_myoci")
+duration = 1.0
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
 [sub_resource type="Resource" id="Resource_qkatc"]
 script = ExtResource("32_ukxex")
 base_value = 1.0
@@ -877,12 +892,34 @@ display_name = "Cyclopus"
 display_color = null
 metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
 
+[sub_resource type="Resource" id="Resource_7hhak"]
+script = ExtResource("22_5cmlo")
+message = "Мяу...Мяу...МЯУ!
+(ну а что вы ещё ожидали от кошки?)"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b7117"]
+load_path = "res://.godot/imported/portrait.png-cad496b2a4773437140b466ad9129861.ctex"
+
+[sub_resource type="Resource" id="Resource_vk48t"]
+script = ExtResource("22_5cmlo")
+icon = SubResource("CompressedTexture2D_b7117")
+name = "Cyclopus Cat"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_17ap2"]
 vertices = PackedVector2Array(22, 86, -38, 86, -38, -38, 22, -38)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-48, -48, -48, 96, 32, 96, 32, -48)])
 parsed_collision_mask = 3
 source_geometry_mode = 2
+
+[sub_resource type="Resource" id="Resource_3t3xf"]
+script = ExtResource("31_myoci")
+duration = 1.0
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
 
 [sub_resource type="Resource" id="Resource_yonm5"]
 script = ExtResource("32_ukxex")
@@ -938,13 +975,13 @@ metadata/_custom_type_script = "uid://dowl0clqumedg"
 
 [sub_resource type="Resource" id="Resource_88b2i"]
 script = ExtResource("20_ivmt6")
-action_name = "stone_bounce"
+action_name = "stone_rickoshet"
 weight = 2.0
 phases = Array[int]([1, 2])
 duration = 5.0
 can_shoot = true
 can_move = true
-bullet_types = Array[PackedScene]([ExtResource("41_fscrj")])
+bullet_types = Array[PackedScene]([ExtResource("47_xaepa")])
 shoot_interval = 0.7
 shooting_animation_interval = 0.4
 metadata/_custom_type_script = "uid://dowl0clqumedg"
@@ -1356,7 +1393,7 @@ stat_cant_shoot = SubResource("Resource_bhnie")
 [node name="InspectableNPC" parent="Characters/Villagers/Dummy1" index="4" unique_id=45048443 instance=ExtResource("9_8ic3i")]
 dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_f2r25"), SubResource("Resource_8r7lj"), SubResource("Resource_o8fgc"), SubResource("Resource_ffajp")])
 order = 0
-preset = ExtResource("20_ctk38")
+preset = SubResource("Resource_d8mu3")
 
 [node name="InteractionMarker" parent="Characters/Villagers/Dummy1/InspectableNPC" index="1" unique_id=334963736 instance=ExtResource("37_psdh3")]
 modulate = Color(1, 0.25, 0.25, 1)
@@ -1728,13 +1765,13 @@ speed = 40.0
 scale = Vector2(1.1, 1.1)
 team = 0
 
-[node name="CyclopusCat" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1477057129 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("14_nfdyi")]
+[node name="CyclopusCat" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1477057129 node_paths=PackedStringArray("hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("14_nfdyi")]
 position = Vector2(416, -480)
 scale = Vector2(3, 3)
 collision_mask = 1
-movement = NodePath("EnemyController/AreaMovement")
 hurt_component = NodePath("EnemyController/HurtComponent")
 shoot_controller = NodePath("EnemyController/ShootController")
+modifier_invulnerability = SubResource("Resource_3svh0")
 afterlife_delete_on_destruction = [NodePath("DamageArea")]
 stat_speed_ratio = SubResource("Resource_qkatc")
 stat_invulnerable = SubResource("Resource_rt8fo")
@@ -1744,11 +1781,12 @@ stat_cant_shoot = SubResource("Resource_s8xc4")
 stat_cant_interract = SubResource("Resource_shkhy")
 stat_shooting_speed = SubResource("Resource_ek345")
 
-[node name="EnemyController" parent="Enemies/Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("npc", "npc_new_movement", "character", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
+[node name="EnemyController" parent="Enemies/Bosses/CyclopusCat" index="4" unique_id=1818865949 node_paths=PackedStringArray("npc", "npc_new_movement", "character", "inspectable", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("25_ky1g4")]
 script = ExtResource("22_1qwsm")
 npc = NodePath("../../../../Characters/Animals/Cat")
 npc_new_movement = NodePath("../../../../Characters/Animals/Cat/BehaviourFollow")
 character = NodePath("..")
+inspectable = NodePath("Inspectable")
 actions = Array[ExtResource("20_ivmt6")]([SubResource("Resource_mywxa"), SubResource("Resource_ebg7x"), SubResource("Resource_psdh3"), SubResource("Resource_2p5q4"), SubResource("Resource_hpl4s")])
 modulates_for_phase = Array[float]([0.7, 0.3])
 movement_patterns = {
@@ -1782,6 +1820,12 @@ break_time = 0.001
 speed = 60.0
 enabled = false
 
+[node name="Inspectable" parent="Enemies/Bosses/CyclopusCat/EnemyController" index="6" unique_id=1897645833 instance=ExtResource("9_8ic3i")]
+dialogues = Array[ExtResource("22_5cmlo")]([SubResource("Resource_7hhak")])
+preset = SubResource("Resource_vk48t")
+delete_on_disable = false
+enabled = false
+
 [node name="DamageArea" parent="Enemies/Bosses/CyclopusCat" index="5" unique_id=1327453622 instance=ExtResource("35_mywxa")]
 z_index = -10
 scale = Vector2(1.25, 1.25)
@@ -1797,14 +1841,13 @@ position = Vector2(232, -504)
 navigation_polygon = SubResource("NavigationPolygon_17ap2")
 navigation_layers = 2
 
-[node name="GiantFrog" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="3" unique_id=645695922 node_paths=PackedStringArray("movement", "hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("38_2p5q4")]
+[node name="GiantFrog" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="3" unique_id=645695922 node_paths=PackedStringArray("hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("38_2p5q4")]
 position = Vector2(-840, 136)
 scale = Vector2(1.8000001, 1.8000001)
 collision_mask = 0
-movement = NodePath("EnemyController/AreaMovementController")
 hurt_component = NodePath("EnemyController/HurtComponent")
 shoot_controller = NodePath("EnemyController/ShootController")
-modifier_invulnerability = null
+modifier_invulnerability = SubResource("Resource_3t3xf")
 afterlife_duration = 2.0
 afterlife_delete_on_destruction = [NodePath("DamageArea")]
 stat_speed_ratio = SubResource("Resource_yonm5")
@@ -1829,7 +1872,7 @@ movement_patterns = {
 "homing_shot": NodePath("PathDotMovement"),
 "multi_shot": NodePath("PathDotMovement"),
 "rest": NodePath("AreaMovementController"),
-"stone_bounce": NodePath("PathDotMovement")
+"stone_rickoshet": NodePath("PathDotMovement")
 }
 vfx_on_phase_change = SubResource("Resource_3jqjo")
 show_on_death = [NodePath("../../../../Teleports/TeleportPinkOut")]

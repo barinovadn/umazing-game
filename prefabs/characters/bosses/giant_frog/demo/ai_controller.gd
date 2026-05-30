@@ -27,7 +27,7 @@ func _on_action(action: AIAction):
 		"homing_shot":
 			movement_controller.order = PathDotMovementController2D.Order.SEQUENTIAL
 			movement_controller.path = paths_array["path_1"]
-		"stone_bounce":
+		"stone_rickoshet":
 			movement_controller.order = PathDotMovementController2D.Order.BACK_AND_FORTH
 			movement_controller.path = paths_array["path_1"]
 		"multi_shot":
