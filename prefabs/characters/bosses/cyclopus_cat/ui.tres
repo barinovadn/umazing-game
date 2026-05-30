@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BossContainerData" format=3 uid="uid://dnhc78ehcao44"]
+
+[ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/combat/ui/boss_container_data.gd" id="1_8ek7x"]
+
+[resource]
+script = ExtResource("1_8ek7x")
+display_name = "Cyclopus"
+display_color = null
+metadata/_custom_type_script = "uid://b0oev2u1vd0cw"

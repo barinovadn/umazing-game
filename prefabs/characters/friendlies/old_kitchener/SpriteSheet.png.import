@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vbh036luwsu2"
-path="res://.godot/imported/boss_progress.png-aa1f70cf1cf7595f2512b351ad26ffa0.ctex"
+uid="uid://chrjxfdc0g2l0"
+path="res://.godot/imported/SpriteSheet.png-e93ef45e33946657c6d2db0aa21e3466.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/giant_frog/demo/boss_progress.png"
-dest_files=["res://.godot/imported/boss_progress.png-aa1f70cf1cf7595f2512b351ad26ffa0.ctex"]
+source_file="res://prefabs/characters/friendlies/old_kitchener/SpriteSheet.png"
+dest_files=["res://.godot/imported/SpriteSheet.png-e93ef45e33946657c6d2db0aa21e3466.ctex"]
 
 [params]
 

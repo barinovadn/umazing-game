@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BossContainerData" format=3 uid="uid://r2g8ur6mpjpn"]
+
+[ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/combat/ui/boss_container_data.gd" id="1_j4u4x"]
+[ext_resource type="Texture2D" uid="uid://vbh036luwsu2" path="res://prefabs/characters/bosses/giant_frog/ui_progress.png" id="3_jf0r0"]
+
+[resource]
+script = ExtResource("1_j4u4x")
+display_name = "Giant Frog"
+display_color = null
+texture_progress = ExtResource("3_jf0r0")
+metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
