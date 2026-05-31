@@ -92,20 +92,17 @@ func _input(event: InputEvent):
 	else:
 		character.direction = Vector2.ZERO
 	
+	if Input.is_action_pressed("shoot"):
+		shoot_controller.shoot()
+	else:
+		shoot_controller.stop_shooting()
+	
 	if event.is_action_released("mouse_interact"):
 		interactor.interact.call_deferred()
 		return
 		
 	if event.is_action_pressed("reflect"):
 		reflection.enable()
-		return
-	
-	if event.is_action_pressed("shoot"):
-		shoot_controller.shoot()
-		return
-		
-	if event.is_action_released("shoot"):
-		shoot_controller.stop_shooting()
 		return
 	
 	if event.is_action_pressed("noclip") and allow_cheats:
@@ -150,6 +147,11 @@ func _load_stats():
 	for modifier_id in SaveManager.loaded_armor_modifiers:
 		character.stat_armor.add_modifier(modifier_id,
 			 SaveManager.loaded_armor_modifiers[modifier_id])
+	
+	# DAMAGE
+	for modifier_id in SaveManager.loaded_damage_modifiers:
+		character.stat_shooting_speed.add_modifier(modifier_id,
+			 SaveManager.loaded_damage_modifiers[modifier_id])
 	
 	# SHOOT SPEED
 	for modifier_id in SaveManager.loaded_shoot_speed_modifiers:
