@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://ck2kcqhlhgtlm" path="res://prefabs/teleport/teleport.tscn" id="2_uip4g"]
 [ext_resource type="PackedScene" uid="uid://b86ksiklisu71" path="res://prefabs/vfx/effects/portal.tscn" id="3_f6sqe"]
 [ext_resource type="PackedScene" uid="uid://ckf02713hcpbr" path="res://prefabs/characters/animals/cat/cat.tscn" id="4_yhp4l"]
+[ext_resource type="PackedScene" uid="uid://ds7r5gr45oetv" path="res://prefabs/inventory/pickups/pickup.tscn" id="5_uip4g"]
 
-[node name="Game" unique_id=1082399769 instance=ExtResource("1_3onix")]
+[node name="Game2" unique_id=1082399769 instance=ExtResource("1_3onix")]
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/Cat")
@@ -21,3 +22,7 @@ exit_level_index = 3
 [node name="PortalEffect" parent="Teleports/Teleport" index="1" unique_id=1228765060 instance=ExtResource("3_f6sqe")]
 
 [node name="Cat" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="0" unique_id=2065001503 instance=ExtResource("4_yhp4l")]
+
+[node name="Shrimp3" parent="." index="18" unique_id=1796102070 instance=ExtResource("5_uip4g")]
+z_index = 100
+position = Vector2(-80, 24)

@@ -20,6 +20,11 @@ signal item_used(item: ItemData)
 var items: Array[ItemData] = []
 
 
+func _ready():
+	for loaded_item in SaveManager.loaded_items:
+		add_item(loaded_item)
+	updated.emit.call_deferred()
+
 func _get_stackable_item(item_name: String):
 	for item in items:
 		if item.name == item_name and item.amount < item.max_stack:
@@ -47,7 +52,8 @@ func _on_item_added(item: ItemData, amount: int):
 			+ ( (str(amount) + " ") if amount > 1 else "" )
 			+ item.name
 		)
-		vfx_notification_item_added.spawn(Game.player.character.global_position)
+		if Game.player and is_instance_valid(Game.player):
+			vfx_notification_item_added.spawn(Game.player.character.global_position)
 
 
 func _on_item_used(item: ItemData):
