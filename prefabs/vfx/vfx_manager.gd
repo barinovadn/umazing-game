@@ -32,6 +32,9 @@ enum Effect {
 	
 	PORTAL = 50_0,
 	
+	FOUNTAIN_ROCKS = 60_0,
+	FOUNTAIN_ROCKS_GRAY = 60_1,
+	
 	NOTIFICATION = 1000_0,
 	}
 
