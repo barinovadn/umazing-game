@@ -42,7 +42,10 @@ var is_animation_needed: bool = false:
 			post_shot_cd_interval * shoot_ratio <= 0.5
 			 else post_shot_cd_interval)
 var can_shoot: bool = true
-var shoot_ratio: float = 1.0
+var shoot_ratio: float = 1.0:
+	set(value):
+		shoot_ratio = value
+		shoot_ratio = shoot_ratio if shoot_ratio > 0.0 else 0.01
 var damage_ratio: float = 1.0
 
 
