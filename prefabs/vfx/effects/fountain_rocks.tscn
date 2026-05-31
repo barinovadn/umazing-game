@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://bkllev6qe2c4l"]
 
 [ext_resource type="PackedScene" uid="uid://dco2pch76pmk6" path="res://prefabs/vfx/effects/break_rocks.tscn" id="1_5n1na"]
+[ext_resource type="Material" uid="uid://bn20vxktmoo10" path="res://prefabs/vfx/effects/fountain.tres" id="2_xnxei"]
 
 [node name="BreakRocksEffect" unique_id=1228765060 instance=ExtResource("1_5n1na")]
 
 [node name="GPUParticles2D" parent="." index="0" unique_id=1593957519]
 emitting = true
 amount = 64
+lifetime = 1.0
 one_shot = false
 explosiveness = 0.0
+process_material = ExtResource("2_xnxei")
