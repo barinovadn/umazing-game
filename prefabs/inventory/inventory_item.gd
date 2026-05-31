@@ -51,11 +51,10 @@ enum Rarity { COMMON, RARE, EPIC }
 	}
 
 func _on_item_added_to_inventory():
-	print("Добавлено")
-
+	pass
 
 func _on_item_removed_to_inventory():
-	print("Удалено")
+	pass
 
 
 func is_in_inventory():

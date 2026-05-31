@@ -33,6 +33,7 @@ func _fill_existing_stacks(data: ItemData, amount: int) -> int:
 			var can_add = data.max_stack - item.amount
 			var adding = min(amount, can_add)
 			item.amount += adding
+			item._on_item_added_to_inventory()
 			item_added.emit(item, adding)
 			amount -= adding
 			if amount <= 0:
@@ -71,6 +72,7 @@ func add_item(data: ItemData) -> int:
 		
 		items.append(new_item)
 		item_added.emit(new_item, new_item.amount)
+		new_item._on_item_added_to_inventory()
 		remaining -= add_amount
 	
 	if remaining < data.amount:
@@ -103,6 +105,7 @@ func remove_item(item_name: String, amount: int = 1) -> bool:
 			remaining -= item.amount
 			items.remove_at(index)
 			item_removed.emit(item)
+			item._on_item_removed_to_inventory()
 	
 	updated.emit()
 	return true
