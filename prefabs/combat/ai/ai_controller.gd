@@ -185,6 +185,7 @@ func activate_interaction(_area: Area2D = null):
 	
 	dialogue()
 
+
 func _after_dialogue_behaviour():
 	if Game.dialogue_system.dialogue_closed.is_connected(_after_dialogue_behaviour):
 		Game.dialogue_system.dialogue_closed.disconnect(_after_dialogue_behaviour)

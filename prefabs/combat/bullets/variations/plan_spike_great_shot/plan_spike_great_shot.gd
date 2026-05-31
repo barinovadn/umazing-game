@@ -8,7 +8,6 @@ extends Bullet
 
 func _bullet_ready():
 	timer.start()
-	_on_timer_timeout()
 
 
 func _on_timer_timeout():
