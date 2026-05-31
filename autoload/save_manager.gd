@@ -5,12 +5,16 @@ const SAVE_PATH := "user://savegame.save"
 const START_LEVEL_INDEX := 1
 
 var loaded_items: Array[ItemData] = []
+var loaded_hp: float = 0.0
+var loaded_max_hp: float = 0.0
 
 
 func save_game():
 	var save_data = {
 		"current_level_index": SceneManager.current_level_index,
 		"inventory_items": Game.player.inventory.items,
+		"current_health": Game.player.character.hurt_component.current_health,
+		"max_health": Game.player.character.hurt_component.max_health
 		}
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -21,6 +25,8 @@ func save_game():
 
 func load_game(new_game: bool = false):
 	loaded_items.clear()
+	loaded_hp = 0.0
+	loaded_max_hp = 0.0
 	
 	if new_game or not FileAccess.file_exists(SAVE_PATH):
 		SceneManager.go_to_level(START_LEVEL_INDEX, false)
@@ -37,6 +43,9 @@ func load_game(new_game: bool = false):
 				for item in items_raw:
 					if item is ItemData:
 						loaded_items.append(item)
+			
+			loaded_hp = save_data.get("current_health", 0.0)
+			loaded_max_hp = save_data.get("max_health", 0.0)
 			
 			var saved_id = save_data.get("current_level_index", START_LEVEL_INDEX)
 			SceneManager.go_to_level(saved_id, false)

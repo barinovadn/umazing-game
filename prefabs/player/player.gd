@@ -58,6 +58,7 @@ var noclip: bool:
 
 func _ready():
 	_on_character_changed(character, null)
+	_load_stats()
 	health_ui.update_health(hurt_component.current_health, hurt_component.max_health)
 
 
@@ -113,6 +114,21 @@ func _update_component_positions():
 
 func _update_cursor_position():
 	cursor.global_position = components.get_global_mouse_position()
+
+
+func _load_stats():
+	if not character:
+		return
+	
+	await get_tree().process_frame
+	
+	if SaveManager.loaded_max_hp > 0:
+		character.hurt_component.sounds_mute = true
+		character.hurt_component.vfx_mute = true
+		character.hurt_component.max_health = SaveManager.loaded_max_hp
+		character.hurt_component.current_health = SaveManager.loaded_hp
+		character.hurt_component.sounds_mute = false
+		character.hurt_component.vfx_mute = false
 
 
 func _on_character_changed(new_character: Character2D, old_character: Character2D):
