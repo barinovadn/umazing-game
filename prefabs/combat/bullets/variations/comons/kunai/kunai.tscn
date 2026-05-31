@@ -22,14 +22,13 @@ animations = [{
 }]
 
 [node name="Kunai" unique_id=419752470 instance=ExtResource("1_bggpn")]
-speed = 140.0
+speed = 120.0
 turn_rate = 0.0
-damage = 0.5
-crit_damage = 0.25
-crit_chance = 0.25
+damage = 0.3
+crit_damage = 0.2
+crit_chance = 0.3
 can_be_broken = true
 can_break = true
-lifespan = 10.0
 sounds_spawn = Array[AudioStream]([ExtResource("2_f83vb"), ExtResource("3_nghph")])
 sounds_hit = Array[AudioStream]([ExtResource("4_5nsu1")])
 

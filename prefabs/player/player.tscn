@@ -73,7 +73,6 @@ vfx_notification_item_used = null
 unique_name_in_owner = true
 team = 1
 interval_between_shots = 0.35
-projectile_turn_rate_min = 360.0
 
 [node name="HurtComponent" parent="Components" unique_id=949368062 instance=ExtResource("4_vhck3")]
 unique_name_in_owner = true

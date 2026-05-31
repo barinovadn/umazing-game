@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dcrm5punhuk0d" path="res://prefabs/characters/ninja_green/ninja_green.tscn" id="2_o2p3v"]
 [ext_resource type="PackedScene" uid="uid://ik6dpd1qhkci" path="res://prefabs/characters/bosses/giant_racoon/giant_racoon.tscn" id="3_5yt0q"]
 [ext_resource type="PackedScene" uid="uid://cathu8h71gfg7" path="res://prefabs/characters/bosses/giant_bamboo/giant_bamboo.tscn" id="3_cp8gd"]
-[ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/combat/bullets/variations/comons/shuriken/shuriken.tscn" id="3_mtt35"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/combat/ai/ai_controller.tscn" id="4_lonoe"]
 [ext_resource type="Script" uid="uid://6h6n0jvs1c7u" path="res://common/stats/stat.gd" id="4_s6g6n"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="5_olh6k"]
@@ -113,7 +112,6 @@ action_name = "rest"
 weight = 0.5
 phases = Array[int]([1, 2, 3])
 duration = 3.0
-can_move = true
 shoot_interval = 0.6
 shooting_animation_interval = 0.4
 metadata/_custom_type_script = "uid://dowl0clqumedg"
@@ -272,7 +270,7 @@ source_geometry_mode = 2
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
-bullets = Array[PackedScene]([ExtResource("2_egl16"), ExtResource("3_mtt35")])
+bullets = Array[PackedScene]([ExtResource("2_egl16")])
 allow_cheats = true
 
 [node name="Ground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="1" unique_id=2033248800]
@@ -312,6 +310,7 @@ position = Vector2(-396, 294)
 collision_mask = 1
 hurt_component = NodePath("AIController/HurtComponent")
 shoot_controller = NodePath("AIController/ShootController")
+afterlife_duration = 4.0
 
 [node name="AIController" parent="Enemies/Bosses/GiantRacoon" index="5" unique_id=1927809777 node_paths=PackedStringArray("shooting_positions", "character", "movement_patterns") instance=ExtResource("4_lonoe")]
 script = ExtResource("8_3pqcu")

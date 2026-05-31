@@ -134,13 +134,16 @@ func _dmg_to_str(amount: float) -> String:
 
 
 func _calc_damage_marker_color(dmg_amount: float) -> Color:
-	if dmg_amount >= vfx_damage_marker_color_high_threshhold:
-		return vfx_damage_marker_color_high
-	if dmg_amount >= vfx_damage_marker_color_mid_threshhold:
-		return vfx_damage_marker_color_mid
-	if dmg_amount >= vfx_damage_marker_color_low_threshhold:
-		return vfx_damage_marker_color_low
-	return vfx_damage_marker_color_default
+	if dmg_amount < vfx_damage_marker_color_low_threshhold:
+		var t: float = dmg_amount / vfx_damage_marker_color_low_threshhold
+		return vfx_damage_marker_color_default.lerp(vfx_damage_marker_color_low, t)
+	elif dmg_amount < vfx_damage_marker_color_mid_threshhold:
+		var t: float = (dmg_amount - vfx_damage_marker_color_low_threshhold) / (vfx_damage_marker_color_mid_threshhold - vfx_damage_marker_color_low_threshhold)
+		return vfx_damage_marker_color_low.lerp(vfx_damage_marker_color_mid, t)
+	elif dmg_amount < vfx_damage_marker_color_high_threshhold:
+		var t: float = (dmg_amount - vfx_damage_marker_color_mid_threshhold) / (vfx_damage_marker_color_high_threshhold - vfx_damage_marker_color_mid_threshhold)
+		return vfx_damage_marker_color_mid.lerp(vfx_damage_marker_color_high, t)
+	return vfx_damage_marker_color_high
 
 
 func _play_damage_marker_vfx(dmg_amount: float):

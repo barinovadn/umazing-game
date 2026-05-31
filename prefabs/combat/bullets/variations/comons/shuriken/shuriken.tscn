@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dqm7ob546a3hv"]
 
 [ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/combat/bullets/bullet.tscn" id="1_al8au"]
+[ext_resource type="Script" uid="uid://c7to1wmu5e8vj" path="res://prefabs/combat/bullets/variations/comons/shuriken/shuriken.gd" id="2_6fgks"]
 [ext_resource type="Texture2D" uid="uid://codrm50i6phdb" path="res://prefabs/combat/bullets/variations/comons/shuriken/shuriken.png" id="2_vqurj"]
 [ext_resource type="AudioStream" uid="uid://ce7fe15edu60n" path="res://prefabs/combat/sounds/whoosh_4.wav" id="4_05pps"]
 [ext_resource type="AudioStream" uid="uid://uw1s6vujfdbe" path="res://prefabs/combat/sounds/slash_4.wav" id="5_evfgd"]
@@ -38,14 +39,17 @@ animations = [{
 
 [node name="Shuriken" unique_id=419752470 instance=ExtResource("1_al8au")]
 scale = Vector2(0.8, 0.8)
+script = ExtResource("2_6fgks")
 speed = 120.0
+turn_rate = 13.0
 bounces = 1
-damage = 0.25
-crit_damage = 0.25
+homing = true
+use_spawn_direction = true
+damage = 0.2
+crit_damage = 0.3
 crit_chance = 0.2
 can_be_broken = true
 can_break = true
-lifespan = 7.0
 sounds_spawn = Array[AudioStream]([ExtResource("4_05pps"), ExtResource("5_evfgd"), ExtResource("6_e73os"), ExtResource("7_me3kd"), ExtResource("8_o1804")])
 sounds_hit = Array[AudioStream]([ExtResource("8_me3kd")])
 sounds_bounce = Array[AudioStream]([ExtResource("7_evfgd"), ExtResource("8_e73os")])
