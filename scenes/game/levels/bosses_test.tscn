@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://den5tgrfa2f6q"]
 
 [ext_resource type="PackedScene" uid="uid://buhslpn3jaek5" path="res://scenes/game/game.tscn" id="1_o2p3v"]
-[ext_resource type="PackedScene" uid="uid://fn0tv6mqn7g6" path="res://prefabs/combat/bullets/variations/comons/kunai/kunai.tscn" id="2_egl16"]
+[ext_resource type="PackedScene" uid="uid://dige0r8yk22qb" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot.tscn" id="2_mtt35"]
 [ext_resource type="PackedScene" uid="uid://dcrm5punhuk0d" path="res://prefabs/characters/ninja_green/ninja_green.tscn" id="2_o2p3v"]
 [ext_resource type="PackedScene" uid="uid://ik6dpd1qhkci" path="res://prefabs/characters/bosses/giant_racoon/giant_racoon.tscn" id="3_5yt0q"]
 [ext_resource type="PackedScene" uid="uid://cathu8h71gfg7" path="res://prefabs/characters/bosses/giant_bamboo/giant_bamboo.tscn" id="3_cp8gd"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://2c483lnj3eel" path="res://prefabs/combat/bullets/variations/projectile_mixes/stone_fall/stone_fall.tscn" id="15_sj5jv"]
 [ext_resource type="PackedScene" uid="uid://b7jopm86b0plu" path="res://prefabs/combat/bullets/variations/comons/stone_rickoshet_shot/stone_rickoshet_shot.tscn" id="16_egl16"]
 [ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="19_hk7ad"]
+[ext_resource type="AudioStream" uid="uid://d4ak7hvl783hi" path="res://prefabs/characters/bosses/giant_racoon/sounds/racoon_sound_6.wav" id="22_mtt35"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="23_mtt35"]
 
 [sub_resource type="Resource" id="Resource_hk7ad"]
@@ -346,7 +347,7 @@ source_geometry_mode = 2
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
-bullets = Array[PackedScene]([ExtResource("2_egl16")])
+bullets = Array[PackedScene]([ExtResource("2_mtt35")])
 allow_cheats = true
 
 [node name="Ground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="1" unique_id=2033248800]
@@ -432,6 +433,7 @@ scale = Vector2(2.9, 2.9)
 character = NodePath("../..")
 max_health = 15.0
 sounds_damage = Array[AudioStream]([SubResource("AudioStreamWAV_io6ay"), SubResource("AudioStreamWAV_sj5jv"), SubResource("AudioStreamWAV_k1fdc"), SubResource("AudioStreamWAV_yakie"), SubResource("AudioStreamWAV_w8ftg")])
+sounds_die = Array[AudioStream]([ExtResource("22_mtt35")])
 vfx_damage_marker = SubResource("Resource_io6ay")
 vfx_heal_marker = SubResource("Resource_sj5jv")
 

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dige0r8yk22qb"]
+
+[ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/combat/bullets/bullet.tscn" id="1_nuyrr"]
+[ext_resource type="Script" uid="uid://dsqc2nfoxwpry" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot.gd" id="2_tjvyx"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="3_6w800"]
+[ext_resource type="AudioStream" uid="uid://46sbp5t3iwph" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot_1.wav" id="3_hffr3"]
+[ext_resource type="Texture2D" uid="uid://cnbv140wad0yn" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot.png" id="3_imneq"]
+[ext_resource type="AudioStream" uid="uid://cwl0jad1b01mu" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot_2.wav" id="4_jeh0w"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="4_jj2yg"]
+[ext_resource type="AudioStream" uid="uid://b0xd5h1ufqu76" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot_3.wav" id="5_hfy0u"]
+[ext_resource type="AudioStream" uid="uid://dq1sv5fnk8jd3" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot_4.wav" id="6_4rbsc"]
+[ext_resource type="AudioStream" uid="uid://304vihh7pa2r" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot_5.wav" id="7_y4ppl"]
+[ext_resource type="AudioStream" uid="uid://r5rnp00ejt8l" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot_6.wav" id="8_ybaf6"]
+
+[sub_resource type="Resource" id="Resource_p0u3c"]
+script = ExtResource("4_jj2yg")
+density = 3
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_hffr3"]
+script = ExtResource("3_6w800")
+effect = 310
+settings = SubResource("Resource_p0u3c")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w800"]
+atlas = ExtResource("3_imneq")
+region = Rect2(0, 0, 12, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jj2yg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w800")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 5.0
+}]
+
+[node name="Bullet" unique_id=419752470 instance=ExtResource("1_nuyrr")]
+script = ExtResource("2_tjvyx")
+explosion_koefitient = 4.0
+turn_rate = 0.0
+damage = 0.75
+crit_damage = 0.25
+crit_chance = 0.4
+can_be_broken = true
+can_break = true
+sounds_spawn = Array[AudioStream]([ExtResource("3_hffr3"), ExtResource("4_jeh0w"), ExtResource("5_hfy0u")])
+sounds_destroy = Array[AudioStream]([ExtResource("6_4rbsc"), ExtResource("7_y4ppl"), ExtResource("8_ybaf6")])
+vfx_hit = SubResource("Resource_hffr3")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
+scale = Vector2(0.7, 0.7)
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
+sprite_frames = SubResource("SpriteFrames_jj2yg")
+animation = &"shot"
