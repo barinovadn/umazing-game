@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://5vrvr5fuai1l"]
+
+[ext_resource type="Script" uid="uid://dgj2v0p2ffiib" path="res://prefabs/player/ui/actions/player_actions_ui.gd" id="1_tlp2x"]
+[ext_resource type="Texture2D" uid="uid://c1draai0gk0l" path="res://prefabs/player/ui/actions/player_action_icon_timer.png" id="2_ibgya"]
+[ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="2_iylr8"]
+[ext_resource type="Texture2D" uid="uid://cfae0yv5jrtig" path="res://prefabs/player/ui/actions/player_action_icon_book.png" id="3_cg46l"]
+[ext_resource type="Texture2D" uid="uid://chlrvpch1pud6" path="res://prefabs/player/ui/actions/player_action_icon_bag.png" id="3_o85nd"]
+[ext_resource type="LabelSettings" uid="uid://bcb4qs2xeuear" path="res://prefabs/player/ui/actions/player_actions_label.tres" id="3_oby3y"]
+
+[node name="ActionsUI" type="Control" unique_id=2122713604]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 40.0
+script = ExtResource("1_tlp2x")
+
+[node name="TimerLabel" type="Label" parent="." unique_id=1926238933]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 145.0
+offset_bottom = 105.0
+theme = ExtResource("2_iylr8")
+text = "00:00"
+label_settings = ExtResource("3_oby3y")
+horizontal_alignment = 2
+
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=2052595488]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+alignment = 2
+
+[node name="Timer" type="Button" parent="Buttons" unique_id=895138646]
+layout_mode = 2
+theme = ExtResource("2_iylr8")
+icon = ExtResource("2_ibgya")
+flat = true
+
+[node name="Book" type="Button" parent="Buttons" unique_id=998188167]
+layout_mode = 2
+theme = ExtResource("2_iylr8")
+icon = ExtResource("3_cg46l")
+flat = true
+
+[node name="Inventory" type="Button" parent="Buttons" unique_id=118187230]
+layout_mode = 2
+theme = ExtResource("2_iylr8")
+icon = ExtResource("3_o85nd")
+flat = true
+
+[node name="SpeedrunTimer" type="Timer" parent="." unique_id=1508482778]
+unique_name_in_owner = true
+wait_time = 0.1
+autostart = true
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1121859813]
+unique_name_in_owner = true
+bus = &"System"
+
+[connection signal="pressed" from="Buttons/Timer" to="." method="_on_timer_pressed"]
+[connection signal="button_up" from="Buttons/Book" to="." method="_on_book_button_up"]
+[connection signal="pressed" from="Buttons/Inventory" to="." method="_on_inventory_pressed"]
+[connection signal="timeout" from="SpeedrunTimer" to="." method="_on_timer_tick"]

@@ -2,23 +2,31 @@
 
 [ext_resource type="PackedScene" uid="uid://cd4mxmywy2qdo" path="res://prefabs/interactions/interactor/interactor.tscn" id="1_rdx4y"]
 [ext_resource type="Script" uid="uid://dg10rouiowrl4" path="res://prefabs/player/player.gd" id="1_wv1mm"]
+[ext_resource type="PackedScene" uid="uid://fn0tv6mqn7g6" path="res://prefabs/combat/bullets/variations/comons/kunai/kunai.tscn" id="2_qdvc2"]
 [ext_resource type="Script" uid="uid://cxp2akga3voxj" path="res://common/movement/controllers/player_movement_controller.gd" id="2_wv1mm"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_408ek"]
+[ext_resource type="Script" uid="uid://6h6n0jvs1c7u" path="res://common/stats/stat.gd" id="4_dxdrd"]
 [ext_resource type="Script" uid="uid://dnfhvouh77e1x" path="res://common/grid_camera/grid_camera.gd" id="4_iylwk"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="4_vhck3"]
 [ext_resource type="Script" uid="uid://rr7lsuj6y4tr" path="res://common/grid_camera/controllers/grid_camera_follower.gd" id="5_ev8v4"]
+[ext_resource type="PackedScene" uid="uid://ca72fbnfggsgb" path="res://prefabs/inventory/inventory.tscn" id="5_ocyg1"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="6_oo3uv"]
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
-[ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/combat/bullets/variations/shuriken/shuriken.tscn" id="7_30gqm"]
-[ext_resource type="AudioStream" uid="uid://d22fcw3uhvd35" path="res://prefabs/player/player_hit_1.ogg" id="7_agiw0"]
+[ext_resource type="AudioStream" uid="uid://d22fcw3uhvd35" path="res://prefabs/player/sounds/player_hit_1.ogg" id="7_agiw0"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
-[ext_resource type="PackedScene" uid="uid://snn0mqvjipik" path="res://prefabs/combat/bullets/variations/reflection/reflection.tscn" id="8_8hk3c"]
-[ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="8_ocyg1"]
+[ext_resource type="PackedScene" uid="uid://snn0mqvjipik" path="res://prefabs/combat/bullets/variations/unique_projectiles/reflection/reflection.tscn" id="8_8hk3c"]
+[ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/unique_projectiles/damage_area/damage_area.tscn" id="8_ocyg1"]
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
-[ext_resource type="Script" uid="uid://ex0o8hepffvv" path="res://prefabs/inventory/inventory.gd" id="9_oo3uv"]
 [ext_resource type="PackedScene" uid="uid://wwa44iu3nw2s" path="res://prefabs/inventory/inventory_ui.tscn" id="9_whck3"]
-[ext_resource type="Script" path="res://prefabs/player/player_health_ui.gd" id="11_30gqm"]
-[ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/player_health_default.png" id="14_ot5ig"]
-[ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://prefabs/combat/ui/boss_ui.gd" id="15_agiw0"]
+[ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://prefabs/player/ui/health/player_health_ui.gd" id="11_30gqm"]
+[ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/ui/health/player_health_default.png" id="14_ot5ig"]
+[ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://prefabs/combat/ui/bosses/boss_ui.gd" id="15_agiw0"]
+[ext_resource type="PackedScene" uid="uid://5vrvr5fuai1l" path="res://prefabs/player/ui/actions/player_actions_ui.tscn" id="22_a2w56"]
+[ext_resource type="PackedScene" uid="uid://dpg1hinqh1xs0" path="res://prefabs/player/ui/stats/player_stats_ui.tscn" id="23_qdvc2"]
+
+[sub_resource type="Resource" id="Resource_a2w56"]
+script = ExtResource("4_dxdrd")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ev8v4"]
 radius = 0.01
@@ -34,7 +42,10 @@ radius = 0.01
 
 [node name="Player" type="Node" unique_id=1659074022]
 script = ExtResource("1_wv1mm")
-bullets = Array[PackedScene]([ExtResource("7_30gqm")])
+bullets = Dictionary[String, PackedScene]({
+"default_435234525345": ExtResource("2_qdvc2")
+})
+stat_cant_use_inventory = SubResource("Resource_a2w56")
 
 [node name="Components" type="Node2D" parent="." unique_id=1475945052]
 editor_description = "This node's global_position is synced with the player.character's global_position."
@@ -58,22 +69,25 @@ speed = 60.0
 unique_name_in_owner = true
 hit_from_inside = true
 
+[node name="Inventory" parent="Components" unique_id=956569913 instance=ExtResource("5_ocyg1")]
+unique_name_in_owner = true
+vfx_notification_item_used = null
+
 [node name="ShootController" parent="Components" unique_id=1242481191 instance=ExtResource("6_oo3uv")]
 unique_name_in_owner = true
 team = 1
-bullets = Array[PackedScene]([ExtResource("7_30gqm")])
 interval_between_shots = 0.35
-projectile_turn_rate_min = 360.0
 
 [node name="HurtComponent" parent="Components" unique_id=949368062 instance=ExtResource("4_vhck3")]
 unique_name_in_owner = true
 team = 1
 max_health = 4.0
 sounds_damage = Array[AudioStream]([ExtResource("7_agiw0")])
+vfx_prettify_dmg_numbers = false
 
 [node name="DamageArea" parent="Components" unique_id=419752470 instance=ExtResource("8_ocyg1")]
 editor_description = "Grass Annihilator 3000"
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.85, 0.85)
 cooldown_time = 0.00999999999999999
 team = 3
 
@@ -106,10 +120,6 @@ collision_mask = 512
 [node name="Collider" type="CollisionShape2D" parent="Components/Picker" unique_id=1639741327]
 shape = SubResource("CircleShape2D_vhck3")
 debug_color = Color(0, 0.6431373, 0.28235295, 0.41960785)
-
-[node name="Inventory" type="Node2D" parent="." unique_id=1399606706]
-unique_name_in_owner = true
-script = ExtResource("9_oo3uv")
 
 [node name="Room" type="Area2D" parent="." unique_id=1024765016]
 unique_name_in_owner = true
@@ -166,6 +176,26 @@ layer = 0
 unique_name_in_owner = true
 visible = false
 z_index = 10
+
+[node name="ActionsUI" parent="UI" unique_id=2122713604 instance=ExtResource("22_a2w56")]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -196.0
+offset_right = -100.0
+grow_horizontal = 0
+
+[node name="StatsUI" parent="UI" unique_id=430245182 instance=ExtResource("23_qdvc2")]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -270.0
+offset_right = 64.0
+offset_bottom = -230.0
+grow_vertical = 0
 
 [node name="HealthUI" type="HBoxContainer" parent="UI" unique_id=1182080135]
 unique_name_in_owner = true

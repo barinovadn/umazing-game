@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b42rrib0dsm6w"]
+
+[ext_resource type="PackedScene" uid="uid://bkllev6qe2c4l" path="res://prefabs/vfx/effects/fountain_rocks.tscn" id="1_j4rah"]
+[ext_resource type="Texture2D" uid="uid://dsepnetl61fkp" path="res://prefabs/vfx/effects/break_rocks_gray.png" id="2_0ho53"]
+
+[node name="BreakRocksEffect" unique_id=1228765060 instance=ExtResource("1_j4rah")]
+type = 1
+
+[node name="GPUParticles2D" parent="." index="0" unique_id=1593957519]
+emitting = false
+texture = ExtResource("2_0ho53")

@@ -1,10 +1,11 @@
 class_name InventoryUI
 extends Node
 
-
 @export var slot_scene: PackedScene = preload("res://prefabs/inventory/inventory_slot.tscn")
 
 @export_group("Sounds", "sound")
+@export var sound_open: AudioStream = preload("res://prefabs/combat/sounds/whoosh_1.wav")
+@export var sound_close: AudioStream = preload("res://prefabs/combat/sounds/whoosh_3.wav")
 @export var sound_use: AudioStream = preload("res://prefabs/inventory/inventory_item_drop.ogg")
 @export var sound_drop: AudioStream = preload("res://prefabs/inventory/inventory_item_use.ogg")
 
@@ -26,50 +27,46 @@ var selected_item: String = "":
 			if not item_slot:
 				continue
 			item_slot.is_selected = item_slot.item_data.name == selected_item
+var can_open_inventory: bool = true:
+	set(value):
+		can_open_inventory = value
+		if not can_open_inventory:
+			close()
 
 
 func _ready():
 	action_panel.hide()
 	inventory_ui.hide()
+	
 	if inventory_logic:
 		inventory_logic.updated.connect(refresh_ui)
 
 
 func _input(event):
 	if event.is_action_pressed("inventory"):
-		inventory_ui.visible = !inventory_ui.visible
-		
-		# WARNING FIXME NOTE TODO TEMP SOLUTION
-		Game.player.interactor.enabled = !inventory_ui.visible
-		Game.player.shoot_controller.enabled = !inventory_ui.visible
-		Game.player.movement.enabled = !inventory_ui.visible
-		
-		if not inventory_ui.visible:
-			inventory_ui.action_panel.hide()
-
-
-func setup_action_panel(item: ItemData):
-	if item:
-		if not item.is_active:
-			use_button.disabled = true
-			use_button.focus_mode = Control.FOCUS_NONE
+		if !can_open_inventory:
+			return
+		if inventory_ui.visible:
+			close()
 		else:
-			use_button.disabled = false
-			use_button.focus_mode = Control.FOCUS_ALL
-		action_panel.show()
+			open()
+		_on_inventory_status_changed()
+
+
+func _on_inventory_status_changed():
+	var player_char := Game.player.character
+	
+	if inventory_ui.visible:
+		player_char.stat_cant_shoot.add_modifier("INVENTORY")
+		player_char.stat_cant_move.add_modifier("INVENTORY")
+		player_char.stat_cant_interract.add_modifier("INVENTORY")
+	
 	else:
-		action_panel.hide()
-
-
-func refresh_ui():
-	for child in item_list.get_children():
-		child.queue_free()
-	for i in range(inventory_logic.items.size()):
-		var item_data = inventory_logic.items[i]
-		var new_slot = slot_scene.instantiate()
-		item_list.add_child(new_slot)
-		new_slot.set_item(item_data)
-		new_slot.pressed.connect(_on_slot_selected.bind(item_data.name))
+		player_char.stat_cant_interract.remove_modifier("INVENTORY")
+		player_char.stat_cant_move.remove_modifier("INVENTORY")
+		player_char.stat_cant_shoot.remove_modifier("INVENTORY")
+		
+		inventory_ui.action_panel.hide()
 
 
 func _on_slot_selected(item_name: String):
@@ -99,6 +96,45 @@ func _on_drop_button_pressed():
 		play_sound(sound_drop)
 		selected_item = ""
 		action_panel.hide()
+
+
+func open():
+	if !can_open_inventory:
+		return
+	inventory_ui.visible = true
+	_on_inventory_status_changed()
+	play_sound(sound_open)
+	
+
+
+func close():
+	inventory_ui.visible = false
+	_on_inventory_status_changed()
+	play_sound(sound_close)
+
+
+func setup_action_panel(item: ItemData):
+	if item:
+		if not item.is_active:
+			use_button.disabled = true
+			use_button.focus_mode = Control.FOCUS_NONE
+		else:
+			use_button.disabled = false
+			use_button.focus_mode = Control.FOCUS_ALL
+		action_panel.show()
+	else:
+		action_panel.hide()
+
+
+func refresh_ui():
+	for child in item_list.get_children():
+		child.queue_free()
+	for i in range(inventory_logic.items.size()):
+		var item_data = inventory_logic.items[i]
+		var new_slot = slot_scene.instantiate()
+		item_list.add_child(new_slot)
+		new_slot.set_item(item_data)
+		new_slot.pressed.connect(_on_slot_selected.bind(item_data.name))
 
 
 func play_sound(stream: AudioStream):

@@ -8,6 +8,7 @@ enum Density { NONE, LOW, MEDIUM, HIGH, FULL }
 @export var offset: Vector2 = Vector2.ZERO
 @export var scale: Vector2 = Vector2.ONE
 @export var density: Density = Density.MEDIUM
+@export var sound: AudioStream
 
 @export_group("Notification", "notification")
 @export var notification_text: String

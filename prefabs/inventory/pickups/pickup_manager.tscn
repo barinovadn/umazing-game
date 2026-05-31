@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b4q2ixmh0tsd5"]
+
+[ext_resource type="Script" uid="uid://cqljgckkk4kib" path="res://prefabs/inventory/pickups/pickup_manager.gd" id="1_wktr8"]
+
+[node name="PickupManager" type="Node2D" unique_id=1873301165]
+script = ExtResource("1_wktr8")

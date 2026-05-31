@@ -23,6 +23,7 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_crmny")
+exit_level_index = null
 exit_effect = SubResource("Resource_1iwm0")
 color = Color(0, 0, 0, 0.78431374)
 

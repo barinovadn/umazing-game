@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://ik6dpd1qhkci"]
+
+[ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_gmp47"]
+[ext_resource type="Texture2D" uid="uid://bh3rv75do22or" path="res://prefabs/characters/bosses/giant_racoon/Attack.png" id="2_nf35f"]
+[ext_resource type="Texture2D" uid="uid://61q684b2ale5" path="res://prefabs/characters/bosses/giant_racoon/Idle.png" id="3_d3s8r"]
+[ext_resource type="Texture2D" uid="uid://b0kuqmye5r3ga" path="res://prefabs/characters/bosses/giant_racoon/Jump.png" id="4_7i41d"]
+[ext_resource type="Texture2D" uid="uid://cf6ejikpcteev" path="res://prefabs/characters/bosses/giant_racoon/giant_racoon_downed.png" id="4_nf35f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oit8p"]
+atlas = ExtResource("2_nf35f")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgabd"]
+atlas = ExtResource("2_nf35f")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol2fm"]
+atlas = ExtResource("2_nf35f")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac7mv"]
+atlas = ExtResource("2_nf35f")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3s8r"]
+atlas = ExtResource("4_7i41d")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i41d"]
+atlas = ExtResource("4_7i41d")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38l2q"]
+atlas = ExtResource("4_nf35f")
+region = Rect2(0, 0, 55, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnb2f"]
+atlas = ExtResource("4_nf35f")
+region = Rect2(0, 0, 55, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ibga"]
+atlas = ExtResource("3_d3s8r")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5tmy"]
+atlas = ExtResource("3_d3s8r")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rqg3"]
+atlas = ExtResource("3_d3s8r")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwckt"]
+atlas = ExtResource("3_d3s8r")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mprw"]
+atlas = ExtResource("3_d3s8r")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjj2a"]
+atlas = ExtResource("3_d3s8r")
+region = Rect2(300, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fgdy"]
+atlas = ExtResource("4_7i41d")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk8m5"]
+atlas = ExtResource("4_7i41d")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6trce"]
+atlas = ExtResource("4_7i41d")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv6ha"]
+atlas = ExtResource("4_7i41d")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y60q"]
+atlas = ExtResource("4_7i41d")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38l2q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oit8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgabd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol2fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac7mv")
+}],
+"loop": true,
+"name": &"attack_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3s8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i41d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38l2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnb2f")
+}],
+"loop": false,
+"name": &"downed",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ibga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5tmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rqg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwckt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mprw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjj2a")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fgdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk8m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6trce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv6ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y60q")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}]
+
+[node name="GiantRacoon" unique_id=2065001503 instance=ExtResource("1_gmp47")]
+
+[node name="Sprite" parent="." index="2" unique_id=2042220320]
+sprite_frames = SubResource("SpriteFrames_38l2q")
+animation = &"downed"
+autoplay = "idle_left"
+frame = 3
+frame_progress = 1.0
+
+[node name="AnimationController" parent="." index="3" unique_id=395358213]
+animations = Dictionary[int, String]({
+1: "idle_left",
+2: "idle_left",
+3: "idle_left",
+4: "idle_left",
+5: "walk_left",
+6: "walk_left",
+7: "walk_left",
+8: "walk_left",
+9: "attack_left",
+10: "attack_left",
+11: "attack_left",
+12: "attack_left",
+13: "downed"
+})
+animations_flip_h = Dictionary[int, bool]({
+3: false,
+4: true,
+7: false,
+8: true,
+11: false,
+12: true
+})

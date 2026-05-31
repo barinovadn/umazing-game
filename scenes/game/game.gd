@@ -1,12 +1,15 @@
+@icon("game.png")
 extends Node2D
 
 
 func _ready():
 	Game.player = %Player
+	Game.inventory = Game.player.inventory
 	
 	Game.music_player = %MusicPlayer
 	Game.dialogue_system = %DialogueSystem
 	Game.vfx_manager = %VFXManager
+	Game.pickup_manager = %PickupManager
 	Game.env_particles = Game.player.env_particles
 	Game.env_filter = Game.player.env_filter
 	

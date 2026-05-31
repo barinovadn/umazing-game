@@ -11,14 +11,17 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		var old_character = character
 		character = value
 		character_changed.emit(character, old_character)
-@export var bullets: Array[PackedScene]
+@export var bullets: Dictionary[String, PackedScene]
 @export var allow_cheats: bool = false
 
-var noclip: bool:
+@export_group("Restrictions", "stat")
+@export var stat_cant_use_inventory: Stat:
 	set(value):
-		noclip = value
-		character.collision = !noclip
-		character.movement.speed *= (2. if noclip else .5)
+		if stat_cant_use_inventory:
+			stat_cant_use_inventory.value_changed.disconnect(_on_block_inventory_changed)
+		stat_cant_use_inventory = value
+		if stat_cant_use_inventory and !stat_cant_use_inventory.value_changed.is_connected(_on_block_inventory_changed):
+			stat_cant_use_inventory.value_changed.connect(_on_block_inventory_changed)
 
 @onready var components: Node2D = $Components
 
@@ -44,10 +47,25 @@ var noclip: bool:
 @onready var inventory_ui: InventoryUI = %InventoryUI
 @onready var health_ui: HealthUI = %HealthUI
 @onready var boss_ui: BossUI = %BossUI
+@onready var actions_ui: ActionsUI = %ActionsUI
+@onready var stats_ui: StatsUI = %StatsUI
+
+var noclip: bool:
+	set(value):
+		noclip = value
+		character.collision = !noclip
+		character.movement.speed *= (2. if noclip else .5)
+var playtime: float:
+	set(value):
+		if not actions_ui:
+			return
+		actions_ui.total_playtime = value
+	get(): return actions_ui.total_playtime if actions_ui else 0.0
 
 
 func _ready():
 	_on_character_changed(character, null)
+	_load_stats()
 	health_ui.update_health(hurt_component.current_health, hurt_component.max_health)
 
 
@@ -105,6 +123,40 @@ func _update_cursor_position():
 	cursor.global_position = components.get_global_mouse_position()
 
 
+func _load_stats():
+	if not character:
+		return
+	
+	await get_tree().process_frame
+	
+	# HEALTH
+	if SaveManager.loaded_max_hp > 0:
+		character.hurt_component.sounds_mute = true
+		character.hurt_component.vfx_mute = true
+		character.hurt_component.max_health = SaveManager.loaded_max_hp
+		character.hurt_component.current_health = SaveManager.loaded_hp
+		character.hurt_component.sounds_mute = false
+		character.hurt_component.vfx_mute = false
+	
+	# SPEED
+	for modifier_id in SaveManager.loaded_speed_modifiers:
+		character.stat_speed_ratio.add_modifier(modifier_id,
+			 SaveManager.loaded_speed_modifiers[modifier_id])
+	
+	# ARMOR
+	for modifier_id in SaveManager.loaded_armor_modifiers:
+		character.stat_armor.add_modifier(modifier_id,
+			 SaveManager.loaded_armor_modifiers[modifier_id])
+	
+	# SHOOT SPEED
+	for modifier_id in SaveManager.loaded_shoot_speed_modifiers:
+		character.stat_shooting_speed.add_modifier(modifier_id,
+			 SaveManager.loaded_shoot_speed_modifiers[modifier_id])
+	
+	# PLAYTIME
+	playtime = SaveManager.loaded_playtime
+
+
 func _on_character_changed(new_character: Character2D, old_character: Character2D):
 	if old_character:
 		old_character.movement = null
@@ -116,6 +168,9 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 		new_character.movement = movement
 		new_character.interactor = interactor
 		new_character.shoot_controller = shoot_controller
+		if new_character.shoot_controller:
+			for el in bullets.values():
+				new_character.shoot_controller.bullets.append(el)
 		new_character.hurt_component = hurt_component
 		if new_character.hurt_component:
 			new_character.hurt_component.character = new_character
@@ -144,4 +199,9 @@ func _on_pickup_found(body: Node2D):
 	if not pickup:
 		return
 	
-	pickup.collect()
+	pickup.collect(inventory)
+
+
+func _on_block_inventory_changed():
+	if inventory_ui:
+		inventory_ui.can_open_inventory = not stat_cant_use_inventory.value

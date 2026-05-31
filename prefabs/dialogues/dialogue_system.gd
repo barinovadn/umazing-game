@@ -2,6 +2,8 @@
 class_name DialogueSystem
 extends CanvasLayer
 
+signal dialogue_started()
+signal dialogue_closed()
 
 enum State { LOADING, HIDDEN, APPEARING, ACTIVE, HIDING }
 
@@ -71,6 +73,8 @@ var dialogue: Dialogue:
 var dialogue_queue: Array[Dialogue]: # NOTE Only setting, no appending
 	set(value):
 		dialogue_queue = value
+		dialogue_started.emit()
+		_on_dialogue_started()
 		if not dialogue:
 			next()
 var _active_tween: Tween # NOTE Using tweens for dynamic UI
@@ -85,21 +89,25 @@ var is_fully_typed: bool:
 var is_on_skip_cooldown: bool:
 	get():
 		return not skip_timer.is_stopped()
-var mod: Modification
 
 func _ready():
 	state = State.HIDDEN
 	auto_skip = auto_skip
-	
-	mod = Modification.new()
-	mod.value = 1.0
-	mod.duration = 0.0
-	mod.operation = Modification.Operation.increase
 
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("dialogue_skip"):
 		skip()
+
+
+func _on_dialogue_started():
+	if Game.player:
+		Game.player.stat_cant_use_inventory.add_modifier("ONGOING_DIALOGUE")
+
+
+func _on_dialogue_closed():
+	if Game.player:
+		Game.player.stat_cant_use_inventory.remove_modifier("ONGOING_DIALOGUE")
 
 
 func _on_character_typed():
@@ -226,8 +234,10 @@ func queue_dialogues(new_dialogue_queue: Array[Dialogue]):
 func display(new_dialogue: Dialogue, clear_queue: bool = true):
 	if clear_queue:
 		dialogue_queue = []
-	Game.player.character.stat_cant_move.add_modifier(var_to_str(mod.get_instance_id()), mod)
-	Game.player.character.stat_cant_shoot.add_modifier(var_to_str(mod.get_instance_id()), mod)
+	Game.player.stat_cant_use_inventory.add_modifier(str(get_instance_id()))
+	Game.player.character.stat_cant_move.add_modifier(str(get_instance_id()))
+	Game.player.character.stat_cant_shoot.add_modifier(str(get_instance_id()))
+	Game.player.character.stat_cant_interract.add_modifier(str(get_instance_id()))
 	dialogue = new_dialogue
 
 
@@ -257,5 +267,10 @@ func next():
 func close():
 	dialogue = null
 	await get_tree().process_frame
-	Game.player.character.stat_cant_move.remove_modifier(var_to_str(mod.get_instance_id()))
-	Game.player.character.stat_cant_shoot.remove_modifier(var_to_str(mod.get_instance_id()))
+	Game.player.stat_cant_use_inventory.remove_modifier(str(get_instance_id()))
+	Game.player.character.stat_cant_move.remove_modifier(str(get_instance_id()))
+	Game.player.character.stat_cant_shoot.remove_modifier(str(get_instance_id()))
+	Game.player.character.stat_cant_interract.remove_modifier(str(get_instance_id()))
+	
+	dialogue_closed.emit()
+	_on_dialogue_closed()

@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dtwff03frdapj"]
-
-[ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/stone_shot/stone_shot.tscn" id="1_liukp"]
-[ext_resource type="Script" uid="uid://du2rgy010v0vy" path="res://prefabs/combat/bullets/variations/stone_bounce_shot/stone_bounce_shot.gd" id="2_w5rlu"]
-
-[node name="StoneBounceShot" unique_id=419752470 instance=ExtResource("1_liukp")]
-script = ExtResource("2_w5rlu")
-bounces = 1

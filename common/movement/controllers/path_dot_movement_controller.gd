@@ -2,6 +2,8 @@ class_name PathDotMovementController2D
 extends MovementController2D
 ## Moves by points on a given [Path2D].
 
+signal break_started
+signal break_ended
 
 enum Order { RANDOM, SEQUENTIAL, BACK_AND_FORTH }
 
@@ -14,13 +16,9 @@ enum Order { RANDOM, SEQUENTIAL, BACK_AND_FORTH }
 
 @export_group("Break", "break")
 ## The minimum time the object stays still after reaching a point.
-@export var break_duration_min: float = 0.0:
-	set(value):
-		break_duration_min = clampf(value, 0, break_duration_max)
+@export var break_duration_min: float = 0.0
 ## The maximum time the object stays still after reaching a point.
-@export var break_duration_max: float = 0.0:
-	set(value):
-		break_duration_max = clampf(value, break_duration_min, INF)
+@export var break_duration_max: float = 0.0
 
 var break_timer: Timer
 var break_time: float:
@@ -70,6 +68,7 @@ func _create_break_timer():
 
 func _on_break_ended():
 	is_on_break = false
+	break_ended.emit()
 	pick_new_target()
 
 
@@ -103,11 +102,11 @@ func pick_new_target():
 func break_start(duration: float = -1.0) -> float:
 	if duration <= 0:
 		duration = break_time
-	
 	if not break_timer or duration <= 0:
 		return 0
 	
 	stop()
+	break_started.emit()
 	is_on_break = true
 	break_timer.start(duration)
 	return duration

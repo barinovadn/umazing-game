@@ -15,6 +15,7 @@ enum State { LOADING, SPAWNING, IDLE, BROKEN, RESPAWNING, DELETING }
 		settings = value
 		if is_inside_tree():
 			_apply_settings()
+@export var loot_drop_guaranteed: bool = false
 
 @onready var _sprite: Sprite2D = $Sprite
 @onready var _collider: CollisionShape2D = $Collider
@@ -29,7 +30,6 @@ var state: State:
 			return
 		
 		state = value
-		
 		if not Engine.is_editor_hint():
 			_on_state_changed()
 
@@ -69,14 +69,22 @@ func _on_state_changed():
 				_sound_player.stream = settings.sounds_spawn.pick_random()
 				_sound_player.play()
 		State.BROKEN:
-			visible = false
-			_collider.set_deferred("disabled", true)
+			_hide()
 			broken.emit()
+			
 			if not settings:
 				return delete()
+			
 			if settings.vfx_break:
 				settings.vfx_break.spawn(global_position)
+			
+			var loot_pickup := settings.roll_loot(
+				0.0 if loot_drop_guaranteed else -1.0 )
+			if loot_pickup:
+				Game.pickup_manager.spawn(loot_pickup, global_position)
+			
 			if settings.respawn_enabled:
+				
 				if( settings.delete_once_broken
 					and settings.respawn_lifes > 0
 					and _respawn_count >= settings.respawn_lifes ):
@@ -87,12 +95,20 @@ func _on_state_changed():
 				else:
 					spawn()
 				_respawn_count += 1
-			else:
+			
+			elif settings.delete_once_broken:
 				delete()
 		State.DELETING:
+			_hide()
 			if settings and settings.afterlife_duration > 0:
 				await get_tree().create_timer(settings.afterlife_duration).timeout
 			queue_free()
+
+
+func _hide():
+	visible = false
+	_collider.set_deferred("disabled", true)
+	_hurt_component.current_health = 0
 
 
 func _apply_settings():

@@ -8,8 +8,12 @@ func _ready():
 	$Decorations/Animator.play("appear")
 
 
-func _on_play_pressed():
-	get_tree().change_scene_to_packed(demo_level)
+func _on_conitnue_pressed():
+	SaveManager.load_game()
+
+
+func _on_new_game_pressed():
+	SaveManager.load_game(true)
 
 
 func _on_quit_pressed():

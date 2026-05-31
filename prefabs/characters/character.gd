@@ -9,6 +9,7 @@ signal hurt_component_changed(new_component: HurtComponent)
 signal shoot_controller_changed(new_controller: ShootController)
 signal movement_controller_changed(new_controller: MovementController2D)
 
+
 @export_group("Animations")
 @export var animator: AnimationController2D
 @export var start_animation := AnimationController2D.AnimationType.NONE
@@ -53,7 +54,7 @@ signal movement_controller_changed(new_controller: MovementController2D)
 @export var interactor: Interactor
 
 @export_group("Combat")
-@export var invincibility_duration: float = 0.0 
+@export var invulnerability_duration: float = 0.0 
 @export var hurt_component: HurtComponent:
 	set(value):
 		if hurt_component:
@@ -78,20 +79,22 @@ signal movement_controller_changed(new_controller: MovementController2D)
 		if shoot_controller:
 			shoot_controller.post_shot_cd_started.connect(_on_shooting_started)
 			shoot_controller.post_shot_cd_finished.connect(_on_shooting_stopped)
+@export var modifier_invulnerability: Modifier
 
 @export_group("Afterlife", "afterlife")
 @export var afterlife_duration: float = 7.0
 @export var afterlife_fade_out_duration: float = 2.0
+@export var afterlife_delete_on_destruction: Array[Node]
 
 @export_group("Stats", "stat")
 @export var stat_speed_ratio: Stat
 @export var stat_invulnerable: Stat:
 	set(value):
 		if stat_invulnerable:
-			stat_invulnerable.value_changed.disconnect(_on_invincibility_changed)
+			stat_invulnerable.value_changed.disconnect(_on_invulnurability_changed)
 		stat_invulnerable = value
-		if stat_invulnerable and !stat_invulnerable.value_changed.is_connected(_on_invincibility_changed):
-			stat_invulnerable.value_changed.connect(_on_invincibility_changed)
+		if stat_invulnerable and !stat_invulnerable.value_changed.is_connected(_on_invulnurability_changed):
+			stat_invulnerable.value_changed.connect(_on_invulnurability_changed)
 @export var stat_armor: Stat:
 	set(value):
 		if stat_armor:
@@ -107,6 +110,27 @@ signal movement_controller_changed(new_controller: MovementController2D)
 		stat_cant_shoot = value
 		if stat_cant_shoot and !stat_cant_shoot.value_changed.is_connected(_on_cant_shoot_changed):
 			stat_cant_shoot.value_changed.connect(_on_cant_shoot_changed)
+@export var stat_cant_interract: Stat:
+	set(value):
+		if stat_cant_interract:
+			stat_cant_interract.value_changed.disconnect(_on_cant_interract_changed)
+		stat_cant_interract = value
+		if stat_cant_interract and !stat_cant_interract.value_changed.is_connected(_on_cant_interract_changed):
+			stat_cant_interract.value_changed.connect(_on_cant_interract_changed)
+@export var stat_shooting_speed: Stat:
+	set(value):
+		if stat_shooting_speed:
+			stat_shooting_speed.value_changed.disconnect(_on_shooting_speed_changed)
+		stat_shooting_speed = value
+		if stat_shooting_speed and !stat_shooting_speed.value_changed.is_connected(_on_shooting_speed_changed):
+			stat_shooting_speed.value_changed.connect(_on_shooting_speed_changed)
+@export var stat_damage_ratio: Stat:
+	set(value):
+		if stat_damage_ratio:
+			stat_damage_ratio.value_changed.disconnect(_on_damage_ratio_changed)
+		stat_damage_ratio = value
+		if stat_damage_ratio and !stat_damage_ratio.value_changed.is_connected(_on_damage_ratio_changed):
+			stat_damage_ratio.value_changed.connect(_on_damage_ratio_changed)
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
@@ -130,8 +154,22 @@ var is_deleted: bool = false
 func _ready():
 	if animator:
 		animator.play(start_animation)
+	update_stats()
+
+
+func update_stats():
 	if stat_armor.value:
 		_on_armor_changed()
+	if stat_cant_interract.value:
+		_on_armor_changed()
+	if stat_cant_shoot.value:
+		_on_cant_shoot_changed()
+	if stat_invulnerable.value:
+		_on_invulnurability_changed()
+	if stat_shooting_speed.value:
+		_on_shooting_speed_changed()
+	if stat_damage_ratio.value:
+		_on_damage_ratio_changed()
 
 
 func _physics_process(_delta):
@@ -166,29 +204,50 @@ func _duplicate_stats():
 		stat_cant_shoot = stat_cant_shoot.duplicate()
 	if stat_invulnerable:
 		stat_invulnerable = stat_invulnerable.duplicate()
+	if stat_cant_interract:
+		stat_cant_interract = stat_cant_interract.duplicate()
+	if stat_damage_ratio:
+		stat_damage_ratio = stat_damage_ratio.duplicate()
+	if stat_shooting_speed:
+		stat_shooting_speed = stat_shooting_speed.duplicate()
 
 
 func _on_damaged(_value: float = 1.0):
-	if !invincibility_duration:
+	if !invulnerability_duration:
 		return
-	var modifier = Modification.new()
-	modifier.duration = invincibility_duration
-	modifier.value = 1.0
-	modifier.operation = Modification.Operation.increase
-	stat_invulnerable.add_modifier(var_to_str(modifier.get_instance_id()), modifier)
+	modifier_invulnerability.duration = invulnerability_duration
+	stat_invulnerable.add_modifier(var_to_str(modifier_invulnerability.get_instance_id()), modifier_invulnerability)
 
 
-func _on_invincibility_changed():
-	hurt_component.is_invulnerable = stat_invulnerable.value
+func _on_invulnurability_changed():
+	if hurt_component:
+		hurt_component.is_invulnerable = stat_invulnerable.value
 	animation_player.play("FLICKER" if stat_invulnerable.value else "RESET")
 
 
 func _on_cant_shoot_changed():
-	shoot_controller.can_shoot = not stat_cant_shoot.value
+	if shoot_controller:
+		shoot_controller.can_shoot = not stat_cant_shoot.value
+
+
+func _on_cant_interract_changed():
+	if interactor:
+		interactor.can_interract = not stat_cant_interract.value
+
+
+func _on_shooting_speed_changed():
+	if shoot_controller:
+		shoot_controller.shoot_ratio = stat_shooting_speed.value
 
 
 func _on_armor_changed():
-	hurt_component.armor = stat_armor.value
+	if hurt_component:
+		hurt_component.armor = stat_armor.value
+
+
+func _on_damage_ratio_changed():
+	if shoot_controller:
+		shoot_controller.damage_ratio = stat_damage_ratio.value
 
 
 func _on_died():
@@ -197,10 +256,8 @@ func _on_died():
 
 func _on_moved(dir: Vector2, speed: float):
 	velocity = dir * speed * (
-		stat_speed_ratio.value if stat_speed_ratio
-		else 1.0) * (
-		0.0 if (stat_cant_move and stat_cant_move.value)
-		 else 1.0)
+		stat_speed_ratio.value if stat_speed_ratio else 1.0) * (
+		0.0 if (stat_cant_move and stat_cant_move.value) else 1.0)
 	_update_animation()
 
 
@@ -241,6 +298,9 @@ func destroy():
 	_update_animation()
 	remote_all_modifications()
 	
+	for el in afterlife_delete_on_destruction:
+		el.queue_free()
+	
 	if afterlife_duration > 0:
 		var timer = get_tree().create_timer(afterlife_duration - afterlife_fade_out_duration)
 		await timer.timeout
@@ -258,6 +318,9 @@ func remote_all_modifications():
 	stat_cant_shoot.remote_all_modifiers()
 	stat_invulnerable.remote_all_modifiers()
 	stat_speed_ratio.remote_all_modifiers()
+	stat_cant_interract.remote_all_modifiers()
+	stat_shooting_speed.remote_all_modifiers()
+	stat_damage_ratio.remote_all_modifiers()
 
 
 func delete():

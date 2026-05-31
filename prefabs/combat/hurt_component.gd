@@ -22,6 +22,7 @@ enum Team {
 		shape = value
 		_update_shape()
 @export var is_one_shot: bool = true
+@export var visible_hp_bar: bool = false
 
 @export_group("Health")
 @export var team: Team
@@ -34,6 +35,7 @@ enum Team {
 		max_health_changed.emit()
 
 @export_group("Sounds", "sounds")
+@export var sounds_mute: bool = false
 @export var sounds_player: AudioStreamPlayer2D
 @export var sounds_damage: Array[AudioStream] = []
 @export var sounds_die: Array[AudioStream] = []
@@ -45,6 +47,8 @@ enum Team {
 			sounds_player.volume_db = value
 
 @export_group("VFX", "vfx")
+@export var vfx_mute: bool = false
+@export var vfx_prettify_dmg_numbers: bool = true
 @export var vfx_damage_marker: VFXProfile
 @export var vfx_heal_marker: VFXProfile
 @export_subgroup("Damage Marker Colors", "vfx_damage_marker_color")
@@ -57,6 +61,7 @@ enum Team {
 @export var vfx_damage_marker_color_high: Color = Color.RED
 
 @onready var _collider: CollisionShape2D = %Collider
+@onready var mob_hp: MobHP = $MobHP
 
 var is_invulnerable: bool = false
 var current_health: float:
@@ -93,6 +98,7 @@ var armor: float = 0.0
 
 func _ready():
 	current_health = max_health
+	mob_hp.visible = visible_hp_bar
 	if sounds_player:
 		sounds_player.volume_db = sounds_volume_db
 	if shape:
@@ -113,35 +119,51 @@ func _update_shape():
 
 
 func _play_random_sound(array: Array[AudioStream]):
+	if sounds_mute:
+		return
 	if array.size():
 		sounds_player.stream = array.pick_random()
 		sounds_player.play()
 
 
+func _dmg_to_str(amount: float) -> String:
+	if vfx_prettify_dmg_numbers:
+		return str(int(amount * 100))
+	
+	return str(amount)
+
+
 func _calc_damage_marker_color(dmg_amount: float) -> Color:
-	if dmg_amount >= vfx_damage_marker_color_high_threshhold:
-		return vfx_damage_marker_color_high
-	if dmg_amount >= vfx_damage_marker_color_mid_threshhold:
-		return vfx_damage_marker_color_mid
-	if dmg_amount >= vfx_damage_marker_color_low_threshhold:
-		return vfx_damage_marker_color_low
-	return vfx_damage_marker_color_default
+	if dmg_amount < vfx_damage_marker_color_low_threshhold:
+		var t: float = dmg_amount / vfx_damage_marker_color_low_threshhold
+		return vfx_damage_marker_color_default.lerp(vfx_damage_marker_color_low, t)
+	elif dmg_amount < vfx_damage_marker_color_mid_threshhold:
+		var t: float = (dmg_amount - vfx_damage_marker_color_low_threshhold) / (vfx_damage_marker_color_mid_threshhold - vfx_damage_marker_color_low_threshhold)
+		return vfx_damage_marker_color_low.lerp(vfx_damage_marker_color_mid, t)
+	elif dmg_amount < vfx_damage_marker_color_high_threshhold:
+		var t: float = (dmg_amount - vfx_damage_marker_color_mid_threshhold) / (vfx_damage_marker_color_high_threshhold - vfx_damage_marker_color_mid_threshhold)
+		return vfx_damage_marker_color_mid.lerp(vfx_damage_marker_color_high, t)
+	return vfx_damage_marker_color_high
 
 
 func _play_damage_marker_vfx(dmg_amount: float):
+	if vfx_mute:
+		return
 	if not vfx_damage_marker:
 		return
 	
 	vfx_damage_marker.settings.modulate = _calc_damage_marker_color(dmg_amount)
-	vfx_damage_marker.settings.notification_text = '-' + str(int(dmg_amount * 100))
+	vfx_damage_marker.settings.notification_text = '-' + _dmg_to_str(dmg_amount)
 	vfx_damage_marker.spawn(global_position)
 
 
 func _play_heal_marker_vfx(heal_amount: float):
+	if vfx_mute:
+		return
 	if not vfx_heal_marker:
 		return
 	
-	vfx_heal_marker.settings.notification_text = '+' + str(int(heal_amount * 100))
+	vfx_heal_marker.settings.notification_text = '+' + _dmg_to_str(heal_amount)
 	vfx_heal_marker.spawn(global_position)
 
 
@@ -161,7 +183,10 @@ func take_damage(amount: float = 0):
 	if !armor:
 		current_health -= amount
 	else:
-		current_health -= (amount / 2**(amount / armor))
+		var reduction_percent: float = clampf(armor / 100.0, 0.0, 1.0)
+		var final_damage: float = amount * (1.0 - reduction_percent)
+
+		current_health -= final_damage
 
 
 func heal(amount: float = 0):

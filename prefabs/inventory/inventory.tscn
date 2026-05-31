@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://ca72fbnfggsgb"]
+
+[ext_resource type="Script" uid="uid://ex0o8hepffvv" path="res://prefabs/inventory/inventory.gd" id="1_pfkkx"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_m0lym"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="3_2btik"]
+
+[sub_resource type="Resource" id="Resource_qdvc2"]
+script = ExtResource("3_2btik")
+density = 4
+notification_text_color = Color(0.6313726, 0.56078434, 1, 1)
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_vtpqo"]
+script = ExtResource("2_m0lym")
+effect = 10000
+settings = SubResource("Resource_qdvc2")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_pfkkx"]
+script = ExtResource("3_2btik")
+modulate = Color(0.8611049, 0.40507108, 1, 1)
+density = 4
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_m0lym"]
+script = ExtResource("2_m0lym")
+effect = 10000
+settings = SubResource("Resource_pfkkx")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_2btik"]
+script = ExtResource("3_2btik")
+density = 4
+notification_text_color = Color(0.6313726, 0.56078434, 1, 1)
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_uar5f"]
+script = ExtResource("2_m0lym")
+effect = 10000
+settings = SubResource("Resource_2btik")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[node name="Inventory" type="Node2D" unique_id=956569913]
+script = ExtResource("1_pfkkx")
+vfx_notification_inventory_full = SubResource("Resource_vtpqo")
+vfx_notification_item_added = SubResource("Resource_m0lym")
+vfx_notification_item_used = SubResource("Resource_uar5f")
+
+[connection signal="item_added" from="." to="." method="_on_item_added"]
+[connection signal="item_used" from="." to="." method="_on_item_used"]

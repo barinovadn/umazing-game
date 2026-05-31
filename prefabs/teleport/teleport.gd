@@ -7,6 +7,7 @@ extends Area2D
 signal used()
 
 @export var exit: Node2D
+@export var exit_level_index: int = -1
 @export var exit_offset: Vector2
 @export var exit_effect: VFXProfile
 @export var use_limit: int = 0
@@ -57,6 +58,13 @@ func use(character: Character2D):
 	
 	use_count += 1
 	used.emit()
+	
+	if character == Game.player.character and exit_level_index >= 0:
+		
+		SceneManager.current_level_index = exit_level_index
+		SaveManager.save_game()
+		SaveManager.load_game()
+		#SceneManager.go_to_level(exit_level_index)
 	
 	if exit_effect:
 		exit_effect.spawn(character.global_position)

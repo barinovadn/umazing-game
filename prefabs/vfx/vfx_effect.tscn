@@ -10,5 +10,9 @@ pause_delay = 1.0
 rect = Rect2(-0.5, -0.5, 1, 1)
 show_rect = false
 
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=145693553]
+unique_name_in_owner = true
+bus = &"World"
+
 [connection signal="screen_entered" from="ScreenDetection" to="." method="_on_screen_entered"]
 [connection signal="screen_exited" from="ScreenDetection" to="." method="_on_screen_exited"]

@@ -1,9 +1,12 @@
 [gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://br85rp62bcmo1"]
 
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_jfyeh"]
 [ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="1_q7uue"]
 [ext_resource type="AudioStream" uid="uid://dticsqhs05poe" path="res://prefabs/combat/sounds/impact_2.wav" id="2_b7kpv"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="2_c1dv0"]
+[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi1.tres" id="2_vw0qw"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="3_b7kpv"]
+[ext_resource type="Resource" uid="uid://blylgxx5kc83n" path="res://prefabs/inventory/items/shrimp.tres" id="3_ip3kr"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="4_xrv5n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7uue"]
@@ -13,29 +16,29 @@ atlas = ExtResource("2_c1dv0")
 region = Rect2(64, 48, 16, 32)
 margin = Rect2(0, -8, 0, 0)
 
-[sub_resource type="Resource" id="Resource_bhnie"]
+[sub_resource type="Resource" id="Resource_dlede"]
 script = ExtResource("4_xrv5n")
 density = 3
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 
-[sub_resource type="Resource" id="Resource_okcse"]
+[sub_resource type="Resource" id="Resource_axdxq"]
 script = ExtResource("3_b7kpv")
 effect = 30
-settings = SubResource("Resource_bhnie")
+settings = SubResource("Resource_dlede")
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
-[sub_resource type="Resource" id="Resource_5gp4r"]
+[sub_resource type="Resource" id="Resource_up64m"]
 script = ExtResource("4_xrv5n")
 density = 1
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 
-[sub_resource type="Resource" id="Resource_hgtxf"]
+[sub_resource type="Resource" id="Resource_ruwpk"]
 script = ExtResource("3_b7kpv")
 effect = 30
-settings = SubResource("Resource_5gp4r")
+settings = SubResource("Resource_up64m")
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
-[sub_resource type="Resource" id="Resource_ksnff"]
+[sub_resource type="Resource" id="Resource_2766p"]
 script = ExtResource("3_b7kpv")
 effect = 100
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
@@ -45,9 +48,12 @@ script = ExtResource("1_q7uue")
 texture = SubResource("AtlasTexture_dhc5m")
 shape = SubResource("CircleShape2D_q7uue")
 hp = 0.5
+loot_drop_chance = 0.25
+loot_table = Array[ExtResource("1_jfyeh")]([ExtResource("2_vw0qw"), ExtResource("3_ip3kr")])
+loot_weights = Array[float]([0.5, 0.1])
 sounds_hit = Array[AudioStream]([ExtResource("2_b7kpv")])
 sounds_break = Array[AudioStream]([ExtResource("2_b7kpv")])
-vfx_spawn = SubResource("Resource_ksnff")
-vfx_hit = SubResource("Resource_hgtxf")
-vfx_break = SubResource("Resource_okcse")
+vfx_spawn = SubResource("Resource_2766p")
+vfx_hit = SubResource("Resource_ruwpk")
+vfx_break = SubResource("Resource_axdxq")
 metadata/_custom_type_script = "uid://c5vdwmd0iexxp"

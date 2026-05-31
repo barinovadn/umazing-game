@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://bdu64vahuihfg"]
+
+[ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_7jqlm"]
+[ext_resource type="Texture2D" uid="uid://b6pm1fblum7py" path="res://prefabs/characters/bosses/demon_cyclop/demon_cyclop_enraged.png" id="2_7jqlm"]
+[ext_resource type="Texture2D" uid="uid://bijkqkn3quj5c" path="res://prefabs/characters/bosses/demon_cyclop/Hit.png" id="3_l7lwl"]
+[ext_resource type="Texture2D" uid="uid://wi4ew5y23r5c" path="res://prefabs/characters/bosses/demon_cyclop/Idle.png" id="4_mlunp"]
+[ext_resource type="Texture2D" uid="uid://cjoft0tnbbl6j" path="res://prefabs/characters/bosses/demon_cyclop/Walk.png" id="5_drdnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjec7"]
+atlas = ExtResource("2_7jqlm")
+region = Rect2(0, 0, 37, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp6hb"]
+atlas = ExtResource("3_l7lwl")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq5yf"]
+atlas = ExtResource("3_l7lwl")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prkqo"]
+atlas = ExtResource("3_l7lwl")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g4eo"]
+atlas = ExtResource("4_mlunp")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g05c5"]
+atlas = ExtResource("4_mlunp")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gambm"]
+atlas = ExtResource("4_mlunp")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7scrp"]
+atlas = ExtResource("4_mlunp")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3gj0"]
+atlas = ExtResource("4_mlunp")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w50x8"]
+atlas = ExtResource("5_drdnf")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooblk"]
+atlas = ExtResource("5_drdnf")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aavo8"]
+atlas = ExtResource("5_drdnf")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p40lg"]
+atlas = ExtResource("5_drdnf")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2t11"]
+atlas = ExtResource("5_drdnf")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi3u4"]
+atlas = ExtResource("5_drdnf")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tbstd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjec7")
+}],
+"loop": true,
+"name": &"attack_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp6hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq5yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prkqo")
+}],
+"loop": true,
+"name": &"downed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g4eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g05c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gambm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7scrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3gj0")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w50x8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooblk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aavo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p40lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2t11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi3u4")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}]
+
+[node name="DemonCyclop" unique_id=2065001503 instance=ExtResource("1_7jqlm")]
+
+[node name="Sprite" parent="." index="2" unique_id=2042220320]
+sprite_frames = SubResource("SpriteFrames_tbstd")
+animation = &"attack_left"
+autoplay = ""
+frame_progress = 0.71855277
+
+[node name="AnimationController" parent="." index="3" unique_id=395358213]
+animations = Dictionary[int, String]({
+1: "idle_left",
+2: "idle_left",
+3: "idle_left",
+4: "idle_left",
+5: "walk_left",
+6: "walk_left",
+7: "walk_left",
+8: "walk_left",
+9: "attack_left",
+10: "attack_left",
+11: "attack_left",
+12: "attack_left",
+13: "downed"
+})
+animations_flip_h = Dictionary[int, bool]({
+3: false,
+4: true,
+7: false,
+8: true,
+11: false,
+12: true
+})

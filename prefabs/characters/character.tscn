@@ -7,6 +7,13 @@
 [ext_resource type="Script" uid="uid://dyqeulekjrh6q" path="res://common/animations/animation_controller.gd" id="2_o6vhl"]
 [ext_resource type="Script" uid="uid://6h6n0jvs1c7u" path="res://common/stats/stat.gd" id="3_br2vh"]
 
+[sub_resource type="Resource" id="Resource_1ua3n"]
+script = ExtResource("2_n8fqr")
+duration = 1.0
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
 [sub_resource type="Resource" id="Resource_vbdnq"]
 script = ExtResource("3_br2vh")
 base_value = 1.0
@@ -26,6 +33,20 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_f5ool"]
 script = ExtResource("3_br2vh")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_3dje5"]
+script = ExtResource("3_br2vh")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_vtcgs"]
+script = ExtResource("3_br2vh")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_u33bt"]
+script = ExtResource("3_br2vh")
+base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_up5c1"]
@@ -439,11 +460,15 @@ collision_mask = 67
 script = ExtResource("1_87xpb")
 animator = NodePath("AnimationController")
 collider = NodePath("Collider")
+modifier_invulnerability = SubResource("Resource_1ua3n")
 stat_speed_ratio = SubResource("Resource_vbdnq")
 stat_invulnerable = SubResource("Resource_n8fqr")
 stat_armor = SubResource("Resource_br2vh")
 stat_cant_move = SubResource("Resource_biicj")
 stat_cant_shoot = SubResource("Resource_f5ool")
+stat_cant_interract = SubResource("Resource_3dje5")
+stat_shooting_speed = SubResource("Resource_vtcgs")
+stat_damage_ratio = SubResource("Resource_u33bt")
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1644825572]
 scale = Vector2(0.9, 0.9)

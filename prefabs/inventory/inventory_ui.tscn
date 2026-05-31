@@ -119,7 +119,8 @@ theme_override_fonts/font = ExtResource("8_bjqoh")
 theme_override_font_sizes/font_size = 42
 text = "УДАЛИТЬ"
 
-[node name="AudioStream" type="AudioStreamPlayer2D" parent="." unique_id=2011670380]
+[node name="AudioStream" type="AudioStreamPlayer" parent="." unique_id=1852913023]
+bus = &"System"
 
 [connection signal="pressed" from="VBox/ActionPanel/UseButton" to="." method="_on_use_button_pressed"]
 [connection signal="pressed" from="VBox/ActionPanel/InfoButton" to="." method="_on_info_button_pressed"]

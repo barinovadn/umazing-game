@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://q10pxyiyicdf" path="res://prefabs/dialogues/dialogue_system.tscn" id="6_4j704"]
 [ext_resource type="Texture2D" uid="uid://cuy6j56l0wd6g" path="res://scenes/grid.png" id="6_5i0tg"]
 [ext_resource type="TileSet" uid="uid://nqowvxb5fi8d" path="res://prefabs/tilesets/system.tres" id="6_bdhmt"]
+[ext_resource type="PackedScene" uid="uid://b4q2ixmh0tsd5" path="res://prefabs/inventory/pickups/pickup_manager.tscn" id="7_4j704"]
 
 [node name="Game" type="Node2D" unique_id=1082399769]
 script = ExtResource("1_2a8rs")
@@ -43,6 +44,9 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 z_index = 60
 
+[node name="PickupManager" parent="." unique_id=1873301165 instance=ExtResource("7_4j704")]
+unique_name_in_owner = true
+
 [node name="Tilemap" type="Node2D" parent="." unique_id=1439768727]
 y_sort_enabled = true
 
@@ -69,6 +73,10 @@ tile_set = ExtResource("4_lfrn8")
 z_index = 60
 texture_filter = 1
 tile_set = ExtResource("6_bdhmt")
+
+[node name="HideAtRuntime" type="Node2D" parent="Tilemap/Foreground" unique_id=2106273737]
+script = ExtResource("5_lfrn8")
+metadata/_custom_type_script = "uid://bp0bnmynw2d1p"
 
 [node name="Enviroments" type="Node2D" parent="." unique_id=1656547831]
 z_index = 60

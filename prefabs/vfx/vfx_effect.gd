@@ -32,6 +32,7 @@ enum Type {
 @export var pause_delay: float = 0.0
 
 @onready var screen_detection: VisibleOnScreenNotifier2D = $ScreenDetection
+@onready var audio_player: AudioStreamPlayer2D = %AudioPlayer
 
 var _gpu_particles_awaiting_count: int = 0
 var _gpu_particles_finished_count: int = 0:
@@ -75,7 +76,9 @@ var is_paused: bool = false:
 			process_mode = Node.PROCESS_MODE_INHERIT
 			unpaused.emit()
 var is_on_screen: bool:
-	get(): return screen_detection.is_on_screen()
+	get():
+		if not screen_detection: return false
+		return screen_detection.is_on_screen()
 
 
 func _ready():
@@ -120,6 +123,10 @@ func _apply_settings():
 	
 	for gpu_particle in gpu_particles:
 		gpu_particle.amount_ratio = settings.DENSITY_VALUES[settings.density]
+	
+	if settings.sound:
+		audio_player.stream = settings.sound
+		audio_player.play()
 	
 	settings_applied.emit()
 

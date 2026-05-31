@@ -23,6 +23,7 @@ signal deleted
 @export var homing: bool = false
 ## The node that the bullet will be aimed at if [member homing] is enabled
 @export var target: Node2D
+@export var use_spawn_direction: bool = false
 
 @export_group("Damage")
 @export var damage: float = 1.0
@@ -171,7 +172,8 @@ func _delete():
 
 func set_target_direction():
 	target = get_nearest_target()
-	direction = _get_direction_to_target()
+	if not use_spawn_direction:
+		direction = _get_direction_to_target()
 
 
 func _get_direction_to_target() -> Vector2:
