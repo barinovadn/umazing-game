@@ -1,41 +1,28 @@
 [gd_scene format=4 uid="uid://den5tgrfa2f6q"]
 
 [ext_resource type="PackedScene" uid="uid://buhslpn3jaek5" path="res://scenes/game/game.tscn" id="1_o2p3v"]
-[ext_resource type="PackedScene" uid="uid://dco2pch76pmk6" path="res://prefabs/vfx/effects/break_rocks.tscn" id="2_k1fdc"]
 [ext_resource type="PackedScene" uid="uid://dcrm5punhuk0d" path="res://prefabs/characters/ninja_green/ninja_green.tscn" id="2_o2p3v"]
 [ext_resource type="PackedScene" uid="uid://ik6dpd1qhkci" path="res://prefabs/characters/bosses/giant_racoon/giant_racoon.tscn" id="3_5yt0q"]
 [ext_resource type="PackedScene" uid="uid://cathu8h71gfg7" path="res://prefabs/characters/bosses/giant_bamboo/giant_bamboo.tscn" id="3_cp8gd"]
-[ext_resource type="PackedScene" uid="uid://b7chm4a43nite" path="res://prefabs/vfx/effects/break_rocks_gray.tscn" id="3_yakie"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/combat/ai/ai_controller.tscn" id="4_lonoe"]
 [ext_resource type="Script" uid="uid://6h6n0jvs1c7u" path="res://common/stats/stat.gd" id="4_s6g6n"]
-[ext_resource type="PackedScene" uid="uid://cnda2pv5gwefs" path="res://prefabs/vfx/effects/break_vase.tscn" id="4_w8ftg"]
-[ext_resource type="PackedScene" uid="uid://bo22fb7lc8uyl" path="res://prefabs/vfx/effects/break_wood.tscn" id="5_g6ybq"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="5_olh6k"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="6_1e2a1"]
-[ext_resource type="PackedScene" uid="uid://rdbm71hlvpj1" path="res://prefabs/vfx/effects/break_bamboo.tscn" id="6_8augw"]
-[ext_resource type="PackedScene" uid="uid://cecq38641eusp" path="res://prefabs/vfx/effects/burst_grass.tscn" id="7_qtrp1"]
 [ext_resource type="Script" uid="uid://crn7e8ojipha2" path="res://prefabs/characters/bosses/giant_racoon/ai_controller.gd" id="8_3pqcu"]
 [ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="8_i3ex6"]
 [ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="8_j4jck"]
-[ext_resource type="PackedScene" uid="uid://1nb64bwo0hvg" path="res://prefabs/vfx/effects/burst_leaves.tscn" id="8_k0tm2"]
-[ext_resource type="PackedScene" uid="uid://ca5q185c200uy" path="res://prefabs/vfx/effects/burst_leaves_pink.tscn" id="9_5owx6"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://prefabs/combat/ai/ai_action.gd" id="9_fflhd"]
-[ext_resource type="PackedScene" uid="uid://0bkb8m0yweiq" path="res://prefabs/vfx/effects/puff_spark.tscn" id="10_25f2l"]
 [ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/combat/ui/bosses/boss_container_data.gd" id="10_s6g6n"]
-[ext_resource type="PackedScene" uid="uid://1s2f6ryuldsv" path="res://prefabs/vfx/effects/puff_snow.tscn" id="11_0b57j"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="11_7447m"]
 [ext_resource type="Texture2D" uid="uid://v1kxhbhajork" path="res://prefabs/characters/bosses/giant_racoon/boss_over.png" id="11_hk7ad"]
-[ext_resource type="PackedScene" uid="uid://budubdvptewnu" path="res://prefabs/vfx/effects/smoke.tscn" id="12_hjcxf"]
 [ext_resource type="Texture2D" uid="uid://c22lfxrwcvfvs" path="res://prefabs/characters/bosses/giant_racoon/boss_progress.png" id="12_nmf1y"]
-[ext_resource type="PackedScene" uid="uid://74d2ka18na87" path="res://prefabs/vfx/effects/smoke_explosion.tscn" id="13_arhyt"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="13_nmf1y"]
+[ext_resource type="AudioStream" uid="uid://dbqpuh2xwbot8" path="res://prefabs/combat/sounds/impact_3.wav" id="13_sj5jv"]
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/stone_shot/stone_shot.tscn" id="14_io6ay"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="14_m7sgn"]
-[ext_resource type="PackedScene" uid="uid://b86ksiklisu71" path="res://prefabs/vfx/effects/portal.tscn" id="14_me7r1"]
 [ext_resource type="PackedScene" uid="uid://2c483lnj3eel" path="res://prefabs/combat/bullets/variations/stone_fall/stone_fall.tscn" id="15_sj5jv"]
-[ext_resource type="PackedScene" uid="uid://bd88t5c07t1x2" path="res://prefabs/vfx/effects/notification.tscn" id="15_u5n4u"]
 [ext_resource type="PackedScene" uid="uid://b7jopm86b0plu" path="res://prefabs/combat/bullets/variations/stone_rickoshet_shot/stone_rickoshet_shot.tscn" id="16_egl16"]
-[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="19_hk7ad"]
+[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="19_hk7ad"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="23_mtt35"]
 
 [sub_resource type="Resource" id="Resource_hk7ad"]
@@ -77,12 +64,14 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_rb6q2"]
 script = ExtResource("14_m7sgn")
-density = 3
+scale = Vector2(2, 2)
+density = 4
+sound = ExtResource("13_sj5jv")
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 
-[sub_resource type="Resource" id="Resource_s6g6n"]
+[sub_resource type="Resource" id="Resource_g6ybq"]
 script = ExtResource("13_nmf1y")
-effect = 600
+effect = 601
 settings = SubResource("Resource_rb6q2")
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
@@ -283,24 +272,6 @@ source_geometry_mode = 2
 character = NodePath("../Characters/NinjaGreen")
 allow_cheats = true
 
-[node name="VFXManager" parent="." index="5" unique_id=880750068]
-effects = Dictionary[int, PackedScene]({
-10: ExtResource("2_k1fdc"),
-11: ExtResource("3_yakie"),
-20: ExtResource("4_w8ftg"),
-30: ExtResource("5_g6ybq"),
-40: ExtResource("6_8augw"),
-100: ExtResource("7_qtrp1"),
-110: ExtResource("8_k0tm2"),
-111: ExtResource("9_5owx6"),
-200: ExtResource("10_25f2l"),
-210: ExtResource("11_0b57j"),
-300: ExtResource("12_hjcxf"),
-310: ExtResource("13_arhyt"),
-500: ExtResource("14_me7r1"),
-10000: ExtResource("15_u5n4u")
-})
-
 [node name="Ground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="1" unique_id=2033248800]
 tile_map_data = PackedByteArray("AAAJAAQAAAACAAkAAAAJAAMAAAACAAcAAAAJAAIAAAAEAAwAAAAJAAEAAAADAAwAAAAJAAAAAAABAAwAAAAJAP//AAAAAAwAAAAJAP7/AAAEAAwAAAAJAP3/AAAAAAwAAAAJAPz/AAAAAAwAAAAJAPv/AAAAAAwAAAAIAAQAAAABAAkAAAAIAAMAAAABAAcAAAAIAAIAAAAAAAwAAAAIAAEAAAAEAAwAAAAIAAAAAAAAAAwAAAAIAP//AAAAAAwAAAAIAP7/AAAAAAwAAAAIAP3/AAAEAAwAAAAIAPz/AAABAAwAAAAIAPv/AAAAAAwAAAAHAAQAAAAAAAkAAAAHAAMAAAAAAAcAAAAHAAIAAAAEAAwAAAAHAAEAAAAEAAwAAAAHAAAAAAAEAAwAAAAHAP//AAADAAwAAAAHAP7/AAAAAAwAAAAHAP3/AAAAAAwAAAAHAPz/AAAEAAwAAAAHAPv/AAAEAAwAAAAGAAQAAAAAAAwAAAAGAAMAAAAAAAwAAAAGAAIAAAAAAAwAAAAGAAEAAAACAAwAAAAGAAAAAAAAAAwAAAAGAP//AAAAAAwAAAAGAP7/AAAAAAwAAAAGAP3/AAAAAAwAAAAGAPz/AAADAAwAAAAGAPv/AAAAAAwAAAAFAAQAAAADAAwAAAAFAAMAAAAEAAwAAAAFAAIAAAAAAAwAAAAFAAEAAAAAAAwAAAAFAAAAAAAAAAwAAAAFAP//AAAAAAwAAAAFAP7/AAAEAAwAAAAFAP3/AAAAAAwAAAAFAPz/AAADAAwAAAAFAPv/AAAAAAwAAAAEAAQAAAAAAAwAAAAEAAMAAAADAAwAAAAEAAIAAAAAAAwAAAAEAAEAAAAEAAwAAAAEAAAAAAAAAAwAAAAEAP//AAAEAAwAAAAEAP7/AAAEAAwAAAAEAP3/AAAAAAwAAAAEAPz/AAAAAAwAAAAEAPv/AAAEAAwAAAADAAQAAAAAAAwAAAADAAMAAAAAAAwAAAADAAIAAAAAAAwAAAADAAEAAAAAAAwAAAADAAAAAAAAAAwAAAADAP//AAAAAAwAAAADAP7/AAAEAAwAAAADAP3/AAAAAAwAAAADAPz/AAAAAAwAAAADAPv/AAAAAAwAAAACAAQAAAAEAAwAAAACAAMAAAAAAAwAAAACAAIAAAAAAAwAAAACAAEAAAAEAAwAAAACAAAAAAAAAAwAAAACAP//AAAEAAwAAAACAP7/AAACAAwAAAACAP3/AAAAAAwAAAACAPz/AAAAAAwAAAACAPv/AAAAAAwAAAABAAQAAAAAAAwAAAABAAMAAAAAAAwAAAABAAIAAAACAAwAAAABAAEAAAAEAAwAAAABAAAAAAAAAAwAAAABAP//AAAAAAwAAAABAP7/AAAAAAwAAAABAP3/AAAAAAwAAAABAPz/AAAEAAwAAAABAPv/AAAAAAwAAAAAAAQAAAACAAoAAAAAAAMAAAAAAAwAAAAAAAIAAAAAAAwAAAAAAAEAAAABAAwAAAAAAAAAAAAAAAwAAAAAAP//AAAAAAwAAAAAAP7/AAAAAAwAAAAAAP3/AAAAAAwAAAAAAPz/AAACAAwAAAAAAPv/AAACAAwAAAD//wQAAAABAAoAAAD//wMAAAADAAwAAAD//wIAAAAAAAwAAAD//wEAAAAEAAwAAAD//wAAAAADAAwAAAD/////AAAAAAwAAAD///7/AAADAAwAAAD///3/AAAEAAwAAAD///z/AAAEAAwAAAD///v/AAAAAAwAAAD+/wQAAAAAAAoAAAD+/wMAAAACAAwAAAD+/wIAAAAAAAwAAAD+/wEAAAADAAwAAAD+/wAAAAAAAAwAAAD+////AAAAAAwAAAD+//7/AAAAAAwAAAD+//3/AAAAAAwAAAD+//z/AAAEAAwAAAD+//v/AAAEAAwAAAD9/wQAAAAAAAwAAAD9/wMAAAAAAAwAAAD9/wIAAAAAAAwAAAD9/wEAAAAAAAwAAAD9/wAAAAAAAAwAAAD9////AAAAAAwAAAD9//7/AAAEAAwAAAD9//3/AAAEAAwAAAD9//z/AAAAAAwAAAD9//v/AAAAAAwAAAD8/wQAAAAEAAwAAAD8/wMAAAAAAAwAAAD8/wIAAAAAAAwAAAD8/wEAAAAEAAwAAAD8/wAAAAAAAAwAAAD8////AAAAAAwAAAD8//7/AAAAAAwAAAD8//3/AAAEAAwAAAD8//z/AAAEAAwAAAD8//v/AAAAAAwAAAD7/wQAAAADAAwAAAD7/wMAAAAAAAwAAAD7/wIAAAAAAAwAAAD7/wEAAAAEAAwAAAD7/wAAAAAEAAwAAAD7////AAADAAwAAAD7//7/AAAAAAwAAAD7//3/AAAAAAwAAAD7//z/AAAAAAwAAAD7//v/AAADAAwAAAD6/wQAAAAEAAwAAAD6/wMAAAAAAAwAAAD6/wIAAAAAAAwAAAD6/wEAAAAEAAwAAAD6/wAAAAAEAAwAAAD6////AAAEAAwAAAD6//7/AAAAAAwAAAD6//3/AAADAAwAAAD6//z/AAAAAAwAAAD6//v/AAAEAAwAAAD5/wQAAAACAAkAAAD5/wMAAAACAAcAAAD5/wIAAAAAAAwAAAD5/wEAAAAAAAwAAAD5/wAAAAAAAAwAAAD5////AAAEAAwAAAD5//7/AAAAAAwAAAD5//3/AAAAAAwAAAD5//z/AAAAAAwAAAD5//v/AAADAAwAAAD4/wQAAAABAAkAAAD4/wMAAAABAAcAAAD4/wIAAAADAAwAAAD4/wEAAAADAAwAAAD4/wAAAAAEAAwAAAD4////AAAAAAwAAAD4//7/AAAEAAwAAAD4//3/AAAAAAwAAAD4//z/AAAEAAwAAAD4//v/AAAEAAwAAAD3/wQAAAABAAkAAAD3/wMAAAABAAcAAAD3/wIAAAAAAAwAAAD3/wEAAAAAAAwAAAD3/wAAAAAAAAwAAAD3////AAABAAwAAAD3//7/AAAEAAwAAAD3//3/AAAAAAwAAAD3//z/AAAAAAwAAAD3//v/AAABAAwAAAD2/wQAAAAAAAkAAAD2/wMAAAAAAAcAAAD2/wIAAAAAAAwAAAD2/wEAAAAAAAwAAAD2/wAAAAAAAAwAAAD2////AAAAAAwAAAD2//7/AAAAAAwAAAD2//3/AAACAAwAAAD2//z/AAAAAAwAAAD2//v/AAACAAwAAAD1/xgAAAACAAkAAAD1/xcAAAACAAgAAAD1/xYAAAACAAgAAAD1/xUAAAACAAgAAAD1/xQAAAACAAgAAAD1/xMAAAACAAgAAAD1/xIAAAACAAgAAAD1/xEAAAACAAgAAAD1/xAAAAACAAgAAAD1/w8AAAACAAcAAAD0/xgAAAABAAkAAAD0/xcAAAABAAgAAAD0/xYAAAABAAgAAAD0/xUAAAABAAsAAAD0/xQAAAABAAgAAAD0/xMAAAABAAsAAAD0/xIAAAABAAgAAAD0/xEAAAABAAgAAAD0/xAAAAABAAsAAAD0/w8AAAABAAcAAADz/xgAAAABAAkAAADz/xcAAAABAAgAAADz/xYAAAABAAgAAADz/xUAAAABAAgAAADz/xQAAAABAAgAAADz/xMAAAABAAgAAADz/xIAAAABAAgAAADz/xEAAAABAAgAAADz/xAAAAABAAgAAADz/w8AAAABAAcAAADy/xgAAAABAAkAAADy/xcAAAABAAgAAADy/xYAAAABAAgAAADy/xUAAAABAAgAAADy/xQAAAABAAsAAADy/xMAAAABAAgAAADy/xIAAAABAAgAAADy/xEAAAABAAgAAADy/xAAAAABAAgAAADy/w8AAAABAAcAAADx/xgAAAABAAkAAADx/xcAAAABAAgAAADx/xYAAAABAAgAAADx/xUAAAABAAgAAADx/xQAAAABAAsAAADx/xMAAAABAAsAAADx/xIAAAABAAgAAADx/xEAAAABAAgAAADx/xAAAAABAAgAAADx/w8AAAABAAcAAADw/xgAAAABAAkAAADw/xcAAAABAAgAAADw/xYAAAABAAgAAADw/xUAAAABAAgAAADw/xQAAAABAAgAAADw/xMAAAABAAgAAADw/xIAAAABAAgAAADw/xEAAAABAAgAAADw/xAAAAABAAgAAADw/w8AAAABAAcAAADv/xgAAAABAAkAAADv/xcAAAABAAgAAADv/xYAAAABAAgAAADv/xUAAAABAAgAAADv/xQAAAABAAgAAADv/xMAAAABAAgAAADv/xIAAAABAAsAAADv/xEAAAABAAgAAADv/xAAAAABAAgAAADv/w8AAAABAAcAAADu/xgAAAABAAkAAADu/xcAAAABAAsAAADu/xYAAAABAAgAAADu/xUAAAABAAgAAADu/xQAAAABAAgAAADu/xMAAAABAAgAAADu/xIAAAABAAsAAADu/xEAAAABAAgAAADu/xAAAAABAAgAAADu/w8AAAABAAcAAADt/xgAAAABAAkAAADt/xcAAAABAAsAAADt/xYAAAABAAgAAADt/xUAAAABAAgAAADt/xQAAAABAAgAAADt/xMAAAABAAgAAADt/xIAAAABAAgAAADt/xEAAAABAAsAAADt/xAAAAABAAgAAADt/w8AAAABAAcAAADs/xgAAAABAAkAAADs/xcAAAABAAgAAADs/xYAAAABAAsAAADs/xUAAAABAAgAAADs/xQAAAABAAgAAADs/xMAAAABAAsAAADs/xIAAAABAAgAAADs/xEAAAABAAgAAADs/xAAAAABAAgAAADs/w8AAAABAAcAAADr/xgAAAABAAkAAADr/xcAAAABAAgAAADr/xYAAAABAAgAAADr/xUAAAABAAgAAADr/xQAAAABAAgAAADr/xMAAAABAAgAAADr/xIAAAABAAgAAADr/xEAAAABAAgAAADr/xAAAAABAAgAAADr/w8AAAABAAcAAADq/xgAAAABAAkAAADq/xcAAAABAAgAAADq/xYAAAABAAgAAADq/xUAAAABAAgAAADq/xQAAAABAAsAAADq/xMAAAABAAgAAADq/xIAAAABAAgAAADq/xEAAAABAAgAAADq/xAAAAABAAgAAADq/w8AAAABAAcAAADp/xgAAAABAAkAAADp/xcAAAABAAgAAADp/xYAAAABAAgAAADp/xUAAAABAAgAAADp/xQAAAABAAgAAADp/xMAAAABAAsAAADp/xIAAAABAAgAAADp/xEAAAABAAgAAADp/xAAAAABAAgAAADp/w8AAAABAAcAAADo/xgAAAABAAkAAADo/xcAAAABAAgAAADo/xYAAAABAAgAAADo/xUAAAABAAgAAADo/xQAAAABAAgAAADo/xMAAAABAAgAAADo/xIAAAABAAgAAADo/xEAAAABAAgAAADo/xAAAAABAAgAAADo/w8AAAABAAcAAADn/xgAAAABAAkAAADn/xcAAAABAAgAAADn/xYAAAABAAgAAADn/xUAAAABAAgAAADn/xQAAAABAAsAAADn/xMAAAABAAgAAADn/xIAAAABAAgAAADn/xEAAAABAAgAAADn/xAAAAABAAsAAADn/w8AAAABAAcAAADm/xgAAAABAAkAAADm/xcAAAABAAsAAADm/xYAAAABAAgAAADm/xUAAAABAAgAAADm/xQAAAABAAgAAADm/xMAAAABAAsAAADm/xIAAAABAAgAAADm/xEAAAABAAgAAADm/xAAAAABAAgAAADm/w8AAAABAAcAAADl/xgAAAABAAkAAADl/xcAAAABAAsAAADl/xYAAAABAAgAAADl/xUAAAABAAsAAADl/xQAAAABAAgAAADl/xMAAAABAAgAAADl/xIAAAABAAsAAADl/xEAAAABAAgAAADl/xAAAAABAAgAAADl/w8AAAABAAcAAADk/xgAAAABAAkAAADk/xcAAAABAAsAAADk/xYAAAABAAgAAADk/xUAAAABAAgAAADk/xQAAAABAAgAAADk/xMAAAABAAgAAADk/xIAAAABAAsAAADk/xEAAAABAAsAAADk/xAAAAABAAgAAADk/w8AAAABAAcAAADj/xgAAAABAAkAAADj/xcAAAABAAgAAADj/xYAAAABAAsAAADj/xUAAAABAAgAAADj/xQAAAABAAgAAADj/xMAAAABAAgAAADj/xIAAAABAAgAAADj/xEAAAABAAgAAADj/xAAAAABAAgAAADj/w8AAAABAAcAAADi/xgAAAABAAkAAADi/xcAAAABAAgAAADi/xYAAAABAAgAAADi/xUAAAABAAgAAADi/xQAAAABAAsAAADi/xMAAAABAAgAAADi/xIAAAABAAgAAADi/xEAAAABAAgAAADi/xAAAAABAAsAAADi/w8AAAABAAcAAAA=")
 
@@ -341,7 +312,7 @@ shoot_controller = NodePath("AIController/ShootController")
 
 [node name="AIController" parent="Enemies/Bosses/GiantRacoon" index="5" unique_id=1927809777 node_paths=PackedStringArray("shooting_positions", "character", "movement_patterns") instance=ExtResource("4_lonoe")]
 script = ExtResource("8_3pqcu")
-vfxprofile = SubResource("Resource_s6g6n")
+vfxprofile = SubResource("Resource_g6ybq")
 vfx_spawn_time = 0.15
 modification = SubResource("Resource_6shub")
 shooting_positions = [NodePath("../../RacoonMarkers/Marker2D"), NodePath("../../RacoonMarkers/Marker2D2")]
@@ -391,7 +362,6 @@ regions = [NodePath("../../../GiantRacoonRegion1")]
 min_radius = 200.0
 break_time = 0.001
 speed = 60.0
-metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
 
 [node name="BehaviourFollow2D" type="Node2D" parent="Enemies/Bosses/GiantRacoon/AIController" index="8" unique_id=1728135192 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("23_mtt35")

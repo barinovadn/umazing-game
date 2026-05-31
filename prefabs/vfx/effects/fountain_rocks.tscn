@@ -7,7 +7,8 @@
 type = 1
 
 [node name="GPUParticles2D" parent="." index="0" unique_id=1593957519]
-emitting = true
+z_index = 25
+z_as_relative = false
 amount = 32
 lifetime = 1.0
 process_material = ExtResource("2_xnxei")
