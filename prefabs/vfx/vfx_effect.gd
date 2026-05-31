@@ -75,7 +75,9 @@ var is_paused: bool = false:
 			process_mode = Node.PROCESS_MODE_INHERIT
 			unpaused.emit()
 var is_on_screen: bool:
-	get(): return screen_detection.is_on_screen()
+	get():
+		if not screen_detection: return false
+		return screen_detection.is_on_screen()
 
 
 func _ready():

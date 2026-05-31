@@ -60,7 +60,11 @@ func use(character: Character2D):
 	used.emit()
 	
 	if character == Game.player.character and exit_level_index >= 0:
-		SceneManager.go_to_level(exit_level_index)
+		
+		SceneManager.current_level_index = exit_level_index
+		SaveManager.save_game()
+		SaveManager.load_game()
+		#SceneManager.go_to_level(exit_level_index)
 	
 	if exit_effect:
 		exit_effect.spawn(character.global_position)
