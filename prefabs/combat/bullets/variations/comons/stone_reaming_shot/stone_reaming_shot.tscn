@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dtwff03frdapj"]
+
+[ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/comons/stone_shot/stone_shot.tscn" id="1_liukp"]
+[ext_resource type="Script" uid="uid://du2rgy010v0vy" path="res://prefabs/combat/bullets/variations/comons/stone_reaming_shot/stone_reaming_shot.gd" id="2_w5rlu"]
+[ext_resource type="Texture2D" uid="uid://hg6nan0pms0m" path="res://prefabs/combat/bullets/variations/comons/stone_shot/stone_shot.png" id="3_w5rlu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k33n"]
+atlas = ExtResource("3_w5rlu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewwk0"]
+atlas = ExtResource("3_w5rlu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp804"]
+atlas = ExtResource("3_w5rlu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1je7"]
+atlas = ExtResource("3_w5rlu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nudhm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k33n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewwk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp804")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1je7")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 15.0
+}]
+
+[node name="StoneBounceShot" unique_id=419752470 instance=ExtResource("1_liukp")]
+script = ExtResource("2_w5rlu")
+bounces = 1
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
+modulate = Color(0.50989735, 0.74499124, 0.5080887, 1)
+sprite_frames = SubResource("SpriteFrames_nudhm")

@@ -1,10 +1,11 @@
 [gd_scene format=4 uid="uid://den5tgrfa2f6q"]
 
 [ext_resource type="PackedScene" uid="uid://buhslpn3jaek5" path="res://scenes/game/game.tscn" id="1_o2p3v"]
-[ext_resource type="PackedScene" uid="uid://bf4pqvhwslkq8" path="res://prefabs/combat/bullets/variations/homing_shot/homing_shot.tscn" id="2_egl16"]
+[ext_resource type="PackedScene" uid="uid://fn0tv6mqn7g6" path="res://prefabs/combat/bullets/variations/comons/kunai/kunai.tscn" id="2_egl16"]
 [ext_resource type="PackedScene" uid="uid://dcrm5punhuk0d" path="res://prefabs/characters/ninja_green/ninja_green.tscn" id="2_o2p3v"]
 [ext_resource type="PackedScene" uid="uid://ik6dpd1qhkci" path="res://prefabs/characters/bosses/giant_racoon/giant_racoon.tscn" id="3_5yt0q"]
 [ext_resource type="PackedScene" uid="uid://cathu8h71gfg7" path="res://prefabs/characters/bosses/giant_bamboo/giant_bamboo.tscn" id="3_cp8gd"]
+[ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/combat/bullets/variations/comons/shuriken/shuriken.tscn" id="3_mtt35"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/combat/ai/ai_controller.tscn" id="4_lonoe"]
 [ext_resource type="Script" uid="uid://6h6n0jvs1c7u" path="res://common/stats/stat.gd" id="4_s6g6n"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="5_olh6k"]
@@ -14,15 +15,15 @@
 [ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="8_j4jck"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://prefabs/combat/ai/ai_action.gd" id="9_fflhd"]
 [ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/combat/ui/bosses/boss_container_data.gd" id="10_s6g6n"]
-[ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="11_7447m"]
+[ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/unique_projectiles/damage_area/damage_area.tscn" id="11_7447m"]
 [ext_resource type="Texture2D" uid="uid://v1kxhbhajork" path="res://prefabs/characters/bosses/giant_racoon/boss_over.png" id="11_hk7ad"]
 [ext_resource type="Texture2D" uid="uid://c22lfxrwcvfvs" path="res://prefabs/characters/bosses/giant_racoon/boss_progress.png" id="12_nmf1y"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="13_nmf1y"]
 [ext_resource type="AudioStream" uid="uid://dbqpuh2xwbot8" path="res://prefabs/combat/sounds/impact_3.wav" id="13_sj5jv"]
-[ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/stone_shot/stone_shot.tscn" id="14_io6ay"]
+[ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/comons/stone_shot/stone_shot.tscn" id="14_io6ay"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="14_m7sgn"]
-[ext_resource type="PackedScene" uid="uid://2c483lnj3eel" path="res://prefabs/combat/bullets/variations/stone_fall/stone_fall.tscn" id="15_sj5jv"]
-[ext_resource type="PackedScene" uid="uid://b7jopm86b0plu" path="res://prefabs/combat/bullets/variations/stone_rickoshet_shot/stone_rickoshet_shot.tscn" id="16_egl16"]
+[ext_resource type="PackedScene" uid="uid://2c483lnj3eel" path="res://prefabs/combat/bullets/variations/projectile_mixes/stone_fall/stone_fall.tscn" id="15_sj5jv"]
+[ext_resource type="PackedScene" uid="uid://b7jopm86b0plu" path="res://prefabs/combat/bullets/variations/comons/stone_rickoshet_shot/stone_rickoshet_shot.tscn" id="16_egl16"]
 [ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="19_hk7ad"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="23_mtt35"]
 
@@ -271,7 +272,7 @@ source_geometry_mode = 2
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
-bullets = Array[PackedScene]([ExtResource("2_egl16")])
+bullets = Array[PackedScene]([ExtResource("2_egl16"), ExtResource("3_mtt35")])
 allow_cheats = true
 
 [node name="Ground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="1" unique_id=2033248800]
@@ -335,6 +336,7 @@ data_for_interface = SubResource("Resource_m7sgn")
 interface_needed = true
 
 [node name="HurtComponent" parent="Enemies/Bosses/GiantRacoon/AIController" index="3" unique_id=1780671861 node_paths=PackedStringArray("character") instance=ExtResource("5_olh6k")]
+scale = Vector2(2.9, 2.9)
 character = NodePath("../..")
 max_health = 15.0
 sounds_damage = Array[AudioStream]([SubResource("AudioStreamWAV_io6ay"), SubResource("AudioStreamWAV_sj5jv"), SubResource("AudioStreamWAV_k1fdc"), SubResource("AudioStreamWAV_yakie"), SubResource("AudioStreamWAV_w8ftg")])
