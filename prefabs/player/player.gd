@@ -23,13 +23,6 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		if stat_cant_use_inventory and !stat_cant_use_inventory.value_changed.is_connected(_on_block_inventory_changed):
 			stat_cant_use_inventory.value_changed.connect(_on_block_inventory_changed)
 
-
-var noclip: bool:
-	set(value):
-		noclip = value
-		character.collision = !noclip
-		character.movement.speed *= (2. if noclip else .5)
-
 @onready var components: Node2D = $Components
 
 @onready var shoot_controller: ShootController = %ShootController
@@ -54,6 +47,19 @@ var noclip: bool:
 @onready var inventory_ui: InventoryUI = %InventoryUI
 @onready var health_ui: HealthUI = %HealthUI
 @onready var boss_ui: BossUI = %BossUI
+@onready var actions_ui: ActionsUI = %ActionsUI
+
+var noclip: bool:
+	set(value):
+		noclip = value
+		character.collision = !noclip
+		character.movement.speed *= (2. if noclip else .5)
+var playtime: float:
+	set(value):
+		if not actions_ui:
+			return
+		actions_ui.total_playtime = value
+	get(): return actions_ui.total_playtime if actions_ui else 0.0
 
 
 func _ready():
@@ -145,6 +151,9 @@ func _load_stats():
 	for modifier_id in SaveManager.loaded_shoot_speed_modifiers:
 		character.stat_shooting_speed.add_modifier(modifier_id,
 			 SaveManager.loaded_shoot_speed_modifiers[modifier_id])
+	
+	# PLAYTIME
+	playtime = SaveManager.loaded_playtime
 
 
 func _on_character_changed(new_character: Character2D, old_character: Character2D):

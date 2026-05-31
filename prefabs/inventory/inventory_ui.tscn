@@ -1,16 +1,9 @@
 [gd_scene format=3 uid="uid://wwa44iu3nw2s"]
 
 [ext_resource type="Script" uid="uid://diadybj8feukq" path="res://prefabs/inventory/inventory_ui.gd" id="1_bkj06"]
-[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="2_61b2v"]
 [ext_resource type="LabelSettings" uid="uid://ct11gc78ulvbc" path="res://common/theme/label_title.tres" id="4_uar5f"]
 [ext_resource type="FontFile" uid="uid://c7b6uwmntv2d7" path="res://common/theme/fonts/tiny5_regular.ttf" id="8_bjqoh"]
 [ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="10_8bim2"]
-
-[sub_resource type="Resource" id="Resource_m8wnb"]
-script = ExtResource("2_61b2v")
-value = 1.0
-operation = 1
-metadata/_custom_type_script = "uid://ctqdits5kj2tk"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_t5h7q"]
 light_mode = 1
@@ -34,7 +27,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_bkj06")
-modifier = SubResource("Resource_m8wnb")
 
 [node name="BG" type="ColorRect" parent="." unique_id=1963337106]
 material = SubResource("CanvasItemMaterial_t5h7q")
@@ -127,7 +119,8 @@ theme_override_fonts/font = ExtResource("8_bjqoh")
 theme_override_font_sizes/font_size = 42
 text = "УДАЛИТЬ"
 
-[node name="AudioStream" type="AudioStreamPlayer2D" parent="." unique_id=2011670380]
+[node name="AudioStream" type="AudioStreamPlayer" parent="." unique_id=1852913023]
+bus = &"System"
 
 [connection signal="pressed" from="VBox/ActionPanel/UseButton" to="." method="_on_use_button_pressed"]
 [connection signal="pressed" from="VBox/ActionPanel/InfoButton" to="." method="_on_info_button_pressed"]

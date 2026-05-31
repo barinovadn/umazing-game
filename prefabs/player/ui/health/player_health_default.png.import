@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl6q225moiey6"
-path="res://.godot/imported/all_items.png-857f094e92e6ac6a2c315ca4cea6d82a.ctex"
+uid="uid://cnorhpyw42yqy"
+path="res://.godot/imported/player_health_default.png-2a4ff9045f49c915464a8c6c761a6626.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/inventory/items/all_items.png"
-dest_files=["res://.godot/imported/all_items.png-857f094e92e6ac6a2c315ca4cea6d82a.ctex"]
+source_file="res://prefabs/player/ui/health/player_health_default.png"
+dest_files=["res://.godot/imported/player_health_default.png-2a4ff9045f49c915464a8c6c761a6626.ctex"]
 
 [params]
 

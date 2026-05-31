@@ -10,6 +10,7 @@ var loaded_max_hp: float = 0.0
 var loaded_speed_modifiers: Dictionary[String, Modifier] = {}
 var loaded_armor_modifiers: Dictionary[String, Modifier] = {}
 var loaded_shoot_speed_modifiers: Dictionary[String, Modifier] = {}
+var loaded_playtime: float = 0.0
 
 
 func _load_stat_modifiers(save_data: Dictionary,
@@ -27,6 +28,16 @@ func _load_stat_modifiers(save_data: Dictionary,
 	return result
 
 
+func _clear_loaded_data():
+	loaded_items.clear()
+	loaded_hp = 0.0
+	loaded_max_hp = 0.0
+	loaded_speed_modifiers.clear()
+	loaded_armor_modifiers.clear()
+	loaded_shoot_speed_modifiers.clear()
+	loaded_playtime = 0.0
+
+
 func save_game():
 	var save_data = {
 		"current_level_index": SceneManager.current_level_index,
@@ -37,6 +48,7 @@ func save_game():
 		"armor_modifiers": Game.player.character.stat_armor.modifications,
 		"shoot_speed_modifiers":
 			Game.player.character.stat_shooting_speed.modifications,
+		"playtime": Game.player.playtime,
 		}
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -46,12 +58,7 @@ func save_game():
 
 
 func load_game(new_game: bool = false):
-	loaded_items.clear()
-	loaded_hp = 0.0
-	loaded_max_hp = 0.0
-	loaded_speed_modifiers.clear()
-	loaded_armor_modifiers.clear()
-	loaded_shoot_speed_modifiers.clear()
+	_clear_loaded_data()
 	
 	if new_game or not FileAccess.file_exists(SAVE_PATH):
 		SceneManager.go_to_level(START_LEVEL_INDEX, false)
@@ -70,7 +77,6 @@ func load_game(new_game: bool = false):
 		return
 	
 	# ITEMS
-	
 	if save_data.has("inventory_items"):
 		var items_raw = save_data["inventory_items"]
 		for item in items_raw:
@@ -78,17 +84,17 @@ func load_game(new_game: bool = false):
 				loaded_items.append(item)
 	
 	# HEALTH
-	
 	loaded_hp = save_data.get("current_health", 0.0)
 	loaded_max_hp = save_data.get("max_health", 0.0)
 	
 	# STATS
-	
 	loaded_speed_modifiers = _load_stat_modifiers(save_data, "speed_modifiers")
 	loaded_armor_modifiers = _load_stat_modifiers(save_data, "armor_modifiers")
 	loaded_shoot_speed_modifiers = _load_stat_modifiers(save_data, "shoot_speed_modifiers")
 	
-	# LEVEL
+	# PLAYTIME
+	loaded_playtime = save_data.get("playtime", 0.0)
 	
+	# LEVEL
 	var saved_id = save_data.get("current_level_index", START_LEVEL_INDEX)
 	SceneManager.go_to_level(saved_id, false)

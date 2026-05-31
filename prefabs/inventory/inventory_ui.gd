@@ -4,6 +4,8 @@ extends Node
 @export var slot_scene: PackedScene = preload("res://prefabs/inventory/inventory_slot.tscn")
 
 @export_group("Sounds", "sound")
+@export var sound_open: AudioStream = preload("res://prefabs/combat/sounds/whoosh_1.wav")
+@export var sound_close: AudioStream = preload("res://prefabs/combat/sounds/whoosh_3.wav")
 @export var sound_use: AudioStream = preload("res://prefabs/inventory/inventory_item_drop.ogg")
 @export var sound_drop: AudioStream = preload("res://prefabs/inventory/inventory_item_use.ogg")
 
@@ -44,7 +46,10 @@ func _input(event):
 	if event.is_action_pressed("inventory"):
 		if !can_open_inventory:
 			return
-		inventory_ui.visible = !inventory_ui.visible
+		if inventory_ui.visible:
+			close()
+		else:
+			open()
 		_on_inventory_status_changed()
 
 
@@ -98,11 +103,14 @@ func open():
 		return
 	inventory_ui.visible = true
 	_on_inventory_status_changed()
+	play_sound(sound_open)
+	
 
 
 func close():
 	inventory_ui.visible = false
 	_on_inventory_status_changed()
+	play_sound(sound_close)
 
 
 func setup_action_panel(item: ItemData):

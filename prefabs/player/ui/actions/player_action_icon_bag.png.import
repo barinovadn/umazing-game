@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnorhpyw42yqy"
-path="res://.godot/imported/player_health_default.png-a756e9a4649d3254ec532f2c3739bb08.ctex"
+uid="uid://chlrvpch1pud6"
+path="res://.godot/imported/player_action_icon_bag.png-7dadcb4a618d79ee7b1b7d6082e4dc7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/player/player_health_default.png"
-dest_files=["res://.godot/imported/player_health_default.png-a756e9a4649d3254ec532f2c3739bb08.ctex"]
+source_file="res://prefabs/player/ui/actions/player_action_icon_bag.png"
+dest_files=["res://.godot/imported/player_action_icon_bag.png-7dadcb4a618d79ee7b1b7d6082e4dc7e.ctex"]
 
 [params]
 
