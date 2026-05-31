@@ -79,23 +79,6 @@ func _input(event: InputEvent):
 		character.direction = new_dir
 		if not movement.is_moving:
 			movement.direction = new_dir
-		
-		var mod := Modifier.new()
-		mod.value = .5
-		mod.operation = mod.Operation.increase
-		character.stat_speed_ratio.add_modifier("MEOOWWA_SPEED_" + str(randf()), mod)
-		
-		mod = Modifier.new()
-		mod.value = .5
-		mod.operation = mod.Operation.increase
-		character.stat_armor.add_modifier("MEOOWWA_SPEED_" + str(randf()), mod)
-		
-		mod = Modifier.new()
-		mod.value = .15
-		mod.operation = mod.Operation.decrease
-		character.stat_shooting_speed.add_modifier("MEOOWWA_SPEED_" + str(randf()), mod)
-		
-		print(character.stat_shooting_speed.value)
 	else:
 		character.direction = Vector2.ZERO
 	

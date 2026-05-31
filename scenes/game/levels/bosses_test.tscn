@@ -187,6 +187,7 @@ action_name = "rest"
 weight = 0.5
 phases = Array[int]([1, 2, 3])
 duration = 3.0
+can_move = true
 shoot_interval = 0.6
 shooting_animation_interval = 0.4
 metadata/_custom_type_script = "uid://dowl0clqumedg"
