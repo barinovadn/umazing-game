@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://bn20vxktmoo10" path="res://prefabs/vfx/effects/fountain.tres" id="2_xnxei"]
 
 [node name="BreakRocksEffect" unique_id=1228765060 instance=ExtResource("1_5n1na")]
+type = 1
 
 [node name="GPUParticles2D" parent="." index="0" unique_id=1593957519]
 emitting = true
