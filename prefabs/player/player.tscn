@@ -72,7 +72,6 @@ vfx_notification_item_used = null
 [node name="ShootController" parent="Components" unique_id=1242481191 instance=ExtResource("6_oo3uv")]
 unique_name_in_owner = true
 team = 1
-bullets = Array[PackedScene]([ExtResource("7_30gqm")])
 interval_between_shots = 0.35
 projectile_turn_rate_min = 360.0
 

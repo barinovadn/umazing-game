@@ -71,7 +71,7 @@ func _apply_behavior(bullet: Bullet):
 	else:
 		bullet.global_position = global_position
 	bullet.direction = direction
-	bullet.homing = projectile_homing
+	bullet.homing = projectile_homing if projectile_homing else bullet.homing
 	bullet.damage *= damage_ratio
 	if projectile_bounce:
 		bullet.bounces = max(projectile_bounces_min, bullet.bounces)

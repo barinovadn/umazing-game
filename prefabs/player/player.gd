@@ -142,6 +142,8 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 		new_character.movement = movement
 		new_character.interactor = interactor
 		new_character.shoot_controller = shoot_controller
+		if new_character.shoot_controller:
+			new_character.shoot_controller.bullets = bullets
 		new_character.hurt_component = hurt_component
 		if new_character.hurt_component:
 			new_character.hurt_component.character = new_character
