@@ -24,8 +24,8 @@ func _on_phase_changed():
 	if current_phase == 2:
 		for el in bamboo_breakables:
 			el.spawn()
-			el.settings.respawn_duration_min = 5
-			el.settings.respawn_duration_max = 6
+			el.settings.respawn_duration_min = 6.5
+			el.settings.respawn_duration_max = 7
 			el.settings.sounds_break = sound
 			el._hurt_component.vfx_damage_marker = damage_marker
 			el._hurt_component.vfx_heal_marker = heal_marker

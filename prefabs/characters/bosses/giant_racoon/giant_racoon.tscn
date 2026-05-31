@@ -145,7 +145,7 @@ animations = [{
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_38l2q")
-animation = &"downed"
+animation = &"idle_left"
 autoplay = "idle_left"
 frame_progress = 0.0
 

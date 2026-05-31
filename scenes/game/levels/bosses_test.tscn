@@ -2,46 +2,208 @@
 
 [ext_resource type="PackedScene" uid="uid://buhslpn3jaek5" path="res://scenes/game/game.tscn" id="1_o2p3v"]
 [ext_resource type="PackedScene" uid="uid://dcrm5punhuk0d" path="res://prefabs/characters/ninja_green/ninja_green.tscn" id="2_o2p3v"]
+[ext_resource type="PackedScene" uid="uid://ik6dpd1qhkci" path="res://prefabs/characters/bosses/giant_racoon/giant_racoon.tscn" id="3_5yt0q"]
 [ext_resource type="PackedScene" uid="uid://cathu8h71gfg7" path="res://prefabs/characters/bosses/giant_bamboo/giant_bamboo.tscn" id="3_cp8gd"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/combat/ai/ai_controller.tscn" id="4_lonoe"]
+[ext_resource type="Script" uid="uid://6h6n0jvs1c7u" path="res://common/stats/stat.gd" id="4_s6g6n"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="5_olh6k"]
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="6_1e2a1"]
-[ext_resource type="PackedScene" uid="uid://cgvgap0xmvt73" path="res://prefabs/characters/enemies/bamboo_enemy/bamboo_enemy.tscn" id="7_1e2a1"]
+[ext_resource type="Script" uid="uid://crn7e8ojipha2" path="res://prefabs/characters/bosses/giant_racoon/ai_controller.gd" id="8_3pqcu"]
+[ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="8_i3ex6"]
 [ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="8_j4jck"]
 [ext_resource type="Script" uid="uid://dowl0clqumedg" path="res://prefabs/combat/ai/ai_action.gd" id="9_fflhd"]
-[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="9_j4jck"]
-[ext_resource type="PackedScene" uid="uid://cdxo427r3dbg6" path="res://prefabs/combat/bullets/variations/plant_spike_shot/plant_spike_shot.tscn" id="10_7tf5d"]
+[ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/combat/ui/bosses/boss_container_data.gd" id="10_s6g6n"]
+[ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/damage_area/damage_area.tscn" id="11_7447m"]
+[ext_resource type="Texture2D" uid="uid://v1kxhbhajork" path="res://prefabs/characters/bosses/giant_racoon/boss_over.png" id="11_hk7ad"]
+[ext_resource type="Texture2D" uid="uid://c22lfxrwcvfvs" path="res://prefabs/characters/bosses/giant_racoon/boss_progress.png" id="12_nmf1y"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="13_nmf1y"]
+[ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/stone_shot/stone_shot.tscn" id="14_io6ay"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="14_m7sgn"]
+[ext_resource type="PackedScene" uid="uid://2c483lnj3eel" path="res://prefabs/combat/bullets/variations/stone_fall/stone_fall.tscn" id="15_sj5jv"]
+[ext_resource type="PackedScene" uid="uid://b7jopm86b0plu" path="res://prefabs/combat/bullets/variations/stone_rickoshet_shot/stone_rickoshet_shot.tscn" id="16_egl16"]
+[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="19_hk7ad"]
+[ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="23_mtt35"]
 
-[sub_resource type="Resource" id="Resource_fflhd"]
+[sub_resource type="Resource" id="Resource_hk7ad"]
 script = ExtResource("8_j4jck")
 duration = 1.0
 value = 1.0
 operation = 1
 metadata/_custom_type_script = "uid://ctqdits5kj2tk"
 
-[sub_resource type="Resource" id="Resource_7tf5d"]
+[sub_resource type="Resource" id="Resource_nmf1y"]
+script = ExtResource("4_s6g6n")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_egl16"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_mtt35"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_4aouh"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_aalkj"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_54nrk"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_rskws"]
+script = ExtResource("4_s6g6n")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_rb6q2"]
+script = ExtResource("14_m7sgn")
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_s6g6n"]
+script = ExtResource("13_nmf1y")
+effect = 11
+settings = SubResource("Resource_rb6q2")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_6shub"]
+script = ExtResource("8_j4jck")
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[sub_resource type="Resource" id="Resource_hil4o"]
 script = ExtResource("9_fflhd")
-action_name = "shooting"
-weight = 3.0
-phases = Array[int]([1])
-duration = 5.0
+action_name = "dig"
+weight = 1.0
+phases = Array[int]([1, 2])
+duration = 9.0
+can_move = true
+shoot_interval = 1.0
+shooting_animation_interval = 0.7
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_eclkm"]
+script = ExtResource("9_fflhd")
+action_name = "stone_shooting"
+weight = 1.0
+phases = Array[int]([1, 2])
+duration = 6.0
 can_shoot = true
 can_move = true
-bullet_types = Array[PackedScene]([ExtResource("10_7tf5d")])
-shoot_interval = 0.7
+bullet_types = Array[PackedScene]([ExtResource("14_io6ay")])
+shoot_interval = 0.75
 shooting_animation_interval = 0.5
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
-[sub_resource type="Resource" id="Resource_5yt0q"]
+[sub_resource type="Resource" id="Resource_tgaeg"]
 script = ExtResource("9_fflhd")
 action_name = "rest"
-weight = 1.0
-phases = Array[int]([1])
+weight = 0.5
+phases = Array[int]([1, 2, 3])
 duration = 3.0
 can_move = true
-shoot_interval = 0.5
-shooting_animation_interval = 0.3
+shoot_interval = 0.6
+shooting_animation_interval = 0.4
 metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_dlq5l"]
+script = ExtResource("9_fflhd")
+action_name = "stones_from_roof"
+weight = 1.0
+phases = Array[int]([2, 1])
+duration = 5.0
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("15_sj5jv")])
+shoot_interval = 0.8
+shooting_animation_interval = 0.7
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_k1fdc"]
+script = ExtResource("9_fflhd")
+action_name = "stone_rickoshet"
+weight = 1.0
+phases = Array[int]([2, 3])
+duration = 4.0
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("16_egl16")])
+shoot_interval = 0.75
+shooting_animation_interval = 0.5
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_w8ftg"]
+script = ExtResource("9_fflhd")
+action_name = "dig_and_shoot"
+weight = 1.0
+phases = Array[int]([3])
+duration = 10.0
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("15_sj5jv")])
+shoot_interval = 1.5
+shooting_animation_interval = 0.7
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_bpgnn"]
+script = ExtResource("8_j4jck")
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[sub_resource type="Resource" id="Resource_yakie"]
+script = ExtResource("13_nmf1y")
+effect = 310
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_m7sgn"]
+script = ExtResource("10_s6g6n")
+display_color = null
+texture_progress = ExtResource("12_nmf1y")
+texture_over = ExtResource("11_hk7ad")
+metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
+
+[sub_resource type="Resource" id="Resource_gc74s"]
+script = ExtResource("14_m7sgn")
+density = 4
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_io6ay"]
+script = ExtResource("13_nmf1y")
+effect = 10000
+settings = SubResource("Resource_gc74s")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_gf3lf"]
+script = ExtResource("14_m7sgn")
+modulate = Color(0.5176471, 0.7921569, 0.19215687, 1)
+density = 4
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_sj5jv"]
+script = ExtResource("13_nmf1y")
+effect = 10000
+settings = SubResource("Resource_gf3lf")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Curve2D" id="Curve2D_s6g6n"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -195, 269, 0, 0, 0, 0, -215, 373, 0, 0, 0, 0, -297, 372, 0, 0, 0, 0, -298, 262, 0, 0, 0, 0, -380, 259, 0, 0, 0, 0, -381, 375, 0, 0, 0, 0, -465, 376, 0, 0, 0, 0, -423, 260, 0, 0, 0, 0, -333, 375, 0, 0, 0, 0, -242, 260)
+}
+point_count = 10
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_io6ay"]
+vertices = PackedVector2Array(-183.84375, 265.89844, -182.14844, 376.03125, -461.92188, 376.96094, -461.0703, 263.10156)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-471, 253, -472, 387, -172, 386, -174, 256)])
+parsed_collision_mask = 1
+source_geometry_mode = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5yt0q"]
 vertices = PackedVector2Array(16.492188, 26.90625, 54.007813, 35.328125, 49.703125, 48.242188, -2.609375, 49.976563, -51.15625, 44.78125, -54.828125, 31.476563, -29.773438, 23.132813)
@@ -57,13 +219,25 @@ character = NodePath("../Characters/NinjaGreen")
 allow_cheats = true
 
 [node name="Ground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="1" unique_id=2033248800]
-tile_map_data = PackedByteArray("AAAJAAQAAAACAAkAAAAJAAMAAAACAAcAAAAJAAIAAAAEAAwAAAAJAAEAAAADAAwAAAAJAAAAAAABAAwAAAAJAP//AAAAAAwAAAAJAP7/AAAEAAwAAAAJAP3/AAAAAAwAAAAJAPz/AAAAAAwAAAAJAPv/AAAAAAwAAAAIAAQAAAABAAkAAAAIAAMAAAABAAcAAAAIAAIAAAAAAAwAAAAIAAEAAAAEAAwAAAAIAAAAAAAAAAwAAAAIAP//AAAAAAwAAAAIAP7/AAAAAAwAAAAIAP3/AAAEAAwAAAAIAPz/AAABAAwAAAAIAPv/AAAAAAwAAAAHAAQAAAAAAAkAAAAHAAMAAAAAAAcAAAAHAAIAAAAEAAwAAAAHAAEAAAAEAAwAAAAHAAAAAAAEAAwAAAAHAP//AAADAAwAAAAHAP7/AAAAAAwAAAAHAP3/AAAAAAwAAAAHAPz/AAAEAAwAAAAHAPv/AAAEAAwAAAAGAAQAAAAAAAwAAAAGAAMAAAAAAAwAAAAGAAIAAAAAAAwAAAAGAAEAAAACAAwAAAAGAAAAAAAAAAwAAAAGAP//AAAAAAwAAAAGAP7/AAAAAAwAAAAGAP3/AAAAAAwAAAAGAPz/AAADAAwAAAAGAPv/AAAAAAwAAAAFAAQAAAADAAwAAAAFAAMAAAAEAAwAAAAFAAIAAAAAAAwAAAAFAAEAAAAAAAwAAAAFAAAAAAAAAAwAAAAFAP//AAAAAAwAAAAFAP7/AAAEAAwAAAAFAP3/AAAAAAwAAAAFAPz/AAADAAwAAAAFAPv/AAAAAAwAAAAEAAQAAAAAAAwAAAAEAAMAAAADAAwAAAAEAAIAAAAAAAwAAAAEAAEAAAAEAAwAAAAEAAAAAAAAAAwAAAAEAP//AAAEAAwAAAAEAP7/AAAEAAwAAAAEAP3/AAAAAAwAAAAEAPz/AAAAAAwAAAAEAPv/AAAEAAwAAAADAAQAAAAAAAwAAAADAAMAAAAAAAwAAAADAAIAAAAAAAwAAAADAAEAAAAAAAwAAAADAAAAAAAAAAwAAAADAP//AAAAAAwAAAADAP7/AAAEAAwAAAADAP3/AAAAAAwAAAADAPz/AAAAAAwAAAADAPv/AAAAAAwAAAACAAQAAAAEAAwAAAACAAMAAAAAAAwAAAACAAIAAAAAAAwAAAACAAEAAAAEAAwAAAACAAAAAAAAAAwAAAACAP//AAAEAAwAAAACAP7/AAACAAwAAAACAP3/AAAAAAwAAAACAPz/AAAAAAwAAAACAPv/AAAAAAwAAAABAAQAAAAAAAwAAAABAAMAAAAAAAwAAAABAAIAAAACAAwAAAABAAEAAAAEAAwAAAABAAAAAAAAAAwAAAABAP//AAAAAAwAAAABAP7/AAAAAAwAAAABAP3/AAAAAAwAAAABAPz/AAAEAAwAAAABAPv/AAAAAAwAAAAAAAQAAAACAAoAAAAAAAMAAAAAAAwAAAAAAAIAAAAAAAwAAAAAAAEAAAABAAwAAAAAAAAAAAAAAAwAAAAAAP//AAAAAAwAAAAAAP7/AAAAAAwAAAAAAP3/AAAAAAwAAAAAAPz/AAACAAwAAAAAAPv/AAACAAwAAAD//wQAAAABAAoAAAD//wMAAAADAAwAAAD//wIAAAAAAAwAAAD//wEAAAAEAAwAAAD//wAAAAADAAwAAAD/////AAAAAAwAAAD///7/AAADAAwAAAD///3/AAAEAAwAAAD///z/AAAEAAwAAAD///v/AAAAAAwAAAD+/wQAAAAAAAoAAAD+/wMAAAACAAwAAAD+/wIAAAAAAAwAAAD+/wEAAAADAAwAAAD+/wAAAAAAAAwAAAD+////AAAAAAwAAAD+//7/AAAAAAwAAAD+//3/AAAAAAwAAAD+//z/AAAEAAwAAAD+//v/AAAEAAwAAAD9/wQAAAAAAAwAAAD9/wMAAAAAAAwAAAD9/wIAAAAAAAwAAAD9/wEAAAAAAAwAAAD9/wAAAAAAAAwAAAD9////AAAAAAwAAAD9//7/AAAEAAwAAAD9//3/AAAEAAwAAAD9//z/AAAAAAwAAAD9//v/AAAAAAwAAAD8/wQAAAAEAAwAAAD8/wMAAAAAAAwAAAD8/wIAAAAAAAwAAAD8/wEAAAAEAAwAAAD8/wAAAAAAAAwAAAD8////AAAAAAwAAAD8//7/AAAAAAwAAAD8//3/AAAEAAwAAAD8//z/AAAEAAwAAAD8//v/AAAAAAwAAAD7/wQAAAADAAwAAAD7/wMAAAAAAAwAAAD7/wIAAAAAAAwAAAD7/wEAAAAEAAwAAAD7/wAAAAAEAAwAAAD7////AAADAAwAAAD7//7/AAAAAAwAAAD7//3/AAAAAAwAAAD7//z/AAAAAAwAAAD7//v/AAADAAwAAAD6/wQAAAAEAAwAAAD6/wMAAAAAAAwAAAD6/wIAAAAAAAwAAAD6/wEAAAAEAAwAAAD6/wAAAAAEAAwAAAD6////AAAEAAwAAAD6//7/AAAAAAwAAAD6//3/AAADAAwAAAD6//z/AAAAAAwAAAD6//v/AAAEAAwAAAD5/wQAAAACAAkAAAD5/wMAAAACAAcAAAD5/wIAAAAAAAwAAAD5/wEAAAAAAAwAAAD5/wAAAAAAAAwAAAD5////AAAEAAwAAAD5//7/AAAAAAwAAAD5//3/AAAAAAwAAAD5//z/AAAAAAwAAAD5//v/AAADAAwAAAD4/wQAAAABAAkAAAD4/wMAAAABAAcAAAD4/wIAAAADAAwAAAD4/wEAAAADAAwAAAD4/wAAAAAEAAwAAAD4////AAAAAAwAAAD4//7/AAAEAAwAAAD4//3/AAAAAAwAAAD4//z/AAAEAAwAAAD4//v/AAAEAAwAAAD3/wQAAAABAAkAAAD3/wMAAAABAAcAAAD3/wIAAAAAAAwAAAD3/wEAAAAAAAwAAAD3/wAAAAAAAAwAAAD3////AAABAAwAAAD3//7/AAAEAAwAAAD3//3/AAAAAAwAAAD3//z/AAAAAAwAAAD3//v/AAABAAwAAAD2/wQAAAAAAAkAAAD2/wMAAAAAAAcAAAD2/wIAAAAAAAwAAAD2/wEAAAAAAAwAAAD2/wAAAAAAAAwAAAD2////AAAAAAwAAAD2//7/AAAAAAwAAAD2//3/AAACAAwAAAD2//z/AAAAAAwAAAD2//v/AAACAAwAAAA=")
+tile_map_data = PackedByteArray("AAAJAAQAAAACAAkAAAAJAAMAAAACAAcAAAAJAAIAAAAEAAwAAAAJAAEAAAADAAwAAAAJAAAAAAABAAwAAAAJAP//AAAAAAwAAAAJAP7/AAAEAAwAAAAJAP3/AAAAAAwAAAAJAPz/AAAAAAwAAAAJAPv/AAAAAAwAAAAIAAQAAAABAAkAAAAIAAMAAAABAAcAAAAIAAIAAAAAAAwAAAAIAAEAAAAEAAwAAAAIAAAAAAAAAAwAAAAIAP//AAAAAAwAAAAIAP7/AAAAAAwAAAAIAP3/AAAEAAwAAAAIAPz/AAABAAwAAAAIAPv/AAAAAAwAAAAHAAQAAAAAAAkAAAAHAAMAAAAAAAcAAAAHAAIAAAAEAAwAAAAHAAEAAAAEAAwAAAAHAAAAAAAEAAwAAAAHAP//AAADAAwAAAAHAP7/AAAAAAwAAAAHAP3/AAAAAAwAAAAHAPz/AAAEAAwAAAAHAPv/AAAEAAwAAAAGAAQAAAAAAAwAAAAGAAMAAAAAAAwAAAAGAAIAAAAAAAwAAAAGAAEAAAACAAwAAAAGAAAAAAAAAAwAAAAGAP//AAAAAAwAAAAGAP7/AAAAAAwAAAAGAP3/AAAAAAwAAAAGAPz/AAADAAwAAAAGAPv/AAAAAAwAAAAFAAQAAAADAAwAAAAFAAMAAAAEAAwAAAAFAAIAAAAAAAwAAAAFAAEAAAAAAAwAAAAFAAAAAAAAAAwAAAAFAP//AAAAAAwAAAAFAP7/AAAEAAwAAAAFAP3/AAAAAAwAAAAFAPz/AAADAAwAAAAFAPv/AAAAAAwAAAAEAAQAAAAAAAwAAAAEAAMAAAADAAwAAAAEAAIAAAAAAAwAAAAEAAEAAAAEAAwAAAAEAAAAAAAAAAwAAAAEAP//AAAEAAwAAAAEAP7/AAAEAAwAAAAEAP3/AAAAAAwAAAAEAPz/AAAAAAwAAAAEAPv/AAAEAAwAAAADAAQAAAAAAAwAAAADAAMAAAAAAAwAAAADAAIAAAAAAAwAAAADAAEAAAAAAAwAAAADAAAAAAAAAAwAAAADAP//AAAAAAwAAAADAP7/AAAEAAwAAAADAP3/AAAAAAwAAAADAPz/AAAAAAwAAAADAPv/AAAAAAwAAAACAAQAAAAEAAwAAAACAAMAAAAAAAwAAAACAAIAAAAAAAwAAAACAAEAAAAEAAwAAAACAAAAAAAAAAwAAAACAP//AAAEAAwAAAACAP7/AAACAAwAAAACAP3/AAAAAAwAAAACAPz/AAAAAAwAAAACAPv/AAAAAAwAAAABAAQAAAAAAAwAAAABAAMAAAAAAAwAAAABAAIAAAACAAwAAAABAAEAAAAEAAwAAAABAAAAAAAAAAwAAAABAP//AAAAAAwAAAABAP7/AAAAAAwAAAABAP3/AAAAAAwAAAABAPz/AAAEAAwAAAABAPv/AAAAAAwAAAAAAAQAAAACAAoAAAAAAAMAAAAAAAwAAAAAAAIAAAAAAAwAAAAAAAEAAAABAAwAAAAAAAAAAAAAAAwAAAAAAP//AAAAAAwAAAAAAP7/AAAAAAwAAAAAAP3/AAAAAAwAAAAAAPz/AAACAAwAAAAAAPv/AAACAAwAAAD//wQAAAABAAoAAAD//wMAAAADAAwAAAD//wIAAAAAAAwAAAD//wEAAAAEAAwAAAD//wAAAAADAAwAAAD/////AAAAAAwAAAD///7/AAADAAwAAAD///3/AAAEAAwAAAD///z/AAAEAAwAAAD///v/AAAAAAwAAAD+/wQAAAAAAAoAAAD+/wMAAAACAAwAAAD+/wIAAAAAAAwAAAD+/wEAAAADAAwAAAD+/wAAAAAAAAwAAAD+////AAAAAAwAAAD+//7/AAAAAAwAAAD+//3/AAAAAAwAAAD+//z/AAAEAAwAAAD+//v/AAAEAAwAAAD9/wQAAAAAAAwAAAD9/wMAAAAAAAwAAAD9/wIAAAAAAAwAAAD9/wEAAAAAAAwAAAD9/wAAAAAAAAwAAAD9////AAAAAAwAAAD9//7/AAAEAAwAAAD9//3/AAAEAAwAAAD9//z/AAAAAAwAAAD9//v/AAAAAAwAAAD8/wQAAAAEAAwAAAD8/wMAAAAAAAwAAAD8/wIAAAAAAAwAAAD8/wEAAAAEAAwAAAD8/wAAAAAAAAwAAAD8////AAAAAAwAAAD8//7/AAAAAAwAAAD8//3/AAAEAAwAAAD8//z/AAAEAAwAAAD8//v/AAAAAAwAAAD7/wQAAAADAAwAAAD7/wMAAAAAAAwAAAD7/wIAAAAAAAwAAAD7/wEAAAAEAAwAAAD7/wAAAAAEAAwAAAD7////AAADAAwAAAD7//7/AAAAAAwAAAD7//3/AAAAAAwAAAD7//z/AAAAAAwAAAD7//v/AAADAAwAAAD6/wQAAAAEAAwAAAD6/wMAAAAAAAwAAAD6/wIAAAAAAAwAAAD6/wEAAAAEAAwAAAD6/wAAAAAEAAwAAAD6////AAAEAAwAAAD6//7/AAAAAAwAAAD6//3/AAADAAwAAAD6//z/AAAAAAwAAAD6//v/AAAEAAwAAAD5/wQAAAACAAkAAAD5/wMAAAACAAcAAAD5/wIAAAAAAAwAAAD5/wEAAAAAAAwAAAD5/wAAAAAAAAwAAAD5////AAAEAAwAAAD5//7/AAAAAAwAAAD5//3/AAAAAAwAAAD5//z/AAAAAAwAAAD5//v/AAADAAwAAAD4/wQAAAABAAkAAAD4/wMAAAABAAcAAAD4/wIAAAADAAwAAAD4/wEAAAADAAwAAAD4/wAAAAAEAAwAAAD4////AAAAAAwAAAD4//7/AAAEAAwAAAD4//3/AAAAAAwAAAD4//z/AAAEAAwAAAD4//v/AAAEAAwAAAD3/wQAAAABAAkAAAD3/wMAAAABAAcAAAD3/wIAAAAAAAwAAAD3/wEAAAAAAAwAAAD3/wAAAAAAAAwAAAD3////AAABAAwAAAD3//7/AAAEAAwAAAD3//3/AAAAAAwAAAD3//z/AAAAAAwAAAD3//v/AAABAAwAAAD2/wQAAAAAAAkAAAD2/wMAAAAAAAcAAAD2/wIAAAAAAAwAAAD2/wEAAAAAAAwAAAD2/wAAAAAAAAwAAAD2////AAAAAAwAAAD2//7/AAAAAAwAAAD2//3/AAACAAwAAAD2//z/AAAAAAwAAAD2//v/AAACAAwAAAD1/xgAAAACAAkAAAD1/xcAAAACAAgAAAD1/xYAAAACAAgAAAD1/xUAAAACAAgAAAD1/xQAAAACAAgAAAD1/xMAAAACAAgAAAD1/xIAAAACAAgAAAD1/xEAAAACAAgAAAD1/xAAAAACAAgAAAD1/w8AAAACAAcAAAD0/xgAAAABAAkAAAD0/xcAAAABAAgAAAD0/xYAAAABAAgAAAD0/xUAAAABAAsAAAD0/xQAAAABAAgAAAD0/xMAAAABAAsAAAD0/xIAAAABAAgAAAD0/xEAAAABAAgAAAD0/xAAAAABAAsAAAD0/w8AAAABAAcAAADz/xgAAAABAAkAAADz/xcAAAABAAgAAADz/xYAAAABAAgAAADz/xUAAAABAAgAAADz/xQAAAABAAgAAADz/xMAAAABAAgAAADz/xIAAAABAAgAAADz/xEAAAABAAgAAADz/xAAAAABAAgAAADz/w8AAAABAAcAAADy/xgAAAABAAkAAADy/xcAAAABAAgAAADy/xYAAAABAAgAAADy/xUAAAABAAgAAADy/xQAAAABAAsAAADy/xMAAAABAAgAAADy/xIAAAABAAgAAADy/xEAAAABAAgAAADy/xAAAAABAAgAAADy/w8AAAABAAcAAADx/xgAAAABAAkAAADx/xcAAAABAAgAAADx/xYAAAABAAgAAADx/xUAAAABAAgAAADx/xQAAAABAAsAAADx/xMAAAABAAsAAADx/xIAAAABAAgAAADx/xEAAAABAAgAAADx/xAAAAABAAgAAADx/w8AAAABAAcAAADw/xgAAAABAAkAAADw/xcAAAABAAgAAADw/xYAAAABAAgAAADw/xUAAAABAAgAAADw/xQAAAABAAgAAADw/xMAAAABAAgAAADw/xIAAAABAAgAAADw/xEAAAABAAgAAADw/xAAAAABAAgAAADw/w8AAAABAAcAAADv/xgAAAABAAkAAADv/xcAAAABAAgAAADv/xYAAAABAAgAAADv/xUAAAABAAgAAADv/xQAAAABAAgAAADv/xMAAAABAAgAAADv/xIAAAABAAsAAADv/xEAAAABAAgAAADv/xAAAAABAAgAAADv/w8AAAABAAcAAADu/xgAAAABAAkAAADu/xcAAAABAAsAAADu/xYAAAABAAgAAADu/xUAAAABAAgAAADu/xQAAAABAAgAAADu/xMAAAABAAgAAADu/xIAAAABAAsAAADu/xEAAAABAAgAAADu/xAAAAABAAgAAADu/w8AAAABAAcAAADt/xgAAAABAAkAAADt/xcAAAABAAsAAADt/xYAAAABAAgAAADt/xUAAAABAAgAAADt/xQAAAABAAgAAADt/xMAAAABAAgAAADt/xIAAAABAAgAAADt/xEAAAABAAsAAADt/xAAAAABAAgAAADt/w8AAAABAAcAAADs/xgAAAABAAkAAADs/xcAAAABAAgAAADs/xYAAAABAAsAAADs/xUAAAABAAgAAADs/xQAAAABAAgAAADs/xMAAAABAAsAAADs/xIAAAABAAgAAADs/xEAAAABAAgAAADs/xAAAAABAAgAAADs/w8AAAABAAcAAADr/xgAAAABAAkAAADr/xcAAAABAAgAAADr/xYAAAABAAgAAADr/xUAAAABAAgAAADr/xQAAAABAAgAAADr/xMAAAABAAgAAADr/xIAAAABAAgAAADr/xEAAAABAAgAAADr/xAAAAABAAgAAADr/w8AAAABAAcAAADq/xgAAAABAAkAAADq/xcAAAABAAgAAADq/xYAAAABAAgAAADq/xUAAAABAAgAAADq/xQAAAABAAsAAADq/xMAAAABAAgAAADq/xIAAAABAAgAAADq/xEAAAABAAgAAADq/xAAAAABAAgAAADq/w8AAAABAAcAAADp/xgAAAABAAkAAADp/xcAAAABAAgAAADp/xYAAAABAAgAAADp/xUAAAABAAgAAADp/xQAAAABAAgAAADp/xMAAAABAAsAAADp/xIAAAABAAgAAADp/xEAAAABAAgAAADp/xAAAAABAAgAAADp/w8AAAABAAcAAADo/xgAAAABAAkAAADo/xcAAAABAAgAAADo/xYAAAABAAgAAADo/xUAAAABAAgAAADo/xQAAAABAAgAAADo/xMAAAABAAgAAADo/xIAAAABAAgAAADo/xEAAAABAAgAAADo/xAAAAABAAgAAADo/w8AAAABAAcAAADn/xgAAAABAAkAAADn/xcAAAABAAgAAADn/xYAAAABAAgAAADn/xUAAAABAAgAAADn/xQAAAABAAsAAADn/xMAAAABAAgAAADn/xIAAAABAAgAAADn/xEAAAABAAgAAADn/xAAAAABAAsAAADn/w8AAAABAAcAAADm/xgAAAABAAkAAADm/xcAAAABAAsAAADm/xYAAAABAAgAAADm/xUAAAABAAgAAADm/xQAAAABAAgAAADm/xMAAAABAAsAAADm/xIAAAABAAgAAADm/xEAAAABAAgAAADm/xAAAAABAAgAAADm/w8AAAABAAcAAADl/xgAAAABAAkAAADl/xcAAAABAAsAAADl/xYAAAABAAgAAADl/xUAAAABAAsAAADl/xQAAAABAAgAAADl/xMAAAABAAgAAADl/xIAAAABAAsAAADl/xEAAAABAAgAAADl/xAAAAABAAgAAADl/w8AAAABAAcAAADk/xgAAAABAAkAAADk/xcAAAABAAsAAADk/xYAAAABAAgAAADk/xUAAAABAAgAAADk/xQAAAABAAgAAADk/xMAAAABAAgAAADk/xIAAAABAAsAAADk/xEAAAABAAsAAADk/xAAAAABAAgAAADk/w8AAAABAAcAAADj/xgAAAABAAkAAADj/xcAAAABAAgAAADj/xYAAAABAAsAAADj/xUAAAABAAgAAADj/xQAAAABAAgAAADj/xMAAAABAAgAAADj/xIAAAABAAgAAADj/xEAAAABAAgAAADj/xAAAAABAAgAAADj/w8AAAABAAcAAADi/xgAAAABAAkAAADi/xcAAAABAAgAAADi/xYAAAABAAgAAADi/xUAAAABAAgAAADi/xQAAAABAAsAAADi/xMAAAABAAgAAADi/xIAAAABAAgAAADi/xEAAAABAAgAAADi/xAAAAABAAsAAADi/w8AAAABAAcAAAA=")
+
+[node name="Foreground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="4" unique_id=720212395]
+tile_map_data = PackedByteArray("AADh/xkAAAAEAAUAAADi/xkAAAAEAAUAAADj/xkAAAAEAAUAAADk/xkAAAAEAAUAAADl/xkAAAAEAAUAAADm/xkAAAAEAAUAAADn/xkAAAAEAAUAAADo/xkAAAAEAAUAAADp/xkAAAAEAAUAAADq/xkAAAAEAAUAAADr/xkAAAAEAAUAAADs/xkAAAAEAAUAAADt/xkAAAAEAAUAAADu/xkAAAAEAAUAAADv/xkAAAAEAAUAAADw/xkAAAAEAAUAAADx/xkAAAAEAAUAAADy/xkAAAAEAAUAAADz/xkAAAAEAAUAAAD0/xkAAAAEAAUAAAD1/xkAAAAEAAUAAAD2/xkAAAAEAAUAAAD2/xgAAAAEAAUAAAD2/xcAAAAEAAUAAAD2/xYAAAAEAAUAAAD2/xUAAAAEAAUAAAD2/xQAAAAEAAUAAAD2/xMAAAAEAAUAAAD2/xIAAAAEAAUAAAD2/xEAAAAEAAUAAAD2/xAAAAAEAAUAAADh/w4AAAAEAAUAAADi/w4AAAAEAAUAAADj/w4AAAAEAAUAAADk/w4AAAAEAAUAAADl/w4AAAAEAAUAAADm/w4AAAAEAAUAAADn/w4AAAAEAAUAAADo/w4AAAAEAAUAAADp/w4AAAAEAAUAAADq/w4AAAAEAAUAAADr/w4AAAAEAAUAAADs/w4AAAAEAAUAAADt/w4AAAAEAAUAAADu/w4AAAAEAAUAAADv/w4AAAAEAAUAAADw/w4AAAAEAAUAAADx/w4AAAAEAAUAAADy/w4AAAAEAAUAAADz/w4AAAAEAAUAAAD0/w4AAAAEAAUAAAD1/w4AAAAEAAUAAAD2/w4AAAAEAAUAAAD2/w8AAAAEAAUAAADh/w8AAAAEAAUAAADh/xAAAAAEAAUAAADh/xEAAAAEAAUAAADh/xUAAAAEAAUAAADh/xYAAAAEAAUAAADh/xcAAAAEAAUAAADh/xgAAAAEAAUAAADh/xQAAAAEAAUAAADh/xMAAAAEAAUAAADh/xIAAAAEAAUAAAA=")
 
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="0" unique_id=297187452 instance=ExtResource("2_o2p3v")]
-position = Vector2(-148, -43)
+position = Vector2(-561, 262)
+invulnerability_duration = 0.7
+modifier_invulnerability = SubResource("Resource_hk7ad")
+stat_speed_ratio = SubResource("Resource_nmf1y")
+stat_invulnerable = SubResource("Resource_egl16")
+stat_armor = SubResource("Resource_mtt35")
+stat_cant_move = SubResource("Resource_4aouh")
+stat_cant_shoot = SubResource("Resource_aalkj")
+stat_cant_interract = SubResource("Resource_54nrk")
+stat_shooting_speed = SubResource("Resource_rskws")
 
-[node name="GiantBamboo" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=2065001503 node_paths=PackedStringArray("hurt_component") instance=ExtResource("3_cp8gd")]
-position = Vector2(375, -11)
+[node name="GiantBamboo" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1901693560 node_paths=PackedStringArray("hurt_component") instance=ExtResource("3_cp8gd")]
+position = Vector2(561, -29)
 hurt_component = NodePath("AIController/HurtComponent")
 afterlife_duration = 2.0
 
@@ -76,37 +250,90 @@ character = NodePath("../..")
 [node name="ShootController" parent="Enemies/Bosses/GiantBamboo/AIController" index="4" unique_id=1242481191 instance=ExtResource("6_1e2a1")]
 interval_between_shots = 0.5
 
-[node name="BambooEnemy" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="1" unique_id=1635512271 node_paths=PackedStringArray("hurt_component", "shoot_controller") instance=ExtResource("7_1e2a1")]
-position = Vector2(-32, -8)
+[node name="GiantRacoon" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="1" unique_id=2065001503 node_paths=PackedStringArray("hurt_component", "shoot_controller") instance=ExtResource("3_5yt0q")]
+position = Vector2(-396, 294)
+collision_mask = 1
 hurt_component = NodePath("AIController/HurtComponent")
 shoot_controller = NodePath("AIController/ShootController")
-modifier_invulnerability = SubResource("Resource_fflhd")
 
-[node name="AIController" parent="Enemies/BambooEnemy" index="5" unique_id=1905422274 node_paths=PackedStringArray("character", "movement_patterns") instance=ExtResource("4_lonoe")]
+[node name="AIController" parent="Enemies/Bosses/GiantRacoon" index="5" unique_id=1927809777 node_paths=PackedStringArray("shooting_positions", "character", "movement_patterns") instance=ExtResource("4_lonoe")]
+script = ExtResource("8_3pqcu")
+vfxprofile = SubResource("Resource_s6g6n")
+vfx_spawn_time = 0.15
+modification = SubResource("Resource_6shub")
+shooting_positions = [NodePath("../../RacoonMarkers/Marker2D"), NodePath("../../RacoonMarkers/Marker2D2")]
 character = NodePath("..")
-deactivate_on_room_change = false
-actions = Array[ExtResource("9_fflhd")]([SubResource("Resource_7tf5d"), SubResource("Resource_5yt0q")])
+actions = Array[ExtResource("9_fflhd")]([SubResource("Resource_hil4o"), SubResource("Resource_eclkm"), SubResource("Resource_tgaeg"), SubResource("Resource_dlq5l"), SubResource("Resource_k1fdc"), SubResource("Resource_w8ftg")])
+modulates_for_phase = Array[float]([0.6, 0.3])
 movement_patterns = {
+"dig": NodePath("PathDotMovementController2D"),
+"dig_and_shoot": NodePath("PathDotMovementController2D"),
 "rest": NodePath("AreaMovementController"),
-"shooting": NodePath("AreaMovementController")
+"stone_rickoshet": NodePath("AreaMovementController"),
+"stone_shooting": NodePath("AreaMovementController"),
+"stones_from_roof": NodePath("BehaviourFollow2D")
 }
+modifier = SubResource("Resource_bpgnn")
+vfx_on_phase_change = SubResource("Resource_yakie")
+data_for_interface = SubResource("Resource_m7sgn")
+interface_needed = true
 
-[node name="ShootController" parent="Enemies/BambooEnemy/AIController" index="3" unique_id=518680887 instance=ExtResource("6_1e2a1")]
+[node name="HurtComponent" parent="Enemies/Bosses/GiantRacoon/AIController" index="3" unique_id=1780671861 node_paths=PackedStringArray("character") instance=ExtResource("5_olh6k")]
+character = NodePath("../..")
+max_health = 15.0
+vfx_damage_marker = SubResource("Resource_io6ay")
+vfx_heal_marker = SubResource("Resource_sj5jv")
+
+[node name="ShootController" parent="Enemies/Bosses/GiantRacoon/AIController" index="4" unique_id=1078336844 instance=ExtResource("6_1e2a1")]
 team = 0
 projectile_homing = true
-projectile_bounce = true
 
-[node name="HurtComponent" parent="Enemies/BambooEnemy/AIController" index="4" unique_id=948753511 node_paths=PackedStringArray("character") instance=ExtResource("5_olh6k")]
-character = NodePath("../..")
-visible_hp_bar = true
-max_health = 2.0
+[node name="PathDotMovementController2D" type="Node2D" parent="Enemies/Bosses/GiantRacoon/AIController" index="5" unique_id=1549073554 node_paths=PackedStringArray("path")]
+script = ExtResource("8_i3ex6")
+path = NodePath("../../../Path2D")
+break_duration_min = 0.5
+break_duration_max = 1.25
+speed = 60.0
+enabled = false
+metadata/_custom_type_script = "uid://d34c6a0yetv43"
 
-[node name="AreaMovementController" type="Node2D" parent="Enemies/BambooEnemy/AIController" index="5" unique_id=888065150 node_paths=PackedStringArray("regions")]
-script = ExtResource("9_j4jck")
-regions = [NodePath("../../../BambooEnemyRegion1")]
-min_radius = 20.0
-speed = 50.0
+[node name="DamageArea" parent="Enemies/Bosses/GiantRacoon/AIController" index="6" unique_id=419752470 instance=ExtResource("11_7447m")]
+scale = Vector2(3, 3)
+team = 0
+
+[node name="AreaMovementController" type="Node2D" parent="Enemies/Bosses/GiantRacoon/AIController" index="7" unique_id=354964489 node_paths=PackedStringArray("regions")]
+script = ExtResource("19_hk7ad")
+regions = [NodePath("../../../GiantRacoonRegion1")]
+min_radius = 200.0
+break_time = 0.001
+speed = 60.0
 metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
 
-[node name="BambooEnemyRegion1" type="NavigationRegion2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="2" unique_id=1883405314]
+[node name="BehaviourFollow2D" type="Node2D" parent="Enemies/Bosses/GiantRacoon/AIController" index="8" unique_id=1728135192 node_paths=PackedStringArray("target", "body")]
+script = ExtResource("23_mtt35")
+target = NodePath("../../../Marker2D")
+body = NodePath("../..")
+distance_min = 1.0
+distance_max = 2.0
+speed = 60.0
+metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
+
+[node name="Path2D" type="Path2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="2" unique_id=502521772]
+curve = SubResource("Curve2D_s6g6n")
+
+[node name="GiantRacoonRegion1" type="NavigationRegion2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="3" unique_id=1709305959]
+navigation_polygon = SubResource("NavigationPolygon_io6ay")
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="4" unique_id=206860129]
+position = Vector2(-315, 323)
+
+[node name="RacoonMarkers" type="Node2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="5" unique_id=11850475]
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Bosses/RacoonMarkers" index="0" unique_id=2099478373]
+position = Vector2(-469, 268)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Bosses/RacoonMarkers" index="1" unique_id=125745745]
+position = Vector2(-448, 268)
+
+[node name="BambooEnemyRegion1" type="NavigationRegion2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="1" unique_id=1883405314]
 navigation_polygon = SubResource("NavigationPolygon_5yt0q")

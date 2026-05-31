@@ -392,6 +392,7 @@ position = Vector2(-9.5367426e-08, 0.50000006)
 [node name="TeleportRedIn" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="0" unique_id=1465987655 node_paths=PackedStringArray("exit") instance=ExtResource("4_3xr4r")]
 position = Vector2(1424, 16)
 exit = NodePath("../TeleportRedOut")
+exit_level_index = -1
 use_limit = 1
 color = Color(1, 0, 0, 0.39215687)
 delete_on_disable = false
@@ -400,6 +401,7 @@ delete_on_disable = false
 visible = false
 position = Vector2(1808, 160)
 exit = NodePath("../MarkerRed")
+exit_level_index = -1
 color = Color(1, 0, 0, 0.39215687)
 
 [node name="PortalEffect" parent="Teleports/TeleportRedOut" index="1" unique_id=1228765060 instance=ExtResource("5_sko6y")]
@@ -502,37 +504,37 @@ position = Vector2(1880, 152)
 position = Vector2(1880, 136)
 
 [node name="Breakable30" parent="Breakables/GiantBambooBreakables" index="29" unique_id=1047681723 instance=ExtResource("25_3xr4r")]
-position = Vector2(1888, 120)
+position = Vector2(1896, 120)
 
 [node name="Breakable31" parent="Breakables/GiantBambooBreakables" index="30" unique_id=238565106 instance=ExtResource("25_3xr4r")]
-position = Vector2(1904, 112)
+position = Vector2(1912, 112)
 
 [node name="Breakable32" parent="Breakables/GiantBambooBreakables" index="31" unique_id=1955081702 instance=ExtResource("25_3xr4r")]
 position = Vector2(1928, 112)
 
 [node name="Breakable33" parent="Breakables/GiantBambooBreakables" index="32" unique_id=1726005753 instance=ExtResource("25_3xr4r")]
-position = Vector2(1952, 112)
+position = Vector2(1944, 112)
 
 [node name="Breakable34" parent="Breakables/GiantBambooBreakables" index="33" unique_id=1737295011 instance=ExtResource("25_3xr4r")]
-position = Vector2(1968, 120)
+position = Vector2(1960, 120)
 
 [node name="Breakable35" parent="Breakables/GiantBambooBreakables" index="34" unique_id=533325744 instance=ExtResource("25_3xr4r")]
-position = Vector2(1976, 136)
+position = Vector2(1968, 136)
 
 [node name="Breakable36" parent="Breakables/GiantBambooBreakables" index="35" unique_id=491172609 instance=ExtResource("25_3xr4r")]
-position = Vector2(1984, 152)
+position = Vector2(1976, 152)
 
 [node name="Breakable37" parent="Breakables/GiantBambooBreakables" index="36" unique_id=496395793 instance=ExtResource("25_3xr4r")]
-position = Vector2(1984, 168)
+position = Vector2(1976, 168)
 
 [node name="Breakable38" parent="Breakables/GiantBambooBreakables" index="37" unique_id=653099136 instance=ExtResource("25_3xr4r")]
-position = Vector2(1984, 184)
+position = Vector2(1976, 184)
 
 [node name="Breakable39" parent="Breakables/GiantBambooBreakables" index="38" unique_id=1323154280 instance=ExtResource("25_3xr4r")]
-position = Vector2(1976, 200)
+position = Vector2(1968, 200)
 
 [node name="Breakable40" parent="Breakables/GiantBambooBreakables" index="39" unique_id=1437183049 instance=ExtResource("25_3xr4r")]
-position = Vector2(1960, 208)
+position = Vector2(1952, 208)
 
 [node name="Basic" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="0" unique_id=1373854600]
 
@@ -739,7 +741,7 @@ position = Vector2(1800, 200)
 position = Vector2(1848, 104)
 
 [node name="Marker2D3" type="Marker2D" parent="Enemies/Bosses/BambooMarkers" index="2" unique_id=189422009]
-position = Vector2(1936, 216)
+position = Vector2(1912, 224)
 
 [node name="Marker2D4" type="Marker2D" parent="Enemies/Bosses/BambooMarkers" index="3" unique_id=724916267]
 position = Vector2(2016, 144)

@@ -3,6 +3,7 @@ class_name BehaviourFollow2D
 extends MovementController2D
 ## Basic follow behavior for the [MovementController2D].
 
+signal targed_reached
 
 @export var target: Node2D ## The target to follow.
 @export var body: Node2D ## The object that is following.
@@ -39,6 +40,8 @@ func _physics_process(_delta):
 	
 	if is_moving:
 		if target_distance < distance_min:
+			print("DSDSDSDASDSDSa")
+			targed_reached.emit()
 			stop()
 		else:
 			keep_moving = true
