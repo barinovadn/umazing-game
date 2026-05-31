@@ -21,6 +21,7 @@ name = "Креветка"
 icon = ExtResource("1_g4olm")
 max_stack = 4
 description = Array[ExtResource("1_3hjnu")]([SubResource("Resource_pylf1")])
+effect_id = "SHRIMP_HEAL"
 is_consumable = true
 is_active = true
 is_stackable = true

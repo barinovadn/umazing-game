@@ -22,6 +22,7 @@ name = "Суши"
 icon = ExtResource("1_r8eu6")
 max_stack = 4
 description = Array[ExtResource("1_4tr8c")]([SubResource("Resource_ragds")])
+effect_id = "SUSHI_HEAL"
 is_consumable = true
 is_active = true
 is_stackable = true

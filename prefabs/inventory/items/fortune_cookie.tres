@@ -46,6 +46,7 @@ icon = ExtResource("1_xcj2m")
 max_stack = 4
 description = Array[ExtResource("1_76xga")]([SubResource("Resource_76xga")])
 description_on_use = Array[ExtResource("1_76xga")]([SubResource("Resource_74wcp"), SubResource("Resource_bro15"), SubResource("Resource_emn60")])
+effect_id = "COOKIE_MAX_HP"
 is_consumable = true
 is_active = true
 is_stackable = true

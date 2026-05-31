@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://tcgbd4mb074"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_hifp3"]
+[ext_resource type="Texture2D" uid="uid://751w0vhntpm2" path="res://prefabs/inventory/items/dex_scroll.png" id="2_2vgp2"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_bihxg"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="4_kufir"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="5_jmaay"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="6_kc81c"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="7_nvnd7"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="8_gad6x"]
+
+[sub_resource type="Resource" id="Resource_u7o56"]
+script = ExtResource("3_bihxg")
+duration = 3.0
+value = 2.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[resource]
+script = ExtResource("8_gad6x")
+rarity = 1
+icon = ExtResource("2_2vgp2")
+effect_id = "DEX_SCROLL_RAPIDFIRE"
+is_consumable = true
+is_active = true
+modifier_shooting_speed = SubResource("Resource_u7o56")
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"
