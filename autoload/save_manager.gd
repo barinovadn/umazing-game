@@ -37,7 +37,6 @@ func load_game(new_game: bool = false):
 				for item in items_raw:
 					if item is ItemData:
 						loaded_items.append(item)
-						print(item)
 			
 			var saved_id = save_data.get("current_level_index", START_LEVEL_INDEX)
 			SceneManager.go_to_level(saved_id, false)

@@ -30,6 +30,6 @@ position = Vector2(64, 0)
 exit = NodePath("../../Tilemap/Background")
 exit_level_index = 2
 
-[node name="PortalEffect" parent="Teleports/Teleport" index="1" unique_id=1228765060 instance=ExtResource("2_a0hhc")]
+[node name="PortalEffect" parent="Teleports/Teleport" index="1" unique_id=483313367 instance=ExtResource("2_a0hhc")]
 
 [node name="Cat" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="0" unique_id=2065001503 instance=ExtResource("2_3n8vx")]

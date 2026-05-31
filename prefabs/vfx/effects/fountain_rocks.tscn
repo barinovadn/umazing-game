@@ -7,8 +7,6 @@
 
 [node name="GPUParticles2D" parent="." index="0" unique_id=1593957519]
 emitting = true
-amount = 64
+amount = 32
 lifetime = 1.0
-one_shot = false
-explosiveness = 0.0
 process_material = ExtResource("2_xnxei")
