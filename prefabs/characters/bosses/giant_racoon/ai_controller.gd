@@ -58,6 +58,8 @@ func _on_action(action: AIAction):
 
 
 func _on_timer_timeout():
+	if not character.destroyed:
+		pass
 	Game.vfx_manager.spawn(vfxprofile.effect, global_position, vfxprofile.settings)
 
 

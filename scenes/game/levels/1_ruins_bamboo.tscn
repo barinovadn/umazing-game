@@ -29,8 +29,8 @@
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="22_o7mkv"]
 [ext_resource type="Texture2D" uid="uid://022sg5y1hce1" path="res://prefabs/characters/bosses/giant_bamboo/portrait.png" id="23_jlamk"]
 [ext_resource type="PackedScene" uid="uid://dobj6xx5d4p2c" path="res://prefabs/breakables/variations/bamboo_1.tscn" id="25_3xr4r"]
-[ext_resource type="AudioStream" uid="uid://jiupi2muxp24" path="res://prefabs/characters/bosses/giant_bamboo/bamboo_roar_1.wav" id="26_cpeik"]
-[ext_resource type="AudioStream" uid="uid://bgwqep33ow0sa" path="res://prefabs/characters/bosses/giant_bamboo/bamboo_roar_2.wav" id="27_g7hry"]
+[ext_resource type="AudioStream" uid="uid://jiupi2muxp24" path="res://prefabs/characters/bosses/giant_bamboo/sounds/bamboo_roar_1.wav" id="26_cpeik"]
+[ext_resource type="AudioStream" uid="uid://bgwqep33ow0sa" path="res://prefabs/characters/bosses/giant_bamboo/sounds/bamboo_roar_2.wav" id="27_g7hry"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="33_jtckt"]
 
 [sub_resource type="Resource" id="Resource_xnrer"]

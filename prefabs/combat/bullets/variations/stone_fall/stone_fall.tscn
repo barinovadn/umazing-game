@@ -15,4 +15,4 @@ team = 0
 can_break = true
 
 [node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
-volume_db = -8.0
+volume_db = -14.0

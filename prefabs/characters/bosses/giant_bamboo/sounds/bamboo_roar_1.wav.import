@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://jiupi2muxp24"
-path="res://.godot/imported/bamboo_roar_1.wav-d475e03a10a4c07cc84f867ad2bba829.sample"
+path="res://.godot/imported/bamboo_roar_1.wav-420ec55b24ebf1bbefb514bcbc6c29a5.sample"
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/giant_bamboo/bamboo_roar_1.wav"
-dest_files=["res://.godot/imported/bamboo_roar_1.wav-d475e03a10a4c07cc84f867ad2bba829.sample"]
+source_file="res://prefabs/characters/bosses/giant_bamboo/sounds/bamboo_roar_1.wav"
+dest_files=["res://.godot/imported/bamboo_roar_1.wav-420ec55b24ebf1bbefb514bcbc6c29a5.sample"]
 
 [params]
 
