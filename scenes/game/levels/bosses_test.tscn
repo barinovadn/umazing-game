@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://den5tgrfa2f6q"]
 
 [ext_resource type="PackedScene" uid="uid://buhslpn3jaek5" path="res://scenes/game/game.tscn" id="1_o2p3v"]
-[ext_resource type="PackedScene" uid="uid://dige0r8yk22qb" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot.tscn" id="2_mtt35"]
+[ext_resource type="PackedScene" uid="uid://fn0tv6mqn7g6" path="res://prefabs/combat/bullets/variations/comons/kunai/kunai.tscn" id="2_egl16"]
 [ext_resource type="PackedScene" uid="uid://dcrm5punhuk0d" path="res://prefabs/characters/ninja_green/ninja_green.tscn" id="2_o2p3v"]
 [ext_resource type="PackedScene" uid="uid://ik6dpd1qhkci" path="res://prefabs/characters/bosses/giant_racoon/giant_racoon.tscn" id="3_5yt0q"]
 [ext_resource type="PackedScene" uid="uid://cathu8h71gfg7" path="res://prefabs/characters/bosses/giant_bamboo/giant_bamboo.tscn" id="3_cp8gd"]
@@ -347,7 +347,9 @@ source_geometry_mode = 2
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
-bullets = Array[PackedScene]([ExtResource("2_mtt35")])
+bullets = Dictionary[String, PackedScene]({
+"kunai": ExtResource("2_egl16")
+})
 allow_cheats = true
 
 [node name="Ground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="1" unique_id=2033248800]

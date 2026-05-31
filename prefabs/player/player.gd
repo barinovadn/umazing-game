@@ -11,7 +11,7 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		var old_character = character
 		character = value
 		character_changed.emit(character, old_character)
-@export var bullets: Array[PackedScene]
+@export var bullets: Dictionary[String, PackedScene]
 @export var allow_cheats: bool = false
 
 @export_group("Restrictions", "stat")
@@ -168,7 +168,8 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 		new_character.interactor = interactor
 		new_character.shoot_controller = shoot_controller
 		if new_character.shoot_controller:
-			new_character.shoot_controller.bullets = bullets
+			for el in bullets.values():
+				new_character.shoot_controller.bullets.append(el)
 		new_character.hurt_component = hurt_component
 		if new_character.hurt_component:
 			new_character.hurt_component.character = new_character
