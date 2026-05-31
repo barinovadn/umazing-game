@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://74d2ka18na87" path="res://prefabs/vfx/effects/smoke_explosion.tscn" id="14_bjeu4"]
 [ext_resource type="PackedScene" uid="uid://bd88t5c07t1x2" path="res://prefabs/vfx/effects/notification.tscn" id="15_1n23f"]
 [ext_resource type="PackedScene" uid="uid://b86ksiklisu71" path="res://prefabs/vfx/effects/portal.tscn" id="15_t8ax2"]
+[ext_resource type="PackedScene" uid="uid://bkllev6qe2c4l" path="res://prefabs/vfx/effects/fountain_rocks.tscn" id="16_64qxl"]
+[ext_resource type="PackedScene" uid="uid://b42rrib0dsm6w" path="res://prefabs/vfx/effects/fountain_rocks_gray.tscn" id="17_jqf1p"]
 
 [node name="VFXManager" type="Node2D" unique_id=880750068]
 script = ExtResource("1_3o42a")
@@ -32,5 +34,7 @@ effects = Dictionary[int, PackedScene]({
 300: ExtResource("13_gd1t3"),
 310: ExtResource("14_bjeu4"),
 500: ExtResource("15_t8ax2"),
+600: ExtResource("16_64qxl"),
+601: ExtResource("17_jqf1p"),
 10000: ExtResource("15_1n23f")
 })

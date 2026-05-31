@@ -35,6 +35,7 @@ enum Team {
 		max_health_changed.emit()
 
 @export_group("Sounds", "sounds")
+@export var sounds_mute: bool = false
 @export var sounds_player: AudioStreamPlayer2D
 @export var sounds_damage: Array[AudioStream] = []
 @export var sounds_die: Array[AudioStream] = []
@@ -46,6 +47,8 @@ enum Team {
 			sounds_player.volume_db = value
 
 @export_group("VFX", "vfx")
+@export var vfx_mute: bool = false
+@export var vfx_prettify_dmg_numbers: bool = true
 @export var vfx_damage_marker: VFXProfile
 @export var vfx_heal_marker: VFXProfile
 @export_subgroup("Damage Marker Colors", "vfx_damage_marker_color")
@@ -116,9 +119,18 @@ func _update_shape():
 
 
 func _play_random_sound(array: Array[AudioStream]):
+	if sounds_mute:
+		return
 	if array.size():
 		sounds_player.stream = array.pick_random()
 		sounds_player.play()
+
+
+func _dmg_to_str(amount: float) -> String:
+	if vfx_prettify_dmg_numbers:
+		return str(int(amount * 100))
+	
+	return str(amount)
 
 
 func _calc_damage_marker_color(dmg_amount: float) -> Color:
@@ -132,19 +144,23 @@ func _calc_damage_marker_color(dmg_amount: float) -> Color:
 
 
 func _play_damage_marker_vfx(dmg_amount: float):
+	if vfx_mute:
+		return
 	if not vfx_damage_marker:
 		return
 	
 	vfx_damage_marker.settings.modulate = _calc_damage_marker_color(dmg_amount)
-	vfx_damage_marker.settings.notification_text = '-' + str(int(dmg_amount * 100))
+	vfx_damage_marker.settings.notification_text = '-' + _dmg_to_str(dmg_amount)
 	vfx_damage_marker.spawn(global_position)
 
 
 func _play_heal_marker_vfx(heal_amount: float):
+	if vfx_mute:
+		return
 	if not vfx_heal_marker:
 		return
 	
-	vfx_heal_marker.settings.notification_text = '+' + str(int(heal_amount * 100))
+	vfx_heal_marker.settings.notification_text = '+' + _dmg_to_str(heal_amount)
 	vfx_heal_marker.spawn(global_position)
 
 

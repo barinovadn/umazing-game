@@ -45,5 +45,5 @@ script = ExtResource("2_w5rlu")
 bounces = 1
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
-modulate = Color(0.28627452, 0.45882353, 0.28627452, 1)
+modulate = Color(0.50989735, 0.74499124, 0.5080887, 1)
 sprite_frames = SubResource("SpriteFrames_nudhm")

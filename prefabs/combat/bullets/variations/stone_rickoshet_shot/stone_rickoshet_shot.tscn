@@ -81,7 +81,6 @@ homing = true
 damage = 0.25
 team = 0
 crit_damage = 0.5
-can_be_broken = true
 can_break = true
 sounds_spawn = Array[AudioStream]([SubResource("AudioStreamWAV_6j76o"), SubResource("AudioStreamWAV_odyxh")])
 sounds_destroy = Array[AudioStream]([ExtResource("2_e78gu")])

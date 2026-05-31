@@ -3,6 +3,7 @@ extends Node2D
 
 func _ready():
 	Game.player = %Player
+	Game.inventory = Game.player.inventory
 	
 	Game.music_player = %MusicPlayer
 	Game.dialogue_system = %DialogueSystem
@@ -15,4 +16,3 @@ func _ready():
 	Game.enemies = %Enemies
 	Game.pickups = %Pickups
 	Game.timers = %Timers
-	Game.inventory = %Player/%Inventory

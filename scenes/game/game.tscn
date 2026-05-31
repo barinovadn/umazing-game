@@ -74,6 +74,10 @@ z_index = 60
 texture_filter = 1
 tile_set = ExtResource("6_bdhmt")
 
+[node name="HideAtRuntime" type="Node2D" parent="Tilemap/Foreground" unique_id=2106273737]
+script = ExtResource("5_lfrn8")
+metadata/_custom_type_script = "uid://bp0bnmynw2d1p"
+
 [node name="Enviroments" type="Node2D" parent="." unique_id=1656547831]
 z_index = 60
 

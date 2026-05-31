@@ -94,6 +94,8 @@ func _set_target_point():
 func _on_action_changer_timeout():
 	if shoot_controller:
 		shoot_controller.stop_shooting()
+	if movement_controller:
+		movement_controller.stop()
 	
 	var ready_boss_actions: Array[AIAction] = _select_available_actions()
 	var action_to_play: AIAction = _select_action_by_weight(ready_boss_actions)
@@ -184,6 +186,7 @@ func activate_interaction(_area: Area2D = null):
 	deactivate_points(hide_on_activation)
 	
 	dialogue()
+
 
 func _after_dialogue_behaviour():
 	if Game.dialogue_system.dialogue_closed.is_connected(_after_dialogue_behaviour):

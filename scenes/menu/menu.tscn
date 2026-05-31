@@ -267,12 +267,19 @@ Adventure"
 label_settings = ExtResource("11_fb4qf")
 horizontal_alignment = 1
 
-[node name="ButtonPlay" type="Button" parent="UI/Menu" unique_id=1644942497]
+[node name="ButtonContinue" type="Button" parent="UI/Menu" unique_id=887687493]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("9_faisu")
 theme_override_font_sizes/font_size = 20
-text = "Играть"
+text = "Продолжить"
+
+[node name="ButtonNewGame" type="Button" parent="UI/Menu" unique_id=1644942497]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("9_faisu")
+theme_override_font_sizes/font_size = 20
+text = "Новая Игра"
 
 [node name="ButtonQuit" type="Button" parent="UI/Menu" unique_id=358028812]
 texture_filter = 1
@@ -281,5 +288,6 @@ theme = ExtResource("9_faisu")
 theme_override_font_sizes/font_size = 20
 text = "Выход"
 
-[connection signal="pressed" from="UI/Menu/ButtonPlay" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="UI/Menu/ButtonContinue" to="." method="_on_conitnue_pressed"]
+[connection signal="pressed" from="UI/Menu/ButtonNewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="UI/Menu/ButtonQuit" to="." method="_on_quit_pressed"]

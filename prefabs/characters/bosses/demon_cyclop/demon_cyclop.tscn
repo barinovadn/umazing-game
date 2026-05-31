@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bdu64vahuihfg"]
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_7jqlm"]
-[ext_resource type="Texture2D" uid="uid://3f1nfn3n8jnh" path="res://prefabs/characters/bosses/demon_cyclop/Faceset.png" id="2_7jqlm"]
+[ext_resource type="Texture2D" uid="uid://b6pm1fblum7py" path="res://prefabs/characters/bosses/demon_cyclop/demon_cyclop_enraged.png" id="2_7jqlm"]
 [ext_resource type="Texture2D" uid="uid://bijkqkn3quj5c" path="res://prefabs/characters/bosses/demon_cyclop/Hit.png" id="3_l7lwl"]
 [ext_resource type="Texture2D" uid="uid://wi4ew5y23r5c" path="res://prefabs/characters/bosses/demon_cyclop/Idle.png" id="4_mlunp"]
 [ext_resource type="Texture2D" uid="uid://cjoft0tnbbl6j" path="res://prefabs/characters/bosses/demon_cyclop/Walk.png" id="5_drdnf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjec7"]
 atlas = ExtResource("2_7jqlm")
-region = Rect2(0, 0, 38, 38)
+region = Rect2(0, 0, 37, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vp6hb"]
 atlas = ExtResource("3_l7lwl")
@@ -140,7 +140,7 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_tbstd")
 animation = &"attack_left"
 autoplay = ""
-frame_progress = 0.0
+frame_progress = 0.71855277
 
 [node name="AnimationController" parent="." index="3" unique_id=395358213]
 animations = Dictionary[int, String]({
