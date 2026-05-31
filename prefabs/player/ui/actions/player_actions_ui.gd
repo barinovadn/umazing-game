@@ -6,6 +6,7 @@ extends Control
 
 @export_group("Sounds", "sound")
 @export var sound_timer_click: AudioStream = preload("res://prefabs/combat/sounds/bounce_1.wav")
+@export var sound_book_click: AudioStream = preload("res://prefabs/combat/sounds/bounce_1.wav")
 
 @onready var _timer: Timer = %SpeedrunTimer
 @onready var _timer_label: Label = %TimerLabel
@@ -35,7 +36,18 @@ func _on_timer_tick():
 
 
 func _on_book_button_up():
-	pass
+	var ui := Game.player.stats_ui
+	if ui.visible:
+		if ui.show_full:
+			ui.visible = false
+		else:
+			ui.show_full = true
+	else:
+		ui.show_full = false
+		ui.visible = true
+	
+	if sound_book_click:
+		play_sound(sound_book_click)
 
 
 func _on_inventory_pressed():

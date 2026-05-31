@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cd4mxmywy2qdo" path="res://prefabs/interactions/interactor/interactor.tscn" id="1_rdx4y"]
 [ext_resource type="Script" uid="uid://dg10rouiowrl4" path="res://prefabs/player/player.gd" id="1_wv1mm"]
+[ext_resource type="PackedScene" uid="uid://fn0tv6mqn7g6" path="res://prefabs/combat/bullets/variations/comons/kunai/kunai.tscn" id="2_qdvc2"]
 [ext_resource type="Script" uid="uid://cxp2akga3voxj" path="res://common/movement/controllers/player_movement_controller.gd" id="2_wv1mm"]
 [ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_408ek"]
 [ext_resource type="Script" uid="uid://6h6n0jvs1c7u" path="res://common/stats/stat.gd" id="4_dxdrd"]
@@ -21,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/ui/health/player_health_default.png" id="14_ot5ig"]
 [ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://prefabs/combat/ui/bosses/boss_ui.gd" id="15_agiw0"]
 [ext_resource type="PackedScene" uid="uid://5vrvr5fuai1l" path="res://prefabs/player/ui/actions/player_actions_ui.tscn" id="22_a2w56"]
+[ext_resource type="PackedScene" uid="uid://dpg1hinqh1xs0" path="res://prefabs/player/ui/stats/player_stats_ui.tscn" id="23_qdvc2"]
 
 [sub_resource type="Resource" id="Resource_a2w56"]
 script = ExtResource("4_dxdrd")
@@ -40,6 +42,9 @@ radius = 0.01
 
 [node name="Player" type="Node" unique_id=1659074022]
 script = ExtResource("1_wv1mm")
+bullets = Dictionary[String, PackedScene]({
+"default_435234525345": ExtResource("2_qdvc2")
+})
 stat_cant_use_inventory = SubResource("Resource_a2w56")
 
 [node name="Components" type="Node2D" parent="." unique_id=1475945052]
@@ -172,6 +177,26 @@ unique_name_in_owner = true
 visible = false
 z_index = 10
 
+[node name="ActionsUI" parent="UI" unique_id=2122713604 instance=ExtResource("22_a2w56")]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -196.0
+offset_right = -100.0
+grow_horizontal = 0
+
+[node name="StatsUI" parent="UI" unique_id=430245182 instance=ExtResource("23_qdvc2")]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -270.0
+offset_right = 64.0
+offset_bottom = -230.0
+grow_vertical = 0
+
 [node name="HealthUI" type="HBoxContainer" parent="UI" unique_id=1182080135]
 unique_name_in_owner = true
 offset_left = 25.0
@@ -196,15 +221,6 @@ grow_vertical = 0
 theme_override_constants/separation = 60
 alignment = 2
 script = ExtResource("15_agiw0")
-
-[node name="ActionsUI" parent="UI" unique_id=2122713604 instance=ExtResource("22_a2w56")]
-unique_name_in_owner = true
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -132.0
-offset_right = -36.0
-grow_horizontal = 0
 
 [connection signal="character_changed" from="." to="." method="_on_character_changed"]
 [connection signal="fatal_damage_taken" from="Components/HurtComponent" to="." method="_on_fatal_damage_taken"]
