@@ -16,6 +16,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("1_6dsl0")
 
 [node name="Label" type="Label" parent="." unique_id=807379525]

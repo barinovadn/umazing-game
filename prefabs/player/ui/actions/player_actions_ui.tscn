@@ -36,18 +36,21 @@ alignment = 2
 
 [node name="Timer" type="Button" parent="Buttons" unique_id=895138646]
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_iylr8")
 icon = ExtResource("2_ibgya")
 flat = true
 
 [node name="Book" type="Button" parent="Buttons" unique_id=998188167]
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_iylr8")
 icon = ExtResource("3_cg46l")
 flat = true
 
 [node name="Inventory" type="Button" parent="Buttons" unique_id=118187230]
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_iylr8")
 icon = ExtResource("3_o85nd")
 flat = true
