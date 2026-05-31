@@ -192,7 +192,6 @@ func _duplicate_stats():
 		stat_invulnerable = stat_invulnerable.duplicate()
 	if stat_cant_interract:
 		stat_cant_interract = stat_cant_interract.duplicate()
-	## TODO
 
 
 func _on_damaged(_value: float = 1.0):
