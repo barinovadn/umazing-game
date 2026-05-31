@@ -51,6 +51,7 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 @onready var health_ui: HealthUI = %HealthUI
 @onready var boss_ui: BossUI = %BossUI
 @onready var actions_ui: ActionsUI = %ActionsUI
+@onready var stats_ui: StatsUI = %StatsUI
 
 var noclip: bool:
 	set(value):

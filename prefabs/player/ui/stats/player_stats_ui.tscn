@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dpg1hinqh1xs0"]
+
+[ext_resource type="Script" uid="uid://dk1n2h1xjwqbs" path="res://prefabs/player/ui/stats/player_stats_ui.gd" id="1_6dsl0"]
+[ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://common/theme/theme.tres" id="1_rjmdk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rjmdk"]
+line_spacing = -5.0
+font_size = 28
+font_color = Color(1, 0.88235295, 0.7921569, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.78431374)
+shadow_offset = Vector2(1.5, 1)
+
+[node name="StatsUI" type="Control" unique_id=430245182]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6dsl0")
+
+[node name="Label" type="Label" parent="." unique_id=807379525]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 123.0
+theme = ExtResource("1_rjmdk")
+label_settings = SubResource("LabelSettings_rjmdk")
+vertical_alignment = 2
