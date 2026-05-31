@@ -58,7 +58,7 @@ func _on_action(action: AIAction):
 
 
 func _on_timer_timeout():
-	if character.visible:
+	if character.visible or character.is_deleted:
 		return 
 	vfxprofile.spawn(global_position)
 
