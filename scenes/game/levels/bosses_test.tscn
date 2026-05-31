@@ -22,7 +22,7 @@
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="14_m7sgn"]
 [ext_resource type="PackedScene" uid="uid://2c483lnj3eel" path="res://prefabs/combat/bullets/variations/stone_fall/stone_fall.tscn" id="15_sj5jv"]
 [ext_resource type="PackedScene" uid="uid://b7jopm86b0plu" path="res://prefabs/combat/bullets/variations/stone_rickoshet_shot/stone_rickoshet_shot.tscn" id="16_egl16"]
-[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="19_hk7ad"]
+[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="19_hk7ad"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="23_mtt35"]
 
 [sub_resource type="Resource" id="Resource_hk7ad"]
@@ -84,7 +84,7 @@ metadata/_custom_type_script = "uid://ctqdits5kj2tk"
 [sub_resource type="Resource" id="Resource_hil4o"]
 script = ExtResource("9_fflhd")
 action_name = "dig"
-weight = 1232323.0
+weight = 1.0
 phases = Array[int]([1, 2])
 duration = 9.0
 can_move = true
@@ -346,7 +346,7 @@ projectile_homing = true
 [node name="PathDotMovementController2D" type="Node2D" parent="Enemies/Bosses/GiantRacoon/AIController" index="5" unique_id=1549073554 node_paths=PackedStringArray("path")]
 script = ExtResource("8_i3ex6")
 path = NodePath("../../../Path2D")
-break_duration_min = 0.5
+break_duration_min = 1.0
 break_duration_max = 1.25
 speed = 60.0
 enabled = false

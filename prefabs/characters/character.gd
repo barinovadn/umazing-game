@@ -124,6 +124,13 @@ signal movement_controller_changed(new_controller: MovementController2D)
 		stat_shooting_speed = value
 		if stat_shooting_speed and !stat_shooting_speed.value_changed.is_connected(_on_shooting_speed_changed):
 			stat_shooting_speed.value_changed.connect(_on_shooting_speed_changed)
+@export var stat_damage_ratio: Stat:
+	set(value):
+		if stat_damage_ratio:
+			stat_damage_ratio.value_changed.disconnect(_on_damage_ratio_changed)
+		stat_damage_ratio = value
+		if stat_damage_ratio and !stat_damage_ratio.value_changed.is_connected(_on_damage_ratio_changed):
+			stat_damage_ratio.value_changed.connect(_on_damage_ratio_changed)
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
@@ -215,6 +222,11 @@ func _on_shooting_speed_changed():
 
 func _on_armor_changed():
 	hurt_component.armor = stat_armor.value
+
+
+
+func _on_damage_ratio_changed():
+	shoot_controller.damage_ratio = stat_damage_ratio.value
 
 
 func _on_died():

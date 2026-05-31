@@ -40,7 +40,6 @@ func _physics_process(_delta):
 	
 	if is_moving:
 		if target_distance < distance_min:
-			print("DSDSDSDASDSDSa")
 			targed_reached.emit()
 			stop()
 		else:

@@ -43,7 +43,7 @@ var is_animation_needed: bool = false:
 			 else post_shot_cd_interval)
 var can_shoot: bool = true
 var shoot_ratio: float = 1.0
-
+var damage_ratio: float = 1.0
 
 
 func _ready():
@@ -72,7 +72,7 @@ func _apply_behavior(bullet: Bullet):
 		bullet.global_position = global_position
 	bullet.direction = direction
 	bullet.homing = projectile_homing
-	
+	bullet.damage *= damage_ratio
 	if projectile_bounce:
 		bullet.bounces = max(projectile_bounces_min, bullet.bounces)
 	bullet.turn_rate = max(bullet.turn_rate, projectile_turn_rate_min)
@@ -103,7 +103,7 @@ func _shoot():
 	on_shoot_cooldown = true
 	
 	if cooldown_timer:
-		cooldown_timer.start(interval_between_shots)
+		cooldown_timer.start(interval_between_shots * shoot_ratio)
 	
 	post_shot_cd_started.emit()
 
