@@ -89,20 +89,17 @@ func _input(event: InputEvent):
 	else:
 		character.direction = Vector2.ZERO
 	
+	if Input.is_action_pressed("shoot"):
+		shoot_controller.shoot()
+	else:
+		shoot_controller.stop_shooting()
+	
 	if event.is_action_released("mouse_interact"):
 		interactor.interact.call_deferred()
 		return
 		
 	if event.is_action_pressed("reflect"):
 		reflection.enable()
-		return
-	
-	if event.is_action_pressed("shoot"):
-		shoot_controller.shoot()
-		return
-		
-	if event.is_action_released("shoot"):
-		shoot_controller.stop_shooting()
 		return
 	
 	if event.is_action_pressed("noclip") and allow_cheats:
