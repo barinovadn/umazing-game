@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ykj61j4dgn6f"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_owngi"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_2wtey"]
+[ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="2_7j1d8"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_7j1d8"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_t4xc7"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_t4xc7"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="5_q05su"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_qu5rl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu5rl"]
+atlas = ExtResource("2_7j1d8")
+region = Rect2(497, 178, 14, 12)
+
+[sub_resource type="Resource" id="Resource_fwweg"]
+script = ExtResource("1_owngi")
+icon = SubResource("AtlasTexture_qu5rl")
+name = "Похлёбка отшельника"
+message = "Целая кастрюля ароматного рагу. После такого обеда даже удары врагов кажутся слабее.
++ 5 к здоровью
++ 2 к броне на 60  секунд"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q05su"]
+atlas = ExtResource("2_7j1d8")
+region = Rect2(497, 178, 14, 12)
+
+[sub_resource type="Resource" id="Resource_7obq0"]
+script = ExtResource("3_t4xc7")
+duration = 60.0
+value = 2.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[resource]
+script = ExtResource("6_qu5rl")
+rarity = 2
+name = "Похлёбка отшельника"
+icon = SubResource("AtlasTexture_q05su")
+description = Array[ExtResource("1_owngi")]([SubResource("Resource_fwweg")])
+effect_id = "POT_ARMOR"
+is_consumable = true
+is_active = true
+on_use_heal = 5.0
+on_use_modifier_armor = SubResource("Resource_7obq0")
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

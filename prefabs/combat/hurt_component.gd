@@ -183,7 +183,10 @@ func take_damage(amount: float = 0):
 	if !armor:
 		current_health -= amount
 	else:
-		current_health -= (amount / 2**(amount / armor))
+		var reduction_percent: float = clampf(armor / 100.0, 0.0, 1.0)
+		var final_damage: float = amount * (1.0 - reduction_percent)
+
+		current_health -= final_damage
 
 
 func heal(amount: float = 0):

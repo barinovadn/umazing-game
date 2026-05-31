@@ -1,3 +1,4 @@
+@icon("game.png")
 extends Node2D
 
 

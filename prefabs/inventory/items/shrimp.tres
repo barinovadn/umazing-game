@@ -12,17 +12,18 @@
 script = ExtResource("1_3hjnu")
 icon = ExtResource("1_g4olm")
 name = "Креветка"
-message = "Крупная сочная креветка в пышном, золотистом и ультра-хрустящем кляре."
+message = "Крупная сочная креветка в пышном, золотистом и ультра-хрустящем кляре.
++ 1.5 к здоровью"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [resource]
 script = ExtResource("6_2xdcr")
 name = "Креветка"
 icon = ExtResource("1_g4olm")
-max_stack = 4
+max_stack = 5
 description = Array[ExtResource("1_3hjnu")]([SubResource("Resource_pylf1")])
 is_consumable = true
 is_active = true
 is_stackable = true
-heal = 2.0
+on_use_heal = 1.5
 metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

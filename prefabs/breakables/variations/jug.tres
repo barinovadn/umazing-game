@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_0avmg"]
 [ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="1_jpsgh"]
 [ext_resource type="AudioStream" uid="uid://c5ao7p1ys2tvu" path="res://prefabs/combat/sounds/impact_1.wav" id="2_0avmg"]
-[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi.tres" id="2_88vba"]
+[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi1.tres" id="2_88vba"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="2_sa5o1"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="3_0avmg"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="4_yobjg"]

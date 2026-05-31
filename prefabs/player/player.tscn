@@ -12,15 +12,16 @@
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="6_oo3uv"]
 [ext_resource type="Script" uid="uid://pw3x0udulq81" path="res://common/grid_camera/grid_camera_fade.gd" id="6_vhck3"]
 [ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/combat/bullets/variations/comons/shuriken/shuriken.tscn" id="7_30gqm"]
-[ext_resource type="AudioStream" uid="uid://d22fcw3uhvd35" path="res://prefabs/player/player_hit_1.ogg" id="7_agiw0"]
+[ext_resource type="AudioStream" uid="uid://d22fcw3uhvd35" path="res://prefabs/player/sounds/player_hit_1.ogg" id="7_agiw0"]
 [ext_resource type="PackedScene" uid="uid://bc23rt8gxe0c8" path="res://prefabs/environment/environment_particles.tscn" id="7_ev8v4"]
 [ext_resource type="PackedScene" uid="uid://snn0mqvjipik" path="res://prefabs/combat/bullets/variations/unique_projectiles/reflection/reflection.tscn" id="8_8hk3c"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/unique_projectiles/damage_area/damage_area.tscn" id="8_ocyg1"]
 [ext_resource type="PackedScene" uid="uid://clgcdaru1mfqg" path="res://prefabs/environment/environment_filter.tscn" id="8_vhck3"]
 [ext_resource type="PackedScene" uid="uid://wwa44iu3nw2s" path="res://prefabs/inventory/inventory_ui.tscn" id="9_whck3"]
-[ext_resource type="Script" path="res://prefabs/player/player_health_ui.gd" id="11_30gqm"]
-[ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/player_health_default.png" id="14_ot5ig"]
+[ext_resource type="Script" uid="uid://birdif0qn1ixy" path="res://prefabs/player/ui/health/player_health_ui.gd" id="11_30gqm"]
+[ext_resource type="Texture2D" uid="uid://cnorhpyw42yqy" path="res://prefabs/player/ui/health/player_health_default.png" id="14_ot5ig"]
 [ext_resource type="Script" uid="uid://dmnms2yxyi7u2" path="res://prefabs/combat/ui/bosses/boss_ui.gd" id="15_agiw0"]
+[ext_resource type="PackedScene" uid="uid://5vrvr5fuai1l" path="res://prefabs/player/ui/actions/player_actions_ui.tscn" id="22_a2w56"]
 
 [sub_resource type="Resource" id="Resource_a2w56"]
 script = ExtResource("4_dxdrd")
@@ -197,6 +198,15 @@ grow_vertical = 0
 theme_override_constants/separation = 60
 alignment = 2
 script = ExtResource("15_agiw0")
+
+[node name="ActionsUI" parent="UI" unique_id=2122713604 instance=ExtResource("22_a2w56")]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -132.0
+offset_right = -36.0
+grow_horizontal = 0
 
 [connection signal="character_changed" from="." to="." method="_on_character_changed"]
 [connection signal="fatal_damage_taken" from="Components/HurtComponent" to="." method="_on_fatal_damage_taken"]

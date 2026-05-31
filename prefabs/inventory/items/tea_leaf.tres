@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bp6d0dfe2yiil"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_st7is"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_0ffe3"]
+[ext_resource type="Texture2D" uid="uid://j777mis5apqa" path="res://prefabs/inventory/items/tea_leaf.png" id="2_7vt25"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_7vt25"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_h8d03"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_h8d03"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="5_55gub"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_o7sik"]
+
+[sub_resource type="Resource" id="Resource_55gub"]
+script = ExtResource("1_st7is")
+icon = ExtResource("2_7vt25")
+name = "Лист чайного дерева"
+message = "Свежий лист, наполненный энергией природы.
++ 0.3 к скорости передвижения на 30 секунд"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_o7sik"]
+script = ExtResource("3_h8d03")
+duration = 30.0
+value = 0.3
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[resource]
+script = ExtResource("6_o7sik")
+name = "Лист чайного дерева"
+icon = ExtResource("2_7vt25")
+max_stack = 10
+description = Array[ExtResource("1_st7is")]([SubResource("Resource_55gub")])
+effect_id = "LEAF_SPEED_RATIO"
+is_consumable = true
+is_active = true
+is_stackable = true
+on_use_modifier_speed_ratio = SubResource("Resource_o7sik")
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

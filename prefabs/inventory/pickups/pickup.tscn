@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_y66sm"]
 script = ExtResource("4_4sid4")
-effect = 200
+effect = 700
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [sub_resource type="Resource" id="Resource_hy17o"]

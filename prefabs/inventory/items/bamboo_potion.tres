@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cpdxwrsjmswpq"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_lgwix"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_1mkdr"]
+[ext_resource type="Texture2D" uid="uid://bl8d62lfftn2r" path="res://prefabs/inventory/items/bamboo_potion.png" id="2_sarjd"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_sarjd"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_xb7tw"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_xb7tw"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="5_pvr7m"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_r48ho"]
+
+[sub_resource type="Resource" id="Resource_pvr7m"]
+script = ExtResource("3_xb7tw")
+duration = 5.0
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[resource]
+script = ExtResource("6_r48ho")
+rarity = 2
+name = "Зелье Духа Леса"
+icon = ExtResource("2_sarjd")
+effect_id = "INVULNERABLE_BAMBOO_POTION"
+modifier_invulnerable = SubResource("Resource_pvr7m")
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

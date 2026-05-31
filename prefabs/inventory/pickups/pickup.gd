@@ -34,7 +34,7 @@ func _ready():
 	if item_data:
 		sprite.texture = item_data.icon
 		set_light_by_rarity(item_data)
-
+	
 	var vfx_spawn = item_data.rarity_spawn_vfx.get(item_data.rarity)
 	if not vfx_spawn:
 		vfx_spawn = default_vfx_spawn
