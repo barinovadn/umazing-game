@@ -18,7 +18,6 @@ func update(data: BossContainerData, controller: AIController):
 	if data.texture_under: bar.texture_under = data.texture_under
 	if data.texture_progress: bar.texture_progress = data.texture_progress
 	if data.texture_over: bar.texture_over = data.texture_over
-	
 	label.text = data.display_name
 	label.add_theme_color_override("font_color", data.display_color)
 	bar.max_value = controller.hurt_component.max_health

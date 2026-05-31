@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://61q684b2ale5"
-path="res://.godot/imported/Idle.png-5088b9557d6730cb85d5afd8f2a5d034.ctex"
+uid="uid://bh3rv75do22or"
+path="res://.godot/imported/sprite_sheet_enraged.png-a9aecf79590a781a486c581926c2219f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/giant_racoon/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-5088b9557d6730cb85d5afd8f2a5d034.ctex"]
+source_file="res://prefabs/characters/bosses/giant_racoon/sprite_sheet_enraged.png"
+dest_files=["res://.godot/imported/sprite_sheet_enraged.png-a9aecf79590a781a486c581926c2219f.ctex"]
 
 [params]
 

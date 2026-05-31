@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cce0gyxkvi4g7"
-path="res://.godot/imported/Idle.png-d359156de8c2fd81ab86d614c9c170f6.ctex"
+uid="uid://b0kuqmye5r3ga"
+path="res://.godot/imported/sprite_sheet_walk.png-485447c080615d704a12e7076560853c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/giant_slime/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-d359156de8c2fd81ab86d614c9c170f6.ctex"]
+source_file="res://prefabs/characters/bosses/giant_racoon/sprite_sheet_walk.png"
+dest_files=["res://.godot/imported/sprite_sheet_walk.png-485447c080615d704a12e7076560853c.ctex"]
 
 [params]
 

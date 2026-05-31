@@ -8,7 +8,6 @@ signal shooting_is_available()
 signal post_shot_cd_started()
 signal post_shot_cd_finished()
 
-
 @export var position_needed: bool = false
 @export var position_new: Vector2 = Vector2.ZERO
 @export var enabled: bool = true
@@ -75,6 +74,7 @@ func _apply_behavior(bullet: Bullet):
 		bullet.global_position = global_position
 	bullet.direction = direction
 	bullet.homing = projectile_homing if projectile_homing else bullet.homing
+	bullet.use_spawn_direction = team == HurtComponent.Team.PLAYER
 	bullet.damage *= damage_ratio
 	if projectile_bounce:
 		bullet.bounces = max(projectile_bounces_min, bullet.bounces)
@@ -101,6 +101,8 @@ func _shoot():
 		var bullet = bullets.pick_random().instantiate() as Bullet
 		_apply_behavior(bullet)
 		Game.bullets.add_child(bullet)
+	else:
+		return
 	
 	is_animation_needed = true
 	on_shoot_cooldown = true

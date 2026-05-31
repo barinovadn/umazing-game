@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duydl851j6n2i"
-path="res://.godot/imported/Jump.png-897ed3380dd1ad15b291a236d5b1b2e7.ctex"
+uid="uid://cce0gyxkvi4g7"
+path="res://.godot/imported/sprite_sheet_idle.png-66bc4a96286d7dce16fe3c23da37e668.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/giant_slime/Jump.png"
-dest_files=["res://.godot/imported/Jump.png-897ed3380dd1ad15b291a236d5b1b2e7.ctex"]
+source_file="res://prefabs/characters/bosses/giant_slime/sprite_sheet_idle.png"
+dest_files=["res://.godot/imported/sprite_sheet_idle.png-66bc4a96286d7dce16fe3c23da37e668.ctex"]
 
 [params]
 

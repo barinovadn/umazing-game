@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bbu8e4yixl2st"]
 
 [ext_resource type="PackedScene" uid="uid://41x1u1qme7gn" path="res://prefabs/characters/character.tscn" id="1_xdiju"]
-[ext_resource type="Texture2D" uid="uid://conyoi5pkdyav" path="res://prefabs/characters/sprite_sheet.png" id="2_xodrr"]
-[ext_resource type="Texture2D" uid="uid://d12k8voddeovu" path="res://prefabs/characters/bosses/giant_slime/Hit.png" id="3_66vkp"]
-[ext_resource type="Texture2D" uid="uid://cce0gyxkvi4g7" path="res://prefabs/characters/bosses/giant_slime/Idle.png" id="4_eov5b"]
-[ext_resource type="Texture2D" uid="uid://duydl851j6n2i" path="res://prefabs/characters/bosses/giant_slime/Jump.png" id="5_nqg3t"]
+[ext_resource type="Texture2D" uid="uid://c140386punlx0" path="res://prefabs/characters/bosses/giant_slime/sprite_sheet_enraged.png" id="2_xdiju"]
+[ext_resource type="Texture2D" uid="uid://d12k8voddeovu" path="res://prefabs/characters/bosses/giant_slime/sprite_sheet_downed.png" id="3_66vkp"]
+[ext_resource type="Texture2D" uid="uid://cce0gyxkvi4g7" path="res://prefabs/characters/bosses/giant_slime/sprite_sheet_idle.png" id="4_eov5b"]
+[ext_resource type="Texture2D" uid="uid://duydl851j6n2i" path="res://prefabs/characters/bosses/giant_slime/sprite_sheet_walk.png" id="5_nqg3t"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bs300"]
-atlas = ExtResource("2_xodrr")
-region = Rect2(32, 64, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xodrr"]
+atlas = ExtResource("2_xdiju")
+region = Rect2(0, 0, 52, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ge0xv"]
 atlas = ExtResource("3_66vkp")
@@ -106,11 +106,11 @@ region = Rect2(744, 0, 62, 52)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bs300")
+"texture": SubResource("AtlasTexture_xodrr")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_left",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -194,14 +194,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_left",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="GiantSlime" unique_id=2065001503 instance=ExtResource("1_xdiju")]
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_sqt56")
-animation = &"walk_left"
+animation = &"downed"
 autoplay = ""
 frame_progress = 0.0
 
