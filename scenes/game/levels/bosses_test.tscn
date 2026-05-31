@@ -607,7 +607,7 @@ stat_cant_shoot = SubResource("Resource_ij3ly")
 stat_cant_interract = SubResource("Resource_y3ty4")
 stat_shooting_speed = SubResource("Resource_bcg5v")
 
-[node name="AIController" parent="Enemies/Bosses/GiantBamboo" index="5" unique_id=359908874 node_paths=PackedStringArray("bamboo_breakables", "aim_positions", "character", "inspectable", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("4_lonoe")]
+[node name="AIController" parent="Enemies/Bosses/GiantBamboo" index="5" unique_id=359908874 node_paths=PackedStringArray("bamboo_breakables", "aim_positions", "character", "inspectable", "movement_patterns", "show_on_death") instance=ExtResource("4_lonoe")]
 script = ExtResource("28_dlq5l")
 bamboo_breakables = []
 aim_positions = [NodePath("../../BambooMarkers/Marker2D"), NodePath("../../BambooMarkers/Marker2D2"), NodePath("../../BambooMarkers/Marker2D3"), NodePath("../../BambooMarkers/Marker2D4"), NodePath("../../BambooMarkers/Marker2D5")]
@@ -622,8 +622,7 @@ movement_patterns = {
 "rest": NodePath("AreaMovementController")
 }
 modifier = SubResource("Resource_w2d2t")
-show_on_death = [NodePath("")]
-tp_on_death = NodePath("")
+show_on_death = [null]
 data_for_interface = SubResource("Resource_pehxf")
 interface_needed = true
 
@@ -646,15 +645,14 @@ projectile_homing = true
 
 [node name="AreaMovementController" type="Node2D" parent="Enemies/Bosses/GiantBamboo/AIController" index="6" unique_id=1256127875 node_paths=PackedStringArray("regions")]
 script = ExtResource("19_hk7ad")
-regions = [NodePath(""), NodePath("")]
+regions = [NodePath("../../../GiantBambooRegion1"), NodePath("../../../GiantBambooRegion2")]
 min_radius = 200.0
 break_time = 0.001
 speed = 60.0
 enabled = false
 
-[node name="BehaviourFollow2D" type="Node2D" parent="Enemies/Bosses/GiantBamboo/AIController" index="7" unique_id=367059968 node_paths=PackedStringArray("target", "body")]
+[node name="BehaviourFollow2D" type="Node2D" parent="Enemies/Bosses/GiantBamboo/AIController" index="7" unique_id=367059968 node_paths=PackedStringArray("body")]
 script = ExtResource("23_mtt35")
-target = NodePath("")
 body = NodePath("../..")
 distance_min = 1.0
 distance_max = 2.0
