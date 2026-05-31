@@ -97,7 +97,7 @@ func _shoot():
 	on_shoot_cooldown = true
 	
 	if cooldown_timer:
-		cooldown_timer.start(interval_between_shots)
+		cooldown_timer.start(interval_between_shots * shoot_ratio)
 	
 	post_shot_cd_started.emit()
 

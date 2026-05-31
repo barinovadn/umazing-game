@@ -11,6 +11,7 @@ enum Rarity { COMMON, RARE, EPIC }
 @export var max_stack: int = 99
 @export var description: Array[Dialogue]
 @export var description_on_use: Array[Dialogue]
+@export var effect_id: String
 
 @export_group("Flags")
 @export var is_consumable: bool = false
@@ -20,6 +21,12 @@ enum Rarity { COMMON, RARE, EPIC }
 @export_group("Effects")
 @export var heal: float = 0.0
 @export var max_hp_increase: float = 0.0
+
+@export_group("Modifiers")
+@export var modifier_speed_ratio: Modifier
+@export var modifier_invulnerable: Modifier
+@export var modifier_armor: Modifier
+@export var modifier_shooting_speed: Modifier
 
 @export_group("Visuals & Sounds", "rarity")
 @export var rarity_colors: Dictionary[Rarity, Color] = {
@@ -43,6 +50,13 @@ enum Rarity { COMMON, RARE, EPIC }
 	Rarity.EPIC: preload("res://prefabs/inventory/pickups/collect_rare.ogg"),
 	}
 
+func _on_item_added_to_inventory():
+	print("Добавлено")
+
+
+func _on_item_removed_to_inventory():
+	print("Удалено")
+
 
 func is_in_inventory():
 	if Game.player and Game.player.inventory:
@@ -59,5 +73,19 @@ func get_total_amount():
 func use():
 	Game.player.hurt_component.max_health += max_hp_increase
 	Game.player.hurt_component.current_health += heal
+
+	if Game.player.character:
+		if modifier_speed_ratio and Game.player.character.stat_speed_ratio:
+			Game.player.character.stat_speed_ratio.add_modifier(effect_id, modifier_speed_ratio)
+
+		if modifier_invulnerable and Game.player.character.stat_invulnerable:
+			Game.player.character.stat_invulnerable.add_modifier(effect_id, modifier_invulnerable)
+
+		if modifier_armor and Game.player.character.stat_armor:
+			Game.player.character.stat_armor.add_modifier(effect_id, modifier_armor)
+
+		if modifier_shooting_speed and Game.player.character.stat_shooting_speed:
+			Game.player.character.stat_shooting_speed.add_modifier(effect_id, modifier_shooting_speed)
+
 	if len(description_on_use):
 		Game.dialogue_system.display(description_on_use.pick_random())
