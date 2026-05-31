@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://mxyh1j8e1keb"]
+
+[ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/combat/bullets/bullet.tscn" id="1_uss28"]
+[ext_resource type="Script" uid="uid://cl7wap6wr4y77" path="res://prefabs/combat/bullets/variations/comons/arrow/arrow.gd" id="2_dacgx"]
+[ext_resource type="Texture2D" uid="uid://cds2rf4l6t07" path="res://prefabs/combat/bullets/variations/comons/arrow/Arrow.png" id="3_u8pt6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt3iy"]
+atlas = ExtResource("3_u8pt6")
+region = Rect2(0, 0, 13, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6mq32"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt3iy")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 5.0
+}]
+
+[node name="Bullet" unique_id=419752470 instance=ExtResource("1_uss28")]
+script = ExtResource("2_dacgx")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
+sprite_frames = SubResource("SpriteFrames_6mq32")
+animation = &"shot"

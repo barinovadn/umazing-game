@@ -91,10 +91,10 @@ signal movement_controller_changed(new_controller: MovementController2D)
 @export var stat_invulnerable: Stat:
 	set(value):
 		if stat_invulnerable:
-			stat_invulnerable.value_changed.disconnect(_on_invincibility_changed)
+			stat_invulnerable.value_changed.disconnect(_on_invulnurability_changed)
 		stat_invulnerable = value
-		if stat_invulnerable and !stat_invulnerable.value_changed.is_connected(_on_invincibility_changed):
-			stat_invulnerable.value_changed.connect(_on_invincibility_changed)
+		if stat_invulnerable and !stat_invulnerable.value_changed.is_connected(_on_invulnurability_changed):
+			stat_invulnerable.value_changed.connect(_on_invulnurability_changed)
 @export var stat_armor: Stat:
 	set(value):
 		if stat_armor:
@@ -154,8 +154,22 @@ var is_deleted: bool = false
 func _ready():
 	if animator:
 		animator.play(start_animation)
+	update_stats()
+
+
+func update_stats():
 	if stat_armor.value:
 		_on_armor_changed()
+	if stat_cant_interract.value:
+		_on_armor_changed()
+	if stat_cant_shoot.value:
+		_on_cant_shoot_changed()
+	if stat_invulnerable.value:
+		_on_invulnurability_changed()
+	if stat_shooting_speed.value:
+		_on_shooting_speed_changed()
+	if stat_damage_ratio.value:
+		_on_damage_ratio_changed()
 
 
 func _physics_process(_delta):
@@ -192,6 +206,10 @@ func _duplicate_stats():
 		stat_invulnerable = stat_invulnerable.duplicate()
 	if stat_cant_interract:
 		stat_cant_interract = stat_cant_interract.duplicate()
+	if stat_damage_ratio:
+		stat_damage_ratio = stat_damage_ratio.duplicate()
+	if stat_shooting_speed:
+		stat_shooting_speed = stat_shooting_speed.duplicate()
 
 
 func _on_damaged(_value: float = 1.0):
@@ -201,13 +219,15 @@ func _on_damaged(_value: float = 1.0):
 	stat_invulnerable.add_modifier(var_to_str(modifier_invulnerability.get_instance_id()), modifier_invulnerability)
 
 
-func _on_invincibility_changed():
-	hurt_component.is_invulnerable = stat_invulnerable.value
+func _on_invulnurability_changed():
+	if hurt_component:
+		hurt_component.is_invulnerable = stat_invulnerable.value
 	animation_player.play("FLICKER" if stat_invulnerable.value else "RESET")
 
 
 func _on_cant_shoot_changed():
-	shoot_controller.can_shoot = not stat_cant_shoot.value
+	if shoot_controller:
+		shoot_controller.can_shoot = not stat_cant_shoot.value
 
 
 func _on_cant_interract_changed():
@@ -216,16 +236,18 @@ func _on_cant_interract_changed():
 
 
 func _on_shooting_speed_changed():
-	shoot_controller.shoot_ratio = stat_shooting_speed.value
+	if shoot_controller:
+		shoot_controller.shoot_ratio = stat_shooting_speed.value
 
 
 func _on_armor_changed():
-	hurt_component.armor = stat_armor.value
-
+	if hurt_component:
+		hurt_component.armor = stat_armor.value
 
 
 func _on_damage_ratio_changed():
-	shoot_controller.damage_ratio = stat_damage_ratio.value
+	if shoot_controller:
+		shoot_controller.damage_ratio = stat_damage_ratio.value
 
 
 func _on_died():
@@ -296,6 +318,9 @@ func remote_all_modifications():
 	stat_cant_shoot.remote_all_modifiers()
 	stat_invulnerable.remote_all_modifiers()
 	stat_speed_ratio.remote_all_modifiers()
+	stat_cant_interract.remote_all_modifiers()
+	stat_shooting_speed.remote_all_modifiers()
+	stat_damage_ratio.remote_all_modifiers()
 
 
 func delete():

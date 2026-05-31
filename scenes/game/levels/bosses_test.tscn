@@ -33,13 +33,9 @@ value = 1.0
 operation = 1
 metadata/_custom_type_script = "uid://ctqdits5kj2tk"
 
-[sub_resource type="Resource" id="Resource_nmf1y"]
-script = ExtResource("4_s6g6n")
-base_value = 1.0
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
 [sub_resource type="Resource" id="Resource_egl16"]
 script = ExtResource("4_s6g6n")
+base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_mtt35"]
@@ -59,6 +55,85 @@ script = ExtResource("4_s6g6n")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_rskws"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_8augw"]
+script = ExtResource("4_s6g6n")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_1r8ri"]
+script = ExtResource("4_s6g6n")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_u5n4u"]
+script = ExtResource("4_s6g6n")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_kura7"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_38i0a"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_1q0b0"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_v6rn7"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_ij3ly"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_y3ty4"]
+script = ExtResource("4_s6g6n")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_bcg5v"]
+script = ExtResource("4_s6g6n")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_qtrp1"]
+script = ExtResource("4_s6g6n")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_k0tm2"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_5owx6"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_25f2l"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_0b57j"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_hjcxf"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_arhyt"]
+script = ExtResource("4_s6g6n")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_me7r1"]
 script = ExtResource("4_s6g6n")
 base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
@@ -283,18 +358,27 @@ tile_map_data = PackedByteArray("AADh/xkAAAAEAAUAAADi/xkAAAAEAAUAAADj/xkAAAAEAAU
 position = Vector2(-561, 262)
 invulnerability_duration = 0.7
 modifier_invulnerability = SubResource("Resource_hk7ad")
-stat_speed_ratio = SubResource("Resource_nmf1y")
-stat_invulnerable = SubResource("Resource_egl16")
-stat_armor = SubResource("Resource_mtt35")
-stat_cant_move = SubResource("Resource_4aouh")
-stat_cant_shoot = SubResource("Resource_aalkj")
-stat_cant_interract = SubResource("Resource_54nrk")
-stat_shooting_speed = SubResource("Resource_rskws")
+stat_speed_ratio = SubResource("Resource_egl16")
+stat_invulnerable = SubResource("Resource_mtt35")
+stat_armor = SubResource("Resource_4aouh")
+stat_cant_move = SubResource("Resource_aalkj")
+stat_cant_shoot = SubResource("Resource_54nrk")
+stat_cant_interract = SubResource("Resource_rskws")
+stat_shooting_speed = SubResource("Resource_8augw")
+stat_damage_ratio = SubResource("Resource_1r8ri")
 
 [node name="GiantBamboo" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1901693560 node_paths=PackedStringArray("hurt_component") instance=ExtResource("3_cp8gd")]
 position = Vector2(561, -29)
 hurt_component = NodePath("AIController/HurtComponent")
 afterlife_duration = 2.0
+stat_speed_ratio = SubResource("Resource_u5n4u")
+stat_invulnerable = SubResource("Resource_kura7")
+stat_armor = SubResource("Resource_38i0a")
+stat_cant_move = SubResource("Resource_1q0b0")
+stat_cant_shoot = SubResource("Resource_v6rn7")
+stat_cant_interract = SubResource("Resource_ij3ly")
+stat_shooting_speed = SubResource("Resource_y3ty4")
+stat_damage_ratio = SubResource("Resource_bcg5v")
 
 [node name="AIController" parent="Enemies/Bosses/GiantBamboo" index="5" unique_id=359908874 instance=ExtResource("4_lonoe")]
 
@@ -311,6 +395,14 @@ collision_mask = 1
 hurt_component = NodePath("AIController/HurtComponent")
 shoot_controller = NodePath("AIController/ShootController")
 afterlife_duration = 4.0
+stat_speed_ratio = SubResource("Resource_qtrp1")
+stat_invulnerable = SubResource("Resource_k0tm2")
+stat_armor = SubResource("Resource_5owx6")
+stat_cant_move = SubResource("Resource_25f2l")
+stat_cant_shoot = SubResource("Resource_0b57j")
+stat_cant_interract = SubResource("Resource_hjcxf")
+stat_shooting_speed = SubResource("Resource_arhyt")
+stat_damage_ratio = SubResource("Resource_me7r1")
 
 [node name="AIController" parent="Enemies/Bosses/GiantRacoon" index="5" unique_id=1927809777 node_paths=PackedStringArray("shooting_positions", "character", "movement_patterns") instance=ExtResource("4_lonoe")]
 script = ExtResource("8_3pqcu")

@@ -259,6 +259,10 @@ script = ExtResource("32_ukxex")
 base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
+[sub_resource type="Resource" id="Resource_ruwpk"]
+script = ExtResource("32_ukxex")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
 [sub_resource type="Curve2D" id="Curve2D_qex4a"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -24, -10, 0, 0, 0, 0, -8, 14, 0, 0, 0, 0, 24, 14)
@@ -1428,6 +1432,7 @@ stat_cant_move = SubResource("Resource_urt2a")
 stat_cant_shoot = SubResource("Resource_n1mjl")
 stat_cant_interract = SubResource("Resource_xsaom")
 stat_shooting_speed = SubResource("Resource_u2xuf")
+stat_damage_ratio = SubResource("Resource_ruwpk")
 
 [node name="PathDotMovement" type="Node2D" parent="Characters/Animals/Cat" index="4" unique_id=2086079038 node_paths=PackedStringArray("path")]
 script = ExtResource("14_roxwf")
