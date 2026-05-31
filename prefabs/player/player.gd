@@ -148,6 +148,11 @@ func _load_stats():
 		character.stat_armor.add_modifier(modifier_id,
 			 SaveManager.loaded_armor_modifiers[modifier_id])
 	
+	# DAMAGE
+	for modifier_id in SaveManager.loaded_damage_modifiers:
+		character.stat_shooting_speed.add_modifier(modifier_id,
+			 SaveManager.loaded_damage_modifiers[modifier_id])
+	
 	# SHOOT SPEED
 	for modifier_id in SaveManager.loaded_shoot_speed_modifiers:
 		character.stat_shooting_speed.add_modifier(modifier_id,

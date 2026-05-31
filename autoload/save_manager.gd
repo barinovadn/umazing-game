@@ -9,6 +9,7 @@ var loaded_hp: float = 0.0
 var loaded_max_hp: float = 0.0
 var loaded_speed_modifiers: Dictionary[String, Modifier] = {}
 var loaded_armor_modifiers: Dictionary[String, Modifier] = {}
+var loaded_damage_modifiers: Dictionary[String, Modifier] = {}
 var loaded_shoot_speed_modifiers: Dictionary[String, Modifier] = {}
 var loaded_playtime: float = 0.0
 
@@ -46,6 +47,7 @@ func save_game():
 		"max_health": Game.player.character.hurt_component.max_health,
 		"speed_modifiers": Game.player.character.stat_speed_ratio.modifications,
 		"armor_modifiers": Game.player.character.stat_armor.modifications,
+		"damage_modifiers": Game.player.character.stat_damage_ratio.modifications,
 		"shoot_speed_modifiers":
 			Game.player.character.stat_shooting_speed.modifications,
 		"playtime": Game.player.playtime,
@@ -90,6 +92,7 @@ func load_game(new_game: bool = false):
 	# STATS
 	loaded_speed_modifiers = _load_stat_modifiers(save_data, "speed_modifiers")
 	loaded_armor_modifiers = _load_stat_modifiers(save_data, "armor_modifiers")
+	loaded_damage_modifiers = _load_stat_modifiers(save_data, "damage_modifiers")
 	loaded_shoot_speed_modifiers = _load_stat_modifiers(save_data, "shoot_speed_modifiers")
 	
 	# PLAYTIME
