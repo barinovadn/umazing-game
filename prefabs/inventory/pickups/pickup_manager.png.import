@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgf0ua4a7olkw"
-path="res://.godot/imported/inventory.png-c6ae2549fc37828dd65c187ffd8a3ad5.ctex"
+uid="uid://buhbti1dk27wo"
+path="res://.godot/imported/pickup_manager.png-72d0c795265cd5db923c2e1fce12edc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/inventory/inventory.png"
-dest_files=["res://.godot/imported/inventory.png-c6ae2549fc37828dd65c187ffd8a3ad5.ctex"]
+source_file="res://prefabs/inventory/pickups/pickup_manager.png"
+dest_files=["res://.godot/imported/pickup_manager.png-72d0c795265cd5db923c2e1fce12edc8.ctex"]
 
 [params]
 

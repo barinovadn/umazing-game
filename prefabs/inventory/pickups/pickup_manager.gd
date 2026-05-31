@@ -1,3 +1,4 @@
+@icon("pickup_manager.png")
 extends Node
 class_name PickupManager
 
