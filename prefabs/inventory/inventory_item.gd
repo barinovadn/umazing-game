@@ -61,29 +61,35 @@ enum Rarity { COMMON, RARE, EPIC }
 
 
 func _on_item_added_to_inventory():
+	if not is_instance_valid(Game.player):
+		await Game.get_tree().process_frame
+	if not is_instance_valid(Game.player):
+		push_error("Trying to access Game.player while its null!")
+		return
+	
 	Game.player.hurt_component.max_health += passive_max_hp_increase
-
+	
 	if Game.player.character:
 		if passive_modifier_speed_ratio and Game.player.character.stat_speed_ratio:
 			Game.player.character.stat_speed_ratio.add_modifier(effect_id, passive_modifier_speed_ratio)
-
+		
 		if passive_modifier_armor and Game.player.character.stat_armor:
 			Game.player.character.stat_armor.add_modifier(effect_id, passive_modifier_armor)
-
+		
 		if passive_modifier_shooting_speed and Game.player.character.stat_shooting_speed:
 			Game.player.character.stat_shooting_speed.add_modifier(effect_id, passive_modifier_shooting_speed)
 
 
 func _on_item_removed_to_inventory():
 	Game.player.hurt_component.max_health -= passive_max_hp_increase
-
+	
 	if Game.player.character:
 		if passive_modifier_speed_ratio and Game.player.character.stat_speed_ratio:
 			Game.player.character.stat_speed_ratio.remove_modifier(effect_id)
-
+		
 		if passive_modifier_armor and Game.player.character.stat_armor:
 			Game.player.character.stat_armor.remove_modifier(effect_id)
-
+		
 		if passive_modifier_shooting_speed and Game.player.character.stat_shooting_speed:
 			Game.player.character.stat_shooting_speed.remove_modifier(effect_id)
 
@@ -103,16 +109,16 @@ func get_total_amount():
 func use():
 	Game.player.hurt_component.max_health += on_use_max_hp_increase
 	Game.player.hurt_component.current_health += on_use_heal
-
+	
 	if Game.player.character:
 		if on_use_modifier_speed_ratio and Game.player.character.stat_speed_ratio:
 			Game.player.character.stat_speed_ratio.add_modifier(effect_id, on_use_modifier_speed_ratio)
-
+		
 		if on_use_modifier_armor and Game.player.character.stat_armor:
 			Game.player.character.stat_armor.add_modifier(effect_id, on_use_modifier_armor)
-
+		
 		if on_use_modifier_shooting_speed and Game.player.character.stat_shooting_speed:
 			Game.player.character.stat_shooting_speed.add_modifier(effect_id, on_use_modifier_shooting_speed)
-
+		
 	if len(description_on_use):
 		Game.dialogue_system.display(description_on_use.pick_random())
