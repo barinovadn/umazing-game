@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqkv0s6o0rq1q"
-path="res://.godot/imported/onigiri.png-cf3b75dc875f441e0f137e21bb8b7d1b.ctex"
+uid="uid://k11aunexlrg5"
+path="res://.godot/imported/dango.png-7b4cfc6bf15d8d0fdcdca303b34582b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/inventory/items/onigiri.png"
-dest_files=["res://.godot/imported/onigiri.png-cf3b75dc875f441e0f137e21bb8b7d1b.ctex"]
+source_file="res://prefabs/inventory/items/dango.png"
+dest_files=["res://.godot/imported/dango.png-7b4cfc6bf15d8d0fdcdca303b34582b5.ctex"]
 
 [params]
 

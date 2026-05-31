@@ -8,10 +8,18 @@
 [ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="6_04xsi"]
 [ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="7_q5d7i"]
 
+[sub_resource type="Resource" id="Resource_eg2tp"]
+script = ExtResource("1_eg2tp")
+icon = ExtResource("2_eu1p2")
+name = "Кусок чертежа"
+message = "Пожелтевший от времени свиток, внутри которого находится кусок оружейного чертежа."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
 [resource]
 script = ExtResource("7_q5d7i")
 name = "Кусок чертежа"
 icon = ExtResource("2_eu1p2")
 max_stack = 3
+description = Array[ExtResource("1_eg2tp")]([SubResource("Resource_eg2tp")])
 is_stackable = true
 metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

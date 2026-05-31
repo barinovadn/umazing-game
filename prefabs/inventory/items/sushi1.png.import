@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://751w0vhntpm2"
-path="res://.godot/imported/dex_scroll.png-12cfeb2d941b29f069239098e95f0863.ctex"
+uid="uid://vb3atl3xsv2c"
+path="res://.godot/imported/sushi1.png-cc5121509283da1bfaa09170099c187f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/inventory/items/dex_scroll.png"
-dest_files=["res://.godot/imported/dex_scroll.png-12cfeb2d941b29f069239098e95f0863.ctex"]
+source_file="res://prefabs/inventory/items/sushi1.png"
+dest_files=["res://.godot/imported/sushi1.png-cc5121509283da1bfaa09170099c187f.ctex"]
 
 [params]
 

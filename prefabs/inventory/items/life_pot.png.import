@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqkv0s6o0rq1q"
-path="res://.godot/imported/onigiri.png-cf3b75dc875f441e0f137e21bb8b7d1b.ctex"
+uid="uid://dsrwd6ugeci21"
+path="res://.godot/imported/life_pot.png-e23733aeaad48a5924c9e0ecb543f287.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/inventory/items/onigiri.png"
-dest_files=["res://.godot/imported/onigiri.png-cf3b75dc875f441e0f137e21bb8b7d1b.ctex"]
+source_file="res://prefabs/inventory/items/life_pot.png"
+dest_files=["res://.godot/imported/life_pot.png-e23733aeaad48a5924c9e0ecb543f287.ctex"]
 
 [params]
 

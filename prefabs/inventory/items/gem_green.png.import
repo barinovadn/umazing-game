@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vb3atl3xsv2c"
-path="res://.godot/imported/sushi.png-169a9e7223c17eb4084f2b10f4851b93.ctex"
+uid="uid://bf0yvlitqx8ki"
+path="res://.godot/imported/gem_green.png-3fb4137adbd9a6340b3435fef495b0aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/inventory/items/sushi.png"
-dest_files=["res://.godot/imported/sushi.png-169a9e7223c17eb4084f2b10f4851b93.ctex"]
+source_file="res://prefabs/inventory/items/gem_green.png"
+dest_files=["res://.godot/imported/gem_green.png-3fb4137adbd9a6340b3435fef495b0aa.ctex"]
 
 [params]
 

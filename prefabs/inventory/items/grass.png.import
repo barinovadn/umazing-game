@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqkv0s6o0rq1q"
-path="res://.godot/imported/onigiri.png-cf3b75dc875f441e0f137e21bb8b7d1b.ctex"
+uid="uid://c640w0jwhosg3"
+path="res://.godot/imported/grass.png-5ab3db2b110ea7f7f9a5aa7bf2e7063f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/inventory/items/onigiri.png"
-dest_files=["res://.godot/imported/onigiri.png-cf3b75dc875f441e0f137e21bb8b7d1b.ctex"]
+source_file="res://prefabs/inventory/items/grass.png"
+dest_files=["res://.godot/imported/grass.png-5ab3db2b110ea7f7f9a5aa7bf2e7063f.ctex"]
 
 [params]
 

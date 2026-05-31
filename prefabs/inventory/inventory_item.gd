@@ -18,15 +18,24 @@ enum Rarity { COMMON, RARE, EPIC }
 @export var is_active: bool = false
 @export var is_stackable: bool = false
 
-@export_group("Effects")
-@export var heal: float = 0.0
-@export var max_hp_increase: float = 0.0
+@export_group("On use")
+@export_subgroup("Effects")
+@export var on_use_heal: float = 0.0
+@export var on_use_max_hp_increase: float = 0.0
 
-@export_group("Modifiers")
-@export var modifier_speed_ratio: Modifier
-@export var modifier_invulnerable: Modifier
-@export var modifier_armor: Modifier
-@export var modifier_shooting_speed: Modifier
+@export_subgroup("Modifiers")
+@export var on_use_modifier_speed_ratio: Modifier
+@export var on_use_modifier_armor: Modifier
+@export var on_use_modifier_shooting_speed: Modifier
+
+@export_group("Passive")
+@export_subgroup("Effects")
+@export var passive_max_hp_increase: float = 0.0
+
+@export_subgroup("Modifiers")
+@export var passive_modifier_speed_ratio: Modifier
+@export var passive_modifier_armor: Modifier
+@export var passive_modifier_shooting_speed: Modifier
 
 @export_group("Visuals & Sounds", "rarity")
 @export var rarity_colors: Dictionary[Rarity, Color] = {
@@ -50,11 +59,33 @@ enum Rarity { COMMON, RARE, EPIC }
 	Rarity.EPIC: preload("res://prefabs/inventory/pickups/collect_rare.ogg"),
 	}
 
+
 func _on_item_added_to_inventory():
-	pass
+	Game.player.hurt_component.max_health += passive_max_hp_increase
+
+	if Game.player.character:
+		if passive_modifier_speed_ratio and Game.player.character.stat_speed_ratio:
+			Game.player.character.stat_speed_ratio.add_modifier(effect_id, passive_modifier_speed_ratio)
+
+		if passive_modifier_armor and Game.player.character.stat_armor:
+			Game.player.character.stat_armor.add_modifier(effect_id, passive_modifier_armor)
+
+		if passive_modifier_shooting_speed and Game.player.character.stat_shooting_speed:
+			Game.player.character.stat_shooting_speed.add_modifier(effect_id, passive_modifier_shooting_speed)
+
 
 func _on_item_removed_to_inventory():
-	pass
+	Game.player.hurt_component.max_health -= passive_max_hp_increase
+
+	if Game.player.character:
+		if passive_modifier_speed_ratio and Game.player.character.stat_speed_ratio:
+			Game.player.character.stat_speed_ratio.remove_modifier(effect_id)
+
+		if passive_modifier_armor and Game.player.character.stat_armor:
+			Game.player.character.stat_armor.remove_modifier(effect_id)
+
+		if passive_modifier_shooting_speed and Game.player.character.stat_shooting_speed:
+			Game.player.character.stat_shooting_speed.remove_modifier(effect_id)
 
 
 func is_in_inventory():
@@ -70,21 +101,18 @@ func get_total_amount():
 
 
 func use():
-	Game.player.hurt_component.max_health += max_hp_increase
-	Game.player.hurt_component.current_health += heal
+	Game.player.hurt_component.max_health += on_use_max_hp_increase
+	Game.player.hurt_component.current_health += on_use_heal
 
 	if Game.player.character:
-		if modifier_speed_ratio and Game.player.character.stat_speed_ratio:
-			Game.player.character.stat_speed_ratio.add_modifier(effect_id, modifier_speed_ratio)
+		if on_use_modifier_speed_ratio and Game.player.character.stat_speed_ratio:
+			Game.player.character.stat_speed_ratio.add_modifier(effect_id, on_use_modifier_speed_ratio)
 
-		if modifier_invulnerable and Game.player.character.stat_invulnerable:
-			Game.player.character.stat_invulnerable.add_modifier(effect_id, modifier_invulnerable)
+		if on_use_modifier_armor and Game.player.character.stat_armor:
+			Game.player.character.stat_armor.add_modifier(effect_id, on_use_modifier_armor)
 
-		if modifier_armor and Game.player.character.stat_armor:
-			Game.player.character.stat_armor.add_modifier(effect_id, modifier_armor)
-
-		if modifier_shooting_speed and Game.player.character.stat_shooting_speed:
-			Game.player.character.stat_shooting_speed.add_modifier(effect_id, modifier_shooting_speed)
+		if on_use_modifier_shooting_speed and Game.player.character.stat_shooting_speed:
+			Game.player.character.stat_shooting_speed.add_modifier(effect_id, on_use_modifier_shooting_speed)
 
 	if len(description_on_use):
 		Game.dialogue_system.display(description_on_use.pick_random())
