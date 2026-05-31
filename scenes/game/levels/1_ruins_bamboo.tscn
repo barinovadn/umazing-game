@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="8_g6er8"]
 [ext_resource type="PackedScene" uid="uid://3mmildwaq6jn" path="res://prefabs/combat/bullets/variations/comons/plan_spike_great_shot/plan_spike_great_shot.tscn" id="8_o4ogu"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="9_o4ogu"]
-[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="10_8l32k"]
+[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="10_8l32k"]
 [ext_resource type="PackedScene" uid="uid://bc2kdebobsqlu" path="res://prefabs/interactions/interactables/inspectable/inspectable.tscn" id="12_g6er8"]
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="13_o4ogu"]
 [ext_resource type="Texture2D" uid="uid://co0t4ugk7xjxj" path="res://prefabs/characters/enemies/bamboo_enemy/portrait.png" id="14_8l32k"]
@@ -28,7 +28,6 @@
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="21_7uy36"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="22_o7mkv"]
 [ext_resource type="Texture2D" uid="uid://022sg5y1hce1" path="res://prefabs/characters/bosses/giant_bamboo/portrait.png" id="23_jlamk"]
-[ext_resource type="PackedScene" uid="uid://dobj6xx5d4p2c" path="res://prefabs/breakables/variations/bamboo_1.tscn" id="25_3xr4r"]
 [ext_resource type="AudioStream" uid="uid://jiupi2muxp24" path="res://prefabs/characters/bosses/giant_bamboo/sounds/bamboo_roar_1.wav" id="26_cpeik"]
 [ext_resource type="AudioStream" uid="uid://bgwqep33ow0sa" path="res://prefabs/characters/bosses/giant_bamboo/sounds/bamboo_roar_2.wav" id="27_g7hry"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="33_jtckt"]
@@ -36,13 +35,6 @@
 [sub_resource type="Resource" id="Resource_xnrer"]
 script = ExtResource("3_2s7w0")
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_o7mkv"]
-script = ExtResource("4_rp42h")
-duration = 1.0
-value = 1.0
-operation = 1
-metadata/_custom_type_script = "uid://ctqdits5kj2tk"
 
 [sub_resource type="Resource" id="Resource_tnvuw"]
 script = ExtResource("4_rp42h")
@@ -448,7 +440,6 @@ script = ExtResource("10_8l32k")
 regions = [NodePath("../../../BambooEnemyRegion1")]
 min_radius = 20.0
 speed = 50.0
-metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
 
 [node name="Inspectable" parent="Enemies/Basic/BambooEnemy1/AIController" index="6" unique_id=2087367069 instance=ExtResource("12_g6er8")]
 dialogues = Array[ExtResource("13_o4ogu")]([SubResource("Resource_qpanv"), SubResource("Resource_7uy36")])
@@ -484,7 +475,6 @@ script = ExtResource("10_8l32k")
 regions = [NodePath("../../../BambooEnemyRegion2")]
 min_radius = 20.0
 speed = 50.0
-metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
 
 [node name="BambooEnemy3" parent="Enemies/Basic" index="2" unique_id=1178697167 node_paths=PackedStringArray("hurt_component", "shoot_controller") instance=ExtResource("3_iv15g")]
 position = Vector2(970, -3)
@@ -516,7 +506,6 @@ script = ExtResource("10_8l32k")
 regions = [NodePath("../../../BambooEnemyRegion3")]
 min_radius = 20.0
 speed = 50.0
-metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
 
 [node name="BambooEnemyRegion1" type="NavigationRegion2D" parent="Enemies/Basic" index="3" unique_id=526088383]
 navigation_polygon = SubResource("NavigationPolygon_xnrer")
@@ -546,7 +535,7 @@ stat_shooting_speed = SubResource("Resource_cfjr6")
 
 [node name="AIController" parent="Enemies/Bosses/GiantBamboo" index="5" unique_id=1836590639 node_paths=PackedStringArray("bamboo_breakables", "aim_positions", "character", "inspectable", "movement_patterns", "show_on_death", "tp_on_death") instance=ExtResource("5_2s7w0")]
 script = ExtResource("16_tnvuw")
-bamboo_breakables = [NodePath("../../../../Breakables/GiantBambooBreakables/Breakable"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable2"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable3"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable4"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable5"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable6"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable7"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable8"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable9"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable10"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable11"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable12"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable13"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable14"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable15"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable16"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable17"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable18"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable19"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable20"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable21"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable22"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable2"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable3"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable4"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable5"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable6"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable7"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable8"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable9"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable10"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable11"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable12"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable13"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable14"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable15"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable16"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable17"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable18"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable19"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable20"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable21"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable22"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable23"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable24"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable25"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable26"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable27"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable28"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable29"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable30"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable31"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable32"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable33"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable34"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable35"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable36"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable37"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable38"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable39"), NodePath("../../../../Breakables/GiantBambooBreakables/Breakable40")]
+bamboo_breakables = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 aim_positions = [NodePath("../../BambooMarkers/Marker2D"), NodePath("../../BambooMarkers/Marker2D2"), NodePath("../../BambooMarkers/Marker2D3"), NodePath("../../BambooMarkers/Marker2D4")]
 vfx = SubResource("Resource_efqsy")
 character = NodePath("..")
@@ -588,7 +577,6 @@ min_radius = 200.0
 break_time = 0.001
 speed = 60.0
 enabled = false
-metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
 
 [node name="BehaviourFollow2D" type="Node2D" parent="Enemies/Bosses/GiantBamboo/AIController" index="7" unique_id=1801078166 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("33_jtckt")
