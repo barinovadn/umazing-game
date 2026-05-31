@@ -1,12 +1,12 @@
-extends Resource
 class_name Modifier
+extends Resource
 
 enum Operation {
 	decrease,
 	increase,
 	multiply,
-	divide
-}
+	divide,
+	}
 
 @export var duration: float = 0
 @export var value: float = 0

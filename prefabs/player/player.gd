@@ -122,6 +122,7 @@ func _load_stats():
 	
 	await get_tree().process_frame
 	
+	# HEALTH
 	if SaveManager.loaded_max_hp > 0:
 		character.hurt_component.sounds_mute = true
 		character.hurt_component.vfx_mute = true
@@ -129,6 +130,21 @@ func _load_stats():
 		character.hurt_component.current_health = SaveManager.loaded_hp
 		character.hurt_component.sounds_mute = false
 		character.hurt_component.vfx_mute = false
+	
+	# SPEED
+	for modifier_id in SaveManager.loaded_speed_modifiers:
+		character.stat_speed_ratio.add_modifier(modifier_id,
+			 SaveManager.loaded_speed_modifiers[modifier_id])
+	
+	# ARMOR
+	for modifier_id in SaveManager.loaded_armor_modifiers:
+		character.stat_armor.add_modifier(modifier_id,
+			 SaveManager.loaded_armor_modifiers[modifier_id])
+	
+	# SHOOT SPEED
+	for modifier_id in SaveManager.loaded_shoot_speed_modifiers:
+		character.stat_shooting_speed.add_modifier(modifier_id,
+			 SaveManager.loaded_shoot_speed_modifiers[modifier_id])
 
 
 func _on_character_changed(new_character: Character2D, old_character: Character2D):
