@@ -17,6 +17,7 @@ var total_playtime: float = 0.0
 
 func _formatted_playtime(playtime: float, include_ms: bool = false) -> String:
 	var total_seconds: int = int(playtime)
+	@warning_ignore("integer_division")
 	var minutes: int = total_seconds / 60
 	var seconds: int = total_seconds % 60
 	

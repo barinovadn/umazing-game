@@ -11,7 +11,10 @@ signal character_changed(new_character: Character2D, old_character: Character2D)
 		var old_character = character
 		character = value
 		character_changed.emit(character, old_character)
-@export var bullets: Dictionary[String, PackedScene]
+@export var bullets: Dictionary[String, PackedScene]:
+	set(value):
+		bullets = value
+		_on_bullets_updated(shoot_controller)
 @export var allow_cheats: bool = false
 
 @export_group("Restrictions", "stat")
@@ -170,9 +173,7 @@ func _on_character_changed(new_character: Character2D, old_character: Character2
 		new_character.movement = movement
 		new_character.interactor = interactor
 		new_character.shoot_controller = shoot_controller
-		if new_character.shoot_controller:
-			for el in bullets.values():
-				new_character.shoot_controller.bullets.append(el)
+		_on_bullets_updated(new_character.shoot_controller)
 		new_character.hurt_component = hurt_component
 		if new_character.hurt_component:
 			new_character.hurt_component.character = new_character
@@ -207,3 +208,24 @@ func _on_pickup_found(body: Node2D):
 func _on_block_inventory_changed():
 	if inventory_ui:
 		inventory_ui.can_open_inventory = not stat_cant_use_inventory.value
+
+
+func _on_bullets_updated(var_shoot_controller: ShootController):
+	if var_shoot_controller:
+		var_shoot_controller.bullets.clear()
+		for el in bullets.values():
+			var_shoot_controller.bullets.append(el)
+
+
+func add_bullet(bullet_name: String, bullet: PackedScene):
+	bullets[bullet_name] = bullet
+	_on_bullets_updated(shoot_controller)
+
+
+func add_bullets(bullets_dictionary: Dictionary[String, PackedScene]):
+	bullets = bullets_dictionary
+
+
+func remove_bullet(bullet_name: String):
+	bullets.erase(bullet_name)
+	_on_bullets_updated(shoot_controller)

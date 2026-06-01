@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh3rv75do22or"
-path="res://.godot/imported/Attack.png-e98a7de2290c3521d8b9fa0bf087284f.ctex"
+uid="uid://c140386punlx0"
+path="res://.godot/imported/sprite_sheet_enraged.png-1d1dae6a603362057a17f6c528b0a1ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/giant_racoon/Attack.png"
-dest_files=["res://.godot/imported/Attack.png-e98a7de2290c3521d8b9fa0bf087284f.ctex"]
+source_file="res://prefabs/characters/bosses/giant_slime/sprite_sheet_enraged.png"
+dest_files=["res://.godot/imported/sprite_sheet_enraged.png-1d1dae6a603362057a17f6c528b0a1ca.ctex"]
 
 [params]
 
