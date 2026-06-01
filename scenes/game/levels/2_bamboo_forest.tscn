@@ -48,6 +48,10 @@
 [ext_resource type="Texture2D" uid="uid://brohl0w08y2a6" path="res://prefabs/characters/ninja_green/portrait.png" id="40_66tca"]
 [ext_resource type="Texture2D" uid="uid://co0t4ugk7xjxj" path="res://prefabs/characters/enemies/bamboo_enemy/portrait.png" id="41_3xkl5"]
 
+[sub_resource type="Resource" id="Resource_b27iq"]
+script = ExtResource("16_66tca")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
 [sub_resource type="Resource" id="Resource_jg5pp"]
 script = ExtResource("4_ngy32")
 modulate = Color(1.353256, 1.353256, 1.353256, 1)
@@ -732,7 +736,7 @@ metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
-allow_cheats = true
+stat_cant_use_inventory = SubResource("Resource_b27iq")
 
 [node name="FirefliesEffect1" parent="VFXManager" parent_id_path=PackedInt32Array(880750068) index="0" unique_id=1228765060 instance=ExtResource("2_51e8k")]
 position = Vector2(624, -480)

@@ -42,8 +42,8 @@ func _ai_ready():
 		el._hurt_component.vfx_damage_marker = null
 		el._hurt_component.vfx_heal_marker = null
 		el.settings.sounds_break[0] = null
-		el.settings.respawn_duration_min = 10000
-		el.settings.respawn_duration_max = 10000
+		el.settings.respawn_duration_min = 100000
+		el.settings.respawn_duration_max = 100000
 		el._hurt_component.current_health = 0.0
 
 
