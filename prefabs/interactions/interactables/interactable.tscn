@@ -14,3 +14,7 @@ delete_on_disable = true
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1178125224]
 shape = SubResource("CircleShape2D_58f12")
 debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="Cooldown" type="Timer" parent="." unique_id=2022659009]
+unique_name_in_owner = true
+one_shot = true
