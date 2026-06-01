@@ -4,9 +4,8 @@ extends Node
 const LEVEL_FOLDER := "res://scenes/game/levels/"
 const LEVEL_MAP: Dictionary = {
 	0: "demo",
-	1: "test/test_level_1",
-	2: "test/test_level_2",
-	3: "test/test_level_3",
+	1: "1_abandoned_village",
+	2: "demo",
 	}
 
 ## NOTE: Ready-only, use [method go_to_level] instead.
