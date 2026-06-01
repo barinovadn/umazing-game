@@ -40,13 +40,14 @@ animations = [{
 [node name="Cat" unique_id=2065001503 instance=ExtResource("1_8tqnn")]
 
 [node name="Shadow" parent="." index="1" unique_id=66535912]
-offset = Vector2(0, 4)
+offset = Vector2(0, 6.5)
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_ikwm1")
 animation = &"walk_right"
 autoplay = "idle_right"
 frame_progress = 0.0
+offset = Vector2(0, 2.5)
 
 [node name="AnimationController" parent="." index="3" unique_id=395358213]
 animations = Dictionary[int, String]({
