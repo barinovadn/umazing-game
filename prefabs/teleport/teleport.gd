@@ -51,20 +51,21 @@ func _draw() -> void:
 
 
 func use(character: Character2D):
-	if not exit or not visible or not character:
+	if (not exit and exit_level_index < 0) or not visible or not character:
 		return
 	
-	character.global_position = exit.global_position + exit_offset
+	if exit:
+		character.global_position = exit.global_position + exit_offset
 	
 	use_count += 1
 	used.emit()
 	
 	if character == Game.player.character and exit_level_index >= 0:
-		
 		SceneManager.current_level_index = exit_level_index
 		SaveManager.save_game()
 		SaveManager.load_game()
-		#SceneManager.go_to_level(exit_level_index)
+		# Or just:
+		# SceneManager.go_to_level(exit_level_index)
 	
 	if exit_effect:
 		exit_effect.spawn(character.global_position)
