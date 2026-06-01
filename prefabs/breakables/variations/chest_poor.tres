@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://de77qj7rcj7sv"]
+
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_teaif"]
+[ext_resource type="Resource" uid="uid://dfb2hf2tp8ksx" path="res://prefabs/inventory/items/ramen.tres" id="3_teaif"]
+[ext_resource type="Resource" uid="uid://dn7rgjb2bfdkv" path="res://prefabs/inventory/items/onigiri.tres" id="4_ax0gb"]
+[ext_resource type="Resource" uid="uid://b7ifocc5sni0u" path="res://prefabs/inventory/items/fortune_cookie.tres" id="5_ml1ob"]
+[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi1.tres" id="6_6qlix"]
+[ext_resource type="Resource" uid="uid://8333ajostedx" path="res://prefabs/inventory/items/water_pot.tres" id="7_nek4t"]
+[ext_resource type="Resource" uid="uid://bbou27cu6ht" path="res://prefabs/inventory/items/sushi2.tres" id="7_sqsmd"]
+[ext_resource type="Resource" uid="uid://bm304j27qhl40" path="res://prefabs/inventory/items/heart.tres" id="9_7oque"]
+[ext_resource type="Resource" uid="uid://csj67osmcde76" path="res://prefabs/inventory/items/dango.tres" id="9_rcfxe"]
+[ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="10_753qa"]
+[ext_resource type="AudioStream" uid="uid://dticsqhs05poe" path="res://prefabs/combat/sounds/impact_2.wav" id="11_jrkxp"]
+[ext_resource type="Texture2D" uid="uid://dy45hmekks582" path="res://prefabs/tilesets/general_village_camp.png" id="12_fsq8a"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="13_m57d6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7uue"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teaif"]
+atlas = ExtResource("12_fsq8a")
+region = Rect2(64, 128, 16, 16)
+
+[sub_resource type="Resource" id="Resource_2766p"]
+script = ExtResource("13_m57d6")
+effect = 100
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[resource]
+script = ExtResource("10_753qa")
+texture = SubResource("AtlasTexture_teaif")
+shape = SubResource("CircleShape2D_q7uue")
+hp = 0.75
+loot_drop_chance = 1.0
+loot_table = Array[ExtResource("1_teaif")]([ExtResource("9_7oque"), ExtResource("3_teaif"), ExtResource("4_ax0gb"), ExtResource("5_ml1ob"), ExtResource("6_6qlix"), ExtResource("7_sqsmd"), ExtResource("7_nek4t"), ExtResource("9_rcfxe")])
+loot_weights = Array[float]([0.1, 0.2, 0.3, 0.5, 0.6, 0.6, 0.6, 0.4])
+sounds_hit = Array[AudioStream]([ExtResource("11_jrkxp")])
+sounds_break = Array[AudioStream]([ExtResource("11_jrkxp")])
+vfx_spawn = SubResource("Resource_2766p")
+metadata/_custom_type_script = "uid://c5vdwmd0iexxp"

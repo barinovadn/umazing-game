@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dk28c0i4qkfn5"]
+
+[ext_resource type="PackedScene" uid="uid://bocwvxmy6wlgw" path="res://prefabs/breakables/breakable.tscn" id="1_fwyr3"]
+[ext_resource type="Resource" uid="uid://de77qj7rcj7sv" path="res://prefabs/breakables/variations/chest_poor.tres" id="2_fwyr3"]
+[ext_resource type="Texture2D" uid="uid://dy45hmekks582" path="res://prefabs/tilesets/general_village_camp.png" id="3_3l7oc"]
+[ext_resource type="AudioStream" uid="uid://dticsqhs05poe" path="res://prefabs/combat/sounds/impact_2.wav" id="4_v53kr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teaif"]
+atlas = ExtResource("3_3l7oc")
+region = Rect2(64, 128, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7uue"]
+
+[node name="Breakable" unique_id=514792727 instance=ExtResource("1_fwyr3")]
+settings = ExtResource("2_fwyr3")
+
+[node name="Sprite" parent="." index="0" unique_id=1322896327]
+texture = SubResource("AtlasTexture_teaif")
+
+[node name="Collider" parent="." index="1" unique_id=1646208646]
+shape = SubResource("CircleShape2D_q7uue")
+
+[node name="HurtComponent" parent="." index="2" unique_id=949368062]
+shape = SubResource("CircleShape2D_q7uue")
+max_health = 0.75
+sounds_damage = Array[AudioStream]([ExtResource("4_v53kr")])
+sounds_die = Array[AudioStream]([ExtResource("4_v53kr")])
