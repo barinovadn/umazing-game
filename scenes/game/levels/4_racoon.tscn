@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://blgi13n2y2fti" path="res://prefabs/combat/shoot_controller.tscn" id="20_op5rk"]
 [ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="21_13aev"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/unique_projectiles/damage_area/damage_area.tscn" id="22_4ntvk"]
-[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="23_d4guo"]
+[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="23_d4guo"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="24_oyuv7"]
 
 [sub_resource type="Resource" id="Resource_cdkv4"]
@@ -245,11 +245,11 @@ effect = 10000
 settings = SubResource("Resource_gf3lf")
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
-[sub_resource type="Curve2D" id="Curve2D_223q5"]
+[sub_resource type="Curve2D" id="Curve2D_pf764"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -195, 269, 0, 0, 0, 0, -240, 336, 0, 0, 0, 0, -216, 384, 0, 0, 0, 0, -288, 376, 0, 0, 0, 0, -304, 304, 0, 0, 0, 0, -376, 272, 0, 0, 0, 0, -384, 368, 0, 0, 0, 0, -440, 360, 0, 0, 0, 0, -408, 272, 0, 0, 0, 0, -333, 375, 0, 0, 0, 0, -240, 272)
+"points": PackedVector2Array(0, 0, 0, 0, -208, 272, 0, 0, 0, 0, -184, 368, 0, 0, 0, 0, -224, 376, 0, 0, 0, 0, -304, 264, 0, 0, 0, 0, -248, 264, 0, 0, 0, 0, -288, 376, 0, 0, 0, 0, -352, 360, 0, 0, 0, 0, -352, 280, 0, 0, 0, 0, -448, 368, 0, 0, 0, 0, -464, 336, 0, 0, 0, 0, -384, 264, 0, 0, 0, 0, -440, 288, 0, 0, 0, 0, -392, 352, 0, 0, 0, 0, -280, 280, 0, 0, 0, 0, -312, 344, 0, 0, 0, 0, -216, 296, 0, 0, 0, 0, -216, 272)
 }
-point_count = 11
+point_count = 17
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ayjsw"]
 vertices = PackedVector2Array(-202, 358, -454, 358, -454, 266, -202, 266)
@@ -277,13 +277,14 @@ tile_map_data = PackedByteArray("AAD2/wUAAAAEAAUAAAD3/wUAAAAEAAUAAAD4/wUAAAAEAAU
 
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="0" unique_id=297187452 instance=ExtResource("2_tcxvc")]
 position = Vector2(-128, 0)
+invulnerability_duration = 0.7
 
 [node name="Racoon" type="Node2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=15417818]
 position = Vector2(312, -320)
 
 [node name="GiantRacoon" parent="Enemies/Bosses/Racoon" index="0" unique_id=2065001503 node_paths=PackedStringArray("hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("3_pf764")]
 position = Vector2(-224, 320)
-collision_mask = 1
+collision_mask = 0
 hurt_component = NodePath("AIController/HurtComponent")
 shoot_controller = NodePath("AIController/ShootController")
 afterlife_duration = 4.0
@@ -362,7 +363,7 @@ speed = 60.0
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
 [node name="Path2D" type="Path2D" parent="Enemies/Bosses/Racoon" index="1" unique_id=74751718]
-curve = SubResource("Curve2D_223q5")
+curve = SubResource("Curve2D_pf764")
 
 [node name="GiantRacoonRegion1" type="NavigationRegion2D" parent="Enemies/Bosses/Racoon" index="2" unique_id=664158302]
 position = Vector2(8, 8)
@@ -374,7 +375,7 @@ position = Vector2(-315, 323)
 [node name="RacoonMarkers" type="Node2D" parent="Enemies/Bosses/Racoon" index="4" unique_id=1777171744]
 
 [node name="Marker2D" type="Marker2D" parent="Enemies/Bosses/Racoon/RacoonMarkers" index="0" unique_id=1999839374]
-position = Vector2(-416, 312)
+position = Vector2(-416, 264)
 
 [node name="Marker2D2" type="Marker2D" parent="Enemies/Bosses/Racoon/RacoonMarkers" index="1" unique_id=1807660596]
-position = Vector2(-432, 288)
+position = Vector2(-440, 280)
