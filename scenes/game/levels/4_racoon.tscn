@@ -282,7 +282,7 @@ position = Vector2(-128, 0)
 position = Vector2(312, -320)
 
 [node name="GiantRacoon" parent="Enemies/Bosses/Racoon" index="0" unique_id=2065001503 node_paths=PackedStringArray("hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("3_pf764")]
-position = Vector2(-396, 294)
+position = Vector2(-224, 320)
 collision_mask = 1
 hurt_component = NodePath("AIController/HurtComponent")
 shoot_controller = NodePath("AIController/ShootController")
@@ -307,12 +307,12 @@ character = NodePath("..")
 actions = Array[ExtResource("11_gglmg")]([SubResource("Resource_hil4o"), SubResource("Resource_eclkm"), SubResource("Resource_tgaeg"), SubResource("Resource_dlq5l"), SubResource("Resource_k1fdc"), SubResource("Resource_w8ftg")])
 modulates_for_phase = Array[float]([0.65, 0.3])
 movement_patterns = {
-"dig": NodePath(""),
-"dig_and_shoot": NodePath(""),
-"rest": NodePath(""),
-"stone_rickoshet": NodePath(""),
-"stone_shooting": NodePath(""),
-"stones_from_roof": NodePath("")
+"dig": NodePath("PathDotMovementController2D"),
+"dig_and_shoot": NodePath("PathDotMovementController2D"),
+"rest": NodePath("AreaMovementController"),
+"stone_rickoshet": NodePath("AreaMovementController"),
+"stone_shooting": NodePath("AreaMovementController"),
+"stones_from_roof": NodePath("AreaMovementController")
 }
 modifier = SubResource("Resource_upka0")
 vfx_on_phase_change = SubResource("Resource_cpbbe")
@@ -374,7 +374,7 @@ position = Vector2(-315, 323)
 [node name="RacoonMarkers" type="Node2D" parent="Enemies/Bosses/Racoon" index="4" unique_id=1777171744]
 
 [node name="Marker2D" type="Marker2D" parent="Enemies/Bosses/Racoon/RacoonMarkers" index="0" unique_id=1999839374]
-position = Vector2(-392, 352)
+position = Vector2(-416, 312)
 
 [node name="Marker2D2" type="Marker2D" parent="Enemies/Bosses/Racoon/RacoonMarkers" index="1" unique_id=1807660596]
 position = Vector2(-432, 288)
