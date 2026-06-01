@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d0q276jgohu22"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dhuy8legaxbq0"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_cj4wk"]
 [ext_resource type="Texture2D" path="res://prefabs/inventory/items/life_pot.png" id="2_d7aye"]

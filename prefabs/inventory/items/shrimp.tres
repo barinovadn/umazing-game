@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://eosgp0x21g3q"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://byww3cgl0erlr"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_3hjnu"]
 [ext_resource type="Texture2D" path="res://prefabs/inventory/items/shrimp.png" id="1_g4olm"]

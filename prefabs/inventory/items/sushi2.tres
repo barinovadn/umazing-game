@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dmxxx38rpu1in"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cp5jrapqihq3a"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_tk1ee"]
 [ext_resource type="Texture2D" path="res://prefabs/inventory/items/sushi2.png" id="2_3p1d2"]

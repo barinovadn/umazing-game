@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bh3wo558x5dqx"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://i18qya6owx8b"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_1uqwl"]
 [ext_resource type="Texture2D" path="res://prefabs/inventory/items/Onigiri.png" id="2_0jq4c"]

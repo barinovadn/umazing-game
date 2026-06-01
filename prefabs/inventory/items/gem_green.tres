@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://wr1vynbrlox8"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bl06e73ru7tal"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_jerxq"]
 [ext_resource type="Texture2D" path="res://prefabs/inventory/items/gem_green.png" id="2_awjbo"]

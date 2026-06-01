@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cscfya78r40b3"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b8hw2w2yi5e4v"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_i3v6i"]
 [ext_resource type="Texture2D" path="res://prefabs/inventory/items/ramen.png" id="2_81pyc"]

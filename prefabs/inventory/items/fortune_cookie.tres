@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://g14vj538okgj"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dm3ntp0q5f1hl"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_76xga"]
 [ext_resource type="Texture2D" path="res://prefabs/inventory/items/fortune_cookie.png" id="1_xcj2m"]
