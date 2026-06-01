@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c088583rvbnkn"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_kysyy"]
+[ext_resource type="PackedScene" uid="uid://dvbhbbnymys31" path="res://prefabs/combat/bullets/variations/comons/fire_shot/fire_shot.tscn" id="1_v6b6a"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_lngsx"]
+[ext_resource type="Texture2D" uid="uid://bxw6ymk1820i" path="res://prefabs/inventory/items/bullet_changers/scroll_fire.png" id="2_t3eng"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_t3eng"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_v6b6a"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_v6b6a"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="5_tt6as"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_ytpls"]
+
+[sub_resource type="Resource" id="Resource_tt6as"]
+script = ExtResource("1_kysyy")
+icon = ExtResource("2_t3eng")
+name = "Свиток пламени"
+message = "Древний свиток, пропитанный жаром вулканов. Пока он находится в инвентаре, ваши снаряды окутываются пламенем.
++ 1.5 к урону"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_ytpls"]
+script = ExtResource("3_v6b6a")
+value = 1.5
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[resource]
+script = ExtResource("6_ytpls")
+rarity = 2
+name = "Свиток пламени"
+icon = ExtResource("2_t3eng")
+description = Array[ExtResource("1_kysyy")]([SubResource("Resource_tt6as")])
+damage_effect_id = "FIRE_SCROLL_DAMAGE"
+bullets = Dictionary[String, PackedScene]({
+"FIRE_SCROLL_BULLET": ExtResource("1_v6b6a")
+})
+passive_modifier_stat_damage_ratio = SubResource("Resource_ytpls")
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

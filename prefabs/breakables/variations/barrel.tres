@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="1_q7uue"]
 [ext_resource type="AudioStream" uid="uid://dticsqhs05poe" path="res://prefabs/combat/sounds/impact_2.wav" id="2_b7kpv"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="2_c1dv0"]
-[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi1.tres" id="2_vw0qw"]
+[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/food/sushi1.tres" id="2_vw0qw"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="3_b7kpv"]
-[ext_resource type="Resource" uid="uid://blylgxx5kc83n" path="res://prefabs/inventory/items/shrimp.tres" id="3_ip3kr"]
+[ext_resource type="Resource" uid="uid://blylgxx5kc83n" path="res://prefabs/inventory/items/food/shrimp.tres" id="3_ip3kr"]
 [ext_resource type="Resource" uid="uid://bbou27cu6ht" path="res://prefabs/inventory/items/sushi2.tres" id="3_vw0qw"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="4_xrv5n"]
 

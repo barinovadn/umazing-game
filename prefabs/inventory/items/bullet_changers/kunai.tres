@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://jyr3c4yuc82y"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_40612"]
+[ext_resource type="PackedScene" uid="uid://fn0tv6mqn7g6" path="res://prefabs/combat/bullets/variations/comons/kunai/kunai.tscn" id="1_mhk5a"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_0mun5"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_hfyeq"]
+[ext_resource type="Texture2D" uid="uid://bx4vkheds8x6p" path="res://prefabs/inventory/items/bullet_changers/kunai.png" id="3_o57yi"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="4_0a8gu"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_mhk5a"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="5_o57yi"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_0a8gu"]
+
+[sub_resource type="Resource" id="Resource_yjhsk"]
+script = ExtResource("1_40612")
+icon = ExtResource("3_o57yi")
+name = "Кунай шиноби"
+message = "Небольшой зачарованный клинок, сохранивший мастерство древних ниндзя.
++ 0.5 к урону"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_65i68"]
+script = ExtResource("4_0a8gu")
+value = 0.5
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[resource]
+script = ExtResource("6_0a8gu")
+rarity = 1
+name = "Кунай шиноби"
+icon = ExtResource("3_o57yi")
+description = Array[ExtResource("1_40612")]([SubResource("Resource_yjhsk")])
+damage_effect_id = "KUNAI_DAMAGE"
+bullets = Dictionary[String, PackedScene]({
+"KUNAI_BULLET": ExtResource("1_mhk5a")
+})
+passive_modifier_stat_damage_ratio = SubResource("Resource_65i68")
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

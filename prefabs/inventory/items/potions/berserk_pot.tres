@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c43rgqen87a4w"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_ecdxq"]
+[ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="2_3uogd"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_tjgnf"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_0tq5m"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_3uogd"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_0tq5m"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="5_fooy7"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_jsq2f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fooy7"]
+atlas = ExtResource("2_3uogd")
+region = Rect2(337, 241, 14, 15)
+
+[sub_resource type="Resource" id="Resource_jsq2f"]
+script = ExtResource("1_ecdxq")
+icon = SubResource("AtlasTexture_fooy7")
+name = "Настой боевого духа"
+message = "Густой боевой настой, увеличивающий силу атак и ускоряющий стрельбу.
++ 2 к урону на 60 секунд
++ 0.5 к скорострельности на 60 секунд"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_726uj"]
+atlas = ExtResource("2_3uogd")
+region = Rect2(337, 241, 14, 15)
+
+[sub_resource type="Resource" id="Resource_1dile"]
+script = ExtResource("3_0tq5m")
+duration = 60.0
+value = 0.5
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[sub_resource type="Resource" id="Resource_5kip6"]
+script = ExtResource("3_0tq5m")
+duration = 60.0
+value = 2.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[resource]
+script = ExtResource("6_jsq2f")
+rarity = 2
+name = "Настой боевого духа"
+icon = SubResource("AtlasTexture_726uj")
+description = Array[ExtResource("1_ecdxq")]([SubResource("Resource_jsq2f")])
+effect_id = "BERSERK_POT_RAPIDSHOT"
+damage_effect_id = "BERSERK_POT_DAMAGE"
+is_consumable = true
+is_active = true
+on_use_modifier_speed_ratio = SubResource("Resource_1dile")
+on_use_modifier_stat_damage_ratio = SubResource("Resource_5kip6")
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"
