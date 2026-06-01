@@ -73,10 +73,11 @@ var dialogue: Dialogue:
 var dialogue_queue: Array[Dialogue]: # NOTE Only setting, no appending
 	set(value):
 		dialogue_queue = value
-		dialogue_started.emit()
-		_on_dialogue_started()
-		if not dialogue:
-			next()
+		if dialogue_queue.size() > 0:
+			dialogue_started.emit()
+			_on_dialogue_started()
+			if not dialogue:
+				next()
 var _active_tween: Tween # NOTE Using tweens for dynamic UI
 var _typing_index: int
 var is_fully_typed: bool:
@@ -90,6 +91,7 @@ var is_on_skip_cooldown: bool:
 	get():
 		return not skip_timer.is_stopped()
 
+
 func _ready():
 	state = State.HIDDEN
 	auto_skip = auto_skip
@@ -101,13 +103,25 @@ func _input(event: InputEvent):
 
 
 func _on_dialogue_started():
-	if Game.player:
-		Game.player.stat_cant_use_inventory.add_modifier("ONGOING_DIALOGUE")
+	if not Game.player or not Game.player.character:
+		return
+	
+	Game.player.stat_cant_use_inventory.add_modifier("ACTIVE_DIALOGUE")
+	Game.player.character.stat_cant_move.add_modifier("ACTIVE_DIALOGUE")
+	Game.player.character.stat_cant_shoot.add_modifier("ACTIVE_DIALOGUE")
+	Game.player.character.stat_cant_interract.add_modifier("ACTIVE_DIALOGUE")
 
 
 func _on_dialogue_closed():
-	if Game.player:
-		Game.player.stat_cant_use_inventory.remove_modifier("ONGOING_DIALOGUE")
+	if not Game.player or not Game.player.character:
+		return
+	
+	Game.player.stat_cant_use_inventory.remove_modifier("ACTIVE_DIALOGUE")
+	Game.player.character.stat_cant_move.remove_modifier("ACTIVE_DIALOGUE")
+	Game.player.character.stat_cant_shoot.remove_modifier("ACTIVE_DIALOGUE")
+	Game.player.character.stat_cant_interract.remove_modifier("ACTIVE_DIALOGUE")
+	
+	Game.player.character.interactor.set_on_cooldown()
 
 
 func _on_character_typed():
@@ -151,7 +165,7 @@ func _update_animation():
 			dialogue_window.visible = false
 			dialogue_canvas.position = Vector2(0, 200.0)
 			dialogue_window.scale = Vector2(0.75, 0.75)
-			dialogue = null
+			#dialogue = null
 		
 		State.APPEARING:
 			dialogue_window.visible = true
@@ -166,10 +180,7 @@ func _update_animation():
 			_active_tween.tween_property(dialogue_window,
 				"scale", Vector2.ONE, window_appear_duration)
 			
-			_active_tween.finished.connect(func(): 
-				match state:
-					State.APPEARING: state = State.ACTIVE
-			)
+			_active_tween.finished.connect(_on_appearing_tween_finished)
 		
 		State.ACTIVE:
 			dialogue_window.visible = true
@@ -185,10 +196,17 @@ func _update_animation():
 			_active_tween.tween_property(dialogue_window,
 				"scale", Vector2(0.75, 0.75), window_hide_duration)
 			
-			_active_tween.finished.connect(func(): 
-				match state:
-					State.HIDING: state = State.HIDDEN
-			)
+			_active_tween.finished.connect(_on_hiding_tween_finished)
+
+
+func _on_appearing_tween_finished():
+	if state == State.APPEARING:
+		state = State.ACTIVE
+
+
+func _on_hiding_tween_finished():
+	if state == State.HIDING:
+		state = State.HIDDEN
 
 
 func _start_typing_animation():
@@ -234,10 +252,6 @@ func queue_dialogues(new_dialogue_queue: Array[Dialogue]):
 func display(new_dialogue: Dialogue, clear_queue: bool = true):
 	if clear_queue:
 		dialogue_queue = []
-	Game.player.stat_cant_use_inventory.add_modifier(str(get_instance_id()))
-	Game.player.character.stat_cant_move.add_modifier(str(get_instance_id()))
-	Game.player.character.stat_cant_shoot.add_modifier(str(get_instance_id()))
-	Game.player.character.stat_cant_interract.add_modifier(str(get_instance_id()))
 	dialogue = new_dialogue
 
 
@@ -265,12 +279,11 @@ func next():
 
 
 func close():
+	dialogue_queue.clear()
 	dialogue = null
-	await get_tree().process_frame
-	Game.player.stat_cant_use_inventory.remove_modifier(str(get_instance_id()))
-	Game.player.character.stat_cant_move.remove_modifier(str(get_instance_id()))
-	Game.player.character.stat_cant_shoot.remove_modifier(str(get_instance_id()))
-	Game.player.character.stat_cant_interract.remove_modifier(str(get_instance_id()))
-	
-	dialogue_closed.emit()
+	is_fully_typed = false
+	_typing_index = 0
+	# I'll be honest, I ain't sure if we should uncomment this
+	# await get_tree().process_frame
 	_on_dialogue_closed()
+	dialogue_closed.emit()
