@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://d135auc600c1s"]
+
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_fm866"]
+[ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="2_v5vo0"]
+[ext_resource type="AudioStream" uid="uid://c5ao7p1ys2tvu" path="res://prefabs/combat/sounds/impact_1.wav" id="3_v0qw0"]
+[ext_resource type="Texture2D" uid="uid://smrgmlqxlrlc" path="res://prefabs/tilesets/general_interior.png" id="4_fm866"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="5_dx5eg"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="6_1y0h6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7uue"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5vo0"]
+atlas = ExtResource("4_fm866")
+region = Rect2(240, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_1dmtp"]
+script = ExtResource("5_dx5eg")
+effect = 30
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_j1gj2"]
+script = ExtResource("6_1y0h6")
+density = 1
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_l5300"]
+script = ExtResource("5_dx5eg")
+effect = 100
+settings = SubResource("Resource_j1gj2")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[resource]
+script = ExtResource("2_v5vo0")
+texture = SubResource("AtlasTexture_v5vo0")
+shape = SubResource("CircleShape2D_q7uue")
+hp = 25.0
+sounds_hit = Array[AudioStream]([ExtResource("3_v0qw0")])
+sounds_break = Array[AudioStream]([ExtResource("3_v0qw0")])
+vfx_hit = SubResource("Resource_l5300")
+vfx_break = SubResource("Resource_1dmtp")
+metadata/_custom_type_script = "uid://c5vdwmd0iexxp"

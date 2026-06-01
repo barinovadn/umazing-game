@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_xb78r"]
 [ext_resource type="Texture2D" uid="uid://5vbnqy106kl5" path="res://prefabs/combat/bullets/variations/comons/slow_shot/slow_shot.png" id="3_y5lbp"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="4_6ujrb"]
+[ext_resource type="AudioStream" uid="uid://bixonmf50tais" path="res://prefabs/combat/sounds/whoosh_5.wav" id="4_rhdgk"]
+[ext_resource type="AudioStream" uid="uid://c2rmco6qav23v" path="res://prefabs/combat/sounds/whoosh_1.wav" id="5_u0xtg"]
 
 [sub_resource type="Resource" id="Resource_6ujrb"]
 script = ExtResource("3_xb78r")
@@ -101,6 +103,9 @@ team = 0
 crit_damage = 0.25
 crit_chance = 0.1
 can_break = true
+sounds_spawn = Array[AudioStream]([ExtResource("4_rhdgk")])
+sounds_destroy = Array[AudioStream]([ExtResource("5_u0xtg")])
+sounds_hit = Array[AudioStream]([ExtResource("5_u0xtg")])
 vfx_destroy = SubResource("Resource_8uklw")
 vfx_hit = SubResource("Resource_bqnlg")
 metadata/_edit_vertical_guides_ = [-482.0]

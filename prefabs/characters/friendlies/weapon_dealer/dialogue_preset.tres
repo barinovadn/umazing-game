@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://cw73ovlbon7ld"]
+
+[ext_resource type="Texture2D" uid="uid://dt0r00jsa6pw5" path="res://prefabs/characters/friendlies/weapon_dealer/Faceset.png" id="1_mc1ui"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="2_jp3h4"]
+
+[resource]
+script = ExtResource("2_jp3h4")
+icon = ExtResource("1_mc1ui")
+name = "Мудрый Торговец Лапшой"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"

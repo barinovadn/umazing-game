@@ -50,9 +50,9 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("2_puh2o")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vrykm"]
-atlas = ExtResource("2_puh2o")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_puh2o"]
+atlas = ExtResource("3_apcon")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75n4m"]
 atlas = ExtResource("2_puh2o")
@@ -122,21 +122,13 @@ region = Rect2(32, 48, 16, 16)
 atlas = ExtResource("2_puh2o")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtcgs"]
-atlas = ExtResource("2_puh2o")
-region = Rect2(48, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_apcon"]
+atlas = ExtResource("3_apcon")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ua3n"]
-atlas = ExtResource("2_puh2o")
-region = Rect2(48, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u33bt"]
-atlas = ExtResource("2_puh2o")
-region = Rect2(48, 48, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5wkj"]
-atlas = ExtResource("2_puh2o")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x00fh"]
+atlas = ExtResource("3_apcon")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ewnf7"]
 atlas = ExtResource("2_puh2o")
@@ -233,7 +225,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vrykm")
+"texture": SubResource("AtlasTexture_puh2o")
 }],
 "loop": true,
 "name": &"idle_right",
@@ -327,16 +319,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vtcgs")
+"texture": SubResource("AtlasTexture_apcon")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1ua3n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u33bt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w5wkj")
+"texture": SubResource("AtlasTexture_x00fh")
 }],
 "loop": true,
 "name": &"walk_right",
@@ -370,5 +356,25 @@ texture = SubResource("CompressedTexture2D_28r3c")
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_lv67k")
-animation = &"patrol"
-frame_progress = 0.6201003
+animation = &"walk_right"
+autoplay = "idle_right"
+frame_progress = 0.0
+offset = Vector2(0, 5)
+
+[node name="AnimationController" parent="." index="3" unique_id=395358213]
+animations = Dictionary[int, String]({
+1: "idle_right",
+2: "idle_right",
+3: "idle_right",
+4: "idle_right",
+5: "walk_right",
+6: "walk_right",
+7: "walk_right",
+8: "walk_right"
+})
+animations_flip_h = Dictionary[int, bool]({
+3: true,
+4: false,
+7: true,
+8: false
+})

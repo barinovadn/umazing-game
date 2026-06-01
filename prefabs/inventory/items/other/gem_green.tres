@@ -13,7 +13,7 @@ script = ExtResource("1_jerxq")
 icon = ExtResource("2_awjbo")
 name = "Гем исцеления"
 message = "Редкий кристалл с мощной жизненной энергией.
-+ 5 к максимальному здоровью"
++ 1 к максимальному здоровью"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [resource]
@@ -22,5 +22,5 @@ rarity = 1
 name = "Гем исцеления"
 icon = ExtResource("2_awjbo")
 description = Array[ExtResource("1_jerxq")]([SubResource("Resource_288c7")])
-passive_max_hp_increase = 5.0
+passive_max_hp_increase = 1.0
 metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

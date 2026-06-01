@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://kdh1xs265kuy"]
+
+[ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/combat/bullets/bullet.tscn" id="1_bbiok"]
+[ext_resource type="Script" uid="uid://48q8dv66gwct" path="res://prefabs/combat/bullets/variations/comons/sinusoid_ball/sinusoid_ball.gd" id="2_bhqt3"]
+[ext_resource type="AudioStream" uid="uid://bemyixha0bel" path="res://prefabs/combat/sounds/magic_2.wav" id="3_8j1va"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="3_cvc2t"]
+[ext_resource type="Texture2D" uid="uid://dn2liylm8gx1k" path="res://prefabs/combat/bullets/variations/comons/sinusoid_ball/EnergyBall.png" id="4_1g0ft"]
+[ext_resource type="AudioStream" uid="uid://dj3pxcmg114m7" path="res://prefabs/combat/sounds/magic_1.wav" id="4_jamkd"]
+[ext_resource type="AudioStream" uid="uid://0tr6yvmwe705" path="res://prefabs/combat/sounds/water_1.wav" id="5_jm7ti"]
+[ext_resource type="AudioStream" uid="uid://5lh5dov8ec6n" path="res://prefabs/combat/sounds/water_2.wav" id="6_6dw18"]
+[ext_resource type="AudioStream" uid="uid://dugcmj5ltttj5" path="res://prefabs/combat/sounds/water_3.wav" id="7_pkuh8"]
+
+[sub_resource type="Resource" id="Resource_wm6k4"]
+script = ExtResource("3_cvc2t")
+effect = 210
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6miod"]
+atlas = ExtResource("4_1g0ft")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yufvo"]
+atlas = ExtResource("4_1g0ft")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j1va"]
+atlas = ExtResource("4_1g0ft")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jamkd"]
+atlas = ExtResource("4_1g0ft")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jm7ti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6miod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yufvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j1va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jamkd")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 5.0
+}]
+
+[node name="Bullet" unique_id=419752470 instance=ExtResource("1_bbiok")]
+script = ExtResource("2_bhqt3")
+base_amplitude = 15.0
+amplitude_growth = 0.0
+frequency = 2.0
+turn_rate = 0.0
+damage = 0.25
+crit_damage = 0.25
+crit_chance = 0.5
+can_break = true
+sounds_spawn = Array[AudioStream]([ExtResource("3_8j1va"), ExtResource("4_jamkd")])
+sounds_destroy = Array[AudioStream]([ExtResource("5_jm7ti"), ExtResource("6_6dw18"), ExtResource("7_pkuh8")])
+sounds_hit = Array[AudioStream]([ExtResource("5_jm7ti"), ExtResource("6_6dw18"), ExtResource("7_pkuh8")])
+vfx_destroy = SubResource("Resource_wm6k4")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1701417106]
+sprite_frames = SubResource("SpriteFrames_jm7ti")
+animation = &"shot"
+frame_progress = 0.7865088
