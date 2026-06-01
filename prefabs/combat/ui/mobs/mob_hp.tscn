@@ -11,6 +11,7 @@ display_color = null
 metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
 
 [node name="MobHP" type="Control" unique_id=573745475]
+z_index = 100
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
