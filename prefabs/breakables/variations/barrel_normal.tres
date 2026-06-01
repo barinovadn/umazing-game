@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://cy2okodglnv8x"]
+
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_4dylk"]
+[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi1.tres" id="2_by8sj"]
+[ext_resource type="Resource" uid="uid://bbou27cu6ht" path="res://prefabs/inventory/items/sushi2.tres" id="3_vh8u8"]
+[ext_resource type="Resource" uid="uid://blylgxx5kc83n" path="res://prefabs/inventory/items/shrimp.tres" id="4_k1biq"]
+[ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="5_offi1"]
+[ext_resource type="AudioStream" uid="uid://dticsqhs05poe" path="res://prefabs/combat/sounds/impact_2.wav" id="6_dnue0"]
+[ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="7_4dylk"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="8_wpiui"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="9_13lnw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7uue"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by8sj"]
+atlas = ExtResource("7_4dylk")
+region = Rect2(288, 224, 16, 32)
+margin = Rect2(0, -8, 0, 0)
+
+[sub_resource type="Resource" id="Resource_dlede"]
+script = ExtResource("9_13lnw")
+density = 3
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_axdxq"]
+script = ExtResource("8_wpiui")
+effect = 30
+settings = SubResource("Resource_dlede")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_up64m"]
+script = ExtResource("9_13lnw")
+density = 1
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_ruwpk"]
+script = ExtResource("8_wpiui")
+effect = 30
+settings = SubResource("Resource_up64m")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_2766p"]
+script = ExtResource("8_wpiui")
+effect = 100
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[resource]
+script = ExtResource("5_offi1")
+texture = SubResource("AtlasTexture_by8sj")
+shape = SubResource("CircleShape2D_q7uue")
+hp = 0.5
+loot_drop_chance = 0.2
+loot_table = Array[ExtResource("1_4dylk")]([ExtResource("2_by8sj"), ExtResource("3_vh8u8"), ExtResource("4_k1biq")])
+loot_weights = Array[float]([0.5, 0.5, 0.1])
+sounds_hit = Array[AudioStream]([ExtResource("6_dnue0")])
+sounds_break = Array[AudioStream]([ExtResource("6_dnue0")])
+vfx_spawn = SubResource("Resource_2766p")
+vfx_hit = SubResource("Resource_ruwpk")
+vfx_break = SubResource("Resource_axdxq")
+metadata/_custom_type_script = "uid://c5vdwmd0iexxp"
