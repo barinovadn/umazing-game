@@ -138,9 +138,9 @@ animations = [{
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_tbstd")
-animation = &"attack_left"
+animation = &"idle_left"
 autoplay = ""
-frame_progress = 0.71855277
+frame_progress = 0.6515043
 
 [node name="AnimationController" parent="." index="3" unique_id=395358213]
 animations = Dictionary[int, String]({

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3f1nfn3n8jnh"
-path="res://.godot/imported/Faceset.png-d7f35b0006953163c54f13760507ef09.ctex"
+path="res://.godot/imported/portrait.png-58c70e6bb318f6de12c105de0dbb8663.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/characters/bosses/demon_cyclop/Faceset.png"
-dest_files=["res://.godot/imported/Faceset.png-d7f35b0006953163c54f13760507ef09.ctex"]
+source_file="res://prefabs/characters/bosses/demon_cyclop/portrait.png"
+dest_files=["res://.godot/imported/portrait.png-58c70e6bb318f6de12c105de0dbb8663.ctex"]
 
 [params]
 
