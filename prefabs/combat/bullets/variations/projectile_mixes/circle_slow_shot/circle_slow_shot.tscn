@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dd6sfx78q5xg2"]
+
+[ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/combat/bullets/bullet.tscn" id="1_er3wq"]
+[ext_resource type="Script" uid="uid://klkgddtn5sv2" path="res://prefabs/combat/bullets/variations/projectile_mixes/circle_shot/circle_shot.gd" id="2_e2uo6"]
+[ext_resource type="PackedScene" uid="uid://died6n7flmmvr" path="res://prefabs/combat/bullets/variations/comons/slow_shot/slow_shot.tscn" id="3_ggowp"]
+
+[node name="CircleSlowShot" unique_id=419752470 instance=ExtResource("1_er3wq")]
+script = ExtResource("2_e2uo6")
+use_bullet_autoaim = false
+bullets = Array[PackedScene]([ExtResource("3_ggowp")])
+amount = 16
+radius = 0.0
+offset = Vector2(0, 0)
+can_break = true
+
+[node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
+volume_db = -4.0

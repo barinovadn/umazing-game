@@ -164,6 +164,10 @@ animations = [{
 
 [node name="GiantRacoon" unique_id=2065001503 instance=ExtResource("1_gmp47")]
 
+[node name="Shadow" parent="." index="1" unique_id=66535912]
+scale = Vector2(3, 1)
+offset = Vector2(0, 21.375)
+
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_38l2q")
 animation = &"downed"

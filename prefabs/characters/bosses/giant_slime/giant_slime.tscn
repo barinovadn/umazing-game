@@ -199,11 +199,16 @@ animations = [{
 
 [node name="GiantSlime" unique_id=2065001503 instance=ExtResource("1_xdiju")]
 
+[node name="Shadow" parent="." index="1" unique_id=66535912]
+scale = Vector2(2.5, 1)
+offset = Vector2(0, 10)
+
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_sqt56")
-animation = &"downed"
+animation = &"walk_left"
 autoplay = ""
 frame_progress = 0.0
+offset = Vector2(0, -10)
 
 [node name="AnimationController" parent="." index="3" unique_id=395358213]
 animations = Dictionary[int, String]({

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cq7ot013rio34"]
+
+[ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/combat/bullets/bullet.tscn" id="1_nr53r"]
+[ext_resource type="Script" uid="uid://nhd484fmytq2" path="res://prefabs/combat/bullets/variations/projectile_mixes/wave/wave.gd" id="2_tcr8a"]
+[ext_resource type="PackedScene" uid="uid://kdh1xs265kuy" path="res://prefabs/combat/bullets/variations/comons/sinusoid_ball/sinusoid_ball.tscn" id="3_un8hv"]
+
+[node name="Bullet" unique_id=419752470 instance=ExtResource("1_nr53r")]
+script = ExtResource("2_tcr8a")
+bullet_types = Array[PackedScene]([ExtResource("3_un8hv")])
+amount = 3
+spacing = 45.0
+offset = Vector2(0, 0)
+speed = 0.0
+turn_rate = 0.0
+can_break = true
+
+[node name="AudioStreamPlayer2D" parent="." index="3" unique_id=732122356]
+volume_db = -4.0
