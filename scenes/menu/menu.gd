@@ -15,6 +15,9 @@ func _on_conitnue_pressed():
 func _on_new_game_pressed():
 	SaveManager.load_game(true)
 
+func _on_button_demo_pressed():
+	SceneManager.go_to_level(0, false)
+
 
 func _on_quit_pressed():
 	get_tree().quit()

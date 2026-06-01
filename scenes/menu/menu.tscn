@@ -225,8 +225,8 @@ tile_set = ExtResource("4_64m6r")
 
 [node name="Decorations" type="Node2D" parent="." unique_id=314137597]
 z_index = 50
-position = Vector2(-80, 80)
-scale = Vector2(1.25, 1.25)
+position = Vector2(72, 80)
+scale = Vector2(2, 2)
 
 [node name="SpriteCenter" type="Sprite2D" parent="Decorations" unique_id=1593498156]
 z_index = 3
@@ -281,6 +281,19 @@ theme = ExtResource("9_faisu")
 theme_override_font_sizes/font_size = 20
 text = "Новая Игра"
 
+[node name="ButtonDemo" type="Button" parent="UI/Menu" unique_id=1206518902]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("9_faisu")
+theme_override_font_sizes/font_size = 20
+text = "Обучение"
+
+[node name="Separator1" type="Label" parent="UI/Menu" unique_id=116431455]
+layout_mode = 2
+
+[node name="Separator2" type="Label" parent="UI/Menu" unique_id=1304342847]
+layout_mode = 2
+
 [node name="ButtonQuit" type="Button" parent="UI/Menu" unique_id=358028812]
 texture_filter = 1
 layout_mode = 2
@@ -290,4 +303,5 @@ text = "Выход"
 
 [connection signal="pressed" from="UI/Menu/ButtonContinue" to="." method="_on_conitnue_pressed"]
 [connection signal="pressed" from="UI/Menu/ButtonNewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="UI/Menu/ButtonDemo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="UI/Menu/ButtonQuit" to="." method="_on_quit_pressed"]
