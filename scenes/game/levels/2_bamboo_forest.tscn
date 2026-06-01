@@ -58,6 +58,18 @@ settings = SubResource("Resource_jg5pp")
 position = Vector2(256, -160)
 settings = SubResource("Resource_jg5pp")
 
+[node name="SmokeEffect7" parent="VFXManager" parent_id_path=PackedInt32Array(880750068) index="9" unique_id=1135549396 instance=ExtResource("3_wvtnl")]
+position = Vector2(232, -232)
+settings = SubResource("Resource_jg5pp")
+
+[node name="SmokeEffect8" parent="VFXManager" parent_id_path=PackedInt32Array(880750068) index="10" unique_id=208377215 instance=ExtResource("3_wvtnl")]
+position = Vector2(272, -392)
+settings = SubResource("Resource_jg5pp")
+
+[node name="SmokeEffect9" parent="VFXManager" parent_id_path=PackedInt32Array(880750068) index="11" unique_id=112064583 instance=ExtResource("3_wvtnl")]
+position = Vector2(712, 112)
+settings = SubResource("Resource_jg5pp")
+
 [node name="Rock2" parent="PickupManager" parent_id_path=PackedInt32Array(1873301165) index="0" unique_id=1796102070 instance=ExtResource("5_nxgip")]
 position = Vector2(312, -152)
 item_data = ExtResource("6_ixpo3")
