@@ -19,9 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://dhpo30b664oln" path="res://prefabs/characters/animals/racoon/racoon.tscn" id="9_mmtxs"]
 [ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="10_ipaxu"]
 [ext_resource type="PackedScene" uid="uid://7ow2e543p51g" path="res://prefabs/characters/friendlies/weapon_dealer/weapon_dealer.tscn" id="11_bj013"]
+[ext_resource type="PackedScene" uid="uid://bc2kdebobsqlu" path="res://prefabs/interactions/interactables/inspectable/inspectable.tscn" id="19_qbrkf"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="20_twrf0"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/unique_projectiles/damage_area/damage_area.tscn" id="20_w1ply"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="21_nbp02"]
+[ext_resource type="Texture2D" uid="uid://smrgmlqxlrlc" path="res://prefabs/tilesets/general_interior.png" id="21_pcgp6"]
 [ext_resource type="PackedScene" uid="uid://ds7r5gr45oetv" path="res://prefabs/inventory/pickups/pickup.tscn" id="22_k4bao"]
+[ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="22_twrf0"]
 [ext_resource type="Resource" uid="uid://och2ysqe7158" path="res://prefabs/inventory/items/bullet_changers/shuriken.tres" id="23_vwwn4"]
 
 [sub_resource type="Resource" id="Resource_5bf8s"]
@@ -49,6 +53,61 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 211, -176, 0, 0, 0, 0, 218, -165, 0, 0, 0, 0, 240, -161, 0, 0, 0, 0, 251, -167, 0, 0, 0, 0, 266, -159)
 }
 point_count = 5
+
+[sub_resource type="Resource" id="Resource_twqjv"]
+script = ExtResource("20_twrf0")
+message = "Добро пожаловать в Ракун-Сити. Город, где рады всем."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhpfl"]
+atlas = ExtResource("21_pcgp6")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="Resource" id="Resource_1dgt2"]
+script = ExtResource("20_twrf0")
+icon = SubResource("AtlasTexture_lhpfl")
+name = "Табличка у ворот"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_382v3"]
+script = ExtResource("20_twrf0")
+message = "Этот выглядит лучше, чем его собратья."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_qoaj5"]
+script = ExtResource("20_twrf0")
+message = "Пузатый манекен? А будет ли от него толк?"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hal53"]
+load_path = "res://.godot/imported/general_interior.png-93ea463fb49a346969c83ecef6f6a887.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm6vo"]
+atlas = SubResource("CompressedTexture2D_hal53")
+region = Rect2(240, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_nqau3"]
+script = ExtResource("20_twrf0")
+icon = SubResource("AtlasTexture_bm6vo")
+name = "Упитанный манекен"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_dnuhc"]
+script = ExtResource("20_twrf0")
+name = "Корзина с овощами"
+message = "Коробки полные свежих.... Э... Как их там?"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcgp6"]
+atlas = ExtResource("22_twrf0")
+region = Rect2(304, 224, 16, 16)
+
+[sub_resource type="Resource" id="Resource_s8k26"]
+script = ExtResource("20_twrf0")
+icon = SubResource("AtlasTexture_pcgp6")
+name = "Коробка с овощами"
+message = "Ну эти из корзины ты точно раньше видел. Ну видел? Видел же?"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_jclfj"]
 script = ExtResource("21_nbp02")
@@ -330,6 +389,21 @@ curve = SubResource("Curve2D_qoo6f")
 
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="1" unique_id=297187452 instance=ExtResource("5_oowdj")]
 position = Vector2(-376, 544)
+
+[node name="GateTable" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=2087367069 instance=ExtResource("19_qbrkf")]
+position = Vector2(-280, 8)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_twqjv")])
+preset = SubResource("Resource_1dgt2")
+
+[node name="Dummy1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=564055888 instance=ExtResource("19_qbrkf")]
+position = Vector2(-344, -200)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_382v3"), SubResource("Resource_qoaj5")])
+preset = SubResource("Resource_nqau3")
+
+[node name="TreeAndHarvest" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="2" unique_id=1027627275 instance=ExtResource("19_qbrkf")]
+position = Vector2(-440, -224)
+scale = Vector2(3, 3)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_dnuhc"), SubResource("Resource_s8k26")])
 
 [node name="Racoon1" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="0" unique_id=792518766 node_paths=PackedStringArray("movement") instance=ExtResource("9_mmtxs")]
 position = Vector2(-400, 304)
