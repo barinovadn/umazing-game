@@ -109,6 +109,7 @@ z_index = 39
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1517964194]
 unique_name_in_owner = true
+z_index = 30
 
 [node name="Timers" type="Node2D" parent="." unique_id=1241851836]
 unique_name_in_owner = true
