@@ -17,10 +17,6 @@
 [ext_resource type="Script" uid="uid://bp0bnmynw2d1p" path="res://common/utils/hide_at_runtime.gd" id="12_riv3r"]
 [ext_resource type="Texture2D" uid="uid://qcsp46dhs2h1" path="res://prefabs/characters/bosses/giant_frog/sprite_sheet_enraged.png" id="13_64m6r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2j8sj"]
-atlas = ExtResource("11_pjdsv")
-region = Rect2(32, 96, 80, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjdsv"]
 atlas = ExtResource("13_64m6r")
 region = Rect2(40, 0, 40, 40)
@@ -50,7 +46,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 10), Vector2(0, 0), Vector2(20, -15)]
+"values": [Vector2(0, 10), Vector2(0, 0), Vector2(35, -15)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -62,7 +58,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.75, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 10), Vector2(0, 0), Vector2(-20, -15)]
+"values": [Vector2(0, 10), Vector2(0, 0), Vector2(-35, -15)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -223,6 +219,96 @@ _data = {
 &"RESET": SubResource("Animation_d4hu8")
 }
 
+[sub_resource type="Animation" id="Animation_pjdsv"]
+resource_name = "FLOAT"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Decorations:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1.5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Decorations/Content/SpriteLeft:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Decorations/Content/SpriteRight:offset")
+tracks/2/interp = 2
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2j8sj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Decorations:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Decorations/Content/SpriteLeft:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Decorations/Content/SpriteRight:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2j8sj"]
+_data = {
+&"FLOAT": SubResource("Animation_pjdsv"),
+&"RESET": SubResource("Animation_2j8sj")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j8sj"]
+atlas = ExtResource("11_pjdsv")
+region = Rect2(32, 96, 80, 64)
+
 [sub_resource type="LabelSettings" id="LabelSettings_pjdsv"]
 font_size = 20
 font_color = Color(0.6117647, 0.45490196, 0.29411766, 1)
@@ -282,44 +368,52 @@ tile_set = ExtResource("5_pjdsv")
 [node name="Structures" type="TileMapLayer" parent="Tilemap" unique_id=1998111872]
 z_index = 40
 texture_filter = 1
-tile_map_data = PackedByteArray("AAD2/wQAAAATAAcAAAD9/wQAAAATAAgAAAD9/wMAAAATAAUAAAD2/wMAAAATAAgAAAD9/wEAAAATAAgAAAD2/wIAAAATAAUAAAD2/wAAAAATAAgAAAD2////AAATAAUAAAD9/wAAAAATAAUAAAD2//z/AAATAAUAAAD2//3/AAATAAgAAAD9//z/AAATAAUAAAD9//3/AAATAAgAAAD9////AAATAAUAAAD2/wUAAAATAAUAAAD+//v/AgADABIAAAD///7/AgADABIAAAAAAAQAAgADABIAAAAJAPv/AgADABIAAAAKAP7/AgADABIAAAAJAAQAAgADABIAAAAKAAIAAgAGAAgAAAACAP3/AAAQAAAAAAAEAPz/AAASAA4AAAAAAP3/AAASAAwAAAD5//z/EQANAAQAAAD6//z/EQAOAAQAAAD8//z/EQAPAAQAAAD7//z/EQAOAAQAAAD5//7/EQANAAYAAAD6//7/EQAOAAYAAAD7//7/EQAOAAYAAAD5//3/EQANAAUAAAD6//3/EQAOAAUAAAD7//3/EQAOAAUAAAD8//3/EQAPAAUAAAD8//7/EQAPAAYAAAA=")
+tile_map_data = PackedByteArray("AAD2/wQAAAATAAcAAAD9/wQAAAATAAgAAAD9/wMAAAATAAUAAAD2/wMAAAATAAgAAAD9/wEAAAATAAgAAAD2/wIAAAATAAUAAAD2/wAAAAATAAgAAAD2////AAATAAUAAAD9/wAAAAATAAUAAAD2//z/AAATAAUAAAD2//3/AAATAAgAAAD9//z/AAATAAUAAAD9//3/AAATAAgAAAD9////AAATAAUAAAD2/wUAAAATAAUAAAD+//v/AgADABIAAAD///7/AgADABIAAAAAAAQAAgADABIAAAAJAPv/AgADABIAAAAKAP7/AgADABIAAAAJAAQAAgADABIAAAAKAAIAAgAGAAgAAAACAP3/AAAQAAAAAAAEAPz/AAASAA4AAAAAAP3/AAASAAwAAAD6//z/EQAOAAQAAAD8//z/EQAPAAQAAAD7//z/EQAOAAQAAAD5//7/EQANAAYAAAD6//7/EQAOAAYAAAD7//7/EQAOAAYAAAD5//3/EQANAAUAAAD6//3/EQAOAAUAAAD7//3/EQAOAAUAAAD8//3/EQAPAAUAAAD8//7/EQAPAAYAAAD5//z/EQANAAQAAAA=")
 tile_set = ExtResource("5_pjdsv")
 
 [node name="Foreground" type="TileMapLayer" parent="Tilemap" unique_id=330009357]
-visible = false
 z_index = 50
 texture_filter = 1
-tile_map_data = PackedByteArray("AAD9/wQAAQALAAUAAAD9/wMAAQALAAUAAAD9/wIAAQALAAUAAAD9/wEAAQALAAUAAAD9/wAAAQALAAUAAAD9////AQALAAUAAAD9//7/AQAMAAIAAAD9//3/AQAOAAUAAAD9//v/AQAMAAAAAAD8/wQAAQALAAUAAAD8/wMAAQALAAUAAAD8/wIAAQALAAUAAAD8/wEAAQALAAUAAAD8/wAAAQALAAUAAAD8////AQALAAUAAAD8//7/AQAMAAIAAAD8//3/AQAMAAEAAAD8//z/AQAMAAEAAAD8//v/AQAMAAAAAAD7/wQAAQALAAUAAAD7/wMAAQALAAUAAAD7/wIAAQALAAUAAAD7/wEAAQALAAUAAAD7/wAAAQALAAUAAAD7////AQALAAUAAAD7//7/AQAMAAIAAAD7//3/AQAMAAEAAAD7//z/AQAMAAEAAAD7//v/AQAMAAAAAAD6/wQAAQALAAUAAAD6/wMAAQALAAUAAAD6/wIAAQALAAUAAAD6/wEAAQALAAUAAAD6/wAAAQALAAUAAAD6////AQALAAUAAAD6//7/AQAMAAIAAAD6//3/AQAMAAEAAAD6//z/AQAMAAEAAAD6//v/AQAMAAAAAAD5/wQAAQALAAUAAAD5/wMAAQALAAUAAAD5/wIAAQALAAUAAAD5/wEAAQALAAUAAAD5/wAAAQALAAUAAAD5////AQALAAUAAAD5//7/AQAMAAIAAAD5//3/AQAMAAEAAAD5//z/AQAMAAEAAAD5//v/AQAMAAAAAAD4/wQAAQALAAUAAAD4/wMAAQALAAUAAAD4/wIAAQALAAUAAAD4/wEAAQALAAUAAAD4/wAAAQALAAUAAAD4////AQALAAUAAAD4//7/AQAMAAIAAAD4//z/AQAMAAEAAAD4//v/AQAMAAAAAAD+/wQAAQAOAAEAAAD+/wMAAQAOAAEAAAD+/wIAAQAOAAEAAAD+/wEAAQAOAAEAAAD+/wAAAQAOAAEAAAD+////AQAOAAEAAAD+//7/AQANAAIAAAD+//3/AQANAAEAAAD+//z/AQANAAEAAAD+//v/AQANAAAAAAD3/wQAAQAOAAEAAAD3/wMAAQAOAAEAAAD3/wIAAQAOAAEAAAD3/wEAAQAOAAEAAAD3/wAAAQAOAAEAAAD3////AQAOAAEAAAD3//7/AQALAAIAAAD3//3/AQALAAEAAAD3//z/AQALAAEAAAD3//v/AQALAAAAAAD4//3/AQALAAQAAAD9//z/AQAMAAEAAAA=")
 tile_set = ExtResource("4_64m6r")
 
-[node name="Decorations" type="Node2D" parent="." unique_id=314137597]
-z_index = 50
-position = Vector2(72, 80)
+[node name="Decorations" type="Node2D" parent="." unique_id=1426950376]
+z_index = 100
+
+[node name="Content" type="Node2D" parent="Decorations" unique_id=314137597]
+position = Vector2(70, 80)
 scale = Vector2(2, 2)
 
-[node name="ButtonsBG" type="Sprite2D" parent="Decorations" unique_id=252879864]
-position = Vector2(-76, -40)
-texture = SubResource("AtlasTexture_2j8sj")
+[node name="SpriteRight" type="Sprite2D" parent="Decorations/Content" unique_id=1318511360]
+z_index = 2
+texture_filter = 1
+texture = ExtResource("12_64m6r")
 
-[node name="SpriteCenter" type="Sprite2D" parent="Decorations" unique_id=1593498156]
+[node name="SpriteLeft" type="Sprite2D" parent="Decorations/Content" unique_id=1926742049]
+z_index = 1
+texture_filter = 1
+texture = SubResource("AtlasTexture_pjdsv")
+
+[node name="SpriteCenter" type="Sprite2D" parent="Decorations/Content" unique_id=1593498156]
 z_index = 3
 texture_filter = 1
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("11_rcuxh")
 
-[node name="SpriteRight" type="Sprite2D" parent="Decorations" unique_id=1318511360]
-z_index = 2
-texture_filter = 1
-texture = ExtResource("12_64m6r")
-
-[node name="SpriteLeft" type="Sprite2D" parent="Decorations" unique_id=1926742049]
-z_index = 1
-texture_filter = 1
-texture = SubResource("AtlasTexture_pjdsv")
-
-[node name="Animator" type="AnimationPlayer" parent="Decorations" unique_id=1998150719]
+[node name="Appear" type="AnimationPlayer" parent="Decorations" unique_id=1998150719]
+root_node = NodePath("../Content")
 libraries/ = SubResource("AnimationLibrary_p1nwe")
-autoplay = &"APPEAR_NEW"
+autoplay = &"APPEAR"
+
+[node name="Float" type="AnimationPlayer" parent="Decorations" unique_id=2039114051]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_2j8sj")
+autoplay = &"FLOAT"
+
+[node name="ButtonsBG" type="Sprite2D" parent="." unique_id=252879864]
+z_index = 50
+position = Vector2(-80, 0.36843872)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_2j8sj")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=908448884]
 
