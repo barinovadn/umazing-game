@@ -58,7 +58,7 @@ extends Area2D
 @onready var environment_filter: EnvironmentFilter = %Player/%EnvironmentFilter
 @onready var music_player: MusicPlayer = %MusicPlayer
 
-var exit_frame: float = 0
+var exit_frame: float = -1
 var enter_frame: float = 0
 
 

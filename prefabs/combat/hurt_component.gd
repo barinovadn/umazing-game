@@ -130,7 +130,7 @@ func _dmg_to_str(amount: float) -> String:
 	if vfx_prettify_dmg_numbers:
 		return str(int(amount * 100))
 	
-	return str(amount)
+	return str("%.2f" % amount)
 
 
 func _calc_damage_marker_color(dmg_amount: float) -> Color:
