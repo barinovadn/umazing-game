@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="4_ugsos"]
 [ext_resource type="Texture2D" uid="uid://c2cd20vcebco5" path="res://prefabs/combat/bullets/variations/comons/fire_shot/fire_shot.png" id="5_ugsos"]
 [ext_resource type="AudioStream" uid="uid://5ms3pxf0nx27" path="res://prefabs/combat/bullets/variations/comons/fire_shot/fire_shot_3.wav" id="5_v1vap"]
-[ext_resource type="AudioStream" uid="uid://b4e2abikcbbi5" path="res://prefabs/combat/bullets/variations/comons/fire_shot/fire_shot_4.wav" id="6_gm3xj"]
 
 [sub_resource type="Resource" id="Resource_cefod"]
 script = ExtResource("4_ugsos")
@@ -63,11 +62,10 @@ hit_interval = 1.0
 hits_amount = 4
 turn_rate = 0.0
 damage = 0.1
-crit_damage = 0.2
-crit_chance = 0.1
+crit_damage = 0.1
+crit_chance = 0.2
 can_break = true
 sounds_spawn = Array[AudioStream]([ExtResource("3_csoll"), ExtResource("4_ewjev"), ExtResource("5_v1vap")])
-sounds_hit = Array[AudioStream]([ExtResource("6_gm3xj")])
 vfx_spawn = SubResource("Resource_ydqux")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]

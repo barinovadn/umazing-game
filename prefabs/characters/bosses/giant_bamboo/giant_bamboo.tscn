@@ -62,10 +62,6 @@ region = Rect2(248, 0, 62, 62)
 atlas = ExtResource("4_qxl2k")
 region = Rect2(310, 0, 62, 62)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujyem"]
-atlas = ExtResource("5_lu1t5")
-region = Rect2(0, 0, 62, 62)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8lbd"]
 atlas = ExtResource("5_lu1t5")
 region = Rect2(124, 0, 62, 62)
@@ -93,6 +89,10 @@ region = Rect2(558, 0, 62, 62)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xw356"]
 atlas = ExtResource("5_lu1t5")
 region = Rect2(620, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujyem"]
+atlas = ExtResource("5_lu1t5")
+region = Rect2(0, 0, 62, 62)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eyo8q"]
 animations = [{
@@ -155,9 +155,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ujyem")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_r8lbd")
 }, {
 "duration": 1.0,
@@ -177,6 +174,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xw356")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujyem")
 }],
 "loop": true,
 "name": &"walk_left",
@@ -191,7 +191,7 @@ offset = Vector2(0, 25)
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_eyo8q")
-animation = &"downed"
+animation = &"walk_left"
 autoplay = "idle_left"
 frame_progress = 0.0
 

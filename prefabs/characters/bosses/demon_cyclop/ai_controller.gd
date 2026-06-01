@@ -5,6 +5,11 @@ extends AIController
 @export var creepy_sound: Array[AudioStream]
 
 
+func _ai_ready():
+	shoot_controller.post_shot_cd_started.connect(func(): movement_controller.enabled = false)
+	shoot_controller.post_shot_cd_finished.connect(func(): movement_controller.enabled = true)
+
+
 func _on_action(_action: AIAction):
 	if _action.action_name == "bomb_and_regen" or _action.action_name == "fire_and_regen":
 		modifier.value = -1

@@ -62,10 +62,6 @@ region = Rect2(240, 0, 60, 60)
 atlas = ExtResource("3_d3s8r")
 region = Rect2(300, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6fgdy"]
-atlas = ExtResource("4_7i41d")
-region = Rect2(0, 0, 60, 60)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jk8m5"]
 atlas = ExtResource("4_7i41d")
 region = Rect2(60, 0, 60, 60)
@@ -81,6 +77,10 @@ region = Rect2(180, 0, 60, 60)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5y60q"]
 atlas = ExtResource("4_7i41d")
 region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fgdy"]
+atlas = ExtResource("4_7i41d")
+region = Rect2(0, 0, 60, 60)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_38l2q"]
 animations = [{
@@ -143,9 +143,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6fgdy")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_jk8m5")
 }, {
 "duration": 1.0,
@@ -156,6 +153,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5y60q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fgdy")
 }],
 "loop": true,
 "name": &"walk_left",
@@ -170,10 +170,9 @@ offset = Vector2(0, 21.375)
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_38l2q")
-animation = &"downed"
+animation = &"attack_left"
 autoplay = "idle_left"
-frame = 3
-frame_progress = 1.0
+frame_progress = 0.33806798
 
 [node name="AnimationController" parent="." index="3" unique_id=395358213]
 animations = Dictionary[int, String]({
