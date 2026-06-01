@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c3hby7f68si77"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_nordt"]
+[ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="2_48v7q"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_ip8du"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_48v7q"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_78v32"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="5_ydjnr"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_4to4r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78v32"]
+atlas = ExtResource("2_48v7q")
+region = Rect2(337, 225, 14, 15)
+
+[sub_resource type="Resource" id="Resource_ydjnr"]
+script = ExtResource("1_nordt")
+icon = SubResource("AtlasTexture_78v32")
+name = "Настой вечной сакуры"
+message = "Легендарный целебный эликсир, способный вернуть к жизни даже самого израненного героя.
++ 100 к здоровью
++ 3  к максимальному здоровью"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4to4r"]
+atlas = ExtResource("2_48v7q")
+region = Rect2(337, 225, 14, 15)
+
+[resource]
+script = ExtResource("6_4to4r")
+rarity = 2
+name = "Настой вечной сакуры"
+icon = SubResource("AtlasTexture_4to4r")
+description = Array[ExtResource("1_nordt")]([SubResource("Resource_ydjnr")])
+is_consumable = true
+is_active = true
+on_use_heal = 100.0
+on_use_max_hp_increase = 3.0
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"
