@@ -21,8 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://7ow2e543p51g" path="res://prefabs/characters/friendlies/weapon_dealer/weapon_dealer.tscn" id="11_bj013"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/unique_projectiles/damage_area/damage_area.tscn" id="20_w1ply"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="21_nbp02"]
-[ext_resource type="PackedScene" uid="uid://ds7r5gr45oetv" path="res://prefabs/inventory/pickups/pickup.tscn" id="22_k4bao"]
-[ext_resource type="Resource" uid="uid://och2ysqe7158" path="res://prefabs/inventory/items/bullet_changers/shuriken.tres" id="23_vwwn4"]
 
 [sub_resource type="Resource" id="Resource_5bf8s"]
 script = ExtResource("3_5bf8s")
@@ -411,7 +409,3 @@ curve = SubResource("Curve2D_nbp02")
 
 [node name="RacoonPath4" type="Path2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="7" unique_id=699713192]
 curve = SubResource("Curve2D_jclfj")
-
-[node name="Pickup" parent="Pickups" parent_id_path=PackedInt32Array(1517964194) index="0" unique_id=1796102070 instance=ExtResource("22_k4bao")]
-position = Vector2(-280, -192)
-item_data = ExtResource("23_vwwn4")

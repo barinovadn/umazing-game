@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://cy2okodglnv8x"]
 
 [ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_4dylk"]
-[ext_resource type="Resource" uid="uid://cejginc6f6ulp" path="res://prefabs/inventory/items/sushi1.tres" id="2_by8sj"]
-[ext_resource type="Resource" uid="uid://dmxxx38rpu1in" path="res://prefabs/inventory/items/sushi2.tres" id="3_vh8u8"]
-[ext_resource type="Resource" uid="uid://eosgp0x21g3q" path="res://prefabs/inventory/items/shrimp.tres" id="4_k1biq"]
+[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi1.tres" id="2_by8sj"]
+[ext_resource type="Resource" uid="uid://bbou27cu6ht" path="res://prefabs/inventory/items/sushi2.tres" id="3_vh8u8"]
+[ext_resource type="Resource" uid="uid://blylgxx5kc83n" path="res://prefabs/inventory/items/shrimp.tres" id="4_k1biq"]
 [ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="5_offi1"]
 [ext_resource type="AudioStream" uid="uid://dticsqhs05poe" path="res://prefabs/combat/sounds/impact_2.wav" id="6_dnue0"]
 [ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="7_4dylk"]
