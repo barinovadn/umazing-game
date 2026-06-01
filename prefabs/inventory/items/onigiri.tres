@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dn7rgjb2bfdkv"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://i18qya6owx8b"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_1uqwl"]
-[ext_resource type="Texture2D" uid="uid://bqkv0s6o0rq1q" path="res://prefabs/inventory/items/food/onigiri.png" id="2_0jq4c"]
+[ext_resource type="Texture2D" path="res://prefabs/inventory/items/Onigiri.png" id="2_0jq4c"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_1u6lf"]
 [ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_0jq4c"]
 [ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_vcehb"]
