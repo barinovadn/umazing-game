@@ -1,9 +1,10 @@
 [gd_scene format=4 uid="uid://den5tgrfa2f6q"]
 
 [ext_resource type="PackedScene" uid="uid://buhslpn3jaek5" path="res://scenes/game/game.tscn" id="1_o2p3v"]
-[ext_resource type="PackedScene" uid="uid://mxyh1j8e1keb" path="res://prefabs/combat/bullets/variations/comons/arrow/arrow.tscn" id="2_egl16"]
+[ext_resource type="PackedScene" uid="uid://fn0tv6mqn7g6" path="res://prefabs/combat/bullets/variations/comons/kunai/kunai.tscn" id="2_8augw"]
 [ext_resource type="PackedScene" uid="uid://dige0r8yk22qb" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot.tscn" id="2_mtt35"]
 [ext_resource type="PackedScene" uid="uid://dcrm5punhuk0d" path="res://prefabs/characters/ninja_green/ninja_green.tscn" id="2_o2p3v"]
+[ext_resource type="PackedScene" uid="uid://kdh1xs265kuy" path="res://prefabs/combat/bullets/variations/comons/sinusoid_ball/sinusoid_ball.tscn" id="2_w8ftg"]
 [ext_resource type="PackedScene" uid="uid://ik6dpd1qhkci" path="res://prefabs/characters/bosses/giant_racoon/giant_racoon.tscn" id="3_5yt0q"]
 [ext_resource type="PackedScene" uid="uid://cathu8h71gfg7" path="res://prefabs/characters/bosses/giant_bamboo/giant_bamboo.tscn" id="3_cp8gd"]
 [ext_resource type="PackedScene" uid="uid://fgbsvngybrki" path="res://prefabs/combat/ai/ai_controller.tscn" id="4_lonoe"]
@@ -22,20 +23,37 @@
 [ext_resource type="AudioStream" uid="uid://dbqpuh2xwbot8" path="res://prefabs/combat/sounds/impact_3.wav" id="13_sj5jv"]
 [ext_resource type="PackedScene" uid="uid://bx0aayot7ndhr" path="res://prefabs/combat/bullets/variations/comons/stone_shot/stone_shot.tscn" id="14_io6ay"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="14_m7sgn"]
+[ext_resource type="Texture2D" uid="uid://dr2n47tbysw6p" path="res://prefabs/characters/bosses/giant_bamboo/great_bamboo_over.png" id="14_v6rn7"]
 [ext_resource type="PackedScene" uid="uid://2c483lnj3eel" path="res://prefabs/combat/bullets/variations/projectile_mixes/stone_fall/stone_fall.tscn" id="15_sj5jv"]
 [ext_resource type="PackedScene" uid="uid://b7jopm86b0plu" path="res://prefabs/combat/bullets/variations/comons/stone_rickoshet_shot/stone_rickoshet_shot.tscn" id="16_egl16"]
 [ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="19_hk7ad"]
 [ext_resource type="AudioStream" uid="uid://d4ak7hvl783hi" path="res://prefabs/characters/bosses/giant_racoon/sounds/racoon_sound_6.wav" id="22_mtt35"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="23_mtt35"]
+[ext_resource type="PackedScene" uid="uid://dobj6xx5d4p2c" path="res://prefabs/breakables/variations/bamboo_1.tscn" id="25_5owx6"]
 [ext_resource type="Script" uid="uid://cs0tdaqh0ob3k" path="res://prefabs/characters/bosses/giant_bamboo/level_1/ai_controller.gd" id="28_dlq5l"]
 [ext_resource type="PackedScene" uid="uid://3mmildwaq6jn" path="res://prefabs/combat/bullets/variations/comons/plan_spike_great_shot/plan_spike_great_shot.tscn" id="29_k1fdc"]
-[ext_resource type="Texture2D" uid="uid://deul68x6k0d2q" path="res://prefabs/characters/bosses/giant_bamboo/boss_over.png" id="30_yakie"]
 [ext_resource type="Texture2D" uid="uid://c4nnlcpg33wi6" path="res://prefabs/characters/bosses/giant_bamboo/boss_progress.png" id="31_w8ftg"]
 [ext_resource type="PackedScene" uid="uid://bc2kdebobsqlu" path="res://prefabs/interactions/interactables/inspectable/inspectable.tscn" id="32_g6ybq"]
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="33_8augw"]
 [ext_resource type="Texture2D" uid="uid://022sg5y1hce1" path="res://prefabs/characters/bosses/giant_bamboo/portrait.png" id="34_qtrp1"]
 [ext_resource type="AudioStream" uid="uid://jiupi2muxp24" path="res://prefabs/characters/bosses/giant_bamboo/sounds/bamboo_roar_1.wav" id="35_k0tm2"]
 [ext_resource type="AudioStream" uid="uid://bgwqep33ow0sa" path="res://prefabs/characters/bosses/giant_bamboo/sounds/bamboo_roar_2.wav" id="36_5owx6"]
+[ext_resource type="Script" uid="uid://k8svam5hr7yy" path="res://prefabs/characters/bosses/giant_slime/ai_controller.gd" id="37_8augw"]
+[ext_resource type="PackedScene" uid="uid://bbu8e4yixl2st" path="res://prefabs/characters/bosses/giant_slime/giant_slime.tscn" id="37_qtrp1"]
+[ext_resource type="PackedScene" uid="uid://died6n7flmmvr" path="res://prefabs/combat/bullets/variations/comons/slow_shot/slow_shot.tscn" id="37_w8ftg"]
+[ext_resource type="PackedScene" uid="uid://cq7ot013rio34" path="res://prefabs/combat/bullets/variations/projectile_mixes/wave/wave.tscn" id="39_qtrp1"]
+[ext_resource type="Texture2D" uid="uid://cv5mtlvh8pj6f" path="res://prefabs/characters/bosses/giant_slime/boss_over.png" id="41_0b57j"]
+[ext_resource type="PackedScene" uid="uid://dd6sfx78q5xg2" path="res://prefabs/combat/bullets/variations/projectile_mixes/circle_slow_shot/circle_slow_shot.tscn" id="41_k0tm2"]
+[ext_resource type="Texture2D" uid="uid://0qdedaiy7q8d" path="res://prefabs/characters/bosses/giant_slime/boss_progress.png" id="42_hjcxf"]
+[ext_resource type="PackedScene" uid="uid://bdu64vahuihfg" path="res://prefabs/characters/bosses/demon_cyclop/demon_cyclop.tscn" id="45_25f2l"]
+[ext_resource type="Script" uid="uid://dreliu55cjnth" path="res://prefabs/characters/bosses/demon_cyclop/ai_controller.gd" id="46_arhyt"]
+[ext_resource type="AudioStream" uid="uid://qrwsgalrs66o" path="res://prefabs/combat/sounds/strange_1.wav" id="47_me7r1"]
+[ext_resource type="PackedScene" uid="uid://dvbhbbnymys31" path="res://prefabs/combat/bullets/variations/comons/fire_shot/fire_shot.tscn" id="48_me7r1"]
+[ext_resource type="AudioStream" uid="uid://c83bcmqra1gil" path="res://prefabs/characters/bosses/demon_cyclop/heart_beat_1.wav" id="48_v6rn7"]
+[ext_resource type="AudioStream" uid="uid://cgkixse0ml8aw" path="res://prefabs/characters/bosses/demon_cyclop/heart_beat_2.wav" id="49_ij3ly"]
+[ext_resource type="Texture2D" uid="uid://dec2j6yyav7ty" path="res://prefabs/characters/bosses/demon_cyclop/boss_over.png" id="50_kura7"]
+[ext_resource type="AudioStream" uid="uid://g5qwchbeppu3" path="res://prefabs/characters/bosses/demon_cyclop/heart_beat_3.wav" id="50_y3ty4"]
+[ext_resource type="Texture2D" uid="uid://ccgvfgeej7h02" path="res://prefabs/characters/bosses/demon_cyclop/boss_progress.png" id="51_38i0a"]
 
 [sub_resource type="Resource" id="Resource_hk7ad"]
 script = ExtResource("8_j4jck")
@@ -78,6 +96,152 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("4_s6g6n")
 base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_u5n4u"]
+script = ExtResource("8_j4jck")
+duration = 1.0
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[sub_resource type="Resource" id="Resource_kura7"]
+script = ExtResource("4_s6g6n")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_38i0a"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_1q0b0"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_v6rn7"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_ij3ly"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_y3ty4"]
+script = ExtResource("4_s6g6n")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_bcg5v"]
+script = ExtResource("4_s6g6n")
+base_value = 1.0
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_8vwle"]
+script = ExtResource("13_nmf1y")
+effect = 110
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_680iq"]
+script = ExtResource("9_fflhd")
+action_name = "move and shoot"
+weight = 2.0
+phases = Array[int]([1])
+duration = 5.0
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("29_k1fdc")])
+shoot_interval = 1.0
+shooting_animation_interval = 0.9
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_sko6y"]
+script = ExtResource("9_fflhd")
+action_name = "rest"
+weight = 1.0
+phases = Array[int]([1])
+duration = 3.0
+can_move = true
+shoot_interval = 1.0
+shooting_animation_interval = 0.6
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_nth8t"]
+script = ExtResource("9_fflhd")
+action_name = "hide and shot"
+weight = 3.0
+phases = Array[int]([2])
+duration = 1000.0
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("29_k1fdc")])
+shoot_interval = 1.5
+shooting_animation_interval = 1.0
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_w2d2t"]
+script = ExtResource("8_j4jck")
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[sub_resource type="Resource" id="Resource_pehxf"]
+script = ExtResource("10_s6g6n")
+display_color = null
+texture_progress = ExtResource("31_w8ftg")
+texture_over = ExtResource("14_v6rn7")
+metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
+
+[sub_resource type="Resource" id="Resource_xdrwm"]
+script = ExtResource("33_8augw")
+icon = ExtResource("34_qtrp1")
+name = "Огромный бамбук"
+message = "Ты поплатишься за всех моих сыновей!
+"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jlamk"]
+load_path = "res://.godot/imported/portrait.png-1f9f3f4571f816e5039388c70a4d4b66.ctex"
+
+[sub_resource type="Resource" id="Resource_t8cnx"]
+script = ExtResource("33_8augw")
+icon = SubResource("CompressedTexture2D_jlamk")
+name = "Огромный бамбук"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_g72lm"]
+script = ExtResource("14_m7sgn")
+density = 4
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_vc8n2"]
+script = ExtResource("13_nmf1y")
+effect = 10000
+settings = SubResource("Resource_g72lm")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_rjdef"]
+script = ExtResource("14_m7sgn")
+modulate = Color(0.5176471, 0.7921569, 0.19215687, 1)
+density = 4
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_8bs0b"]
+script = ExtResource("13_nmf1y")
+effect = 10000
+settings = SubResource("Resource_rjdef")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_uyufl"]
+vertices = PackedVector2Array(2015.7969, 124.75, 2028.7891, 162.10156, 2023.1016, 210.10156, 1957.3516, 210.88281, 1954.1406, 162.75781, 1971.4375, 123.21875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1965, 113, 1944, 161, 1948, 221, 2032, 220, 2039, 161, 2023, 115)])
+parsed_collision_mask = 1
+source_geometry_mode = 2
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_j4ten"]
+vertices = PackedVector2Array(1871.5078, 121.890625, 1887.5469, 157.1875, 1877.8203, 205.88281, 1822.7031, 205.10156, 1809.6016, 155.96875, 1826.25, 121.109375)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1820, 111, 1878, 112, 1898, 156, 1886, 216, 1815, 215, 1799, 155)])
+parsed_collision_mask = 1
+source_geometry_mode = 2
 
 [sub_resource type="Resource" id="Resource_qtrp1"]
 script = ExtResource("4_s6g6n")
@@ -220,6 +384,7 @@ metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [sub_resource type="Resource" id="Resource_m7sgn"]
 script = ExtResource("10_s6g6n")
+display_name = "Большой Енот"
 display_color = null
 texture_progress = ExtResource("12_nmf1y")
 texture_over = ExtResource("11_hk7ad")
@@ -311,151 +476,204 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-472, 256, -472, 384, -
 parsed_collision_mask = 1
 source_geometry_mode = 2
 
-[sub_resource type="Resource" id="Resource_u5n4u"]
-script = ExtResource("8_j4jck")
-duration = 1.0
-value = 1.0
-operation = 1
-metadata/_custom_type_script = "uid://ctqdits5kj2tk"
-
-[sub_resource type="Resource" id="Resource_kura7"]
-script = ExtResource("4_s6g6n")
-base_value = 1.0
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_38i0a"]
-script = ExtResource("4_s6g6n")
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_1q0b0"]
-script = ExtResource("4_s6g6n")
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_v6rn7"]
-script = ExtResource("4_s6g6n")
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_ij3ly"]
-script = ExtResource("4_s6g6n")
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_y3ty4"]
-script = ExtResource("4_s6g6n")
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_bcg5v"]
-script = ExtResource("4_s6g6n")
-base_value = 1.0
-metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
-
-[sub_resource type="Resource" id="Resource_8vwle"]
-script = ExtResource("13_nmf1y")
-effect = 110
-metadata/_custom_type_script = "uid://b3ycbn10rbivg"
-
-[sub_resource type="Resource" id="Resource_680iq"]
+[sub_resource type="Resource" id="Resource_uyufl"]
 script = ExtResource("9_fflhd")
-action_name = "move and shoot"
-weight = 2.0
-phases = Array[int]([1])
+action_name = "slow_shots"
+weight = 1.0
+phases = Array[int]([1, 2])
 duration = 5.0
 can_shoot = true
 can_move = true
-bullet_types = Array[PackedScene]([ExtResource("29_k1fdc")])
-shoot_interval = 1.0
-shooting_animation_interval = 0.9
+bullet_types = Array[PackedScene]([ExtResource("37_w8ftg")])
+shoot_interval = 0.7
+shooting_animation_interval = 0.5
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
-[sub_resource type="Resource" id="Resource_sko6y"]
+[sub_resource type="Resource" id="Resource_a0px1"]
 script = ExtResource("9_fflhd")
-action_name = "rest"
+action_name = "sinusoid"
 weight = 1.0
-phases = Array[int]([1])
-duration = 3.0
-can_move = true
-shoot_interval = 1.0
-shooting_animation_interval = 0.6
-metadata/_custom_type_script = "uid://dowl0clqumedg"
-
-[sub_resource type="Resource" id="Resource_nth8t"]
-script = ExtResource("9_fflhd")
-action_name = "hide and shot"
-weight = 3.0
-phases = Array[int]([2])
-duration = 1000.0
+phases = Array[int]([1, 2])
+duration = 6.0
 can_shoot = true
 can_move = true
-bullet_types = Array[PackedScene]([ExtResource("29_k1fdc")])
-shoot_interval = 1.5
-shooting_animation_interval = 1.0
+bullet_types = Array[PackedScene]([ExtResource("2_w8ftg")])
+shoot_interval = 0.8
+shooting_animation_interval = 0.5
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
-[sub_resource type="Resource" id="Resource_w2d2t"]
-script = ExtResource("8_j4jck")
-value = 1.0
-operation = 1
-metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+[sub_resource type="Resource" id="Resource_a0iws"]
+script = ExtResource("9_fflhd")
+action_name = "rest"
+weight = 0.5
+duration = 3.0
+can_move = true
+shoot_interval = 0.6
+shooting_animation_interval = 0.3
+metadata/_custom_type_script = "uid://dowl0clqumedg"
 
-[sub_resource type="Resource" id="Resource_pehxf"]
+[sub_resource type="Resource" id="Resource_lfpss"]
+script = ExtResource("9_fflhd")
+action_name = "wave"
+weight = 1.0
+phases = Array[int]([3, 2])
+duration = 6.0
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("39_qtrp1")])
+shoot_interval = 1.0
+shooting_animation_interval = 0.5
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_cqron"]
+script = ExtResource("9_fflhd")
+action_name = "center_circle"
+weight = 1.0
+phases = Array[int]([3])
+duration = 6.1
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("41_k0tm2")])
+shoot_interval = 1.5
+shooting_animation_interval = 0.5
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_j4ten"]
+script = ExtResource("13_nmf1y")
+effect = 310
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_6t2kh"]
 script = ExtResource("10_s6g6n")
+display_name = "Страшный Слайм"
 display_color = null
-texture_progress = ExtResource("31_w8ftg")
-texture_over = ExtResource("30_yakie")
+texture_progress = ExtResource("42_hjcxf")
+texture_over = ExtResource("41_0b57j")
 metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
 
-[sub_resource type="Resource" id="Resource_xdrwm"]
-script = ExtResource("33_8augw")
-icon = ExtResource("34_qtrp1")
-name = "Огромный бамбук"
-message = "Ты поплатишься за всех моих сыновей!
-"
-metadata/_custom_type_script = "uid://3n0f04b0rgoe"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jlamk"]
-load_path = "res://.godot/imported/portrait.png-1f9f3f4571f816e5039388c70a4d4b66.ctex"
-
-[sub_resource type="Resource" id="Resource_t8cnx"]
-script = ExtResource("33_8augw")
-icon = SubResource("CompressedTexture2D_jlamk")
-name = "Огромный бамбук"
-metadata/_custom_type_script = "uid://3n0f04b0rgoe"
-
-[sub_resource type="Resource" id="Resource_g72lm"]
+[sub_resource type="Resource" id="Resource_xr201"]
 script = ExtResource("14_m7sgn")
 density = 4
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 
-[sub_resource type="Resource" id="Resource_vc8n2"]
+[sub_resource type="Resource" id="Resource_lllex"]
 script = ExtResource("13_nmf1y")
 effect = 10000
-settings = SubResource("Resource_g72lm")
+settings = SubResource("Resource_xr201")
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
-[sub_resource type="Resource" id="Resource_rjdef"]
+[sub_resource type="Resource" id="Resource_8a3dx"]
 script = ExtResource("14_m7sgn")
 modulate = Color(0.5176471, 0.7921569, 0.19215687, 1)
 density = 4
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 
-[sub_resource type="Resource" id="Resource_8bs0b"]
+[sub_resource type="Resource" id="Resource_hnaph"]
 script = ExtResource("13_nmf1y")
 effect = 10000
-settings = SubResource("Resource_rjdef")
+settings = SubResource("Resource_8a3dx")
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_uyufl"]
-vertices = PackedVector2Array(2015.7969, 124.75, 2028.7891, 162.10156, 2023.1016, 210.10156, 1957.3516, 210.88281, 1954.1406, 162.75781, 1971.4375, 123.21875)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1965, 113, 1944, 161, 1948, 221, 2032, 220, 2039, 161, 2023, 115)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_a0px1"]
+vertices = PackedVector2Array(-826, 54, -1094, 54, -1094, -54, -826, -54)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1104, 64, -1104, -64, -816, -64, -816, 64)])
 parsed_collision_mask = 1
 source_geometry_mode = 2
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_j4ten"]
-vertices = PackedVector2Array(1871.5078, 121.890625, 1887.5469, 157.1875, 1877.8203, 205.88281, 1822.7031, 205.10156, 1809.6016, 155.96875, 1826.25, 121.109375)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1820, 111, 1878, 112, 1898, 156, 1886, 216, 1815, 215, 1799, 155)])
-parsed_collision_mask = 1
-source_geometry_mode = 2
+[sub_resource type="Resource" id="Resource_gbrnj"]
+script = ExtResource("14_m7sgn")
+density = 4
+sound = ExtResource("47_me7r1")
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_ok2y0"]
+script = ExtResource("13_nmf1y")
+effect = 310
+settings = SubResource("Resource_gbrnj")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_6w827"]
+script = ExtResource("9_fflhd")
+action_name = "bomb_patry"
+weight = 1.0
+phases = Array[int]([1, 2, 3])
+duration = 5.0
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("2_mtt35")])
+shoot_interval = 1.0
+shooting_animation_interval = 0.3
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_s8j6p"]
+script = ExtResource("9_fflhd")
+action_name = "fire_show"
+weight = 1000.0
+phases = Array[int]([1, 2, 3])
+duration = 5.0
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("48_me7r1")])
+shoot_interval = 0.7
+shooting_animation_interval = 0.3
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_jntme"]
+script = ExtResource("9_fflhd")
+action_name = "rest"
+weight = 0.5
+phases = Array[int]([1, 2, 3])
+duration = 3.0
+can_move = true
+shoot_interval = 0.5
+shooting_animation_interval = 0.3
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_oalg6"]
+script = ExtResource("9_fflhd")
+action_name = "bomb_and_regen"
+weight = 0.5
+phases = Array[int]([2, 3, 1])
+duration = 5.1
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("2_mtt35")])
+shoot_interval = 1.0
+shooting_animation_interval = 0.3
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_ly4m0"]
+script = ExtResource("9_fflhd")
+action_name = "fire_and_regen"
+weight = 0.5
+phases = Array[int]([2, 3])
+duration = 5.0
+can_shoot = true
+can_move = true
+bullet_types = Array[PackedScene]([ExtResource("48_me7r1")])
+shoot_interval = 0.7
+shooting_animation_interval = 0.3
+metadata/_custom_type_script = "uid://dowl0clqumedg"
+
+[sub_resource type="Resource" id="Resource_e6hjq"]
+script = ExtResource("8_j4jck")
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[sub_resource type="Resource" id="Resource_1b6b2"]
+script = ExtResource("10_s6g6n")
+display_name = " Демоническое сердце"
+display_color = null
+texture_progress = ExtResource("51_38i0a")
+texture_over = ExtResource("50_kura7")
+metadata/_custom_type_script = "uid://b0oev2u1vd0cw"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0b57j"]
+vertices = PackedVector2Array(782, 99.109375, 782, 220.89063, 737.78906, 216.22656, 639.53125, 114.10156, 640, 205.9375, 598.59375, 105.921875, 520.52344, 218.52344, 498, 220.88281, 498, 98.72656, 572.1797, 213.07813)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 7, 8, 5, 9), PackedInt32Array(4, 9, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(488, 88, 488, 232, 521.57166, 228.46614, 573.22363, 223.0291, 640, 216, 736.7411, 226.18327, 792, 232, 792, 88, 640, 104, 600, 96)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5yt0q"]
 vertices = PackedVector2Array(16.492188, 26.90625, 54.007813, 35.328125, 49.703125, 48.242188, -2.609375, 49.976563, -51.15625, 44.78125, -54.828125, 31.476563, -29.773438, 23.132813)
@@ -469,19 +687,18 @@ source_geometry_mode = 2
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
 bullets = Dictionary[String, PackedScene]({
-"dsdsd": ExtResource("2_egl16"),
-"kunai": ExtResource("2_mtt35")
+"dsdsd": ExtResource("2_8augw")
 })
 allow_cheats = true
 
 [node name="Ground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="1" unique_id=2033248800]
-tile_map_data = PackedByteArray("AAAJAAQAAAACAAkAAAAJAAMAAAACAAcAAAAJAAIAAAAEAAwAAAAJAAEAAAADAAwAAAAJAAAAAAABAAwAAAAJAP//AAAAAAwAAAAJAP7/AAAEAAwAAAAJAP3/AAAAAAwAAAAJAPz/AAAAAAwAAAAJAPv/AAAAAAwAAAAIAAQAAAABAAkAAAAIAAMAAAABAAcAAAAIAAIAAAAAAAwAAAAIAAEAAAAEAAwAAAAIAAAAAAAAAAwAAAAIAP//AAAAAAwAAAAIAP7/AAAAAAwAAAAIAP3/AAAEAAwAAAAIAPz/AAABAAwAAAAIAPv/AAAAAAwAAAAHAAQAAAAAAAkAAAAHAAMAAAAAAAcAAAAHAAIAAAAEAAwAAAAHAAEAAAAEAAwAAAAHAAAAAAAEAAwAAAAHAP//AAADAAwAAAAHAP7/AAAAAAwAAAAHAP3/AAAAAAwAAAAHAPz/AAAEAAwAAAAHAPv/AAAEAAwAAAAGAAQAAAAAAAwAAAAGAAMAAAAAAAwAAAAGAAIAAAAAAAwAAAAGAAEAAAACAAwAAAAGAAAAAAAAAAwAAAAGAP//AAAAAAwAAAAGAP7/AAAAAAwAAAAGAP3/AAAAAAwAAAAGAPz/AAADAAwAAAAGAPv/AAAAAAwAAAAFAAQAAAADAAwAAAAFAAMAAAAEAAwAAAAFAAIAAAAAAAwAAAAFAAEAAAAAAAwAAAAFAAAAAAAAAAwAAAAFAP//AAAAAAwAAAAFAP7/AAAEAAwAAAAFAP3/AAAAAAwAAAAFAPz/AAADAAwAAAAFAPv/AAAAAAwAAAAEAAQAAAAAAAwAAAAEAAMAAAADAAwAAAAEAAIAAAAAAAwAAAAEAAEAAAAEAAwAAAAEAAAAAAAAAAwAAAAEAP//AAAEAAwAAAAEAP7/AAAEAAwAAAAEAP3/AAAAAAwAAAAEAPz/AAAAAAwAAAAEAPv/AAAEAAwAAAADAAQAAAAAAAwAAAADAAMAAAAAAAwAAAADAAIAAAAAAAwAAAADAAEAAAAAAAwAAAADAAAAAAAAAAwAAAADAP//AAAAAAwAAAADAP7/AAAEAAwAAAADAP3/AAAAAAwAAAADAPz/AAAAAAwAAAADAPv/AAAAAAwAAAACAAQAAAAEAAwAAAACAAMAAAAAAAwAAAACAAIAAAAAAAwAAAACAAEAAAAEAAwAAAACAAAAAAAAAAwAAAACAP//AAAEAAwAAAACAP7/AAACAAwAAAACAP3/AAAAAAwAAAACAPz/AAAAAAwAAAACAPv/AAAAAAwAAAABAAQAAAAAAAwAAAABAAMAAAAAAAwAAAABAAIAAAACAAwAAAABAAEAAAAEAAwAAAABAAAAAAAAAAwAAAABAP//AAAAAAwAAAABAP7/AAAAAAwAAAABAP3/AAAAAAwAAAABAPz/AAAEAAwAAAABAPv/AAAAAAwAAAAAAAQAAAACAAoAAAAAAAMAAAAAAAwAAAAAAAIAAAAAAAwAAAAAAAEAAAABAAwAAAAAAAAAAAAAAAwAAAAAAP//AAAAAAwAAAAAAP7/AAAAAAwAAAAAAP3/AAAAAAwAAAAAAPz/AAACAAwAAAAAAPv/AAACAAwAAAD//wQAAAABAAoAAAD//wMAAAADAAwAAAD//wIAAAAAAAwAAAD//wEAAAAEAAwAAAD//wAAAAADAAwAAAD/////AAAAAAwAAAD///7/AAADAAwAAAD///3/AAAEAAwAAAD///z/AAAEAAwAAAD///v/AAAAAAwAAAD+/wQAAAAAAAoAAAD+/wMAAAACAAwAAAD+/wIAAAAAAAwAAAD+/wEAAAADAAwAAAD+/wAAAAAAAAwAAAD+////AAAAAAwAAAD+//7/AAAAAAwAAAD+//3/AAAAAAwAAAD+//z/AAAEAAwAAAD+//v/AAAEAAwAAAD9/wQAAAAAAAwAAAD9/wMAAAAAAAwAAAD9/wIAAAAAAAwAAAD9/wEAAAAAAAwAAAD9/wAAAAAAAAwAAAD9////AAAAAAwAAAD9//7/AAAEAAwAAAD9//3/AAAEAAwAAAD9//z/AAAAAAwAAAD9//v/AAAAAAwAAAD8/wQAAAAEAAwAAAD8/wMAAAAAAAwAAAD8/wIAAAAAAAwAAAD8/wEAAAAEAAwAAAD8/wAAAAAAAAwAAAD8////AAAAAAwAAAD8//7/AAAAAAwAAAD8//3/AAAEAAwAAAD8//z/AAAEAAwAAAD8//v/AAAAAAwAAAD7/wQAAAADAAwAAAD7/wMAAAAAAAwAAAD7/wIAAAAAAAwAAAD7/wEAAAAEAAwAAAD7/wAAAAAEAAwAAAD7////AAADAAwAAAD7//7/AAAAAAwAAAD7//3/AAAAAAwAAAD7//z/AAAAAAwAAAD7//v/AAADAAwAAAD6/wQAAAAEAAwAAAD6/wMAAAAAAAwAAAD6/wIAAAAAAAwAAAD6/wEAAAAEAAwAAAD6/wAAAAAEAAwAAAD6////AAAEAAwAAAD6//7/AAAAAAwAAAD6//3/AAADAAwAAAD6//z/AAAAAAwAAAD6//v/AAAEAAwAAAD5/wQAAAACAAkAAAD5/wMAAAACAAcAAAD5/wIAAAAAAAwAAAD5/wEAAAAAAAwAAAD5/wAAAAAAAAwAAAD5////AAAEAAwAAAD5//7/AAAAAAwAAAD5//3/AAAAAAwAAAD5//z/AAAAAAwAAAD5//v/AAADAAwAAAD4/wQAAAABAAkAAAD4/wMAAAABAAcAAAD4/wIAAAADAAwAAAD4/wEAAAADAAwAAAD4/wAAAAAEAAwAAAD4////AAAAAAwAAAD4//7/AAAEAAwAAAD4//3/AAAAAAwAAAD4//z/AAAEAAwAAAD4//v/AAAEAAwAAAD3/wQAAAABAAkAAAD3/wMAAAABAAcAAAD3/wIAAAAAAAwAAAD3/wEAAAAAAAwAAAD3/wAAAAAAAAwAAAD3////AAABAAwAAAD3//7/AAAEAAwAAAD3//3/AAAAAAwAAAD3//z/AAAAAAwAAAD3//v/AAABAAwAAAD2/wQAAAAAAAkAAAD2/wMAAAAAAAcAAAD2/wIAAAAAAAwAAAD2/wEAAAAAAAwAAAD2/wAAAAAAAAwAAAD2////AAAAAAwAAAD2//7/AAAAAAwAAAD2//3/AAACAAwAAAD2//z/AAAAAAwAAAD2//v/AAACAAwAAAD1/xgAAAACAAkAAAD1/xcAAAACAAgAAAD1/xYAAAACAAgAAAD1/xUAAAACAAgAAAD1/xQAAAACAAgAAAD1/xMAAAACAAgAAAD1/xIAAAACAAgAAAD1/xEAAAACAAgAAAD1/xAAAAACAAgAAAD1/w8AAAACAAcAAAD0/xgAAAABAAkAAAD0/xcAAAABAAgAAAD0/xYAAAABAAgAAAD0/xUAAAABAAsAAAD0/xQAAAABAAgAAAD0/xMAAAABAAsAAAD0/xIAAAABAAgAAAD0/xEAAAABAAgAAAD0/xAAAAABAAsAAAD0/w8AAAABAAcAAADz/xgAAAABAAkAAADz/xcAAAABAAgAAADz/xYAAAABAAgAAADz/xUAAAABAAgAAADz/xQAAAABAAgAAADz/xMAAAABAAgAAADz/xIAAAABAAgAAADz/xEAAAABAAgAAADz/xAAAAABAAgAAADz/w8AAAABAAcAAADy/xgAAAABAAkAAADy/xcAAAABAAgAAADy/xYAAAABAAgAAADy/xUAAAABAAgAAADy/xQAAAABAAsAAADy/xMAAAABAAgAAADy/xIAAAABAAgAAADy/xEAAAABAAgAAADy/xAAAAABAAgAAADy/w8AAAABAAcAAADx/xgAAAABAAkAAADx/xcAAAABAAgAAADx/xYAAAABAAgAAADx/xUAAAABAAgAAADx/xQAAAABAAsAAADx/xMAAAABAAsAAADx/xIAAAABAAgAAADx/xEAAAABAAgAAADx/xAAAAABAAgAAADx/w8AAAABAAcAAADw/xgAAAABAAkAAADw/xcAAAABAAgAAADw/xYAAAABAAgAAADw/xUAAAABAAgAAADw/xQAAAABAAgAAADw/xMAAAABAAgAAADw/xIAAAABAAgAAADw/xEAAAABAAgAAADw/xAAAAABAAgAAADw/w8AAAABAAcAAADv/xgAAAABAAkAAADv/xcAAAABAAgAAADv/xYAAAABAAgAAADv/xUAAAABAAgAAADv/xQAAAABAAgAAADv/xMAAAABAAgAAADv/xIAAAABAAsAAADv/xEAAAABAAgAAADv/xAAAAABAAgAAADv/w8AAAABAAcAAADu/xgAAAABAAkAAADu/xcAAAABAAsAAADu/xYAAAABAAgAAADu/xUAAAABAAgAAADu/xQAAAABAAgAAADu/xMAAAABAAgAAADu/xIAAAABAAsAAADu/xEAAAABAAgAAADu/xAAAAABAAgAAADu/w8AAAABAAcAAADt/xgAAAABAAkAAADt/xcAAAABAAsAAADt/xYAAAABAAgAAADt/xUAAAABAAgAAADt/xQAAAABAAgAAADt/xMAAAABAAgAAADt/xIAAAABAAgAAADt/xEAAAABAAsAAADt/xAAAAABAAgAAADt/w8AAAABAAcAAADs/xgAAAABAAkAAADs/xcAAAABAAgAAADs/xYAAAABAAsAAADs/xUAAAABAAgAAADs/xQAAAABAAgAAADs/xMAAAABAAsAAADs/xIAAAABAAgAAADs/xEAAAABAAgAAADs/xAAAAABAAgAAADs/w8AAAABAAcAAADr/xgAAAABAAkAAADr/xcAAAABAAgAAADr/xYAAAABAAgAAADr/xUAAAABAAgAAADr/xQAAAABAAgAAADr/xMAAAABAAgAAADr/xIAAAABAAgAAADr/xEAAAABAAgAAADr/xAAAAABAAgAAADr/w8AAAABAAcAAADq/xgAAAABAAkAAADq/xcAAAABAAgAAADq/xYAAAABAAgAAADq/xUAAAABAAgAAADq/xQAAAABAAsAAADq/xMAAAABAAgAAADq/xIAAAABAAgAAADq/xEAAAABAAgAAADq/xAAAAABAAgAAADq/w8AAAABAAcAAADp/xgAAAABAAkAAADp/xcAAAABAAgAAADp/xYAAAABAAgAAADp/xUAAAABAAgAAADp/xQAAAABAAgAAADp/xMAAAABAAsAAADp/xIAAAABAAgAAADp/xEAAAABAAgAAADp/xAAAAABAAgAAADp/w8AAAABAAcAAADo/xgAAAABAAkAAADo/xcAAAABAAgAAADo/xYAAAABAAgAAADo/xUAAAABAAgAAADo/xQAAAABAAgAAADo/xMAAAABAAgAAADo/xIAAAABAAgAAADo/xEAAAABAAgAAADo/xAAAAABAAgAAADo/w8AAAABAAcAAADn/xgAAAABAAkAAADn/xcAAAABAAgAAADn/xYAAAABAAgAAADn/xUAAAABAAgAAADn/xQAAAABAAsAAADn/xMAAAABAAgAAADn/xIAAAABAAgAAADn/xEAAAABAAgAAADn/xAAAAABAAsAAADn/w8AAAABAAcAAADm/xgAAAABAAkAAADm/xcAAAABAAsAAADm/xYAAAABAAgAAADm/xUAAAABAAgAAADm/xQAAAABAAgAAADm/xMAAAABAAsAAADm/xIAAAABAAgAAADm/xEAAAABAAgAAADm/xAAAAABAAgAAADm/w8AAAABAAcAAADl/xgAAAABAAkAAADl/xcAAAABAAsAAADl/xYAAAABAAgAAADl/xUAAAABAAsAAADl/xQAAAABAAgAAADl/xMAAAABAAgAAADl/xIAAAABAAsAAADl/xEAAAABAAgAAADl/xAAAAABAAgAAADl/w8AAAABAAcAAADk/xgAAAABAAkAAADk/xcAAAABAAsAAADk/xYAAAABAAgAAADk/xUAAAABAAgAAADk/xQAAAABAAgAAADk/xMAAAABAAgAAADk/xIAAAABAAsAAADk/xEAAAABAAsAAADk/xAAAAABAAgAAADk/w8AAAABAAcAAADj/xgAAAABAAkAAADj/xcAAAABAAgAAADj/xYAAAABAAsAAADj/xUAAAABAAgAAADj/xQAAAABAAgAAADj/xMAAAABAAgAAADj/xIAAAABAAgAAADj/xEAAAABAAgAAADj/xAAAAABAAgAAADj/w8AAAABAAcAAADi/xgAAAABAAkAAADi/xcAAAABAAgAAADi/xYAAAABAAgAAADi/xUAAAABAAgAAADi/xQAAAABAAsAAADi/xMAAAABAAgAAADi/xIAAAABAAgAAADi/xEAAAABAAgAAADi/xAAAAABAAsAAADi/w8AAAABAAcAAADN/wQABgACAAIAAADN/wMABgACAAEAAADN/wIABgACAAEAAADN/wEABgACAAEAAADN/wAABgACAAEAAADN////BgACAAEAAADN//7/BgACAAEAAADN//3/BgACAAEAAADN//z/BgACAAEAAADN//v/BgACAAAAAADM/wQABgABAAIAAADM/wMABgABAAEAAADM/wIABgABAAEAAADM/wEABgABAAEAAADM/wAABgABAAEAAADM////BgABAAEAAADM//7/BgABAAEAAADM//3/BgABAAEAAADM//z/BgABAAEAAADM//v/BgABAAAAAADL/wQABgABAAIAAADL/wMABgABAAEAAADL/wIABgABAAEAAADL/wEABgABAAEAAADL/wAABgABAAEAAADL////BgABAAEAAADL//7/BgABAAEAAADL//3/BgABAAEAAADL//z/BgABAAEAAADL//v/BgABAAAAAADK/wQABgABAAIAAADK/wMABgABAAEAAADK/wIABgABAAEAAADK/wEABgABAAEAAADK/wAABgABAAEAAADK////BgABAAEAAADK//7/BgABAAEAAADK//3/BgABAAEAAADK//z/BgABAAEAAADK//v/BgABAAAAAADJ/wQABgABAAIAAADJ/wMABgABAAEAAADJ/wIABgABAAEAAADJ/wEABgABAAEAAADJ/wAABgABAAEAAADJ////BgABAAEAAADJ//7/BgABAAEAAADJ//3/BgABAAEAAADJ//z/BgABAAEAAADJ//v/BgABAAAAAADI/wQABgABAAIAAADI/wMABgABAAEAAADI/wIABgABAAEAAADI/wEABgABAAEAAADI/wAABgABAAEAAADI////BgABAAEAAADI//7/BgABAAEAAADI//3/BgABAAEAAADI//z/BgABAAEAAADI//v/BgABAAAAAADH/wQABgABAAIAAADH/wMABgABAAEAAADH/wIABgABAAEAAADH/wEABgABAAEAAADH/wAABgABAAEAAADH////BgABAAEAAADH//7/BgABAAEAAADH//3/BgABAAEAAADH//z/BgABAAEAAADH//v/BgABAAAAAADG/wQABgABAAIAAADG/wMABgABAAEAAADG/wIABgABAAEAAADG/wEABgABAAEAAADG/wAABgABAAEAAADG////BgABAAEAAADG//7/BgABAAEAAADG//3/BgABAAEAAADG//z/BgABAAEAAADG//v/BgABAAAAAADF/wQABgABAAIAAADF/wMABgABAAEAAADF/wIABgABAAEAAADF/wEABgABAAEAAADF/wAABgABAAEAAADF////BgABAAEAAADF//7/BgABAAEAAADF//3/BgABAAEAAADF//z/BgABAAEAAADF//v/BgABAAAAAADE/wQABgABAAIAAADE/wMABgABAAEAAADE/wIABgABAAEAAADE/wEABgABAAEAAADE/wAABgABAAEAAADE////BgABAAEAAADE//7/BgABAAEAAADE//3/BgABAAEAAADE//z/BgABAAEAAADE//v/BgABAAAAAADD/wQABgABAAIAAADD/wMABgABAAEAAADD/wIABgABAAEAAADD/wEABgABAAEAAADD/wAABgABAAEAAADD////BgABAAEAAADD//7/BgABAAEAAADD//3/BgABAAEAAADD//z/BgABAAEAAADD//v/BgABAAAAAADC/wQABgABAAIAAADC/wMABgABAAEAAADC/wIABgABAAEAAADC/wEABgABAAEAAADC/wAABgABAAEAAADC////BgABAAEAAADC//7/BgABAAEAAADC//3/BgABAAEAAADC//z/BgABAAEAAADC//v/BgABAAAAAADB/wQABgABAAIAAADB/wMABgABAAEAAADB/wIABgABAAEAAADB/wEABgABAAEAAADB/wAABgABAAEAAADB////BgABAAEAAADB//7/BgABAAEAAADB//3/BgABAAEAAADB//z/BgABAAEAAADB//v/BgABAAAAAADA/wQABgABAAIAAADA/wMABgABAAEAAADA/wIABgABAAEAAADA/wEABgABAAEAAADA/wAABgABAAEAAADA////BgABAAEAAADA//7/BgABAAEAAADA//3/BgABAAEAAADA//z/BgABAAEAAADA//v/BgABAAAAAAC//wQABgABAAIAAAC//wMABgABAAEAAAC//wIABgABAAEAAAC//wEABgABAAEAAAC//wAABgABAAEAAAC/////BgABAAEAAAC///7/BgABAAEAAAC///3/BgABAAEAAAC///z/BgABAAEAAAC///v/BgABAAAAAAC+/wQABgABAAIAAAC+/wMABgABAAEAAAC+/wIABgABAAEAAAC+/wEABgABAAEAAAC+/wAABgABAAEAAAC+////BgABAAEAAAC+//7/BgABAAEAAAC+//3/BgABAAEAAAC+//z/BgABAAEAAAC+//v/BgABAAAAAAC9/wQABgABAAIAAAC9/wMABgABAAEAAAC9/wIABgABAAEAAAC9/wEABgABAAEAAAC9/wAABgABAAEAAAC9////BgABAAEAAAC9//7/BgABAAEAAAC9//3/BgABAAEAAAC9//z/BgABAAEAAAC9//v/BgABAAAAAAC8/wQABgABAAIAAAC8/wMABgABAAEAAAC8/wIABgABAAEAAAC8/wEABgABAAEAAAC8/wAABgABAAEAAAC8////BgABAAEAAAC8//7/BgABAAEAAAC8//3/BgABAAEAAAC8//z/BgABAAEAAAC8//v/BgABAAAAAAC7/wQABgABAAIAAAC7/wMABgABAAEAAAC7/wIABgABAAEAAAC7/wEABgABAAEAAAC7/wAABgABAAEAAAC7////BgABAAEAAAC7//7/BgABAAEAAAC7//3/BgABAAEAAAC7//z/BgABAAEAAAC7//v/BgABAAAAAAC6/wQABgAAAAIAAAC6/wMABgAAAAEAAAC6/wIABgAAAAEAAAC6/wEABgAAAAEAAAC6/wAABgAAAAEAAAC6////BgAAAAEAAAC6//7/BgAAAAEAAAC6//3/BgAAAAEAAAC6//z/BgAAAAEAAAC6//v/BgAAAAAAAACBAA4AAAAAAAwAAACBAA0AAAADAAwAAACBAAwAAAAEAAwAAACBAAsAAAAAAAwAAACBAAoAAAAAAAwAAACBAAkAAAADAAwAAACBAAgAAAAAAAwAAACBAAcAAAAEAAwAAACBAAYAAAAAAAwAAACBAAUAAAADAAwAAACAAA4AAAAEAAwAAACAAA0AAAABAAwAAACAAAwAAAACAAwAAACAAAsAAAAAAAwAAACAAAoAAAAAAAwAAACAAAkAAAABAAwAAACAAAgAAAAEAAwAAACAAAcAAAACAAwAAACAAAYAAAADAAwAAACAAAUAAAAEAAwAAAB/AA4AAAAAAAwAAAB/AA0AAAACAAwAAAB/AAwAAAAEAAwAAAB/AAsAAAADAAwAAAB/AAoAAAAAAAwAAAB/AAkAAAAAAAwAAAB/AAgAAAAAAAwAAAB/AAcAAAAAAAwAAAB/AAYAAAADAAwAAAB/AAUAAAAEAAwAAAB+AA4AAAAAAAwAAAB+AA0AAAAAAAwAAAB+AAwAAAAEAAwAAAB+AAsAAAAEAAwAAAB+AAoAAAAAAAwAAAB+AAkAAAAAAAwAAAB+AAgAAAAAAAwAAAB+AAcAAAADAAwAAAB+AAYAAAAAAAwAAAB+AAUAAAAAAAwAAAB9AA4AAAAAAAwAAAB9AA0AAAAAAAwAAAB9AAwAAAAAAAwAAAB9AAsAAAADAAwAAAB9AAoAAAAAAAwAAAB9AAkAAAAEAAwAAAB9AAgAAAAAAAwAAAB9AAcAAAAEAAwAAAB9AAYAAAAEAAwAAAB9AAUAAAADAAwAAAB8AA4AAAAAAAwAAAB8AA0AAAADAAwAAAB8AAwAAAAEAAwAAAB8AAsAAAAAAAwAAAB8AAoAAAAAAAwAAAB8AAkAAAAAAAwAAAB8AAgAAAAAAAwAAAB8AAcAAAAEAAwAAAB8AAYAAAAEAAwAAAB8AAUAAAAAAAwAAAB7AA4AAAAEAAwAAAB7AA0AAAAAAAwAAAB7AAwAAAAEAAwAAAB7AAsAAAADAAwAAAB7AAoAAAAAAAwAAAB7AAkAAAAEAAwAAAB7AAgAAAAEAAwAAAB7AAcAAAAAAAwAAAB7AAYAAAAEAAwAAAB7AAUAAAAAAAwAAAB6AA4AAAADAAwAAAB6AA0AAAAAAAwAAAB6AAwAAAAEAAwAAAB6AAsAAAAAAAwAAAB6AAoAAAAAAAwAAAB6AAkAAAAAAAwAAAB6AAgAAAAAAAwAAAB6AAcAAAAAAAwAAAB6AAYAAAAAAAwAAAB6AAUAAAAAAAwAAAB5AA4AAAAAAAwAAAB5AA0AAAAEAAwAAAB5AAwAAAAEAAwAAAB5AAsAAAAEAAwAAAB5AAoAAAAEAAwAAAB5AAkAAAAEAAwAAAB5AAgAAAACAAwAAAB5AAcAAAAEAAwAAAB5AAYAAAAEAAwAAAB5AAUAAAAAAAwAAAB4AA4AAAAEAAwAAAB4AA0AAAACAAwAAAB4AAwAAAAEAAwAAAB4AAsAAAADAAwAAAB4AAoAAAAAAAwAAAB4AAkAAAAAAAwAAAB4AAgAAAAAAAwAAAB4AAcAAAABAAwAAAB4AAYAAAAEAAwAAAB4AAUAAAAEAAwAAAB3AA4AAAAAAAwAAAB3AA0AAAAAAAwAAAB3AAwAAAAAAAwAAAB3AAsAAAAAAAwAAAB3AAoAAAAEAAwAAAB3AAkAAAAAAAwAAAB3AAgAAAACAAwAAAB3AAcAAAAEAAwAAAB3AAYAAAADAAwAAAB3AAUAAAAAAAwAAAB2AA4AAAAAAAwAAAB2AA0AAAAEAAwAAAB2AAwAAAAEAAwAAAB2AAsAAAAAAAwAAAB2AAoAAAADAAwAAAB2AAkAAAAAAAwAAAB2AAgAAAADAAwAAAB2AAcAAAAAAAwAAAB2AAYAAAAAAAwAAAB2AAUAAAAAAAwAAAB1AA4AAAAAAAwAAAB1AA0AAAAAAAwAAAB1AAwAAAAAAAwAAAB1AAsAAAAEAAwAAAB1AAoAAAAAAAwAAAB1AAkAAAAAAAwAAAB1AAgAAAAAAAwAAAB1AAcAAAAAAAwAAAB1AAYAAAACAAwAAAB1AAUAAAAAAAwAAAB0AA4AAAAAAAwAAAB0AA0AAAAAAAwAAAB0AAwAAAAEAAwAAAB0AAsAAAAAAAwAAAB0AAoAAAAEAAwAAAB0AAkAAAAAAAwAAAB0AAgAAAAEAAwAAAB0AAcAAAAEAAwAAAB0AAYAAAAAAAwAAAB0AAUAAAAEAAwAAABzAA4AAAAAAAwAAABzAA0AAAAEAAwAAABzAAwAAAAEAAwAAABzAAsAAAADAAwAAABzAAoAAAAAAAwAAABzAAkAAAAAAAwAAABzAAgAAAAAAAwAAABzAAcAAAAEAAwAAABzAAYAAAAAAAwAAABzAAUAAAAAAAwAAAByAA4AAAAAAAwAAAByAA0AAAAEAAwAAAByAAwAAAAAAAwAAAByAAsAAAAAAAwAAAByAAoAAAACAAwAAAByAAkAAAAAAAwAAAByAAgAAAAEAAwAAAByAAcAAAAEAAwAAAByAAYAAAAAAAwAAAByAAUAAAAAAAwAAABxAA4AAAAAAAwAAABxAA0AAAAAAAwAAABxAAwAAAAAAAwAAABxAAsAAAAAAAwAAABxAAoAAAAEAAwAAABxAAkAAAAAAAwAAABxAAgAAAADAAwAAABxAAcAAAAAAAwAAABxAAYAAAAAAAwAAABxAAUAAAAAAAwAAABwAA4AAAAEAAwAAABwAA0AAAAEAAwAAABwAAwAAAAEAAwAAABwAAsAAAAEAAwAAABwAAoAAAAAAAwAAABwAAkAAAAEAAwAAABwAAgAAAAAAAwAAABwAAcAAAAAAAwAAABwAAYAAAAEAAwAAABwAAUAAAAEAAwAAABvAA4AAAAAAAwAAABvAA0AAAAAAAwAAABvAAwAAAADAAwAAABvAAsAAAAEAAwAAABvAAoAAAAAAAwAAABvAAkAAAAEAAwAAABvAAgAAAAAAAwAAABvAAcAAAAAAAwAAABvAAYAAAAAAAwAAABvAAUAAAACAAwAAABuAA4AAAAAAAwAAABuAA0AAAAAAAwAAABuAAwAAAAEAAwAAABuAAsAAAAAAAwAAABuAAoAAAABAAwAAABuAAkAAAAAAAwAAABuAAgAAAAEAAwAAABuAAcAAAAAAAwAAABuAAYAAAAAAAwAAABuAAUAAAACAAwAAAA=")
+tile_map_data = PackedByteArray("AAAJAAQAAAACAAkAAAAJAAMAAAACAAcAAAAJAAIAAAAEAAwAAAAJAAEAAAADAAwAAAAJAAAAAAABAAwAAAAJAP//AAAAAAwAAAAJAP7/AAAEAAwAAAAJAP3/AAAAAAwAAAAJAPz/AAAAAAwAAAAJAPv/AAAAAAwAAAAIAAQAAAABAAkAAAAIAAMAAAABAAcAAAAIAAIAAAAAAAwAAAAIAAEAAAAEAAwAAAAIAAAAAAAAAAwAAAAIAP//AAAAAAwAAAAIAP7/AAAAAAwAAAAIAP3/AAAEAAwAAAAIAPz/AAABAAwAAAAIAPv/AAAAAAwAAAAHAAQAAAAAAAkAAAAHAAMAAAAAAAcAAAAHAAIAAAAEAAwAAAAHAAEAAAAEAAwAAAAHAAAAAAAEAAwAAAAHAP//AAADAAwAAAAHAP7/AAAAAAwAAAAHAP3/AAAAAAwAAAAHAPz/AAAEAAwAAAAHAPv/AAAEAAwAAAAGAAQAAAAAAAwAAAAGAAMAAAAAAAwAAAAGAAIAAAAAAAwAAAAGAAEAAAACAAwAAAAGAAAAAAAAAAwAAAAGAP//AAAAAAwAAAAGAP7/AAAAAAwAAAAGAP3/AAAAAAwAAAAGAPz/AAADAAwAAAAGAPv/AAAAAAwAAAAFAAQAAAADAAwAAAAFAAMAAAAEAAwAAAAFAAIAAAAAAAwAAAAFAAEAAAAAAAwAAAAFAAAAAAAAAAwAAAAFAP//AAAAAAwAAAAFAP7/AAAEAAwAAAAFAP3/AAAAAAwAAAAFAPz/AAADAAwAAAAFAPv/AAAAAAwAAAAEAAQAAAAAAAwAAAAEAAMAAAADAAwAAAAEAAIAAAAAAAwAAAAEAAEAAAAEAAwAAAAEAAAAAAAAAAwAAAAEAP//AAAEAAwAAAAEAP7/AAAEAAwAAAAEAP3/AAAAAAwAAAAEAPz/AAAAAAwAAAAEAPv/AAAEAAwAAAADAAQAAAAAAAwAAAADAAMAAAAAAAwAAAADAAIAAAAAAAwAAAADAAEAAAAAAAwAAAADAAAAAAAAAAwAAAADAP//AAAAAAwAAAADAP7/AAAEAAwAAAADAP3/AAAAAAwAAAADAPz/AAAAAAwAAAADAPv/AAAAAAwAAAACAAQAAAAEAAwAAAACAAMAAAAAAAwAAAACAAIAAAAAAAwAAAACAAEAAAAEAAwAAAACAAAAAAAAAAwAAAACAP//AAAEAAwAAAACAP7/AAACAAwAAAACAP3/AAAAAAwAAAACAPz/AAAAAAwAAAACAPv/AAAAAAwAAAABAAQAAAAAAAwAAAABAAMAAAAAAAwAAAABAAIAAAACAAwAAAABAAEAAAAEAAwAAAABAAAAAAAAAAwAAAABAP//AAAAAAwAAAABAP7/AAAAAAwAAAABAP3/AAAAAAwAAAABAPz/AAAEAAwAAAABAPv/AAAAAAwAAAAAAAQAAAACAAoAAAAAAAMAAAAAAAwAAAAAAAIAAAAAAAwAAAAAAAEAAAABAAwAAAAAAAAAAAAAAAwAAAAAAP//AAAAAAwAAAAAAP7/AAAAAAwAAAAAAP3/AAAAAAwAAAAAAPz/AAACAAwAAAAAAPv/AAACAAwAAAD//wQAAAABAAoAAAD//wMAAAADAAwAAAD//wIAAAAAAAwAAAD//wEAAAAEAAwAAAD//wAAAAADAAwAAAD/////AAAAAAwAAAD///7/AAADAAwAAAD///3/AAAEAAwAAAD///z/AAAEAAwAAAD///v/AAAAAAwAAAD+/wQAAAAAAAoAAAD+/wMAAAACAAwAAAD+/wIAAAAAAAwAAAD+/wEAAAADAAwAAAD+/wAAAAAAAAwAAAD+////AAAAAAwAAAD+//7/AAAAAAwAAAD+//3/AAAAAAwAAAD+//z/AAAEAAwAAAD+//v/AAAEAAwAAAD9/wQAAAAAAAwAAAD9/wMAAAAAAAwAAAD9/wIAAAAAAAwAAAD9/wEAAAAAAAwAAAD9/wAAAAAAAAwAAAD9////AAAAAAwAAAD9//7/AAAEAAwAAAD9//3/AAAEAAwAAAD9//z/AAAAAAwAAAD9//v/AAAAAAwAAAD8/wQAAAAEAAwAAAD8/wMAAAAAAAwAAAD8/wIAAAAAAAwAAAD8/wEAAAAEAAwAAAD8/wAAAAAAAAwAAAD8////AAAAAAwAAAD8//7/AAAAAAwAAAD8//3/AAAEAAwAAAD8//z/AAAEAAwAAAD8//v/AAAAAAwAAAD7/wQAAAADAAwAAAD7/wMAAAAAAAwAAAD7/wIAAAAAAAwAAAD7/wEAAAAEAAwAAAD7/wAAAAAEAAwAAAD7////AAADAAwAAAD7//7/AAAAAAwAAAD7//3/AAAAAAwAAAD7//z/AAAAAAwAAAD7//v/AAADAAwAAAD6/wQAAAAEAAwAAAD6/wMAAAAAAAwAAAD6/wIAAAAAAAwAAAD6/wEAAAAEAAwAAAD6/wAAAAAEAAwAAAD6////AAAEAAwAAAD6//7/AAAAAAwAAAD6//3/AAADAAwAAAD6//z/AAAAAAwAAAD6//v/AAAEAAwAAAD5/wQAAAACAAkAAAD5/wMAAAACAAcAAAD5/wIAAAAAAAwAAAD5/wEAAAAAAAwAAAD5/wAAAAAAAAwAAAD5////AAAEAAwAAAD5//7/AAAAAAwAAAD5//3/AAAAAAwAAAD5//z/AAAAAAwAAAD5//v/AAADAAwAAAD4/wQAAAABAAkAAAD4/wMAAAABAAcAAAD4/wIAAAADAAwAAAD4/wEAAAADAAwAAAD4/wAAAAAEAAwAAAD4////AAAAAAwAAAD4//7/AAAEAAwAAAD4//3/AAAAAAwAAAD4//z/AAAEAAwAAAD4//v/AAAEAAwAAAD3/wQAAAABAAkAAAD3/wMAAAABAAcAAAD3/wIAAAAAAAwAAAD3/wEAAAAAAAwAAAD3/wAAAAAAAAwAAAD3////AAABAAwAAAD3//7/AAAEAAwAAAD3//3/AAAAAAwAAAD3//z/AAAAAAwAAAD3//v/AAABAAwAAAD2/wQAAAAAAAkAAAD2/wMAAAAAAAcAAAD2/wIAAAAAAAwAAAD2/wEAAAAAAAwAAAD2/wAAAAAAAAwAAAD2////AAAAAAwAAAD2//7/AAAAAAwAAAD2//3/AAACAAwAAAD2//z/AAAAAAwAAAD2//v/AAACAAwAAAD1/xgAAAACAAkAAAD1/xcAAAACAAgAAAD1/xYAAAACAAgAAAD1/xUAAAACAAgAAAD1/xQAAAACAAgAAAD1/xMAAAACAAgAAAD1/xIAAAACAAgAAAD1/xEAAAACAAgAAAD1/xAAAAACAAgAAAD1/w8AAAACAAcAAAD0/xgAAAABAAkAAAD0/xcAAAABAAgAAAD0/xYAAAABAAgAAAD0/xUAAAABAAsAAAD0/xQAAAABAAgAAAD0/xMAAAABAAsAAAD0/xIAAAABAAgAAAD0/xEAAAABAAgAAAD0/xAAAAABAAsAAAD0/w8AAAABAAcAAADz/xgAAAABAAkAAADz/xcAAAABAAgAAADz/xYAAAABAAgAAADz/xUAAAABAAgAAADz/xQAAAABAAgAAADz/xMAAAABAAgAAADz/xIAAAABAAgAAADz/xEAAAABAAgAAADz/xAAAAABAAgAAADz/w8AAAABAAcAAADy/xgAAAABAAkAAADy/xcAAAABAAgAAADy/xYAAAABAAgAAADy/xUAAAABAAgAAADy/xQAAAABAAsAAADy/xMAAAABAAgAAADy/xIAAAABAAgAAADy/xEAAAABAAgAAADy/xAAAAABAAgAAADy/w8AAAABAAcAAADx/xgAAAABAAkAAADx/xcAAAABAAgAAADx/xYAAAABAAgAAADx/xUAAAABAAgAAADx/xQAAAABAAsAAADx/xMAAAABAAsAAADx/xIAAAABAAgAAADx/xEAAAABAAgAAADx/xAAAAABAAgAAADx/w8AAAABAAcAAADw/xgAAAABAAkAAADw/xcAAAABAAgAAADw/xYAAAABAAgAAADw/xUAAAABAAgAAADw/xQAAAABAAgAAADw/xMAAAABAAgAAADw/xIAAAABAAgAAADw/xEAAAABAAgAAADw/xAAAAABAAgAAADw/w8AAAABAAcAAADv/xgAAAABAAkAAADv/xcAAAABAAgAAADv/xYAAAABAAgAAADv/xUAAAABAAgAAADv/xQAAAABAAgAAADv/xMAAAABAAgAAADv/xIAAAABAAsAAADv/xEAAAABAAgAAADv/xAAAAABAAgAAADv/w8AAAABAAcAAADu/xgAAAABAAkAAADu/xcAAAABAAsAAADu/xYAAAABAAgAAADu/xUAAAABAAgAAADu/xQAAAABAAgAAADu/xMAAAABAAgAAADu/xIAAAABAAsAAADu/xEAAAABAAgAAADu/xAAAAABAAgAAADu/w8AAAABAAcAAADt/xgAAAABAAkAAADt/xcAAAABAAsAAADt/xYAAAABAAgAAADt/xUAAAABAAgAAADt/xQAAAABAAgAAADt/xMAAAABAAgAAADt/xIAAAABAAgAAADt/xEAAAABAAsAAADt/xAAAAABAAgAAADt/w8AAAABAAcAAADs/xgAAAABAAkAAADs/xcAAAABAAgAAADs/xYAAAABAAsAAADs/xUAAAABAAgAAADs/xQAAAABAAgAAADs/xMAAAABAAsAAADs/xIAAAABAAgAAADs/xEAAAABAAgAAADs/xAAAAABAAgAAADs/w8AAAABAAcAAADr/xgAAAABAAkAAADr/xcAAAABAAgAAADr/xYAAAABAAgAAADr/xUAAAABAAgAAADr/xQAAAABAAgAAADr/xMAAAABAAgAAADr/xIAAAABAAgAAADr/xEAAAABAAgAAADr/xAAAAABAAgAAADr/w8AAAABAAcAAADq/xgAAAABAAkAAADq/xcAAAABAAgAAADq/xYAAAABAAgAAADq/xUAAAABAAgAAADq/xQAAAABAAsAAADq/xMAAAABAAgAAADq/xIAAAABAAgAAADq/xEAAAABAAgAAADq/xAAAAABAAgAAADq/w8AAAABAAcAAADp/xgAAAABAAkAAADp/xcAAAABAAgAAADp/xYAAAABAAgAAADp/xUAAAABAAgAAADp/xQAAAABAAgAAADp/xMAAAABAAsAAADp/xIAAAABAAgAAADp/xEAAAABAAgAAADp/xAAAAABAAgAAADp/w8AAAABAAcAAADo/xgAAAABAAkAAADo/xcAAAABAAgAAADo/xYAAAABAAgAAADo/xUAAAABAAgAAADo/xQAAAABAAgAAADo/xMAAAABAAgAAADo/xIAAAABAAgAAADo/xEAAAABAAgAAADo/xAAAAABAAgAAADo/w8AAAABAAcAAADn/xgAAAABAAkAAADn/xcAAAABAAgAAADn/xYAAAABAAgAAADn/xUAAAABAAgAAADn/xQAAAABAAsAAADn/xMAAAABAAgAAADn/xIAAAABAAgAAADn/xEAAAABAAgAAADn/xAAAAABAAsAAADn/w8AAAABAAcAAADm/xgAAAABAAkAAADm/xcAAAABAAsAAADm/xYAAAABAAgAAADm/xUAAAABAAgAAADm/xQAAAABAAgAAADm/xMAAAABAAsAAADm/xIAAAABAAgAAADm/xEAAAABAAgAAADm/xAAAAABAAgAAADm/w8AAAABAAcAAADl/xgAAAABAAkAAADl/xcAAAABAAsAAADl/xYAAAABAAgAAADl/xUAAAABAAsAAADl/xQAAAABAAgAAADl/xMAAAABAAgAAADl/xIAAAABAAsAAADl/xEAAAABAAgAAADl/xAAAAABAAgAAADl/w8AAAABAAcAAADk/xgAAAABAAkAAADk/xcAAAABAAsAAADk/xYAAAABAAgAAADk/xUAAAABAAgAAADk/xQAAAABAAgAAADk/xMAAAABAAgAAADk/xIAAAABAAsAAADk/xEAAAABAAsAAADk/xAAAAABAAgAAADk/w8AAAABAAcAAADj/xgAAAABAAkAAADj/xcAAAABAAgAAADj/xYAAAABAAsAAADj/xUAAAABAAgAAADj/xQAAAABAAgAAADj/xMAAAABAAgAAADj/xIAAAABAAgAAADj/xEAAAABAAgAAADj/xAAAAABAAgAAADj/w8AAAABAAcAAADi/xgAAAABAAkAAADi/xcAAAABAAgAAADi/xYAAAABAAgAAADi/xUAAAABAAgAAADi/xQAAAABAAsAAADi/xMAAAABAAgAAADi/xIAAAABAAgAAADi/xEAAAABAAgAAADi/xAAAAABAAsAAADi/w8AAAABAAcAAADN/wQABgACAAIAAADN/wMABgACAAEAAADN/wIABgACAAEAAADN/wEABgACAAEAAADN/wAABgACAAEAAADN////BgACAAEAAADN//7/BgACAAEAAADN//3/BgACAAEAAADN//z/BgACAAEAAADN//v/BgACAAAAAADM/wQABgABAAIAAADM/wMABgABAAEAAADM/wIABgABAAEAAADM/wEABgABAAEAAADM/wAABgABAAEAAADM////BgABAAEAAADM//7/BgABAAEAAADM//3/BgABAAEAAADM//z/BgABAAEAAADM//v/BgABAAAAAADL/wQABgABAAIAAADL/wMABgABAAEAAADL/wIABgABAAEAAADL/wEABgABAAEAAADL/wAABgABAAEAAADL////BgABAAEAAADL//7/BgABAAEAAADL//3/BgABAAEAAADL//z/BgABAAEAAADL//v/BgABAAAAAADK/wQABgABAAIAAADK/wMABgABAAEAAADK/wIABgABAAEAAADK/wEABgABAAEAAADK/wAABgABAAEAAADK////BgABAAEAAADK//7/BgABAAEAAADK//3/BgABAAEAAADK//z/BgABAAEAAADK//v/BgABAAAAAADJ/wQABgABAAIAAADJ/wMABgABAAEAAADJ/wIABgABAAEAAADJ/wEABgABAAEAAADJ/wAABgABAAEAAADJ////BgABAAEAAADJ//7/BgABAAEAAADJ//3/BgABAAEAAADJ//z/BgABAAEAAADJ//v/BgABAAAAAADI/wQABgABAAIAAADI/wMABgABAAEAAADI/wIABgABAAEAAADI/wEABgABAAEAAADI/wAABgABAAEAAADI////BgABAAEAAADI//7/BgABAAEAAADI//3/BgABAAEAAADI//z/BgABAAEAAADI//v/BgABAAAAAADH/wQABgABAAIAAADH/wMABgABAAEAAADH/wIABgABAAEAAADH/wEABgABAAEAAADH/wAABgABAAEAAADH////BgABAAEAAADH//7/BgABAAEAAADH//3/BgABAAEAAADH//z/BgABAAEAAADH//v/BgABAAAAAADG/wQABgABAAIAAADG/wMABgABAAEAAADG/wIABgABAAEAAADG/wEABgABAAEAAADG/wAABgABAAEAAADG////BgABAAEAAADG//7/BgABAAEAAADG//3/BgABAAEAAADG//z/BgABAAEAAADG//v/BgABAAAAAADF/wQABgABAAIAAADF/wMABgABAAEAAADF/wIABgABAAEAAADF/wEABgABAAEAAADF/wAABgABAAEAAADF////BgABAAEAAADF//7/BgABAAEAAADF//3/BgABAAEAAADF//z/BgABAAEAAADF//v/BgABAAAAAADE/wQABgABAAIAAADE/wMABgABAAEAAADE/wIABgABAAEAAADE/wEABgABAAEAAADE/wAABgABAAEAAADE////BgABAAEAAADE//7/BgABAAEAAADE//3/BgABAAEAAADE//z/BgABAAEAAADE//v/BgABAAAAAADD/wQABgABAAIAAADD/wMABgABAAEAAADD/wIABgABAAEAAADD/wEABgABAAEAAADD/wAABgABAAEAAADD////BgABAAEAAADD//7/BgABAAEAAADD//3/BgABAAEAAADD//z/BgABAAEAAADD//v/BgABAAAAAADC/wQABgABAAIAAADC/wMABgABAAEAAADC/wIABgABAAEAAADC/wEABgABAAEAAADC/wAABgABAAEAAADC////BgABAAEAAADC//7/BgABAAEAAADC//3/BgABAAEAAADC//z/BgABAAEAAADC//v/BgABAAAAAADB/wQABgABAAIAAADB/wMABgABAAEAAADB/wIABgABAAEAAADB/wEABgABAAEAAADB/wAABgABAAEAAADB////BgABAAEAAADB//7/BgABAAEAAADB//3/BgABAAEAAADB//z/BgABAAEAAADB//v/BgABAAAAAADA/wQABgABAAIAAADA/wMABgABAAEAAADA/wIABgABAAEAAADA/wEABgABAAEAAADA/wAABgABAAEAAADA////BgABAAEAAADA//7/BgABAAEAAADA//3/BgABAAEAAADA//z/BgABAAEAAADA//v/BgABAAAAAAC//wQABgABAAIAAAC//wMABgABAAEAAAC//wIABgABAAEAAAC//wEABgABAAEAAAC//wAABgABAAEAAAC/////BgABAAEAAAC///7/BgABAAEAAAC///3/BgABAAEAAAC///z/BgABAAEAAAC///v/BgABAAAAAAC+/wQABgABAAIAAAC+/wMABgABAAEAAAC+/wIABgABAAEAAAC+/wEABgABAAEAAAC+/wAABgABAAEAAAC+////BgABAAEAAAC+//7/BgABAAEAAAC+//3/BgABAAEAAAC+//z/BgABAAEAAAC+//v/BgABAAAAAAC9/wQABgABAAIAAAC9/wMABgABAAEAAAC9/wIABgABAAEAAAC9/wEABgABAAEAAAC9/wAABgABAAEAAAC9////BgABAAEAAAC9//7/BgABAAEAAAC9//3/BgABAAEAAAC9//z/BgABAAEAAAC9//v/BgABAAAAAAC8/wQABgABAAIAAAC8/wMABgABAAEAAAC8/wIABgABAAEAAAC8/wEABgABAAEAAAC8/wAABgABAAEAAAC8////BgABAAEAAAC8//7/BgABAAEAAAC8//3/BgABAAEAAAC8//z/BgABAAEAAAC8//v/BgABAAAAAAC7/wQABgABAAIAAAC7/wMABgABAAEAAAC7/wIABgABAAEAAAC7/wEABgABAAEAAAC7/wAABgABAAEAAAC7////BgABAAEAAAC7//7/BgABAAEAAAC7//3/BgABAAEAAAC7//z/BgABAAEAAAC7//v/BgABAAAAAAC6/wQABgAAAAIAAAC6/wMABgAAAAEAAAC6/wIABgAAAAEAAAC6/wEABgAAAAEAAAC6/wAABgAAAAEAAAC6////BgAAAAEAAAC6//7/BgAAAAEAAAC6//3/BgAAAAEAAAC6//z/BgAAAAEAAAC6//v/BgAAAAAAAACBAA4AAAAAAAwAAACBAA0AAAADAAwAAACBAAwAAAAEAAwAAACBAAsAAAAAAAwAAACBAAoAAAAAAAwAAACBAAkAAAADAAwAAACBAAgAAAAAAAwAAACBAAcAAAAEAAwAAACBAAYAAAAAAAwAAACBAAUAAAADAAwAAACAAA4AAAAEAAwAAACAAA0AAAABAAwAAACAAAwAAAACAAwAAACAAAsAAAAAAAwAAACAAAoAAAAAAAwAAACAAAkAAAABAAwAAACAAAgAAAAEAAwAAACAAAcAAAACAAwAAACAAAYAAAADAAwAAACAAAUAAAAEAAwAAAB/AA4AAAAAAAwAAAB/AA0AAAACAAwAAAB/AAwAAAAEAAwAAAB/AAsAAAADAAwAAAB/AAoAAAAAAAwAAAB/AAkAAAAAAAwAAAB/AAgAAAAAAAwAAAB/AAcAAAAAAAwAAAB/AAYAAAADAAwAAAB/AAUAAAAEAAwAAAB+AA4AAAAAAAwAAAB+AA0AAAAAAAwAAAB+AAwAAAAEAAwAAAB+AAsAAAAEAAwAAAB+AAoAAAAAAAwAAAB+AAkAAAAAAAwAAAB+AAgAAAAAAAwAAAB+AAcAAAADAAwAAAB+AAYAAAAAAAwAAAB+AAUAAAAAAAwAAAB9AA4AAAAAAAwAAAB9AA0AAAAAAAwAAAB9AAwAAAAAAAwAAAB9AAsAAAADAAwAAAB9AAoAAAAAAAwAAAB9AAkAAAAEAAwAAAB9AAgAAAAAAAwAAAB9AAcAAAAEAAwAAAB9AAYAAAAEAAwAAAB9AAUAAAADAAwAAAB8AA4AAAAAAAwAAAB8AA0AAAADAAwAAAB8AAwAAAAEAAwAAAB8AAsAAAAAAAwAAAB8AAoAAAAAAAwAAAB8AAkAAAAAAAwAAAB8AAgAAAAAAAwAAAB8AAcAAAAEAAwAAAB8AAYAAAAEAAwAAAB8AAUAAAAAAAwAAAB7AA4AAAAEAAwAAAB7AA0AAAAAAAwAAAB7AAwAAAAEAAwAAAB7AAsAAAADAAwAAAB7AAoAAAAAAAwAAAB7AAkAAAAEAAwAAAB7AAgAAAAEAAwAAAB7AAcAAAAAAAwAAAB7AAYAAAAEAAwAAAB7AAUAAAAAAAwAAAB6AA4AAAADAAwAAAB6AA0AAAAAAAwAAAB6AAwAAAAEAAwAAAB6AAsAAAAAAAwAAAB6AAoAAAAAAAwAAAB6AAkAAAAAAAwAAAB6AAgAAAAAAAwAAAB6AAcAAAAAAAwAAAB6AAYAAAAAAAwAAAB6AAUAAAAAAAwAAAB5AA4AAAAAAAwAAAB5AA0AAAAEAAwAAAB5AAwAAAAEAAwAAAB5AAsAAAAEAAwAAAB5AAoAAAAEAAwAAAB5AAkAAAAEAAwAAAB5AAgAAAACAAwAAAB5AAcAAAAEAAwAAAB5AAYAAAAEAAwAAAB5AAUAAAAAAAwAAAB4AA4AAAAEAAwAAAB4AA0AAAACAAwAAAB4AAwAAAAEAAwAAAB4AAsAAAADAAwAAAB4AAoAAAAAAAwAAAB4AAkAAAAAAAwAAAB4AAgAAAAAAAwAAAB4AAcAAAABAAwAAAB4AAYAAAAEAAwAAAB4AAUAAAAEAAwAAAB3AA4AAAAAAAwAAAB3AA0AAAAAAAwAAAB3AAwAAAAAAAwAAAB3AAsAAAAAAAwAAAB3AAoAAAAEAAwAAAB3AAkAAAAAAAwAAAB3AAgAAAACAAwAAAB3AAcAAAAEAAwAAAB3AAYAAAADAAwAAAB3AAUAAAAAAAwAAAB2AA4AAAAAAAwAAAB2AA0AAAAEAAwAAAB2AAwAAAAEAAwAAAB2AAsAAAAAAAwAAAB2AAoAAAADAAwAAAB2AAkAAAAAAAwAAAB2AAgAAAADAAwAAAB2AAcAAAAAAAwAAAB2AAYAAAAAAAwAAAB2AAUAAAAAAAwAAAB1AA4AAAAAAAwAAAB1AA0AAAAAAAwAAAB1AAwAAAAAAAwAAAB1AAsAAAAEAAwAAAB1AAoAAAAAAAwAAAB1AAkAAAAAAAwAAAB1AAgAAAAAAAwAAAB1AAcAAAAAAAwAAAB1AAYAAAACAAwAAAB1AAUAAAAAAAwAAAB0AA4AAAAAAAwAAAB0AA0AAAAAAAwAAAB0AAwAAAAEAAwAAAB0AAsAAAAAAAwAAAB0AAoAAAAEAAwAAAB0AAkAAAAAAAwAAAB0AAgAAAAEAAwAAAB0AAcAAAAEAAwAAAB0AAYAAAAAAAwAAAB0AAUAAAAEAAwAAABzAA4AAAAAAAwAAABzAA0AAAAEAAwAAABzAAwAAAAEAAwAAABzAAsAAAADAAwAAABzAAoAAAAAAAwAAABzAAkAAAAAAAwAAABzAAgAAAAAAAwAAABzAAcAAAAEAAwAAABzAAYAAAAAAAwAAABzAAUAAAAAAAwAAAByAA4AAAAAAAwAAAByAA0AAAAEAAwAAAByAAwAAAAAAAwAAAByAAsAAAAAAAwAAAByAAoAAAACAAwAAAByAAkAAAAAAAwAAAByAAgAAAAEAAwAAAByAAcAAAAEAAwAAAByAAYAAAAAAAwAAAByAAUAAAAAAAwAAABxAA4AAAAAAAwAAABxAA0AAAAAAAwAAABxAAwAAAAAAAwAAABxAAsAAAAAAAwAAABxAAoAAAAEAAwAAABxAAkAAAAAAAwAAABxAAgAAAADAAwAAABxAAcAAAAAAAwAAABxAAYAAAAAAAwAAABxAAUAAAAAAAwAAABwAA4AAAAEAAwAAABwAA0AAAAEAAwAAABwAAwAAAAEAAwAAABwAAsAAAAEAAwAAABwAAoAAAAAAAwAAABwAAkAAAAEAAwAAABwAAgAAAAAAAwAAABwAAcAAAAAAAwAAABwAAYAAAAEAAwAAABwAAUAAAAEAAwAAABvAA4AAAAAAAwAAABvAA0AAAAAAAwAAABvAAwAAAADAAwAAABvAAsAAAAEAAwAAABvAAoAAAAAAAwAAABvAAkAAAAEAAwAAABvAAgAAAAAAAwAAABvAAcAAAAAAAwAAABvAAYAAAAAAAwAAABvAAUAAAACAAwAAABuAA4AAAAAAAwAAABuAA0AAAAAAAwAAABuAAwAAAAEAAwAAABuAAsAAAAAAAwAAABuAAoAAAABAAwAAABuAAkAAAAAAAwAAABuAAgAAAAEAAwAAABuAAcAAAAAAAwAAABuAAYAAAAAAAwAAABuAAUAAAACAAwAAAAxAA4AAAAAAAUAAAAxAA0AAAAAAAUAAAAxAAwAAAADAAUAAAAxAAsAAAAAAAUAAAAxAAoAAAAEAAUAAAAxAAkAAAAAAAUAAAAxAAgAAAAAAAUAAAAxAAcAAAAAAAUAAAAxAAYAAAAEAAUAAAAxAAUAAAAAAAUAAAAwAA4AAAAAAAUAAAAwAA0AAAAAAAUAAAAwAAwAAAAAAAUAAAAwAAsAAAAEAAUAAAAwAAoAAAAAAAUAAAAwAAkAAAAAAAUAAAAwAAgAAAAAAAUAAAAwAAcAAAAAAAUAAAAwAAYAAAAAAAUAAAAwAAUAAAAAAAUAAAAvAA4AAAAAAAUAAAAvAA0AAAAEAAUAAAAvAAwAAAAEAAUAAAAvAAsAAAAAAAUAAAAvAAoAAAAEAAUAAAAvAAkAAAAAAAUAAAAvAAgAAAADAAUAAAAvAAcAAAAAAAUAAAAvAAYAAAACAAUAAAAvAAUAAAADAAUAAAAuAA4AAAAEAAUAAAAuAA0AAAAAAAUAAAAuAAwAAAAEAAUAAAAuAAsAAAAEAAUAAAAuAAoAAAACAAUAAAAuAAkAAAAAAAUAAAAuAAgAAAADAAUAAAAuAAcAAAAEAAUAAAAuAAYAAAADAAUAAAAuAAUAAAAAAAUAAAAtAA4AAAAEAAUAAAAtAA0AAAADAAUAAAAtAAwAAAAAAAUAAAAtAAsAAAADAAUAAAAtAAoAAAADAAUAAAAtAAkAAAAAAAUAAAAtAAgAAAAAAAUAAAAtAAcAAAAEAAUAAAAtAAYAAAAEAAUAAAAtAAUAAAAEAAUAAAAsAA4AAAAAAAUAAAAsAA0AAAAAAAUAAAAsAAwAAAAAAAUAAAAsAAsAAAAAAAUAAAAsAAoAAAABAAUAAAAsAAkAAAAAAAUAAAAsAAgAAAAEAAUAAAAsAAcAAAAAAAUAAAAsAAYAAAAEAAUAAAAsAAUAAAABAAUAAAArAA4AAAACAAUAAAArAA0AAAAAAAUAAAArAAwAAAAAAAUAAAArAAsAAAAEAAUAAAArAAoAAAAEAAUAAAArAAkAAAAAAAUAAAArAAgAAAADAAUAAAArAAcAAAAAAAUAAAArAAYAAAAAAAUAAAArAAUAAAACAAUAAAAqAA4AAAAAAAUAAAAqAA0AAAAEAAUAAAAqAAwAAAAAAAUAAAAqAAsAAAAAAAUAAAAqAAoAAAACAAUAAAAqAAkAAAACAAUAAAAqAAgAAAAAAAUAAAAqAAcAAAAAAAUAAAAqAAYAAAADAAUAAAAqAAUAAAADAAUAAAApAA4AAAAAAAUAAAApAA0AAAADAAUAAAApAAwAAAAAAAUAAAApAAsAAAAEAAUAAAApAAoAAAAAAAUAAAApAAkAAAAEAAUAAAApAAgAAAAAAAUAAAApAAcAAAAEAAUAAAApAAYAAAAAAAUAAAApAAUAAAADAAUAAAAoAA4AAAAAAAUAAAAoAA0AAAAEAAUAAAAoAAwAAAAEAAUAAAAoAAsAAAAAAAUAAAAoAAoAAAAAAAUAAAAoAAkAAAAAAAUAAAAoAAgAAAACAAUAAAAoAAcAAAAAAAUAAAAoAAYAAAAEAAUAAAAoAAUAAAAAAAUAAAAnAA4AAAAAAAUAAAAnAA0AAAAAAAUAAAAnAAwAAAAAAAUAAAAnAAsAAAADAAUAAAAnAAoAAAADAAUAAAAnAAkAAAAAAAUAAAAnAAgAAAAAAAUAAAAnAAcAAAAAAAUAAAAnAAYAAAAAAAUAAAAnAAUAAAAEAAUAAAAmAA4AAAACAAUAAAAmAA0AAAAAAAUAAAAmAAwAAAAEAAUAAAAmAAsAAAADAAUAAAAmAAoAAAADAAUAAAAmAAkAAAAAAAUAAAAmAAgAAAAAAAUAAAAmAAcAAAAAAAUAAAAmAAYAAAAEAAUAAAAmAAUAAAAAAAUAAAAlAA4AAAAAAAUAAAAlAA0AAAAAAAUAAAAlAAwAAAAAAAUAAAAlAAsAAAAEAAUAAAAlAAoAAAAAAAUAAAAlAAkAAAAAAAUAAAAlAAgAAAAAAAUAAAAlAAcAAAAAAAUAAAAlAAYAAAAEAAUAAAAlAAUAAAAEAAUAAAAkAA4AAAAEAAUAAAAkAA0AAAAAAAUAAAAkAAwAAAAEAAUAAAAkAAsAAAAAAAUAAAAkAAoAAAAAAAUAAAAkAAkAAAACAAUAAAAkAAgAAAABAAUAAAAkAAcAAAAAAAUAAAAkAAYAAAAAAAUAAAAkAAUAAAAEAAUAAAAjAA4AAAAAAAUAAAAjAA0AAAAAAAUAAAAjAAwAAAAAAAUAAAAjAAsAAAAAAAUAAAAjAAoAAAAEAAUAAAAjAAkAAAAEAAUAAAAjAAgAAAAAAAUAAAAjAAcAAAAEAAUAAAAjAAYAAAAAAAUAAAAjAAUAAAAAAAUAAAAiAA4AAAAEAAUAAAAiAA0AAAAEAAUAAAAiAAwAAAAAAAUAAAAiAAsAAAAAAAUAAAAiAAoAAAAEAAUAAAAiAAkAAAAEAAUAAAAiAAgAAAAEAAUAAAAiAAcAAAAAAAUAAAAiAAYAAAAAAAUAAAAiAAUAAAAEAAUAAAAhAA4AAAADAAUAAAAhAA0AAAABAAUAAAAhAAwAAAAAAAUAAAAhAAsAAAAAAAUAAAAhAAoAAAADAAUAAAAhAAkAAAAEAAUAAAAhAAgAAAAAAAUAAAAhAAcAAAAEAAUAAAAhAAYAAAAEAAUAAAAhAAUAAAADAAUAAAAgAA4AAAAAAAUAAAAgAA0AAAAAAAUAAAAgAAwAAAAEAAUAAAAgAAsAAAAEAAUAAAAgAAoAAAAAAAUAAAAgAAkAAAAAAAUAAAAgAAgAAAAEAAUAAAAgAAcAAAAAAAUAAAAgAAYAAAAAAAUAAAAgAAUAAAAEAAUAAAAfAA4AAAACAAUAAAAfAA0AAAAAAAUAAAAfAAwAAAACAAUAAAAfAAsAAAAEAAUAAAAfAAoAAAAAAAUAAAAfAAkAAAAEAAUAAAAfAAgAAAAAAAUAAAAfAAcAAAAAAAUAAAAfAAYAAAAEAAUAAAAfAAUAAAAEAAUAAAAeAA4AAAAEAAUAAAAeAA0AAAADAAUAAAAeAAwAAAAEAAUAAAAeAAsAAAABAAUAAAAeAAoAAAAEAAUAAAAeAAkAAAAAAAUAAAAeAAgAAAADAAUAAAAeAAcAAAAAAAUAAAAeAAYAAAAAAAUAAAAeAAUAAAAEAAUAAAA=")
 
 [node name="Foreground" parent="Tilemap" parent_id_path=PackedInt32Array(1439768727) index="4" unique_id=720212395]
-tile_map_data = PackedByteArray("AADh/xkAAAAEAAUAAADi/xkAAAAEAAUAAADj/xkAAAAEAAUAAADk/xkAAAAEAAUAAADl/xkAAAAEAAUAAADm/xkAAAAEAAUAAADn/xkAAAAEAAUAAADo/xkAAAAEAAUAAADp/xkAAAAEAAUAAADq/xkAAAAEAAUAAADr/xkAAAAEAAUAAADs/xkAAAAEAAUAAADt/xkAAAAEAAUAAADu/xkAAAAEAAUAAADv/xkAAAAEAAUAAADw/xkAAAAEAAUAAADx/xkAAAAEAAUAAADy/xkAAAAEAAUAAADz/xkAAAAEAAUAAAD0/xkAAAAEAAUAAAD1/xkAAAAEAAUAAAD2/xkAAAAEAAUAAAD2/xgAAAAEAAUAAAD2/xcAAAAEAAUAAAD2/xYAAAAEAAUAAAD2/xUAAAAEAAUAAAD2/xQAAAAEAAUAAAD2/xMAAAAEAAUAAAD2/xIAAAAEAAUAAAD2/xEAAAAEAAUAAAD2/xAAAAAEAAUAAADh/w4AAAAEAAUAAADi/w4AAAAEAAUAAADj/w4AAAAEAAUAAADk/w4AAAAEAAUAAADl/w4AAAAEAAUAAADm/w4AAAAEAAUAAADn/w4AAAAEAAUAAADo/w4AAAAEAAUAAADp/w4AAAAEAAUAAADq/w4AAAAEAAUAAADr/w4AAAAEAAUAAADs/w4AAAAEAAUAAADt/w4AAAAEAAUAAADu/w4AAAAEAAUAAADv/w4AAAAEAAUAAADw/w4AAAAEAAUAAADx/w4AAAAEAAUAAADy/w4AAAAEAAUAAADz/w4AAAAEAAUAAAD0/w4AAAAEAAUAAAD1/w4AAAAEAAUAAAD2/w4AAAAEAAUAAAD2/w8AAAAEAAUAAADh/w8AAAAEAAUAAADh/xAAAAAEAAUAAADh/xEAAAAEAAUAAADh/xUAAAAEAAUAAADh/xYAAAAEAAUAAADh/xcAAAAEAAUAAADh/xgAAAAEAAUAAADh/xQAAAAEAAUAAADh/xMAAAAEAAUAAADh/xIAAAAEAAUAAAC5//r/AAAEAAUAAAC5//v/AAAEAAUAAAC5//z/AAAEAAUAAAC5//3/AAAEAAUAAAC5//7/AAAEAAUAAAC5////AAAEAAUAAAC5/wAAAAAEAAUAAAC5/wEAAAAEAAUAAAC5/wIAAAAEAAUAAAC5/wMAAAAEAAUAAAC5/wQAAAAEAAUAAAC5/wUAAAAEAAUAAAC6/wUAAAAEAAUAAAC7/wUAAAAEAAUAAAC8/wUAAAAEAAUAAAC9/wUAAAAEAAUAAAC+/wUAAAAEAAUAAAC//wUAAAAEAAUAAADA/wUAAAAEAAUAAADB/wUAAAAEAAUAAADC/wUAAAAEAAUAAADD/wUAAAAEAAUAAADE/wUAAAAEAAUAAADF/wUAAAAEAAUAAADG/wUAAAAEAAUAAADH/wUAAAAEAAUAAADI/wUAAAAEAAUAAADJ/wUAAAAEAAUAAADK/wUAAAAEAAUAAADL/wUAAAAEAAUAAADM/wUAAAAEAAUAAADN/wUAAAAEAAUAAADO/wUAAAAEAAUAAADO/wQAAAAEAAUAAADO/wMAAAAEAAUAAADO/wIAAAAEAAUAAADO/wEAAAAEAAUAAADO/wAAAAAEAAUAAADO////AAAEAAUAAADO//7/AAAEAAUAAADO//3/AAAEAAUAAADO//z/AAAEAAUAAADO//v/AAAEAAUAAADO//r/AAAEAAUAAADN//r/AAAEAAUAAADM//r/AAAEAAUAAADL//r/AAAEAAUAAADK//r/AAAEAAUAAADJ//r/AAAEAAUAAADI//r/AAAEAAUAAADH//r/AAAEAAUAAADG//r/AAAEAAUAAADF//r/AAAEAAUAAADE//r/AAAEAAUAAADD//r/AAAEAAUAAADC//r/AAAEAAUAAADB//r/AAAEAAUAAADA//r/AAAEAAUAAAC///r/AAAEAAUAAAC+//r/AAAEAAUAAAC9//r/AAAEAAUAAAC8//r/AAAEAAUAAAC7//r/AAAEAAUAAAC6//r/AAAEAAUAAAA=")
+tile_map_data = PackedByteArray("AADh/xkAAAAEAAUAAADi/xkAAAAEAAUAAADj/xkAAAAEAAUAAADk/xkAAAAEAAUAAADl/xkAAAAEAAUAAADm/xkAAAAEAAUAAADn/xkAAAAEAAUAAADo/xkAAAAEAAUAAADp/xkAAAAEAAUAAADq/xkAAAAEAAUAAADr/xkAAAAEAAUAAADs/xkAAAAEAAUAAADt/xkAAAAEAAUAAADu/xkAAAAEAAUAAADv/xkAAAAEAAUAAADw/xkAAAAEAAUAAADx/xkAAAAEAAUAAADy/xkAAAAEAAUAAADz/xkAAAAEAAUAAAD0/xkAAAAEAAUAAAD1/xkAAAAEAAUAAAD2/xkAAAAEAAUAAAD2/xgAAAAEAAUAAAD2/xcAAAAEAAUAAAD2/xYAAAAEAAUAAAD2/xUAAAAEAAUAAAD2/xQAAAAEAAUAAAD2/xMAAAAEAAUAAAD2/xIAAAAEAAUAAAD2/xEAAAAEAAUAAAD2/xAAAAAEAAUAAADh/w4AAAAEAAUAAADi/w4AAAAEAAUAAADj/w4AAAAEAAUAAADk/w4AAAAEAAUAAADl/w4AAAAEAAUAAADm/w4AAAAEAAUAAADn/w4AAAAEAAUAAADo/w4AAAAEAAUAAADp/w4AAAAEAAUAAADq/w4AAAAEAAUAAADr/w4AAAAEAAUAAADs/w4AAAAEAAUAAADt/w4AAAAEAAUAAADu/w4AAAAEAAUAAADv/w4AAAAEAAUAAADw/w4AAAAEAAUAAADx/w4AAAAEAAUAAADy/w4AAAAEAAUAAADz/w4AAAAEAAUAAAD0/w4AAAAEAAUAAAD1/w4AAAAEAAUAAAD2/w4AAAAEAAUAAAD2/w8AAAAEAAUAAADh/w8AAAAEAAUAAADh/xAAAAAEAAUAAADh/xEAAAAEAAUAAADh/xUAAAAEAAUAAADh/xYAAAAEAAUAAADh/xcAAAAEAAUAAADh/xgAAAAEAAUAAADh/xQAAAAEAAUAAADh/xMAAAAEAAUAAADh/xIAAAAEAAUAAAC5//r/AAAEAAUAAAC5//v/AAAEAAUAAAC5//z/AAAEAAUAAAC5//3/AAAEAAUAAAC5//7/AAAEAAUAAAC5////AAAEAAUAAAC5/wAAAAAEAAUAAAC5/wEAAAAEAAUAAAC5/wIAAAAEAAUAAAC5/wMAAAAEAAUAAAC5/wQAAAAEAAUAAAC5/wUAAAAEAAUAAAC6/wUAAAAEAAUAAAC7/wUAAAAEAAUAAAC8/wUAAAAEAAUAAAC9/wUAAAAEAAUAAAC+/wUAAAAEAAUAAAC//wUAAAAEAAUAAADA/wUAAAAEAAUAAADB/wUAAAAEAAUAAADC/wUAAAAEAAUAAADD/wUAAAAEAAUAAADE/wUAAAAEAAUAAADF/wUAAAAEAAUAAADG/wUAAAAEAAUAAADH/wUAAAAEAAUAAADI/wUAAAAEAAUAAADJ/wUAAAAEAAUAAADK/wUAAAAEAAUAAADL/wUAAAAEAAUAAADM/wUAAAAEAAUAAADN/wUAAAAEAAUAAADO/wUAAAAEAAUAAADO/wQAAAAEAAUAAADO/wMAAAAEAAUAAADO/wIAAAAEAAUAAADO/wEAAAAEAAUAAADO/wAAAAAEAAUAAADO////AAAEAAUAAADO//7/AAAEAAUAAADO//3/AAAEAAUAAADO//z/AAAEAAUAAADO//v/AAAEAAUAAADO//r/AAAEAAUAAADN//r/AAAEAAUAAADM//r/AAAEAAUAAADL//r/AAAEAAUAAADK//r/AAAEAAUAAADJ//r/AAAEAAUAAADI//r/AAAEAAUAAADH//r/AAAEAAUAAADG//r/AAAEAAUAAADF//r/AAAEAAUAAADE//r/AAAEAAUAAADD//r/AAAEAAUAAADC//r/AAAEAAUAAADB//r/AAAEAAUAAADA//r/AAAEAAUAAAC///r/AAAEAAUAAAC+//r/AAAEAAUAAAC9//r/AAAEAAUAAAC8//r/AAAEAAUAAAC7//r/AAAEAAUAAAC6//r/AAAEAAUAAABtAAQAAAAEAAUAAABtAAUAAAAEAAUAAABtAAYAAAAEAAUAAABtAAcAAAAEAAUAAABtAAgAAAAEAAUAAABtAAkAAAAEAAUAAABtAAoAAAAEAAUAAABtAAsAAAAEAAUAAABtAAwAAAAEAAUAAABtAA0AAAAEAAUAAABtAA4AAAAEAAUAAABtAA8AAAAEAAUAAABuAA8AAAAEAAUAAABvAA8AAAAEAAUAAABwAA8AAAAEAAUAAABxAA8AAAAEAAUAAAByAA8AAAAEAAUAAABzAA8AAAAEAAUAAAB0AA8AAAAEAAUAAAB1AA8AAAAEAAUAAAB2AA8AAAAEAAUAAAB3AA8AAAAEAAUAAACAAA8AAAAEAAUAAAB/AA8AAAAEAAUAAAB4AA8AAAAEAAUAAAB5AA8AAAAEAAUAAAB6AA8AAAAEAAUAAAB7AA8AAAAEAAUAAAB8AA8AAAAEAAUAAAB9AA8AAAAEAAUAAAB+AA8AAAAEAAUAAACBAA8AAAAEAAUAAACCAA8AAAAEAAUAAACCAA4AAAAEAAUAAACCAA0AAAAEAAUAAACCAAwAAAAEAAUAAACCAAsAAAAEAAUAAACCAAoAAAAEAAUAAACCAAkAAAAEAAUAAACCAAgAAAAEAAUAAACCAAcAAAAEAAUAAACCAAYAAAAEAAUAAACCAAUAAAAEAAUAAACCAAQAAAAEAAUAAACBAAQAAAAEAAUAAACAAAQAAAAEAAUAAAB/AAQAAAAEAAUAAAB+AAQAAAAEAAUAAAB9AAQAAAAEAAUAAAB8AAQAAAAEAAUAAAB7AAQAAAAEAAUAAAB6AAQAAAAEAAUAAAB5AAQAAAAEAAUAAAB4AAQAAAAEAAUAAAB3AAQAAAAEAAUAAAB2AAQAAAAEAAUAAAB1AAQAAAAEAAUAAAB0AAQAAAAEAAUAAABzAAQAAAAEAAUAAAByAAQAAAAEAAUAAABxAAQAAAAEAAUAAABwAAQAAAAEAAUAAABvAAQAAAAEAAUAAABuAAQAAAAEAAUAAAAdAAQAAAAEAAUAAAAdAAUAAAAEAAUAAAAdAAYAAAAEAAUAAAAdAAcAAAAEAAUAAAAdAAgAAAAEAAUAAAAdAAkAAAAEAAUAAAAdAAoAAAAEAAUAAAAdAAsAAAAEAAUAAAAdAAwAAAAEAAUAAAAdAA0AAAAEAAUAAAAdAA4AAAAEAAUAAAAdAA8AAAAEAAUAAAAeAA8AAAAEAAUAAAAfAA8AAAAEAAUAAAAgAA8AAAAEAAUAAAAhAA8AAAAEAAUAAAAiAA8AAAAEAAUAAAAjAA8AAAAEAAUAAAAkAA8AAAAEAAUAAAAlAA8AAAAEAAUAAAAmAA8AAAAEAAUAAAAnAA8AAAAEAAUAAAAoAA8AAAAEAAUAAAApAA8AAAAEAAUAAAAqAA8AAAAEAAUAAAArAA8AAAAEAAUAAAAsAA8AAAAEAAUAAAAtAA8AAAAEAAUAAAAuAA8AAAAEAAUAAAAvAA8AAAAEAAUAAAAwAA8AAAAEAAUAAAAxAA8AAAAEAAUAAAAyAA8AAAAEAAUAAAAyAAQAAAAEAAUAAAAyAAUAAAAEAAUAAAAyAAYAAAAEAAUAAAAyAAcAAAAEAAUAAAAyAAgAAAAEAAUAAAAyAAkAAAAEAAUAAAAyAAoAAAAEAAUAAAAyAAsAAAAEAAUAAAAyAAwAAAAEAAUAAAAyAA0AAAAEAAUAAAAyAA4AAAAEAAUAAAAeAAQAAAAEAAUAAAAfAAQAAAAEAAUAAAAgAAQAAAAEAAUAAAAhAAQAAAAEAAUAAAAiAAQAAAAEAAUAAAAjAAQAAAAEAAUAAAAkAAQAAAAEAAUAAAAlAAQAAAAEAAUAAAAmAAQAAAAEAAUAAAAnAAQAAAAEAAUAAAAoAAQAAAAEAAUAAAApAAQAAAAEAAUAAAAqAAQAAAAEAAUAAAArAAQAAAAEAAUAAAAsAAQAAAAEAAUAAAAtAAQAAAAEAAUAAAAuAAQAAAAEAAUAAAAvAAQAAAAEAAUAAAAwAAQAAAAEAAUAAAAxAAQAAAAEAAUAAAA=")
 
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="0" unique_id=297187452 instance=ExtResource("2_o2p3v")]
-position = Vector2(-561, 262)
+position = Vector2(400, 144)
 invulnerability_duration = 0.7
 modifier_invulnerability = SubResource("Resource_hk7ad")
 stat_speed_ratio = SubResource("Resource_egl16")
@@ -493,7 +710,215 @@ stat_cant_interract = SubResource("Resource_rskws")
 stat_shooting_speed = SubResource("Resource_8augw")
 stat_damage_ratio = SubResource("Resource_1r8ri")
 
-[node name="GiantRacoon" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=2065001503 node_paths=PackedStringArray("hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("3_5yt0q")]
+[node name="Bamboo" type="Node2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1607511804]
+
+[node name="GiantBamboo" parent="Enemies/Bosses/Bamboo" index="0" unique_id=105411073 node_paths=PackedStringArray("hurt_component", "shoot_controller") instance=ExtResource("3_cp8gd")]
+z_index = 45
+z_as_relative = false
+position = Vector2(1928, 144)
+collision_mask = 1
+hurt_component = NodePath("AIController/HurtComponent")
+shoot_controller = NodePath("AIController/ShootController")
+modifier_invulnerability = SubResource("Resource_u5n4u")
+afterlife_duration = 2.0
+stat_speed_ratio = SubResource("Resource_kura7")
+stat_invulnerable = SubResource("Resource_38i0a")
+stat_armor = SubResource("Resource_1q0b0")
+stat_cant_move = SubResource("Resource_v6rn7")
+stat_cant_shoot = SubResource("Resource_ij3ly")
+stat_cant_interract = SubResource("Resource_y3ty4")
+stat_shooting_speed = SubResource("Resource_bcg5v")
+
+[node name="AIController" parent="Enemies/Bosses/Bamboo/GiantBamboo" index="5" unique_id=359908874 node_paths=PackedStringArray("bamboo_breakables", "aim_positions", "character", "inspectable", "movement_patterns", "show_on_death") instance=ExtResource("4_lonoe")]
+script = ExtResource("28_dlq5l")
+bamboo_breakables = [NodePath("../../BambooBreakables/Breakable"), NodePath("../../BambooBreakables/Breakable2"), NodePath("../../BambooBreakables/Breakable3"), NodePath("../../BambooBreakables/Breakable4"), NodePath("../../BambooBreakables/Breakable5"), NodePath("../../BambooBreakables/Breakable6"), NodePath("../../BambooBreakables/Breakable7"), NodePath("../../BambooBreakables/Breakable8"), NodePath("../../BambooBreakables/Breakable9"), NodePath("../../BambooBreakables/Breakable10"), NodePath("../../BambooBreakables/Breakable11"), NodePath("../../BambooBreakables/Breakable12"), NodePath("../../BambooBreakables/Breakable13"), NodePath("../../BambooBreakables/Breakable14"), NodePath("../../BambooBreakables/Breakable16"), NodePath("../../BambooBreakables/Breakable17"), NodePath("../../BambooBreakables/Breakable18"), NodePath("../../BambooBreakables/Breakable19"), NodePath("../../BambooBreakables/Breakable20"), NodePath("../../BambooBreakables/Breakable21"), NodePath("../../BambooBreakables/Breakable22"), NodePath("../../BambooBreakables/Breakable23"), NodePath("../../BambooBreakables/Breakable24"), NodePath("../../BambooBreakables/Breakable25"), NodePath("../../BambooBreakables/Breakable26"), NodePath("../../BambooBreakables/Breakable27"), NodePath("../../BambooBreakables/Breakable28"), NodePath("../../BambooBreakables/Breakable29"), NodePath("../../BambooBreakables/Breakable30"), NodePath("../../BambooBreakables/Breakable31"), NodePath("../../BambooBreakables/Breakable32"), NodePath("../../BambooBreakables/Breakable33"), NodePath("../../BambooBreakables/Breakable34"), NodePath("../../BambooBreakables/Breakable35"), NodePath("../../BambooBreakables/Breakable15")]
+aim_positions = [NodePath("../../BambooMarkers/Marker2D"), NodePath("../../BambooMarkers/Marker2D2"), NodePath("../../BambooMarkers/Marker2D3"), NodePath("../../BambooMarkers/Marker2D4"), NodePath("../../BambooMarkers/Marker2D5")]
+vfx = SubResource("Resource_8vwle")
+character = NodePath("..")
+inspectable = NodePath("Inspectable")
+actions = Array[ExtResource("9_fflhd")]([SubResource("Resource_680iq"), SubResource("Resource_sko6y"), SubResource("Resource_nth8t")])
+modulates_for_phase = Array[float]([0.5])
+movement_patterns = {
+"hide and shot": NodePath("BehaviourFollow2D"),
+"move and shoot": NodePath("AreaMovementController"),
+"rest": NodePath("AreaMovementController")
+}
+modifier = SubResource("Resource_w2d2t")
+show_on_death = [null]
+data_for_interface = SubResource("Resource_pehxf")
+interface_needed = true
+
+[node name="Inspectable" parent="Enemies/Bosses/Bamboo/GiantBamboo/AIController" index="0" unique_id=2087367069 instance=ExtResource("32_g6ybq")]
+dialogues = Array[ExtResource("33_8augw")]([SubResource("Resource_xdrwm")])
+order = 0
+preset = SubResource("Resource_t8cnx")
+
+[node name="HurtComponent" parent="Enemies/Bosses/Bamboo/GiantBamboo/AIController" index="4" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("5_olh6k")]
+scale = Vector2(2, 3)
+character = NodePath("../..")
+max_health = 10.0
+sounds_damage = Array[AudioStream]([ExtResource("35_k0tm2"), ExtResource("36_5owx6")])
+vfx_damage_marker = SubResource("Resource_vc8n2")
+vfx_heal_marker = SubResource("Resource_8bs0b")
+
+[node name="ShootController" parent="Enemies/Bosses/Bamboo/GiantBamboo/AIController" index="5" unique_id=1242481191 instance=ExtResource("6_1e2a1")]
+team = 0
+projectile_homing = true
+
+[node name="AreaMovementController" type="Node2D" parent="Enemies/Bosses/Bamboo/GiantBamboo/AIController" index="6" unique_id=1256127875 node_paths=PackedStringArray("regions")]
+script = ExtResource("19_hk7ad")
+regions = [NodePath("../../../GiantBambooRegion1"), NodePath("../../../GiantBambooRegion2")]
+min_radius = 200.0
+break_time = 0.001
+speed = 60.0
+enabled = false
+
+[node name="BehaviourFollow2D" type="Node2D" parent="Enemies/Bosses/Bamboo/GiantBamboo/AIController" index="7" unique_id=367059968 node_paths=PackedStringArray("target", "body")]
+script = ExtResource("23_mtt35")
+target = NodePath("../../../BambooMarker")
+body = NodePath("../..")
+distance_min = 1.0
+distance_max = 2.0
+speed = 60.0
+enabled = false
+metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
+
+[node name="GiantBambooRegion1" type="NavigationRegion2D" parent="Enemies/Bosses/Bamboo" index="1" unique_id=1563625884]
+navigation_polygon = SubResource("NavigationPolygon_uyufl")
+
+[node name="GiantBambooRegion2" type="NavigationRegion2D" parent="Enemies/Bosses/Bamboo" index="2" unique_id=1634110063]
+navigation_polygon = SubResource("NavigationPolygon_j4ten")
+
+[node name="BambooMarkers" type="Node2D" parent="Enemies/Bosses/Bamboo" index="3" unique_id=1802344061]
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Bosses/Bamboo/BambooMarkers" index="0" unique_id=141535872]
+position = Vector2(1800, 200)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Bosses/Bamboo/BambooMarkers" index="1" unique_id=1703047517]
+position = Vector2(1848, 104)
+
+[node name="Marker2D3" type="Marker2D" parent="Enemies/Bosses/Bamboo/BambooMarkers" index="2" unique_id=1979862400]
+position = Vector2(1912, 224)
+
+[node name="Marker2D4" type="Marker2D" parent="Enemies/Bosses/Bamboo/BambooMarkers" index="3" unique_id=69747425]
+position = Vector2(2016, 144)
+
+[node name="Marker2D5" type="Marker2D" parent="Enemies/Bosses/Bamboo/BambooMarkers" index="4" unique_id=88762368]
+position = Vector2(1928, 104)
+
+[node name="BambooMarker" type="Marker2D" parent="Enemies/Bosses/Bamboo" index="4" unique_id=1826629297]
+position = Vector2(1928, 160)
+
+[node name="BambooBreakables" type="Node2D" parent="Enemies/Bosses/Bamboo" index="5" unique_id=1284927969]
+
+[node name="Breakable" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="0" unique_id=514792727 instance=ExtResource("25_5owx6")]
+position = Vector2(1912, 160)
+
+[node name="Breakable2" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="1" unique_id=253830539 instance=ExtResource("25_5owx6")]
+position = Vector2(1920, 176)
+
+[node name="Breakable3" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="2" unique_id=1295217441 instance=ExtResource("25_5owx6")]
+position = Vector2(1936, 176)
+
+[node name="Breakable4" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="3" unique_id=1859581499 instance=ExtResource("25_5owx6")]
+position = Vector2(1944, 160)
+
+[node name="Breakable5" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="4" unique_id=1785719672 instance=ExtResource("25_5owx6")]
+position = Vector2(1936, 144)
+
+[node name="Breakable6" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="5" unique_id=1382915498 instance=ExtResource("25_5owx6")]
+position = Vector2(1920, 144)
+
+[node name="Breakable7" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="6" unique_id=296690292 instance=ExtResource("25_5owx6")]
+position = Vector2(1904, 144)
+
+[node name="Breakable8" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="7" unique_id=925504705 instance=ExtResource("25_5owx6")]
+position = Vector2(1896, 160)
+
+[node name="Breakable9" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="8" unique_id=1885400086 instance=ExtResource("25_5owx6")]
+position = Vector2(1904, 176)
+
+[node name="Breakable10" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="9" unique_id=2017085742 instance=ExtResource("25_5owx6")]
+position = Vector2(1912, 192)
+
+[node name="Breakable11" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="10" unique_id=1751266363 instance=ExtResource("25_5owx6")]
+position = Vector2(1928, 192)
+
+[node name="Breakable12" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="11" unique_id=1141356766 instance=ExtResource("25_5owx6")]
+position = Vector2(1944, 192)
+
+[node name="Breakable13" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="12" unique_id=1336655200 instance=ExtResource("25_5owx6")]
+position = Vector2(1952, 176)
+
+[node name="Breakable14" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="13" unique_id=1415341291 instance=ExtResource("25_5owx6")]
+position = Vector2(1952, 144)
+
+[node name="Breakable16" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="14" unique_id=1490309748 instance=ExtResource("25_5owx6")]
+position = Vector2(1912, 128)
+
+[node name="Breakable17" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="15" unique_id=541061275 instance=ExtResource("25_5owx6")]
+position = Vector2(1928, 128)
+
+[node name="Breakable18" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="16" unique_id=701267621 instance=ExtResource("25_5owx6")]
+position = Vector2(1944, 128)
+
+[node name="Breakable19" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="17" unique_id=456055985 instance=ExtResource("25_5owx6")]
+position = Vector2(1888, 144)
+
+[node name="Breakable20" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="18" unique_id=1926100032 instance=ExtResource("25_5owx6")]
+position = Vector2(1880, 160)
+
+[node name="Breakable21" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="19" unique_id=231500953 instance=ExtResource("25_5owx6")]
+position = Vector2(1888, 176)
+
+[node name="Breakable22" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="20" unique_id=459725716 instance=ExtResource("25_5owx6")]
+position = Vector2(1896, 192)
+
+[node name="Breakable23" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="21" unique_id=267058544 instance=ExtResource("25_5owx6")]
+position = Vector2(1904, 208)
+
+[node name="Breakable24" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="22" unique_id=624266283 instance=ExtResource("25_5owx6")]
+position = Vector2(1920, 208)
+
+[node name="Breakable25" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="23" unique_id=786167488 instance=ExtResource("25_5owx6")]
+position = Vector2(1936, 208)
+
+[node name="Breakable26" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="24" unique_id=1114660810 instance=ExtResource("25_5owx6")]
+position = Vector2(1952, 208)
+
+[node name="Breakable27" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="25" unique_id=1532019261 instance=ExtResource("25_5owx6")]
+position = Vector2(1960, 192)
+
+[node name="Breakable28" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="26" unique_id=762318393 instance=ExtResource("25_5owx6")]
+position = Vector2(1968, 176)
+
+[node name="Breakable29" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="27" unique_id=1296919491 instance=ExtResource("25_5owx6")]
+position = Vector2(1976, 160)
+
+[node name="Breakable30" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="28" unique_id=1249584203 instance=ExtResource("25_5owx6")]
+position = Vector2(1968, 144)
+
+[node name="Breakable31" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="29" unique_id=1808778333 instance=ExtResource("25_5owx6")]
+position = Vector2(1960, 128)
+
+[node name="Breakable32" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="30" unique_id=163896030 instance=ExtResource("25_5owx6")]
+position = Vector2(1896, 128)
+
+[node name="Breakable33" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="31" unique_id=1067917699 instance=ExtResource("25_5owx6")]
+position = Vector2(1912, 112)
+
+[node name="Breakable34" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="32" unique_id=880474875 instance=ExtResource("25_5owx6")]
+position = Vector2(1928, 112)
+
+[node name="Breakable35" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="33" unique_id=1726186483 instance=ExtResource("25_5owx6")]
+position = Vector2(1944, 112)
+
+[node name="Breakable15" parent="Enemies/Bosses/Bamboo/BambooBreakables" index="34" unique_id=966506462 instance=ExtResource("25_5owx6")]
+position = Vector2(1960, 160)
+
+[node name="Racoon" type="Node2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="1" unique_id=1048551264]
+
+[node name="GiantRacoon" parent="Enemies/Bosses/Racoon" index="0" unique_id=2065001503 node_paths=PackedStringArray("hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("3_5yt0q")]
 position = Vector2(-396, 294)
 collision_mask = 1
 hurt_component = NodePath("AIController/HurtComponent")
@@ -509,7 +934,7 @@ stat_cant_interract = SubResource("Resource_hjcxf")
 stat_shooting_speed = SubResource("Resource_arhyt")
 stat_damage_ratio = SubResource("Resource_me7r1")
 
-[node name="AIController" parent="Enemies/Bosses/GiantRacoon" index="5" unique_id=1927809777 node_paths=PackedStringArray("shooting_positions", "character", "movement_patterns") instance=ExtResource("4_lonoe")]
+[node name="AIController" parent="Enemies/Bosses/Racoon/GiantRacoon" index="5" unique_id=1927809777 node_paths=PackedStringArray("shooting_positions", "character", "movement_patterns") instance=ExtResource("4_lonoe")]
 script = ExtResource("8_3pqcu")
 vfxprofile = SubResource("Resource_g6ybq")
 vfx_spawn_time = 0.15
@@ -531,7 +956,7 @@ vfx_on_phase_change = SubResource("Resource_yakie")
 data_for_interface = SubResource("Resource_m7sgn")
 interface_needed = true
 
-[node name="HurtComponent" parent="Enemies/Bosses/GiantRacoon/AIController" index="3" unique_id=1780671861 node_paths=PackedStringArray("character") instance=ExtResource("5_olh6k")]
+[node name="HurtComponent" parent="Enemies/Bosses/Racoon/GiantRacoon/AIController" index="3" unique_id=1780671861 node_paths=PackedStringArray("character") instance=ExtResource("5_olh6k")]
 scale = Vector2(2.9, 2.9)
 character = NodePath("../..")
 max_health = 15.0
@@ -540,11 +965,11 @@ sounds_die = Array[AudioStream]([ExtResource("22_mtt35")])
 vfx_damage_marker = SubResource("Resource_io6ay")
 vfx_heal_marker = SubResource("Resource_sj5jv")
 
-[node name="ShootController" parent="Enemies/Bosses/GiantRacoon/AIController" index="4" unique_id=1078336844 instance=ExtResource("6_1e2a1")]
+[node name="ShootController" parent="Enemies/Bosses/Racoon/GiantRacoon/AIController" index="4" unique_id=1078336844 instance=ExtResource("6_1e2a1")]
 team = 0
 projectile_homing = true
 
-[node name="PathDotMovementController2D" type="Node2D" parent="Enemies/Bosses/GiantRacoon/AIController" index="5" unique_id=1549073554 node_paths=PackedStringArray("path")]
+[node name="PathDotMovementController2D" type="Node2D" parent="Enemies/Bosses/Racoon/GiantRacoon/AIController" index="5" unique_id=1549073554 node_paths=PackedStringArray("path")]
 script = ExtResource("8_i3ex6")
 path = NodePath("../../../Path2D")
 break_duration_min = 1.0
@@ -553,18 +978,18 @@ speed = 60.0
 enabled = false
 metadata/_custom_type_script = "uid://d34c6a0yetv43"
 
-[node name="DamageArea" parent="Enemies/Bosses/GiantRacoon/AIController" index="6" unique_id=419752470 instance=ExtResource("11_7447m")]
+[node name="DamageArea" parent="Enemies/Bosses/Racoon/GiantRacoon/AIController" index="6" unique_id=419752470 instance=ExtResource("11_7447m")]
 scale = Vector2(3, 3)
 team = 0
 
-[node name="AreaMovementController" type="Node2D" parent="Enemies/Bosses/GiantRacoon/AIController" index="7" unique_id=354964489 node_paths=PackedStringArray("regions")]
+[node name="AreaMovementController" type="Node2D" parent="Enemies/Bosses/Racoon/GiantRacoon/AIController" index="7" unique_id=354964489 node_paths=PackedStringArray("regions")]
 script = ExtResource("19_hk7ad")
 regions = [NodePath("../../../GiantRacoonRegion1")]
 min_radius = 200.0
 break_time = 0.001
 speed = 60.0
 
-[node name="BehaviourFollow2D" type="Node2D" parent="Enemies/Bosses/GiantRacoon/AIController" index="8" unique_id=1728135192 node_paths=PackedStringArray("target", "body")]
+[node name="BehaviourFollow2D" type="Node2D" parent="Enemies/Bosses/Racoon/GiantRacoon/AIController" index="8" unique_id=1728135192 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("23_mtt35")
 target = NodePath("../../../Marker2D")
 body = NodePath("../..")
@@ -573,118 +998,138 @@ distance_max = 2.0
 speed = 60.0
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
-[node name="Path2D" type="Path2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="1" unique_id=502521772]
+[node name="Path2D" type="Path2D" parent="Enemies/Bosses/Racoon" index="1" unique_id=502521772]
 curve = SubResource("Curve2D_s6g6n")
 
-[node name="GiantRacoonRegion1" type="NavigationRegion2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="2" unique_id=1709305959]
+[node name="GiantRacoonRegion1" type="NavigationRegion2D" parent="Enemies/Bosses/Racoon" index="2" unique_id=1709305959]
 navigation_polygon = SubResource("NavigationPolygon_io6ay")
 
-[node name="Marker2D" type="Marker2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="3" unique_id=206860129]
+[node name="Marker2D" type="Marker2D" parent="Enemies/Bosses/Racoon" index="3" unique_id=206860129]
 position = Vector2(-315, 323)
 
-[node name="RacoonMarkers" type="Node2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="4" unique_id=11850475]
+[node name="RacoonMarkers" type="Node2D" parent="Enemies/Bosses/Racoon" index="4" unique_id=11850475]
 
-[node name="Marker2D" type="Marker2D" parent="Enemies/Bosses/RacoonMarkers" index="0" unique_id=2099478373]
+[node name="Marker2D" type="Marker2D" parent="Enemies/Bosses/Racoon/RacoonMarkers" index="0" unique_id=2099478373]
 position = Vector2(-469, 268)
 
-[node name="Marker2D2" type="Marker2D" parent="Enemies/Bosses/RacoonMarkers" index="1" unique_id=125745745]
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Bosses/Racoon/RacoonMarkers" index="1" unique_id=125745745]
 position = Vector2(-448, 268)
 
-[node name="GiantBamboo" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="5" unique_id=105411073 node_paths=PackedStringArray("hurt_component", "shoot_controller") instance=ExtResource("3_cp8gd")]
-z_index = 45
-z_as_relative = false
-position = Vector2(1928, 144)
-collision_mask = 1
+[node name="Slime" type="Node2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="2" unique_id=651485580]
+
+[node name="GiantSlime" parent="Enemies/Bosses/Slime" index="0" unique_id=1925676225 node_paths=PackedStringArray("hurt_component", "shoot_controller") instance=ExtResource("37_qtrp1")]
+position = Vector2(-832, -48)
 hurt_component = NodePath("AIController/HurtComponent")
 shoot_controller = NodePath("AIController/ShootController")
-modifier_invulnerability = SubResource("Resource_u5n4u")
-afterlife_duration = 2.0
-stat_speed_ratio = SubResource("Resource_kura7")
-stat_invulnerable = SubResource("Resource_38i0a")
-stat_armor = SubResource("Resource_1q0b0")
-stat_cant_move = SubResource("Resource_v6rn7")
-stat_cant_shoot = SubResource("Resource_ij3ly")
-stat_cant_interract = SubResource("Resource_y3ty4")
-stat_shooting_speed = SubResource("Resource_bcg5v")
 
-[node name="AIController" parent="Enemies/Bosses/GiantBamboo" index="5" unique_id=359908874 node_paths=PackedStringArray("bamboo_breakables", "aim_positions", "character", "inspectable", "movement_patterns", "show_on_death") instance=ExtResource("4_lonoe")]
-script = ExtResource("28_dlq5l")
-bamboo_breakables = []
-aim_positions = [NodePath("../../BambooMarkers/Marker2D"), NodePath("../../BambooMarkers/Marker2D2"), NodePath("../../BambooMarkers/Marker2D3"), NodePath("../../BambooMarkers/Marker2D4"), NodePath("../../BambooMarkers/Marker2D5")]
-vfx = SubResource("Resource_8vwle")
+[node name="AIController" parent="Enemies/Bosses/Slime/GiantSlime" index="5" unique_id=679617165 node_paths=PackedStringArray("shooting_positions", "character", "movement_patterns") instance=ExtResource("4_lonoe")]
+script = ExtResource("37_8augw")
+shooting_positions = [NodePath("../../Node2D/Marker2D")]
 character = NodePath("..")
-inspectable = NodePath("Inspectable")
-actions = Array[ExtResource("9_fflhd")]([SubResource("Resource_680iq"), SubResource("Resource_sko6y"), SubResource("Resource_nth8t")])
-modulates_for_phase = Array[float]([0.5])
+actions = Array[ExtResource("9_fflhd")]([SubResource("Resource_uyufl"), SubResource("Resource_a0px1"), SubResource("Resource_a0iws"), SubResource("Resource_lfpss"), SubResource("Resource_cqron")])
+modulates_for_phase = Array[float]([0.65, 0.3])
 movement_patterns = {
-"hide and shot": NodePath("BehaviourFollow2D"),
-"move and shoot": NodePath("AreaMovementController"),
-"rest": NodePath("AreaMovementController")
+"center_circle": NodePath("BehaviourFollow2D"),
+"rest": NodePath("AreaMovementController"),
+"sinusoid": NodePath("AreaMovementController"),
+"slow_shots": NodePath("AreaMovementController"),
+"wave": NodePath("BehaviourFollow2D")
 }
-modifier = SubResource("Resource_w2d2t")
-show_on_death = [null]
-data_for_interface = SubResource("Resource_pehxf")
+vfx_on_phase_change = SubResource("Resource_j4ten")
+data_for_interface = SubResource("Resource_6t2kh")
 interface_needed = true
 
-[node name="Inspectable" parent="Enemies/Bosses/GiantBamboo/AIController" index="0" unique_id=2087367069 instance=ExtResource("32_g6ybq")]
-dialogues = Array[ExtResource("33_8augw")]([SubResource("Resource_xdrwm")])
-order = 0
-preset = SubResource("Resource_t8cnx")
+[node name="AreaMovementController" type="Node2D" parent="Enemies/Bosses/Slime/GiantSlime/AIController" index="3" unique_id=1677776353 node_paths=PackedStringArray("regions")]
+script = ExtResource("19_hk7ad")
+regions = [NodePath("../../../NavigationRegion2D")]
+min_radius = 250.0
+break_time = 0.001
+speed = 60.0
+metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
 
-[node name="HurtComponent" parent="Enemies/Bosses/GiantBamboo/AIController" index="4" unique_id=949368062 node_paths=PackedStringArray("character") instance=ExtResource("5_olh6k")]
-scale = Vector2(2, 3)
+[node name="HurtComponent" parent="Enemies/Bosses/Slime/GiantSlime/AIController" index="4" unique_id=779810596 node_paths=PackedStringArray("character") instance=ExtResource("5_olh6k")]
 character = NodePath("../..")
-max_health = 10.0
-sounds_damage = Array[AudioStream]([ExtResource("35_k0tm2"), ExtResource("36_5owx6")])
-vfx_damage_marker = SubResource("Resource_vc8n2")
-vfx_heal_marker = SubResource("Resource_8bs0b")
+max_health = 13.0
+vfx_damage_marker = SubResource("Resource_lllex")
+vfx_heal_marker = SubResource("Resource_hnaph")
 
-[node name="ShootController" parent="Enemies/Bosses/GiantBamboo/AIController" index="5" unique_id=1242481191 instance=ExtResource("6_1e2a1")]
+[node name="ShootController" parent="Enemies/Bosses/Slime/GiantSlime/AIController" index="5" unique_id=1347758440 instance=ExtResource("6_1e2a1")]
 team = 0
 projectile_homing = true
 
-[node name="AreaMovementController" type="Node2D" parent="Enemies/Bosses/GiantBamboo/AIController" index="6" unique_id=1256127875 node_paths=PackedStringArray("regions")]
-script = ExtResource("19_hk7ad")
-regions = [NodePath("../../../GiantBambooRegion1"), NodePath("../../../GiantBambooRegion2")]
-min_radius = 200.0
-break_time = 0.001
-speed = 60.0
-enabled = false
-
-[node name="BehaviourFollow2D" type="Node2D" parent="Enemies/Bosses/GiantBamboo/AIController" index="7" unique_id=367059968 node_paths=PackedStringArray("body")]
+[node name="BehaviourFollow2D" type="Node2D" parent="Enemies/Bosses/Slime/GiantSlime/AIController" index="6" unique_id=1686900114 node_paths=PackedStringArray("target", "body")]
 script = ExtResource("23_mtt35")
+target = NodePath("../../../MarkerRight")
 body = NodePath("../..")
 distance_min = 1.0
 distance_max = 2.0
-speed = 60.0
-enabled = false
 metadata/_custom_type_script = "uid://c13p3lcdjrcnk"
 
-[node name="GiantBambooRegion1" type="NavigationRegion2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="6" unique_id=1563625884]
-navigation_polygon = SubResource("NavigationPolygon_uyufl")
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/Bosses/Slime" index="1" unique_id=1814315285]
+navigation_polygon = SubResource("NavigationPolygon_a0px1")
 
-[node name="GiantBambooRegion2" type="NavigationRegion2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="7" unique_id=1634110063]
-navigation_polygon = SubResource("NavigationPolygon_j4ten")
+[node name="MarkerRight" type="Marker2D" parent="Enemies/Bosses/Slime" index="2" unique_id=612170918]
+position = Vector2(-832, 0)
 
-[node name="BambooMarkers" type="Node2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="8" unique_id=1802344061]
+[node name="MarkerCenter" type="Marker2D" parent="Enemies/Bosses/Slime" index="3" unique_id=1917520869]
+position = Vector2(-960, 0)
 
-[node name="Marker2D" type="Marker2D" parent="Enemies/Bosses/BambooMarkers" index="0" unique_id=141535872]
-position = Vector2(1800, 200)
+[node name="Node2D" type="Node2D" parent="Enemies/Bosses/Slime" index="4" unique_id=1610192957]
 
-[node name="Marker2D2" type="Marker2D" parent="Enemies/Bosses/BambooMarkers" index="1" unique_id=1703047517]
-position = Vector2(1848, 104)
+[node name="Marker2D" type="Marker2D" parent="Enemies/Bosses/Slime/Node2D" index="0" unique_id=1266047294]
+position = Vector2(-832, -40)
 
-[node name="Marker2D3" type="Marker2D" parent="Enemies/Bosses/BambooMarkers" index="2" unique_id=1979862400]
-position = Vector2(1912, 224)
+[node name="Demon Heart" type="Node2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="3" unique_id=792393385]
 
-[node name="Marker2D4" type="Marker2D" parent="Enemies/Bosses/BambooMarkers" index="3" unique_id=69747425]
-position = Vector2(2016, 144)
+[node name="DemonCyclop" parent="Enemies/Bosses/Demon Heart" index="0" unique_id=2105176178 node_paths=PackedStringArray("hurt_component", "shoot_controller", "afterlife_delete_on_destruction") instance=ExtResource("45_25f2l")]
+position = Vector2(760, 176)
+hurt_component = NodePath("AIController/HurtComponent")
+shoot_controller = NodePath("AIController/ShootController")
+afterlife_duration = 4.0
+afterlife_delete_on_destruction = [NodePath("AIController/DamageArea")]
 
-[node name="Marker2D5" type="Marker2D" parent="Enemies/Bosses/BambooMarkers" index="4" unique_id=88762368]
-position = Vector2(1928, 104)
+[node name="AIController" parent="Enemies/Bosses/Demon Heart/DemonCyclop" index="5" unique_id=1492963449 node_paths=PackedStringArray("character", "movement_patterns") instance=ExtResource("4_lonoe")]
+script = ExtResource("46_arhyt")
+vfx = SubResource("Resource_ok2y0")
+normal_sound = Array[AudioStream]([ExtResource("48_v6rn7")])
+creepy_sound = Array[AudioStream]([ExtResource("49_ij3ly"), ExtResource("50_y3ty4")])
+character = NodePath("..")
+actions = Array[ExtResource("9_fflhd")]([SubResource("Resource_6w827"), SubResource("Resource_s8j6p"), SubResource("Resource_jntme"), SubResource("Resource_oalg6"), SubResource("Resource_ly4m0")])
+modulates_for_phase = Array[float]([0.65, 0.3])
+movement_patterns = {
+"bomb_and_regen": NodePath("AreaMovementController"),
+"bomb_patry": NodePath("AreaMovementController"),
+"fire_and_regen": NodePath("AreaMovementController"),
+"fire_show": NodePath("AreaMovementController"),
+"rest": NodePath("AreaMovementController")
+}
+modifier = SubResource("Resource_e6hjq")
+data_for_interface = SubResource("Resource_1b6b2")
+interface_needed = true
 
-[node name="BambooMarker" type="Marker2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="9" unique_id=1826629297]
-position = Vector2(1928, 160)
+[node name="HurtComponent" parent="Enemies/Bosses/Demon Heart/DemonCyclop/AIController" index="3" unique_id=1140974567 node_paths=PackedStringArray("character") instance=ExtResource("5_olh6k")]
+scale = Vector2(2, 2)
+character = NodePath("../..")
+max_health = 15.0
+
+[node name="ShootController" parent="Enemies/Bosses/Demon Heart/DemonCyclop/AIController" index="4" unique_id=452824689 instance=ExtResource("6_1e2a1")]
+team = 0
+projectile_homing = true
+
+[node name="AreaMovementController" type="Node2D" parent="Enemies/Bosses/Demon Heart/DemonCyclop/AIController" index="5" unique_id=1714688887 node_paths=PackedStringArray("regions")]
+script = ExtResource("19_hk7ad")
+regions = [NodePath("../../../NavigationRegion2D")]
+min_radius = 150.0
+break_time = 0.001
+speed = 60.0
+metadata/_custom_type_script = "uid://bxw8gilnmrxnq"
+
+[node name="DamageArea" parent="Enemies/Bosses/Demon Heart/DemonCyclop/AIController" index="6" unique_id=512154048 instance=ExtResource("11_7447m")]
+scale = Vector2(2.1, 2.1)
+team = 0
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/Bosses/Demon Heart" index="1" unique_id=1804300333]
+navigation_polygon = SubResource("NavigationPolygon_0b57j")
 
 [node name="BambooEnemyRegion1" type="NavigationRegion2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="1" unique_id=1883405314]
 navigation_polygon = SubResource("NavigationPolygon_5yt0q")

@@ -12,15 +12,15 @@
 [ext_resource type="AudioStream" uid="uid://304vihh7pa2r" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot_5.wav" id="7_y4ppl"]
 [ext_resource type="AudioStream" uid="uid://r5rnp00ejt8l" path="res://prefabs/combat/bullets/variations/comons/bomb_shot/bomb_shot_6.wav" id="8_ybaf6"]
 
-[sub_resource type="Resource" id="Resource_p0u3c"]
+[sub_resource type="Resource" id="Resource_4rbsc"]
 script = ExtResource("4_jj2yg")
-density = 3
+density = 4
 metadata/_custom_type_script = "uid://b7nceugqtlef1"
 
-[sub_resource type="Resource" id="Resource_hffr3"]
+[sub_resource type="Resource" id="Resource_y4ppl"]
 script = ExtResource("3_6w800")
 effect = 310
-settings = SubResource("Resource_p0u3c")
+settings = SubResource("Resource_4rbsc")
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6w800"]
@@ -49,7 +49,7 @@ can_be_broken = true
 can_break = true
 sounds_spawn = Array[AudioStream]([ExtResource("3_hffr3"), ExtResource("4_jeh0w"), ExtResource("5_hfy0u")])
 sounds_destroy = Array[AudioStream]([ExtResource("6_4rbsc"), ExtResource("7_y4ppl"), ExtResource("8_ybaf6")])
-vfx_hit = SubResource("Resource_hffr3")
+vfx_destroy = SubResource("Resource_y4ppl")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 scale = Vector2(0.7, 0.7)

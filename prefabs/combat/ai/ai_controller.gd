@@ -217,14 +217,16 @@ func deactivate_interaction(_area: Area2D = null):
 
 func deactivate_points(points: Array[Node2D]):
 	for point in points:
-		point.visible = false
-		point.process_mode = Node.PROCESS_MODE_DISABLED
+		if point:
+			point.visible = false
+			point.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func activate_points(points: Array[Node2D]):
 	for point in points:
-		point.visible = true
-		point.process_mode = Node.PROCESS_MODE_INHERIT
+		if point:
+			point.visible = true
+			point.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func attach_hurt_component(component: HurtComponent):

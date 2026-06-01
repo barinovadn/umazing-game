@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/combat/bullets/bullet.tscn" id="1_bggpn"]
 [ext_resource type="AudioStream" uid="uid://c2rmco6qav23v" path="res://prefabs/combat/sounds/whoosh_1.wav" id="2_f83vb"]
 [ext_resource type="AudioStream" uid="uid://ce7fe15edu60n" path="res://prefabs/combat/sounds/whoosh_4.wav" id="3_nghph"]
-[ext_resource type="AudioStream" uid="uid://c5ao7p1ys2tvu" path="res://prefabs/combat/sounds/impact_1.wav" id="4_5nsu1"]
+[ext_resource type="AudioStream" uid="uid://jou36qjfqy76" path="res://prefabs/combat/sounds/whoosh_3.wav" id="4_f83vb"]
 [ext_resource type="Texture2D" uid="uid://cy2jfb3mv5ox0" path="res://prefabs/combat/bullets/variations/comons/kunai/kunai.png" id="5_7m76m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_og5dj"]
@@ -30,7 +30,7 @@ crit_chance = 0.3
 can_be_broken = true
 can_break = true
 sounds_spawn = Array[AudioStream]([ExtResource("2_f83vb"), ExtResource("3_nghph")])
-sounds_hit = Array[AudioStream]([ExtResource("4_5nsu1")])
+sounds_destroy = Array[AudioStream]([ExtResource("4_f83vb")])
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=716902926]
 scale = Vector2(0.8, 0.4)
