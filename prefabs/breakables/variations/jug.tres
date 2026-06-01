@@ -6,8 +6,6 @@
 [ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi1.tres" id="2_88vba"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="2_sa5o1"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="3_0avmg"]
-[ext_resource type="Resource" uid="uid://bbou27cu6ht" path="res://prefabs/inventory/items/sushi2.tres" id="3_b3755"]
-[ext_resource type="Resource" uid="uid://b7ifocc5sni0u" path="res://prefabs/inventory/items/fortune_cookie.tres" id="4_w7lqh"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="4_yobjg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jpsgh"]
@@ -50,8 +48,8 @@ texture = SubResource("AtlasTexture_dhc5m")
 shape = SubResource("CircleShape2D_jpsgh")
 hp = 0.25
 loot_drop_chance = 0.05
-loot_table = Array[ExtResource("1_0avmg")]([ExtResource("2_88vba"), ExtResource("3_b3755"), ExtResource("4_w7lqh")])
-loot_weights = Array[float]([0.5, 0.5, 1.0])
+loot_table = Array[ExtResource("1_0avmg")]([ExtResource("2_88vba")])
+loot_weights = Array[float]([1.0])
 sounds_break = Array[AudioStream]([ExtResource("2_0avmg")])
 vfx_spawn = SubResource("Resource_ksnff")
 vfx_hit = SubResource("Resource_bhnie")

@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://bg3ymm737y8vs"]
+
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_d2udw"]
+[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi1.tres" id="2_26qiu"]
+[ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="3_yyhq3"]
+[ext_resource type="AudioStream" uid="uid://c5ao7p1ys2tvu" path="res://prefabs/combat/sounds/impact_1.wav" id="4_ons8b"]
+[ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="5_d2udw"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="6_ucmlf"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="7_wk3aw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jpsgh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26qiu"]
+atlas = ExtResource("5_d2udw")
+region = Rect2(288, 304, 16, 32)
+margin = Rect2(0, -8, 0, 0)
+
+[sub_resource type="Resource" id="Resource_hgtxf"]
+script = ExtResource("7_wk3aw")
+density = 3
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_5gp4r"]
+script = ExtResource("6_ucmlf")
+effect = 20
+settings = SubResource("Resource_hgtxf")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_xjiar"]
+script = ExtResource("7_wk3aw")
+density = 1
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
+[sub_resource type="Resource" id="Resource_bhnie"]
+script = ExtResource("6_ucmlf")
+effect = 20
+settings = SubResource("Resource_xjiar")
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_ksnff"]
+script = ExtResource("6_ucmlf")
+effect = 100
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[resource]
+script = ExtResource("3_yyhq3")
+texture = SubResource("AtlasTexture_26qiu")
+shape = SubResource("CircleShape2D_jpsgh")
+hp = 0.25
+loot_drop_chance = 0.05
+loot_table = Array[ExtResource("1_d2udw")]([ExtResource("2_26qiu")])
+loot_weights = Array[float]([1.0])
+sounds_break = Array[AudioStream]([ExtResource("4_ons8b")])
+vfx_spawn = SubResource("Resource_ksnff")
+vfx_hit = SubResource("Resource_bhnie")
+vfx_break = SubResource("Resource_5gp4r")
+metadata/_custom_type_script = "uid://c5vdwmd0iexxp"
