@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dtkm6wu657qpn"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_tp5yb"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_1elg6"]
+[ext_resource type="Texture2D" path="res://prefabs/inventory/items/dango.png" id="2_u1wnq"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_u1wnq"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_nu1n2"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="5_7tswb"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_etycm"]
+
+[sub_resource type="Resource" id="Resource_nu1n2"]
+script = ExtResource("1_tp5yb")
+icon = ExtResource("2_u1wnq")
+name = "Данго"
+message = "Сладкие рисовые шарики на шпажке. Любимое лакомство многих путешественников.
++ 2 к здоровью
++ 1 к максимальному здоровью"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[resource]
+script = ExtResource("6_etycm")
+rarity = 1
+name = "Данго"
+icon = ExtResource("2_u1wnq")
+description = Array[ExtResource("1_tp5yb")]([SubResource("Resource_nu1n2")])
+is_consumable = true
+is_active = true
+on_use_heal = 2.0
+on_use_max_hp_increase = 1.0
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"
