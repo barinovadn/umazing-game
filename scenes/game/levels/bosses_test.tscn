@@ -682,7 +682,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-67, 25, -59, 54, -3, 6
 parsed_collision_mask = 1
 source_geometry_mode = 2
 
-[node name="Game" unique_id=1082399769 instance=ExtResource("1_o2p3v")]
+[node name="Game2" unique_id=1082399769 instance=ExtResource("1_o2p3v")]
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")

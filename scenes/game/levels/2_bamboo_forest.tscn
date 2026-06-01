@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://btijf5b1ejuaj" path="res://prefabs/environment/environment_zone_collider.tscn" id="8_yuenk"]
 [ext_resource type="AudioStream" uid="uid://0y5mvxwdmr1y" path="res://prefabs/music/tracks/lost_village.ogg" id="9_yuenk"]
 [ext_resource type="AudioStream" uid="uid://bhixoluecmw23" path="res://prefabs/music/tracks/dark_forest.ogg" id="11_3he8w"]
+[ext_resource type="PackedScene" uid="uid://cdtekl4l4f04o" path="res://prefabs/interactions/marker/marker.tscn" id="14_hnbht"]
 [ext_resource type="PackedScene" uid="uid://b86ksiklisu71" path="res://prefabs/vfx/effects/portal.tscn" id="14_it4qq"]
 [ext_resource type="PackedScene" uid="uid://cathu8h71gfg7" path="res://prefabs/characters/bosses/giant_bamboo/giant_bamboo.tscn" id="14_l8574"]
 [ext_resource type="PackedScene" uid="uid://cgvgap0xmvt73" path="res://prefabs/characters/enemies/bamboo_enemy/bamboo_enemy.tscn" id="14_rmiwa"]
@@ -28,12 +29,15 @@
 [ext_resource type="AudioStream" uid="uid://bjyn7nkgn4vji" path="res://prefabs/combat/sounds/hit_1.wav" id="18_go0de"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="19_3he8w"]
 [ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="19_rdh6r"]
+[ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="21_hnbht"]
 [ext_resource type="PackedScene" uid="uid://3mmildwaq6jn" path="res://prefabs/combat/bullets/variations/comons/plan_spike_great_shot/plan_spike_great_shot.tscn" id="21_it4qq"]
 [ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/combat/ui/bosses/boss_container_data.gd" id="22_hnbht"]
-[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="22_ju3hf"]
+[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="22_ju3hf"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="23_go0de"]
 [ext_resource type="Texture2D" uid="uid://dr2n47tbysw6p" path="res://prefabs/characters/bosses/giant_bamboo/great_bamboo_over.png" id="23_hbg7d"]
+[ext_resource type="Texture2D" uid="uid://dy45hmekks582" path="res://prefabs/tilesets/general_village_camp.png" id="23_sjgfl"]
 [ext_resource type="Texture2D" uid="uid://c4nnlcpg33wi6" path="res://prefabs/characters/bosses/giant_bamboo/boss_progress.png" id="24_sjgfl"]
+[ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="24_xrlbf"]
 [ext_resource type="PackedScene" uid="uid://bc2kdebobsqlu" path="res://prefabs/interactions/interactables/inspectable/inspectable.tscn" id="25_xrlbf"]
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="26_u63pd"]
 [ext_resource type="Texture2D" uid="uid://022sg5y1hce1" path="res://prefabs/characters/bosses/giant_bamboo/portrait.png" id="27_ycxmn"]
@@ -44,6 +48,10 @@
 [ext_resource type="Texture2D" uid="uid://brohl0w08y2a6" path="res://prefabs/characters/ninja_green/portrait.png" id="40_66tca"]
 [ext_resource type="Texture2D" uid="uid://co0t4ugk7xjxj" path="res://prefabs/characters/enemies/bamboo_enemy/portrait.png" id="41_3xkl5"]
 [ext_resource type="Resource" uid="uid://och2ysqe7158" path="res://prefabs/inventory/items/bullet_changers/shuriken.tres" id="44_it4qq"]
+
+[sub_resource type="Resource" id="Resource_b27iq"]
+script = ExtResource("16_66tca")
+metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 
 [sub_resource type="Resource" id="Resource_jg5pp"]
 script = ExtResource("4_ngy32")
@@ -84,6 +92,358 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("16_66tca")
 base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_3kn5y"]
+script = ExtResource("26_u63pd")
+message = "Как всё основательно заросло..."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_0bln5"]
+script = ExtResource("26_u63pd")
+icon = ExtResource("40_66tca")
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_286v2"]
+script = ExtResource("26_u63pd")
+message = "Они не появились из пустоты."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_kyf8x"]
+script = ExtResource("26_u63pd")
+message = "Кто-то открыл для них врата."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_f0yi6"]
+script = ExtResource("26_u63pd")
+message = "И однажды он вернётся за тем, что начал."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icmdr"]
+atlas = ExtResource("21_hnbht")
+region = Rect2(144, 176, 16, 16)
+
+[sub_resource type="Resource" id="Resource_v5ujh"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_icmdr")
+name = "Старая Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_vybwx"]
+script = ExtResource("26_u63pd")
+message = "Целебные горячие источники. Лечат от болей в спине и суставах. "
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_yvtkx"]
+script = ExtResource("26_u63pd")
+icon = ExtResource("40_66tca")
+message = "Источники приносили раньше много дохода... Теперь же тут так пустнынно.."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fivxu"]
+atlas = ExtResource("23_sjgfl")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="Resource" id="Resource_8ox4s"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_fivxu")
+name = "Очень Старая табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_efepq"]
+script = ExtResource("26_u63pd")
+message = "Выше начинается священное плато Жабо, обновлённое на средства господина Гуаниня."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5fgb"]
+atlas = ExtResource("21_hnbht")
+region = Rect2(144, 176, 16, 16)
+
+[sub_resource type="Resource" id="Resource_fivxu"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_x5fgb")
+name = "Замшелая табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_icmdr"]
+script = ExtResource("26_u63pd")
+message = "Старый рюкзак, аккуратно собранный и оставленный кем-то в спешке."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_y3igv"]
+script = ExtResource("26_u63pd")
+message = "Это всего лишь рюкзак, к чему такой интерес..."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbpm7"]
+atlas = ExtResource("23_sjgfl")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="Resource" id="Resource_lxtvn"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_wbpm7")
+name = "Рюкзак"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_v3nn8"]
+script = ExtResource("26_u63pd")
+message = "Огромный тюк, плотно набитый вещами."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_vwwi6"]
+script = ExtResource("26_u63pd")
+icon = ExtResource("40_66tca")
+message = "Удивительно, как за столько времени он не прорвался?"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbg7d"]
+atlas = ExtResource("23_sjgfl")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="Resource" id="Resource_gsg62"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_hbg7d")
+name = "Рюкзак"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_x5fgb"]
+script = ExtResource("26_u63pd")
+message = "Статуя жабы, древнего бога этих мест. Хорошо, что его давно не видели..."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_wbpm7"]
+script = ExtResource("26_u63pd")
+message = "Поговаривают, что плато было названо так, в честь древнего жабьего бога."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v3nn8"]
+load_path = "res://.godot/imported/general_village_abandoned.png-100878073409ae93f404367d22ff2ccc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwwi6"]
+atlas = SubResource("CompressedTexture2D_v3nn8")
+region = Rect2(144, 84, 32, 28)
+
+[sub_resource type="Resource" id="Resource_0xig8"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_vwwi6")
+name = "Статуя Жабы"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_fpjid"]
+script = ExtResource("26_u63pd")
+message = "В кувшине плавает странная жижа."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_2678r"]
+script = ExtResource("26_u63pd")
+message = "Чем больше вы смотрите на жижу, тем больше жижа смотрит на вас"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0ob6q"]
+load_path = "res://.godot/imported/general_village_camp.png-3f3dc7a393eda8d1834c99daa16f85e3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g08o8"]
+atlas = SubResource("CompressedTexture2D_0ob6q")
+region = Rect2(112, 64, 16, 16)
+
+[sub_resource type="Resource" id="Resource_gv0jc"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_g08o8")
+name = "Странный Кувшин"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_ea2dq"]
+script = ExtResource("26_u63pd")
+message = "На самом дне осталась пара капель масла. Фонарю немного осталось."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_bewwb"]
+script = ExtResource("26_u63pd")
+name = "Почти Сгоревший Фонарь"
+message = "Фонарь, скоро выгорит, прямо как мы..."
+font_color = Color(0.733002, 2.7554854e-06, 6.738305e-07, 1)
+angle = 1.0
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hv1l"]
+atlas = ExtResource("23_sjgfl")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="Resource" id="Resource_kui0x"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_5hv1l")
+name = "Тлеющий Фонарь"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_ip6jm"]
+script = ExtResource("26_u63pd")
+message = "Если бы не сакура, выросшая на краю склона, статую было бы видно за несколько километров."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_kqcie"]
+script = ExtResource("26_u63pd")
+message = "Благостное выражение лица вселяет в вас надежду. О, радость!"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj4k7"]
+atlas = ExtResource("24_xrlbf")
+region = Rect2(80, 304, 32, 32)
+
+[sub_resource type="Resource" id="Resource_rgv4y"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_nj4k7")
+name = "Безымянная Статуя"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_e7q1l"]
+script = ExtResource("26_u63pd")
+message = "Угасший костёр вселяет только тоску. Ни поесть, ни согреться..."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_4cpfl"]
+script = ExtResource("26_u63pd")
+message = "Похоже, что утолить свой голод выйдет лишь содержимым сундука. Костёр везвозвратно угас."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3f7i"]
+atlas = ExtResource("23_sjgfl")
+region = Rect2(192, 48, 32, 32)
+
+[sub_resource type="Resource" id="Resource_w7jk1"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_w3f7i")
+name = "Затухший Костёр"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_5hv1l"]
+script = ExtResource("26_u63pd")
+message = "Небогато, но сойдёт."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_nj4k7"]
+script = ExtResource("26_u63pd")
+message = "К чему пропадать добру?"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgv4y"]
+load_path = "res://.godot/imported/general_village_camp.png-3f3dc7a393eda8d1834c99daa16f85e3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7q1l"]
+atlas = SubResource("CompressedTexture2D_rgv4y")
+region = Rect2(80, 128, 16, 16)
+
+[sub_resource type="Resource" id="Resource_w3f7i"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_e7q1l")
+name = "Простой Сундук"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_c6bu6"]
+script = ExtResource("26_u63pd")
+message = "Обычкновенный деревяный сундук с добром."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_unm2f"]
+script = ExtResource("26_u63pd")
+message = "Поговаривают, что еда в сундуках хранится в два раза дольше. Или в холодильниках?"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq3u2"]
+atlas = SubResource("CompressedTexture2D_rgv4y")
+region = Rect2(80, 128, 16, 16)
+
+[sub_resource type="Resource" id="Resource_gkav7"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_cq3u2")
+name = "Простой Сундук"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_cq3u2"]
+script = ExtResource("26_u63pd")
+message = "Не так хорош, как его сосед, но всё же неплох."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_8m1kk"]
+script = ExtResource("26_u63pd")
+message = "Простой и надеждый переносной инвентарь."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b27iq"]
+atlas = SubResource("CompressedTexture2D_rgv4y")
+region = Rect2(80, 128, 16, 16)
+
+[sub_resource type="Resource" id="Resource_k05lw"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_b27iq")
+name = "Простой Сундук"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_2x2fw"]
+script = ExtResource("26_u63pd")
+message = "Может быть он особенный, раз его оставили у этой статуи?"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_0r10n"]
+script = ExtResource("26_u63pd")
+message = "Кажется, он наполнен чем-то редким. Или только кажется..."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtrjo"]
+atlas = SubResource("CompressedTexture2D_rgv4y")
+region = Rect2(80, 128, 16, 16)
+
+[sub_resource type="Resource" id="Resource_e5yo4"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_dtrjo")
+name = "Сундук у Жабы"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_qac65"]
+script = ExtResource("26_u63pd")
+message = "Вырезанный из могучего дерева, этот стол догнивает в заброшенной палатке."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6bu6"]
+atlas = ExtResource("23_sjgfl")
+region = Rect2(16, 80, 32, 32)
+
+[sub_resource type="Resource" id="Resource_4chv0"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_c6bu6")
+name = "Щербатый стол"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_2p5ex"]
+script = ExtResource("26_u63pd")
+message = "Этот сундук не похож на все остальные. От него исходит манящий свет."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ravsu"]
+load_path = "res://.godot/imported/portrait.png-01711fbe56b5df33902ab1155d60b09a.ctex"
+
+[sub_resource type="Resource" id="Resource_tgy14"]
+script = ExtResource("26_u63pd")
+icon = SubResource("CompressedTexture2D_ravsu")
+name = "Редкий Сундук"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_4nvw1"]
+script = ExtResource("26_u63pd")
+message = "Этот лес всегда был спокойным... Но сейчас я чувствую ту же энергию, что и в день нападения."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_ffv6m"]
+script = ExtResource("26_u63pd")
+message = "Мне кажется я вижу ещё один оживший бамбук, но с ним что-то не так."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2p5ex"]
+load_path = "res://.godot/imported/portrait.png-01711fbe56b5df33902ab1155d60b09a.ctex"
+
+[sub_resource type="Resource" id="Resource_ravsu"]
+script = ExtResource("26_u63pd")
+icon = SubResource("CompressedTexture2D_2p5ex")
+name = "Зелёный Ниндзя"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_gfys1"]
 script = ExtResource("15_utgft")
@@ -254,6 +614,20 @@ shoot_interval = 0.9
 shooting_animation_interval = 0.6
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
+[sub_resource type="Resource" id="Resource_0ob6q"]
+script = ExtResource("26_u63pd")
+icon = ExtResource("41_3xkl5")
+name = "Маленький бамбук"
+message = "Готовься парень! Я тебя отбумбучу!"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_g08o8"]
+script = ExtResource("26_u63pd")
+icon = ExtResource("40_66tca")
+name = "Маленький бамбук"
+message = "..."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
 [sub_resource type="Curve2D" id="Curve2D_rbj4l"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 696, -152, 0, 0, 0, 0, 672, -144, 0, 0, 0, 0, 656, -128, 0, 0, 0, 0, 640, -112, 0, 0, 0, 0, 600, -104, 0, 0, 0, 0, 568, -120, 0, 0, 0, 0, 536, -128, 0, 0, 0, 0, 576, -136, 0, 0, 0, 0, 616, -136, 0, 0, 0, 0, 656, -112)
@@ -284,9 +658,9 @@ shooting_animation_interval = 0.6
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ns3h2"]
-vertices = PackedVector2Array(692.84375, -326.5078, 728.40625, -314.64844, 719.3281, -301.03125, 585.7969, -297.84375, 546, -304.46094, 546, -307, 571.8828, -326.40625, 632.60156, -334, 626.8594, -289.6328, 670.3672, -334, 705.8203, -274, 665.90625, -274)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6, 7), PackedInt32Array(8, 3, 7, 9), PackedInt32Array(10, 11, 8, 9, 0, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(536, -296, 584, -288, 624, -280, 664, -264, 712, -264, 728, -296, 744, -320, 696, -336, 672, -344, 632, -344, 568, -336, 536, -312)])
+vertices = PackedVector2Array(632.71094, -309.5078, 675.3125, -326.5625, 697.6328, -334, 715.8594, -334, 731.1328, -318.71875, 721.1406, -303.7422, 692.75, -289.54688, 654.9922, -282, 610.35156, -282, 574.1797, -318, 598.77344, -318, 582.85156, -295.7422, 571.53125, -312.71875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8), PackedInt32Array(9, 10, 0, 8, 11, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(656, -272, 696, -280, 728, -296, 744, -320, 720, -344, 696, -344, 672, -336, 632, -320, 600, -328, 568, -328, 560, -312, 576, -288, 608, -272)])
 parsed_collision_mask = 1
 source_geometry_mode = 2
 
@@ -359,11 +733,11 @@ icon = ExtResource("41_3xkl5")
 name = "Странный Бамбук"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
-[node name="Game2" unique_id=1082399769 instance=ExtResource("1_4p8ab")]
+[node name="Game" unique_id=1082399769 instance=ExtResource("1_4p8ab")]
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
-allow_cheats = true
+stat_cant_use_inventory = SubResource("Resource_b27iq")
 
 [node name="FirefliesEffect1" parent="VFXManager" parent_id_path=PackedInt32Array(880750068) index="0" unique_id=1228765060 instance=ExtResource("2_51e8k")]
 position = Vector2(624, -480)
@@ -530,6 +904,12 @@ exit_level_index = -1
 exit_offset = Vector2(0, -32)
 color = Color(0.69411767, 0.39215687, 0.7254902, 0.78431374)
 
+[node name="InteractionMarker" parent="Teleports/TentIn" index="1" unique_id=1940503036 node_paths=PackedStringArray("teleport") instance=ExtResource("14_hnbht")]
+modulate = Color(1, 0.5, 0.25, 1)
+position = Vector2(16.000011, 2.3841858e-06)
+teleport = NodePath("..")
+color = 2
+
 [node name="TentOut" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="2" unique_id=743916391 node_paths=PackedStringArray("exit") instance=ExtResource("8_ixpo3")]
 position = Vector2(1280, -248)
 scale = Vector2(2, 2)
@@ -561,6 +941,184 @@ stat_cant_shoot = SubResource("Resource_brh3e")
 stat_cant_interract = SubResource("Resource_e3eo8")
 stat_shooting_speed = SubResource("Resource_mm6rv")
 stat_damage_ratio = SubResource("Resource_7eufi")
+
+[node name="GrassZone" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=2087367069 instance=ExtResource("25_xrlbf")]
+position = Vector2(304, 0)
+scale = Vector2(4, 4)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_3kn5y")])
+preset = SubResource("Resource_0bln5")
+interaction_limit = 1
+
+[node name="SecretTable" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=2132476890 instance=ExtResource("25_xrlbf")]
+position = Vector2(328, -184)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_286v2"), SubResource("Resource_kyf8x"), SubResource("Resource_f0yi6")])
+mode = 1
+preset = SubResource("Resource_v5ujh")
+delete_on_disable = false
+
+[node name="OldTable" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="2" unique_id=1023223637 instance=ExtResource("25_xrlbf")]
+position = Vector2(632, 8)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_vybwx"), SubResource("Resource_yvtkx")])
+mode = 1
+preset = SubResource("Resource_8ox4s")
+delete_on_disable = false
+
+[node name="OldTable2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="3" unique_id=1805861019 instance=ExtResource("25_xrlbf")]
+position = Vector2(648, -152)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_efepq")])
+preset = SubResource("Resource_fivxu")
+delete_on_disable = false
+
+[node name="BackPack" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="4" unique_id=1841219498 instance=ExtResource("25_xrlbf")]
+position = Vector2(744, -280)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_icmdr"), SubResource("Resource_y3igv")])
+mode = 1
+preset = SubResource("Resource_lxtvn")
+delete_on_disable = false
+
+[node name="PackOfStuff" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="5" unique_id=366465885 instance=ExtResource("25_xrlbf")]
+position = Vector2(768, -336)
+scale = Vector2(2, 2)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_v3nn8"), SubResource("Resource_vwwi6")])
+mode = 1
+preset = SubResource("Resource_gsg62")
+delete_on_disable = false
+
+[node name="FrogStatue" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="6" unique_id=87012170 instance=ExtResource("25_xrlbf")]
+position = Vector2(648, -496)
+scale = Vector2(2, 2)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_x5fgb"), SubResource("Resource_wbpm7")])
+preset = SubResource("Resource_0xig8")
+delete_on_disable = false
+
+[node name="Jug" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="7" unique_id=1795670237 instance=ExtResource("25_xrlbf")]
+position = Vector2(584, -344)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_fpjid"), SubResource("Resource_2678r")])
+preset = SubResource("Resource_gv0jc")
+delete_on_disable = false
+
+[node name="Lamp" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="8" unique_id=2140197117 instance=ExtResource("25_xrlbf")]
+position = Vector2(568, -280)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_ea2dq"), SubResource("Resource_bewwb")])
+preset = SubResource("Resource_kui0x")
+delete_on_disable = false
+
+[node name="UnnamedStatue" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="9" unique_id=1819102246 instance=ExtResource("25_xrlbf")]
+position = Vector2(608, -272)
+scale = Vector2(2, 2)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_ip6jm"), SubResource("Resource_kqcie")])
+order = 0
+preset = SubResource("Resource_rgv4y")
+delete_on_disable = false
+
+[node name="Fire" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="10" unique_id=940382834 instance=ExtResource("25_xrlbf")]
+position = Vector2(1296, -336)
+scale = Vector2(1.8, 1.8)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_e7q1l"), SubResource("Resource_4cpfl")])
+order = 0
+preset = SubResource("Resource_w7jk1")
+delete_on_disable = false
+
+[node name="InteractionMarker" parent="Interactables/Fire" index="1" unique_id=1354800045 node_paths=PackedStringArray("interactable") instance=ExtResource("14_hnbht")]
+modulate = Color(1, 0.5, 0.25, 1)
+scale = Vector2(0.5, 0.5)
+interactable = NodePath("..")
+color = 2
+
+[node name="Chest" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="11" unique_id=1648786108 instance=ExtResource("25_xrlbf")]
+position = Vector2(1320.0001, -280)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_5hv1l"), SubResource("Resource_nj4k7")])
+order = 0
+preset = SubResource("Resource_w3f7i")
+interaction_limit = 1
+
+[node name="InteractionMarker" parent="Interactables/Chest" index="1" unique_id=612832128 node_paths=PackedStringArray("interactable") instance=ExtResource("14_hnbht")]
+modulate = Color(1, 0.25, 0.25, 1)
+position = Vector2(0, -8.085)
+scale = Vector2(0.7, 0.7)
+interactable = NodePath("..")
+color = 3
+
+[node name="Chest2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="12" unique_id=121403201 instance=ExtResource("25_xrlbf")]
+position = Vector2(344, -200)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_c6bu6"), SubResource("Resource_unm2f")])
+order = 0
+preset = SubResource("Resource_gkav7")
+interaction_limit = 1
+
+[node name="InteractionMarker" parent="Interactables/Chest2" index="1" unique_id=1534660634 node_paths=PackedStringArray("interactable") instance=ExtResource("14_hnbht")]
+modulate = Color(1, 0.25, 0.25, 1)
+position = Vector2(0, -8.085)
+scale = Vector2(0.7, 0.7)
+interactable = NodePath("..")
+color = 3
+
+[node name="Chest3" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="13" unique_id=662041845 instance=ExtResource("25_xrlbf")]
+position = Vector2(-312, -360)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_cq3u2"), SubResource("Resource_8m1kk")])
+order = 0
+preset = SubResource("Resource_k05lw")
+interaction_limit = 1
+
+[node name="InteractionMarker" parent="Interactables/Chest3" index="1" unique_id=796059468 node_paths=PackedStringArray("interactable") instance=ExtResource("14_hnbht")]
+modulate = Color(1, 0.25, 0.25, 1)
+position = Vector2(0, -8.085)
+scale = Vector2(0.7, 0.7)
+interactable = NodePath("..")
+color = 3
+
+[node name="Chest4" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="14" unique_id=386679312 instance=ExtResource("25_xrlbf")]
+position = Vector2(648, -472)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_2x2fw"), SubResource("Resource_0r10n")])
+order = 0
+preset = SubResource("Resource_e5yo4")
+interaction_limit = 1
+
+[node name="InteractionMarker" parent="Interactables/Chest4" index="1" unique_id=813824384 node_paths=PackedStringArray("interactable") instance=ExtResource("14_hnbht")]
+modulate = Color(1, 0.25, 0.25, 1)
+position = Vector2(0, -8.085)
+scale = Vector2(0.7, 0.7)
+interactable = NodePath("..")
+color = 3
+
+[node name="Table" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="15" unique_id=1226020687 instance=ExtResource("25_xrlbf")]
+position = Vector2(1232.0001, -336)
+scale = Vector2(1.8, 1.8)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_qac65")])
+order = 0
+preset = SubResource("Resource_4chv0")
+delete_on_disable = false
+
+[node name="InteractionMarker" parent="Interactables/Table" index="1" unique_id=1908301775 node_paths=PackedStringArray("interactable") instance=ExtResource("14_hnbht")]
+scale = Vector2(0.5, 0.5)
+interactable = NodePath("..")
+
+[node name="GlogyChest" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="16" unique_id=815900285 instance=ExtResource("25_xrlbf")]
+position = Vector2(-248, -328)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_2p5ex")])
+preset = SubResource("Resource_tgy14")
+interaction_limit = 1
+
+[node name="InteractionMarker" parent="Interactables/GlogyChest" index="1" unique_id=2137895870 node_paths=PackedStringArray("interactable") instance=ExtResource("14_hnbht")]
+modulate = Color(0, 1, 0.5, 1)
+position = Vector2(0, 4.805)
+scale = Vector2(0.7, 0.7)
+interactable = NodePath("..")
+color = 4
+
+[node name="Bridge" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="17" unique_id=1055456693 instance=ExtResource("25_xrlbf")]
+position = Vector2(280, -328)
+scale = Vector2(3, 3)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_4nvw1"), SubResource("Resource_ffv6m")])
+mode = 1
+preset = SubResource("Resource_ravsu")
+interaction_limit = 1
+
+[node name="InteractionMarker" parent="Interactables/Bridge" index="1" unique_id=48685915 node_paths=PackedStringArray("interactable") instance=ExtResource("14_hnbht")]
+modulate = Color(1, 0.25, 0.25, 1)
+scale = Vector2(0.5, 0.5)
+interactable = NodePath("..")
+color = 3
 
 [node name="Bamboo" type="Node2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1460811099]
 position = Vector2(-328, -160)
@@ -602,7 +1160,7 @@ tp_on_death = NodePath("../../../../../Teleports/TeleportPinkOut")
 data_for_interface = SubResource("Resource_wofjc")
 interface_needed = true
 
-[node name="Inspectable" parent="Enemies/Bosses/Bamboo/GiantBamboo/AIController" index="0" unique_id=2087367069 instance=ExtResource("25_xrlbf")]
+[node name="Inspectable" parent="Enemies/Bosses/Bamboo/GiantBamboo/AIController" index="0" unique_id=324017909 instance=ExtResource("25_xrlbf")]
 dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_xdrwm")])
 order = 0
 preset = SubResource("Resource_y6e25")
@@ -778,9 +1336,10 @@ hurt_component = NodePath("AIController/HurtComponent")
 shoot_controller = NodePath("AIController/ShootController")
 afterlife_duration = 3.0
 
-[node name="AIController" parent="Enemies/Bamboo1/BambooEnemy" index="5" unique_id=1270067643 node_paths=PackedStringArray("character", "movement_patterns") instance=ExtResource("15_cv82w")]
+[node name="AIController" parent="Enemies/Bamboo1/BambooEnemy" index="5" unique_id=1270067643 node_paths=PackedStringArray("character", "inspectable", "movement_patterns") instance=ExtResource("15_cv82w")]
 character = NodePath("..")
 deactivate_on_room_change = false
+inspectable = NodePath("Inspectable")
 actions = Array[ExtResource("16_ju3hf")]([SubResource("Resource_rdh6r"), SubResource("Resource_rbj4l")])
 movement_patterns = {
 "default": NodePath("PathDotMovementController2D"),
@@ -806,10 +1365,15 @@ order = 0
 speed = 45.0
 metadata/_custom_type_script = "uid://d34c6a0yetv43"
 
+[node name="Inspectable" parent="Enemies/Bamboo1/BambooEnemy/AIController" index="6" unique_id=1071382828 instance=ExtResource("25_xrlbf")]
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_0ob6q"), SubResource("Resource_g08o8")])
+mode = 1
+
 [node name="Path2D" type="Path2D" parent="Enemies/Bamboo1" index="1" unique_id=938572190]
 curve = SubResource("Curve2D_rbj4l")
 
 [node name="Bamboo2" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="2" unique_id=743568464]
+position = Vector2(-256, -16)
 
 [node name="BambooEnemy" parent="Enemies/Bamboo2" index="0" unique_id=1843089856 node_paths=PackedStringArray("hurt_component", "shoot_controller") instance=ExtResource("14_rmiwa")]
 position = Vector2(536, -320)
