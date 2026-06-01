@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://8333ajostedx"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c24p0php045q5"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_82wud"]
-[ext_resource type="Texture2D" uid="uid://b7fhgvx67ur1l" path="res://prefabs/inventory/items/water_pot.png" id="2_hyp0k"]
+[ext_resource type="Texture2D" path="res://prefabs/inventory/items/water_pot.png" id="2_hyp0k"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_px3km"]
 [ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_301lw"]
 [ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_hyp0k"]

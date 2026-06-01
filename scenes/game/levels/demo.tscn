@@ -62,8 +62,8 @@
 [ext_resource type="Resource" uid="uid://dnhc78ehcao44" path="res://prefabs/characters/bosses/cyclopus_cat/ui.tres" id="46_5alrq"]
 [ext_resource type="PackedScene" uid="uid://b7jopm86b0plu" path="res://prefabs/combat/bullets/variations/comons/stone_rickoshet_shot/stone_rickoshet_shot.tscn" id="47_xaepa"]
 [ext_resource type="PackedScene" uid="uid://ds7r5gr45oetv" path="res://prefabs/inventory/pickups/pickup.tscn" id="50_3cfp0"]
-[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi1.tres" id="51_8ifb1"]
-[ext_resource type="Resource" uid="uid://b7ifocc5sni0u" path="res://prefabs/inventory/items/fortune_cookie.tres" id="52_yr011"]
+[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/food/sushi1.tres" id="51_8ifb1"]
+[ext_resource type="Resource" uid="uid://b7ifocc5sni0u" path="res://prefabs/inventory/items/food/fortune_cookie.tres" id="52_yr011"]
 [ext_resource type="Resource" uid="uid://r2g8ur6mpjpn" path="res://prefabs/characters/bosses/giant_frog/ui.tres" id="60_5alrq"]
 [ext_resource type="Texture2D" uid="uid://clewy44lb1woo" path="res://prefabs/characters/bosses/giant_frog/portrait.png" id="63_xaepa"]
 

@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://blylgxx5kc83n"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://byww3cgl0erlr"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_3hjnu"]
-[ext_resource type="Texture2D" uid="uid://cgaygxeatd046" path="res://prefabs/inventory/items/shrimp.png" id="1_g4olm"]
+[ext_resource type="Texture2D" path="res://prefabs/inventory/items/shrimp.png" id="1_g4olm"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_3hjnu"]
 [ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_pylf1"]
 [ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="4_mw5vy"]

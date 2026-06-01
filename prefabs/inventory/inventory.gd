@@ -120,7 +120,7 @@ func remove_item(item_name: String, amount: int = 1) -> bool:
 			remaining -= item.amount
 			items.remove_at(index)
 			item_removed.emit(item)
-			item._on_item_removed_to_inventory()
+			item._on_item_removed_from_inventory()
 	
 	updated.emit()
 	return true

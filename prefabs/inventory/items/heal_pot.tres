@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bxmwrrcu6vruo"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://domkcee7q64c0"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_nordt"]
 [ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="2_48v7q"]

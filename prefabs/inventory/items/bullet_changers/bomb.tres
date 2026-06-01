@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cfls5ve1axtyb"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_i604c"]
+[ext_resource type="PackedScene" uid="uid://c8al8my2g7cuk" path="res://prefabs/combat/bullets/bullet.tscn" id="1_nx7wh"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_6qtho"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_301eu"]
+[ext_resource type="Texture2D" uid="uid://deq8qluirupu8" path="res://prefabs/inventory/items/bullet_changers/bomb.png" id="3_avuhh"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="4_66unh"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_nx7wh"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="5_avuhh"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_66unh"]
+
+[sub_resource type="Resource" id="Resource_11ppj"]
+script = ExtResource("1_i604c")
+icon = ExtResource("3_avuhh")
+name = "Пороховое ядро"
+message = "Небольшой шар, внутри которого заключена разрушительная энергия взрыва.
++ 1 к урону"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_3vk0k"]
+script = ExtResource("4_66unh")
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[resource]
+script = ExtResource("6_66unh")
+rarity = 1
+name = "Пороховое ядро"
+icon = ExtResource("3_avuhh")
+description = Array[ExtResource("1_i604c")]([SubResource("Resource_11ppj")])
+damage_effect_id = "BOMB_DAMAGE"
+bullets = Dictionary[String, PackedScene]({
+"BOMB_BULLET": ExtResource("1_nx7wh")
+})
+passive_modifier_stat_damage_ratio = SubResource("Resource_3vk0k")
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

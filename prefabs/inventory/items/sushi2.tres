@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bbou27cu6ht"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cp5jrapqihq3a"]
 
 [ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_tk1ee"]
-[ext_resource type="Texture2D" uid="uid://coquw1av58gag" path="res://prefabs/inventory/items/sushi2.png" id="2_3p1d2"]
+[ext_resource type="Texture2D" path="res://prefabs/inventory/items/sushi2.png" id="2_3p1d2"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_h454y"]
 [ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_3p1d2"]
 [ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_cj86u"]

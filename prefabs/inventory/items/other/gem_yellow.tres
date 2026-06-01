@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cgsftr76ooc2i"]
+
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_wvlqf"]
+[ext_resource type="Texture2D" uid="uid://dspnrxcobqov6" path="res://prefabs/inventory/items/other/gem_yellow.png" id="2_4nldj"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_f5im8"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_4nldj"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_wyi7o"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_wyi7o"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="5_fi6fo"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_eohx4"]
+
+[sub_resource type="Resource" id="Resource_fi6fo"]
+script = ExtResource("1_wvlqf")
+icon = ExtResource("2_4nldj")
+name = "Гем силы"
+message = "Зачарованный камень, наполненный разрушительной энергией.
++ 1 к урону"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_eohx4"]
+script = ExtResource("3_wyi7o")
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[resource]
+script = ExtResource("6_eohx4")
+rarity = 1
+name = "Гем силы"
+icon = ExtResource("2_4nldj")
+description = Array[ExtResource("1_wvlqf")]([SubResource("Resource_fi6fo")])
+damage_effect_id = "GEM_DAMAGE"
+passive_modifier_stat_damage_ratio = SubResource("Resource_eohx4")
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Breakable" format=3 uid="uid://cfvqawhunbipu"]
 
-[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_0avmg"]
 [ext_resource type="Script" uid="uid://c5vdwmd0iexxp" path="res://prefabs/breakables/breakable_resource.gd" id="1_jpsgh"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="1_yobjg"]
 [ext_resource type="AudioStream" uid="uid://c5ao7p1ys2tvu" path="res://prefabs/combat/sounds/impact_1.wav" id="2_0avmg"]
-[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/sushi1.tres" id="2_88vba"]
+[ext_resource type="Resource" uid="uid://dlbume15opln" path="res://prefabs/inventory/items/food/sushi1.tres" id="2_88vba"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="2_sa5o1"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="3_0avmg"]
 [ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="4_yobjg"]
@@ -48,7 +48,7 @@ texture = SubResource("AtlasTexture_dhc5m")
 shape = SubResource("CircleShape2D_jpsgh")
 hp = 0.25
 loot_drop_chance = 0.05
-loot_table = Array[ExtResource("1_0avmg")]([ExtResource("2_88vba")])
+loot_table = Array[ExtResource("1_yobjg")]([ExtResource("2_88vba")])
 loot_weights = Array[float]([1.0])
 sounds_break = Array[AudioStream]([ExtResource("2_0avmg")])
 vfx_spawn = SubResource("Resource_ksnff")
