@@ -7,7 +7,8 @@ const LEVEL_MAP: Dictionary = {
 	1: "1_abandoned_village",
 	2: "2_bamboo_forest",
 	3: "3_bamboo_village",
-	4: "demo",
+	4: "4_racoon",
+	5: "demo",
 	}
 
 ## NOTE: Ready-only, use [method go_to_level] instead.
