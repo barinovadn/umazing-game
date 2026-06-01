@@ -63,6 +63,7 @@ func load_game(new_game: bool = false):
 	_clear_loaded_data()
 	
 	if new_game or not FileAccess.file_exists(SAVE_PATH):
+		clear_save_data()
 		SceneManager.go_to_level(START_LEVEL_INDEX, false)
 		return
 	
@@ -101,3 +102,10 @@ func load_game(new_game: bool = false):
 	# LEVEL
 	var saved_id = save_data.get("current_level_index", START_LEVEL_INDEX)
 	SceneManager.go_to_level(saved_id, false)
+
+
+func clear_save_data():
+	if FileAccess.file_exists(SAVE_PATH):
+		var error = DirAccess.remove_absolute(SAVE_PATH)
+		if error != OK:
+			push_error("Failed to delete save file! Error code: ", error)
