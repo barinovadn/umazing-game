@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://djoroxbekeacc" path="res://prefabs/tilesets/general_nature.png" id="1_0p7gv"]
 [ext_resource type="Texture2D" uid="uid://c8rtx0f1cxfus" path="res://prefabs/tilesets/general_village_abandoned.png" id="1_gwfjr"]
 [ext_resource type="PackedScene" uid="uid://jso3i61nb4aa" path="res://prefabs/breakables/variations/barrel.tscn" id="1_itcdf"]
+[ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="1_lbe8t"]
 [ext_resource type="PackedScene" uid="uid://mn7spuibg1fm" path="res://prefabs/breakables/variations/grass_1.tscn" id="2_0af6e"]
 [ext_resource type="PackedScene" uid="uid://dobj6xx5d4p2c" path="res://prefabs/breakables/variations/bamboo_1.tscn" id="2_ummcj"]
 [ext_resource type="PackedScene" uid="uid://csad76ph0qbk4" path="res://prefabs/breakables/variations/grass_2.tscn" id="3_0t3f4"]
@@ -24,12 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://bmexmeeo2438v" path="res://prefabs/tilesets/general_extra_dock.png" id="12_k4lds"]
 [ext_resource type="Texture2D" uid="uid://dtcff8dy3axrd" path="res://prefabs/tilesets/general_extra_pipes.png" id="14_x1vuv"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_abdxh"]
-load_path = "res://.godot/imported/TilesetHouse.png-3e6db943303c29359b1c697a70131d39.ctex"
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0af6e"]
 resource_name = "Village"
-texture = SubResource("CompressedTexture2D_abdxh")
+texture = ExtResource("1_lbe8t")
 0:0/size_in_atlas = Vector2i(4, 3)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(-8, 16)
