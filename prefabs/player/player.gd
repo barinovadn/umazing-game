@@ -58,6 +58,13 @@ var noclip: bool:
 		noclip = value
 		character.collision = !noclip
 		character.movement.speed *= (2. if noclip else .5)
+var godmode: bool:
+	set(value):
+		godmode = value
+		if godmode:
+			character.stat_invulnerable.add_modifier("GODMODE")
+		else:
+			character.stat_invulnerable.remove_modifier("GODMODE")
 var playtime: float:
 	set(value):
 		if not actions_ui:
@@ -105,8 +112,13 @@ func _input(event: InputEvent):
 		reflection.enable()
 		return
 	
+	if event.is_action_pressed("godmode") and allow_cheats:
+		godmode = !godmode
+		return
+	
 	if event.is_action_pressed("noclip") and allow_cheats:
 		noclip = !noclip
+		return
 
 
 ## Some components like [member interactor] are expected to be children to the
