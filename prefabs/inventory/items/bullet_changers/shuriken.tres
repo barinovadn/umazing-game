@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://och2ysqe7158"]
+
+[ext_resource type="PackedScene" uid="uid://dqm7ob546a3hv" path="res://prefabs/combat/bullets/variations/comons/shuriken/shuriken.tscn" id="1_doopa"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_ldbyr"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="2_l6jdj"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="3_3hs0i"]
+[ext_resource type="Texture2D" uid="uid://corybeabkphma" path="res://prefabs/inventory/items/bullet_changers/shuriken.png" id="3_hs270"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="4_doopa"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="4_hu8q0"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="5_hs270"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="6_hu8q0"]
+
+[sub_resource type="Resource" id="Resource_lpyxd"]
+script = ExtResource("1_ldbyr")
+icon = ExtResource("3_hs270")
+name = "Звезда ветра"
+message = "Легкий метательный клинок, рассекающий воздух с едва слышным свистом.
++ 0.5 к урону"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_l314l"]
+script = ExtResource("4_hu8q0")
+value = 0.5
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[resource]
+script = ExtResource("6_hu8q0")
+rarity = 1
+name = "Звезда ветра"
+icon = ExtResource("3_hs270")
+description = Array[ExtResource("1_ldbyr")]([SubResource("Resource_lpyxd")])
+damage_effect_id = "SHURIKEN_DAMAGE"
+bullets = Dictionary[String, PackedScene]({
+"SHURIKEN_BULLET": ExtResource("1_doopa")
+})
+passive_modifier_stat_damage_ratio = SubResource("Resource_l314l")
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"

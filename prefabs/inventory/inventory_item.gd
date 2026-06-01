@@ -12,6 +12,7 @@ enum Rarity { COMMON, RARE, EPIC }
 @export var description: Array[Dialogue]
 @export var description_on_use: Array[Dialogue]
 @export var effect_id: String
+@export var damage_effect_id: String
 
 @export_group("Flags")
 @export var is_consumable: bool = false
@@ -27,15 +28,18 @@ enum Rarity { COMMON, RARE, EPIC }
 @export var on_use_modifier_speed_ratio: Modifier
 @export var on_use_modifier_armor: Modifier
 @export var on_use_modifier_shooting_speed: Modifier
+@export var on_use_modifier_stat_damage_ratio: Modifier
 
 @export_group("Passive")
 @export_subgroup("Effects")
 @export var passive_max_hp_increase: float = 0.0
+@export var bullets: Dictionary[String, PackedScene]
 
 @export_subgroup("Modifiers")
 @export var passive_modifier_speed_ratio: Modifier
 @export var passive_modifier_armor: Modifier
 @export var passive_modifier_shooting_speed: Modifier
+@export var passive_modifier_stat_damage_ratio: Modifier
 
 @export_group("Visuals & Sounds", "rarity")
 @export var rarity_colors: Dictionary[Rarity, Color] = {
@@ -66,32 +70,45 @@ func _on_item_added_to_inventory():
 	if not is_instance_valid(Game.player):
 		push_error("Trying to access Game.player while its null!")
 		return
-	
+
 	Game.player.hurt_component.max_health += passive_max_hp_increase
+	
+	for key in bullets:
+		if bullets[key]:
+			Game.player.add_bullet(key, bullets[key])
 	
 	if Game.player.character:
 		if passive_modifier_speed_ratio and Game.player.character.stat_speed_ratio:
 			Game.player.character.stat_speed_ratio.add_modifier(effect_id, passive_modifier_speed_ratio)
-		
+
 		if passive_modifier_armor and Game.player.character.stat_armor:
 			Game.player.character.stat_armor.add_modifier(effect_id, passive_modifier_armor)
-		
+
 		if passive_modifier_shooting_speed and Game.player.character.stat_shooting_speed:
 			Game.player.character.stat_shooting_speed.add_modifier(effect_id, passive_modifier_shooting_speed)
 
+		if passive_modifier_stat_damage_ratio and Game.player.character.stat_damage_ratio:
+			Game.player.character.stat_damage_ratio.add_modifier(damage_effect_id, passive_modifier_stat_damage_ratio)
 
-func _on_item_removed_to_inventory():
+
+func _on_item_removed_from_inventory():
 	Game.player.hurt_component.max_health -= passive_max_hp_increase
+	
+	for key in bullets:
+		Game.player.remove_bullet(key)
 	
 	if Game.player.character:
 		if passive_modifier_speed_ratio and Game.player.character.stat_speed_ratio:
 			Game.player.character.stat_speed_ratio.remove_modifier(effect_id)
-		
+
 		if passive_modifier_armor and Game.player.character.stat_armor:
 			Game.player.character.stat_armor.remove_modifier(effect_id)
-		
+
 		if passive_modifier_shooting_speed and Game.player.character.stat_shooting_speed:
 			Game.player.character.stat_shooting_speed.remove_modifier(effect_id)
+		
+		if passive_modifier_stat_damage_ratio and Game.player.character.stat_damage_ratio:
+			Game.player.character.stat_damage_ratio.remove_modifier(damage_effect_id)
 
 
 func is_in_inventory():
@@ -119,6 +136,9 @@ func use():
 		
 		if on_use_modifier_shooting_speed and Game.player.character.stat_shooting_speed:
 			Game.player.character.stat_shooting_speed.add_modifier(effect_id, on_use_modifier_shooting_speed)
+
+		if on_use_modifier_stat_damage_ratio and Game.player.character.stat_damage_ratio:
+			Game.player.character.stat_shooting_speed.add_modifier(damage_effect_id, on_use_modifier_stat_damage_ratio)
 		
 	if len(description_on_use):
 		Game.dialogue_system.display(description_on_use.pick_random())

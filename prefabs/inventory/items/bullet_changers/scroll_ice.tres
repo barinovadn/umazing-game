@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://g6oqjqxwv5pw"]
+
+[ext_resource type="PackedScene" uid="uid://died6n7flmmvr" path="res://prefabs/combat/bullets/variations/comons/slow_shot/slow_shot.tscn" id="1_rp0nm"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="1_tfixr"]
+[ext_resource type="Texture2D" uid="uid://c24d7742upouq" path="res://prefabs/inventory/items/bullet_changers/scroll_ice.png" id="2_rp0nm"]
+[ext_resource type="Script" uid="uid://ctqdits5kj2tk" path="res://common/stats/modification.gd" id="3_xspa1"]
+[ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="4_4hgco"]
+[ext_resource type="AudioStream" uid="uid://b3dswmt8wpcn0" path="res://prefabs/inventory/pickups/collect_common.ogg" id="5_ab4gc"]
+[ext_resource type="AudioStream" uid="uid://diph1pkxfpu6t" path="res://prefabs/inventory/pickups/collect_epic.ogg" id="6_il6js"]
+[ext_resource type="AudioStream" uid="uid://cbqtlwdttbt6u" path="res://prefabs/inventory/pickups/collect_rare.ogg" id="7_2u7es"]
+[ext_resource type="Script" uid="uid://cb3e76qpw5nv7" path="res://prefabs/inventory/inventory_item.gd" id="8_0c76g"]
+
+[sub_resource type="Resource" id="Resource_m7xlb"]
+script = ExtResource("1_tfixr")
+icon = ExtResource("2_rp0nm")
+name = "Свиток мороза"
+message = "Холод исходит от него даже сквозь плотную обложку. Руны на страницах покрыты тонким слоем инея, который никогда не тает.
++ 1 к урону"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_go80w"]
+script = ExtResource("3_xspa1")
+value = 1.0
+operation = 1
+metadata/_custom_type_script = "uid://ctqdits5kj2tk"
+
+[resource]
+script = ExtResource("8_0c76g")
+rarity = 2
+name = "Свиток мороза"
+icon = ExtResource("2_rp0nm")
+description = Array[ExtResource("1_tfixr")]([SubResource("Resource_m7xlb")])
+damage_effect_id = "ICE_SCROLL_DAMAGE"
+bullets = Dictionary[String, PackedScene]({
+"ICE_SCROLL_BULLET": ExtResource("1_rp0nm")
+})
+passive_modifier_stat_damage_ratio = SubResource("Resource_go80w")
+metadata/_custom_type_script = "uid://cb3e76qpw5nv7"
