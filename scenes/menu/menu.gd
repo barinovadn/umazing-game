@@ -4,10 +4,6 @@ extends Node2D
 var demo_level = preload("res://scenes/game/levels/demo.tscn")
 
 
-func _ready():
-	$Decorations/Animator.play("appear")
-
-
 func _on_conitnue_pressed():
 	SaveManager.load_game()
 
