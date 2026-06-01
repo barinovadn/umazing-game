@@ -112,6 +112,10 @@ func _input(event: InputEvent):
 		reflection.enable()
 		return
 	
+	if event.is_action_pressed("enable_cheats"):
+		allow_cheats = true
+		return
+	
 	if event.is_action_pressed("godmode") and allow_cheats:
 		godmode = !godmode
 		return
