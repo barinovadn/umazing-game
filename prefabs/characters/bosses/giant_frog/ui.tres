@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_j4u4x")
-display_name = "Giant Frog"
+display_name = "Большая Жаба"
 display_color = null
 texture_progress = ExtResource("3_r5fao")
 texture_over = ExtResource("2_1pk1j")

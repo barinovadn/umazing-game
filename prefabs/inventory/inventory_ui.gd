@@ -55,12 +55,10 @@ func _input(event):
 
 func _on_inventory_status_changed():
 	var player_char := Game.player.character
-	
 	if inventory_ui.visible:
 		player_char.stat_cant_shoot.add_modifier("INVENTORY")
 		player_char.stat_cant_move.add_modifier("INVENTORY")
 		player_char.stat_cant_interract.add_modifier("INVENTORY")
-	
 	else:
 		player_char.stat_cant_interract.remove_modifier("INVENTORY")
 		player_char.stat_cant_move.remove_modifier("INVENTORY")
@@ -104,7 +102,6 @@ func open():
 	inventory_ui.visible = true
 	_on_inventory_status_changed()
 	play_sound(sound_open)
-	
 
 
 func close():

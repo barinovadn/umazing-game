@@ -74,7 +74,6 @@ var dialogue_queue: Array[Dialogue]: # NOTE Only setting, no appending
 	set(value):
 		dialogue_queue = value
 		dialogue_started.emit()
-		_on_dialogue_started()
 		if not dialogue:
 			next()
 var _active_tween: Tween # NOTE Using tweens for dynamic UI
@@ -98,11 +97,6 @@ func _ready():
 func _input(event: InputEvent):
 	if event.is_action_pressed("dialogue_skip"):
 		skip()
-
-
-func _on_dialogue_started():
-	if Game.player:
-		Game.player.stat_cant_use_inventory.add_modifier("ONGOING_DIALOGUE")
 
 
 func _on_dialogue_closed():
@@ -242,16 +236,17 @@ func display(new_dialogue: Dialogue, clear_queue: bool = true):
 
 
 func skip(ignore_cooldown: bool = false, close_on_finish: bool = true):
+	if not dialogue:
+		close()
+		return
 	if is_on_skip_cooldown and not ignore_cooldown:
 		return
-	
 	if not is_fully_typed:
 		show_whole_message()
 	elif len(dialogue_queue) > 0:
 		next()
 	elif close_on_finish:
 		close()
-	
 	if not ignore_cooldown:
 		skip_timer.start(skip_cooldown)
 
@@ -266,11 +261,10 @@ func next():
 
 func close():
 	dialogue = null
+	dialogue_queue = []
 	await get_tree().process_frame
 	Game.player.stat_cant_use_inventory.remove_modifier(str(get_instance_id()))
 	Game.player.character.stat_cant_move.remove_modifier(str(get_instance_id()))
 	Game.player.character.stat_cant_shoot.remove_modifier(str(get_instance_id()))
 	Game.player.character.stat_cant_interract.remove_modifier(str(get_instance_id()))
-	
 	dialogue_closed.emit()
-	_on_dialogue_closed()
