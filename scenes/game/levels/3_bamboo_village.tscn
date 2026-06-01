@@ -154,7 +154,7 @@ music_playlist = Array[AudioStream]([ExtResource("8_s5wdq")])
 music_delay = 1
 
 [node name="Collider1" parent="Enviroments/Village" index="0" unique_id=1149132632 instance=ExtResource("6_feokq")]
-position = Vector2(1.025, -0.25000027)
+position = Vector2(1.0250001, -0.25000024)
 scale = Vector2(4, 1)
 
 [node name="Collider2" parent="Enviroments/Village" index="1" unique_id=1650226917 instance=ExtResource("6_feokq")]
