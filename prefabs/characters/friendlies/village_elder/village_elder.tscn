@@ -42,8 +42,8 @@ region = Rect2(32, 96, 16, 16)
 atlas = ExtResource("2_vv8fa")
 region = Rect2(0, 96, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_87xpb"]
-atlas = ExtResource("2_vv8fa")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg13c"]
+atlas = ExtResource("3_3nngk")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iitcd"]
@@ -225,7 +225,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_87xpb")
+"texture": SubResource("AtlasTexture_kg13c")
 }],
 "loop": true,
 "name": &"idle_down",
@@ -384,5 +384,4 @@ texture = SubResource("CompressedTexture2D_vb18r")
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_cgioa")
-animation = &"patrol"
 frame_progress = 0.0

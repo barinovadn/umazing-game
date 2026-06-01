@@ -20,9 +20,14 @@
 atlas = ExtResource("12_fsq8a")
 region = Rect2(64, 128, 16, 16)
 
-[sub_resource type="Resource" id="Resource_2766p"]
+[sub_resource type="Resource" id="Resource_ax0gb"]
 script = ExtResource("13_m57d6")
-effect = 100
+effect = 310
+metadata/_custom_type_script = "uid://b3ycbn10rbivg"
+
+[sub_resource type="Resource" id="Resource_teaif"]
+script = ExtResource("13_m57d6")
+effect = 30
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [resource]
@@ -35,5 +40,6 @@ loot_table = Array[ExtResource("1_teaif")]([ExtResource("9_7oque"), ExtResource(
 loot_weights = Array[float]([0.1, 0.2, 0.3, 0.5, 0.6, 0.6, 0.6, 0.4])
 sounds_hit = Array[AudioStream]([ExtResource("11_jrkxp")])
 sounds_break = Array[AudioStream]([ExtResource("11_jrkxp")])
-vfx_spawn = SubResource("Resource_2766p")
+vfx_hit = SubResource("Resource_teaif")
+vfx_break = SubResource("Resource_ax0gb")
 metadata/_custom_type_script = "uid://c5vdwmd0iexxp"

@@ -38,24 +38,24 @@ region = Rect2(16, 96, 16, 16)
 atlas = ExtResource("2_h4ch1")
 region = Rect2(32, 96, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ctn6s"]
-atlas = ExtResource("2_h4ch1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_051js"]
+atlas = ExtResource("3_vvl1p")
 region = Rect2(0, 96, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_87xpb"]
-atlas = ExtResource("2_h4ch1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b733x"]
+atlas = ExtResource("3_vvl1p")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iitcd"]
-atlas = ExtResource("2_h4ch1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_crlkv"]
+atlas = ExtResource("3_vvl1p")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vrykm"]
-atlas = ExtResource("2_h4ch1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sroi"]
+atlas = ExtResource("3_vvl1p")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_75n4m"]
-atlas = ExtResource("2_h4ch1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtwaj"]
+atlas = ExtResource("3_vvl1p")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x712y"]
@@ -217,7 +217,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ctn6s")
+"texture": SubResource("AtlasTexture_051js")
 }],
 "loop": true,
 "name": &"downed",
@@ -225,7 +225,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_87xpb")
+"texture": SubResource("AtlasTexture_b733x")
 }],
 "loop": true,
 "name": &"idle_down",
@@ -233,7 +233,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iitcd")
+"texture": SubResource("AtlasTexture_crlkv")
 }],
 "loop": true,
 "name": &"idle_left",
@@ -241,7 +241,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vrykm")
+"texture": SubResource("AtlasTexture_7sroi")
 }],
 "loop": true,
 "name": &"idle_right",
@@ -249,7 +249,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_75n4m")
+"texture": SubResource("AtlasTexture_vtwaj")
 }],
 "loop": true,
 "name": &"idle_up",
@@ -384,5 +384,5 @@ texture = SubResource("CompressedTexture2D_h56tk")
 
 [node name="Sprite" parent="." index="2" unique_id=2042220320]
 sprite_frames = SubResource("SpriteFrames_2emat")
-animation = &"patrol"
+animation = &"idle_right"
 frame_progress = 0.0
