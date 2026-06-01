@@ -69,6 +69,7 @@ var dialogue: Dialogue:
 		dialogue_window.rotation = deg_to_rad(dialogue.angle)
 		
 		_update_animation()
+		_on_dialogue_started()
 		_start_typing_animation()
 var dialogue_queue: Array[Dialogue]: # NOTE Only setting, no appending
 	set(value):
