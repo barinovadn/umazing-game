@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bqx0t08nx5ajg" path="res://prefabs/breakables/variations/dummy.tscn" id="7_1xkgj"]
 [ext_resource type="Texture2D" uid="uid://smrgmlqxlrlc" path="res://prefabs/tilesets/general_interior.png" id="7_k4lds"]
 [ext_resource type="Texture2D" uid="uid://cwy0f6epg2epy" path="res://prefabs/tilesets/general_extra_mills.png" id="7_x1vuv"]
+[ext_resource type="PackedScene" uid="uid://dh7g4ow565c2l" path="res://prefabs/breakables/variations/chest.tscn" id="8_abdxh"]
 [ext_resource type="Texture2D" uid="uid://bb6gt81pxbooo" path="res://prefabs/tilesets/general_extra_flags.png" id="8_ummcj"]
+[ext_resource type="PackedScene" uid="uid://dk28c0i4qkfn5" path="res://prefabs/breakables/variations/chest_poor.tscn" id="9_uvgyf"]
 [ext_resource type="Texture2D" uid="uid://dy45hmekks582" path="res://prefabs/tilesets/general_village_camp.png" id="10_w74ho"]
 [ext_resource type="Texture2D" uid="uid://cipgmaqmhv3qq" path="res://prefabs/tilesets/general_extra_mines.png" id="11_rcfgn"]
 [ext_resource type="Texture2D" uid="uid://bmexmeeo2438v" path="res://prefabs/tilesets/general_extra_dock.png" id="12_k4lds"]
@@ -1316,6 +1318,8 @@ scenes/3/scene = ExtResource("2_0af6e")
 scenes/4/scene = ExtResource("3_0t3f4")
 scenes/5/scene = ExtResource("4_6og5x")
 scenes/6/scene = ExtResource("7_1xkgj")
+scenes/7/scene = ExtResource("8_abdxh")
+scenes/8/scene = ExtResource("9_uvgyf")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ummcj"]
 resource_name = "Nature Details"
@@ -2552,12 +2556,15 @@ texture = ExtResource("10_w74ho")
 0:5/size_in_atlas = Vector2i(1, 2)
 0:5/0 = 0
 0:5/0/texture_origin = Vector2i(0, 8)
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -24, -8, -20, 8, -20, 8, 8, -8, 8)
 1:5/size_in_atlas = Vector2i(2, 2)
 1:5/0 = 0
 1:5/0/texture_origin = Vector2i(-8, 8)
-1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -24, 24, -24, 24, 8, -8, 8)
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -20, 24, -20, 24, 4, 8, 8, -8, 4)
 3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(6, -4, 6, 8, -6, 8, -6, -4)
 3:6/0 = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(6, -4, 6, 8, -6, 8, -6, -4)
 4:5/0 = 0
 4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 5:5/0 = 0
@@ -2624,6 +2631,7 @@ texture = ExtResource("10_w74ho")
 8:8/0 = 0
 9:8/0 = 0
 9:7/0 = 0
+9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
 10:7/size_in_atlas = Vector2i(2, 2)
 10:7/0 = 0
 10:7/0/texture_origin = Vector2i(-8, 8)

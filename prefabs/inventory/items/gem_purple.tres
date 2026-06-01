@@ -14,12 +14,12 @@ script = ExtResource("1_lxtp4")
 icon = ExtResource("2_y01rt")
 name = "Гем защиты"
 message = "Прочный магический минерал, укрепляющий тело владельца.
-+ 1 к броне"
++ 10 к броне"
 metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_exuew"]
 script = ExtResource("3_x8eo5")
-value = 1.0
+value = 10.0
 operation = 1
 metadata/_custom_type_script = "uid://ctqdits5kj2tk"
 

@@ -5,7 +5,8 @@ const LEVEL_FOLDER := "res://scenes/game/levels/"
 const LEVEL_MAP: Dictionary = {
 	0: "demo",
 	1: "1_abandoned_village",
-	2: "demo",
+	2: "2_bamboo_forest",
+	3: "demo",
 	}
 
 ## NOTE: Ready-only, use [method go_to_level] instead.
