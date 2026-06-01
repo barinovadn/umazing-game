@@ -658,9 +658,9 @@ shooting_animation_interval = 0.6
 metadata/_custom_type_script = "uid://dowl0clqumedg"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ns3h2"]
-vertices = PackedVector2Array(692.84375, -326.5078, 728.40625, -314.64844, 719.3281, -301.03125, 585.7969, -297.84375, 546, -304.46094, 546, -307, 571.8828, -326.40625, 632.60156, -334, 626.8594, -289.6328, 670.3672, -334, 705.8203, -274, 665.90625, -274)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6, 7), PackedInt32Array(8, 3, 7, 9), PackedInt32Array(10, 11, 8, 9, 0, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(536, -296, 584, -288, 624, -280, 664, -264, 712, -264, 728, -296, 744, -320, 696, -336, 672, -344, 632, -344, 568, -336, 536, -312)])
+vertices = PackedVector2Array(632.71094, -309.5078, 675.3125, -326.5625, 697.6328, -334, 715.8594, -334, 731.1328, -318.71875, 721.1406, -303.7422, 692.75, -289.54688, 654.9922, -282, 610.35156, -282, 574.1797, -318, 598.77344, -318, 582.85156, -295.7422, 571.53125, -312.71875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8), PackedInt32Array(9, 10, 0, 8, 11, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(656, -272, 696, -280, 728, -296, 744, -320, 720, -344, 696, -344, 672, -336, 632, -320, 600, -328, 568, -328, 560, -312, 576, -288, 608, -272)])
 parsed_collision_mask = 1
 source_geometry_mode = 2
 
@@ -1373,6 +1373,7 @@ mode = 1
 curve = SubResource("Curve2D_rbj4l")
 
 [node name="Bamboo2" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="2" unique_id=743568464]
+position = Vector2(-256, -16)
 
 [node name="BambooEnemy" parent="Enemies/Bamboo2" index="0" unique_id=1843089856 node_paths=PackedStringArray("hurt_component", "shoot_controller") instance=ExtResource("14_rmiwa")]
 position = Vector2(536, -320)
