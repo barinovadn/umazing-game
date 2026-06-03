@@ -22,6 +22,7 @@ enum State { LOADING, SPAWNING, IDLE, BROKEN, RESPAWNING, DELETING }
 @onready var _hurt_component: HurtComponent = $HurtComponent
 @onready var _sound_player: AudioStreamPlayer2D = $SoundPlayer
 @onready var _respawn_timer: Timer = $RespawnTimer
+@onready var _animator: AnimationPlayer = %Animator
 
 var _respawn_count: int = 0
 var state: State:
@@ -51,6 +52,8 @@ func _on_hurt_component_damaged(_by_amount: float):
 	hit.emit()
 	if settings and settings.vfx_hit:
 		settings.vfx_hit.spawn(global_position)
+	if _animator:
+		_animator.play("HIT")
 
 
 func _on_state_changed():

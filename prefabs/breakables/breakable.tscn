@@ -2,6 +2,48 @@
 
 [ext_resource type="Script" uid="uid://b2cm5pqgalhs8" path="res://prefabs/breakables/breakable.gd" id="1_ur6pr"]
 [ext_resource type="PackedScene" uid="uid://0khe4brka8l3" path="res://prefabs/combat/hurt_component.tscn" id="2_pivkx"]
+[ext_resource type="Texture2D" uid="uid://smrgmlqxlrlc" path="res://prefabs/tilesets/general_interior.png" id="2_wtaca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqtlm"]
+atlas = ExtResource("2_wtaca")
+region = Rect2(0, 159, 16, 16)
+
+[sub_resource type="Animation" id="Animation_1fcpk"]
+resource_name = "HIT"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833, 0.1667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.5, 0), Vector2(-0.5, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2lm65"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kuot2"]
+_data = {
+&"HIT": SubResource("Animation_1fcpk"),
+&"RESET": SubResource("Animation_2lm65")
+}
 
 [node name="Breakable" type="StaticBody2D" unique_id=514792727 groups=["breakable"]]
 collision_layer = 64
@@ -9,6 +51,8 @@ collision_mask = 0
 script = ExtResource("1_ur6pr")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1322896327]
+position = Vector2(0, -1.0163543)
+texture = SubResource("AtlasTexture_cqtlm")
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1646208646]
 disabled = true
@@ -24,6 +68,11 @@ bus = &"World"
 
 [node name="RespawnTimer" type="Timer" parent="." unique_id=1151195379]
 one_shot = true
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=1246877983]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_kuot2")
+autoplay = &"RESET"
 
 [connection signal="damaged" from="HurtComponent" to="." method="_on_hurt_component_damaged"]
 [connection signal="fatal_damage_taken" from="HurtComponent" to="." method="_on_hurt_component_fatal_damage_taken"]
