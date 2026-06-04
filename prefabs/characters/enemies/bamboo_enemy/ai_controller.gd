@@ -1,8 +1,8 @@
 extends AIController
 
 
-@onready var teleport_pink_in: Teleport = $"../TeleportPinkIn"
+@export var teleport: Teleport
 
 
 func _ai_ready():
-	teleport_pink_in.used.connect(func(): hurt_component.current_health = 0.0)
+	teleport.used.connect(func(): hurt_component.current_health = 0.0)
