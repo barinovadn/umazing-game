@@ -189,7 +189,16 @@ music_apply = false
 [node name="Collider" parent="Enviroments/Tent" index="0" unique_id=1390345719 instance=ExtResource("6_feokq")]
 position = Vector2(3.5249999, -0.2500003)
 
-[node name="RamenShop" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="5" unique_id=1122226286 instance=ExtResource("5_mmtxs")]
+[node name="House" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="5" unique_id=1404537766 instance=ExtResource("5_mmtxs")]
+position = Vector2(151.99988, 520)
+enter_particles_enable = Array[int]([400])
+enter_filter_color = Color(0.99999994, 0.40167823, 0.041115336, 0.13725491)
+music_apply = false
+
+[node name="Collider" parent="Enviroments/House" index="0" unique_id=1404155655 instance=ExtResource("6_feokq")]
+position = Vector2(3.5249999, -0.2500003)
+
+[node name="RamenShop" parent="Enviroments" parent_id_path=PackedInt32Array(1656547831) index="6" unique_id=1122226286 instance=ExtResource("5_mmtxs")]
 position = Vector2(-168, -600.00006)
 enter_filter_color = Color(1, 0.42871532, 0.4097389, 0.13725491)
 music_apply = false
