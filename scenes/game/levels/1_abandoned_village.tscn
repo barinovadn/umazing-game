@@ -425,10 +425,17 @@ color = Color(0.18039216, 0.4117647, 1, 0.43137255)
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="0" unique_id=297187452 instance=ExtResource("2_j5uxd")]
 position = Vector2(0, 160)
 
-[node name="SignWelcome" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=2087367069 instance=ExtResource("7_bu17f")]
+[node name="Sign" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=2087367069 instance=ExtResource("7_bu17f")]
 position = Vector2(264, 648)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_njrp1")])
 preset = SubResource("Resource_i28y4")
+
+[node name="InteractionMarker" parent="Interactables/Sign" index="2" unique_id=1128006746 node_paths=PackedStringArray("interactable") instance=ExtResource("6_7y70h")]
+modulate = Color(1, 1, 0.5, 1)
+position = Vector2(0, -8)
+interactable = NodePath("..")
+sprite = 2
+color = 1
 
 [node name="StatueLeft" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1504454027 instance=ExtResource("7_bu17f")]
 position = Vector2(-24, 96)

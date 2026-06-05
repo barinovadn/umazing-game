@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dydun4doeamax" path="res://prefabs/characters/friendlies/ramen_kitchener/SpriteSheet.png" id="22_pcgp6"]
 [ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="22_twrf0"]
 [ext_resource type="Resource" uid="uid://och2ysqe7158" path="res://prefabs/inventory/items/bullet_changers/shuriken.tres" id="23_vwwn4"]
+[ext_resource type="PackedScene" uid="uid://cdtekl4l4f04o" path="res://prefabs/interactions/marker/marker.tscn" id="24_twqjv"]
 
 [sub_resource type="Resource" id="Resource_5bf8s"]
 script = ExtResource("3_5bf8s")
@@ -174,7 +175,7 @@ _data = {
 }
 point_count = 9
 
-[node name="Game" unique_id=1082399769 instance=ExtResource("1_3idw6")]
+[node name="Game2" unique_id=1082399769 instance=ExtResource("1_3idw6")]
 
 [node name="Player" parent="." index="2" unique_id=486757243 node_paths=PackedStringArray("character")]
 character = NodePath("../Characters/NinjaGreen")
@@ -385,6 +386,13 @@ exit_level_index = -1
 exit_offset = Vector2(0, -24)
 color = Color(0, 0, 0.69411767, 0.78431374)
 
+[node name="InteractionMarker" parent="Teleports/FarmIn" index="1" unique_id=1940503036 node_paths=PackedStringArray("teleport") instance=ExtResource("24_twqjv")]
+modulate = Color(1, 1, 0.5, 1)
+position = Vector2(8, -8)
+teleport = NodePath("..")
+sprite = 2
+color = 1
+
 [node name="FarmOut" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="2" unique_id=476835777 node_paths=PackedStringArray("exit") instance=ExtResource("6_bj013")]
 position = Vector2(1240, 552)
 exit = NodePath("../FarmIn")
@@ -430,6 +438,13 @@ exit = NodePath("../TentOut")
 exit_level_index = -1
 exit_offset = Vector2(0, -32)
 color = Color(0.55990666, 0.6749872, 0, 0.78431374)
+
+[node name="InteractionMarker" parent="Teleports/TentIn" index="1" unique_id=271217333 node_paths=PackedStringArray("teleport") instance=ExtResource("24_twqjv")]
+modulate = Color(1, 0.25, 0.25, 1)
+position = Vector2(0, -8)
+teleport = NodePath("..")
+sprite = 2
+color = 3
 
 [node name="TentOut" parent="Teleports" parent_id_path=PackedInt32Array(1760141152) index="8" unique_id=565785492 node_paths=PackedStringArray("exit") instance=ExtResource("6_bj013")]
 position = Vector2(-320, -408)
@@ -536,11 +551,24 @@ position = Vector2(248, -104)
 dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_bm6vo")])
 preset = SubResource("Resource_dnuhc")
 
+[node name="InteractionMarker" parent="Interactables/SleepingMan" index="2" unique_id=1756992302 node_paths=PackedStringArray("interactable") instance=ExtResource("24_twqjv")]
+modulate = Color(1, 1, 0.5, 1)
+position = Vector2(0, -8)
+interactable = NodePath("..")
+color = 1
+
 [node name="SignExit" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="7" unique_id=1061365927 instance=ExtResource("19_qbrkf")]
 position = Vector2(1080, -200)
-scale = Vector2(2.7599998, 1.3199999)
+scale = Vector2(3, 1)
 dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_s8k26")])
 preset = SubResource("Resource_lwfps")
+
+[node name="InteractionMarker" parent="Interactables/SignExit" index="2" unique_id=38361950 node_paths=PackedStringArray("interactable") instance=ExtResource("24_twqjv")]
+modulate = Color(1, 1, 0.5, 1)
+position = Vector2(0, -8)
+scale = Vector2(0.333, 1)
+interactable = NodePath("..")
+color = 1
 
 [node name="FruitBasket" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="8" unique_id=1004352537 instance=ExtResource("19_qbrkf")]
 position = Vector2(280, 144)
@@ -551,6 +579,12 @@ preset = SubResource("Resource_hal53")
 position = Vector2(-280, 8)
 dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_twqjv")])
 preset = SubResource("Resource_1dgt2")
+
+[node name="InteractionMarker" parent="Interactables/SignWelcome" index="2" unique_id=1687172367 node_paths=PackedStringArray("interactable") instance=ExtResource("24_twqjv")]
+modulate = Color(1, 0.5, 0.25, 1)
+position = Vector2(0, -8)
+interactable = NodePath("..")
+color = 2
 
 [node name="Racoon1" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="0" unique_id=792518766 node_paths=PackedStringArray("movement") instance=ExtResource("9_mmtxs")]
 position = Vector2(-400, 304)
