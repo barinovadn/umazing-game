@@ -62,6 +62,7 @@ autostart = true
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1121859813]
 unique_name_in_owner = true
+volume_db = -10.0
 bus = &"System"
 
 [connection signal="pressed" from="Buttons/Timer" to="." method="_on_timer_pressed"]

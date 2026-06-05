@@ -120,6 +120,7 @@ theme_override_font_sizes/font_size = 42
 text = "УДАЛИТЬ"
 
 [node name="AudioStream" type="AudioStreamPlayer" parent="." unique_id=1852913023]
+volume_db = -10.0
 bus = &"System"
 
 [connection signal="pressed" from="VBox/ActionPanel/UseButton" to="." method="_on_use_button_pressed"]

@@ -2641,13 +2641,7 @@ texture = ExtResource("10_w74ho")
 12:5/0 = 0
 12:5/0/texture_origin = Vector2i(-8, 8)
 12:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 24, 8, 24, -20, -8, -20)
-0:7/size_in_atlas = Vector2i(3, 1)
-0:7/0 = 0
-0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, 7, 22, 7, 22, -6, -22, -6)
 0:8/0 = 0
-1:8/size_in_atlas = Vector2i(2, 1)
-1:8/0 = 0
-1:8/0/texture_origin = Vector2i(-8, 0)
 3:8/0 = 0
 3:7/0 = 0
 3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 7.103875, 8, 7.073017, 8, -6.018998, -8, -6.0744734)
@@ -2683,6 +2677,12 @@ texture = ExtResource("10_w74ho")
 14:0/size_in_atlas = Vector2i(9, 9)
 14:0/0 = 0
 14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-72, 8, -72, -24, -56, -24, -56, -40, 56, -40, 56, -24, 72, -24, 72, 40, 56, 40, 56, 56, 8, 56, 8, 72, -24, 72, -24, 56, -56, 56, -56, 40, -72, 40, -72, 8, -88, 8, -88, 88, 88, 88, 88, -56, -88, -56, -88, 8)
+1:8/size_in_atlas = Vector2i(2, 1)
+1:8/0 = 0
+1:8/0/texture_origin = Vector2i(-8, 0)
+0:7/size_in_atlas = Vector2i(3, 1)
+0:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, 7, 22, 7, 22, -6, -22, -6)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x1vuv"]
 resource_name = "Extra Pipes"
