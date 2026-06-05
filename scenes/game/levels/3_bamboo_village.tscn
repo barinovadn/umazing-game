@@ -19,9 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://dhpo30b664oln" path="res://prefabs/characters/animals/racoon/racoon.tscn" id="9_mmtxs"]
 [ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="10_ipaxu"]
 [ext_resource type="PackedScene" uid="uid://7ow2e543p51g" path="res://prefabs/characters/friendlies/weapon_dealer/weapon_dealer.tscn" id="11_bj013"]
+[ext_resource type="PackedScene" uid="uid://bc2kdebobsqlu" path="res://prefabs/interactions/interactables/inspectable/inspectable.tscn" id="19_qbrkf"]
+[ext_resource type="Script" uid="uid://3n0f04b0rgoe" path="res://prefabs/dialogues/dialogue.gd" id="20_twrf0"]
 [ext_resource type="PackedScene" uid="uid://bxrncfdr83c0a" path="res://prefabs/combat/bullets/variations/unique_projectiles/damage_area/damage_area.tscn" id="20_w1ply"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="21_nbp02"]
+[ext_resource type="Texture2D" uid="uid://smrgmlqxlrlc" path="res://prefabs/tilesets/general_interior.png" id="21_pcgp6"]
 [ext_resource type="PackedScene" uid="uid://ds7r5gr45oetv" path="res://prefabs/inventory/pickups/pickup.tscn" id="22_k4bao"]
+[ext_resource type="Texture2D" uid="uid://dydun4doeamax" path="res://prefabs/characters/friendlies/ramen_kitchener/SpriteSheet.png" id="22_pcgp6"]
+[ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="22_twrf0"]
 [ext_resource type="Resource" uid="uid://och2ysqe7158" path="res://prefabs/inventory/items/bullet_changers/shuriken.tres" id="23_vwwn4"]
 
 [sub_resource type="Resource" id="Resource_5bf8s"]
@@ -49,6 +54,96 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 211, -176, 0, 0, 0, 0, 218, -165, 0, 0, 0, 0, 240, -161, 0, 0, 0, 0, 251, -167, 0, 0, 0, 0, 266, -159)
 }
 point_count = 5
+
+[sub_resource type="Resource" id="Resource_pcgp6"]
+script = ExtResource("20_twrf0")
+message = "Деревянный столб. Жёлтый глаз огня. Света на два шага вперёд."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twqjv"]
+atlas = ExtResource("21_pcgp6")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="Resource" id="Resource_lhpfl"]
+script = ExtResource("20_twrf0")
+icon = SubResource("AtlasTexture_twqjv")
+name = "Столб-фонарь"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_twrf0"]
+script = ExtResource("20_twrf0")
+message = "Открыто. Лапша есть. Заходи и ешь."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcgp6"]
+atlas = ExtResource("21_pcgp6")
+region = Rect2(32, 97, 16, 16)
+
+[sub_resource type="Resource" id="Resource_qoaj5"]
+script = ExtResource("20_twrf0")
+icon = SubResource("AtlasTexture_pcgp6")
+name = "Деревянная Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_bm6vo"]
+script = ExtResource("20_twrf0")
+message = "Кажется он спит..."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqau3"]
+atlas = ExtResource("22_pcgp6")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="Resource" id="Resource_dnuhc"]
+script = ExtResource("20_twrf0")
+icon = SubResource("AtlasTexture_nqau3")
+name = "Торговец"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_s8k26"]
+script = ExtResource("20_twrf0")
+message = "Спасибо. Приходите ещё."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n50l"]
+atlas = ExtResource("21_pcgp6")
+region = Rect2(183, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_lwfps"]
+script = ExtResource("20_twrf0")
+icon = SubResource("AtlasTexture_0n50l")
+name = "Прощальная Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_382v3"]
+script = ExtResource("20_twrf0")
+message = "Фрукты немного помяты, но пахнут лесом и дождём."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoaj5"]
+atlas = ExtResource("22_twrf0")
+region = Rect2(304, 225, 16, 16)
+
+[sub_resource type="Resource" id="Resource_hal53"]
+script = ExtResource("20_twrf0")
+icon = SubResource("AtlasTexture_qoaj5")
+name = "Фруктовая Корзина"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_twqjv"]
+script = ExtResource("20_twrf0")
+message = "Добро пожаловать в Бамбуковую Деревню! Здесь не запирают дверей. Оставь оружие у входа — или хотя бы спрячь поглубже. У нас мир. Почти всегда..."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhpfl"]
+atlas = ExtResource("21_pcgp6")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="Resource" id="Resource_1dgt2"]
+script = ExtResource("20_twrf0")
+icon = SubResource("AtlasTexture_lhpfl")
+name = "Красивая Дубовая Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_jclfj"]
 script = ExtResource("21_nbp02")
@@ -400,6 +495,62 @@ curve = SubResource("Curve2D_qoo6f")
 
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="1" unique_id=297187452 instance=ExtResource("5_oowdj")]
 position = Vector2(-376, 544)
+
+[node name="StreetLamp1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=2087367069 instance=ExtResource("19_qbrkf")]
+position = Vector2(-264, -112)
+scale = Vector2(1.7108264, 1.7108264)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_pcgp6")])
+preset = SubResource("Resource_lhpfl")
+
+[node name="StreetLamp2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=2064637432 instance=ExtResource("19_qbrkf")]
+position = Vector2(-119.999985, -192)
+scale = Vector2(1.7108264, 1.7108264)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_pcgp6")])
+preset = SubResource("Resource_lhpfl")
+
+[node name="StreetLamp3" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="2" unique_id=833984828 instance=ExtResource("19_qbrkf")]
+position = Vector2(472, -192)
+scale = Vector2(1.7108264, 1.7108264)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_pcgp6")])
+preset = SubResource("Resource_lhpfl")
+
+[node name="StreetLamp4" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="3" unique_id=1850094867 instance=ExtResource("19_qbrkf")]
+position = Vector2(680, -127.99998)
+scale = Vector2(1.7108264, 1.7108264)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_pcgp6")])
+preset = SubResource("Resource_lhpfl")
+
+[node name="StreetLamp5" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="4" unique_id=1088953574 instance=ExtResource("19_qbrkf")]
+position = Vector2(439.9999, 48.000023)
+scale = Vector2(1.7108264, 1.7108264)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_pcgp6")])
+preset = SubResource("Resource_lhpfl")
+
+[node name="Ramen" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="5" unique_id=851228394 instance=ExtResource("19_qbrkf")]
+position = Vector2(216, -200)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_twrf0")])
+preset = SubResource("Resource_qoaj5")
+
+[node name="SleepingMan" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="6" unique_id=628875165 instance=ExtResource("19_qbrkf")]
+position = Vector2(248, -104)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_bm6vo")])
+preset = SubResource("Resource_dnuhc")
+
+[node name="SignExit" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="7" unique_id=1061365927 instance=ExtResource("19_qbrkf")]
+position = Vector2(1080, -200)
+scale = Vector2(2.7599998, 1.3199999)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_s8k26")])
+preset = SubResource("Resource_lwfps")
+
+[node name="FruitBasket" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="8" unique_id=1004352537 instance=ExtResource("19_qbrkf")]
+position = Vector2(280, 144)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_382v3")])
+preset = SubResource("Resource_hal53")
+
+[node name="SignWelcome" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="9" unique_id=1006704862 instance=ExtResource("19_qbrkf")]
+position = Vector2(-280, 8)
+dialogues = Array[ExtResource("20_twrf0")]([SubResource("Resource_twqjv")])
+preset = SubResource("Resource_1dgt2")
 
 [node name="Racoon1" parent="Enemies" parent_id_path=PackedInt32Array(92814873) index="0" unique_id=792518766 node_paths=PackedStringArray("movement") instance=ExtResource("9_mmtxs")]
 position = Vector2(-400, 304)
