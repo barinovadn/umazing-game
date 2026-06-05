@@ -14,6 +14,21 @@
 [ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="11_7y70h"]
 [ext_resource type="Texture2D" uid="uid://tjlibe4fe234" path="res://prefabs/tilesets/general_interior_beds.png" id="12_g6ocl"]
 
+[sub_resource type="Resource" id="Resource_njrp1"]
+script = ExtResource("8_gx8e6")
+message = "Добро пожаловать в... (далее неразборчиво)."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uir3j"]
+atlas = ExtResource("9_xbfcf")
+region = Rect2(160, 176, 16, 16)
+
+[sub_resource type="Resource" id="Resource_i28y4"]
+script = ExtResource("8_gx8e6")
+icon = SubResource("AtlasTexture_uir3j")
+name = "Оторванная Деревенная Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
 [sub_resource type="Resource" id="Resource_r2ha7"]
 script = ExtResource("8_gx8e6")
 message = "Мох укутал его плечи теплее, чем любая ряса."
@@ -410,19 +425,24 @@ color = Color(0.18039216, 0.4117647, 1, 0.43137255)
 [node name="NinjaGreen" parent="Characters" parent_id_path=PackedInt32Array(207261957) index="0" unique_id=297187452 instance=ExtResource("2_j5uxd")]
 position = Vector2(0, 160)
 
-[node name="StatueLeft" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=2087367069 instance=ExtResource("7_bu17f")]
+[node name="SignWelcome" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=2087367069 instance=ExtResource("7_bu17f")]
+position = Vector2(264, 648)
+dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_njrp1")])
+preset = SubResource("Resource_i28y4")
+
+[node name="StatueLeft" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1504454027 instance=ExtResource("7_bu17f")]
 position = Vector2(-24, 96)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_r2ha7"), SubResource("Resource_7y70h")])
 preset = SubResource("Resource_g6ocl")
 
-[node name="StatueRight" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=344084752 instance=ExtResource("7_bu17f")]
+[node name="StatueRight" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="2" unique_id=344084752 instance=ExtResource("7_bu17f")]
 position = Vector2(24, 96)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_bu17f"), SubResource("Resource_gx8e6")])
 preset = SubResource("Resource_1uood")
 
-[node name="StatueSign" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="2" unique_id=650550988 instance=ExtResource("7_bu17f")]
+[node name="StatueSign" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="3" unique_id=650550988 instance=ExtResource("7_bu17f")]
 position = Vector2(40, 168)
 scale = Vector2(0.8, 0.8)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_j4lfh"), SubResource("Resource_6gtln"), SubResource("Resource_mw6v1")])
@@ -436,37 +456,37 @@ interactable = NodePath("..")
 sprite = 2
 color = 2
 
-[node name="Ruins1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="3" unique_id=669073701 instance=ExtResource("7_bu17f")]
+[node name="Ruins1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="4" unique_id=669073701 instance=ExtResource("7_bu17f")]
 position = Vector2(40, 448)
 scale = Vector2(2.4, 2.4)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_th3j7")])
 preset = SubResource("Resource_1mvwn")
 
-[node name="Ruins2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="4" unique_id=2145560454 instance=ExtResource("7_bu17f")]
+[node name="Ruins2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="5" unique_id=2145560454 instance=ExtResource("7_bu17f")]
 position = Vector2(72, 528)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_t0qfm")])
 preset = SubResource("Resource_i2e7n")
 
-[node name="House1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="5" unique_id=406753129 instance=ExtResource("7_bu17f")]
+[node name="House1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="6" unique_id=406753129 instance=ExtResource("7_bu17f")]
 position = Vector2(-152, 456)
 scale = Vector2(3, 3)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_etr2r")])
 preset = SubResource("Resource_sdqgn")
 
-[node name="House2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="6" unique_id=1647903900 instance=ExtResource("7_bu17f")]
+[node name="House2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="7" unique_id=1647903900 instance=ExtResource("7_bu17f")]
 position = Vector2(-144, 344)
 scale = Vector2(3, 3)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_j0ia6"), SubResource("Resource_lt886")])
 preset = SubResource("Resource_kb56k")
 
-[node name="House3" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="7" unique_id=1692784433 instance=ExtResource("7_bu17f")]
+[node name="House3" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="8" unique_id=1692784433 instance=ExtResource("7_bu17f")]
 position = Vector2(168, 576)
 scale = Vector2(3, 3)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_qn3ni")])
 preset = SubResource("Resource_2ypw6")
 
-[node name="House4" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="8" unique_id=59660463 instance=ExtResource("7_bu17f")]
+[node name="House4" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="9" unique_id=59660463 instance=ExtResource("7_bu17f")]
 position = Vector2(-88, 512)
 scale = Vector2(3, 3)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_76lod"), SubResource("Resource_rra7h")])
@@ -479,54 +499,54 @@ scale = Vector2(0.375, 0.375)
 interactable = NodePath("..")
 color = 1
 
-[node name="Furnace" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="9" unique_id=461111601 instance=ExtResource("7_bu17f")]
+[node name="Furnace" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="10" unique_id=461111601 instance=ExtResource("7_bu17f")]
 position = Vector2(632, 104)
 scale = Vector2(1.7, 1.7)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_wpm63"), SubResource("Resource_7ajf6")])
 preset = SubResource("Resource_xoacw")
 
-[node name="Bed" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="10" unique_id=1312683377 instance=ExtResource("7_bu17f")]
+[node name="Bed" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="11" unique_id=1312683377 instance=ExtResource("7_bu17f")]
 position = Vector2(672, 104)
 scale = Vector2(1.5, 1.5)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_rqsx6")])
 preset = SubResource("Resource_s804v")
 
-[node name="Table" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="11" unique_id=1192941514 instance=ExtResource("7_bu17f")]
+[node name="Table" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="12" unique_id=1192941514 instance=ExtResource("7_bu17f")]
 position = Vector2(672, 208)
 scale = Vector2(1.5, 1.5)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_6kqgh")])
 preset = SubResource("Resource_8y2ey")
 
-[node name="Dummy1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="12" unique_id=1065279495 instance=ExtResource("7_bu17f")]
+[node name="Dummy1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="13" unique_id=1065279495 instance=ExtResource("7_bu17f")]
 position = Vector2(376, 432)
 scale = Vector2(1, 2)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_xnhd4")])
 preset = SubResource("Resource_o227f")
 
-[node name="Dummy2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="13" unique_id=311303810 instance=ExtResource("7_bu17f")]
+[node name="Dummy2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="14" unique_id=311303810 instance=ExtResource("7_bu17f")]
 position = Vector2(408, 448)
 scale = Vector2(1, 2)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_3klf0")])
 preset = SubResource("Resource_e1sfe")
 
-[node name="Dummy3" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="14" unique_id=864512710 instance=ExtResource("7_bu17f")]
+[node name="Dummy3" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="15" unique_id=864512710 instance=ExtResource("7_bu17f")]
 position = Vector2(408, 504)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_bmlp3")])
 preset = SubResource("Resource_mon3g")
 
-[node name="Tower1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="15" unique_id=1112488264 instance=ExtResource("7_bu17f")]
+[node name="Tower1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="16" unique_id=1112488264 instance=ExtResource("7_bu17f")]
 position = Vector2(264, 608)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_ec3e1")])
 preset = SubResource("Resource_6e1vf")
 
-[node name="Tower2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="16" unique_id=1097120861 instance=ExtResource("7_bu17f")]
+[node name="Tower2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="17" unique_id=1097120861 instance=ExtResource("7_bu17f")]
 position = Vector2(392, 656)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_wi6j0")])
 preset = SubResource("Resource_ikyrr")
 
-[node name="Mill" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="17" unique_id=343132701 instance=ExtResource("7_bu17f")]
+[node name="Mill" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="18" unique_id=343132701 instance=ExtResource("7_bu17f")]
 position = Vector2(168, 800)
 scale = Vector2(3, 3)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_ktlb4"), SubResource("Resource_23rre"), SubResource("Resource_6jfxt")])
@@ -540,7 +560,7 @@ interactable = NodePath("../../House4")
 sprite = 2
 color = 1
 
-[node name="Water" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="18" unique_id=2104447156 instance=ExtResource("7_bu17f")]
+[node name="Water" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="19" unique_id=2104447156 instance=ExtResource("7_bu17f")]
 position = Vector2(344, 856)
 scale = Vector2(2, 2)
 dialogues = Array[ExtResource("8_gx8e6")]([SubResource("Resource_hhoxq")])
