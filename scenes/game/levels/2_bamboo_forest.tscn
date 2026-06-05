@@ -28,9 +28,11 @@
 [ext_resource type="AudioStream" uid="uid://bjyn7nkgn4vji" path="res://prefabs/combat/sounds/hit_1.wav" id="18_go0de"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="19_3he8w"]
 [ext_resource type="Script" uid="uid://d34c6a0yetv43" path="res://common/movement/controllers/path_dot_movement_controller.gd" id="19_rdh6r"]
+[ext_resource type="Texture2D" uid="uid://smrgmlqxlrlc" path="res://prefabs/tilesets/general_interior.png" id="20_it4qq"]
+[ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="21_hnbht"]
 [ext_resource type="PackedScene" uid="uid://3mmildwaq6jn" path="res://prefabs/combat/bullets/variations/comons/plan_spike_great_shot/plan_spike_great_shot.tscn" id="21_it4qq"]
 [ext_resource type="Script" uid="uid://b0oev2u1vd0cw" path="res://prefabs/combat/ui/bosses/boss_container_data.gd" id="22_hnbht"]
-[ext_resource type="Script" path="res://common/movement/controllers/area_movement_controller.gd" id="22_ju3hf"]
+[ext_resource type="Script" uid="uid://bxw8gilnmrxnq" path="res://common/movement/controllers/area_movement_controller.gd" id="22_ju3hf"]
 [ext_resource type="Script" uid="uid://c13p3lcdjrcnk" path="res://common/movement/controllers/behaviour_follow.gd" id="23_go0de"]
 [ext_resource type="Texture2D" uid="uid://dr2n47tbysw6p" path="res://prefabs/characters/bosses/giant_bamboo/great_bamboo_over.png" id="23_hbg7d"]
 [ext_resource type="Texture2D" uid="uid://c4nnlcpg33wi6" path="res://prefabs/characters/bosses/giant_bamboo/boss_progress.png" id="24_sjgfl"]
@@ -83,6 +85,136 @@ metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
 script = ExtResource("16_66tca")
 base_value = 1.0
 metadata/_custom_type_script = "uid://6h6n0jvs1c7u"
+
+[sub_resource type="Resource" id="Resource_3kn5y"]
+script = ExtResource("26_u63pd")
+message = "Добро пожаловать, одинокий путник. Бамбуковый лес не знает парадных ворот — он сам решает, кого впустить."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bln5"]
+atlas = ExtResource("20_it4qq")
+region = Rect2(16, 33, 16, 14)
+
+[sub_resource type="Resource" id="Resource_286v2"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_0bln5")
+name = "Красивая Дубовая Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_0bln5"]
+script = ExtResource("26_u63pd")
+message = "Хрупкий на вид, бамбук звенит под пальцами как натянутая тетива."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_kyf8x"]
+script = ExtResource("26_u63pd")
+message = "Сломай стебель — и тишина вздрогнет. Но поторопись: через несколько вдохов стена сомкнётся вновь."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0yi6"]
+atlas = ExtResource("20_it4qq")
+region = Rect2(0, 33, 16, 16)
+
+[sub_resource type="Resource" id="Resource_vybwx"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_f0yi6")
+name = "Предупреждающая Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_f0yi6"]
+script = ExtResource("26_u63pd")
+message = "Я - ведро. Меня уронили, забыли, прокляли. Теперь я часть пейзажа."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vybwx"]
+atlas = ExtResource("20_it4qq")
+region = Rect2(0, 33, 16, 16)
+
+[sub_resource type="Resource" id="Resource_icmdr"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_vybwx")
+name = "Дырявая Несчастная Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_v5ujh"]
+script = ExtResource("26_u63pd")
+message = "Пред тобой - Хранитель Вод и Времени. Опусти взгляд. Задержи дыхание. Слушай тишину - в ней больше ответов, чем в словах."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvtkx"]
+atlas = ExtResource("20_it4qq")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="Resource" id="Resource_fivxu"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_yvtkx")
+name = "Замшелая Безмолвная Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_8ox4s"]
+script = ExtResource("26_u63pd")
+message = "Сирануй не говорит. Не смотрит. Не судит."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbg7d"]
+atlas = ExtResource("21_hnbht")
+region = Rect2(88, 306, 16, 16)
+
+[sub_resource type="Resource" id="Resource_lxtvn"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_hbg7d")
+name = "Сирануй"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_efepq"]
+script = ExtResource("26_u63pd")
+message = "Вода смоет всё. Пар — лучший лекарь. Полотенце — лучший друг. Входи и очистись."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_x5fgb"]
+script = ExtResource("26_u63pd")
+message = "И не плескайся — духи бани этого не любят."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbpm7"]
+atlas = ExtResource("20_it4qq")
+region = Rect2(0, 33, 16, 16)
+
+[sub_resource type="Resource" id="Resource_v3nn8"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_wbpm7")
+name = "Деревянная Душистая Табличка"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_yvtkx"]
+script = ExtResource("26_u63pd")
+message = "Ты был головастиком. Станешь жабой. Я подожду. Ква."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnbht"]
+atlas = ExtResource("21_hnbht")
+region = Rect2(56, 342, 16, 16)
+
+[sub_resource type="Resource" id="Resource_y3igv"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_hnbht")
+name = "Цуки-Кавадзу"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="Resource" id="Resource_wbpm7"]
+script = ExtResource("26_u63pd")
+message = "Торопишься — упадёшь. Замрёшь — увидишь. Я выбрал второе. Ква."
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3nn8"]
+atlas = ExtResource("21_hnbht")
+region = Rect2(56, 279, 16, 16)
+
+[sub_resource type="Resource" id="Resource_vwwi6"]
+script = ExtResource("26_u63pd")
+icon = SubResource("AtlasTexture_v3nn8")
+name = "Цуки-Каэру"
+metadata/_custom_type_script = "uid://3n0f04b0rgoe"
 
 [sub_resource type="Resource" id="Resource_gfys1"]
 script = ExtResource("15_utgft")
@@ -615,6 +747,51 @@ stat_cant_interract = SubResource("Resource_e3eo8")
 stat_shooting_speed = SubResource("Resource_mm6rv")
 stat_damage_ratio = SubResource("Resource_7eufi")
 
+[node name="SignWelcome" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="0" unique_id=2087367069 instance=ExtResource("25_xrlbf")]
+position = Vector2(-104, -24)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_3kn5y")])
+preset = SubResource("Resource_286v2")
+
+[node name="SignBamboo" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="1" unique_id=1117232842 instance=ExtResource("25_xrlbf")]
+position = Vector2(200, -40)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_0bln5"), SubResource("Resource_kyf8x")])
+mode = 1
+preset = SubResource("Resource_vybwx")
+
+[node name="SignBucket" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="2" unique_id=940294404 instance=ExtResource("25_xrlbf")]
+position = Vector2(648, -168)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_f0yi6")])
+preset = SubResource("Resource_icmdr")
+
+[node name="SignFrog" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="3" unique_id=1088578641 instance=ExtResource("25_xrlbf")]
+position = Vector2(536, -152)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_v5ujh")])
+preset = SubResource("Resource_fivxu")
+
+[node name="StatueMan" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="4" unique_id=533498694 instance=ExtResource("25_xrlbf")]
+position = Vector2(608, -272)
+scale = Vector2(3, 3)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_8ox4s")])
+preset = SubResource("Resource_lxtvn")
+
+[node name="SignBath" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="5" unique_id=1922650395 instance=ExtResource("25_xrlbf")]
+position = Vector2(360, -168)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_efepq"), SubResource("Resource_x5fgb")])
+mode = 1
+preset = SubResource("Resource_v3nn8")
+
+[node name="StatueFrog1" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="6" unique_id=806771005 instance=ExtResource("25_xrlbf")]
+position = Vector2(576, -184.00003)
+scale = Vector2(2.3599806, 2.3599806)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_yvtkx")])
+preset = SubResource("Resource_y3igv")
+
+[node name="StatueFrog2" parent="Interactables" parent_id_path=PackedInt32Array(233789877) index="7" unique_id=628286628 instance=ExtResource("25_xrlbf")]
+position = Vector2(648, -496)
+scale = Vector2(2.103499, 2.103499)
+dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_wbpm7")])
+preset = SubResource("Resource_vwwi6")
+
 [node name="Bamboo" type="Node2D" parent="Enemies/Bosses" parent_id_path=PackedInt32Array(2011286109) index="0" unique_id=1460811099]
 position = Vector2(-328, -160)
 
@@ -655,7 +832,7 @@ tp_on_death = NodePath("../../../../../Teleports/ArenaOut")
 data_for_interface = SubResource("Resource_wofjc")
 interface_needed = true
 
-[node name="Inspectable" parent="Enemies/Bosses/Bamboo/GiantBamboo/AIController" index="0" unique_id=2087367069 instance=ExtResource("25_xrlbf")]
+[node name="Inspectable" parent="Enemies/Bosses/Bamboo/GiantBamboo/AIController" index="0" unique_id=1115944092 instance=ExtResource("25_xrlbf")]
 dialogues = Array[ExtResource("26_u63pd")]([SubResource("Resource_xdrwm")])
 order = 0
 preset = SubResource("Resource_y6e25")
