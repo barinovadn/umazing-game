@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c5ao7p1ys2tvu" path="res://prefabs/combat/sounds/impact_1.wav" id="3_88wb3"]
 [ext_resource type="Texture2D" uid="uid://cwpefeujdnbdb" path="res://prefabs/tilesets/general_village.png" id="4_l5300"]
 [ext_resource type="Script" uid="uid://b3ycbn10rbivg" path="res://prefabs/vfx/vfx_effect_profile.gd" id="5_450xk"]
+[ext_resource type="Script" uid="uid://b7nceugqtlef1" path="res://prefabs/vfx/vfx_effect_settings.gd" id="6_l5300"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7uue"]
 
@@ -17,9 +18,15 @@ script = ExtResource("5_450xk")
 effect = 30
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
+[sub_resource type="Resource" id="Resource_nknua"]
+script = ExtResource("6_l5300")
+density = 1
+metadata/_custom_type_script = "uid://b7nceugqtlef1"
+
 [sub_resource type="Resource" id="Resource_l5300"]
 script = ExtResource("5_450xk")
 effect = 100
+settings = SubResource("Resource_nknua")
 metadata/_custom_type_script = "uid://b3ycbn10rbivg"
 
 [resource]
