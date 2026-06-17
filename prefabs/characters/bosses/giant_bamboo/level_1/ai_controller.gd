@@ -15,9 +15,6 @@ var heal_marker
 func _on_action(action: AIAction):
 	if action.action_name == "hide and shot":
 		shoot_controller.post_shot_cd_finished.connect(on_position_change)
-	else:
-		movement_controller.current_area_index = boof % 2
-		boof += 1
 
 
 func _on_phase_changed():
